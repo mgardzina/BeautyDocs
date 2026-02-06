@@ -447,7 +447,7 @@ export default function ClientDetailsPage({
                         className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-all border ${
                           newNoteCategory === key
                             ? `${config.bgColor.replace("bg-gray-50", "bg-white/10").replace("bg-red-50", "bg-red-500/10").replace("bg-amber-50", "bg-amber-500/10").replace("bg-purple-50", "bg-purple-500/10")} ${config.color.replace("text-gray-600", "text-white").replace("text-red-600", "text-red-400").replace("text-amber-600", "text-amber-400").replace("text-purple-600", "text-purple-400")} border-current`
-                            : "bg-ui-bg border-emerald/30 text-ui-textSecondary/50 hover:bg-white/5"
+                            : "bg-ui-appBg border-emerald/30 text-ui-textSecondary/50 hover:bg-white/5"
                         }`}
                       >
                         <Icon className="w-4 h-4" />
@@ -469,7 +469,7 @@ export default function ClientDetailsPage({
                         ? "Opisz preferencję klientki..."
                         : "Dodaj notatkę..."
                 }
-                className="w-full p-3 bg-ui-bg border border-emerald/30 rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none text-white placeholder-white/30 transition-all resize-none h-24 text-sm"
+                className="w-full p-3 bg-ui-appBg border border-emerald/30 rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none text-white placeholder-white/30 transition-all resize-none h-24 text-sm"
               />
               <button
                 type="submit"
@@ -568,7 +568,7 @@ export default function ClientDetailsPage({
                             date: `${e.target.value}T${time}`,
                           });
                         }}
-                        className="w-full px-3 py-2 bg-ui-bg border border-emerald/30 rounded-lg focus:border-brand outline-none text-white text-sm"
+                        className="w-full px-3 py-2 bg-ui-appBg border border-emerald/30 rounded-lg focus:border-brand outline-none text-white text-sm"
                       />
                     </div>
                     <div>
@@ -589,7 +589,7 @@ export default function ClientDetailsPage({
                             date: `${date}T${e.target.value}`,
                           });
                         }}
-                        className="w-full px-3 py-2 bg-ui-bg border border-emerald/30 rounded-lg focus:border-brand outline-none text-white text-sm"
+                        className="w-full px-3 py-2 bg-ui-appBg border border-emerald/30 rounded-lg focus:border-brand outline-none text-white text-sm"
                       />
                     </div>
                   </div>
@@ -610,7 +610,7 @@ export default function ClientDetailsPage({
                           })
                         }
                         placeholder="np. Maść znieczulająca"
-                        className="w-full px-3 py-2 bg-ui-bg border border-emerald/30 rounded-lg focus:border-brand outline-none text-white text-sm"
+                        className="w-full px-3 py-2 bg-ui-appBg border border-emerald/30 rounded-lg focus:border-brand outline-none text-white text-sm"
                       />
                     </div>
                   </div>
@@ -645,7 +645,7 @@ export default function ClientDetailsPage({
                           });
                         }}
                         placeholder="np. Zabieg przypominający"
-                        className="w-full px-3 py-2 bg-ui-bg border border-emerald/30 rounded-lg focus:border-brand outline-none text-white text-sm"
+                        className="w-full px-3 py-2 bg-ui-appBg border border-emerald/30 rounded-lg focus:border-brand outline-none text-white text-sm"
                       />
                     </div>
                     <div>
@@ -681,7 +681,7 @@ export default function ClientDetailsPage({
                           });
                         }}
                         placeholder="np. Usta"
-                        className="w-full px-3 py-2 bg-ui-bg border border-emerald/30 rounded-lg focus:border-brand outline-none text-white text-sm"
+                        className="w-full px-3 py-2 bg-ui-appBg border border-emerald/30 rounded-lg focus:border-brand outline-none text-white text-sm"
                       />
                     </div>
                   </div>
@@ -715,7 +715,7 @@ export default function ClientDetailsPage({
                           description: `${annotation} | ${area} | ${e.target.value}`,
                         });
                       }}
-                      className="w-full px-3 py-2 bg-ui-bg border border-emerald/30 rounded-lg focus:border-brand outline-none text-white text-sm h-20 resize-none"
+                      className="w-full px-3 py-2 bg-ui-appBg border border-emerald/30 rounded-lg focus:border-brand outline-none text-white text-sm h-20 resize-none"
                       placeholder="np. Stylage M 1ml, efekt naturalny..."
                     />
                   </div>

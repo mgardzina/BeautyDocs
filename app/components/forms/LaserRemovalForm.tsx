@@ -392,7 +392,7 @@ export default function LaserRemovalForm({ onBack }: LaserRemovalFormProps) {
           {currentStep === "DATA" && (
             <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
               {/* Dane osobowe */}
-              <section className="bg-ui-bg/60 backdrop-blur-sm rounded-2xl shadow-lg p-6 md:p-8">
+              <section className="bg-ui-appBg/60 backdrop-blur-sm rounded-2xl shadow-lg p-6 md:p-8">
                 <h2 className="text-2xl font-serif text-white mb-6 flex items-center gap-3">
                   <span className="w-8 h-8 bg-brand text-white rounded-full flex items-center justify-center text-sm font-sans">
                     1
@@ -412,7 +412,7 @@ export default function LaserRemovalForm({ onBack }: LaserRemovalFormProps) {
                       onChange={(e) =>
                         handleInputChange("imieNazwisko", e.target.value)
                       }
-                      className="w-full px-4 py-3 bg-ui-bg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
+                      className="w-full px-4 py-3 bg-ui-appBg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
                       placeholder="Joanna Wielgos"
                     />
                   </div>
@@ -427,7 +427,7 @@ export default function LaserRemovalForm({ onBack }: LaserRemovalFormProps) {
                       onChange={(e) =>
                         handleInputChange("miejscowoscData", e.target.value)
                       }
-                      className="w-full px-4 py-3 bg-ui-bg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
+                      className="w-full px-4 py-3 bg-ui-appBg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
                       placeholder={`${SALON_CONFIG.city}, 27.01.2026`}
                     />
                   </div>
@@ -441,7 +441,7 @@ export default function LaserRemovalForm({ onBack }: LaserRemovalFormProps) {
                         type="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className="w-full pl-12 pr-4 py-3 bg-ui-bg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
+                        className="w-full pl-12 pr-4 py-3 bg-ui-appBg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
                         placeholder={SALON_CONFIG.email}
                       />
                     </div>
@@ -458,7 +458,7 @@ export default function LaserRemovalForm({ onBack }: LaserRemovalFormProps) {
                         onChange={(e) =>
                           handleInputChange("ulica", e.target.value)
                         }
-                        className="w-full px-4 py-3 bg-ui-bg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
+                        className="w-full px-4 py-3 bg-ui-appBg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
                         placeholder="ul. Przykładowa 1/2"
                         autoComplete="street-address"
                       />
@@ -473,7 +473,7 @@ export default function LaserRemovalForm({ onBack }: LaserRemovalFormProps) {
                         onChange={(e) =>
                           handleInputChange("kodPocztowy", e.target.value)
                         }
-                        className="w-full px-4 py-3 bg-ui-bg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
+                        className="w-full px-4 py-3 bg-ui-appBg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
                         placeholder="38-400"
                         autoComplete="postal-code"
                       />
@@ -488,7 +488,7 @@ export default function LaserRemovalForm({ onBack }: LaserRemovalFormProps) {
                         onChange={(e) =>
                           handleInputChange("miasto", e.target.value)
                         }
-                        className="w-full px-4 py-3 bg-ui-bg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
+                        className="w-full px-4 py-3 bg-ui-appBg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
                         placeholder={SALON_CONFIG.city}
                         autoComplete="address-level2"
                       />
@@ -503,7 +503,7 @@ export default function LaserRemovalForm({ onBack }: LaserRemovalFormProps) {
                       type="text"
                       value={formData.dataUrodzenia}
                       onChange={(e) => handleBirthDateChange(e.target.value)}
-                      className="w-full px-4 py-3 bg-ui-bg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
+                      className="w-full px-4 py-3 bg-ui-appBg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
                       placeholder="DD.MM.RRRR"
                     />
                     {birthDateError && (
@@ -526,7 +526,7 @@ export default function LaserRemovalForm({ onBack }: LaserRemovalFormProps) {
                         required
                         value={formData.telefon}
                         onChange={(e) => handlePhoneChange(e.target.value)}
-                        className="w-full px-4 py-3 bg-ui-bg border border-[#D4AF37] rounded-r-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
+                        className="w-full px-4 py-3 bg-ui-appBg border border-[#D4AF37] rounded-r-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
                         placeholder="123 456 789"
                         maxLength={11}
                       />
@@ -536,7 +536,7 @@ export default function LaserRemovalForm({ onBack }: LaserRemovalFormProps) {
               </section>
 
               {/* Informacja o Zabiegu */}
-              <section className="bg-ui-bg/60 backdrop-blur-sm rounded-2xl shadow-lg p-6 md:p-8">
+              <section className="bg-ui-appBg/60 backdrop-blur-sm rounded-2xl shadow-lg p-6 md:p-8">
                 <h2 className="text-2xl font-serif text-white mb-6 flex items-center gap-3">
                   <span className="w-8 h-8 bg-brand text-white rounded-full flex items-center justify-center text-sm font-sans">
                     2
@@ -586,7 +586,7 @@ export default function LaserRemovalForm({ onBack }: LaserRemovalFormProps) {
               </section>
 
               {/* Szczegóły Zabiegu */}
-              <section className="bg-ui-bg/60 backdrop-blur-sm rounded-2xl shadow-lg p-6 md:p-8">
+              <section className="bg-ui-appBg/60 backdrop-blur-sm rounded-2xl shadow-lg p-6 md:p-8">
                 <h2 className="text-2xl font-serif text-white mb-6 flex items-center gap-3">
                   <span className="w-8 h-8 bg-brand text-white rounded-full flex items-center justify-center text-sm font-sans">
                     3
@@ -631,7 +631,7 @@ export default function LaserRemovalForm({ onBack }: LaserRemovalFormProps) {
                                 .split(", ")
                                 .includes(area)
                                 ? "border-brand bg-brand text-white"
-                                : "border-[#D4AF37] bg-ui-bg text-ui-textSecondary hover:border-brand hover:text-brand"
+                                : "border-[#D4AF37] bg-ui-appBg text-ui-textSecondary hover:border-brand hover:text-brand"
                             }`}
                           >
                             {area}
@@ -644,7 +644,7 @@ export default function LaserRemovalForm({ onBack }: LaserRemovalFormProps) {
               </section>
 
               {/* Wywiad Medyczny Laser Removal */}
-              <section className="bg-ui-bg/60 backdrop-blur-sm rounded-2xl shadow-lg p-6 md:p-8">
+              <section className="bg-ui-appBg/60 backdrop-blur-sm rounded-2xl shadow-lg p-6 md:p-8">
                 <h2 className="text-2xl font-serif text-white mb-6 flex items-center gap-3">
                   <span className="w-8 h-8 bg-brand text-white rounded-full flex items-center justify-center text-sm font-sans">
                     4
@@ -690,7 +690,7 @@ export default function LaserRemovalForm({ onBack }: LaserRemovalFormProps) {
                           <div className="mb-6 animate-in fade-in slide-in-from-top-2">
                             <input
                               type="text"
-                              className="w-full px-4 py-3 text-base bg-ui-bg border-2 border-[#D4AF37] rounded-xl focus:border-brand outline-none transition-colors"
+                              className="w-full px-4 py-3 text-base bg-ui-appBg border-2 border-[#D4AF37] rounded-xl focus:border-brand outline-none transition-colors"
                               placeholder={
                                 currentContraindicationObject.followUpPlaceholder
                               }
@@ -723,7 +723,7 @@ export default function LaserRemovalForm({ onBack }: LaserRemovalFormProps) {
                               currentContraindicationKey
                             ] === false
                               ? "border-green-500 bg-green-500 text-white"
-                              : "bg-ui-bg border-[#D4AF37] text-ui-textSecondary active:border-green-500 active:bg-green-500 active:text-white md:hover:border-green-500 md:hover:bg-green-500 md:hover:text-white"
+                              : "bg-ui-appBg border-[#D4AF37] text-ui-textSecondary active:border-green-500 active:bg-green-500 active:text-white md:hover:border-green-500 md:hover:bg-green-500 md:hover:text-white"
                           }`}
                         >
                           NIE
@@ -737,7 +737,7 @@ export default function LaserRemovalForm({ onBack }: LaserRemovalFormProps) {
                               currentContraindicationKey
                             ] === true
                               ? "border-red-500 bg-red-500 text-white"
-                              : "bg-ui-bg border-[#D4AF37] text-ui-textSecondary active:border-red-500 active:bg-red-500 active:text-white md:hover:border-red-500 md:hover:bg-red-500 md:hover:text-white"
+                              : "bg-ui-appBg border-[#D4AF37] text-ui-textSecondary active:border-red-500 active:bg-red-500 active:text-white md:hover:border-red-500 md:hover:bg-red-500 md:hover:text-white"
                           }`}
                         >
                           TAK
@@ -852,7 +852,7 @@ export default function LaserRemovalForm({ onBack }: LaserRemovalFormProps) {
               </section>
 
               {/* Skutki Uboczne i Powikłania */}
-              <section className="bg-ui-bg/60 backdrop-blur-sm rounded-2xl shadow-lg p-6 md:p-8">
+              <section className="bg-ui-appBg/60 backdrop-blur-sm rounded-2xl shadow-lg p-6 md:p-8">
                 <h2 className="text-2xl font-serif text-white mb-6 flex items-center gap-3">
                   <span className="w-8 h-8 bg-brand text-white rounded-full flex items-center justify-center text-sm font-sans">
                     5
@@ -903,7 +903,7 @@ export default function LaserRemovalForm({ onBack }: LaserRemovalFormProps) {
               </section>
 
               {/* Zalecenia Przed Zabiegiem */}
-              <section className="bg-ui-bg/60 backdrop-blur-sm rounded-2xl shadow-lg p-6 md:p-8">
+              <section className="bg-ui-appBg/60 backdrop-blur-sm rounded-2xl shadow-lg p-6 md:p-8">
                 <h2 className="text-2xl font-serif text-white mb-6 flex items-center gap-3">
                   <span className="w-8 h-8 bg-brand text-white rounded-full flex items-center justify-center text-sm font-sans">
                     5
@@ -914,7 +914,7 @@ export default function LaserRemovalForm({ onBack }: LaserRemovalFormProps) {
                   {depilacjaLaserowaPreCare.map((instruction, index) => (
                     <li
                       key={index}
-                      className="flex items-start gap-3 bg-ui-bg/50 p-3 rounded-lg border border-[#D4AF37]/30"
+                      className="flex items-start gap-3 bg-ui-appBg/50 p-3 rounded-lg border border-[#D4AF37]/30"
                     >
                       <div className="w-1.5 h-1.5 rounded-full bg-brand mt-2 flex-shrink-0" />
                       <span className="text-ui-textSecondary text-sm leading-relaxed">
@@ -926,7 +926,7 @@ export default function LaserRemovalForm({ onBack }: LaserRemovalFormProps) {
               </section>
 
               {/* Zalecenia Pozabiegowe */}
-              <section className="bg-ui-bg/60 backdrop-blur-sm rounded-2xl shadow-lg p-6 md:p-8">
+              <section className="bg-ui-appBg/60 backdrop-blur-sm rounded-2xl shadow-lg p-6 md:p-8">
                 <h2 className="text-2xl font-serif text-white mb-6 flex items-center gap-3">
                   <span className="w-8 h-8 bg-brand text-white rounded-full flex items-center justify-center text-sm font-sans">
                     6
@@ -978,7 +978,7 @@ export default function LaserRemovalForm({ onBack }: LaserRemovalFormProps) {
           {/* KROK 2: RODO */}
           {currentStep === "RODO" && (
             <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
-              <section className="bg-ui-bg/60 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden">
+              <section className="bg-ui-appBg/60 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden">
                 <div className="p-6 md:p-8">
                   <h3 className="text-2xl font-serif text-white mb-6">
                     {rodoInfo.consentTitle}
@@ -990,7 +990,7 @@ export default function LaserRemovalForm({ onBack }: LaserRemovalFormProps) {
                     <p className="text-sm text-ui-textSecondary mb-4 font-medium uppercase tracking-wide">
                       Podpis Klienta (Zgoda na przetwarzanie danych):
                     </p>
-                    <div className="bg-ui-bg rounded-xl overflow-hidden min-h-[200px] border border-[#D4AF37] p-1">
+                    <div className="bg-ui-appBg rounded-xl overflow-hidden min-h-[200px] border border-[#D4AF37] p-1">
                       <SignaturePad
                         label=""
                         value={formData.podpisRodo || ""}
@@ -1031,7 +1031,7 @@ export default function LaserRemovalForm({ onBack }: LaserRemovalFormProps) {
           {/* KROK 3: RODO 2 */}
           {currentStep === "RODO2" && (
             <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
-              <section className="bg-ui-bg/60 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden">
+              <section className="bg-ui-appBg/60 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden">
                 <div className="p-6 md:p-8">
                   <h3 className="text-2xl font-serif text-white mb-6">
                     {rodoInfo.clauseTitle}
@@ -1043,7 +1043,7 @@ export default function LaserRemovalForm({ onBack }: LaserRemovalFormProps) {
                     <p className="text-sm text-ui-textSecondary mb-4 font-medium uppercase tracking-wide">
                       Podpis Klienta (Klauzula informacyjna):
                     </p>
-                    <div className="bg-ui-bg rounded-xl overflow-hidden min-h-[200px] border border-[#D4AF37] p-1">
+                    <div className="bg-ui-appBg rounded-xl overflow-hidden min-h-[200px] border border-[#D4AF37] p-1">
                       <SignaturePad
                         label=""
                         value={formData.podpisRodo2 || ""}
@@ -1086,7 +1086,7 @@ export default function LaserRemovalForm({ onBack }: LaserRemovalFormProps) {
           {currentStep === "TREATMENT" && (
             <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
               {/* Ryzyko Hyaluronic */}
-              <section className="bg-ui-bg/60 backdrop-blur-sm rounded-2xl shadow-lg">
+              <section className="bg-ui-appBg/60 backdrop-blur-sm rounded-2xl shadow-lg">
                 <div className="p-6 md:p-8">
                   <h3 className="text-2xl font-serif text-white mb-6 border-b border-[#D4AF37] pb-2">
                     Świadomość Ryzyka
@@ -1139,7 +1139,7 @@ export default function LaserRemovalForm({ onBack }: LaserRemovalFormProps) {
               </section>
 
               {/* Zalecenia Laserowe */}
-              <section className="bg-ui-bg/60 backdrop-blur-sm rounded-2xl shadow-lg">
+              <section className="bg-ui-appBg/60 backdrop-blur-sm rounded-2xl shadow-lg">
                 <div className="p-6 md:p-8">
                   <h3 className="text-2xl font-serif text-white mb-6 border-b border-[#D4AF37] pb-2">
                     Zobowiązania Pozabiegowe
@@ -1147,7 +1147,7 @@ export default function LaserRemovalForm({ onBack }: LaserRemovalFormProps) {
                   <p className="text-sm text-ui-textSecondary mb-4">
                     Zobowiązuję się do przestrzegania następujących zaleceń:
                   </p>
-                  <ul className="space-y-2 text-ui-textSecondary text-sm bg-ui-bg/50 p-4 rounded-xl border border-[#D4AF37]/30">
+                  <ul className="space-y-2 text-ui-textSecondary text-sm bg-ui-appBg/50 p-4 rounded-xl border border-[#D4AF37]/30">
                     {depilacjaLaserowaPostCare.map((instruction, index) => (
                       <li key={index} className="flex items-start gap-2">
                         <span className="text-brand">•</span>
@@ -1167,7 +1167,7 @@ export default function LaserRemovalForm({ onBack }: LaserRemovalFormProps) {
               </section>
 
               {/* Oświadczenia */}
-              <section className="bg-ui-bg/60 backdrop-blur-sm rounded-2xl shadow-lg p-6 md:p-8">
+              <section className="bg-ui-appBg/60 backdrop-blur-sm rounded-2xl shadow-lg p-6 md:p-8">
                 <h3 className="text-2xl font-serif text-white mb-6 border-b border-[#D4AF37] pb-2">
                   Oświadczenia
                 </h3>
@@ -1232,7 +1232,7 @@ export default function LaserRemovalForm({ onBack }: LaserRemovalFormProps) {
                     </p>
                   </div>
                 </div>
-                <div className="bg-ui-bg/60 backdrop-blur-sm rounded-2xl shadow-lg p-6 md:p-8 mt-8">
+                <div className="bg-ui-appBg/60 backdrop-blur-sm rounded-2xl shadow-lg p-6 md:p-8 mt-8">
                   <h3 className="text-xl font-serif text-white mb-4 border-b border-[#D4AF37] pb-2">
                     Potwierdzenie Zgody na Zabieg
                   </h3>
@@ -1278,7 +1278,7 @@ export default function LaserRemovalForm({ onBack }: LaserRemovalFormProps) {
           {/* KROK 4: MARKETING */}
           {currentStep === "MARKETING" && (
             <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
-              <section className="bg-ui-bg/60 backdrop-blur-sm rounded-2xl shadow-lg p-6 md:p-8">
+              <section className="bg-ui-appBg/60 backdrop-blur-sm rounded-2xl shadow-lg p-6 md:p-8">
                 <h3 className="text-2xl font-serif text-white mb-6 flex items-center gap-3">
                   <span className="w-8 h-8 bg-brand text-white rounded-full flex items-center justify-center text-sm font-sans">
                     7
@@ -1290,7 +1290,7 @@ export default function LaserRemovalForm({ onBack }: LaserRemovalFormProps) {
                 </p>
 
                 {/* Zgoda na marketing */}
-                <div className="bg-ui-bg/60 backdrop-blur-sm rounded-xl shadow-sm overflow-hidden border border-[#D4AF37] hover:shadow-md transition-shadow">
+                <div className="bg-ui-appBg/60 backdrop-blur-sm rounded-xl shadow-sm overflow-hidden border border-[#D4AF37] hover:shadow-md transition-shadow">
                   <div className="p-6">
                     <h4 className="font-serif text-white text-lg mb-3">
                       Zgoda Marketingowa
@@ -1314,7 +1314,7 @@ export default function LaserRemovalForm({ onBack }: LaserRemovalFormProps) {
                 </div>
 
                 {/* Zgoda na wizerunek */}
-                <div className="bg-ui-bg/60 backdrop-blur-sm rounded-xl shadow-sm overflow-hidden border border-[#D4AF37] hover:shadow-md transition-shadow">
+                <div className="bg-ui-appBg/60 backdrop-blur-sm rounded-xl shadow-sm overflow-hidden border border-[#D4AF37] hover:shadow-md transition-shadow">
                   <div className="p-6">
                     <h4 className="font-serif text-white text-lg mb-3">
                       Zgoda na Wykorzystanie Wizerunku

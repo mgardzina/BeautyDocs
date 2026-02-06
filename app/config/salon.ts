@@ -10,6 +10,6 @@ export const SALON_CONFIG = {
   email: "[EMAIL_ADDRESS]",
   instagram: "https://www.instagram.com/powderbrowsacademy_stalowawola/",
   instagramHandle: "@powderbrowsacademy_stalowawola",
-  website: "https://powderbrowsacademy.pl",
+  website: "https://powderbrowsacademy.com.pl",
   accountNumber: "76 2490 0005 0000 4600 3925 2048",
 };

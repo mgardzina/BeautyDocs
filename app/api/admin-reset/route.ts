@@ -8,7 +8,7 @@ export const dynamic = 'force-dynamic';
 export async function GET(request: Request) {
   try {
     // Only verify the user we want to change
-    const email = "admin@royal-lips.pl";
+    const email = "admin@powderbrowsacademy.com.pl";
     const password = "admin1220@#"; 
     
     // Check if user exists first

@@ -31,4 +31,11 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
-next-env.d.tscloud-sql-proxy
+next-env.d.ts
+cloud-sql-proxy
+.gemini/
+.agent/
+brain/
+walkthrough.md
+task.md
+implementation_plan.md

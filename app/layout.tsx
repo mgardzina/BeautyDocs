@@ -17,7 +17,7 @@ const lato = Lato({
   variable: "--font-lato",
 });
 
-const siteUrl = "https://powderbrowsacademy.pl";
+const siteUrl = "https://powderbrowsacademy.com.pl";
 
 export const viewport: Viewport = {
   width: "device-width",

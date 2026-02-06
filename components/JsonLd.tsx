@@ -6,9 +6,9 @@ export default function JsonLd() {
     alternateName: "Royal Lips Beauty Salon",
     description:
       "Profesjonalny makijaż permanentny brwi, ust i kresek w Krośnie. Naturalne efekty i bezpieczeństwo na pierwszym miejscu. Zabiegi kwasem hialuronowym i depilacja laserowa.",
-    url: "https://royal-lips.pl",
-    logo: "https://royal-lips.pl/logo.png",
-    image: "https://royal-lips.pl/logo.png",
+    url: "https://powderbrowsacademy.com.pl",
+    logo: "https://powderbrowsacademy.com.pl/logo.png",
+    image: "https://powderbrowsacademy.com.pl/logo.png",
     telephone: "+48792377737",
     email: "kontakt@royallips.pl",
     address: {

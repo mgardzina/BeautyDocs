@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Polityka prywatności Royal Lips. Dowiedz się jak przetwarzamy Twoje dane osobowe, jakie masz prawa i jak chronimy Twoją prywatność.",
   alternates: {
-    canonical: "https://royal-lips.pl/polityka-prywatnosci",
+    canonical: "https://powderbrowsacademy.com.pl/polityka-prywatnosci",
   },
   openGraph: {
     title: "Polityka Prywatności | Royal Lips Krosno",
     description:
       "Polityka prywatności Royal Lips - salon makijażu permanentnego w Krośnie.",
-    url: "https://royal-lips.pl/polityka-prywatnosci",
+    url: "https://powderbrowsacademy.com.pl/polityka-prywatnosci",
   },
 };
 

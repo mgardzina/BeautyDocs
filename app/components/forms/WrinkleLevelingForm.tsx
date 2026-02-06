@@ -458,7 +458,7 @@ export default function FacialVolumetryForm({
                       onChange={(e) =>
                         handleInputChange("imieNazwisko", e.target.value)
                       }
-                      className="w-full px-4 py-3 bg-ui-bg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none transition-all text-white placeholder-white/40"
+                      className="w-full px-4 py-3 bg-ui-appBg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none transition-all text-white placeholder-white/40"
                       placeholder="Joanna Wielgos"
                     />
                   </div>
@@ -473,7 +473,7 @@ export default function FacialVolumetryForm({
                       onChange={(e) =>
                         handleInputChange("miejscowoscData", e.target.value)
                       }
-                      className="w-full px-4 py-3 bg-ui-bg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none transition-all text-white placeholder-white/40"
+                      className="w-full px-4 py-3 bg-ui-appBg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none transition-all text-white placeholder-white/40"
                       placeholder={`${SALON_CONFIG.city}, 27.01.2026`}
                     />
                   </div>
@@ -487,7 +487,7 @@ export default function FacialVolumetryForm({
                         type="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className="w-full pl-12 pr-4 py-3 bg-ui-bg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none transition-all text-white placeholder-white/40"
+                        className="w-full pl-12 pr-4 py-3 bg-ui-appBg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none transition-all text-white placeholder-white/40"
                         placeholder={SALON_CONFIG.email}
                       />
                     </div>
@@ -504,7 +504,7 @@ export default function FacialVolumetryForm({
                         onChange={(e) =>
                           handleInputChange("ulica", e.target.value)
                         }
-                        className="w-full px-4 py-3 bg-ui-bg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none transition-all text-white placeholder-white/40"
+                        className="w-full px-4 py-3 bg-ui-appBg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none transition-all text-white placeholder-white/40"
                         placeholder="ul. Przykładowa 1/2"
                         autoComplete="street-address"
                       />
@@ -519,7 +519,7 @@ export default function FacialVolumetryForm({
                         onChange={(e) =>
                           handleInputChange("kodPocztowy", e.target.value)
                         }
-                        className="w-full px-4 py-3 bg-ui-bg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none transition-all text-white placeholder-white/40"
+                        className="w-full px-4 py-3 bg-ui-appBg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none transition-all text-white placeholder-white/40"
                         placeholder="38-400"
                         autoComplete="postal-code"
                       />
@@ -534,7 +534,7 @@ export default function FacialVolumetryForm({
                         onChange={(e) =>
                           handleInputChange("miasto", e.target.value)
                         }
-                        className="w-full px-4 py-3 bg-ui-bg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none transition-all text-white placeholder-white/40"
+                        className="w-full px-4 py-3 bg-ui-appBg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none transition-all text-white placeholder-white/40"
                         placeholder={SALON_CONFIG.city}
                         autoComplete="address-level2"
                       />
@@ -549,7 +549,7 @@ export default function FacialVolumetryForm({
                       type="text"
                       value={formData.dataUrodzenia}
                       onChange={(e) => handleBirthDateChange(e.target.value)}
-                      className="w-full px-4 py-3 bg-ui-bg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none transition-all text-white placeholder-white/40"
+                      className="w-full px-4 py-3 bg-ui-appBg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none transition-all text-white placeholder-white/40"
                       placeholder="DD.MM.RRRR"
                     />
                     {birthDateError && (
@@ -572,7 +572,7 @@ export default function FacialVolumetryForm({
                         required
                         value={formData.telefon}
                         onChange={(e) => handlePhoneChange(e.target.value)}
-                        className="w-full px-4 py-3 bg-ui-bg border border-[#D4AF37] rounded-r-xl focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none transition-all text-white placeholder-white/40"
+                        className="w-full px-4 py-3 bg-ui-appBg border border-[#D4AF37] rounded-r-xl focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none transition-all text-white placeholder-white/40"
                         placeholder="123 456 789"
                         maxLength={11}
                       />
@@ -700,7 +700,7 @@ export default function FacialVolumetryForm({
                               className={`p-4 rounded-xl border transition-all cursor-pointer ${
                                 isSelectedProduct
                                   ? "border-brand bg-brand/10 gold-glow"
-                                  : "border-[#D4AF37] bg-ui-bg hover:border-emerald/30"
+                                  : "border-[#D4AF37] bg-ui-appBg hover:border-emerald/30"
                               }`}
                             >
                               <div className="flex justify-between items-center mb-1">
@@ -745,7 +745,7 @@ export default function FacialVolumetryForm({
                                           className={`px-3 py-1.5 rounded-lg border text-xs font-medium transition-all ${
                                             isSelectedVolume
                                               ? "border-brand bg-brand text-black shadow-sm"
-                                              : "border-[#D4AF37] bg-ui-bg text-ui-textSecondary hover:border-brand hover:text-brand"
+                                              : "border-[#D4AF37] bg-ui-appBg text-ui-textSecondary hover:border-brand hover:text-brand"
                                           }`}
                                         >
                                           {vol} ml
@@ -796,7 +796,7 @@ export default function FacialVolumetryForm({
                     <label className="block text-sm text-ui-textSecondary mb-2 font-medium">
                       Obszar Zabiegu
                     </label>
-                    <div className="bg-ui-bg p-4 rounded-xl border border-[#D4AF37]">
+                    <div className="bg-ui-appBg p-4 rounded-xl border border-[#D4AF37]">
                       <p className="text-xs text-ui-textSecondary mb-4 text-center">
                         Zaznacz na schemacie obszary, które mają zostać poddane
                         zabiegowi.
@@ -819,7 +819,7 @@ export default function FacialVolumetryForm({
 
                   {/* Additional History Section */}
                   <div>
-                    <div className="bg-ui-bg p-5 rounded-xl border border-[#D4AF37] mb-6 space-y-4">
+                    <div className="bg-ui-appBg p-5 rounded-xl border border-[#D4AF37] mb-6 space-y-4">
                       <h3 className="font-serif text-white text-lg mb-2">
                         Historia zabiegów wolumetrycznych
                       </h3>
@@ -871,7 +871,7 @@ export default function FacialVolumetryForm({
                                     parts.join("\n"),
                                   );
                                 }}
-                                className="w-5 h-5 rounded border-emerald/30 bg-ui-bg text-brand focus:ring-brand focus:ring-offset-0 accent-brand"
+                                className="w-5 h-5 rounded border-emerald/30 bg-ui-appBg text-brand focus:ring-brand focus:ring-offset-0 accent-brand"
                               />
                             </div>
                             <span className="text-ui-textSecondary text-sm group-hover:text-white transition-colors">
@@ -916,7 +916,7 @@ export default function FacialVolumetryForm({
                                     parts.filter(Boolean).join("\n"),
                                   );
                                 }}
-                                className="w-5 h-5 rounded border-emerald/30 bg-ui-bg text-brand focus:ring-brand focus:ring-offset-0 accent-brand"
+                                className="w-5 h-5 rounded border-emerald/30 bg-ui-appBg text-brand focus:ring-brand focus:ring-offset-0 accent-brand"
                               />
                             </div>
                             <span className="text-ui-textSecondary text-sm group-hover:text-white transition-colors">
@@ -1033,7 +1033,7 @@ export default function FacialVolumetryForm({
                           className={`py-3 px-4 rounded-xl border transition-all font-medium text-sm ${
                             formData.celEfektu.split(", ").includes(effect)
                               ? "border-brand bg-brand text-black"
-                              : "border-[#D4AF37] bg-ui-bg text-ui-textSecondary hover:border-brand hover:text-brand"
+                              : "border-[#D4AF37] bg-ui-appBg text-ui-textSecondary hover:border-brand hover:text-brand"
                           }`}
                         >
                           {effect}
@@ -1057,7 +1057,7 @@ export default function FacialVolumetryForm({
                 </p>
 
                 {/* Medications Input */}
-                <div className="bg-ui-bg p-5 rounded-xl border border-[#D4AF37] mb-6">
+                <div className="bg-ui-appBg p-5 rounded-xl border border-[#D4AF37] mb-6">
                   <h3 className="font-serif text-white text-lg mb-2">
                     PRZECIWSKAZANIA DO WYKONANIA ZABIEGU
                   </h3>
@@ -1109,7 +1109,7 @@ export default function FacialVolumetryForm({
                   currentContraindicationIndex < contraindicationKeys.length ? (
                     <div
                       key={currentContraindicationIndex}
-                      className="bg-ui-bg p-6 rounded-xl border border-[#D4AF37] max-w-2xl mx-auto shadow-sm"
+                      className="bg-ui-appBg p-6 rounded-xl border border-[#D4AF37] max-w-2xl mx-auto shadow-sm"
                     >
                       <div className="flex justify-between items-center mb-6">
                         <span className="text-sm font-medium text-brand">
@@ -1147,7 +1147,7 @@ export default function FacialVolumetryForm({
                           <div className="mb-6 animate-in fade-in slide-in-from-top-2">
                             <input
                               type="text"
-                              className="w-full px-4 py-3 text-base bg-ui-bg border-2 border-[#D4AF37] rounded-xl focus:border-brand outline-none transition-colors text-white placeholder-white/40"
+                              className="w-full px-4 py-3 text-base bg-ui-appBg border-2 border-[#D4AF37] rounded-xl focus:border-brand outline-none transition-colors text-white placeholder-white/40"
                               placeholder={
                                 currentContraindicationObject.followUpPlaceholder
                               }
@@ -1194,7 +1194,7 @@ export default function FacialVolumetryForm({
                               currentContraindicationKey
                             ] === true
                               ? "border-red-500 bg-red-500 text-white"
-                              : "bg-ui-bg border-[#D4AF37] text-ui-textSecondary active:border-red-500 active:bg-red-500 active:text-white md:hover:border-red-500 md:hover:bg-red-500 md:hover:text-white"
+                              : "bg-ui-appBg border-[#D4AF37] text-ui-textSecondary active:border-red-500 active:bg-red-500 active:text-white md:hover:border-red-500 md:hover:bg-red-500 md:hover:text-white"
                           }`}
                         >
                           TAK
@@ -1319,7 +1319,7 @@ export default function FacialVolumetryForm({
 
                 <div className="space-y-6">
                   {/* Częste skutki uboczne */}
-                  <div className="bg-ui-bg p-5 rounded-xl border border-[#D4AF37]">
+                  <div className="bg-ui-appBg p-5 rounded-xl border border-[#D4AF37]">
                     <p className="text-sm font-medium text-white mb-3">
                       MOŻLIWE DO WYSTĄPIENIA SKUTKI UBOCZNE PO PRZEPROWADZONYM
                       ZABIEGU - CZĘSTE
@@ -1341,7 +1341,7 @@ export default function FacialVolumetryForm({
                   </div>
 
                   {/* Rzadkie powikłania */}
-                  <div className="bg-ui-bg p-5 rounded-xl border border-[#D4AF37]">
+                  <div className="bg-ui-appBg p-5 rounded-xl border border-[#D4AF37]">
                     <p className="text-sm font-medium text-white mb-3">
                       MOŻLIWE POWIKŁANIA PO PRZEPROWADZONYM ZABIEGU – RZADKIE
                     </p>
@@ -1358,7 +1358,7 @@ export default function FacialVolumetryForm({
                   </div>
 
                   {/* Bardzo rzadkie powikłania */}
-                  <div className="bg-ui-bg p-5 rounded-xl border border-[#D4AF37]">
+                  <div className="bg-ui-appBg p-5 rounded-xl border border-[#D4AF37]">
                     <p className="text-sm font-medium text-white mb-3">
                       MOŻLIWE POWIKŁANIA PO PRZEPROWADZONYM ZABIEGU – BARDZO
                       RZADKIE
@@ -1386,7 +1386,7 @@ export default function FacialVolumetryForm({
                   Zalecenia Pozabiegowe
                 </h2>
 
-                <div className="bg-ui-bg p-5 rounded-xl border border-[#D4AF37] mb-6">
+                <div className="bg-ui-appBg p-5 rounded-xl border border-[#D4AF37] mb-6">
                   <p className="text-sm text-ui-textSecondary leading-relaxed mb-4">
                     <strong>
                       Niniejszym oświadczam, że zostałam/em poinformowana/y o
@@ -1435,14 +1435,14 @@ export default function FacialVolumetryForm({
                   <h3 className="text-2xl font-serif text-white mb-6">
                     {rodoInfo.consentTitle}
                   </h3>
-                  <div className="bg-ui-bg p-6 rounded-xl text-sm text-ui-textSecondary leading-relaxed whitespace-pre-line max-h-[60vh] overflow-y-auto mb-6 border border-[#D4AF37]">
+                  <div className="bg-ui-appBg p-6 rounded-xl text-sm text-ui-textSecondary leading-relaxed whitespace-pre-line max-h-[60vh] overflow-y-auto mb-6 border border-[#D4AF37]">
                     {rodoInfo.consentText}
                   </div>
                   <div className="mt-8">
                     <p className="text-sm text-ui-textSecondary mb-4 font-medium uppercase tracking-wide">
                       Podpis Klienta (Zgoda na przetwarzanie danych):
                     </p>
-                    <div className="bg-ui-bg rounded-xl overflow-hidden min-h-[200px] border border-[#D4AF37] p-1">
+                    <div className="bg-ui-appBg rounded-xl overflow-hidden min-h-[200px] border border-[#D4AF37] p-1">
                       <SignaturePad
                         label=""
                         value={formData.podpisRodo || ""}
@@ -1488,14 +1488,14 @@ export default function FacialVolumetryForm({
                   <h3 className="text-2xl font-serif text-white mb-6">
                     {rodoInfo.clauseTitle}
                   </h3>
-                  <div className="bg-ui-bg p-6 rounded-xl text-sm text-ui-textSecondary leading-relaxed whitespace-pre-line max-h-[60vh] overflow-y-auto mb-6 border border-[#D4AF37]">
+                  <div className="bg-ui-appBg p-6 rounded-xl text-sm text-ui-textSecondary leading-relaxed whitespace-pre-line max-h-[60vh] overflow-y-auto mb-6 border border-[#D4AF37]">
                     {rodoInfo.clauseText}
                   </div>
                   <div className="mt-8">
                     <p className="text-sm text-ui-textSecondary mb-4 font-medium uppercase tracking-wide">
                       Podpis Klienta (Klauzula informacyjna):
                     </p>
-                    <div className="bg-ui-bg rounded-xl overflow-hidden min-h-[200px] border border-[#D4AF37] p-1">
+                    <div className="bg-ui-appBg rounded-xl overflow-hidden min-h-[200px] border border-[#D4AF37] p-1">
                       <SignaturePad
                         label=""
                         value={formData.podpisRodo2 || ""}
@@ -1549,7 +1549,7 @@ export default function FacialVolumetryForm({
                   </p>
 
                   <div className="space-y-6">
-                    <div className="bg-ui-bg p-5 rounded-xl border border-[#D4AF37]">
+                    <div className="bg-ui-appBg p-5 rounded-xl border border-[#D4AF37]">
                       <p className="text-sm font-medium text-white mb-3">
                         Możliwe naturalne reakcje:
                       </p>
@@ -1565,7 +1565,7 @@ export default function FacialVolumetryForm({
                       </ul>
                     </div>
 
-                    <div className="bg-ui-bg p-5 rounded-xl border border-[#D4AF37]">
+                    <div className="bg-ui-appBg p-5 rounded-xl border border-[#D4AF37]">
                       <p className="text-sm font-medium text-white mb-3">
                         Możliwe powikłania:
                       </p>
@@ -1605,7 +1605,7 @@ export default function FacialVolumetryForm({
                   <p className="text-sm text-ui-textSecondary mb-4">
                     Zobowiązuję się do przestrzegania następujących zaleceń:
                   </p>
-                  <ul className="space-y-2 text-ui-textSecondary text-sm bg-ui-bg p-4 rounded-xl border border-[#D4AF37]">
+                  <ul className="space-y-2 text-ui-textSecondary text-sm bg-ui-appBg p-4 rounded-xl border border-[#D4AF37]">
                     {wolumetriaTwarzyPostCare.map((instruction, index) => (
                       <li key={index} className="flex items-start gap-2">
                         <span className="text-brand">•</span>
@@ -1629,7 +1629,7 @@ export default function FacialVolumetryForm({
                 <h3 className="text-2xl font-serif text-white mb-6 border-b border-[#D4AF37] pb-2">
                   Oświadczenia
                 </h3>
-                <div className="bg-ui-bg p-5 rounded-xl mb-6 border border-[#D4AF37]">
+                <div className="bg-ui-appBg p-5 rounded-xl mb-6 border border-[#D4AF37]">
                   <h4 className="font-serif text-white text-lg mb-4">
                     OŚWIADCZENIE I ŚWIADOMA ZGODA NA ZABIEG REDUKCJI ZMARSZCZEK
                     (WYPEŁNIANIE / BIOSTYMULACJA)
@@ -1793,7 +1793,7 @@ export default function FacialVolumetryForm({
                 </p>
 
                 {/* Zgoda na marketing */}
-                <div className="bg-ui-bg rounded-xl shadow-sm overflow-hidden border border-[#D4AF37] hover:border-emerald/30 transition-all">
+                <div className="bg-ui-appBg rounded-xl shadow-sm overflow-hidden border border-[#D4AF37] hover:border-emerald/30 transition-all">
                   <div className="p-6">
                     <h4 className="font-serif text-white text-lg mb-3">
                       Zgoda Marketingowa
@@ -1817,7 +1817,7 @@ export default function FacialVolumetryForm({
                 </div>
 
                 {/* Zgoda na wizerunek */}
-                <div className="bg-ui-bg rounded-xl shadow-sm overflow-hidden border border-[#D4AF37] hover:border-emerald/30 transition-all mt-6">
+                <div className="bg-ui-appBg rounded-xl shadow-sm overflow-hidden border border-[#D4AF37] hover:border-emerald/30 transition-all mt-6">
                   <div className="p-6">
                     <h4 className="font-serif text-white text-lg mb-3">
                       Zgoda na Wykorzystanie Wizerunku

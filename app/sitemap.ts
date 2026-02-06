@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://royal-lips.pl";
+  const baseUrl = "https://powderbrowsacademy.com.pl";
 
   return [
     {

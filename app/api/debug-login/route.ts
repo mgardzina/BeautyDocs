@@ -8,7 +8,7 @@ export const dynamic = 'force-dynamic';
 // GET endpoint to test password verification manually (simulates lib/auth.ts logic)
 export async function GET(request: Request) {
   try {
-    const email = "admin@royal-lips.pl";
+    const email = "admin@powderbrowsacademy.com.pl";
     const passwordToCheck = "admin1220@#";
 
     const user = await prisma.adminUser.findUnique({

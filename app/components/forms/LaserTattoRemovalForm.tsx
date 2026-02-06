@@ -418,7 +418,7 @@ export default function LaserTattoRemovalForm({
                       onChange={(e) =>
                         handleInputChange("imieNazwisko", e.target.value)
                       }
-                      className="w-full px-4 py-3 bg-ui-bg border border-emerald/30 rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
+                      className="w-full px-4 py-3 bg-ui-appBg border border-emerald/30 rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
                       placeholder="Joanna Wielgos"
                     />
                   </div>
@@ -433,7 +433,7 @@ export default function LaserTattoRemovalForm({
                       onChange={(e) =>
                         handleInputChange("miejscowoscData", e.target.value)
                       }
-                      className="w-full px-4 py-3 bg-ui-bg border border-emerald/30 rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
+                      className="w-full px-4 py-3 bg-ui-appBg border border-emerald/30 rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
                       placeholder={`${SALON_CONFIG.city}, 27.01.2026`}
                     />
                   </div>
@@ -447,7 +447,7 @@ export default function LaserTattoRemovalForm({
                         type="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className="w-full pl-12 pr-4 py-3 bg-ui-bg border border-emerald/30 rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
+                        className="w-full pl-12 pr-4 py-3 bg-ui-appBg border border-emerald/30 rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
                         placeholder={SALON_CONFIG.email}
                       />
                     </div>
@@ -464,7 +464,7 @@ export default function LaserTattoRemovalForm({
                         onChange={(e) =>
                           handleInputChange("ulica", e.target.value)
                         }
-                        className="w-full px-4 py-3 bg-ui-bg border border-emerald/30 rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
+                        className="w-full px-4 py-3 bg-ui-appBg border border-emerald/30 rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
                         placeholder="ul. Przykładowa 1/2"
                         autoComplete="street-address"
                       />
@@ -479,7 +479,7 @@ export default function LaserTattoRemovalForm({
                         onChange={(e) =>
                           handleInputChange("kodPocztowy", e.target.value)
                         }
-                        className="w-full px-4 py-3 bg-ui-bg border border-emerald/30 rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
+                        className="w-full px-4 py-3 bg-ui-appBg border border-emerald/30 rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
                         placeholder="38-400"
                         autoComplete="postal-code"
                       />
@@ -494,7 +494,7 @@ export default function LaserTattoRemovalForm({
                         onChange={(e) =>
                           handleInputChange("miasto", e.target.value)
                         }
-                        className="w-full px-4 py-3 bg-ui-bg border border-emerald/30 rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
+                        className="w-full px-4 py-3 bg-ui-appBg border border-emerald/30 rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
                         placeholder={SALON_CONFIG.city}
                         autoComplete="address-level2"
                       />
@@ -509,7 +509,7 @@ export default function LaserTattoRemovalForm({
                       type="text"
                       value={formData.dataUrodzenia}
                       onChange={(e) => handleBirthDateChange(e.target.value)}
-                      className="w-full px-4 py-3 bg-ui-bg border border-emerald/30 rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
+                      className="w-full px-4 py-3 bg-ui-appBg border border-emerald/30 rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
                       placeholder="DD.MM.RRRR"
                     />
                     {birthDateError && (
@@ -532,7 +532,7 @@ export default function LaserTattoRemovalForm({
                         required
                         value={formData.telefon}
                         onChange={(e) => handlePhoneChange(e.target.value)}
-                        className="w-full px-4 py-3 bg-ui-bg border border-emerald/30 rounded-r-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
+                        className="w-full px-4 py-3 bg-ui-appBg border border-emerald/30 rounded-r-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
                         placeholder="123 456 789"
                         maxLength={11}
                       />
@@ -684,7 +684,7 @@ export default function LaserTattoRemovalForm({
                             className={`text-left p-4 rounded-xl border-2 transition-all ${
                               isSelected
                                 ? "border-brand bg-brand/10 gold-glow"
-                                : "border-emerald/30 bg-ui-bg hover:border-brand"
+                                : "border-emerald/30 bg-ui-appBg hover:border-brand"
                             }`}
                           >
                             <div className="flex justify-between items-center mb-1">
@@ -745,7 +745,7 @@ export default function LaserTattoRemovalForm({
                               .split(", ")
                               .includes(area)
                               ? "border-brand bg-brand text-white"
-                              : "border-emerald/30 bg-ui-bg text-ui-textSecondary hover:border-brand hover:text-brand"
+                              : "border-emerald/30 bg-ui-appBg text-ui-textSecondary hover:border-brand hover:text-brand"
                           }`}
                         >
                           {area}
@@ -774,7 +774,7 @@ export default function LaserTattoRemovalForm({
                             currentParts.filter(Boolean).join(", "),
                           );
                         }}
-                        className="w-full px-4 py-3 bg-ui-bg border border-emerald/30 rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
+                        className="w-full px-4 py-3 bg-ui-appBg border border-emerald/30 rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
                         placeholder="Inne (wpisz ręcznie)..."
                       />
                     </div>
@@ -855,7 +855,7 @@ export default function LaserTattoRemovalForm({
                           <div className="space-y-4 animate-in fade-in slide-in-from-top-2 mb-6">
                             <input
                               type="text"
-                              className="w-full px-4 py-3 text-base bg-ui-bg border-2 border-emerald/30 rounded-xl focus:border-brand outline-none transition-colors"
+                              className="w-full px-4 py-3 text-base bg-ui-appBg border-2 border-emerald/30 rounded-xl focus:border-brand outline-none transition-colors"
                               placeholder={
                                 currentContraindicationObject.followUpPlaceholder ||
                                 "Wpisz szczegóły..."
@@ -889,7 +889,7 @@ export default function LaserTattoRemovalForm({
                               currentContraindicationKey
                             ] === false
                               ? "border-green-500 bg-green-500 text-white"
-                              : "bg-ui-bg border-emerald/30 text-ui-textSecondary active:border-green-500 active:bg-green-500 active:text-white md:hover:border-green-500 md:hover:bg-green-500 md:hover:text-white"
+                              : "bg-ui-appBg border-emerald/30 text-ui-textSecondary active:border-green-500 active:bg-green-500 active:text-white md:hover:border-green-500 md:hover:bg-green-500 md:hover:text-white"
                           }`}
                         >
                           NIE
@@ -903,7 +903,7 @@ export default function LaserTattoRemovalForm({
                               currentContraindicationKey
                             ] === true
                               ? "border-red-500 bg-red-500 text-white"
-                              : "bg-ui-bg border-emerald/30 text-ui-textSecondary active:border-red-500 active:bg-red-500 active:text-white md:hover:border-red-500 md:hover:bg-red-500 md:hover:text-white"
+                              : "bg-ui-appBg border-emerald/30 text-ui-textSecondary active:border-red-500 active:bg-red-500 active:text-white md:hover:border-red-500 md:hover:bg-red-500 md:hover:text-white"
                           }`}
                         >
                           TAK
@@ -1080,7 +1080,7 @@ export default function LaserTattoRemovalForm({
                   {laseroweUsuwaniePreCare.map((instruction, index) => (
                     <li
                       key={index}
-                      className="flex items-start gap-3 bg-ui-bg/50 p-3 rounded-lg border border-emerald/30/30"
+                      className="flex items-start gap-3 bg-ui-appBg/50 p-3 rounded-lg border border-emerald/30/30"
                     >
                       <div className="w-1.5 h-1.5 rounded-full bg-brand mt-2 flex-shrink-0" />
                       <span className="text-ui-textSecondary text-sm leading-relaxed">
@@ -1157,7 +1157,7 @@ export default function LaserTattoRemovalForm({
                     <p className="text-sm text-ui-textSecondary mb-4 font-medium uppercase tracking-wide">
                       Podpis Klienta (Zgoda na przetwarzanie danych):
                     </p>
-                    <div className="bg-ui-bg rounded-xl overflow-hidden min-h-[200px] border border-emerald/30 p-1">
+                    <div className="bg-ui-appBg rounded-xl overflow-hidden min-h-[200px] border border-emerald/30 p-1">
                       <SignaturePad
                         label=""
                         value={formData.podpisRodo || ""}
@@ -1211,7 +1211,7 @@ export default function LaserTattoRemovalForm({
                     <p className="text-sm text-ui-textSecondary mb-4 font-medium uppercase tracking-wide">
                       Podpis Klienta (Klauzula informacyjna):
                     </p>
-                    <div className="bg-ui-bg rounded-xl overflow-hidden min-h-[200px] border border-emerald/30 p-1">
+                    <div className="bg-ui-appBg rounded-xl overflow-hidden min-h-[200px] border border-emerald/30 p-1">
                       <SignaturePad
                         label=""
                         value={formData.podpisRodo2 || ""}
@@ -1315,7 +1315,7 @@ export default function LaserTattoRemovalForm({
                   <p className="text-sm text-ui-textSecondary mb-4">
                     Zobowiązuję się do przestrzegania następujących zaleceń:
                   </p>
-                  <ul className="space-y-2 text-ui-textSecondary text-sm bg-ui-bg/50 p-4 rounded-xl border border-emerald/30/30">
+                  <ul className="space-y-2 text-ui-textSecondary text-sm bg-ui-appBg/50 p-4 rounded-xl border border-emerald/30/30">
                     {laseroweUsuwaniePostCare.map((instruction, index) => (
                       <li key={index} className="flex items-start gap-2">
                         <span className="text-brand">•</span>

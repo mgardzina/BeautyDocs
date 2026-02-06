@@ -2,7 +2,7 @@ import { SALON_CONFIG } from "@/app/config/salon";
 
 export default function Footer() {
   return (
-    <footer className="bg-ui-bgSecondary text-white py-12 border-t-2 border-[#D4AF37]">
+    <footer className="bg-ui-appBgSecondary text-white py-12 border-t-2 border-[#D4AF37]">
       <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center md:items-start gap-8">
         {/* Lewa strona - Dane firmy */}
         <div className="text-center md:text-left space-y-4">

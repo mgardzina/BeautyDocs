@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   description:
     "Regulamin salonu Royal Lips. Zasady rezerwacji wizyt, przeciwwskazania do zabiegów makijażu permanentnego, informacje o płatnościach i reklamacjach.",
   alternates: {
-    canonical: "https://royal-lips.pl/regulamin",
+    canonical: "https://powderbrowsacademy.com.pl/regulamin",
   },
   openGraph: {
     title: "Regulamin | Royal Lips Krosno",
     description:
       "Regulamin salonu Royal Lips - zasady korzystania z usług makijażu permanentnego.",
-    url: "https://royal-lips.pl/regulamin",
+    url: "https://powderbrowsacademy.com.pl/regulamin",
   },
 };
 
