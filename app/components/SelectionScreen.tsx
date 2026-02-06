@@ -14,7 +14,7 @@ export default function SelectionScreen({ onSelect }: SelectionScreenProps) {
           <h1 className="text-4xl md:text-5xl font-serif text-white mb-4 tracking-wide uppercase">
             {SALON_CONFIG.name}
           </h1>
-          <div className="w-20 h-0.5 bg-emerald-500/50 mx-auto mb-6" />
+          <div className="w-20 h-0.5 bg-brand mx-auto mb-6" />
           <p className="text-lg text-white/80 font-light tracking-wider uppercase">
             Wybierz rodzaj zabiegu
           </p>

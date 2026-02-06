@@ -7,7 +7,6 @@ import {
   Instagram,
   Mail,
   Shield,
-  CheckCircle2,
   X,
 } from "lucide-react";
 import { isAdult, getTodayDate } from "@/lib/dateUtils";
@@ -260,7 +259,7 @@ export default function LaserTattoRemovalForm({
   if (submitSuccess) {
     return (
       <div className="min-h-screen bg-black flex items-center justify-center p-4">
-        <div className="bg-gradient-emerald backdrop-blur-sm rounded-3xl shadow-2xl border border-emerald/30 p-12 max-w-lg text-center">
+        <div className="bg-gradient-emerald backdrop-blur-sm rounded-3xl shadow-2xl border border-[#D4AF37] p-12 max-w-lg text-center">
           <div className="w-20 h-20 bg-green-900/20 rounded-full flex items-center justify-center mx-auto mb-6">
             <Check className="w-10 h-10 text-green-500" />
           </div>
@@ -307,9 +306,9 @@ export default function LaserTattoRemovalForm({
     !birthDateError;
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-ui-bg text-white selection:bg-brand/30">
       {/* Header */}
-      <header className="bg-black/95 backdrop-blur-sm sticky top-0 z-50 border-b border-emerald/30">
+      <header className="bg-ui-bgSecondary/80 backdrop-blur-md sticky top-0 z-50 border-b border-brand shadow-lg">
         <div className="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
           <h1 className="text-xl md:text-2xl font-serif text-white tracking-wider uppercase">
             {SALON_CONFIG.name}
@@ -383,13 +382,16 @@ export default function LaserTattoRemovalForm({
           </div>
 
           <div className="text-center">
-            <h1 className="text-3xl md:text-4xl font-serif text-white mb-2"></h1>
-            <p className="text-brand text-lg font-light tracking-wide uppercase">
-              Usuwanie Makijażu Permanentnego i Tatuażu
-            </p>
-            <p className="text-brand text-lg font-light tracking-wide uppercase">
-              Laser Pikosekundowy
-            </p>
+            <h1 className="text-4xl md:text-6xl font-serif text-white mb-3 tracking-tight">
+              Laserowe <span className="text-brand">Usuwanie Tatuażu</span>
+            </h1>
+            <div className="flex items-center justify-center gap-4">
+              <div className="h-px w-12 bg-brand"></div>
+              <p className="text-brand text-sm md:text-lg font-light tracking-[0.3em] uppercase drop-shadow-sm">
+                Zabieg laserowego usuwania tatuażu
+              </p>
+              <div className="h-px w-12 bg-brand"></div>
+            </div>
           </div>
         </div>
 
@@ -418,7 +420,7 @@ export default function LaserTattoRemovalForm({
                       onChange={(e) =>
                         handleInputChange("imieNazwisko", e.target.value)
                       }
-                      className="w-full px-4 py-3 bg-ui-appBg border border-emerald/30 rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
+                      className="w-full px-4 py-3 bg-ui-bg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
                       placeholder="Joanna Wielgos"
                     />
                   </div>
@@ -433,7 +435,7 @@ export default function LaserTattoRemovalForm({
                       onChange={(e) =>
                         handleInputChange("miejscowoscData", e.target.value)
                       }
-                      className="w-full px-4 py-3 bg-ui-appBg border border-emerald/30 rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
+                      className="w-full px-4 py-3 bg-ui-bg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
                       placeholder={`${SALON_CONFIG.city}, 27.01.2026`}
                     />
                   </div>
@@ -447,7 +449,7 @@ export default function LaserTattoRemovalForm({
                         type="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className="w-full pl-12 pr-4 py-3 bg-ui-appBg border border-emerald/30 rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
+                        className="w-full pl-12 pr-4 py-3 bg-ui-bg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
                         placeholder={SALON_CONFIG.email}
                       />
                     </div>
@@ -464,7 +466,7 @@ export default function LaserTattoRemovalForm({
                         onChange={(e) =>
                           handleInputChange("ulica", e.target.value)
                         }
-                        className="w-full px-4 py-3 bg-ui-appBg border border-emerald/30 rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
+                        className="w-full px-4 py-3 bg-ui-bg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
                         placeholder="ul. Przykładowa 1/2"
                         autoComplete="street-address"
                       />
@@ -479,7 +481,7 @@ export default function LaserTattoRemovalForm({
                         onChange={(e) =>
                           handleInputChange("kodPocztowy", e.target.value)
                         }
-                        className="w-full px-4 py-3 bg-ui-appBg border border-emerald/30 rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
+                        className="w-full px-4 py-3 bg-ui-bg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
                         placeholder="38-400"
                         autoComplete="postal-code"
                       />
@@ -494,7 +496,7 @@ export default function LaserTattoRemovalForm({
                         onChange={(e) =>
                           handleInputChange("miasto", e.target.value)
                         }
-                        className="w-full px-4 py-3 bg-ui-appBg border border-emerald/30 rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
+                        className="w-full px-4 py-3 bg-ui-bg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
                         placeholder={SALON_CONFIG.city}
                         autoComplete="address-level2"
                       />
@@ -509,7 +511,7 @@ export default function LaserTattoRemovalForm({
                       type="text"
                       value={formData.dataUrodzenia}
                       onChange={(e) => handleBirthDateChange(e.target.value)}
-                      className="w-full px-4 py-3 bg-ui-appBg border border-emerald/30 rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
+                      className="w-full px-4 py-3 bg-ui-bg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
                       placeholder="DD.MM.RRRR"
                     />
                     {birthDateError && (
@@ -532,7 +534,7 @@ export default function LaserTattoRemovalForm({
                         required
                         value={formData.telefon}
                         onChange={(e) => handlePhoneChange(e.target.value)}
-                        className="w-full px-4 py-3 bg-ui-appBg border border-emerald/30 rounded-r-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
+                        className="w-full px-4 py-3 bg-ui-bg border border-[#D4AF37] rounded-r-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
                         placeholder="123 456 789"
                         maxLength={11}
                       />
@@ -684,7 +686,7 @@ export default function LaserTattoRemovalForm({
                             className={`text-left p-4 rounded-xl border-2 transition-all ${
                               isSelected
                                 ? "border-brand bg-brand/10 gold-glow"
-                                : "border-emerald/30 bg-ui-appBg hover:border-brand"
+                                : "border-[#D4AF37] bg-ui-bg hover:border-brand"
                             }`}
                           >
                             <div className="flex justify-between items-center mb-1">
@@ -696,7 +698,9 @@ export default function LaserTattoRemovalForm({
                                 {option.value}
                               </span>
                               {isSelected && (
-                                <CheckCircle2 className="w-6 h-6 text-brand gold-glow-sm" />
+                                <div className="w-6 h-6 bg-brand rounded flex items-center justify-center">
+                                  <Check className="w-4 h-4 text-black" />
+                                </div>
                               )}
                             </div>
                             <p className="text-sm text-ui-textSecondary leading-relaxed">
@@ -745,7 +749,7 @@ export default function LaserTattoRemovalForm({
                               .split(", ")
                               .includes(area)
                               ? "border-brand bg-brand text-white"
-                              : "border-emerald/30 bg-ui-appBg text-ui-textSecondary hover:border-brand hover:text-brand"
+                              : "border-[#D4AF37] bg-ui-bg text-ui-textSecondary hover:border-brand hover:text-brand"
                           }`}
                         >
                           {area}
@@ -774,7 +778,7 @@ export default function LaserTattoRemovalForm({
                             currentParts.filter(Boolean).join(", "),
                           );
                         }}
-                        className="w-full px-4 py-3 bg-ui-appBg border border-emerald/30 rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
+                        className="w-full px-4 py-3 bg-ui-bg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
                         placeholder="Inne (wpisz ręcznie)..."
                       />
                     </div>
@@ -795,7 +799,9 @@ export default function LaserTattoRemovalForm({
                             <span className="font-serif text-lg font-medium text-white">
                               Lidokaina 9,6%
                             </span>
-                            <CheckCircle2 className="w-6 h-6 text-brand gold-glow-sm" />
+                            <div className="w-6 h-6 bg-brand rounded flex items-center justify-center">
+                              <Check className="w-4 h-4 text-black" />
+                            </div>
                           </div>
                           <p className="text-sm text-ui-textSecondary leading-relaxed">
                             Znieczulenie miejscowe może być stosowane w celu
@@ -825,7 +831,7 @@ export default function LaserTattoRemovalForm({
                   {showContraindicationsWizard && !isWizardComplete ? (
                     <div
                       key={currentContraindicationIndex}
-                      className="bg-gradient-emerald p-6 rounded-xl border border-emerald/30 max-w-2xl mx-auto shadow-sm"
+                      className="bg-ui-bg p-6 rounded-xl border border-[#D4AF37] max-w-2xl mx-auto shadow-sm"
                     >
                       <div className="flex justify-between items-center mb-6">
                         <span className="text-sm font-medium text-brand">
@@ -855,7 +861,7 @@ export default function LaserTattoRemovalForm({
                           <div className="space-y-4 animate-in fade-in slide-in-from-top-2 mb-6">
                             <input
                               type="text"
-                              className="w-full px-4 py-3 text-base bg-ui-appBg border-2 border-emerald/30 rounded-xl focus:border-brand outline-none transition-colors"
+                              className="w-full px-4 py-3 text-base bg-ui-bg border-2 border-[#D4AF37] rounded-xl focus:border-brand outline-none transition-colors"
                               placeholder={
                                 currentContraindicationObject.followUpPlaceholder ||
                                 "Wpisz szczegóły..."
@@ -889,7 +895,7 @@ export default function LaserTattoRemovalForm({
                               currentContraindicationKey
                             ] === false
                               ? "border-green-500 bg-green-500 text-white"
-                              : "bg-ui-appBg border-emerald/30 text-ui-textSecondary active:border-green-500 active:bg-green-500 active:text-white md:hover:border-green-500 md:hover:bg-green-500 md:hover:text-white"
+                              : "bg-ui-bg border-[#D4AF37] text-ui-textSecondary active:border-green-500 active:bg-green-500 active:text-white md:hover:border-green-500 md:hover:bg-green-500 md:hover:text-white"
                           }`}
                         >
                           NIE
@@ -903,7 +909,7 @@ export default function LaserTattoRemovalForm({
                               currentContraindicationKey
                             ] === true
                               ? "border-red-500 bg-red-500 text-white"
-                              : "bg-ui-appBg border-emerald/30 text-ui-textSecondary active:border-red-500 active:bg-red-500 active:text-white md:hover:border-red-500 md:hover:bg-red-500 md:hover:text-white"
+                              : "bg-ui-bg border-[#D4AF37] text-ui-textSecondary active:border-red-500 active:bg-red-500 active:text-white md:hover:border-red-500 md:hover:bg-red-500 md:hover:text-white"
                           }`}
                         >
                           TAK
@@ -1028,7 +1034,7 @@ export default function LaserTattoRemovalForm({
 
                 <div className="space-y-6">
                   {/* Częste skutki uboczne */}
-                  <div className="bg-gradient-emerald p-5 rounded-xl border border-emerald/20">
+                  <div className="bg-ui-bg p-5 rounded-xl border border-emerald/20">
                     <p className="text-sm font-medium text-white mb-3">
                       MOŻLIWE DO WYSTĄPIENIA SKUTKI UBOCZNE PO PRZEPROWADZONYM
                       ZABIEGU - CZĘSTE
@@ -1046,7 +1052,7 @@ export default function LaserTattoRemovalForm({
                   </div>
 
                   {/* MOŻLIWE REAKCJE SKÓRY */}
-                  <div className="bg-gradient-emerald p-5 rounded-xl border border-emerald/20 mt-6">
+                  <div className="bg-ui-bg p-5 rounded-xl border border-emerald/20 mt-6">
                     <p className="text-sm font-medium text-white mb-3 uppercase tracking-wide">
                       MOŻLIWE REAKCJE SKÓRY
                     </p>
@@ -1080,7 +1086,7 @@ export default function LaserTattoRemovalForm({
                   {laseroweUsuwaniePreCare.map((instruction, index) => (
                     <li
                       key={index}
-                      className="flex items-start gap-3 bg-ui-appBg/50 p-3 rounded-lg border border-emerald/30/30"
+                      className="flex items-start gap-3 bg-ui-bg/50 p-3 rounded-lg border border-[#D4AF37]/30"
                     >
                       <div className="w-1.5 h-1.5 rounded-full bg-brand mt-2 flex-shrink-0" />
                       <span className="text-ui-textSecondary text-sm leading-relaxed">
@@ -1100,7 +1106,7 @@ export default function LaserTattoRemovalForm({
                   Zalecenia Po Zabiegu
                 </h2>
 
-                <div className="bg-gradient-emerald p-5 rounded-xl border border-emerald/20 mb-6">
+                <div className="bg-ui-bg p-5 rounded-xl border border-emerald/20 mb-6">
                   <p className="text-sm text-ui-textSecondary leading-relaxed mb-4">
                     <strong>
                       Niniejszym oświadczam, że zostałam/em poinformowana/y o
@@ -1150,14 +1156,14 @@ export default function LaserTattoRemovalForm({
                   <h3 className="text-2xl font-serif text-white mb-6">
                     {rodoInfo.consentTitle}
                   </h3>
-                  <div className="bg-gradient-emerald p-6 rounded-xl text-sm text-ui-textSecondary leading-relaxed whitespace-pre-line max-h-[60vh] overflow-y-auto mb-6 border border-emerald/30">
+                  <div className="bg-ui-bg p-6 rounded-xl text-sm text-ui-textSecondary leading-relaxed whitespace-pre-line max-h-[60vh] overflow-y-auto mb-6 border border-[#D4AF37]">
                     {rodoInfo.consentText}
                   </div>
                   <div className="mt-8">
                     <p className="text-sm text-ui-textSecondary mb-4 font-medium uppercase tracking-wide">
                       Podpis Klienta (Zgoda na przetwarzanie danych):
                     </p>
-                    <div className="bg-ui-appBg rounded-xl overflow-hidden min-h-[200px] border border-emerald/30 p-1">
+                    <div className="bg-ui-bg rounded-xl overflow-hidden min-h-[200px] border border-[#D4AF37] p-1">
                       <SignaturePad
                         label=""
                         value={formData.podpisRodo || ""}
@@ -1204,14 +1210,14 @@ export default function LaserTattoRemovalForm({
                   <h3 className="text-2xl font-serif text-white mb-6">
                     {rodoInfo.clauseTitle}
                   </h3>
-                  <div className="bg-gradient-emerald p-6 rounded-xl text-sm text-ui-textSecondary leading-relaxed whitespace-pre-line max-h-[60vh] overflow-y-auto mb-6 border border-emerald/30">
+                  <div className="bg-ui-bg p-6 rounded-xl text-sm text-ui-textSecondary leading-relaxed whitespace-pre-line max-h-[60vh] overflow-y-auto mb-6 border border-[#D4AF37]">
                     {rodoInfo.clauseText}
                   </div>
                   <div className="mt-8">
                     <p className="text-sm text-ui-textSecondary mb-4 font-medium uppercase tracking-wide">
                       Podpis Klienta (Klauzula informacyjna):
                     </p>
-                    <div className="bg-ui-appBg rounded-xl overflow-hidden min-h-[200px] border border-emerald/30 p-1">
+                    <div className="bg-ui-bg rounded-xl overflow-hidden min-h-[200px] border border-[#D4AF37] p-1">
                       <SignaturePad
                         label=""
                         value={formData.podpisRodo2 || ""}
@@ -1265,7 +1271,7 @@ export default function LaserTattoRemovalForm({
                   </p>
 
                   <div className="space-y-6">
-                    <div className="bg-gradient-emerald p-5 rounded-xl border border-emerald/20">
+                    <div className="bg-ui-bg p-5 rounded-xl border border-emerald/20">
                       <p className="text-sm font-medium text-white mb-3">
                         Możliwe naturalne reakcje:
                       </p>
@@ -1281,7 +1287,7 @@ export default function LaserTattoRemovalForm({
                       </ul>
                     </div>
 
-                    <div className="bg-gradient-emerald p-5 rounded-xl border border-emerald/20">
+                    <div className="bg-ui-bg p-5 rounded-xl border border-emerald/20">
                       <p className="text-sm font-medium text-white mb-3">
                         Możliwe powikłania:
                       </p>
@@ -1315,7 +1321,7 @@ export default function LaserTattoRemovalForm({
                   <p className="text-sm text-ui-textSecondary mb-4">
                     Zobowiązuję się do przestrzegania następujących zaleceń:
                   </p>
-                  <ul className="space-y-2 text-ui-textSecondary text-sm bg-ui-appBg/50 p-4 rounded-xl border border-emerald/30/30">
+                  <ul className="space-y-2 text-ui-textSecondary text-sm bg-ui-bg p-4 rounded-xl border border-[#D4AF37]/30">
                     {laseroweUsuwaniePostCare.map((instruction, index) => (
                       <li key={index} className="flex items-start gap-2">
                         <span className="text-brand">•</span>
@@ -1339,7 +1345,7 @@ export default function LaserTattoRemovalForm({
                 <h3 className="text-2xl font-serif text-white mb-6 border-b border-[#D4AF37] pb-2">
                   Oświadczenia
                 </h3>
-                <div className="bg-gradient-emerald p-5 rounded-xl mb-6 border border-emerald/20">
+                <div className="bg-ui-bg p-5 rounded-xl mb-6 border border-emerald/20">
                   <h4 className="font-serif text-white text-lg mb-4">
                     OŚWIADCZENIE I ŚWIADOMA ZGODA NA ZABIEG LASEROWEGO USUWANIA
                     MAKIJAŻU PERMANENTNEGO / TATUAŻU
@@ -1430,7 +1436,7 @@ export default function LaserTattoRemovalForm({
                     </p>
                   </div>
                 </div>
-                <div className="bg-gradient-emerald backdrop-blur-sm rounded-2xl shadow-lg p-6 md:p-8 mt-8">
+                <div className="bg-ui-bg backdrop-blur-sm rounded-2xl shadow-lg p-6 md:p-8 mt-8">
                   <h3 className="text-xl font-serif text-white mb-4 border-b border-[#D4AF37] pb-2">
                     Potwierdzenie Zgody na Zabieg
                   </h3>
@@ -1488,7 +1494,7 @@ export default function LaserTattoRemovalForm({
                 </p>
 
                 {/* Zgoda na marketing */}
-                <div className="bg-gradient-emerald backdrop-blur-sm rounded-xl shadow-sm overflow-hidden border border-emerald/30 hover:shadow-md transition-shadow">
+                <div className="bg-ui-bg backdrop-blur-sm rounded-xl shadow-sm overflow-hidden border border-[#D4AF37] hover:shadow-md transition-shadow">
                   <div className="p-6">
                     <h4 className="font-serif text-white text-lg mb-3">
                       Zgoda Marketingowa
@@ -1512,7 +1518,7 @@ export default function LaserTattoRemovalForm({
                 </div>
 
                 {/* Zgoda na wizerunek */}
-                <div className="bg-gradient-emerald backdrop-blur-sm rounded-xl shadow-sm overflow-hidden border border-emerald/30 hover:shadow-md transition-shadow">
+                <div className="bg-ui-bg backdrop-blur-sm rounded-xl shadow-sm overflow-hidden border border-[#D4AF37] hover:shadow-md transition-shadow">
                   <div className="p-6">
                     <h4 className="font-serif text-white text-lg mb-3">
                       Zgoda na Wykorzystanie Wizerunku
@@ -1536,7 +1542,7 @@ export default function LaserTattoRemovalForm({
                             e.target.value,
                           )
                         }
-                        className="w-full px-4 py-2 bg-gradient-emerald border-b border-[#D4AF37] focus:border-brand outline-none text-sm transition-colors text-white"
+                        className="w-full px-4 py-2 bg-ui-bg border-b border-[#D4AF37] focus:border-brand outline-none text-sm transition-colors text-white"
                         placeholder="np. Instagram, Facebook (zostaw puste = wszystkie)"
                       />
                     </div>

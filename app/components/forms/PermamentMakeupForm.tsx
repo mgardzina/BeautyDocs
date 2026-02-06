@@ -6,7 +6,6 @@ import {
   Instagram,
   Mail,
   Shield,
-  CheckCircle2,
   X,
 } from "lucide-react";
 import { isAdult, getTodayDate } from "@/lib/dateUtils";
@@ -21,8 +20,8 @@ import {
   makijazPermanentnyComplications,
   makijazPermanentnyPostCare,
   rodoInfo,
+  makijazPermanentnyContraindications,
 } from "../../../types/booking";
-import { makijazPermanentnyContraindications } from "../../../types/booking";
 import { SALON_CONFIG } from "@/app/config/salon";
 import AnatomyFaceSelector from "../AnatomyFaceSelector";
 
@@ -31,7 +30,7 @@ interface LipModelingFormProps {
 }
 
 const initialFormData: ConsentFormData = {
-  type: "LIP_AUGMENTATION",
+  type: "PERMANENT_MAKEUP",
   imieNazwisko: "",
   ulica: "",
   kodPocztowy: "",
@@ -302,9 +301,9 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
     !birthDateError;
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-ui-bg text-white selection:bg-brand/30">
       {/* Header */}
-      <header className="bg-black/95 backdrop-blur-sm sticky top-0 z-50 border-b border-[#D4AF37]">
+      <header className="bg-ui-bgSecondary/80 backdrop-blur-md sticky top-0 z-50 border-b border-brand shadow-lg">
         <div className="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
           <h1 className="text-xl md:text-2xl font-serif text-white tracking-wider uppercase">
             {SALON_CONFIG.name}
@@ -378,12 +377,16 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
           </div>
 
           <div className="text-center">
-            <h1 className="text-3xl md:text-4xl font-serif text-white mb-2">
-              Makijaż Permanentny
+            <h1 className="text-4xl md:text-6xl font-serif text-white mb-3 tracking-tight">
+              Makijaż <span className="text-brand">Permanentny</span>
             </h1>
-            <p className="text-brand text-lg font-light tracking-wide uppercase">
-              Zabieg z zakresu makijażu permanentnego
-            </p>
+            <div className="flex items-center justify-center gap-4">
+              <div className="h-px w-12 bg-brand"></div>
+              <p className="text-brand text-sm md:text-lg font-light tracking-[0.3em] uppercase drop-shadow-sm">
+                Zabieg z zakresu makijażu permanentnego
+              </p>
+              <div className="h-px w-12 bg-brand"></div>
+            </div>
           </div>
         </div>
 
@@ -391,10 +394,9 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
           {/* KROK 1: DANE I WYWIAD */}
           {currentStep === "DATA" && (
             <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
-              {/* Dane osobowe */}
-              <section className="bg-gradient-emerald backdrop-blur-sm rounded-2xl shadow-lg p-6 md:p-8">
+              <section className="bg-gradient-emerald rounded-2xl border border-[#D4AF37] p-6 md:p-8">
                 <h2 className="text-2xl font-serif text-white mb-6 flex items-center gap-3">
-                  <span className="w-8 h-8 bg-brand text-white rounded-full flex items-center justify-center text-sm font-sans">
+                  <span className="w-8 h-8 bg-brand text-black rounded-full flex items-center justify-center text-sm font-sans font-bold">
                     1
                   </span>
                   Dane Osobowe
@@ -412,7 +414,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                       onChange={(e) =>
                         handleInputChange("imieNazwisko", e.target.value)
                       }
-                      className="w-full px-4 py-3 bg-ui-appBg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
+                      className="w-full px-4 py-3 bg-ui-bg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
                       placeholder="Joanna Wielgos"
                     />
                   </div>
@@ -427,7 +429,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                       onChange={(e) =>
                         handleInputChange("miejscowoscData", e.target.value)
                       }
-                      className="w-full px-4 py-3 bg-ui-appBg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
+                      className="w-full px-4 py-3 bg-ui-bg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
                       placeholder={`${SALON_CONFIG.city}, 27.01.2026`}
                     />
                   </div>
@@ -441,7 +443,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                         type="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className="w-full pl-12 pr-4 py-3 bg-ui-appBg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
+                        className="w-full pl-12 pr-4 py-3 bg-ui-bg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
                         placeholder={SALON_CONFIG.email}
                       />
                     </div>
@@ -458,7 +460,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                         onChange={(e) =>
                           handleInputChange("ulica", e.target.value)
                         }
-                        className="w-full px-4 py-3 bg-ui-appBg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
+                        className="w-full px-4 py-3 bg-ui-bg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
                         placeholder="ul. Przykładowa 1/2"
                         autoComplete="street-address"
                       />
@@ -473,7 +475,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                         onChange={(e) =>
                           handleInputChange("kodPocztowy", e.target.value)
                         }
-                        className="w-full px-4 py-3 bg-ui-appBg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
+                        className="w-full px-4 py-3 bg-ui-bg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
                         placeholder="38-400"
                         autoComplete="postal-code"
                       />
@@ -488,7 +490,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                         onChange={(e) =>
                           handleInputChange("miasto", e.target.value)
                         }
-                        className="w-full px-4 py-3 bg-ui-appBg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
+                        className="w-full px-4 py-3 bg-ui-bg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
                         placeholder={SALON_CONFIG.city}
                         autoComplete="address-level2"
                       />
@@ -503,7 +505,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                       type="text"
                       value={formData.dataUrodzenia}
                       onChange={(e) => handleBirthDateChange(e.target.value)}
-                      className="w-full px-4 py-3 bg-ui-appBg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
+                      className="w-full px-4 py-3 bg-ui-bg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
                       placeholder="DD.MM.RRRR"
                     />
                     {birthDateError && (
@@ -526,7 +528,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                         required
                         value={formData.telefon}
                         onChange={(e) => handlePhoneChange(e.target.value)}
-                        className="w-full px-4 py-3 bg-ui-appBg border border-[#D4AF37] rounded-r-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
+                        className="w-full px-4 py-3 bg-ui-bg border border-[#D4AF37] rounded-r-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
                         placeholder="123 456 789"
                         maxLength={11}
                       />
@@ -536,14 +538,14 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
               </section>
 
               {/* Informacja o Zabiegu */}
-              <section className="bg-gradient-emerald backdrop-blur-sm rounded-2xl shadow-lg p-6 md:p-8">
+              <section className="bg-gradient-emerald rounded-2xl border border-[#D4AF37] p-6 md:p-8">
                 <h2 className="text-2xl font-serif text-white mb-6 flex items-center gap-3">
-                  <span className="w-8 h-8 bg-brand text-white rounded-full flex items-center justify-center text-sm font-sans">
+                  <span className="w-8 h-8 bg-brand text-black rounded-full flex items-center justify-center text-sm font-sans font-bold">
                     2
                   </span>
                   Informacja o Zabiegu
                 </h2>
-                <div className="prose prose-sm max-w-none text-ui-textSecondary leading-relaxed space-y-4">
+                <div className="bg-ui-bg p-6 rounded-xl border border-[#D4AF37] text-ui-textSecondary leading-relaxed space-y-4">
                   <p>
                     Makijaż permanentny jest zabiegiem inwazyjnym gdyż związany
                     jest z przerwaniem ciągłości naskórka, wobec czego nie jest
@@ -577,7 +579,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                     Wybór techniki, która zostanie zastosowana przy zabiegu
                     zależy od predyspozycji i indywidualnych potrzeb Klienta.
                   </p>
-                  <div className="bg-gradient-emerald p-4 rounded-xl border border-[#D4AF37]/50 space-y-4">
+                  <div className="bg-ui-bg p-4 rounded-xl border border-[#D4AF37]/50 space-y-4">
                     <div>
                       <p className="font-medium text-white mb-1">BRWI</p>
                       <p>
@@ -661,7 +663,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                     </li>
                   </ul>
 
-                  <div className="bg-gradient-emerald p-4 rounded-xl border border-[#D4AF37]/50">
+                  <div className="bg-ui-bg p-4 rounded-xl border border-[#D4AF37]/50">
                     <p className="font-medium text-white mb-2">
                       ALTERNATYWNE SPOSOBY WYKONANIA ZABIEGU
                     </p>
@@ -678,9 +680,9 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
               </section>
 
               {/* Szczegóły Zabiegu */}
-              <section className="bg-gradient-emerald backdrop-blur-sm rounded-2xl shadow-lg p-6 md:p-8">
+              <section className="bg-gradient-emerald rounded-2xl border border-[#D4AF37] p-6 md:p-8">
                 <h2 className="text-2xl font-serif text-white mb-6 flex items-center gap-3">
-                  <span className="w-8 h-8 bg-brand text-white rounded-full flex items-center justify-center text-sm font-sans">
+                  <span className="w-8 h-8 bg-brand text-black rounded-full flex items-center justify-center text-sm font-sans font-bold">
                     3
                   </span>
                   Szczegóły Zabiegu
@@ -688,103 +690,19 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                 <div className="space-y-6">
                   <div>
                     <label className="block text-sm text-ui-textSecondary mb-2 font-medium">
-                      Nazwa preparatu
+                      Anatomia (zaznacz obszar zabiegu)
                     </label>
-                    <div className="space-y-4">
-                      {/* Product Selection */}
-                      <div className="flex flex-col gap-3">
-                        {[
-                          {
-                            name: "Revolax Deep",
-                            desc: "Gęstszy preparat zapewniający wyraźną objętość i trwałość. Doskonały do budowania kształtu, korygowania asymetrii oraz dla osób oczekujących widocznego efektu powiększenia.",
-                          },
-                          {
-                            name: "Neuramis Deep",
-                            desc: "Zawiera kwas hialuronowy w wysokiej koncentracji, który daje głębokie nawilżenie i trwałość. Idealny do modelowania ust i powiększenia.",
-                          },
-                        ].map((product) => {
-                          const currentName = formData.nazwaProduktu || "";
-                          const baseName = currentName
-                            .split(" (")[0]
-                            .split(" - ")[0];
-                          const isSelectedProduct = baseName === product.name;
-
-                          return (
-                            <div
-                              key={product.name}
-                              onClick={() => {
-                                // Select product only, reset volume if switching to new product
-                                if (!isSelectedProduct) {
-                                  handleInputChange(
-                                    "nazwaProduktu",
-                                    product.name,
-                                  );
-                                }
-                              }}
-                              className={`p-4 rounded-xl border-2 transition-all cursor-pointer ${
-                                isSelectedProduct
-                                  ? "border-brand bg-brand/10 gold-glow"
-                                  : "border-[#D4AF37] bg-ui-appBg hover:border-brand"
-                              }`}
-                            >
-                              <div className="flex justify-between items-center mb-1">
-                                <span
-                                  className={`font-serif text-lg font-medium ${
-                                    isSelectedProduct
-                                      ? "text-white"
-                                      : "text-white"
-                                  }`}
-                                >
-                                  {product.name}
-                                </span>
-                                {isSelectedProduct && (
-                                  <CheckCircle2 className="w-6 h-6 text-brand gold-glow-sm" />
-                                )}
-                              </div>
-                              <p className="text-sm text-ui-textSecondary leading-relaxed mb-4">
-                                {product.desc}
-                              </p>
-
-                              {/* Volume Selection inside Product Card */}
-                              {isSelectedProduct && (
-                                <div className="border-t border-[#D4AF37]/50 pt-3 animate-in fade-in slide-in-from-top-2 duration-300">
-                                  <p className="text-xs font-medium text-brand mb-2 uppercase tracking-wide">
-                                    Wybierz ilość:
-                                  </p>
-                                  <div className="flex flex-wrap gap-2">
-                                    {["1.0", "2.0", "3.0", "4.0"].map((vol) => {
-                                      const isSelectedVolume =
-                                        currentName ===
-                                        `${product.name} - ${vol}ml`;
-                                      return (
-                                        <button
-                                          key={vol}
-                                          type="button"
-                                          onClick={(e) => {
-                                            e.stopPropagation();
-                                            handleInputChange(
-                                              "nazwaProduktu",
-                                              `${product.name} - ${vol}ml`,
-                                            );
-                                          }}
-                                          className={`px-3 py-1.5 rounded-lg border text-xs font-medium transition-all ${
-                                            isSelectedVolume
-                                              ? "border-brand bg-brand text-white shadow-sm"
-                                              : "border-[#D4AF37] bg-ui-appBg text-ui-textSecondary hover:border-brand hover:text-brand"
-                                          }`}
-                                        >
-                                          {vol} ml
-                                        </button>
-                                      );
-                                    })}
-                                  </div>
-                                </div>
-                              )}
-                            </div>
-                          );
-                        })}
-                      </div>
-                    </div>
+                    <AnatomyFaceSelector
+                      initialSelected={(formData.obszarZabiegu || "")
+                        .split(", ")
+                        .filter(Boolean)}
+                      onSelect={(selectedIds) => {
+                        handleInputChange(
+                          "obszarZabiegu",
+                          selectedIds.join(", "),
+                        );
+                      }}
+                    />
                   </div>
 
                   {/* Znieczulenie */}
@@ -803,7 +721,9 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                             <span className="font-serif text-lg font-medium text-white">
                               Lidokaina 9,6%
                             </span>
-                            <CheckCircle2 className="w-6 h-6 text-brand gold-glow-sm" />
+                            <div className="w-6 h-6 bg-brand rounded flex items-center justify-center">
+                              <Check className="w-4 h-4 text-black" />
+                            </div>
                           </div>
                           <p className="text-sm text-ui-textSecondary leading-relaxed">
                             Znieczulenie miejscowe jest zawsze stosowane podczas
@@ -819,30 +739,33 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                       Wykonywany zabieg dotyczy makijażu permanentnego:
                     </label>
                     <div className="grid grid-cols-3 gap-3 mb-3">
-                      {["Ust", "Brwi", "Powiek"].map((area) => (
-                        <button
-                          key={area}
-                          type="button"
-                          onClick={() => {
-                            const current = formData.obszarZabiegu
-                              ? formData.obszarZabiegu.split(", ")
-                              : [];
-                            const newValue = current.includes(area)
-                              ? current.filter((i) => i !== area).join(", ")
-                              : [...current, area].join(", ");
-                            handleInputChange("obszarZabiegu", newValue);
-                          }}
-                          className={`py-3 px-4 rounded-xl border-2 transition-all font-medium text-sm ${
-                            (formData.obszarZabiegu || "")
-                              .split(", ")
-                              .includes(area)
-                              ? "border-brand bg-brand text-white"
-                              : "border-[#D4AF37] bg-ui-appBg text-ui-textSecondary hover:border-brand hover:text-brand"
-                          }`}
-                        >
-                          {area}
-                        </button>
-                      ))}
+                      {["Ust", "Brwi", "Powiek"].map((area) => {
+                        const isSelected = (formData.obszarZabiegu || "")
+                          .split(", ")
+                          .includes(area);
+                        return (
+                          <button
+                            key={area}
+                            type="button"
+                            onClick={() => {
+                              const current = formData.obszarZabiegu
+                                ? formData.obszarZabiegu.split(", ")
+                                : [];
+                              const newValue = current.includes(area)
+                                ? current.filter((i) => i !== area).join(", ")
+                                : [...current, area].join(", ");
+                              handleInputChange("obszarZabiegu", newValue);
+                            }}
+                            className={`py-3 px-4 rounded-xl border-2 transition-all font-medium text-sm ${
+                              isSelected
+                                ? "border-brand bg-brand text-black shadow-lg shadow-brand/20 scale-[1.02]"
+                                : "border-[#D4AF37] bg-ui-bg text-ui-textSecondary hover:border-brand hover:text-brand"
+                            }`}
+                          >
+                            {area}
+                          </button>
+                        );
+                      })}
                     </div>
                   </div>
 
@@ -867,8 +790,8 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                           }}
                           className={`py-3 px-4 rounded-xl border-2 transition-all font-medium text-sm ${
                             formData.celEfektu === effect
-                              ? "border-brand bg-brand text-white"
-                              : "border-[#D4AF37] bg-ui-appBg text-ui-textSecondary hover:border-brand hover:text-brand"
+                              ? "border-brand bg-brand text-black shadow-lg shadow-brand/20 scale-[1.02]"
+                              : "border-[#D4AF37] bg-ui-bg text-ui-textSecondary hover:border-brand hover:text-brand"
                           }`}
                         >
                           {effect}
@@ -879,10 +802,10 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                 </div>
               </section>
 
-              {/* Wywiad Medyczny Hyaluronic */}
-              <section className="bg-gradient-emerald backdrop-blur-sm rounded-2xl shadow-lg p-6 md:p-8">
+              {/* Wywiad Medyczny */}
+              <section className="bg-gradient-emerald rounded-2xl border border-[#D4AF37] p-6 md:p-8">
                 <h2 className="text-2xl font-serif text-white mb-6 flex items-center gap-3">
-                  <span className="w-8 h-8 bg-brand text-white rounded-full flex items-center justify-center text-sm font-sans">
+                  <span className="w-8 h-8 bg-brand text-black rounded-full flex items-center justify-center text-sm font-sans font-bold">
                     4
                   </span>
                   Wywiad Medyczny
@@ -892,7 +815,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                 </p>
 
                 {/* Medications Input */}
-                <div className="bg-gradient-emerald p-5 rounded-xl border border-[#D4AF37] mb-6">
+                <div className="bg-ui-bg p-5 rounded-xl border border-[#D4AF37] mb-6">
                   <h3 className="font-serif text-white text-lg mb-2">
                     PRZECIWSKAZANIA DO WYKONANIA ZABIEGU
                   </h3>
@@ -902,7 +825,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                   </label>
                   <textarea
                     rows={3}
-                    className="w-full px-4 py-3 bg-ui-appBg border border-[#D4AF37] rounded-xl focus:border-brand outline-none text-sm"
+                    className="w-full px-4 py-3 bg-ui-bg border border-[#D4AF37] rounded-xl focus:border-brand outline-none text-sm"
                     placeholder="Wpisz leki lub wpisz 'BRAK'..."
                     value={
                       (formData.informacjaDodatkowa || "")
@@ -942,16 +865,16 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                   {showContraindicationsWizard && !isWizardComplete ? (
                     <div
                       key={currentContraindicationIndex}
-                      className="bg-gradient-emerald p-6 rounded-xl border border-[#D4AF37] max-w-2xl mx-auto shadow-sm"
+                      className="bg-ui-bg p-6 rounded-xl border border-[#D4AF37] max-w-2xl mx-auto shadow-sm"
                     >
                       <div className="flex justify-between items-center mb-6">
                         <span className="text-sm font-medium text-brand">
                           Pytanie {currentContraindicationIndex + 1} z{" "}
                           {contraindicationKeys.length}
                         </span>
-                        <div className="h-2 w-24 bg-ui-border rounded-full overflow-hidden">
+                        <div className="h-2 w-24 bg-gradient-emerald rounded-full border border-brand/20 overflow-hidden">
                           <div
-                            className="h-full bg-brand transition-all duration-300"
+                            className="h-full bg-brand transition-all duration-300 shadow-[0_0_10px_rgba(212,175,55,0.5)]"
                             style={{
                               width: `${((currentContraindicationIndex + 1) / contraindicationKeys.length) * 100}%`,
                             }}
@@ -972,7 +895,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                           <div className="mb-6 animate-in fade-in slide-in-from-top-2">
                             <input
                               type="text"
-                              className="w-full px-4 py-3 text-base bg-ui-appBg border-2 border-[#D4AF37] rounded-xl focus:border-brand outline-none transition-colors"
+                              className="w-full px-4 py-3 text-base bg-ui-bg border-2 border-[#D4AF37] rounded-xl focus:border-brand outline-none transition-colors"
                               placeholder={
                                 currentContraindicationObject.followUpPlaceholder
                               }
@@ -1000,12 +923,11 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                           type="button"
                           onClick={() => handleWizardAnswer(false)}
                           className={`py-4 px-6 rounded-xl border-2 transition-all text-lg font-medium shadow-sm hover:shadow-md active:scale-95 flex items-center justify-center ${
-                            currentContraindicationObject?.hasFollowUp &&
                             formData.przeciwwskazania[
                               currentContraindicationKey
                             ] === false
                               ? "border-green-500 bg-green-500 text-white"
-                              : "bg-ui-appBg border-[#D4AF37] text-ui-textSecondary active:border-green-500 active:bg-green-500 active:text-white md:hover:border-green-500 md:hover:bg-green-500 md:hover:text-white"
+                              : "bg-ui-bg border-[#D4AF37] text-ui-textSecondary active:border-green-500 active:bg-green-500 active:text-white md:hover:border-green-500 md:hover:bg-green-500 md:hover:text-white"
                           }`}
                         >
                           NIE
@@ -1014,12 +936,11 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                           type="button"
                           onClick={() => handleWizardAnswer(true)}
                           className={`py-4 px-6 rounded-xl border-2 transition-all text-lg font-medium shadow-sm hover:shadow-md active:scale-95 flex items-center justify-center ${
-                            currentContraindicationObject?.hasFollowUp &&
                             formData.przeciwwskazania[
                               currentContraindicationKey
                             ] === true
                               ? "border-red-500 bg-red-500 text-white"
-                              : "bg-ui-appBg border-[#D4AF37] text-ui-textSecondary active:border-red-500 active:bg-red-500 active:text-white md:hover:border-red-500 md:hover:bg-red-500 md:hover:text-white"
+                              : "bg-ui-bg border-[#D4AF37] text-ui-textSecondary active:border-red-500 active:bg-red-500 active:text-white md:hover:border-red-500 md:hover:bg-red-500 md:hover:text-white"
                           }`}
                         >
                           TAK
@@ -1135,9 +1056,9 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
               </section>
 
               {/* Skutki Uboczne i Powikłania */}
-              <section className="bg-gradient-emerald backdrop-blur-sm rounded-2xl shadow-lg p-6 md:p-8">
+              <section className="bg-gradient-emerald rounded-2xl border border-[#D4AF37] p-6 md:p-8">
                 <h2 className="text-2xl font-serif text-white mb-6 flex items-center gap-3">
-                  <span className="w-8 h-8 bg-brand text-white rounded-full flex items-center justify-center text-sm font-sans">
+                  <span className="w-8 h-8 bg-brand text-black rounded-full flex items-center justify-center text-sm font-sans font-bold">
                     5
                   </span>
                   Informacje o Skutkach Ubocznych i Powikłaniach
@@ -1145,7 +1066,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
 
                 <div className="space-y-6">
                   {/* Częste skutki uboczne */}
-                  <div className="bg-gradient-emerald p-5 rounded-xl border border-[#D4AF37]/50">
+                  <div className="bg-ui-bg p-5 rounded-xl border border-[#D4AF37]/50">
                     <p className="text-sm font-medium text-white mb-3">
                       MOŻLIWE DO WYSTĄPIENIA SKUTKI UBOCZNE PO PRZEPROWADZONYM
                       ZABIEGU - CZĘSTE
@@ -1163,7 +1084,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                   </div>
 
                   {/* Rzadkie powikłania */}
-                  <div className="bg-gradient-emerald p-5 rounded-xl border border-[#D4AF37]/50">
+                  <div className="bg-ui-bg p-5 rounded-xl border border-[#D4AF37]/50">
                     <p className="text-sm font-medium text-white mb-3">
                       MOŻLIWE POWIKŁANIA PO PRZEPROWADZONYM ZABIEGU – RZADKIE
                     </p>
@@ -1180,7 +1101,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                   </div>
 
                   {/* Bardzo rzadkie powikłania */}
-                  <div className="bg-gradient-emerald p-5 rounded-xl border border-[#D4AF37]/50">
+                  <div className="bg-ui-bg p-5 rounded-xl border border-[#D4AF37]/50">
                     <p className="text-sm font-medium text-white mb-3">
                       MOŻLIWE POWIKŁANIA PO PRZEPROWADZONYM ZABIEGU – BARDZO
                       RZADKIE
@@ -1200,15 +1121,15 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
               </section>
 
               {/* Zalecenia Pozabiegowe */}
-              <section className="bg-gradient-emerald backdrop-blur-sm rounded-2xl shadow-lg p-6 md:p-8">
+              <section className="bg-gradient-emerald rounded-2xl border border-[#D4AF37] p-6 md:p-8">
                 <h2 className="text-2xl font-serif text-white mb-6 flex items-center gap-3">
-                  <span className="w-8 h-8 bg-brand text-white rounded-full flex items-center justify-center text-sm font-sans">
+                  <span className="w-8 h-8 bg-brand text-black rounded-full flex items-center justify-center text-sm font-sans font-bold">
                     6
                   </span>
                   Zalecenia Pozabiegowe
                 </h2>
 
-                <div className="bg-gradient-emerald p-5 rounded-xl border border-[#D4AF37]/50 mb-6">
+                <div className="bg-ui-bg p-5 rounded-xl border border-[#D4AF37]/50 mb-6">
                   <p className="text-sm text-ui-textSecondary leading-relaxed mb-4">
                     <strong>
                       Niniejszym oświadczam, że zostałam/em poinformowana/y o
@@ -1252,12 +1173,12 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
           {/* KROK 2: RODO */}
           {currentStep === "RODO" && (
             <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
-              <section className="bg-gradient-emerald backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden">
+              <section className="bg-gradient-emerald rounded-2xl border border-[#D4AF37] overflow-hidden">
                 <div className="p-6 md:p-8">
                   <h3 className="text-2xl font-serif text-white mb-6">
                     {rodoInfo.consentTitle}
                   </h3>
-                  <div className="bg-gradient-emerald p-6 rounded-xl text-sm text-ui-textSecondary leading-relaxed whitespace-pre-line max-h-[60vh] overflow-y-auto mb-6 border border-[#D4AF37]">
+                  <div className="bg-ui-bg p-6 rounded-xl text-sm text-ui-textSecondary leading-relaxed whitespace-pre-line max-h-[60vh] overflow-y-auto mb-6 border border-[#D4AF37]">
                     {rodoInfo.consentText}
                   </div>
                   {/* Signature Area for RODO */}
@@ -1265,7 +1186,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                     <p className="text-sm text-ui-textSecondary mb-4 font-medium uppercase tracking-wide">
                       Podpis Klienta (Zgoda na przetwarzanie danych):
                     </p>
-                    <div className="bg-ui-appBg rounded-xl overflow-hidden min-h-[200px] border border-[#D4AF37] p-1">
+                    <div className="bg-ui-bg rounded-xl overflow-hidden min-h-[200px] border border-[#D4AF37] p-1">
                       <SignaturePad
                         label=""
                         value={formData.podpisRodo || ""}
@@ -1307,12 +1228,12 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
           {/* KROK 3: RODO 2 */}
           {currentStep === "RODO2" && (
             <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
-              <section className="bg-gradient-emerald backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden">
+              <section className="bg-gradient-emerald rounded-2xl border border-[#D4AF37] overflow-hidden">
                 <div className="p-6 md:p-8">
                   <h3 className="text-2xl font-serif text-white mb-6">
                     {rodoInfo.clauseTitle}
                   </h3>
-                  <div className="bg-gradient-emerald p-6 rounded-xl text-sm text-ui-textSecondary leading-relaxed whitespace-pre-line max-h-[60vh] overflow-y-auto mb-6 border border-[#D4AF37]">
+                  <div className="bg-ui-bg p-6 rounded-xl text-sm text-ui-textSecondary leading-relaxed whitespace-pre-line max-h-[60vh] overflow-y-auto mb-6 border border-[#D4AF37]">
                     {rodoInfo.clauseText}
                   </div>
                   {/* Signature Area for RODO 2 */}
@@ -1320,7 +1241,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                     <p className="text-sm text-ui-textSecondary mb-4 font-medium uppercase tracking-wide">
                       Podpis Klienta (Klauzula informacyjna):
                     </p>
-                    <div className="bg-ui-appBg rounded-xl overflow-hidden min-h-[200px] border border-[#D4AF37] p-1">
+                    <div className="bg-ui-bg rounded-xl overflow-hidden min-h-[200px] border border-[#D4AF37] p-1">
                       <SignaturePad
                         label=""
                         value={formData.podpisRodo2 || ""}
@@ -1359,12 +1280,11 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
             </div>
           )}
 
-          {/* KROK 4: ZABIEG */}
           {currentStep === "TREATMENT" && (
             <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
-              {/* Ryzyko Hyaluronic */}
-              <section className="bg-gradient-emerald backdrop-blur-sm rounded-2xl shadow-lg">
-                <div className="p-6 md:p-8">
+              {/* Świadomość Ryzyka */}
+              <section className="bg-gradient-emerald rounded-2xl border border-[#D4AF37] p-6 md:p-8">
+                <div className="p-0">
                   <h3 className="text-2xl font-serif text-white mb-6 border-b border-[#D4AF37] pb-2">
                     Świadomość Ryzyka
                   </h3>
@@ -1374,7 +1294,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                   </p>
 
                   <div className="space-y-6">
-                    <div className="bg-gradient-emerald p-5 rounded-xl border border-[#D4AF37]/50">
+                    <div className="bg-ui-bg p-5 rounded-xl border border-[#D4AF37]/50">
                       <p className="text-sm font-medium text-white mb-3">
                         Możliwe naturalne reakcje:
                       </p>
@@ -1390,7 +1310,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                       </ul>
                     </div>
 
-                    <div className="bg-gradient-emerald p-5 rounded-xl border border-[#D4AF37]/50">
+                    <div className="bg-ui-bg p-5 rounded-xl border border-[#D4AF37]/50">
                       <p className="text-sm font-medium text-white mb-3">
                         Możliwe powikłania:
                       </p>
@@ -1415,16 +1335,16 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                 </div>
               </section>
 
-              {/* Zalecenia Hyaluronic */}
-              <section className="bg-gradient-emerald backdrop-blur-sm rounded-2xl shadow-lg">
-                <div className="p-6 md:p-8">
+              {/* Zalecenia Pozabiegowe */}
+              <section className="bg-gradient-emerald rounded-2xl border border-[#D4AF37] p-6 md:p-8">
+                <div className="p-0">
                   <h3 className="text-2xl font-serif text-white mb-6 border-b border-[#D4AF37] pb-2">
                     Zobowiązania Pozabiegowe
                   </h3>
                   <p className="text-sm text-ui-textSecondary mb-4">
                     Zobowiązuję się do przestrzegania następujących zaleceń:
                   </p>
-                  <ul className="space-y-2 text-ui-textSecondary text-sm bg-ui-appBg/50 p-4 rounded-xl border border-[#D4AF37]/30">
+                  <ul className="space-y-2 text-ui-textSecondary text-sm bg-ui-bg p-4 rounded-xl border border-[#D4AF37]/30">
                     {makijazPermanentnyPostCare.map((instruction, index) => (
                       <li key={index} className="flex items-start gap-2">
                         <span className="text-brand">•</span>
@@ -1444,11 +1364,11 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
               </section>
 
               {/* Regulamin Salonu */}
-              <section className="bg-gradient-emerald backdrop-blur-sm rounded-2xl shadow-lg">
-                <div className="p-6 md:p-8">
-                  <h3 className="text-2xl font-serif text-white mb-6 border-b border-[#D4AF37] pb-2">
-                    Regulamin Salonu
-                  </h3>
+              <section className="bg-gradient-emerald rounded-2xl border border-[#D4AF37] p-6 md:p-8">
+                <h3 className="text-2xl font-serif text-white mb-6 border-b border-[#D4AF37] pb-2">
+                  Regulamin Salonu
+                </h3>
+                <div className="bg-ui-bg p-6 rounded-xl border border-[#D4AF37]/50">
                   <p className="text-sm text-ui-textSecondary mb-4 font-medium">
                     Jestem świadoma poniższych zasad, wynikających z regulaminu
                     Salonu:
@@ -1612,11 +1532,11 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
               </section>
 
               {/* Oświadczenia */}
-              <section className="bg-gradient-emerald backdrop-blur-sm rounded-2xl shadow-lg p-6 md:p-8">
+              <section className="bg-gradient-emerald rounded-2xl border border-[#D4AF37] p-6 md:p-8">
                 <h3 className="text-2xl font-serif text-white mb-6 border-b border-[#D4AF37] pb-2">
                   Oświadczenia
                 </h3>
-                <div className="bg-gradient-emerald p-5 rounded-xl mb-6 border border-[#D4AF37]/50">
+                <div className="bg-ui-bg p-5 rounded-xl mb-6 border border-[#D4AF37]/50">
                   <h4 className="font-serif text-white text-lg mb-4">
                     OŚWIADCZENIE I ŚWIADOMA ZGODA NA ZABIEG MAKIJAŻU
                     PERMANENTNEGO
@@ -1673,7 +1593,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                       ostateczny kolor będzie widoczny po około{" "}
                       <input
                         type="text"
-                        className="inline-block w-16 px-2 py-0.5 text-center bg-ui-appBg border-b-2 border-[#D4AF37] focus:border-brand outline-none text-sm"
+                        className="inline-block w-16 px-2 py-0.5 text-center bg-ui-bg border-b-2 border-[#D4AF37] focus:border-brand outline-none text-sm"
                         placeholder="..."
                         value={formData.numerZabiegu || ""}
                         onChange={(e) =>
@@ -1732,7 +1652,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                 </div>
 
                 {/* Podpis pod Zabiegiem (Nowy, obowiązkowy) */}
-                <div className="bg-gradient-emerald backdrop-blur-sm rounded-2xl shadow-lg p-6 md:p-8 mt-8">
+                <div className="bg-ui-bg rounded-2xl border border-[#D4AF37] p-6 md:p-8 mt-8">
                   <h3 className="text-xl font-serif text-white mb-4 border-b border-[#D4AF37] pb-2">
                     Potwierdzenie Zgody na Zabieg
                   </h3>
@@ -1775,10 +1695,10 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
             </div>
           )}
 
-          {/* KROK 4: MARKETING */}
+          {/* KROK 5: MARKETING */}
           {currentStep === "MARKETING" && (
             <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
-              <section className="bg-gradient-emerald backdrop-blur-sm rounded-2xl shadow-lg p-6 md:p-8">
+              <section className="bg-gradient-emerald rounded-2xl border border-[#D4AF37] p-6 md:p-8">
                 <h3 className="text-2xl font-serif text-white mb-6 flex items-center gap-3">
                   <span className="w-8 h-8 bg-brand text-white rounded-full flex items-center justify-center text-sm font-sans">
                     7
@@ -1790,7 +1710,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                 </p>
 
                 {/* Zgoda na marketing */}
-                <div className="bg-gradient-emerald backdrop-blur-sm rounded-xl shadow-sm overflow-hidden border border-[#D4AF37] hover:shadow-md transition-shadow">
+                <div className="bg-ui-bg rounded-xl border border-[#D4AF37] overflow-hidden hover:shadow-lg transition-shadow">
                   <div className="p-6">
                     <h4 className="font-serif text-white text-lg mb-3">
                       Zgoda Marketingowa
@@ -1814,7 +1734,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                 </div>
 
                 {/* Zgoda na wizerunek */}
-                <div className="bg-gradient-emerald backdrop-blur-sm rounded-xl shadow-sm overflow-hidden border border-[#D4AF37] hover:shadow-md transition-shadow">
+                <div className="bg-ui-bg rounded-xl border border-[#D4AF37] overflow-hidden hover:shadow-lg transition-shadow">
                   <div className="p-6">
                     <h4 className="font-serif text-white text-lg mb-3">
                       Zgoda na Wykorzystanie Wizerunku
@@ -1838,7 +1758,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                             e.target.value,
                           )
                         }
-                        className="w-full px-4 py-2 bg-gradient-emerald border-b border-[#D4AF37] focus:border-brand outline-none text-sm transition-colors text-white"
+                        className="w-full px-4 py-2 bg-ui-bg border-b border-[#D4AF37] focus:border-brand outline-none text-sm transition-colors text-white"
                         placeholder="np. Instagram, Facebook (zostaw puste = wszystkie)"
                       />
                     </div>

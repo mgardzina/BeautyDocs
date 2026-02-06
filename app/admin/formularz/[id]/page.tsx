@@ -266,7 +266,7 @@ export default function FormDetailsPage() {
   return (
     <div className="min-h-screen bg-black">
       {/* Header */}
-      <header className="bg-gradient-emerald backdrop-blur-sm sticky top-0 z-50 shadow-lg border-b border-emerald/30">
+      <header className="bg-gradient-emerald backdrop-blur-sm sticky top-0 z-50 shadow-lg border-b border-brand">
         <div className="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
           <Link
             href="/admin"

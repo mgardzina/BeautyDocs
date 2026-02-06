@@ -2,10 +2,12 @@ import "dotenv/config";
 import { Pool } from "pg";
 import { hash } from "bcryptjs";
 
-const connectionString = process.env.DATABASE_URL?.replace(/[?&]sslmode=[^&]+/, "");
-
 const pool = new Pool({
-  connectionString,
+  user: "postgres",
+  password: process.env.DATABASE_URL?.split(":")[2].split("@")[0].replace(/%3E/g, ">").replace(/%29/g, ")").replace(/%24/g, "$"),
+  host: "localhost",
+  port: 5433,
+  database: "powderbrowsacademypl",
   ssl: false,
 });
 

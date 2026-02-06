@@ -28,7 +28,7 @@ interface ConsentState {
 const CONSENT_VERSION = "1.0.0";
 const STORAGE_KEY = "cookieConsent";
 
-// Cookie category descriptions with Royal Lips colors
+// Cookie category descriptions with Emerald Royal Theme colors
 const COOKIE_CATEGORIES = {
   necessary: {
     key: "necessary" as const,
@@ -49,11 +49,11 @@ const COOKIE_CATEGORIES = {
     ],
     required: true,
     icon: Shield,
-    bgColor: "bg-[#E8E3DC]",
-    iconBgColor: "bg-[#D4CEC4]",
-    iconColor: "text-[#4A4540]",
-    borderColor: "border-[#C4B5A0]",
-    switchOnColor: "bg-[#A89885]",
+    bgColor: "bg-ui-appBg",
+    iconBgColor: "bg-emerald-DEFAULT/20",
+    iconColor: "text-brand-DEFAULT",
+    borderColor: "border-ui-appBorder",
+    switchOnColor: "bg-brand-DEFAULT",
   },
   marketing: {
     key: "marketing" as const,
@@ -74,11 +74,11 @@ const COOKIE_CATEGORIES = {
     ],
     required: false,
     icon: Target,
-    bgColor: "bg-[#E8E3DC]",
-    iconBgColor: "bg-[#D4CEC4]",
-    iconColor: "text-[#4A4540]",
-    borderColor: "border-[#C4B5A0]",
-    switchOnColor: "bg-[#A89885]",
+    bgColor: "bg-ui-appBg",
+    iconBgColor: "bg-emerald-DEFAULT/20",
+    iconColor: "text-brand-DEFAULT",
+    borderColor: "border-ui-appBorder",
+    switchOnColor: "bg-brand-DEFAULT",
   },
   analytics: {
     key: "analytics" as const,
@@ -99,11 +99,11 @@ const COOKIE_CATEGORIES = {
     ],
     required: false,
     icon: BarChart3,
-    bgColor: "bg-[#E8E3DC]",
-    iconBgColor: "bg-[#D4CEC4]",
-    iconColor: "text-[#4A4540]",
-    borderColor: "border-[#C4B5A0]",
-    switchOnColor: "bg-[#A89885]",
+    bgColor: "bg-ui-appBg",
+    iconBgColor: "bg-emerald-DEFAULT/20",
+    iconColor: "text-brand-DEFAULT",
+    borderColor: "border-ui-appBorder",
+    switchOnColor: "bg-brand-DEFAULT",
   },
 };
 
@@ -291,14 +291,14 @@ export default function CookieConsent() {
 
   return (
     <>
-      {/* Cookie button in bottom left corner - Royal Lips style */}
+      {/* Cookie button in bottom left corner - Emerald Royal style */}
       {showCookieButton && !showBanner && (
         <button
           onClick={handleOpenSettings}
-          className="fixed bottom-4 left-4 z-[98] p-3 bg-[#4A4540] rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-[#A89885] focus:ring-offset-2 group"
+          className="fixed bottom-4 left-4 z-[98] p-3 bg-emerald-DEFAULT border border-brand-DEFAULT/30 rounded-full shadow-[0_0_15px_rgba(27,77,62,0.4)] hover:shadow-[0_0_20px_rgba(212,175,55,0.3)] transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-brand-DEFAULT focus:ring-offset-2 focus:ring-offset-black group"
           aria-label="Otwórz ustawienia plików cookie"
         >
-          <Cookie className="w-5 h-5 text-[#E8E3DC]" />
+          <Cookie className="w-5 h-5 text-brand-DEFAULT" />
         </button>
       )}
 
@@ -306,7 +306,7 @@ export default function CookieConsent() {
         <>
           {/* Backdrop */}
           <div
-            className="fixed inset-0 bg-black/50 z-[99] backdrop-blur-sm"
+            className="fixed inset-0 bg-black/80 z-[99] backdrop-blur-md"
             aria-hidden="true"
             onClick={handleAcceptNecessary}
           />
@@ -320,28 +320,29 @@ export default function CookieConsent() {
             aria-describedby="cookie-banner-description"
             className="fixed inset-0 z-[100] flex items-center justify-center p-4"
           >
-            <div className="bg-[#E8E3DC] rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden flex flex-col">
-              {/* Header - Royal Lips style */}
-              <div className="p-6 pb-4 bg-[#4A4540]">
+            <div className="bg-ui-appBg border border-ui-appBorder rounded-2xl shadow-[0_0_40px_rgba(0,0,0,0.7)] max-w-2xl w-full max-h-[90vh] overflow-hidden flex flex-col">
+              {/* Header - Emerald Royal Theme style */}
+              <div className="p-6 pb-4 bg-gradient-to-b from-emerald-DEFAULT to-ui-appBg border-b border-ui-appBorder">
                 <div className="flex items-start justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="p-2.5 bg-[#A89885] rounded-xl shadow-md">
+                    <div className="p-2.5 bg-brand-DEFAULT/10 border border-brand-DEFAULT/30 rounded-xl shadow-md">
                       <Cookie
-                        className="w-6 h-6 text-[#E8E3DC]"
+                        className="w-6 h-6 text-brand-DEFAULT"
                         aria-hidden="true"
                       />
                     </div>
                     <h2
                       id="cookie-banner-title"
-                      className="text-xl font-serif font-light tracking-wider text-[#E8E3DC] uppercase"
+                      className="text-xl font-serif font-light tracking-wider text-white uppercase"
                     >
-                      Używamy plików cookie
+                      Używamy{" "}
+                      <span className="text-brand-DEFAULT">plików cookie</span>
                     </h2>
                   </div>
                   <button
                     ref={firstFocusableRef}
                     onClick={handleAcceptNecessary}
-                    className="p-2 text-[#C4B5A0] hover:text-[#E8E3DC] hover:bg-[#A89885]/50 rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-[#A89885] focus:ring-offset-2 focus:ring-offset-[#4A4540]"
+                    className="p-2 text-ui-textMuted hover:text-brand-DEFAULT hover:bg-brand-DEFAULT/10 rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-brand-DEFAULT"
                     aria-label="Zamknij i zaakceptuj tylko niezbędne"
                   >
                     <X className="w-5 h-5" aria-hidden="true" />
@@ -349,7 +350,7 @@ export default function CookieConsent() {
                 </div>
                 <p
                   id="cookie-banner-description"
-                  className="mt-3 text-sm text-[#C4B5A0] leading-relaxed font-light"
+                  className="mt-3 text-sm text-emerald-sage leading-relaxed font-light"
                 >
                   Szanowni Państwo, nasz serwis stosuje pliki cookies. Głównie w
                   celach funkcjonalnych oraz w celu, by nasze usługi były
@@ -359,7 +360,7 @@ export default function CookieConsent() {
               </div>
 
               {/* Cookie Categories - always visible */}
-              <div className="flex-1 overflow-y-auto px-6 py-4 space-y-3">
+              <div className="flex-1 overflow-y-auto px-6 py-4 space-y-3 bg-ui-appBg">
                 {(
                   Object.keys(COOKIE_CATEGORIES) as Array<
                     keyof typeof COOKIE_CATEGORIES
@@ -373,35 +374,37 @@ export default function CookieConsent() {
                   return (
                     <div
                       key={categoryKey}
-                      className={`border-2 ${isEnabled ? category.borderColor : "border-[#D4CEC4]"} rounded-xl overflow-hidden transition-all duration-300`}
+                      className={`border ${isEnabled ? "border-brand-DEFAULT/50" : "border-ui-appBorder"} rounded-xl overflow-hidden transition-all duration-300`}
                     >
                       <div
-                        className={`flex items-center justify-between p-4 ${isEnabled ? category.bgColor : "bg-[#D4CEC4]/50"} transition-colors duration-300`}
+                        className={`flex items-center justify-between p-4 ${isEnabled ? "bg-emerald-DEFAULT/5" : "bg-transparent"} transition-colors duration-300`}
                       >
                         <button
                           onClick={() => toggleCategory(categoryKey)}
-                          className="flex items-center gap-3 flex-1 text-left focus:outline-none focus:ring-2 focus:ring-[#A89885] focus:ring-inset rounded-lg"
+                          className="flex items-center gap-3 flex-1 text-left focus:outline-none group"
                           aria-expanded={isExpanded}
                           aria-controls={`cookie-category-${categoryKey}`}
                         >
                           <div
-                            className={`p-2 ${category.iconBgColor} rounded-lg`}
+                            className={`p-2 ${category.iconBgColor} border border-brand-DEFAULT/20 rounded-lg group-hover:border-brand-DEFAULT/40 transition-colors`}
                           >
                             <IconComponent
                               className={`w-4 h-4 ${category.iconColor}`}
                             />
                           </div>
                           <div className="flex items-center gap-2">
-                            <span className="font-medium text-[#4A4540]">
+                            <span className="font-medium text-white group-hover:text-brand-DEFAULT transition-colors">
                               {category.title}
                             </span>
                             {category.required && (
-                              <span className="text-xs px-2 py-0.5 bg-[#C4B5A0] text-[#4A4540] rounded-full">
+                              <span className="text-[10px] px-2 py-0.5 bg-brand-DEFAULT text-black border border-brand-DEFAULT/30 rounded-full uppercase tracking-tighter font-bold">
                                 Wymagane
                               </span>
                             )}
                           </div>
-                          <span className={`${category.iconColor} ml-auto`}>
+                          <span
+                            className={`${category.iconColor} ml-auto opacity-50 group-hover:opacity-100 transition-opacity`}
+                          >
                             {isExpanded ? (
                               <ChevronUp className="w-5 h-5" />
                             ) : (
@@ -415,10 +418,10 @@ export default function CookieConsent() {
                           onClick={() => togglePreference(categoryKey)}
                           disabled={category.required}
                           className={`
-                              relative w-14 h-7 rounded-full transition-all duration-300 flex-shrink-0 ml-4
-                              focus:outline-none focus:ring-2 focus:ring-[#A89885] focus:ring-offset-2
-                              ${category.required ? "cursor-not-allowed opacity-75" : "cursor-pointer"}
-                              ${isEnabled ? category.switchOnColor : "bg-[#D4CEC4]"}
+                              relative w-12 h-6 rounded-full transition-all duration-300 flex-shrink-0 ml-4
+                              focus:outline-none focus:ring-2 focus:ring-brand-DEFAULT focus:ring-offset-2 focus:ring-offset-ui-appBg
+                              ${category.required ? "cursor-not-allowed opacity-50" : "cursor-pointer hover:scale-105"}
+                              ${isEnabled ? category.switchOnColor : "bg-ui-appBorder"}
                             `}
                           role="switch"
                           aria-checked={isEnabled}
@@ -426,9 +429,9 @@ export default function CookieConsent() {
                         >
                           <span
                             className={`
-                                absolute top-0.5 left-0.5 w-6 h-6 bg-white rounded-full shadow-md
-                                transition-transform duration-300 ease-in-out
-                                ${isEnabled ? "translate-x-7" : "translate-x-0"}
+                                absolute top-1 left-1 w-4 h-4 bg-brand-light rounded-full shadow-md
+                                transition-all duration-300 ease-in-out
+                                ${isEnabled ? "translate-x-6" : "translate-x-0"}
                               `}
                           />
                         </button>
@@ -443,33 +446,31 @@ export default function CookieConsent() {
                           `}
                         aria-hidden={!isExpanded}
                       >
-                        <div className="p-4 pt-2 bg-[#E8E3DC] border-t border-[#D4CEC4]">
-                          <p className="text-sm text-[#4A4540] leading-relaxed mb-3 font-light">
+                        <div className="p-4 pt-2 bg-black/20 border-t border-ui-appBorder">
+                          <p className="text-sm text-emerald-sage leading-relaxed mb-3 font-light">
                             {category.description}
                           </p>
                           {category.cookies.length > 0 && (
-                            <div
-                              className={`${category.bgColor} rounded-lg p-3`}
-                            >
+                            <div className="bg-ui-appBg/50 border border-ui-appBorder rounded-lg p-3">
                               <table className="w-full text-xs">
                                 <thead>
-                                  <tr className="text-left text-[#4A4540]/70 border-b border-[#C4B5A0]">
+                                  <tr className="text-left text-brand-DEFAULT border-b border-ui-appBorder">
                                     <th className="pb-2 font-medium">Nazwa</th>
                                     <th className="pb-2 font-medium">Cel</th>
                                     <th className="pb-2 font-medium">Czas</th>
                                   </tr>
                                 </thead>
-                                <tbody className="text-[#4A4540]">
+                                <tbody className="text-ui-textLight">
                                   {category.cookies.map((cookie, index) => (
                                     <tr
                                       key={index}
-                                      className="border-t border-[#D4CEC4] first:border-t-0"
+                                      className="border-t border-ui-appBorder first:border-t-0"
                                     >
-                                      <td className="py-2 font-mono text-[#4A4540] font-semibold">
+                                      <td className="py-2 font-mono text-brand-DEFAULT/80 font-semibold">
                                         {cookie.name}
                                       </td>
                                       <td className="py-2">{cookie.purpose}</td>
-                                      <td className="py-2 text-[#4A4540]/70">
+                                      <td className="py-2 text-ui-textMuted">
                                         {cookie.duration}
                                       </td>
                                     </tr>
@@ -485,24 +486,24 @@ export default function CookieConsent() {
                 })}
               </div>
 
-              {/* Footer with Actions - Royal Lips style */}
-              <div className="p-6 pt-4 border-t border-[#D4CEC4] bg-[#D4CEC4]/50">
+              {/* Footer with Actions - Emerald Royal Theme style */}
+              <div className="p-6 pt-4 border-t border-ui-appBorder bg-black/40">
                 <div className="flex flex-col sm:flex-row gap-3">
                   <button
                     onClick={handleAcceptNecessary}
-                    className="flex-1 px-4 py-3 border-2 border-[#4A4540]/30 text-[#4A4540] font-light text-sm rounded-xl hover:bg-[#D4CEC4] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#A89885] focus:ring-offset-2 tracking-wider uppercase"
+                    className="flex-1 px-4 py-3 border border-ui-appBorder text-ui-textSecondary font-light text-xs rounded-xl hover:bg-white/5 hover:text-white transition-all duration-300 tracking-widest uppercase"
                   >
                     Tylko niezbędne
                   </button>
                   <button
                     onClick={handleAcceptSelected}
-                    className="flex-1 px-4 py-3 border-2 border-[#A89885] text-[#4A4540] font-light text-sm rounded-xl hover:bg-[#C4B5A0]/30 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#A89885] focus:ring-offset-2 tracking-wider uppercase"
+                    className="flex-1 px-4 py-3 border border-brand-DEFAULT/30 text-brand-DEFAULT font-light text-xs rounded-xl hover:bg-brand-DEFAULT/10 transition-all duration-300 tracking-widest uppercase"
                   >
                     Potwierdź wybrane
                   </button>
                   <button
                     onClick={handleAcceptAll}
-                    className="flex-1 px-4 py-3 bg-[#4A4540] text-[#E8E3DC] font-light text-sm rounded-xl hover:bg-[#5a554f] transition-all duration-300 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-[#A89885] focus:ring-offset-2 tracking-wider uppercase"
+                    className="flex-1 px-4 py-3 bg-brand-DEFAULT text-black font-semibold text-xs rounded-xl hover:bg-brand-dark transition-all duration-300 shadow-[0_0_15px_rgba(212,175,55,0.4)] hover:shadow-[0_0_20px_rgba(212,175,55,0.6)] tracking-widest uppercase border border-brand-light/30"
                   >
                     Zaakceptuj wszystkie
                   </button>
@@ -512,7 +513,7 @@ export default function CookieConsent() {
                 <div className="mt-4 text-center">
                   <Link
                     href="/polityka-prywatnosci"
-                    className="text-xs text-[#4A4540]/70 hover:text-[#4A4540] underline transition-colors focus:outline-none focus:ring-2 focus:ring-[#A89885] focus:ring-offset-2 rounded tracking-wider"
+                    className="text-[10px] text-ui-textMuted hover:text-brand-DEFAULT underline transition-colors focus:outline-none focus:ring-1 focus:ring-brand-DEFAULT rounded tracking-widest uppercase"
                   >
                     Polityka prywatności
                   </Link>
