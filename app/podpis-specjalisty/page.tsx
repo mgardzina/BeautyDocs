@@ -14,7 +14,7 @@ export default function SpecialistSignaturePage() {
   };
 
   return (
-    <div className="min-h-screen bg-ui-appBg flex flex-col items-center justify-center p-4">
+    <div className="min-h-screen bg-ui-bg flex flex-col items-center justify-center p-4">
       <div className="w-full max-w-2xl bg-gradient-emerald p-8 rounded-2xl shadow-xl border border-emerald/20">
         <h1 className="text-3xl font-serif text-white mb-6 text-center">
           Generator Podpisu Specjalisty

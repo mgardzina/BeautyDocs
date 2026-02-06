@@ -49,10 +49,10 @@ const COOKIE_CATEGORIES = {
     ],
     required: true,
     icon: Shield,
-    bgColor: "bg-ui-appBg",
+    bgColor: "bg-ui-bg",
     iconBgColor: "bg-emerald-DEFAULT/20",
     iconColor: "text-brand-DEFAULT",
-    borderColor: "border-ui-appBorder",
+    borderColor: "border-ui-border",
     switchOnColor: "bg-brand-DEFAULT",
   },
   marketing: {
@@ -74,10 +74,10 @@ const COOKIE_CATEGORIES = {
     ],
     required: false,
     icon: Target,
-    bgColor: "bg-ui-appBg",
+    bgColor: "bg-ui-bg",
     iconBgColor: "bg-emerald-DEFAULT/20",
     iconColor: "text-brand-DEFAULT",
-    borderColor: "border-ui-appBorder",
+    borderColor: "border-ui-border",
     switchOnColor: "bg-brand-DEFAULT",
   },
   analytics: {
@@ -99,10 +99,10 @@ const COOKIE_CATEGORIES = {
     ],
     required: false,
     icon: BarChart3,
-    bgColor: "bg-ui-appBg",
+    bgColor: "bg-ui-bg",
     iconBgColor: "bg-emerald-DEFAULT/20",
     iconColor: "text-brand-DEFAULT",
-    borderColor: "border-ui-appBorder",
+    borderColor: "border-ui-border",
     switchOnColor: "bg-brand-DEFAULT",
   },
 };
@@ -320,9 +320,9 @@ export default function CookieConsent() {
             aria-describedby="cookie-banner-description"
             className="fixed inset-0 z-[100] flex items-center justify-center p-4"
           >
-            <div className="bg-ui-appBg border border-ui-appBorder rounded-2xl shadow-[0_0_40px_rgba(0,0,0,0.7)] max-w-2xl w-full max-h-[90vh] overflow-hidden flex flex-col">
+            <div className="bg-ui-bg border border-ui-border rounded-2xl shadow-[0_0_40px_rgba(0,0,0,0.7)] max-w-2xl w-full max-h-[90vh] overflow-hidden flex flex-col">
               {/* Header - Emerald Royal Theme style */}
-              <div className="p-6 pb-4 bg-gradient-to-b from-emerald-DEFAULT to-ui-appBg border-b border-ui-appBorder">
+              <div className="p-6 pb-4 bg-gradient-to-b from-emerald-DEFAULT to-ui-appBg border-b border-ui-border">
                 <div className="flex items-start justify-between">
                   <div className="flex items-center gap-3">
                     <div className="p-2.5 bg-brand-DEFAULT/10 border border-brand-DEFAULT/30 rounded-xl shadow-md">
@@ -360,7 +360,7 @@ export default function CookieConsent() {
               </div>
 
               {/* Cookie Categories - always visible */}
-              <div className="flex-1 overflow-y-auto px-6 py-4 space-y-3 bg-ui-appBg">
+              <div className="flex-1 overflow-y-auto px-6 py-4 space-y-3 bg-ui-bg">
                 {(
                   Object.keys(COOKIE_CATEGORIES) as Array<
                     keyof typeof COOKIE_CATEGORIES
@@ -374,7 +374,7 @@ export default function CookieConsent() {
                   return (
                     <div
                       key={categoryKey}
-                      className={`border ${isEnabled ? "border-brand-DEFAULT/50" : "border-ui-appBorder"} rounded-xl overflow-hidden transition-all duration-300`}
+                      className={`border ${isEnabled ? "border-brand-DEFAULT/50" : "border-ui-border"} rounded-xl overflow-hidden transition-all duration-300`}
                     >
                       <div
                         className={`flex items-center justify-between p-4 ${isEnabled ? "bg-emerald-DEFAULT/5" : "bg-transparent"} transition-colors duration-300`}
@@ -421,7 +421,7 @@ export default function CookieConsent() {
                               relative w-12 h-6 rounded-full transition-all duration-300 flex-shrink-0 ml-4
                               focus:outline-none focus:ring-2 focus:ring-brand-DEFAULT focus:ring-offset-2 focus:ring-offset-ui-appBg
                               ${category.required ? "cursor-not-allowed opacity-50" : "cursor-pointer hover:scale-105"}
-                              ${isEnabled ? category.switchOnColor : "bg-ui-appBorder"}
+                              ${isEnabled ? category.switchOnColor : "bg-ui-border"}
                             `}
                           role="switch"
                           aria-checked={isEnabled}
@@ -446,15 +446,15 @@ export default function CookieConsent() {
                           `}
                         aria-hidden={!isExpanded}
                       >
-                        <div className="p-4 pt-2 bg-black/20 border-t border-ui-appBorder">
+                        <div className="p-4 pt-2 bg-black/20 border-t border-ui-border">
                           <p className="text-sm text-emerald-sage leading-relaxed mb-3 font-light">
                             {category.description}
                           </p>
                           {category.cookies.length > 0 && (
-                            <div className="bg-ui-appBg/50 border border-ui-appBorder rounded-lg p-3">
+                            <div className="bg-ui-bg/50 border border-ui-border rounded-lg p-3">
                               <table className="w-full text-xs">
                                 <thead>
-                                  <tr className="text-left text-brand-DEFAULT border-b border-ui-appBorder">
+                                  <tr className="text-left text-brand-DEFAULT border-b border-ui-border">
                                     <th className="pb-2 font-medium">Nazwa</th>
                                     <th className="pb-2 font-medium">Cel</th>
                                     <th className="pb-2 font-medium">Czas</th>
@@ -464,7 +464,7 @@ export default function CookieConsent() {
                                   {category.cookies.map((cookie, index) => (
                                     <tr
                                       key={index}
-                                      className="border-t border-ui-appBorder first:border-t-0"
+                                      className="border-t border-ui-border first:border-t-0"
                                     >
                                       <td className="py-2 font-mono text-brand-DEFAULT/80 font-semibold">
                                         {cookie.name}
@@ -487,11 +487,11 @@ export default function CookieConsent() {
               </div>
 
               {/* Footer with Actions - Emerald Royal Theme style */}
-              <div className="p-6 pt-4 border-t border-ui-appBorder bg-black/40">
+              <div className="p-6 pt-4 border-t border-ui-border bg-black/40">
                 <div className="flex flex-col sm:flex-row gap-3">
                   <button
                     onClick={handleAcceptNecessary}
-                    className="flex-1 px-4 py-3 border border-ui-appBorder text-ui-textSecondary font-light text-xs rounded-xl hover:bg-white/5 hover:text-white transition-all duration-300 tracking-widest uppercase"
+                    className="flex-1 px-4 py-3 border border-ui-border text-ui-textSecondary font-light text-xs rounded-xl hover:bg-white/5 hover:text-white transition-all duration-300 tracking-widest uppercase"
                   >
                     Tylko niezbędne
                   </button>

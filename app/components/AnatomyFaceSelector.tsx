@@ -103,7 +103,7 @@ export default function FaceChart({
 
       {/* Kontener na SVG */}
       <div
-        className="relative w-full aspect-square shadow-2xl rounded-2xl overflow-hidden border border-emerald/20 bg-ui-appBg cursor-crosshair"
+        className="relative w-full aspect-square shadow-2xl rounded-2xl overflow-hidden border border-emerald/20 bg-ui-bg cursor-crosshair"
         onMouseMove={handleMouseMove}
       >
         <svg viewBox={`0 0 ${WIDTH} ${HEIGHT}`} className="w-full h-full">

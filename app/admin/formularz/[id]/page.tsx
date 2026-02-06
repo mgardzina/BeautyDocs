@@ -878,7 +878,7 @@ export default function FormDetailsPage() {
                   Zgoda Marketingowa
                 </h3>
                 <span
-                  className={`px-3 py-1 rounded-full text-[10px] font-bold tracking-wider ${form.zgodaMarketing ? "bg-green-500/20 text-green-400 border border-green-500/30" : "bg-ui-appBg text-ui-textSecondary border border-emerald/30"}`}
+                  className={`px-3 py-1 rounded-full text-[10px] font-bold tracking-wider ${form.zgodaMarketing ? "bg-green-500/20 text-green-400 border border-green-500/30" : "bg-ui-bg text-ui-textSecondary border border-emerald/30"}`}
                 >
                   {form.zgodaMarketing ? "WYRAŻONO ZGODĘ" : "BRAK ZGODY"}
                 </span>
@@ -912,7 +912,7 @@ export default function FormDetailsPage() {
                   Zgoda na Wizerunek
                 </h3>
                 <span
-                  className={`px-3 py-1 rounded-full text-[10px] font-bold tracking-wider ${form.zgodaFotografie ? "bg-green-500/20 text-green-400 border border-green-500/30" : "bg-ui-appBg text-ui-textSecondary border border-emerald/30"}`}
+                  className={`px-3 py-1 rounded-full text-[10px] font-bold tracking-wider ${form.zgodaFotografie ? "bg-green-500/20 text-green-400 border border-green-500/30" : "bg-ui-bg text-ui-textSecondary border border-emerald/30"}`}
                 >
                   {form.zgodaFotografie ? "WYRAŻONO ZGODĘ" : "BRAK ZGODY"}
                 </span>
@@ -953,7 +953,7 @@ export default function FormDetailsPage() {
                   Zgoda na Zabieg
                 </h3>
                 <span
-                  className={`px-3 py-1 rounded-full text-[10px] font-bold tracking-wider ${form.zgodaPomocPrawna ? "bg-green-500/20 text-green-400 border border-green-500/30" : "bg-ui-appBg text-ui-textSecondary border border-emerald/30"}`}
+                  className={`px-3 py-1 rounded-full text-[10px] font-bold tracking-wider ${form.zgodaPomocPrawna ? "bg-green-500/20 text-green-400 border border-green-500/30" : "bg-ui-bg text-ui-textSecondary border border-emerald/30"}`}
                 >
                   {form.zgodaPomocPrawna ? "WYRAŻONO ZGODĘ" : "BRAK ZGODY"}
                 </span>
