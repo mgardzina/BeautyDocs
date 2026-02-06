@@ -32,12 +32,12 @@ steps:
         chmod +x cloud-sql-proxy &&
         mkdir -p /cloudsql &&
         chmod 777 /cloudsql &&
-        ./cloud-sql-proxy --unix-socket=/cloudsql royal-lips:europe-west3:royal-lips-db-small &
+        ./cloud-sql-proxy --unix-socket=/cloudsql powderbrowsacademypl:europe-west3:powderbrowspl-db &
         sleep 5 &&
         npm install prisma @prisma/client &&
         npx prisma db push --accept-data-loss
     env:
-      - 'DATABASE_URL=postgresql://postgres:%3Es76s%29Qe-nO0soA%24@localhost/royal-lips-database?host=/cloudsql/royal-lips:europe-west3:royal-lips-db-small'
+      - 'DATABASE_URL=postgresql://postgres:%3Es76s%29Qe-nO0soA%24@localhost/powderbrowsacademypl?host=/cloudsql/powderbrowsacademypl:europe-west3:powderbrowspl-db'
 
   # Deploy container image to Cloud Run
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
