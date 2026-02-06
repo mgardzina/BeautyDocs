@@ -1,0 +1,15 @@
+export const SALON_CONFIG = {
+  name: "Powder Brows Academy",
+  owner: "Malwina Zięba",
+  fullName: "Powder Brows Academy - Malwina Zięba",
+  address: "ul. Siedlanowskiego 3, lokal 12",
+  city: "Stalowa Wola",
+  zipCode: "37-450",
+  nip: "865 231 42 72",
+  phone: "535 505 752",
+  email: "[EMAIL_ADDRESS]",
+  instagram: "https://www.instagram.com/powderbrowsacademy_stalowawola/",
+  instagramHandle: "@powderbrowsacademy_stalowawola",
+  website: "https://powderbrowsacademy.pl",
+  accountNumber: "76 2490 0005 0000 4600 3925 2048",
+};

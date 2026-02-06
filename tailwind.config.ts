@@ -9,54 +9,82 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Semantic Brand Colors
+        // --- STYLE #2: ROYAL / EXCLUSIVE PALETTE ---
+        
+        // 1. ZŁOTO (Akcenty luksusowe, ikony, nagłówki)
         brand: {
-          DEFAULT: "#8b7355", // Main gold/brown (previously hardcoded #8b7355)
-          dark: "#7a6548",    // Darker variant for hovers
-          light: "#9c856b",   // Lighter variant
-          text: "#4a4540",    // Main text color (previously hardcoded #4a4540)
+          DEFAULT: "#D4AF37", // Metallic Gold
+          dark: "#B5952F",    // Darker gold
+          light: "#F3E5AB",   // Champagne
+          text: "#FFFFFF",    // White text
         },
-        // UI & Structure
+
+        // 2. BUTELKOWA ZIELEŃ (Główny kolor stylu nr 2)
+        emerald: {
+          DEFAULT: "#1B4D3E", // Deep Emerald (Butelkowa zieleń) - do sekcji tła
+          dark: "#13382d",    // Darker shade for hovers/active states
+          light: "#2C6E5A",   // Lighter emerald for highlights
+          sage: "#8FA69D",    // Sage (Szałwia) - kolor uzupełniający/interaktywny
+          glass: "rgba(27, 77, 62, 0.8)", // Przezroczysta zieleń (efekt szkła)
+        },
+
+        // 3. UI & STRUCTURE (Ciemna baza)
         ui: {
-          bg: "#ffffff",
-          bgSecondary: "#f8f6f3", // Light beige for sections
-          border: "#e5e0d8",      // Light border
-          borderStrong: "#d4cec4", // Stronger border
-          textSecondary: "#5a5550", // Secondary text
-          textMuted: "#6b6560",     // Muted text
-          textLight: "#8b8580",     // Light text
+          bg: "#111111",      // Soft Black (lepsza niż #000000)
+          bgSecondary: "#0D261F", // Very Dark Green/Black (alternatywa dla kart)
+          card: "#1a1a1a",    // Standard dark card background
+          border: "#333333",      
+          borderStrong: "#D4AF37", // Gold border
+          textSecondary: "#8FA69D", // Sage instead of gray for subtext (Styl #2 touch)
+          textMuted: "#71717A",     
+          textLight: "#E4E4E7",     
         },
-        // Validation Colors
+
+        // Validation Colors (Standard)
         success: {
-          bg: "#f0fdf4",  // bg-green-50 equivalent but themeable
-          text: "#15803d", // text-green-700
-          border: "#bbf7d0", // border-green-200
+          bg: "rgba(21, 128, 61, 0.1)",  
+          text: "#4ade80", 
+          border: "rgba(74, 222, 128, 0.2)", 
         },
         error: {
-          bg: "#fef2f2",
-          text: "#b91c1c",
-          border: "#fecaca",
+          bg: "rgba(185, 28, 28, 0.1)",
+          text: "#f87171",
+          border: "rgba(248, 113, 113, 0.2)",
         },
-        // Legacy (keeping for compatibility with other components until full refactor)
+
+        // Shadcn/UI mappings
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+
+        // Legacy scaffolding (Mapped to new Style #2)
         primary: {
-          beige: "#C4B5A0",
-          taupe: "#6B5B4F",
+          beige: "#D4AF37", // Gold remains
+          taupe: "#1B4D3E", // Taupe mapped to Emerald for compatibility
+          green: "#1B4D3E", // New direct mapping
         },
         bg: {
-          light: "#F5F1ED",
-          main: "#3D3530",
+          light: "#111111",
+          main: "#000000",
         },
         text: {
-          dark: "#2C2622",
-          light: "#FDFCFB",
+          dark: "#FFFFFF",
+          light: "#8FA69D", // Light text mapped to Sage
         },
         accent: {
-          warm: "#B8A894",
+          warm: "#D4AF37",
+          cool: "#8FA69D", // Sage as cool accent
         },
       },
       fontFamily: {
-        serif: ["Cormorant", "serif"],
-        sans: ["Montserrat", "sans-serif"],
+        serif: ["var(--font-playfair)", "serif"],
+        sans: ["var(--font-lato)", "sans-serif"],
+      },
+      backgroundImage: {
+        'gradient-gold': 'linear-gradient(45deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C)',
+        'gradient-emerald': 'linear-gradient(to bottom, #111111, #1B4D3E)',
       },
       letterSpacing: {
         widest: "0.2em",

@@ -1,22 +1,23 @@
 "use client";
 
 import Link from "next/link";
+import { SALON_CONFIG } from "@/app/config/salon";
 
 export default function RegulaminPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#f8f6f3] via-[#efe9e1] to-[#e8e0d5]">
+    <div className="min-h-screen bg-black">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#4a4540]/95 backdrop-blur-sm border-b border-[#d4cec4]/50">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-emerald backdrop-blur-sm border-b border-emerald/30 shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-24">
             <Link href="/" className="flex items-center">
               <h1 className="text-2xl md:text-3xl font-serif font-light text-[#f8f6f3] tracking-widest">
-                ROYAL LIPS
+                {SALON_CONFIG.name}
               </h1>
             </Link>
             <Link
               href="/"
-              className="text-[#f8f6f3] hover:text-[#8b7355] transition-colors font-light text-sm tracking-wider uppercase"
+              className="text-ui-textSecondary hover:text-white transition-colors font-light text-sm tracking-wider uppercase"
             >
               Powrót
             </Link>
@@ -25,16 +26,16 @@ export default function RegulaminPage() {
       </nav>
 
       {/* Header */}
-      <section className="pt-40 pb-12 px-4 border-b border-[#4a4540]/10">
+      <section className="pt-40 pb-12 px-4 border-b border-emerald/30/10">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-serif font-light text-[#4a4540] mb-2 tracking-wider">
+          <h1 className="text-4xl md:text-5xl font-serif font-light text-white mb-2 tracking-wider uppercase">
             REGULAMIN
           </h1>
-          <p className="text-lg text-[#8b7355] font-light tracking-wide">
+          <p className="text-lg text-brand font-light tracking-wide uppercase">
             Świadczenia Usług
           </p>
-          <p className="text-sm text-[#8b8580] font-light mt-2">
-            Royal Lips – Joanna Wielgos
+          <p className="text-sm text-ui-textSecondary font-light mt-2 italic">
+            {SALON_CONFIG.name} – {SALON_CONFIG.owner}
           </p>
         </div>
       </section>
@@ -42,18 +43,19 @@ export default function RegulaminPage() {
       {/* Content */}
       <section className="py-16 px-4">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-white/60 backdrop-blur-sm p-8 md:p-12 space-y-10 rounded-2xl shadow-sm border border-[#d4cec4]">
+          <div className="bg-gradient-emerald backdrop-blur-sm p-8 md:p-12 space-y-10 rounded-2xl shadow-lg border border-emerald/20">
             {/* §1 */}
             <div>
-              <h2 className="text-xl font-serif font-light text-[#4a4540] mb-4 tracking-wider uppercase">
+              <h2 className="text-xl font-serif font-light text-brand mb-4 tracking-wider uppercase">
                 §1. Postanowienia ogólne
               </h2>
-              <div className="text-[#4a4540]/80 font-light leading-relaxed space-y-3">
+              <div className="text-ui-textSecondary font-light leading-relaxed space-y-3">
                 <p>
                   Niniejszy Regulamin określa zasady korzystania z usług
-                  kosmetycznych i makijażu permanentnego świadczonych przez firmę
-                  Royal Lips – Joanna Wielgos, z siedzibą przy ul. Pużaka 37,
-                  38-400 Krosno, NIP: 6842237473, REGON: 180685260 (zwaną dalej
+                  kosmetycznych i makijażu permanentnego świadczonych przez
+                  firmę
+                  {SALON_CONFIG.name} – {SALON_CONFIG.owner}, z siedzibą przy{" "}
+                  {SALON_CONFIG.address}, NIP: {SALON_CONFIG.nip} (zwaną dalej
                   „Salonem").
                 </p>
                 <p>
@@ -66,24 +68,22 @@ export default function RegulaminPage() {
                   postanowień niniejszego Regulaminu.
                 </p>
                 <p>
-                  Ceny usług podane w cenniku (na stronie internetowej lub
-                  w Salonie) są cenami brutto i wyrażone są w polskich złotych.
+                  Ceny usług podane w cenniku (na stronie internetowej lub w
+                  Salonie) są cenami brutto i wyrażone są w polskich złotych.
                 </p>
               </div>
             </div>
 
             {/* §2 */}
             <div>
-              <h2 className="text-xl font-serif font-light text-[#4a4540] mb-4 tracking-wider uppercase">
+              <h2 className="text-xl font-serif font-light text-brand mb-4 tracking-wider uppercase">
                 §2. Rezerwacja wizyt i płatności
               </h2>
-              <div className="text-[#4a4540]/80 font-light leading-relaxed space-y-3">
+              <div className="text-ui-textSecondary font-light leading-relaxed space-y-3">
                 <p>Rezerwacji wizyty można dokonać:</p>
                 <ul className="list-disc list-inside space-y-1 ml-4">
                   <li>telefonicznie,</li>
-                  <li>
-                    poprzez media społecznościowe (Facebook/Instagram),
-                  </li>
+                  <li>poprzez media społecznościowe (Facebook/Instagram),</li>
                   <li>osobiście w Salonie.</li>
                 </ul>
                 <p>
@@ -92,17 +92,14 @@ export default function RegulaminPage() {
                   <strong>50% wartości zabiegu</strong>.
                 </p>
                 <p>
-                  Zadatek należy wpłacić w terminie{" "}
-                  <strong>3 dni</strong> od momentu wstępnej rezerwacji. Brak
-                  wpłaty w tym terminie skutkuje automatycznym anulowaniem
-                  rezerwacji.
+                  Zadatek należy wpłacić w terminie <strong>3 dni</strong> od
+                  momentu wstępnej rezerwacji. Brak wpłaty w tym terminie
+                  skutkuje automatycznym anulowaniem rezerwacji.
                 </p>
-                <p>
-                  Wpłaty można dokonać przelewem na konto bankowe:
-                </p>
-                <div className="bg-[#f8f6f3] p-4 rounded-xl border border-[#d4cec4]/50 my-2">
-                  <p className="font-medium text-[#4a4540]">
-                    76 2490 0005 0000 4600 3925 2048
+                <p>Wpłaty można dokonać przelewem na konto bankowe:</p>
+                <div className="bg-black/20 p-4 rounded-xl border border-emerald/30/50 my-2 shadow-inner">
+                  <p className="font-medium text-white">
+                    {SALON_CONFIG.accountNumber}
                   </p>
                   <p className="text-sm mt-1">
                     Tytuł przelewu: Data zabiegu oraz Imię i Nazwisko Klientki.
@@ -118,10 +115,10 @@ export default function RegulaminPage() {
 
             {/* §3 */}
             <div>
-              <h2 className="text-xl font-serif font-light text-[#4a4540] mb-4 tracking-wider uppercase">
+              <h2 className="text-xl font-serif font-light text-brand mb-4 tracking-wider uppercase">
                 §3. Odwoływanie i zmiana terminu wizyty
               </h2>
-              <div className="text-[#4a4540]/80 font-light leading-relaxed space-y-3">
+              <div className="text-ui-textSecondary font-light leading-relaxed space-y-3">
                 <p>
                   Klient ma prawo do bezkosztowej zmiany terminu wizyty
                   najpóźniej na <strong>3 dni</strong> przed planowanym
@@ -144,8 +141,8 @@ export default function RegulaminPage() {
                 <p>
                   W przypadku niestawienia się na wizytę bez wcześniejszego
                   powiadomienia, zadatek przepada w całości. Salon zastrzega
-                  sobie również prawo do odmowy przyjęcia kolejnych rezerwacji od
-                  takiej osoby lub wymagania przedpłaty 100% wartości usługi.
+                  sobie również prawo do odmowy przyjęcia kolejnych rezerwacji
+                  od takiej osoby lub wymagania przedpłaty 100% wartości usługi.
                 </p>
                 <p>
                   Spóźnienie Klienta powyżej 15 minut może skutkować skróceniem
@@ -158,19 +155,17 @@ export default function RegulaminPage() {
 
             {/* §4 */}
             <div>
-              <h2 className="text-xl font-serif font-light text-[#4a4540] mb-4 tracking-wider uppercase">
+              <h2 className="text-xl font-serif font-light text-brand mb-4 tracking-wider uppercase">
                 §4. Przeciwwskazania i kwalifikacja do zabiegu
               </h2>
-              <div className="text-[#4a4540]/80 font-light leading-relaxed space-y-3">
+              <div className="text-ui-textSecondary font-light leading-relaxed space-y-3">
                 <p>
                   Przed przystąpieniem do zabiegu Klient zobowiązany jest do
                   wypełnienia Karty Klienta oraz ankiety zdrowotnej. Zatajenie
                   informacji o stanie zdrowia (przeciwwskazaniach) zwalnia Salon
                   z odpowiedzialności za ewentualne powikłania.
                 </p>
-                <p>
-                  Bezwzględnymi przeciwwskazaniami do zabiegu są m.in.:
-                </p>
+                <p>Bezwzględnymi przeciwwskazaniami do zabiegu są m.in.:</p>
                 <ul className="list-disc list-inside space-y-1 ml-4">
                   <li>ciąża, karmienie piersią,</li>
                   <li>aktywna opryszczka,</li>
@@ -180,8 +175,8 @@ export default function RegulaminPage() {
                   <li>przyjmowanie leków rozrzedzających krew.</li>
                 </ul>
                 <p>
-                  Klientki posiadające „stary" makijaż permanentny (wykonany
-                  w innym salonie) są zobowiązane poinformować o tym fakcie przy
+                  Klientki posiadające „stary" makijaż permanentny (wykonany w
+                  innym salonie) są zobowiązane poinformować o tym fakcie przy
                   zapisie. Salon zastrzega sobie prawo do odmowy wykonania
                   pigmentacji naprawczej lub skierowania Klientki na zabieg
                   laserowego usuwania (dodatkowo płatny).
@@ -195,10 +190,10 @@ export default function RegulaminPage() {
 
             {/* §5 */}
             <div>
-              <h2 className="text-xl font-serif font-light text-[#4a4540] mb-4 tracking-wider uppercase">
+              <h2 className="text-xl font-serif font-light text-brand mb-4 tracking-wider uppercase">
                 §5. Przebieg zabiegu i efekty (gwarancja)
               </h2>
-              <div className="text-[#4a4540]/80 font-light leading-relaxed space-y-3">
+              <div className="text-ui-textSecondary font-light leading-relaxed space-y-3">
                 <p>
                   Każdy zabieg poprzedzony jest bezpłatną konsultacją, podczas
                   której dobierana jest metoda, kolor oraz wykonywany jest
@@ -206,8 +201,8 @@ export default function RegulaminPage() {
                 </p>
                 <p>
                   Linergistka ma prawo odmówić wykonania zabiegu, jeśli
-                  oczekiwania Klientki co do kształtu lub koloru są niezgodne
-                  z estetyką, anatomią twarzy lub zasadami sztuki PMU.
+                  oczekiwania Klientki co do kształtu lub koloru są niezgodne z
+                  estetyką, anatomią twarzy lub zasadami sztuki PMU.
                 </p>
                 <p>
                   W przypadku braku akceptacji przez Klientkę proponowanego
@@ -219,29 +214,29 @@ export default function RegulaminPage() {
                   Efekt zabiegu jest kwestią indywidualną i zależy od rodzaju
                   skóry, wieku oraz przestrzegania zaleceń pozabiegowych. Salon
                   nie udziela gwarancji na trwałość makijażu (nie jest możliwe
-                  przewidzenie dokładnego czasu utrzymywania się pigmentu
-                  w skórze).
+                  przewidzenie dokładnego czasu utrzymywania się pigmentu w
+                  skórze).
                 </p>
               </div>
             </div>
 
             {/* §6 */}
             <div>
-              <h2 className="text-xl font-serif font-light text-[#4a4540] mb-4 tracking-wider uppercase">
+              <h2 className="text-xl font-serif font-light text-brand mb-4 tracking-wider uppercase">
                 §6. Korekta (dopigmentowanie)
               </h2>
-              <div className="text-[#4a4540]/80 font-light leading-relaxed space-y-3">
+              <div className="text-ui-textSecondary font-light leading-relaxed space-y-3">
                 <p>
                   Pierwsza korekta (uzupełniająca) jest wliczona w cenę
-                  podstawowego zabiegu (chyba że cennik stanowi inaczej)
-                  i powinna zostać wykonana w terminie od{" "}
+                  podstawowego zabiegu (chyba że cennik stanowi inaczej) i
+                  powinna zostać wykonana w terminie od{" "}
                   <strong>4 do 8 tygodni</strong> od pierwszego zabiegu.
                 </p>
                 <p>
                   Jeżeli Klientka nie stawi się na korektę w wyznaczonym
                   terminie (do 8 tygodni) lub odwoła ją później niż 24h przed
-                  wizytą, korekta przepada. Wykonanie dopigmentowania
-                  w późniejszym terminie jest płatne dodatkowo (każdy miesiąc
+                  wizytą, korekta przepada. Wykonanie dopigmentowania w
+                  późniejszym terminie jest płatne dodatkowo (każdy miesiąc
                   zwłoki to dopłata 100 zł lub wg aktualnej wyceny).
                 </p>
                 <p>
@@ -249,12 +244,14 @@ export default function RegulaminPage() {
                   bezpłatnej korekty może zostać wydłużony do 3 miesięcy, pod
                   warunkiem zgłoszenia tego faktu podczas pierwszego zabiegu.
                 </p>
-                <div className="bg-[#f8f6f3] p-4 rounded-xl border border-[#d4cec4]/50 my-2">
-                  <p className="font-medium text-[#4a4540] mb-2">
+                <div className="bg-black/20 p-4 rounded-xl border border-emerald/30/50 my-2 shadow-inner">
+                  <p className="font-medium text-white mb-2">
                     Odświeżenie makijażu po roku (tzw. „Refresh"):
                   </p>
                   <ul className="list-disc list-inside space-y-1 ml-2">
-                    <li>Do 1,5 roku od zabiegu: 50% aktualnej ceny z cennika.</li>
+                    <li>
+                      Do 1,5 roku od zabiegu: 50% aktualnej ceny z cennika.
+                    </li>
                     <li>
                       Powyżej 2 lat: 100% ceny (traktowane jako nowy zabieg).
                     </li>
@@ -270,36 +267,36 @@ export default function RegulaminPage() {
 
             {/* §7 */}
             <div>
-              <h2 className="text-xl font-serif font-light text-[#4a4540] mb-4 tracking-wider uppercase">
+              <h2 className="text-xl font-serif font-light text-brand mb-4 tracking-wider uppercase">
                 §7. Reklamacje
               </h2>
-              <div className="text-[#4a4540]/80 font-light leading-relaxed space-y-3">
+              <div className="text-ui-textSecondary font-light leading-relaxed space-y-3">
                 <p>
                   Klient ma prawo do złożenia reklamacji w przypadku
                   niezadowolenia z usługi.
                 </p>
                 <p>
                   Reklamacje należy składać pisemnie na adres e-mail:{" "}
-                  <strong>kontakt@royallips.pl</strong> w terminie do{" "}
+                  <strong>{SALON_CONFIG.email}</strong> w terminie do{" "}
                   <strong>14 dni</strong> od wykonania usługi. Zgłoszenie
                   powinno zawierać opis problemu oraz dokumentację
                   fotograficzną.
                 </p>
                 <p>
                   Ewentualne poprawki w ramach reklamacji (jeśli są uzasadnione
-                  błędami technicznymi) wykonywane są bezpłatnie w terminie do
-                  2 miesięcy od zabiegu. Wszelkie uwagi zgłaszane po upływie
-                  2 miesięcy będą traktowane jako nowe zlecenia płatne.
+                  błędami technicznymi) wykonywane są bezpłatnie w terminie do 2
+                  miesięcy od zabiegu. Wszelkie uwagi zgłaszane po upływie 2
+                  miesięcy będą traktowane jako nowe zlecenia płatne.
                 </p>
               </div>
             </div>
 
             {/* §8 */}
             <div>
-              <h2 className="text-xl font-serif font-light text-[#4a4540] mb-4 tracking-wider uppercase">
+              <h2 className="text-xl font-serif font-light text-brand mb-4 tracking-wider uppercase">
                 §8. Postanowienia końcowe
               </h2>
-              <div className="text-[#4a4540]/80 font-light leading-relaxed space-y-3">
+              <div className="text-ui-textSecondary font-light leading-relaxed space-y-3">
                 <p>
                   Salon zastrzega sobie prawo do zmiany cennika oraz godzin
                   otwarcia. Zmiany nie dotyczą rezerwacji, na które został już
@@ -307,8 +304,8 @@ export default function RegulaminPage() {
                   upłynęło ponad 6 miesięcy).
                 </p>
                 <p>
-                  W sprawach nieuregulowanych niniejszym Regulaminem zastosowanie
-                  mają przepisy Kodeksu Cywilnego.
+                  W sprawach nieuregulowanych niniejszym Regulaminem
+                  zastosowanie mają przepisy Kodeksu Cywilnego.
                 </p>
                 <p>Regulamin wchodzi w życie z dniem publikacji.</p>
               </div>
@@ -318,20 +315,21 @@ export default function RegulaminPage() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-[#4a4540] text-[#f8f6f3] py-16">
+      <footer className="bg-gradient-emerald text-white py-16 border-t border-emerald/30 shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-6 md:mb-0 text-center md:text-left">
-              <span className="text-xl font-serif font-light tracking-widest">
-                ROYAL LIPS
+              <span className="text-xl font-serif font-light tracking-widest uppercase">
+                {SALON_CONFIG.name}
               </span>
-              <p className="text-xs text-[#f8f6f3]/70 mt-3 font-light tracking-wider">
+              <p className="text-xs text-ui-textSecondary mt-3 font-light tracking-wider uppercase">
                 Profesjonalny makijaż permanentny
               </p>
             </div>
             <div className="text-center md:text-right">
-              <p className="text-xs text-[#f8f6f3]/70 font-light tracking-wider">
-                © 2026 Royal Lips. Wszystkie prawa zastrzeżone.
+              <p className="text-xs text-ui-textSecondary font-light tracking-wider italic">
+                © {new Date().getFullYear()} {SALON_CONFIG.name}. Wszystkie
+                prawa zastrzeżone.
               </p>
             </div>
           </div>

@@ -5,6 +5,7 @@ import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { LogOut, FileText, Check, X, Search } from "lucide-react";
+import { SALON_CONFIG } from "@/app/config/salon";
 
 interface ConsentFormSummary {
   id: string;
@@ -69,23 +70,23 @@ export default function AdminDashboard() {
   // Pokaż loading gdy sesja jest sprawdzana
   if (status === "loading" || status === "unauthenticated") {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-[#f8f6f3] via-[#efe9e1] to-[#e8e0d5] flex items-center justify-center">
-        <div className="text-[#8b7355] text-lg">Ładowanie...</div>
+      <div className="min-h-screen bg-black flex items-center justify-center">
+        <div className="text-brand text-lg">Ładowanie...</div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#f8f6f3] via-[#efe9e1] to-[#e8e0d5]">
+    <div className="min-h-screen bg-black">
       {/* Header */}
-      <header className="bg-[#4a4540]/95 backdrop-blur-sm sticky top-0 z-50 shadow-lg">
+      <header className="bg-gradient-emerald backdrop-blur-sm sticky top-0 z-50 shadow-lg border-b border-emerald/30">
         <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
           <div>
-            <h1 className="text-2xl font-serif text-white tracking-wider">
-              ROYAL LIPS
+            <h1 className="text-xl md:text-2xl font-serif text-white tracking-wider uppercase">
+              {SALON_CONFIG.name}
             </h1>
             <p className="text-white/60 text-sm">
-              {session?.user?.email === "admin@royal-lips.pl"
+              {session?.user?.email === SALON_CONFIG.email
                 ? "Panel administracyjny"
                 : session?.user?.name || "Panel"}
             </p>
@@ -116,24 +117,24 @@ export default function AdminDashboard() {
 
       <main className="max-w-6xl mx-auto px-4 py-8">
         {/* Search */}
-        <div className="bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg p-4 md:p-6 mb-6">
+        <div className="bg-gradient-emerald backdrop-blur-sm rounded-2xl shadow-lg p-4 md:p-6 mb-6 border border-emerald/20">
           <div className="relative">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#8b8580]" />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-ui-textSecondary/50" />
             <input
               type="text"
               placeholder="Szukaj po nazwisku lub telefonie..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-12 pr-4 py-3 bg-white border border-[#d4cec4] rounded-xl focus:border-[#8b7355] focus:ring-2 focus:ring-[#8b7355]/20 outline-none transition-all"
+              className="w-full pl-12 pr-4 py-3 bg-ui-bg border border-emerald/30 rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/30 outline-none transition-all"
             />
           </div>
         </div>
 
         {/* Forms List */}
-        <div className="bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden">
-          <div className="p-4 md:p-6 border-b border-[#d4cec4]">
-            <h2 className="text-xl font-serif text-[#4a4540] flex items-center gap-2">
-              <FileText className="w-5 h-5 text-[#8b7355]" />
+        <div className="bg-gradient-emerald backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden border border-emerald/20">
+          <div className="p-4 md:p-6 border-b border-emerald/30">
+            <h2 className="text-xl font-serif text-white flex items-center gap-2">
+              <FileText className="w-5 h-5 text-brand" />
               Formularze zgód
             </h2>
           </div>
@@ -141,30 +142,30 @@ export default function AdminDashboard() {
           {isLoading ? (
             <div className="p-12 text-center text-[#8b8580]">Ładowanie...</div>
           ) : filteredForms.length === 0 ? (
-            <div className="p-12 text-center text-[#8b8580]">
+            <div className="p-12 text-center text-ui-textSecondary">
               {searchQuery
                 ? "Brak wyników dla podanego wyszukiwania"
                 : "Brak formularzy"}
             </div>
           ) : (
-            <div className="divide-y divide-[#d4cec4]">
+            <div className="divide-y divide-emerald/30">
               {filteredForms.map((form) => (
                 <Link
                   key={form.id}
                   href={`/admin/formularz/${form.id}`}
-                  className="block p-4 md:p-6 hover:bg-white/50 transition-colors"
+                  className="block p-4 md:p-6 hover:bg-white/5 transition-colors"
                 >
                   <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div>
-                      <h3 className="font-medium text-[#4a4540] flex items-center gap-2">
+                      <h3 className="font-medium text-white flex items-center gap-2">
                         {form.imieNazwisko}
                         <span
                           className={`text-xs px-2 py-0.5 rounded-full ${
                             form.type === "PMU"
-                              ? "bg-purple-100 text-purple-700"
+                              ? "bg-emerald-500/20 text-emerald-400 border border-emerald-500/30"
                               : form.type === "LASER"
-                                ? "bg-red-100 text-red-700"
-                                : "bg-blue-100 text-blue-700"
+                                ? "bg-red-500/20 text-red-400 border border-red-500/30"
+                                : "bg-blue-500/20 text-blue-400 border border-blue-500/30"
                           }`}
                         >
                           {form.type === "PMU"
@@ -174,7 +175,7 @@ export default function AdminDashboard() {
                               : "KWAS"}
                         </span>
                       </h3>
-                      <p className="text-sm text-[#8b8580]">
+                      <p className="text-sm text-ui-textSecondary">
                         +48 {form.telefon} &bull; {form.miejscowoscData}
                       </p>
                     </div>
@@ -192,7 +193,7 @@ export default function AdminDashboard() {
                           RODO
                         </span>
                       </div>
-                      <span className="text-sm text-[#8b8580]">
+                      <span className="text-sm text-ui-textSecondary">
                         {formatDate(form.createdAt)}
                       </span>
                     </div>

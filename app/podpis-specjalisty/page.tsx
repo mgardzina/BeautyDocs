@@ -14,17 +14,17 @@ export default function SpecialistSignaturePage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f9f5f0] flex flex-col items-center justify-center p-4">
-      <div className="w-full max-w-2xl bg-white p-8 rounded-2xl shadow-xl">
-        <h1 className="text-3xl font-serif text-[#4a4540] mb-6 text-center">
+    <div className="min-h-screen bg-ui-bg flex flex-col items-center justify-center p-4">
+      <div className="w-full max-w-2xl bg-gradient-emerald p-8 rounded-2xl shadow-xl border border-emerald/20">
+        <h1 className="text-3xl font-serif text-white mb-6 text-center">
           Generator Podpisu Specjalisty
         </h1>
-        <p className="text-[#6b6560] mb-8 text-center">
+        <p className="text-ui-textSecondary mb-8 text-center">
           Proszę złożyć podpis poniżej. Po zatwierdzeniu pojawi się kod, który
           należy skopiować i przesłać programiście.
         </p>
 
-        <div className="mb-8 border border-[#e5e0d8] rounded-xl overflow-hidden">
+        <div className="mb-8 border border-emerald/30 rounded-xl overflow-hidden bg-black/20">
           <SignaturePad
             label="Podpis Specjalisty (Joanna Wielgos)"
             value={signature}
@@ -35,15 +35,15 @@ export default function SpecialistSignaturePage() {
 
         {signature && (
           <div className="space-y-4 animate-in fade-in slide-in-from-bottom-4">
-            <h3 className="font-medium text-[#4a4540]">Twój kod podpisu:</h3>
+            <h3 className="font-medium text-white">Twój kod podpisu:</h3>
             <textarea
               readOnly
               value={signature}
-              className="w-full h-32 p-4 bg-[#f8f6f3] border border-[#d4cec4] rounded-lg font-mono text-xs text-[#5a5550] resize-none focus:outline-none focus:border-[#8b7355]"
+              className="w-full h-32 p-4 bg-black/40 border border-emerald/30 rounded-lg font-mono text-xs text-ui-textSecondary resize-none focus:outline-none focus:border-brand"
             />
             <button
               onClick={handleCopy}
-              className="w-full py-4 bg-[#8b7355] text-white rounded-xl font-medium hover:bg-[#7a6548] transition-colors shadow-lg flex items-center justify-center gap-2"
+              className="w-full py-4 bg-brand text-black rounded-xl font-bold uppercase tracking-wider hover:bg-brand/90 transition-all shadow-lg flex items-center justify-center gap-2"
             >
               {copied ? "Skopiowano do schowka!" : "Kopiuj kod podpisu"}
             </button>

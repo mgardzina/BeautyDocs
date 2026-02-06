@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { SALON_CONFIG } from "@/app/config/salon";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -37,13 +38,15 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#f8f6f3] via-[#efe9e1] to-[#e8e0d5] flex items-center justify-center p-4">
-      <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl p-6 md:p-12 w-full max-w-md">
+    <div className="min-h-screen bg-black flex items-center justify-center p-4">
+      <div className="bg-gradient-emerald backdrop-blur-sm rounded-3xl shadow-2xl p-6 md:p-12 w-full max-w-md border border-emerald/30">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-serif text-[#4a4540] mb-2">
-            ROYAL LIPS
+          <h1 className="text-2xl md:text-3xl font-serif text-white mb-2 uppercase tracking-wider">
+            {SALON_CONFIG.name}
           </h1>
-          <p className="text-[#8b7355]">Panel administracyjny</p>
+          <p className="text-ui-textSecondary uppercase tracking-widest text-xs">
+            Panel administracyjny
+          </p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
@@ -54,7 +57,7 @@ export default function LoginPage() {
           )}
 
           <div>
-            <label className="block text-sm text-[#6b6560] mb-2 font-medium">
+            <label className="block text-sm text-ui-textSecondary mb-2 font-medium">
               Email
             </label>
             <input
@@ -62,13 +65,13 @@ export default function LoginPage() {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-4 py-3 bg-white border border-[#d4cec4] rounded-xl focus:border-[#8b7355] focus:ring-2 focus:ring-[#8b7355]/20 outline-none transition-all"
-              placeholder="admin@royal-lips.pl"
+              className="w-full px-4 py-3 bg-ui-bg border border-emerald/30 rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/30 outline-none transition-all"
+              placeholder={SALON_CONFIG.email}
             />
           </div>
 
           <div>
-            <label className="block text-sm text-[#6b6560] mb-2 font-medium">
+            <label className="block text-sm text-ui-textSecondary mb-2 font-medium">
               Hasło
             </label>
             <input
@@ -76,7 +79,7 @@ export default function LoginPage() {
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-4 py-3 bg-white border border-[#d4cec4] rounded-xl focus:border-[#8b7355] focus:ring-2 focus:ring-[#8b7355]/20 outline-none transition-all"
+              className="w-full px-4 py-3 bg-ui-bg border border-emerald/30 rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/30 outline-none transition-all"
               placeholder="••••••••"
             />
           </div>
@@ -84,14 +87,14 @@ export default function LoginPage() {
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full bg-[#8b7355] text-white py-4 rounded-xl text-lg font-medium hover:bg-[#7a6548] disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+            className="w-full bg-brand text-white py-4 rounded-xl text-lg font-medium hover:bg-brand-dark disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-lg gold-glow-sm"
           >
             {isLoading ? "Logowanie..." : "Zaloguj się"}
           </button>
         </form>
 
-        <p className="text-center text-sm text-[#8b8580] mt-8">
-          <a href="/" className="hover:text-[#8b7355] transition-colors">
+        <p className="text-center text-sm text-ui-textSecondary mt-8">
+          <a href="/" className="hover:text-brand transition-colors">
             &larr; Powrót do strony głównej
           </a>
         </p>

@@ -370,24 +370,24 @@ export default function ClientDetailsPage({
 
   if (status === "loading" || status === "unauthenticated" || isLoading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-[#f8f6f3] via-[#efe9e1] to-[#e8e0d5] flex items-center justify-center">
-        <div className="text-[#8b7355] text-lg">Ładowanie...</div>
+      <div className="min-h-screen bg-black flex items-center justify-center">
+        <div className="text-brand text-lg">Ładowanie...</div>
       </div>
     );
   }
 
   if (!client) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-[#f8f6f3] via-[#efe9e1] to-[#e8e0d5] p-8 text-center">
+      <div className="min-h-screen bg-black p-8 text-center text-ui-textSecondary italic">
         Klientka nie znaleziona
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#f8f6f3] via-[#efe9e1] to-[#e8e0d5]">
+    <div className="min-h-screen bg-black">
       {/* Header */}
-      <header className="bg-[#4a4540]/95 backdrop-blur-sm sticky top-0 z-50 shadow-lg">
+      <header className="bg-gradient-emerald backdrop-blur-sm sticky top-0 z-50 shadow-lg border-b border-emerald/30">
         <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
           <div className="flex items-center gap-4">
             <Link
@@ -420,9 +420,9 @@ export default function ClientDetailsPage({
       <main className="max-w-6xl mx-auto px-4 py-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Lewa kolumna - Notatki */}
         <div className="lg:col-span-1 space-y-6">
-          <div className="bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg p-4 md:p-6">
-            <h2 className="text-xl font-serif text-[#4a4540] flex items-center gap-2 mb-4">
-              <StickyNote className="w-5 h-5 text-[#8b7355]" />
+          <div className="bg-gradient-emerald backdrop-blur-sm rounded-2xl shadow-lg p-4 md:p-6 border border-emerald/20">
+            <h2 className="text-xl font-serif text-white flex items-center gap-2 mb-4">
+              <StickyNote className="w-5 h-5 text-brand" />
               Notatki i adnotacje
             </h2>
 
@@ -446,8 +446,8 @@ export default function ClientDetailsPage({
                         onClick={() => setNewNoteCategory(key)}
                         className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-all border ${
                           newNoteCategory === key
-                            ? `${config.bgColor} ${config.color} border-current`
-                            : "bg-white border-[#d4cec4] text-[#8b8580] hover:bg-gray-50"
+                            ? `${config.bgColor.replace("bg-gray-50", "bg-white/10").replace("bg-red-50", "bg-red-500/10").replace("bg-amber-50", "bg-amber-500/10").replace("bg-purple-50", "bg-purple-500/10")} ${config.color.replace("text-gray-600", "text-white").replace("text-red-600", "text-red-400").replace("text-amber-600", "text-amber-400").replace("text-purple-600", "text-purple-400")} border-current`
+                            : "bg-ui-bg border-emerald/30 text-ui-textSecondary/50 hover:bg-white/5"
                         }`}
                       >
                         <Icon className="w-4 h-4" />
@@ -469,12 +469,12 @@ export default function ClientDetailsPage({
                         ? "Opisz preferencję klientki..."
                         : "Dodaj notatkę..."
                 }
-                className="w-full p-3 bg-white border border-[#d4cec4] rounded-xl focus:border-[#8b7355] focus:ring-2 focus:ring-[#8b7355]/20 outline-none transition-all resize-none h-24 text-sm"
+                className="w-full p-3 bg-ui-bg border border-emerald/30 rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none text-white placeholder-white/30 transition-all resize-none h-24 text-sm"
               />
               <button
                 type="submit"
                 disabled={isSubmittingNote || !newNote.trim()}
-                className="mt-2 w-full bg-[#8b7355] text-white py-2 rounded-lg hover:bg-[#6d5a43] transition-colors disabled:opacity-50 flex items-center justify-center gap-2 text-sm"
+                className="mt-2 w-full bg-brand text-white py-2 rounded-lg hover:bg-brand-dark transition-colors disabled:opacity-50 flex items-center justify-center gap-2 text-sm shadow-lg gold-glow-sm"
               >
                 <Plus className="w-4 h-4" />
                 Dodaj {noteCategoryConfig[newNoteCategory].label.toLowerCase()}
@@ -498,12 +498,16 @@ export default function ClientDetailsPage({
                       className={`p-4 rounded-xl border relative group ${config.bgColor}`}
                     >
                       <div className="flex items-start gap-2 mb-2">
-                        <Icon className={`w-4 h-4 mt-0.5 ${config.color}`} />
-                        <span className={`text-xs font-medium ${config.color}`}>
+                        <Icon
+                          className={`w-4 h-4 mt-0.5 ${config.color.replace("text-gray-600", "text-white").replace("text-red-600", "text-red-400").replace("text-amber-600", "text-amber-400").replace("text-purple-600", "text-purple-400")}`}
+                        />
+                        <span
+                          className={`text-xs font-medium ${config.color.replace("text-gray-600", "text-white").replace("text-red-600", "text-red-400").replace("text-amber-600", "text-amber-400").replace("text-purple-600", "text-purple-400")}`}
+                        >
                           {config.label}
                         </span>
                       </div>
-                      <p className="text-[#4a4540] text-sm whitespace-pre-wrap pl-6">
+                      <p className="text-white text-sm whitespace-pre-wrap pl-6">
                         {note.content}
                       </p>
                       <div className="mt-2 flex justify-between items-center text-xs text-[#8b8580] pl-6">
@@ -528,26 +532,26 @@ export default function ClientDetailsPage({
         <div className="lg:col-span-2 space-y-8">
           {/* Sekcja dodawania nowej wizyty (Szybka akcja) - widoczna tylko po kliknięciu */}
           {showAddHistoryForm && (
-            <div className="bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg p-6 md:p-8 border border-[#d4cec4] animate-in fade-in slide-in-from-top-2 duration-300">
+            <div className="bg-gradient-emerald backdrop-blur-sm rounded-2xl shadow-lg p-6 md:p-8 border border-emerald/30 animate-in fade-in slide-in-from-top-2 duration-300">
               <div className="flex justify-between items-center mb-6">
-                <h2 className="text-xl font-serif text-[#4a4540] flex items-center gap-2">
-                  <FileText className="w-6 h-6 text-[#8b7355]" />
+                <h2 className="text-xl font-serif text-white flex items-center gap-2">
+                  <FileText className="w-6 h-6 text-brand" />
                   Dodaj nową wizytę
                 </h2>
                 <button
                   onClick={() => setShowAddHistoryForm(false)}
-                  className="text-[#8b8580] hover:text-[#4a4540] transition-colors"
+                  className="text-ui-textSecondary hover:text-white transition-colors"
                 >
                   Anuluj
                 </button>
               </div>
 
-              <div className="bg-white/80 rounded-xl p-5 shadow-sm border border-[#d4cec4]">
+              <div className="bg-black/20 rounded-xl p-5 shadow-inner border border-emerald/10">
                 <div className="grid gap-4">
                   {/* Data i Czas - osobne pola */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-medium text-[#8b8580] mb-1 uppercase tracking-wider">
+                      <label className="block text-xs font-medium text-ui-textSecondary mb-1 uppercase tracking-wider">
                         Data wizyty
                       </label>
                       <input
@@ -564,11 +568,11 @@ export default function ClientDetailsPage({
                             date: `${e.target.value}T${time}`,
                           });
                         }}
-                        className="w-full px-3 py-2 bg-[#f8f6f3] border border-[#d4cec4] rounded-lg focus:border-[#8b7355] outline-none text-sm"
+                        className="w-full px-3 py-2 bg-ui-bg border border-emerald/30 rounded-lg focus:border-brand outline-none text-white text-sm"
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-medium text-[#8b8580] mb-1 uppercase tracking-wider">
+                      <label className="block text-xs font-medium text-ui-textSecondary mb-1 uppercase tracking-wider">
                         Godzina
                       </label>
                       <input
@@ -585,7 +589,7 @@ export default function ClientDetailsPage({
                             date: `${date}T${e.target.value}`,
                           });
                         }}
-                        className="w-full px-3 py-2 bg-[#f8f6f3] border border-[#d4cec4] rounded-lg focus:border-[#8b7355] outline-none text-sm"
+                        className="w-full px-3 py-2 bg-ui-bg border border-emerald/30 rounded-lg focus:border-brand outline-none text-white text-sm"
                       />
                     </div>
                   </div>
@@ -593,7 +597,7 @@ export default function ClientDetailsPage({
                   {/* Adnotacja i Obszar - 2 kolumny */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-medium text-[#8b8580] mb-1 uppercase tracking-wider">
+                      <label className="block text-xs font-medium text-ui-textSecondary mb-1 uppercase tracking-wider">
                         Znieczulenie
                       </label>
                       <input
@@ -606,7 +610,7 @@ export default function ClientDetailsPage({
                           })
                         }
                         placeholder="np. Maść znieczulająca"
-                        className="w-full px-3 py-2 bg-[#f8f6f3] border border-[#d4cec4] rounded-lg focus:border-[#8b7355] outline-none text-sm"
+                        className="w-full px-3 py-2 bg-ui-bg border border-emerald/30 rounded-lg focus:border-brand outline-none text-white text-sm"
                       />
                     </div>
                   </div>
@@ -614,7 +618,7 @@ export default function ClientDetailsPage({
                   {/* Adnotacja i Obszar - 2 kolumny */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-medium text-[#8b8580] mb-1 uppercase tracking-wider">
+                      <label className="block text-xs font-medium text-ui-textSecondary mb-1 uppercase tracking-wider">
                         Adnotacja (np. 2. zabieg)
                       </label>
                       <input
@@ -641,11 +645,11 @@ export default function ClientDetailsPage({
                           });
                         }}
                         placeholder="np. Zabieg przypominający"
-                        className="w-full px-3 py-2 bg-[#f8f6f3] border border-[#d4cec4] rounded-lg focus:border-[#8b7355] outline-none text-sm"
+                        className="w-full px-3 py-2 bg-ui-bg border border-emerald/30 rounded-lg focus:border-brand outline-none text-white text-sm"
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-medium text-[#8b8580] mb-1 uppercase tracking-wider">
+                      <label className="block text-xs font-medium text-ui-textSecondary mb-1 uppercase tracking-wider">
                         Obszar / Zabieg
                       </label>
                       <input
@@ -677,13 +681,13 @@ export default function ClientDetailsPage({
                           });
                         }}
                         placeholder="np. Usta"
-                        className="w-full px-3 py-2 bg-[#f8f6f3] border border-[#d4cec4] rounded-lg focus:border-[#8b7355] outline-none text-sm"
+                        className="w-full px-3 py-2 bg-ui-bg border border-emerald/30 rounded-lg focus:border-brand outline-none text-white text-sm"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-xs font-medium text-[#8b8580] mb-1 uppercase tracking-wider">
+                    <label className="block text-xs font-medium text-ui-textSecondary mb-1 uppercase tracking-wider">
                       Szczegóły (Preparat, Efekt, Uwagi)
                     </label>
                     <textarea
@@ -711,7 +715,7 @@ export default function ClientDetailsPage({
                           description: `${annotation} | ${area} | ${e.target.value}`,
                         });
                       }}
-                      className="w-full px-3 py-2 bg-[#f8f6f3] border border-[#d4cec4] rounded-lg focus:border-[#8b7355] outline-none text-sm h-20 resize-none"
+                      className="w-full px-3 py-2 bg-ui-bg border border-emerald/30 rounded-lg focus:border-brand outline-none text-white text-sm h-20 resize-none"
                       placeholder="np. Stylage M 1ml, efekt naturalny..."
                     />
                   </div>
@@ -728,7 +732,7 @@ export default function ClientDetailsPage({
                       !newHistory.date ||
                       !newHistory.description
                     }
-                    className="mt-2 bg-[#8b7355] text-white py-2 px-6 rounded-lg text-sm font-medium hover:bg-[#7a6548] disabled:opacity-50 disabled:cursor-not-allowed transition-colors self-start"
+                    className="mt-2 bg-brand text-white py-2 px-6 rounded-lg text-sm font-medium hover:bg-brand-dark disabled:opacity-50 disabled:cursor-not-allowed transition-colors self-start shadow-lg gold-glow-sm"
                   >
                     {isAddingHistory ? "Zapisywanie..." : "+ Zapisz wizytę"}
                   </button>
@@ -738,14 +742,14 @@ export default function ClientDetailsPage({
           )}
 
           {/* Unified Timeline - Historia i Formularze */}
-          <div className="bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden">
-            <div className="p-4 md:p-6 border-b border-[#d4cec4] flex justify-between items-center">
-              <h2 className="text-xl font-serif text-[#4a4540]">
+          <div className="bg-gradient-emerald backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden border border-emerald/20">
+            <div className="p-4 md:p-6 border-b border-emerald/30 flex justify-between items-center">
+              <h2 className="text-xl font-serif text-white">
                 Historia klientki
               </h2>
               <button
                 onClick={() => setShowAddHistoryForm(!showAddHistoryForm)}
-                className="bg-[#8b7355] text-white px-3 py-1.5 rounded-lg text-xs font-medium hover:bg-[#7a6548] transition-colors flex items-center gap-1"
+                className="bg-brand text-white px-3 py-1.5 rounded-lg text-xs font-medium hover:bg-brand-dark transition-colors flex items-center gap-1 shadow-md gold-glow-sm"
               >
                 <Plus className="w-3 h-3" />
                 Dodaj wizytę
@@ -786,11 +790,11 @@ export default function ClientDetailsPage({
                 return timelineItems.map((item) => (
                   <div
                     key={`${item.type}-${item.id}`}
-                    className="group bg-white rounded-xl p-4 border border-[#e5e0d8] shadow-sm hover:shadow-md transition-shadow"
+                    className="group bg-black/30 rounded-xl p-4 border border-emerald/10 shadow-sm hover:border-emerald/30 transition-all backdrop-blur-sm"
                   >
                     <div className="flex items-start gap-3">
                       <span
-                        className={`text-[10px] uppercase tracking-wider font-bold text-white px-2 py-1 rounded-md whitespace-nowrap mt-0.5 ${item.type === "visit" ? "bg-[#8b7355]" : "bg-[#4a4540]"}`}
+                        className={`text-[10px] uppercase tracking-wider font-bold text-white px-2 py-1 rounded-md whitespace-nowrap mt-0.5 ${item.type === "visit" ? "bg-brand/80" : "bg-emerald-900/50 border border-emerald/30"}`}
                       >
                         {item.type === "visit" ? "Wizyta" : "Formularz"}
                       </span>
@@ -869,14 +873,12 @@ export default function ClientDetailsPage({
                           <>
                             {/* WIDOK STANDARDOWY */}
                             <div className="flex justify-between items-start mb-2">
-                              <span className="text-[#8b7355] font-semibold text-base">
-                                {item.date.toLocaleDateString("pl-PL", {
-                                  day: "numeric",
-                                  month: "long",
-                                  year: "numeric",
-                                  hour: "2-digit",
-                                  minute: "2-digit",
-                                })}
+                              <span className="text-white font-semibold text-base">
+                                {item.type === "visit"
+                                  ? item.description.split(" | ")[0] ||
+                                    "Brak adnotacji"
+                                  : formTypeLabels[item.formType] ||
+                                    item.formType}
                               </span>
 
                               {item.type === "visit" && (
@@ -891,7 +893,7 @@ export default function ClientDetailsPage({
                                           .znieczulenie,
                                       })
                                     }
-                                    className="p-1.5 text-[#8b8580] hover:text-[#8b7355] transition-colors"
+                                    className="p-1.5 text-emerald-400 hover:text-emerald-600 transition-colors"
                                     title="Edytuj"
                                   >
                                     <Edit2 className="w-4 h-4" />
@@ -909,15 +911,15 @@ export default function ClientDetailsPage({
 
                             {item.type === "visit" ? (
                               <>
-                                <p className="text-[#5a5550] text-base leading-relaxed whitespace-pre-wrap font-medium">
+                                <p className="text-white text-base leading-relaxed whitespace-pre-wrap font-medium">
                                   {item.description}
                                 </p>
                                 {(item as any).znieczulenie && (
-                                  <div className="mt-3 flex flex-col gap-1 bg-[#8b7355]/5 p-2 rounded-lg border border-[#8b7355]/20">
-                                    <span className="text-xs font-bold text-[#8b7355] uppercase tracking-wider">
+                                  <div className="mt-3 flex flex-col gap-1 bg-brand/5 p-2 rounded-lg border border-brand/20">
+                                    <span className="text-xs font-bold text-brand uppercase tracking-wider">
                                       Znieczulenie
                                     </span>
-                                    <span className="text-sm font-medium text-[#4a4540]">
+                                    <span className="text-sm font-medium text-white">
                                       {(item as any).znieczulenie}
                                     </span>
                                   </div>
@@ -926,28 +928,28 @@ export default function ClientDetailsPage({
                             ) : (
                               <Link
                                 href={`/admin/formularz/${item.id}`}
-                                className="block hover:text-[#8b7355] transition-colors"
+                                className="block hover:text-brand transition-colors"
                               >
-                                <p className="font-bold text-[#4a4540] text-base mb-1">
+                                <p className="font-bold text-white text-base mb-1">
                                   {formTypeLabels[item.formType] ||
                                     item.formType}
                                 </p>
-                                <p className="text-sm text-[#8b8580] font-medium">
+                                <p className="text-sm text-ui-textSecondary font-medium">
                                   {translateZones(item.obszarZabiegu)}
                                 </p>
                                 {(item as any).nazwaProduktu && (
-                                  <p className="text-sm text-[#8b8580] mt-1 italic">
+                                  <p className="text-sm text-ui-textSecondary mt-1 italic">
                                     {((item as any).nazwaProduktu || "")
                                       .replace(/\| Email:.*$/, "")
                                       .trim()}
                                   </p>
                                 )}
                                 {(item as any).znieczulenie && (
-                                  <div className="mt-3 flex flex-col gap-1 bg-[#8b7355]/5 p-2 rounded-lg border border-[#8b7355]/20">
-                                    <span className="text-xs font-bold text-[#8b7355] uppercase tracking-wider">
+                                  <div className="mt-3 flex flex-col gap-1 bg-brand/5 p-2 rounded-lg border border-brand/20">
+                                    <span className="text-xs font-bold text-brand uppercase tracking-wider">
                                       Znieczulenie
                                     </span>
-                                    <span className="text-sm font-medium text-[#4a4540]">
+                                    <span className="text-sm font-medium text-white">
                                       {(item as any).znieczulenie}
                                     </span>
                                   </div>

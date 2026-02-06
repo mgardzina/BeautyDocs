@@ -65,16 +65,16 @@ export default function ClientsPage() {
 
   if (status === "loading" || status === "unauthenticated") {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-[#f8f6f3] via-[#efe9e1] to-[#e8e0d5] flex items-center justify-center">
-        <div className="text-[#8b7355] text-lg">Ładowanie...</div>
+      <div className="min-h-screen bg-black flex items-center justify-center">
+        <div className="text-brand text-lg">Ładowanie...</div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#f8f6f3] via-[#efe9e1] to-[#e8e0d5]">
+    <div className="min-h-screen bg-black">
       {/* Header */}
-      <header className="bg-[#4a4540]/95 backdrop-blur-sm sticky top-0 z-50 shadow-lg">
+      <header className="bg-gradient-emerald backdrop-blur-sm sticky top-0 z-50 shadow-lg border-b border-emerald/30">
         <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
           <div className="flex items-center gap-4">
             <Link
@@ -98,67 +98,69 @@ export default function ClientsPage() {
 
       <main className="max-w-6xl mx-auto px-4 py-8">
         {/* Search */}
-        <div className="bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg p-4 md:p-6 mb-6">
+        <div className="bg-gradient-emerald backdrop-blur-sm rounded-2xl shadow-lg p-4 md:p-6 mb-6 border border-emerald/20">
           <div className="relative">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-[#8b8580]" />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-ui-textSecondary/50" />
             <input
               type="text"
               placeholder="Szukaj po nazwisku lub telefonie..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-12 pr-4 py-3 bg-white border border-[#d4cec4] rounded-xl focus:border-[#8b7355] focus:ring-2 focus:ring-[#8b7355]/20 outline-none transition-all"
+              className="w-full pl-12 pr-4 py-3 bg-ui-bg border border-emerald/30 rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/30 outline-none transition-all"
             />
           </div>
         </div>
 
         {/* Clients List */}
-        <div className="bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden">
-          <div className="p-4 md:p-6 border-b border-[#d4cec4]">
-            <h2 className="text-xl font-serif text-[#4a4540] flex items-center gap-2">
-              <Users className="w-5 h-5 text-[#8b7355]" />
+        <div className="bg-gradient-emerald backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden border border-emerald/20">
+          <div className="p-4 md:p-6 border-b border-emerald/30">
+            <h2 className="text-xl font-serif text-white flex items-center gap-2">
+              <Users className="w-5 h-5 text-brand" />
               Lista klientek
             </h2>
           </div>
 
           {isLoading ? (
-            <div className="p-12 text-center text-[#8b8580]">Ładowanie...</div>
+            <div className="p-12 text-center text-ui-textSecondary italic">
+              Ładowanie...
+            </div>
           ) : filteredClients.length === 0 ? (
-            <div className="p-12 text-center text-[#8b8580]">
+            <div className="p-12 text-center text-ui-textSecondary italic">
               {searchQuery
                 ? "Brak wyników dla podanego wyszukiwania"
                 : "Brak klientek"}
             </div>
           ) : (
-            <div className="divide-y divide-[#d4cec4]">
+            <div className="divide-y divide-emerald/30">
               {filteredClients.map((client) => (
                 <Link
                   key={client.id}
                   href={`/admin/klientki/${client.id}`}
-                  className="block p-4 md:p-6 hover:bg-white/50 transition-colors"
+                  className="block p-4 md:p-6 hover:bg-white/5 transition-colors"
                 >
                   <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div>
-                      <h3 className="font-medium text-[#4a4540]">
+                      <h3 className="font-medium text-white group-hover:text-brand transition-colors">
                         {client.imieNazwisko}
                       </h3>
-                      <p className="text-sm text-[#8b8580]">
+                      <p className="text-sm text-ui-textSecondary">
                         {client.telefon
                           ? `+48 ${client.telefon}`
                           : "Brak telefonu"}
                       </p>
                     </div>
                     <div className="flex items-center gap-6">
-                      <div className="flex items-center gap-1 text-sm text-[#8b8580]">
+                      <div className="flex items-center gap-1 text-sm text-ui-textSecondary">
                         <FileText className="w-4 h-4" />
                         {client.formsCount}{" "}
                         {client.formsCount === 1 ? "wizyta" : "wizyt"}
                       </div>
-                      <div className="flex items-center gap-1 text-sm text-[#8b8580]">
+                      <div className="flex items-center gap-1 text-sm text-ui-textSecondary">
                         <StickyNote className="w-4 h-4" />
                         {client.notesCount}{" "}
                         {client.notesCount === 1 ? "notatka" : "notatek"}
                       </div>
-                      <span className="text-sm text-[#8b8580]">
+                      <span className="text-sm text-ui-textSecondary font-light">
                         Ostatnia: {formatDate(client.lastVisit)}
                       </span>
                     </div>

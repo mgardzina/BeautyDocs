@@ -1,43 +1,53 @@
 import type { Metadata, Viewport } from "next";
+import { Playfair_Display, Lato } from "next/font/google";
 import "./globals.css";
 import CookieConsent from "../components/CookieConsent";
 import GoogleAnalytics from "../components/GoogleAnalytics";
 import AuthProvider from "../components/AuthProvider";
 import JsonLd from "../components/JsonLd";
 
-const siteUrl = "https://royal-lips.pl";
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+});
+
+const lato = Lato({
+  weight: ["100", "300", "400", "700", "900"],
+  subsets: ["latin"],
+  variable: "--font-lato",
+});
+
+const siteUrl = "https://powderbrowsacademy.pl";
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#4A4540",
+  themeColor: "#0a0a0a",
 };
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Royal Lips - Makijaż Permanentny Krosno | Joanna Wielgos",
-    template: "%s | Royal Lips Krosno",
+    default: "Powder Brows Academy - Malwina Zięba | Stalowa Wola",
+    template: "%s | Powder Brows Academy",
   },
   description:
-    "Profesjonalny makijaż permanentny brwi, ust i kresek w Krośnie. Zabiegi kwasem hialuronowym i depilacja laserowa. Naturalne efekty i bezpieczeństwo na pierwszym miejscu. Umów wizytę już dziś!",
+    "Profesjonalny makijaż permanentny brwi, ust i kresek w Stalowej Woli. Szkolenia i zabiegi na najwyższym poziomie.",
   keywords: [
-    "makijaż permanentny Krosno",
-    "microblading Krosno",
+    "makijaż permanentny Stalowa Wola",
+    "microblading Stalowa Wola",
+    "powder brows",
+    "szkolenia makijaż permanentny",
     "brwi permanentne",
     "usta permanentne",
-    "kreski permanentne",
-    "kwas hialuronowy Krosno",
-    "depilacja laserowa Krosno",
-    "salon kosmetyczny Krosno",
-    "Royal Lips",
-    "Joanna Wielgos",
+    "Poder Brows Academy",
+    "Malwina Zięba",
     "makijaż permanentny Podkarpacie",
-    "beauty salon Krosno",
+    "beauty salon Stalowa Wola",
   ],
-  authors: [{ name: "Royal Lips - Joanna Wielgos" }],
-  creator: "Royal Lips",
-  publisher: "Royal Lips",
+  authors: [{ name: "Powder Brows Academy - Malwina Zięba" }],
+  creator: "Powder Brows Academy",
+  publisher: "Powder Brows Academy",
   formatDetection: {
     email: true,
     address: true,
@@ -50,10 +60,10 @@ export const metadata: Metadata = {
     type: "website",
     locale: "pl_PL",
     url: siteUrl,
-    siteName: "Royal Lips - Joanna Wielgos",
-    title: "Royal Lips - Makijaż Permanentny Krosno",
+    siteName: "Powder Brows Academy - Malwina Zięba",
+    title: "Powder Brows Academy - Makijaż Permanentny Stalowa Wola",
     description:
-      "Profesjonalny makijaż permanentny brwi, ust i kresek w Krośnie. Zabiegi kwasem hialuronowym i depilacja laserowa. Umów wizytę już dziś!",
+      "Profesjonalny makijaż permanentny brwi, ust i kresek w Stalowej Woli. Szkolenia i zabiegi.",
     images: [
       {
         url: "/logo.png",
@@ -65,9 +75,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Royal Lips - Makijaż Permanentny Krosno",
+    title: "Powder Brows Academy - Makijaż Permanentny Stalowa Wola",
     description:
-      "Profesjonalny makijaż permanentny brwi, ust i kresek w Krośnie. Zabiegi kwasem hialuronowym i depilacja laserowa.",
+      "Profesjonalny makijaż permanentny brwi, ust i kresek w Stalowej Woli.",
     images: ["/logo.png"],
   },
   robots: {
@@ -96,8 +106,8 @@ export const metadata: Metadata = {
   },
   other: {
     "geo.region": "PL-18",
-    "geo.placename": "Krosno",
-    "geo.position": "49.6886;21.7703",
+    "geo.placename": "Stalowa Wola",
+    "geo.position": "50.5826;22.0538",
     ICBM: "49.6886, 21.7703",
   },
 };
@@ -108,7 +118,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="pl">
+    <html lang="pl" className={`${playfair.variable} ${lato.variable}`}>
       <head>
         <GoogleAnalytics />
         <JsonLd />

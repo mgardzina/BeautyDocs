@@ -29,20 +29,20 @@ export default function FaceChart({
   const colors = {
     // 1. BAZOWY (Widoczny od razu): Delikatny szary
     base: {
-      fill: "rgba(107, 114, 128, 0.2)", // szary z dużą przezroczystością
-      stroke: "rgba(107, 114, 128, 0.5)", // szary obrys
+      fill: "rgba(143, 166, 157, 0.2)", // sage z dużą przezroczystością
+      stroke: "rgba(143, 166, 157, 0.4)", // sage obrys
       strokeWidth: 1,
     },
-    // 2. HOVER (Po najechaniu): Ciemniejszy
+    // 2. HOVER (Po najechaniu): Złoty (Brand)
     hover: {
-      fill: "rgba(139, 115, 85, 0.4)", // Ciemniejszy odcień złota/brązu
-      stroke: "#8b7355", // Pełny kolor obrysu
+      fill: "rgba(212, 175, 55, 0.3)", // Brand (#D4AF37) z przezroczystością
+      stroke: "#D4AF37", // Pełny kolor obrysu (Brand)
       strokeWidth: 2,
     },
-    // 3. SELECTED (Wybrany): Gold/Brown
+    // 3. SELECTED (Wybrany): Mocny Złoty
     selected: {
-      fill: "rgba(139, 115, 85, 0.5)", // #8b7355 z przezroczystością
-      stroke: "#8b7355", // mocny brąz/złoto
+      fill: "rgba(212, 175, 55, 0.5)", // Brand (#D4AF37) z większą przezroczystością
+      stroke: "#D4AF37", // mocny złoty (Brand)
       strokeWidth: 3,
     },
   };
@@ -79,13 +79,13 @@ export default function FaceChart({
     <div className="flex flex-col items-center w-full max-w-2xl mx-auto">
       {/* Nagłówek z nazwą strefy po najechaniu (szybki podgląd) */}
       <div className="mb-2 flex items-center justify-between w-full">
-        <div className="h-8 flex items-center justify-center flex-1 bg-gray-50 rounded-md border border-gray-100 mr-2">
+        <div className="h-8 flex items-center justify-center flex-1 bg-black/40 rounded-md border border-emerald/30 mr-2">
           {hovered ? (
-            <span className="text-[#8b7355] font-semibold text-sm animate-pulse transition-all">
+            <span className="text-brand font-semibold text-sm animate-pulse transition-all">
               {getZoneName(hovered)}
             </span>
           ) : (
-            <span className="text-gray-400 text-xs uppercase tracking-wider">
+            <span className="text-ui-textSecondary text-[10px] uppercase tracking-[0.2em]">
               Wybierz obszar zabiegu
             </span>
           )}
@@ -93,7 +93,7 @@ export default function FaceChart({
         <button
           type="button"
           onClick={selectAll}
-          className="h-8 px-3 text-xs font-medium text-[#8b7355] bg-[#8b7355]/10 rounded-md hover:bg-[#8b7355]/20 transition-colors whitespace-nowrap"
+          className="h-8 px-3 text-[10px] font-bold uppercase tracking-wider text-brand bg-brand/10 rounded-md border border-brand/20 hover:bg-brand/20 transition-all whitespace-nowrap"
         >
           {selected.length === ZONES.length
             ? "Odznacz wszystko"
@@ -103,7 +103,7 @@ export default function FaceChart({
 
       {/* Kontener na SVG */}
       <div
-        className="relative w-full aspect-square shadow-xl rounded-xl overflow-hidden border border-gray-200 bg-white cursor-crosshair"
+        className="relative w-full aspect-square shadow-2xl rounded-2xl overflow-hidden border border-emerald/20 bg-ui-bg cursor-crosshair"
         onMouseMove={handleMouseMove}
       >
         <svg viewBox={`0 0 ${WIDTH} ${HEIGHT}`} className="w-full h-full">
@@ -161,10 +161,10 @@ export default function FaceChart({
           <button
             key={id}
             onClick={() => toggleZone(id)}
-            className="px-3 py-1 bg-[#8b7355]/10 text-[#8b7355] text-xs font-bold rounded-full border border-[#8b7355]/20 hover:bg-[#8b7355]/20 hover:border-[#8b7355]/40 transition-colors flex items-center gap-1 group"
+            className="px-3 py-1 bg-brand/10 text-brand text-[10px] font-bold rounded-full border border-brand/20 hover:bg-brand/20 hover:border-brand/40 transition-colors flex items-center gap-1 group uppercase tracking-wider"
           >
             {getZoneName(id)}
-            <span className="text-[#8b7355]/60 group-hover:text-[#8b7355] font-normal ml-1">
+            <span className="text-brand/60 group-hover:text-brand font-normal ml-1">
               ×
             </span>
           </button>
@@ -174,7 +174,7 @@ export default function FaceChart({
       {/* Cursor Tooltip */}
       {hovered && (
         <div
-          className="fixed pointer-events-none z-[9999] bg-[#4a4540] text-white px-4 py-2 rounded-lg shadow-2xl border border-[#8b7355]/50 text-sm font-medium transform -translate-x-1/2 -translate-y-[120%]"
+          className="fixed pointer-events-none z-[9999] bg-ui-card text-white px-4 py-2 rounded-lg shadow-2xl border border-brand/30 text-xs font-bold uppercase tracking-widest transform -translate-x-1/2 -translate-y-[120%] backdrop-blur-md"
           style={{
             left: mousePos.x,
             top: mousePos.y,
@@ -183,7 +183,7 @@ export default function FaceChart({
         >
           {getZoneName(hovered)}
           {/* Add a small arrow pointing down */}
-          <div className="absolute bottom-[-6px] left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[6px] border-t-[#4a4540]" />
+          <div className="absolute bottom-[-6px] left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[6px] border-t-ui-card" />
         </div>
       )}
     </div>
