@@ -37,7 +37,7 @@ steps:
         npm install prisma @prisma/client &&
         npx prisma db push --accept-data-loss
     env:
-      - 'DATABASE_URL=postgresql://postgres:powderbrows2026%21@localhost/powderbrowsacademypl?host=/cloudsql/powderbrowsacademypl:europe-west3:powderbrowspl-db'
+      - 'DATABASE_URL=postgresql://postgres:%3Es76s%29Qe-nO0soA%24@localhost/powderbrowsacademypl?host=/cloudsql/powderbrowsacademypl:europe-west3:powderbrowspl-db'
 
   # Deploy container image to Cloud Run
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
