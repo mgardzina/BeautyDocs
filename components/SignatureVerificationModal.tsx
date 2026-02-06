@@ -2,7 +2,6 @@
 
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import SignatureCanvas from "react-signature-canvas";
 import { X, Phone, Shield, Check, AlertCircle, Loader2 } from "lucide-react";
 import { sendOTP, verifyOTP, AuditLogData } from "@/app/actions/otp";
 
@@ -204,30 +203,32 @@ export default function SignatureVerificationModal({
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+        className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
         onClick={(e) => e.target === e.currentTarget && onClose()}
       >
         <motion.div
           initial={{ scale: 0.95, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0.95, opacity: 0 }}
-          className="bg-white rounded-2xl shadow-2xl w-full max-w-md overflow-hidden"
+          className="bg-gradient-to-b from-[#1a1a1a] to-[#0d0d0d] rounded-3xl shadow-2xl w-full max-w-md overflow-hidden border border-[#D4AF37]"
         >
           {/* Header */}
-          <div className="bg-gradient-to-r from-[#8b7355] to-[#6b5540] px-6 py-4 text-white">
+          <div className="bg-gradient-to-r from-[#D4AF37]/20 to-[#D4AF37]/10 px-6 py-5 border-b border-[#D4AF37]/30">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <Shield className="w-6 h-6" />
+                <div className="w-10 h-10 bg-[#D4AF37]/20 rounded-full flex items-center justify-center">
+                  <Shield className="w-5 h-5 text-[#D4AF37]" />
+                </div>
                 <div>
-                  <h2 className="font-semibold">Weryfikacja Tożsamości</h2>
-                  <p className="text-sm text-white/80">
+                  <h2 className="font-serif text-white text-lg tracking-wide">Weryfikacja Tożsamości</h2>
+                  <p className="text-sm text-white/60">
                     Wymagane do przejścia dalej
                   </p>
                 </div>
               </div>
               <button
                 onClick={onClose}
-                className="p-1 hover:bg-white/20 rounded-full transition-colors"
+                className="p-2 hover:bg-white/10 rounded-full transition-colors text-white/60 hover:text-white"
                 disabled={isLoading}
               >
                 <X className="w-5 h-5" />
@@ -235,16 +236,16 @@ export default function SignatureVerificationModal({
             </div>
 
             {/* Progress steps */}
-            <div className="flex items-center justify-center gap-2 mt-4">
+            <div className="flex items-center justify-center gap-3 mt-5">
               {["phone", "otp", "success"].map((s, i) => (
                 <div
                   key={s}
-                  className={`w-2 h-2 rounded-full transition-colors ${
+                  className={`w-2.5 h-2.5 rounded-full transition-colors ${
                     step === s
-                      ? "bg-white"
+                      ? "bg-[#D4AF37]"
                       : ["phone", "otp", "success"].indexOf(step) > i
-                        ? "bg-white/60"
-                        : "bg-white/30"
+                        ? "bg-[#D4AF37]/60"
+                        : "bg-white/20"
                   }`}
                 />
               ))}
@@ -261,33 +262,33 @@ export default function SignatureVerificationModal({
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -20 }}
-                  className="space-y-4"
+                  className="space-y-5"
                 >
-                  <div className="text-center mb-4">
-                    <p className="text-[#4a4540] font-medium">
+                  <div className="text-center mb-6">
+                    <p className="text-white font-serif text-lg tracking-wide">
                       Krok 1: Numer telefonu
                     </p>
-                    <p className="text-sm text-[#8b8580]">
+                    <p className="text-sm text-white/60 mt-1">
                       Wyślemy kod weryfikacyjny na podany numer
                     </p>
                   </div>
 
                   <div className="space-y-2">
-                    <label className="block text-sm text-[#6b6560] font-medium">
-                      Numer telefonu (bezprefixu +48)
+                    <label className="block text-sm text-white/70 font-medium">
+                      Numer telefonu (bez prefiksu +48)
                     </label>
                     <div className="flex">
-                      <span className="inline-flex items-center px-4 py-3 bg-[#f0ebe4] border border-r-0 border-[#d4cec4] rounded-l-xl text-[#6b6560] font-medium">
+                      <span className="inline-flex items-center px-4 py-3 bg-black/40 border border-r-0 border-[#D4AF37]/50 rounded-l-xl text-[#D4AF37] font-medium">
                         +48
                       </span>
                       <div className="relative flex-1">
-                        <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[#8b8580]" />
+                        <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-white/40" />
                         <input
                           type="tel"
                           value={phone}
                           onChange={handlePhoneChange}
                           placeholder="123 456 789"
-                          className="w-full pl-10 pr-4 py-3 border border-[#d4cec4] rounded-r-xl focus:border-[#8b7355] focus:ring-2 focus:ring-[#8b7355]/20 outline-none"
+                          className="w-full pl-10 pr-4 py-3 bg-black/40 border border-[#D4AF37]/50 rounded-r-xl focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/20 text-white placeholder-white/40 outline-none transition-all"
                           maxLength={11}
                           autoFocus
                         />
@@ -296,7 +297,7 @@ export default function SignatureVerificationModal({
                   </div>
 
                   {error && (
-                    <div className="flex items-center gap-2 text-red-600 text-sm">
+                    <div className="flex items-center gap-2 text-red-400 text-sm bg-red-500/10 px-4 py-2 rounded-lg border border-red-500/20">
                       <AlertCircle className="w-4 h-4" />
                       {error}
                     </div>
@@ -309,7 +310,7 @@ export default function SignatureVerificationModal({
                       cooldown > 0 ||
                       phone.replace(/\D/g, "").length !== 9
                     }
-                    className="w-full bg-[#8b7355] text-white py-3 rounded-xl font-medium hover:bg-[#7a6548] disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
+                    className="w-full bg-[#D4AF37] text-black py-3 rounded-xl font-medium hover:bg-[#c9a432] disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
                   >
                     {isLoading ? (
                       <Loader2 className="w-5 h-5 animate-spin" />
@@ -329,13 +330,13 @@ export default function SignatureVerificationModal({
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -20 }}
-                  className="space-y-4"
+                  className="space-y-5"
                 >
-                  <div className="text-center mb-4">
-                    <p className="text-[#4a4540] font-medium">
+                  <div className="text-center mb-6">
+                    <p className="text-white font-serif text-lg tracking-wide">
                       Krok 2: Wprowadź kod
                     </p>
-                    <p className="text-sm text-[#8b8580]">
+                    <p className="text-sm text-white/60 mt-1">
                       Wpisz 6-cyfrowy kod wysłany na {maskedPhone}
                     </p>
                   </div>
@@ -354,27 +355,27 @@ export default function SignatureVerificationModal({
                         onChange={(e) => handleOtpChange(index, e.target.value)}
                         onKeyDown={(e) => handleOtpKeyDown(index, e)}
                         onPaste={index === 0 ? handleOtpPaste : undefined}
-                        className="w-12 h-14 text-center text-2xl font-bold border-2 border-[#d4cec4] rounded-xl focus:border-[#8b7355] focus:ring-2 focus:ring-[#8b7355]/20 outline-none transition-colors"
+                        className="w-12 h-14 text-center text-2xl font-bold bg-black/40 border-2 border-[#D4AF37]/50 rounded-xl focus:border-[#D4AF37] focus:ring-2 focus:ring-[#D4AF37]/20 text-white outline-none transition-colors"
                         autoComplete="one-time-code"
                       />
                     ))}
                   </div>
 
                   {error && (
-                    <div className="flex items-center justify-center gap-2 text-red-600 text-sm">
+                    <div className="flex items-center justify-center gap-2 text-red-400 text-sm bg-red-500/10 px-4 py-2 rounded-lg border border-red-500/20">
                       <AlertCircle className="w-4 h-4" />
                       {error}
                     </div>
                   )}
 
-                  <p className="text-center text-xs text-[#8b8580]">
+                  <p className="text-center text-xs text-white/50">
                     Pozostało prób: {attemptsLeft} • Kod ważny 5 minut
                   </p>
 
                   <button
                     onClick={handleVerifyOTP}
                     disabled={isLoading || otpCode.join("").length !== 6}
-                    className="w-full bg-[#8b7355] text-white py-3 rounded-xl font-medium hover:bg-[#7a6548] disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
+                    className="w-full bg-[#D4AF37] text-black py-3 rounded-xl font-medium hover:bg-[#c9a432] disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
                   >
                     {isLoading ? (
                       <Loader2 className="w-5 h-5 animate-spin" />
@@ -387,14 +388,14 @@ export default function SignatureVerificationModal({
                     <button
                       type="button"
                       onClick={() => setStep("phone")}
-                      className="text-xs text-[#8b7355] hover:text-[#6b5540] transition-colors"
+                      className="text-xs text-[#D4AF37]/80 hover:text-[#D4AF37] transition-colors"
                     >
                       Zmień numer telefonu
                     </button>
                     <button
                       onClick={handleResendOTP}
                       disabled={cooldown > 0}
-                      className="text-sm text-[#8b7355] hover:text-[#6b5540] disabled:text-gray-400 transition-colors"
+                      className="text-sm text-[#D4AF37]/80 hover:text-[#D4AF37] disabled:text-white/30 transition-colors"
                     >
                       {cooldown > 0
                         ? `Wyślij ponownie za ${cooldown}s`
@@ -416,14 +417,14 @@ export default function SignatureVerificationModal({
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ delay: 0.2, type: "spring" }}
-                    className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4"
+                    className="w-20 h-20 bg-green-900/30 rounded-full flex items-center justify-center mx-auto mb-4 border border-green-500/30"
                   >
-                    <Check className="w-10 h-10 text-green-600" />
+                    <Check className="w-10 h-10 text-green-500" />
                   </motion.div>
-                  <h3 className="text-xl font-semibold text-[#4a4540] mb-2">
+                  <h3 className="text-xl font-serif text-white mb-2 tracking-wide">
                     Tożsamość zweryfikowana!
                   </h3>
-                  <p className="text-sm text-[#8b8580]">
+                  <p className="text-sm text-white/60">
                     Możesz bezpiecznie przejść do kolejnego kroku.
                   </p>
                 </motion.div>
@@ -432,9 +433,9 @@ export default function SignatureVerificationModal({
           </div>
 
           {/* Footer */}
-          <div className="bg-gray-50 px-6 py-3 border-t border-gray-100">
-            <p className="text-xs text-center text-[#8b8580]">
-              🔒 Weryfikacja SMS zapewnia bezpieczeństwo Twoich danych
+          <div className="bg-black/40 px-6 py-3 border-t border-[#D4AF37]/20">
+            <p className="text-xs text-center text-white/50">
+              Weryfikacja SMS zapewnia bezpieczeństwo Twoich danych
             </p>
           </div>
         </motion.div>
