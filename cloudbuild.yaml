@@ -32,12 +32,12 @@ steps:
         chmod +x cloud-sql-proxy &&
         mkdir -p /cloudsql &&
         chmod 777 /cloudsql &&
-        ./cloud-sql-proxy --unix-socket=/cloudsql powderbrowsacademypl:europe-west1:powderbrowspl-db &
+        ./cloud-sql-proxy --unix-socket=/cloudsql powderbrowsacademypl:europe-west3:powderbrowspl-db &
         sleep 5 &&
         npm install prisma @prisma/client &&
         npx prisma db push --accept-data-loss
     env:
-      - 'DATABASE_URL=postgresql://postgres:powderbrows2026%21@localhost/powderbrowsacademypl?host=/cloudsql/powderbrowsacademypl:europe-west1:powderbrowspl-db'
+      - 'DATABASE_URL=postgresql://postgres:powderbrows2026%21@localhost/powderbrowsacademypl?host=/cloudsql/powderbrowsacademypl:europe-west3:powderbrowspl-db'
 
   # Deploy container image to Cloud Run
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
@@ -49,7 +49,7 @@ steps:
       - '--image'
       - 'gcr.io/$PROJECT_ID/powder-brows-academy-pl:$COMMIT_SHA'
       - '--region'
-      - 'europe-west1'
+      - 'europe-west3'
       - '--platform'
       - 'managed'
       - '--allow-unauthenticated'
