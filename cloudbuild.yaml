@@ -4,9 +4,9 @@ steps:
     args:
       - 'build'
       - '-t'
-      - 'gcr.io/$PROJECT_ID/royal-lips:$COMMIT_SHA'
+      - 'gcr.io/$PROJECT_ID/powder-brows-academy-pl:$COMMIT_SHA'
       - '-t'
-      - 'gcr.io/$PROJECT_ID/royal-lips:latest'
+      - 'gcr.io/$PROJECT_ID/powder-brows-academy-pl:latest'
       - '.'
     timeout: 1200s
 
@@ -14,12 +14,12 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     args:
       - 'push'
-      - 'gcr.io/$PROJECT_ID/royal-lips:$COMMIT_SHA'
+      - 'gcr.io/$PROJECT_ID/powder-brows-academy-pl:$COMMIT_SHA'
 
   - name: 'gcr.io/cloud-builders/docker'
     args:
       - 'push'
-      - 'gcr.io/$PROJECT_ID/royal-lips:latest'
+      - 'gcr.io/$PROJECT_ID/powder-brows-academy-pl:latest'
 
   # Update Database Schema (Proxy + Migration in one step)
   - name: 'node:20-alpine'
@@ -32,12 +32,12 @@ steps:
         chmod +x cloud-sql-proxy &&
         mkdir -p /cloudsql &&
         chmod 777 /cloudsql &&
-        ./cloud-sql-proxy --unix-socket=/cloudsql royal-lips:europe-west3:royal-lips-db-small &
+        ./cloud-sql-proxy --unix-socket=/cloudsql powderbrowsacademypl:europe-west1:royal-lips-db-small &
         sleep 5 &&
         npm install prisma @prisma/client &&
         npx prisma db push --accept-data-loss
     env:
-      - 'DATABASE_URL=postgresql://postgres:royallips1220%40%23@localhost/royal-lips-database?host=/cloudsql/royal-lips:europe-west3:royal-lips-db-small'
+      - 'DATABASE_URL=postgresql://postgres:royallips1220%40%23@localhost/royal-lips-database?host=/cloudsql/powderbrowsacademypl:europe-west1:royal-lips-db-small'
 
   # Deploy container image to Cloud Run
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
@@ -45,11 +45,11 @@ steps:
     args:
       - 'run'
       - 'deploy'
-      - 'royal-lips'
+      - 'powder-brows-academy-pl'
       - '--image'
-      - 'gcr.io/$PROJECT_ID/royal-lips:$COMMIT_SHA'
+      - 'gcr.io/$PROJECT_ID/powder-brows-academy-pl:$COMMIT_SHA'
       - '--region'
-      - 'europe-west3'
+      - 'europe-west1'
       - '--platform'
       - 'managed'
       - '--allow-unauthenticated'
@@ -66,8 +66,8 @@ steps:
 
 
 images:
-  - 'gcr.io/$PROJECT_ID/royal-lips:$COMMIT_SHA'
-  - 'gcr.io/$PROJECT_ID/royal-lips:latest'
+  - 'gcr.io/$PROJECT_ID/powder-brows-academy-pl:$COMMIT_SHA'
+  - 'gcr.io/$PROJECT_ID/powder-brows-academy-pl:latest'
 
 timeout: 1800s
 
