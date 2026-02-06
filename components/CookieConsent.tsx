@@ -503,7 +503,7 @@ export default function CookieConsent() {
                   </button>
                   <button
                     onClick={handleAcceptAll}
-                    className="flex-1 px-4 py-3 bg-brand-DEFAULT text-black font-semibold text-xs rounded-xl hover:bg-brand-dark transition-all duration-300 shadow-[0_0_15px_rgba(212,175,55,0.4)] hover:shadow-[0_0_20px_rgba(212,175,55,0.6)] tracking-widest uppercase border border-brand-light/30"
+                    className="flex-1 px-4 py-3 bg-gradient-gold text-black font-bold text-xs rounded-xl hover:shadow-[0_0_25px_rgba(212,175,55,0.8)] transition-all duration-300 gold-glow tracking-widest uppercase border border-brand-light/30"
                   >
                     Zaakceptuj wszystkie
                   </button>

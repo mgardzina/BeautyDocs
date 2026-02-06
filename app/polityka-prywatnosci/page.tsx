@@ -3,8 +3,11 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { SALON_CONFIG } from "@/app/config/salon";
+import BackButton from "@/app/components/BackButton";
+import { useRouter } from "next/navigation";
 
 export default function PolitykaPrywatnosciPage() {
+  const router = useRouter();
   return (
     <div className="min-h-screen bg-black">
       {/* Navigation */}
@@ -16,13 +19,7 @@ export default function PolitykaPrywatnosciPage() {
                 {SALON_CONFIG.name}
               </h1>
             </Link>
-            <Link
-              href="/"
-              className="flex items-center space-x-2 text-ui-textSecondary hover:text-white transition-colors font-light text-sm tracking-wider uppercase"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              <span>Powrót</span>
-            </Link>
+            <BackButton onClick={() => router.push("/")} />
           </div>
         </div>
       </nav>

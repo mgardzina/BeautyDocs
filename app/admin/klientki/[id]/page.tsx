@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import BackButton from "@/app/components/BackButton";
 import {
   ArrowLeft,
   Plus,
@@ -390,12 +391,7 @@ export default function ClientDetailsPage({
       <header className="bg-gradient-emerald backdrop-blur-sm sticky top-0 z-50 shadow-lg border-b border-brand">
         <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
           <div className="flex items-center gap-4">
-            <Link
-              href="/admin/klientki"
-              className="text-white/60 hover:text-white transition-colors"
-            >
-              <ArrowLeft className="w-5 h-5" />
-            </Link>
+            <BackButton onClick={() => router.push("/admin/klientki")} />
             <div>
               <h1 className="text-2xl font-serif text-white tracking-wider">
                 {client.imieNazwisko}

@@ -2,8 +2,12 @@
 
 import Link from "next/link";
 import { SALON_CONFIG } from "@/app/config/salon";
+import BackButton from "@/app/components/BackButton";
+import { useRouter } from "next/navigation";
+import { ArrowLeft } from "lucide-react";
 
 export default function RegulaminPage() {
+  const router = useRouter();
   return (
     <div className="min-h-screen bg-black">
       {/* Navigation */}
@@ -15,12 +19,7 @@ export default function RegulaminPage() {
                 {SALON_CONFIG.name}
               </h1>
             </Link>
-            <Link
-              href="/"
-              className="text-ui-textSecondary hover:text-white transition-colors font-light text-sm tracking-wider uppercase"
-            >
-              Powrót
-            </Link>
+            <BackButton onClick={() => router.push("/")} />
           </div>
         </div>
       </nav>

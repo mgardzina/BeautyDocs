@@ -4,6 +4,7 @@ import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { SALON_CONFIG } from "@/app/config/salon";
+import BackButton from "@/app/components/BackButton";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -93,11 +94,12 @@ export default function LoginPage() {
           </button>
         </form>
 
-        <p className="text-center text-sm text-ui-textSecondary mt-8">
-          <a href="/" className="hover:text-brand transition-colors">
-            &larr; Powrót do strony głównej
-          </a>
-        </p>
+        <div className="flex justify-center mt-8">
+          <BackButton
+            onClick={() => router.push("/")}
+            label="Powrót do strony głównej"
+          />
+        </div>
       </div>
     </div>
   );

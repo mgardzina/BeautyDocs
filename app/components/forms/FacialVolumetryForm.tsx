@@ -14,6 +14,7 @@ import SignatureVerificationModal from "@/components/SignatureVerificationModal"
 import { AuditLogData } from "@/app/actions/otp";
 import Footer from "@/app/components/Footer";
 import AnatomyFaceSelector from "../AnatomyFaceSelector";
+import BackButton from "../BackButton";
 import { SALON_CONFIG } from "@/app/config/salon";
 import {
   ConsentFormData,
@@ -323,12 +324,11 @@ export default function FacialVolumetryForm({
             >
               Wypełnij ponownie
             </button>
-            <button
+            <BackButton
               onClick={onBack}
-              className="text-brand px-8 py-2 hover:text-brand-light transition-colors"
-            >
-              Wróć do wyboru zabiegu
-            </button>
+              label="Wróć do wyboru zabiegu"
+              className="w-full justify-center"
+            />
           </div>
         </div>
       </div>
@@ -378,13 +378,7 @@ export default function FacialVolumetryForm({
       <main className="max-w-4xl mx-auto px-4 py-8 relative z-10">
         <div className="mb-8">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
-            <button
-              onClick={onBack}
-              className="group flex items-center gap-2 bg-brand/10 hover:bg-brand border border-brand text-brand hover:text-white px-6 py-2.5 rounded-lg transition-all font-bold self-start uppercase tracking-widest text-xs shadow-lg shadow-brand/10"
-            >
-              <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
-              Powrót
-            </button>
+            <BackButton onClick={onBack} className="self-start" />
             <div className="flex gap-2 text-xs md:text-sm font-medium text-white/50 overflow-x-auto pb-2 md:pb-0">
               <span
                 className={currentStep === "DATA" ? "text-brand font-bold" : ""}

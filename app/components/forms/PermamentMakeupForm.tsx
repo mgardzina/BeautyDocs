@@ -13,6 +13,7 @@ import SignaturePad from "@/components/SignaturePad";
 import SignatureVerificationModal from "@/components/SignatureVerificationModal";
 import { AuditLogData } from "@/app/actions/otp";
 import Footer from "@/app/components/Footer";
+import BackButton from "../BackButton";
 import {
   ConsentFormData,
   ContraindicationWithFollowUp,
@@ -278,12 +279,11 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
             >
               Wypełnij ponownie
             </button>
-            <button
+            <BackButton
               onClick={onBack}
-              className="text-brand px-8 py-2 hover:text-brand-light transition-colors"
-            >
-              Wróć do wyboru zabiegu
-            </button>
+              label="Wróć do wyboru zabiegu"
+              className="w-full justify-center"
+            />
           </div>
         </div>
       </div>
@@ -331,12 +331,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
       <main className="max-w-4xl mx-auto px-4 py-8 relative z-10">
         <div className="mb-8">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
-            <button
-              onClick={onBack}
-              className="text-brand hover:text-white border border-brand hover:bg-brand px-4 py-2 rounded-lg transition-all font-medium self-start uppercase tracking-wider text-sm"
-            >
-              Powrót
-            </button>
+            <BackButton onClick={onBack} className="self-start" />
             <div className="flex gap-2 text-xs md:text-sm font-medium text-white/50 overflow-x-auto pb-2 md:pb-0">
               <span
                 className={currentStep === "DATA" ? "text-brand font-bold" : ""}
