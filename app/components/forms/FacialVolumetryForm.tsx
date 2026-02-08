@@ -412,7 +412,7 @@ export default function FacialVolumetryForm({
 
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-serif text-white mb-3 tracking-tight">
-              Wolumetria <span className="text-brand">Twarzy</span>
+              Wypełnianie <span className="text-brand">Kwasem Hialuronowym</span>
             </h1>
             <div className="flex items-center justify-center gap-4">
               <div className="h-px w-12 bg-brand"></div>

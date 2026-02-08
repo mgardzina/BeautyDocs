@@ -1,7 +1,7 @@
 export const SALON_CONFIG = {
-  name: "Powder Brows Academy",
+  name: "PowderBrows Academy",
   owner: "Malwina Zięba",
-  fullName: "Powder Brows Academy - Malwina Zięba",
+  fullName: "PowderBrows Academy - Malwina Zięba",
   address: "ul. Siedlanowskiego 3, lokal 12",
   city: "Stalowa Wola",
   zipCode: "37-450",

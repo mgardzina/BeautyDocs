@@ -24,7 +24,7 @@ export default function SelectionScreen({ onSelect }: SelectionScreenProps) {
           <SelectionCard
             onClick={() => onSelect("FACIAL_VOLUMETRY")}
             icon={<Syringe className="w-10 h-10" />}
-            title="Wolumetria Twarzy"
+            title="Wypełnianie Kwasem Hialuronowym"
             subtitle="Modelowanie twarzy"
           />
 
@@ -61,7 +61,7 @@ export default function SelectionScreen({ onSelect }: SelectionScreenProps) {
             onClick={() => onSelect("WRINKLE_REDUCTION")}
             icon={<Sparkles className="w-10 h-10" />}
             title="Niwelowanie Zmarszczek"
-            subtitle="Botoks / Kwas"
+            subtitle="usuwanie zmarszczek"
           />
 
           <SelectionCard

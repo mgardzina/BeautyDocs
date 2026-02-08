@@ -639,58 +639,8 @@ export default function InjectionLipolysisForm({
                   Szczegóły Zabiegu
                 </h2>
                 <div className="space-y-6">
-                  <div>
-                    <label className="block text-sm text-ui-textSecondary mb-2 font-medium">
-                      Nazwa preparatu
-                    </label>
-                    <div className="flex flex-col gap-3">
-                      <div className="p-4 rounded-xl border-2 border-brand bg-brand/10 gold-glow transition-all relative overflow-hidden shadow-xl shadow-brand/5">
-                        <div className="flex justify-between items-center mb-1">
-                          <span className="font-serif text-lg font-medium text-white">
-                            Cincelar
-                          </span>
-                          <div className="w-6 h-6 bg-brand rounded flex items-center justify-center">
-                            <Check className="w-4 h-4 text-black" />
-                          </div>
-                        </div>
-                        <p className="text-sm text-ui-textSecondary leading-relaxed">
-                          Preparat do lipolizy iniekcyjnej. Skutecznie
-                          rozpuszcza komórki tłuszczowe, wspierając modelowanie
-                          sylwetki.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Znieczulenie */}
-                  <div className="pt-8 mt-8 border-t border-brand/10">
-                    <label className="block text-sm text-ui-textSecondary mb-2 font-medium">
-                      Znieczulenie
-                    </label>
-                    <div className="flex flex-col gap-3">
-                      <button
-                        type="button"
-                        className="text-left p-4 rounded-xl border-2 border-brand bg-brand/10 gold-glow transition-all group"
-                      >
-                        <div className="flex justify-between items-center mb-1">
-                          <span className="font-serif text-lg font-medium text-white">
-                            Lidokaina 9,6%
-                          </span>
-                          <div className="w-6 h-6 bg-brand rounded flex items-center justify-center">
-                            <Check className="w-4 h-4 text-black" />
-                          </div>
-                        </div>
-                        <p className="text-sm text-ui-textSecondary leading-relaxed">
-                          Środek znieczulający miejscowo w formie kremu.
-                          Powoduje czasowe, odwracalne zablokowanie czucia na
-                          powierzchni skóry, eliminując ból podczas nakłuwania.
-                        </p>
-                      </button>
-                    </div>
-                  </div>
-
                   {/* Miejsce zabiegu */}
-                  <div className="pt-8 mt-8 border-t border-brand/10">
+                  <div>
                     <label className="block text-sm text-ui-textSecondary mb-3 font-medium">
                       Miejsce zabiegu (można wybrać kilka)
                     </label>

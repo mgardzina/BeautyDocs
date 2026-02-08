@@ -28,8 +28,8 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Powder Brows Academy - Malwina Zięba | Stalowa Wola",
-    template: "%s | Powder Brows Academy",
+    default: "PowderBrows Academy - Malwina Zięba | Stalowa Wola",
+    template: "%s | PowderBrows Academy",
   },
   description:
     "Profesjonalny makijaż permanentny brwi, ust i kresek w Stalowej Woli. Szkolenia i zabiegi na najwyższym poziomie.",
@@ -40,14 +40,14 @@ export const metadata: Metadata = {
     "szkolenia makijaż permanentny",
     "brwi permanentne",
     "usta permanentne",
-    "Poder Brows Academy",
+    "PowderBrows Academy",
     "Malwina Zięba",
     "makijaż permanentny Podkarpacie",
     "beauty salon Stalowa Wola",
   ],
-  authors: [{ name: "Powder Brows Academy - Malwina Zięba" }],
-  creator: "Powder Brows Academy",
-  publisher: "Powder Brows Academy",
+  authors: [{ name: "PowderBrows Academy - Malwina Zięba" }],
+  creator: "PowderBrows Academy",
+  publisher: "PowderBrows Academy",
   formatDetection: {
     email: true,
     address: true,
@@ -60,8 +60,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "pl_PL",
     url: siteUrl,
-    siteName: "Powder Brows Academy - Malwina Zięba",
-    title: "Powder Brows Academy - Makijaż Permanentny Stalowa Wola",
+    siteName: "PowderBrows Academy - Malwina Zięba",
+    title: "PowderBrows Academy - Makijaż Permanentny Stalowa Wola",
     description:
       "Profesjonalny makijaż permanentny brwi, ust i kresek w Stalowej Woli. Szkolenia i zabiegi.",
     images: [
@@ -75,7 +75,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Powder Brows Academy - Makijaż Permanentny Stalowa Wola",
+    title: "PowderBrows Academy - Makijaż Permanentny Stalowa Wola",
     description:
       "Profesjonalny makijaż permanentny brwi, ust i kresek w Stalowej Woli.",
     images: ["/logo.png"],
