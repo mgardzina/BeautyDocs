@@ -62,7 +62,7 @@ interface ConsentFormFull {
   ulica: string | null;
   kodPocztowy: string | null;
   miasto: string | null;
-  dataUrodzenia: string | null;
+  pesel: string | null;
   telefon: string;
   miejscowoscData: string;
   nazwaProduktu: string | null;
@@ -445,10 +445,10 @@ export default function FormDetailsPage() {
                 </div>
               )}
             </div>
-            {form.dataUrodzenia && (
+            {form.pesel && (
               <div className="flex items-center gap-3 text-white">
-                <Calendar className="w-5 h-5 text-brand" />
-                <span>{form.dataUrodzenia}</span>
+                <User className="w-5 h-5 text-brand" />
+                <span>PESEL: {form.pesel}</span>
               </div>
             )}
           </div>

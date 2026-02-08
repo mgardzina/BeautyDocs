@@ -27,7 +27,7 @@ export async function POST(request: NextRequest) {
         ulica: body.ulica || null,
         kodPocztowy: body.kodPocztowy || null,
         miasto: body.miasto || null,
-        dataUrodzenia: body.dataUrodzenia || null,
+        pesel: body.pesel || null,
         telefon: body.telefon,
         miejscowoscData: body.miejscowoscData,
         nazwaProduktu: body.nazwaProduktu || null,

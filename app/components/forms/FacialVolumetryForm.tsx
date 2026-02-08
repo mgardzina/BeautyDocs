@@ -1,14 +1,6 @@
 import { useState, useEffect } from "react";
-import {
-  Phone,
-  Check,
-  ArrowLeft,
-  Instagram,
-  Mail,
-  Shield,
-  X,
-} from "lucide-react";
-import { isAdult, getTodayDate } from "@/lib/dateUtils";
+import { Phone, Check, ArrowLeft, Instagram, Mail, Shield } from "lucide-react";
+import { getTodayDate } from "@/lib/dateUtils";
 import SignaturePad from "@/components/SignaturePad";
 import SignatureVerificationModal from "@/components/SignatureVerificationModal";
 import { AuditLogData } from "@/app/actions/otp";
@@ -36,7 +28,7 @@ const initialFormData: ConsentFormData = {
   ulica: "",
   kodPocztowy: "",
   miasto: SALON_CONFIG.city,
-  dataUrodzenia: "",
+  pesel: "",
   telefon: "",
   miejscowoscData: `${SALON_CONFIG.city}, ${getTodayDate()}`,
   osobaPrzeprowadzajacaZabieg: "",
@@ -74,7 +66,6 @@ export default function FacialVolumetryForm({
 }: FacialVolumetryFormProps) {
   const [formData, setFormData] = useState<ConsentFormData>(initialFormData);
   const [email, setEmail] = useState("");
-  const [birthDateError, setBirthDateError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [currentContraindicationIndex, setCurrentContraindicationIndex] =
@@ -200,29 +191,9 @@ export default function FacialVolumetryForm({
     setFormData((prev) => ({ ...prev, telefon: formatted }));
   };
 
-  const formatBirthDate = (value: string): string => {
-    const digits = value.replace(/\D/g, "").slice(0, 8);
-    if (digits.length <= 2) return digits;
-    if (digits.length <= 4) return `${digits.slice(0, 2)}.${digits.slice(2)}`;
-    return `${digits.slice(0, 2)}.${digits.slice(2, 4)}.${digits.slice(4)}`;
-  };
-
-  const handleBirthDateChange = (value: string) => {
-    const formatted = formatBirthDate(value);
-    setFormData((prev) => ({ ...prev, dataUrodzenia: formatted }));
-
-    // Validate age if full date is entered
-    if (formatted.length === 10) {
-      if (!isAdult(formatted)) {
-        setBirthDateError(
-          "Musisz być osobą pełnoletnią, aby wypełnić formularz.",
-        );
-      } else {
-        setBirthDateError(null);
-      }
-    } else {
-      setBirthDateError(null);
-    }
+  const handlePeselChange = (value: string) => {
+    const digits = value.replace(/\D/g, "").slice(0, 11);
+    setFormData((prev) => ({ ...prev, pesel: digits }));
   };
 
   const handleContraindicationChange = (key: string, value: boolean) => {
@@ -254,7 +225,7 @@ export default function FacialVolumetryForm({
       type: formData.type,
       imieNazwisko: formData.imieNazwisko,
       telefon: formData.telefon,
-      dataUrodzenia: formData.dataUrodzenia,
+      pesel: formData.pesel,
       przeciwwskazania: formData.przeciwwskazania,
       timestamp: new Date().toISOString(),
     });
@@ -341,9 +312,9 @@ export default function FacialVolumetryForm({
     formData.telefon &&
     formData.telefon.replace(/\D/g, "").length === 9 &&
     formData.miejscowoscData &&
-    formData.dataUrodzenia &&
-    isWizardComplete &&
-    !birthDateError;
+    formData.pesel &&
+    formData.pesel.length === 11 &&
+    isWizardComplete;
 
   return (
     <div className="min-h-screen bg-ui-bg text-white selection:bg-brand/30">
@@ -412,7 +383,8 @@ export default function FacialVolumetryForm({
 
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-serif text-white mb-3 tracking-tight">
-              Wypełnianie <span className="text-brand">Kwasem Hialuronowym</span>
+              Wypełnianie{" "}
+              <span className="text-brand">Kwasem Hialuronowym</span>
             </h1>
             <div className="flex items-center justify-center gap-4">
               <div className="h-px w-12 bg-brand"></div>
@@ -534,28 +506,24 @@ export default function FacialVolumetryForm({
 
                   <div>
                     <label className="block text-sm text-ui-textSecondary mb-2 font-medium">
-                      Data urodzenia
+                      PESEL *
                     </label>
                     <input
                       type="text"
-                      value={formData.dataUrodzenia}
-                      onChange={(e) => handleBirthDateChange(e.target.value)}
+                      required
+                      value={formData.pesel}
+                      onChange={(e) => handlePeselChange(e.target.value)}
                       className="w-full px-4 py-3 bg-ui-bg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
-                      placeholder="DD.MM.RRRR"
+                      placeholder="np. 85010112345"
+                      maxLength={11}
                     />
-                    {birthDateError && (
-                      <div className="mt-2 flex items-center gap-2 text-red-500 text-sm animate-in fade-in slide-in-from-top-1">
-                        <X className="w-4 h-4" />
-                        <span>{birthDateError}</span>
-                      </div>
-                    )}
                   </div>
                   <div>
                     <label className="block text-sm text-ui-textSecondary mb-2 font-medium">
                       Telefon * (do weryfikacji SMS)
                     </label>
                     <div className="flex">
-                      <span className="inline-flex items-center px-4 py-3 bg-gradient-emerald border border-r-0 border-[#D4AF37] rounded-l-xl text-ui-textSecondary font-medium select-none">
+                      <span className="inline-flex items-center px-4 py-3 bg-gradient-emerald border border-r-0 border-[#D4AF37] rounded-l-xl text-[#D4AF37] font-medium select-none">
                         +48
                       </span>
                       <input

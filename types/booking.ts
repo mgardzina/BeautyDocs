@@ -16,7 +16,7 @@ export interface ConsentFormData {
   ulica: string;
   kodPocztowy: string;
   miasto: string;
-  dataUrodzenia: string;
+  pesel: string;
   telefon: string;
   email?: string;
   miejscowoscData: string;
@@ -1160,10 +1160,6 @@ export const makijazPermanentnyPostCare = [
 
 // LASEROWE_USUWANIE - Laserowe usuwanie makijażu permanentnego lub tatuażu
 export const laseroweUsuwanieContraindications: Record<string, string | ContraindicationWithFollowUp> = {
-  lekiLista: {
-    text: 'Proszę wpisać wykaz wszystkich leków przyjmowanych w ciągu ostatnich 6 miesięcy',
-    hasFollowUp: true,
-  },
   ciazaLaktacja: 'Czy jest Pani w ciąży lub w okresie laktacji?',
   zapalenieZakazenieSkory: 'Czy ma Pani/Pan zapalenie lub zakażenie skóry (trądzik, opryszczka, zapalenia skórne, alergiczne lub grzybicze zmiany w okolicach podlegających zabiegowi, naczyniaki, liszaje, brodawczaki, przerwania ciągłości naskórka, poparzenia słoneczne?)',
   chorobySerca: 'Czy choruje Pani/Pan na choroby serca?',

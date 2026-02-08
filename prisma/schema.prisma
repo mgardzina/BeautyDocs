@@ -72,7 +72,7 @@ model ConsentForm {
   treatmentHistory TreatmentHistory[] // Nowe pole
   kodPocztowy      String?
   miasto           String?
-  dataUrodzenia    String?
+  pesel            String?
   telefon          String
   miejscowoscData  String
 

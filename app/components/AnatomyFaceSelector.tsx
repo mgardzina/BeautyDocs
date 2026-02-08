@@ -1,18 +1,28 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ZONES } from "@/types/face-zones";
 
 interface FaceChartProps {
   onSelect?: (selectedIds: string[]) => void;
   initialSelected?: string[];
+  allowedZones?: string[]; // Prop for filtering global ZONES
+  customZones?: typeof ZONES; // New prop for completely custom zones
 }
 
 export default function FaceChart({
   onSelect,
   initialSelected = [],
+  allowedZones,
+  customZones,
 }: FaceChartProps) {
   const [selected, setSelected] = useState<string[]>(initialSelected);
+
+  // Synchronize internal state with props when initialSelected changes
+  useEffect(() => {
+    setSelected(initialSelected);
+  }, [initialSelected]);
+
   const [hovered, setHovered] = useState<string | null>(null);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
@@ -47,6 +57,14 @@ export default function FaceChart({
     },
   };
 
+  // Determine which zones to use
+  const baseZones = customZones || ZONES;
+
+  // Filter base zones if allowedZones is provided
+  const visibleZones = allowedZones
+    ? baseZones.filter((z) => allowedZones.includes(z.id))
+    : baseZones;
+
   const toggleZone = (id: string) => {
     let newSelected;
     if (selected.includes(id)) {
@@ -60,7 +78,7 @@ export default function FaceChart({
   };
 
   const selectAll = () => {
-    const allIds = ZONES.map((z) => z.id);
+    const allIds = visibleZones.map((z) => z.id);
     if (selected.length === allIds.length) {
       // Deselect all if all are selected
       setSelected([]);
@@ -73,7 +91,7 @@ export default function FaceChart({
   };
 
   const getZoneName = (id: string) =>
-    ZONES.find((z) => z.id === id)?.name || id;
+    baseZones.find((z) => z.id === id)?.name || id;
 
   return (
     <div className="flex flex-col items-center w-full max-w-2xl mx-auto">
@@ -103,20 +121,17 @@ export default function FaceChart({
 
       {/* Kontener na SVG */}
       <div
-        className="relative w-full aspect-square shadow-2xl rounded-2xl overflow-hidden border border-emerald/20 bg-ui-bg cursor-crosshair"
+        className="relative w-full aspect-square shadow-2xl rounded-2xl overflow-hidden border border-emerald/20 cursor-crosshair"
+        style={{
+          backgroundImage: "url('/women-face-chart.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
         onMouseMove={handleMouseMove}
       >
         <svg viewBox={`0 0 ${WIDTH} ${HEIGHT}`} className="w-full h-full">
-          {/* WARSTWA 1: ZDJĘCIE TŁA (musi być w folderze /public) */}
-          <image
-            href="/women-face-chart.jpg"
-            width={WIDTH}
-            height={HEIGHT}
-            preserveAspectRatio="xMidYMid slice"
-          />
-
           {/* WARSTWA 2: INTERAKTYWNE STREFY */}
-          {ZONES.map((zone) => {
+          {visibleZones.map((zone) => {
             const isSelected = selected.includes(zone.id);
             const isHovered = hovered === zone.id;
 

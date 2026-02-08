@@ -1,14 +1,6 @@
 import { useState, useEffect } from "react";
-import {
-  Phone,
-  Check,
-  ArrowLeft,
-  Instagram,
-  Mail,
-  Shield,
-  X,
-} from "lucide-react";
-import { isAdult, getTodayDate } from "@/lib/dateUtils";
+import { Phone, Check, ArrowLeft, Instagram, Mail, Shield } from "lucide-react";
+import { getTodayDate } from "@/lib/dateUtils";
 import SignaturePad from "@/components/SignaturePad";
 import SignatureVerificationModal from "@/components/SignatureVerificationModal";
 import { AuditLogData } from "@/app/actions/otp";
@@ -25,6 +17,7 @@ import {
 } from "../../../types/booking";
 import { SALON_CONFIG } from "@/app/config/salon";
 import AnatomyFaceSelector from "../AnatomyFaceSelector";
+import { ZONES as PMU_ZONES } from "@/types/face-zone-pernament";
 
 interface LipModelingFormProps {
   onBack: () => void;
@@ -36,7 +29,7 @@ const initialFormData: ConsentFormData = {
   ulica: "",
   kodPocztowy: "",
   miasto: SALON_CONFIG.city,
-  dataUrodzenia: "",
+  pesel: "",
   telefon: "",
   miejscowoscData: `${SALON_CONFIG.city}, ${getTodayDate()}`,
   osobaPrzeprowadzajacaZabieg: "",
@@ -72,7 +65,6 @@ const initialFormData: ConsentFormData = {
 export default function LipModelingForm({ onBack }: LipModelingFormProps) {
   const [formData, setFormData] = useState<ConsentFormData>(initialFormData);
   const [email, setEmail] = useState("");
-  const [birthDateError, setBirthDateError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [currentContraindicationIndex, setCurrentContraindicationIndex] =
@@ -155,29 +147,9 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
     setFormData((prev) => ({ ...prev, telefon: formatted }));
   };
 
-  const formatBirthDate = (value: string): string => {
-    const digits = value.replace(/\D/g, "").slice(0, 8);
-    if (digits.length <= 2) return digits;
-    if (digits.length <= 4) return `${digits.slice(0, 2)}.${digits.slice(2)}`;
-    return `${digits.slice(0, 2)}.${digits.slice(2, 4)}.${digits.slice(4)}`;
-  };
-
-  const handleBirthDateChange = (value: string) => {
-    const formatted = formatBirthDate(value);
-    setFormData((prev) => ({ ...prev, dataUrodzenia: formatted }));
-
-    // Validate age if full date is entered
-    if (formatted.length === 10) {
-      if (!isAdult(formatted)) {
-        setBirthDateError(
-          "Musisz być osobą pełnoletnią, aby wypełnić formularz.",
-        );
-      } else {
-        setBirthDateError(null);
-      }
-    } else {
-      setBirthDateError(null);
-    }
+  const handlePeselChange = (value: string) => {
+    const digits = value.replace(/\D/g, "").slice(0, 11);
+    setFormData((prev) => ({ ...prev, pesel: digits }));
   };
 
   const handleContraindicationChange = (key: string, value: boolean) => {
@@ -209,7 +181,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
       type: formData.type,
       imieNazwisko: formData.imieNazwisko,
       telefon: formData.telefon,
-      dataUrodzenia: formData.dataUrodzenia,
+      pesel: formData.pesel,
       przeciwwskazania: formData.przeciwwskazania,
       timestamp: new Date().toISOString(),
     });
@@ -296,9 +268,9 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
     formData.telefon &&
     formData.telefon.replace(/\D/g, "").length === 9 &&
     formData.miejscowoscData &&
-    formData.dataUrodzenia &&
-    isWizardComplete &&
-    !birthDateError;
+    formData.pesel &&
+    formData.pesel.length === 11 &&
+    isWizardComplete;
 
   return (
     <div className="min-h-screen bg-ui-bg text-white selection:bg-brand/30">
@@ -332,55 +304,49 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
         <div className="mb-8">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
             <BackButton onClick={onBack} className="self-start" />
-            <div className="flex gap-2 text-xs md:text-sm font-medium text-white/50 overflow-x-auto pb-2 md:pb-0">
+            <div className="flex gap-2 text-[10px] md:text-sm font-medium text-white/50 overflow-x-auto pb-2 md:pb-0 scrollbar-none">
               <span
-                className={currentStep === "DATA" ? "text-brand font-bold" : ""}
+                className={`whitespace-nowrap ${currentStep === "DATA" ? "text-brand font-bold scale-110" : ""} transition-all`}
               >
-                1. Dane
+                1. DANE
               </span>
-              <span>→</span>
+              <span className="opacity-30">→</span>
               <span
-                className={currentStep === "RODO" ? "text-brand font-bold" : ""}
+                className={`whitespace-nowrap ${currentStep === "RODO" ? "text-brand font-bold scale-110" : ""} transition-all`}
               >
                 2. RODO
               </span>
-              <span>→</span>
+              <span className="opacity-30">→</span>
               <span
-                className={
-                  currentStep === "RODO2" ? "text-brand font-bold" : ""
-                }
+                className={`whitespace-nowrap ${currentStep === "RODO2" ? "text-brand font-bold scale-110" : ""} transition-all`}
               >
                 3. RODO 2
               </span>
-              <span>→</span>
+              <span className="opacity-30">→</span>
               <span
-                className={
-                  currentStep === "TREATMENT" ? "text-brand font-bold" : ""
-                }
+                className={`whitespace-nowrap ${currentStep === "TREATMENT" ? "text-brand font-bold scale-110" : ""} transition-all`}
               >
-                4. Zabieg
+                4. ZABIEG
               </span>
-              <span>→</span>
+              <span className="opacity-30">→</span>
               <span
-                className={
-                  currentStep === "MARKETING" ? "text-brand font-bold" : ""
-                }
+                className={`whitespace-nowrap ${currentStep === "MARKETING" ? "text-brand font-bold scale-110" : ""} transition-all`}
               >
-                5. Zgody
+                5. ZGODY
               </span>
             </div>
           </div>
 
           <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-serif text-white mb-3 tracking-tight">
+            <h1 className="text-4xl md:text-6xl font-serif text-white mb-3 tracking-tighter drop-shadow-lg">
               Makijaż <span className="text-brand">Permanentny</span>
             </h1>
             <div className="flex items-center justify-center gap-4">
-              <div className="h-px w-12 bg-brand"></div>
-              <p className="text-brand text-sm md:text-lg font-light tracking-[0.3em] uppercase drop-shadow-sm">
+              <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-brand"></div>
+              <p className="text-brand text-xs md:text-base font-light tracking-[0.4em] uppercase">
                 Zabieg z zakresu makijażu permanentnego
               </p>
-              <div className="h-px w-12 bg-brand"></div>
+              <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-brand"></div>
             </div>
           </div>
         </div>
@@ -494,28 +460,24 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
 
                   <div>
                     <label className="block text-sm text-ui-textSecondary mb-2 font-medium">
-                      Data urodzenia
+                      PESEL *
                     </label>
                     <input
                       type="text"
-                      value={formData.dataUrodzenia}
-                      onChange={(e) => handleBirthDateChange(e.target.value)}
+                      required
+                      value={formData.pesel}
+                      onChange={(e) => handlePeselChange(e.target.value)}
                       className="w-full px-4 py-3 bg-ui-bg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
-                      placeholder="DD.MM.RRRR"
+                      placeholder="np. 85010112345"
+                      maxLength={11}
                     />
-                    {birthDateError && (
-                      <div className="mt-2 flex items-center gap-2 text-red-500 text-sm animate-in fade-in slide-in-from-top-1">
-                        <X className="w-4 h-4" />
-                        <span>{birthDateError}</span>
-                      </div>
-                    )}
                   </div>
                   <div>
                     <label className="block text-sm text-ui-textSecondary mb-2 font-medium">
                       Telefon * (do weryfikacji SMS)
                     </label>
                     <div className="flex">
-                      <span className="inline-flex items-center px-4 py-3 bg-gradient-emerald border border-r-0 border-[#D4AF37] rounded-l-xl text-ui-textSecondary font-medium select-none">
+                      <span className="inline-flex items-center px-4 py-3 bg-gradient-emerald border border-r-0 border-[#D4AF37] rounded-l-xl text-[#D4AF37] font-medium select-none">
                         +48
                       </span>
                       <input
@@ -688,6 +650,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                       Anatomia (zaznacz obszar zabiegu)
                     </label>
                     <AnatomyFaceSelector
+                      customZones={PMU_ZONES}
                       initialSelected={(formData.obszarZabiegu || "")
                         .split(", ")
                         .filter(Boolean)}
@@ -699,57 +662,56 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                       }}
                     />
                   </div>
-
-                  {/* Znieczulenie */}
-                  <div>
-                    <label className="block text-sm text-ui-textSecondary mb-2 font-medium">
-                      Znieczulenie
-                    </label>
-                    <div className="space-y-4">
-                      {/* Anesthesia Selection */}
-                      <div className="flex flex-col gap-3">
-                        <button
-                          type="button"
-                          className="text-left p-4 rounded-xl border-2 border-brand bg-brand/10 gold-glow transition-all group"
-                        >
-                          <div className="flex justify-between items-center mb-1">
-                            <span className="font-serif text-lg font-medium text-white">
-                              Lidokaina 9,6%
-                            </span>
-                            <div className="w-6 h-6 bg-brand rounded flex items-center justify-center">
-                              <Check className="w-4 h-4 text-black" />
-                            </div>
-                          </div>
-                          <p className="text-sm text-ui-textSecondary leading-relaxed">
-                            Znieczulenie miejscowe jest zawsze stosowane podczas
-                            zabiegu.
-                          </p>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
                   {/* Obszar zabiegu */}
                   <div>
                     <label className="block text-sm text-ui-textSecondary mb-2 font-medium">
                       Wykonywany zabieg dotyczy makijażu permanentnego:
                     </label>
                     <div className="grid grid-cols-3 gap-3 mb-3">
-                      {["Ust", "Brwi", "Powiek"].map((area) => {
-                        const isSelected = (formData.obszarZabiegu || "")
+                      {[
+                        { id: "lips", label: "Ust" },
+                        {
+                          id: "eyebrows",
+                          label: "Brwi",
+                          ids: ["eyebrow_left", "eyebrow_right"],
+                        },
+                        {
+                          id: "eyelids",
+                          label: "Powiek",
+                          ids: ["eyelid_left", "eyelid_right"],
+                        },
+                      ].map((item) => {
+                        const currentZones = (formData.obszarZabiegu || "")
                           .split(", ")
-                          .includes(area);
+                          .filter(Boolean);
+                        const isSelected = item.ids
+                          ? item.ids.every((id) => currentZones.includes(id))
+                          : currentZones.includes(item.id);
+
                         return (
                           <button
-                            key={area}
+                            key={item.label}
                             type="button"
                             onClick={() => {
-                              const current = formData.obszarZabiegu
-                                ? formData.obszarZabiegu.split(", ")
-                                : [];
-                              const newValue = current.includes(area)
-                                ? current.filter((i) => i !== area).join(", ")
-                                : [...current, area].join(", ");
-                              handleInputChange("obszarZabiegu", newValue);
+                              let newZones = [...currentZones];
+                              const targets = item.ids || [item.id];
+
+                              if (isSelected) {
+                                // Remove all targets
+                                newZones = newZones.filter(
+                                  (z) => !targets.includes(z),
+                                );
+                              } else {
+                                // Add missing targets
+                                targets.forEach((t) => {
+                                  if (!newZones.includes(t)) newZones.push(t);
+                                });
+                              }
+
+                              handleInputChange(
+                                "obszarZabiegu",
+                                newZones.join(", "),
+                              );
                             }}
                             className={`py-3 px-4 rounded-xl border-2 transition-all font-medium text-sm ${
                               isSelected
@@ -757,7 +719,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                                 : "border-[#D4AF37] bg-ui-bg text-ui-textSecondary hover:border-brand hover:text-brand"
                             }`}
                           >
-                            {area}
+                            {item.label}
                           </button>
                         );
                       })}
@@ -820,7 +782,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                   </label>
                   <textarea
                     rows={3}
-                    className="w-full px-4 py-3 bg-ui-bg border border-[#D4AF37] rounded-xl focus:border-brand outline-none text-sm"
+                    className="w-full px-4 py-3 bg-gradient-emerald border border-[#D4AF37] rounded-xl focus:border-brand outline-none text-sm text-white placeholder-ui-textMuted"
                     placeholder="Wpisz leki lub wpisz 'BRAK'..."
                     value={
                       (formData.informacjaDodatkowa || "")
