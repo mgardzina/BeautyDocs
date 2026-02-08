@@ -542,11 +542,6 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                     pochodzenia niezwierzęcego.
                   </p>
                   <p>
-                    Zabieg wykonywany jest przy użyciu produktów takich jak:
-                    Stylage M, Revolax Fine, Revolax Deep z lidokainą lub bez
-                    lidokainy.
-                  </p>
-                  <p>
                     Zabieg odbywa się zawsze po wykluczeniu wszelkich
                     przeciwwskazań do wykonania zabiegu. W rozmowie z Klientem
                     zostają określone potrzeby i oczekiwania od wykonania
@@ -686,36 +681,6 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                           );
                         })}
                       </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Znieczulenie */}
-                <div className="pt-8 mt-8 border-t border-brand/10">
-                  <label className="block text-sm text-ui-textSecondary mb-2 font-medium">
-                    Znieczulenie
-                  </label>
-                  <div className="space-y-4">
-                    {/* Anesthesia Selection */}
-                    <div className="flex flex-col gap-3">
-                      <button
-                        type="button"
-                        className="text-left p-4 rounded-xl border-2 border-brand bg-brand/10 gold-glow transition-all group"
-                      >
-                        <div className="flex justify-between items-center mb-1">
-                          <span className="font-serif text-lg font-medium text-white">
-                            Lidokaina 9,6%
-                          </span>
-                          <div className="w-6 h-6 bg-brand rounded flex items-center justify-center">
-                            <Check className="w-4 h-4 text-black" />
-                          </div>
-                        </div>
-                        <p className="text-sm text-ui-textSecondary leading-relaxed">
-                          Środek znieczulający miejscowo w formie kremu.
-                          Powoduje czasowe, odwracalne zablokowanie czucia na
-                          powierzchni skóry, eliminując ból podczas nakłuwania.
-                        </p>
-                      </button>
                     </div>
                   </div>
                 </div>

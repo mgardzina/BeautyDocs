@@ -397,7 +397,7 @@ export default function CookieConsent() {
                               {category.title}
                             </span>
                             {category.required && (
-                              <span className="text-[10px] px-2 py-0.5 bg-brand-DEFAULT text-black border border-brand-DEFAULT/30 rounded-full uppercase tracking-tighter font-bold">
+                              <span className="text-[10px] px-2 py-0.5 bg-brand-DEFAULT text-[#D4AF37] border border-brand-DEFAULT/30 rounded-full uppercase tracking-tighter font-bold">
                                 Wymagane
                               </span>
                             )}
