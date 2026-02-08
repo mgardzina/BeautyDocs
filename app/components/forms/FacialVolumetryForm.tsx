@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { Phone, Check, ArrowLeft, Instagram, Mail, Shield } from "lucide-react";
 import { getTodayDate } from "@/lib/dateUtils";
 import SignaturePad from "@/components/SignaturePad";
@@ -321,7 +322,7 @@ export default function FacialVolumetryForm({
       {/* Header */}
       <header className="bg-ui-bgSecondary/80 backdrop-blur-md sticky top-0 z-50 border-b border-brand shadow-lg">
         <div className="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
             <h1 className="text-xl md:text-2xl font-serif text-white tracking-wider uppercase">
               {SALON_CONFIG.name}
             </h1>
@@ -365,10 +366,18 @@ export default function FacialVolumetryForm({
               <span>→</span>
               <span
                 className={
+                  currentStep === "RODO2" ? "text-brand font-bold" : ""
+                }
+              >
+                3. RODO 2
+              </span>
+              <span>→</span>
+              <span
+                className={
                   currentStep === "TREATMENT" ? "text-brand font-bold" : ""
                 }
               >
-                3. Zabieg
+                4. Zabieg
               </span>
               <span>→</span>
               <span
@@ -376,7 +385,7 @@ export default function FacialVolumetryForm({
                   currentStep === "MARKETING" ? "text-brand font-bold" : ""
                 }
               >
-                4. Zgody
+                5. Zgody
               </span>
             </div>
           </div>

@@ -1,6 +1,7 @@
 import { Syringe, Zap, Sparkles, Eraser } from "lucide-react";
 import { FormType } from "@/types/booking";
 import { SALON_CONFIG } from "@/app/config/salon";
+import Image from "next/image";
 
 interface SelectionScreenProps {
   onSelect: (type: FormType) => void;
@@ -11,9 +12,16 @@ export default function SelectionScreen({ onSelect }: SelectionScreenProps) {
     <div className="min-h-screen bg-black flex items-center justify-center p-4 py-12">
       <div className="max-w-6xl w-full">
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-serif text-white mb-4 tracking-wide uppercase">
-            {SALON_CONFIG.name}
-          </h1>
+          <div className="flex justify-center mb-6">
+            <Image
+              src="/logo.png"
+              alt={SALON_CONFIG.name}
+              width={500}
+              height={320}
+              className="w-82 h-auto md:w-104 object-contain"
+              priority
+            />
+          </div>
           <div className="w-20 h-0.5 bg-brand mx-auto mb-6" />
           <p className="text-lg text-white/80 font-light tracking-wider uppercase">
             Wybierz rodzaj zabiegu

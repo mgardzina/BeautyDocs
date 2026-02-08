@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { Phone, Check, ArrowLeft, Instagram, Mail, Shield } from "lucide-react";
 import { getTodayDate } from "@/lib/dateUtils";
 import SignaturePad from "@/components/SignaturePad";
@@ -276,9 +277,11 @@ export default function LaserRemovalForm({ onBack }: LaserRemovalFormProps) {
       {/* Header */}
       <header className="bg-ui-bgSecondary/80 backdrop-blur-md sticky top-0 z-50 border-b border-brand shadow-lg">
         <div className="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
-          <h1 className="text-xl md:text-2xl font-serif text-white tracking-wider uppercase">
-            {SALON_CONFIG.name}
-          </h1>
+          <div className="flex items-center gap-3">
+            <h1 className="text-xl md:text-2xl font-serif text-white tracking-wider uppercase">
+              {SALON_CONFIG.name}
+            </h1>
+          </div>
           <div className="flex items-center gap-4">
             <a
               href={`tel:${SALON_CONFIG.phone.replace(/\s/g, "")}`}
