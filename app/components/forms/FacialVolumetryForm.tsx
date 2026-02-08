@@ -560,15 +560,6 @@ export default function FacialVolumetryForm({
                     pozbawiony ryzyka.
                   </p>
                   <p>
-                    Zabieg polega na wstrzyknięciu preparatu za pomocą igły lub
-                    kaniuli w wybrane obszary twarzy, takie jak kości
-                    policzkowe, linia żuchwy, broda, skronie czy dolina łez.
-                    Celem zabiegu jest przywrócenie młodzieńczego wyglądu,
-                    poprawa proporcji twarzy, wypełnienie ubytków objętości,
-                    redukcja zmarszczek oraz poprawa ogólnej kondycji i
-                    jędrności skóry.
-                  </p>
-                  <p>
                     Zabieg wykonywany jest przy użyciu produktów takich jak:
                     Stylage L, Stylage XL (kwas hialuronowy) lub Neauvia
                     Stimulate, Radiesse (stymulatory tkankowe). Wybór preparatu
@@ -720,37 +711,6 @@ export default function FacialVolumetryForm({
                             </div>
                           );
                         })}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Znieczulenie */}
-                  <div>
-                    <label className="block text-sm text-ui-textSecondary mb-2 font-medium">
-                      Znieczulenie
-                    </label>
-                    <div className="space-y-4">
-                      {/* Anesthesia Selection */}
-                      <div className="flex flex-col gap-3">
-                        <button
-                          type="button"
-                          className="text-left p-4 rounded-xl border-2 border-brand bg-brand/10 gold-glow transition-all group"
-                        >
-                          <div className="flex justify-between items-center mb-1">
-                            <span className="font-serif text-lg font-medium text-white">
-                              Lidokaina 9,6%
-                            </span>
-                            <div className="w-6 h-6 bg-brand rounded flex items-center justify-center">
-                              <Check className="w-4 h-4 text-black" />
-                            </div>
-                          </div>
-                          <p className="text-sm text-ui-textSecondary leading-relaxed">
-                            Środek znieczulający miejscowo w formie kremu.
-                            Powoduje czasowe, odwracalne zablokowanie czucia na
-                            powierzchni skóry, eliminując ból podczas
-                            nakłuwania.
-                          </p>
-                        </button>
                       </div>
                     </div>
                   </div>

@@ -31,7 +31,7 @@ const config: Config = {
         // 3. UI & STRUCTURE (Ciemna baza)
         ui: {
           bg: "#111111",      // Soft Black (lepsza niż #000000)
-          bgSecondary: "#0D261F", // Very Dark Green/Black (alternatywa dla kart)
+          bgSecondary: "#1a1a1a", // Dark gray (alternatywa dla kart)
           card: "#1a1a1a",    // Standard dark card background
           border: "#333333",      
           borderStrong: "#D4AF37", // Gold border
@@ -84,7 +84,7 @@ const config: Config = {
       },
       backgroundImage: {
         'gradient-gold': 'linear-gradient(45deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C)',
-        'gradient-emerald': 'linear-gradient(to bottom, #111111, #1B4D3E)',
+        'gradient-emerald': 'linear-gradient(to bottom, #111111, #2D2D2D)',
       },
       letterSpacing: {
         widest: "0.2em",

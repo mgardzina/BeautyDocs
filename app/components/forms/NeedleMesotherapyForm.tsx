@@ -611,182 +611,33 @@ export default function NeedleMesotherapyForm({
                   </span>
                   Szczegóły Zabiegu
                 </h2>
-                <div className="space-y-6">
-                  <div>
-                    <label className="block text-sm text-ui-textSecondary mb-2 font-medium">
-                      Nazwa preparatu
-                    </label>
-                    <div className="space-y-4">
-                      {/* Product Selection */}
-                      <div className="flex flex-col gap-3">
-                        {[
-                          {
-                            name: "Kwas hialuronowy Jetema - Vitten hydro plus",
-                            desc: "Nawilżenie i rewitalizacja skóry.",
-                          },
-                          {
-                            name: "Pink Glow",
-                            desc: "Zaawansowana mezoterapia, odżywienie i blask.",
-                          },
-                          {
-                            name: "Witaminy C",
-                            desc: "Rozświetlenie, antyoksydacja i poprawa kolorytu.",
-                          },
-                        ].map((product) => {
-                          const currentName = formData.nazwaProduktu || "";
-                          // Check if base product name matches (ignoring volume suffix)
-                          const baseName =
-                            currentName.includes(" - ") &&
-                            !product.name.includes(" - ")
-                              ? currentName
-                                  .split(" - ")
-                                  .slice(0, -1)
-                                  .join(" - ") // Handle "Product - Name - 1.0ml" case if product name has dash
-                              : currentName.split(" - ")[0]; // Simple split for standard cases
-
-                          // More robust check: does currentName start with product.name?
-                          const isSelectedProduct = currentName.startsWith(
-                            product.name,
-                          );
-
-                          return (
-                            <div
-                              key={product.name}
-                              onClick={() => {
-                                // Select product only, reset volume if switching to new product
-                                if (!isSelectedProduct) {
-                                  handleInputChange(
-                                    "nazwaProduktu",
-                                    product.name,
-                                  );
-                                }
-                              }}
-                              className={`p-4 rounded-xl border-2 transition-all cursor-pointer ${
-                                isSelectedProduct
-                                  ? "border-brand bg-brand/10 gold-glow"
-                                  : "border-[#D4AF37] bg-ui-bg hover:border-brand"
-                              }`}
-                            >
-                              <div className="flex justify-between items-center mb-1">
-                                <span
-                                  className={`font-serif text-lg font-medium ${
-                                    isSelectedProduct
-                                      ? "text-white"
-                                      : "text-white"
-                                  }`}
-                                >
-                                  {product.name}
-                                </span>
-                                {isSelectedProduct && (
-                                  <div className="w-6 h-6 bg-brand rounded flex items-center justify-center">
-                                    <Check className="w-4 h-4 text-black" />
-                                  </div>
-                                )}
-                              </div>
-                              <p className="text-sm text-ui-textSecondary leading-relaxed mb-4">
-                                {product.desc}
-                              </p>
-
-                              {/* Volume Selection inside Product Card */}
-                              {isSelectedProduct && (
-                                <div className="border-t border-[#D4AF37]/50 pt-3 animate-in fade-in slide-in-from-top-2 duration-300">
-                                  <p className="text-xs font-medium text-brand mb-2 uppercase tracking-wide">
-                                    Wybierz ilość:
-                                  </p>
-                                  <div className="flex flex-wrap gap-2">
-                                    {["1.0", "2.0", "3.0", "4.0"].map((vol) => {
-                                      const isSelectedVolume =
-                                        currentName ===
-                                        `${product.name} - ${vol}ml`;
-                                      return (
-                                        <button
-                                          key={vol}
-                                          type="button"
-                                          onClick={(e) => {
-                                            e.stopPropagation();
-                                            handleInputChange(
-                                              "nazwaProduktu",
-                                              `${product.name} - ${vol}ml`,
-                                            );
-                                          }}
-                                          className={`px-3 py-1.5 rounded-lg border text-xs font-medium transition-all ${
-                                            isSelectedVolume
-                                              ? "border-brand bg-brand text-white shadow-sm"
-                                              : "border-[#D4AF37] bg-ui-bg text-ui-textSecondary hover:border-brand hover:text-brand"
-                                          }`}
-                                        >
-                                          {vol} ml
-                                        </button>
-                                      );
-                                    })}
-                                  </div>
-                                </div>
-                              )}
-                            </div>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Znieczulenie */}
-                  <div>
-                    <label className="block text-sm text-ui-textSecondary mb-2 font-medium">
-                      Znieczulenie
-                    </label>
-                    <div className="space-y-4">
-                      {/* Anesthesia Selection */}
-                      <div className="flex flex-col gap-3">
-                        <button
-                          type="button"
-                          className="text-left p-4 rounded-xl border-2 border-brand bg-brand/10 gold-glow transition-all group"
-                        >
-                          <div className="flex justify-between items-center mb-1">
-                            <span className="font-serif text-lg font-medium text-white">
-                              Lidokaina 9,6%
-                            </span>
-                            <div className="w-6 h-6 bg-brand rounded flex items-center justify-center">
-                              <Check className="w-4 h-4 text-black" />
-                            </div>
-                          </div>
-                          <p className="text-sm text-ui-textSecondary leading-relaxed">
-                            Znieczulenie miejscowe jest zawsze stosowane podczas
-                            zabiegu.
-                          </p>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                  {/* Obszar zabiegu */}
-                  <div>
-                    <label className="block text-sm text-ui-textSecondary mb-2 font-medium">
-                      Obszar zabiegu
-                    </label>
-                    <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-3">
-                      {[
-                        "Twarz",
-                        "Szyja",
-                        "Dekolt",
-                        "Okolice Oczu",
-                        "Okolice Ud",
-                        "Głowa",
-                      ].map((area) => (
-                        <button
-                          key={area}
-                          type="button"
-                          onClick={() =>
-                            handleInputChange("obszarZabiegu", area)
-                          }
-                          className={`py-3 px-4 rounded-xl border-2 transition-all font-medium text-sm ${
-                            formData.obszarZabiegu === area
-                              ? "border-brand bg-brand text-white"
-                              : "border-[#D4AF37] bg-ui-bg text-ui-textSecondary hover:border-brand hover:text-brand"
-                          }`}
-                        >
-                          {area}
-                        </button>
-                      ))}
-                    </div>
+                {/* Obszar zabiegu */}
+                <div>
+                  <label className="block text-sm text-ui-textSecondary mb-2 font-medium">
+                    Obszar zabiegu
+                  </label>
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-3">
+                    {[
+                      "Twarz",
+                      "Szyja",
+                      "Dekolt",
+                      "Okolice Oczu",
+                      "Okolice Ud",
+                      "Głowa",
+                    ].map((area) => (
+                      <button
+                        key={area}
+                        type="button"
+                        onClick={() => handleInputChange("obszarZabiegu", area)}
+                        className={`py-3 px-4 rounded-xl border-2 transition-all font-medium text-sm ${
+                          formData.obszarZabiegu === area
+                            ? "border-brand bg-brand text-white"
+                            : "border-[#D4AF37] bg-ui-bg text-ui-textSecondary hover:border-brand hover:text-brand"
+                        }`}
+                      >
+                        {area}
+                      </button>
+                    ))}
                   </div>
                 </div>
               </section>
