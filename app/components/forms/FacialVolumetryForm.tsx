@@ -389,7 +389,7 @@ export default function FacialVolumetryForm({
             <div className="flex items-center justify-center gap-4">
               <div className="h-px w-12 bg-brand"></div>
               <p className="text-brand text-sm md:text-lg font-light tracking-[0.3em] uppercase drop-shadow-sm">
-                Kwas Hialuronowy / Stymulatory Tkankowe
+                Kwas Hialuronowy
               </p>
               <div className="h-px w-12 bg-brand"></div>
             </div>
@@ -1251,20 +1251,16 @@ export default function FacialVolumetryForm({
                       MOŻLIWE DO WYSTĄPIENIA SKUTKI UBOCZNE PO PRZEPROWADZONYM
                       ZABIEGU - CZĘSTE
                     </p>
-                    <div className="space-y-4">
+                    <ul className="space-y-2 text-sm text-ui-textSecondary">
                       {wolumetriaTwarzyNaturalReactions.map(
                         (reaction, index) => (
-                          <div key={index} className="flex items-start gap-3">
-                            <div className="mt-1">
-                              <Check className="w-5 h-5 text-brand" />
-                            </div>
-                            <p className="text-ui-textSecondary leading-relaxed">
-                              {reaction}
-                            </p>
-                          </div>
+                          <li key={index} className="flex items-start gap-2">
+                            <span className="text-brand">∙</span>
+                            <span>{reaction}</span>
+                          </li>
                         ),
                       )}
-                    </div>
+                    </ul>
                   </div>
 
                   {/* Rzadkie powikłania */}

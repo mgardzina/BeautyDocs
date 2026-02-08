@@ -304,35 +304,41 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
         <div className="mb-8">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
             <BackButton onClick={onBack} className="self-start" />
-            <div className="flex gap-2 text-[10px] md:text-sm font-medium text-white/50 overflow-x-auto pb-2 md:pb-0 scrollbar-none">
+            <div className="flex gap-2 text-xs md:text-sm font-medium text-white/50 overflow-x-auto pb-2 md:pb-0">
               <span
-                className={`whitespace-nowrap ${currentStep === "DATA" ? "text-brand font-bold scale-110" : ""} transition-all`}
+                className={currentStep === "DATA" ? "text-brand font-bold" : ""}
               >
-                1. DANE
+                1. Dane
               </span>
-              <span className="opacity-30">→</span>
+              <span>→</span>
               <span
-                className={`whitespace-nowrap ${currentStep === "RODO" ? "text-brand font-bold scale-110" : ""} transition-all`}
+                className={currentStep === "RODO" ? "text-brand font-bold" : ""}
               >
                 2. RODO
               </span>
-              <span className="opacity-30">→</span>
+              <span>→</span>
               <span
-                className={`whitespace-nowrap ${currentStep === "RODO2" ? "text-brand font-bold scale-110" : ""} transition-all`}
+                className={
+                  currentStep === "RODO2" ? "text-brand font-bold" : ""
+                }
               >
                 3. RODO 2
               </span>
-              <span className="opacity-30">→</span>
+              <span>→</span>
               <span
-                className={`whitespace-nowrap ${currentStep === "TREATMENT" ? "text-brand font-bold scale-110" : ""} transition-all`}
+                className={
+                  currentStep === "TREATMENT" ? "text-brand font-bold" : ""
+                }
               >
-                4. ZABIEG
+                4. Zabieg
               </span>
-              <span className="opacity-30">→</span>
+              <span>→</span>
               <span
-                className={`whitespace-nowrap ${currentStep === "MARKETING" ? "text-brand font-bold scale-110" : ""} transition-all`}
+                className={
+                  currentStep === "MARKETING" ? "text-brand font-bold" : ""
+                }
               >
-                5. ZGODY
+                5. Zgody
               </span>
             </div>
           </div>
