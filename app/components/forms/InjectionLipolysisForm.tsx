@@ -388,7 +388,7 @@ export default function InjectionLipolysisForm({
                         handleInputChange("imieNazwisko", e.target.value)
                       }
                       className="w-full px-4 py-3 bg-ui-bg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
-                      placeholder="Joanna Wielgos"
+                      placeholder="Imię i Nazwisko"
                     />
                   </div>
                   <div>
@@ -1432,7 +1432,7 @@ export default function InjectionLipolysisForm({
                     <p className="text-sm text-ui-textSecondary leading-relaxed mb-4">
                       Wyrażam nieodpłatną zgodę na utrwalenie i
                       rozpowszechnianie mojego wizerunku (zdjęcia/video efektów
-                      zabiegu) w celach promocyjnych salonu Royal Lips.
+                      zabiegu) w celach promocyjnych salonu {SALON_CONFIG.name}.
                     </p>
 
                     <div className="mb-6">

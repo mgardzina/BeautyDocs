@@ -1,6 +1,6 @@
-# Royal Lips - System Zarządzania Klientkami
+# PowderBrows Academy - System Zarządzania Klientkami
 
-Profesjonalny system formularzy zgód i zarządzania klientkami dla studia makijażu permanentnego Royal Lips.
+Profesjonalny system formularzy zgód i zarządzania klientkami dla studia makijażu permanentnego PowderBrows Academy.
 
 ## 🌟 Funkcje
 
@@ -184,4 +184,4 @@ MIT License - zobacz plik [LICENSE](LICENSE)
 
 **Mateusz Gardzina**
 
-**Royal Lips** © 2026 - Profesjonalny makijaż permanentny
+**PowderBrows Academy** © 2026 - Profesjonalny makijaż permanentny

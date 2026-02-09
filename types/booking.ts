@@ -1,3 +1,5 @@
+import { SALON_CONFIG } from "@/app/config/salon";
+
 export type FormType =
   | 'LIP_AUGMENTATION'
   | 'FACIAL_VOLUMETRY'
@@ -122,11 +124,11 @@ export const mezoterapiaIglowaContraindications: Record<
 
 // RODO Information - Dane administratora
 export const rodoInfo = {
-  administrator: 'Joanna Wielgos',
-  firmaNazwa: 'Royal Lips Makijaż Permanentny - Joanna Wielgos',
-  nip: '6842237473',
-  regon: '180685260',
-  adres: 'ul. Pużaka 37, 38-400 Krosno',
+  administrator: SALON_CONFIG.owner,
+  firmaNazwa: SALON_CONFIG.fullName,
+  nip: SALON_CONFIG.nip,
+  regon: '383931003',
+  adres: `${SALON_CONFIG.address}, ${SALON_CONFIG.zipCode} ${SALON_CONFIG.city}`,
   consentTitle: 'ZGODA NA PRZETWARZANIE DANYCH OSOBOWYCH RODO',
   consentText: `Ja, niżej podpisana, zgodnie z art. 6 ust 1 pkt a w zw. z 7 ust. 2 Rozporządzenia Parlamentu Europejskiego i Rady Unii Europejskiej z dnia 27 kwietnia 2016 r. 2016/679 (Dz.U.UE.L.2018.127.2 t.j.) w sprawie ochrony osób fizycznych w związku z przetwarzaniem danych osobowych i w sprawie swobodnego przepływu takich danych oraz uchylenia dyrektywy 95/46/WE (ogólne rozporządzenie o ochronie danych), zwane dalej RODO, wyrażam dobrowolną zgodę na przetwarzanie przez Administratora – Malwinę Zięba, prowadzącą działalność gospodarczą pod firmą: PowderBrows Academy Malwina Zięba, ul. Siedlanowskiego 3/12 , 37 – 450 Stalowa Wola, NIP: 8652314272, REGON: 383931003, moich danych osobowych w postaci:
 ● imienia i nazwiska

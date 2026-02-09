@@ -40,7 +40,7 @@ export async function sendSMS(
   message: string
 ): Promise<SendSMSResult> {
   const token = process.env.SMSAPI_TOKEN;
-  const sender = process.env.SMSAPI_SENDER || "RoyalLips";
+  const sender = process.env.SMSAPI_SENDER || "PowderBrows";
 
   if (!token) {
     console.error("SMSAPI_TOKEN is not configured");
@@ -146,7 +146,7 @@ export function normalizePhoneNumber(phone: string): string | null {
  * Tworzy wiadomość SMS z kodem OTP
  */
 export function createOTPMessage(code: string): string {
-  return `Royal Lips twój kod to: ${code}`;
+  return `PowderBrows twój kod to: ${code}`;
 }
 
 /**

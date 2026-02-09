@@ -14,7 +14,7 @@ async function createUser() {
 
   if (args.length < 2) {
     console.log("Użycie: npx tsx scripts/create-user.ts <email> <hasło> [imię]");
-    console.log("Przykład: npx tsx scripts/create-user.ts joanna@royallips.pl haslo123 'Joanna Wielgos'");
+    console.log("Przykład: npx tsx scripts/create-user.ts user@example.com haslo123 'Imię Nazwisko'");
     process.exit(1);
   }
 

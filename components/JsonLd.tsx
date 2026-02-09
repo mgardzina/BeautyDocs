@@ -2,26 +2,26 @@ export default function JsonLd() {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "BeautySalon",
-    name: "Royal Lips - Joanna Wielgos",
-    alternateName: "Royal Lips Beauty Salon",
+    name: "PowderBrows Academy - Malwina Zięba",
+    alternateName: "PowderBrows Academy",
     description:
-      "Profesjonalny makijaż permanentny brwi, ust i kresek w Krośnie. Naturalne efekty i bezpieczeństwo na pierwszym miejscu. Zabiegi kwasem hialuronowym i depilacja laserowa.",
+      "Profesjonalny makijaż permanentny brwi, ust i kresek w Stalowej Woli. Naturalne efekty i bezpieczeństwo na pierwszym miejscu. Zabiegi kwasem hialuronowym i depilacja laserowa.",
     url: "https://powderbrowsacademy.com.pl",
     logo: "https://powderbrowsacademy.com.pl/logo.png",
     image: "https://powderbrowsacademy.com.pl/logo.png",
-    telephone: "+48792377737",
-    email: "kontakt@royallips.pl",
+    telephone: "+48733702282",
+    email: "powderbrows@gmail.com",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "ul. Pużaka 37",
-      addressLocality: "Krosno",
-      postalCode: "38-400",
+      streetAddress: "ul. Siedlanowskiego 3, lokal 12",
+      addressLocality: "Stalowa Wola",
+      postalCode: "37-450",
       addressCountry: "PL",
     },
     geo: {
       "@type": "GeoCoordinates",
-      latitude: 49.6886,
-      longitude: 21.7703,
+      latitude: 50.5826,
+      longitude: 22.0538,
     },
     openingHoursSpecification: [
       {
