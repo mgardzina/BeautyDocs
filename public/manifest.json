@@ -1,11 +1,11 @@
 {
-  "name": "Royal Lips - Joanna Wielgos",
-  "short_name": "Royal Lips",
-  "description": "Profesjonalny makijaż permanentny brwi, ust i kresek w Krośnie. Zabiegi kwasem hialuronowym i depilacja laserowa.",
+  "name": "PowderBrows Academy - Malwina Zięba",
+  "short_name": "PowderBrows",
+  "description": "Profesjonalny makijaż permanentny brwi, ust i kresek w Stalowej Woli. Szkolenia i zabiegi na najwyższym poziomie.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#E8E3DC",
-  "theme_color": "#4A4540",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a",
   "orientation": "portrait-primary",
   "icons": [
     {
