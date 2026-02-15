@@ -7,23 +7,24 @@ import SignatureVerificationModal from "@/components/SignatureVerificationModal"
 import { AuditLogData } from "@/app/actions/otp";
 import Footer from "@/app/components/Footer";
 import BackButton from "../BackButton";
+import { SALON_CONFIG } from "@/app/config/salon";
 import {
   ConsentFormData,
   ContraindicationWithFollowUp,
-  modelowanieUstNaturalReactions,
-  modelowanieUstComplications,
-  modelowanieUstPostCare,
+  plasmaLiftingContraindications,
+  wolumetriaTwarzyNaturalReactions,
+  wolumetriaTwarzyComplications,
+  plazmaPlexrPreCare,
+  plazmaPlexrPostCare,
   rodoInfo,
 } from "../../../types/booking";
-import { modelowanieUstContraindications } from "../../../types/booking";
-import { SALON_CONFIG } from "@/app/config/salon";
 
-interface LipModelingFormProps {
+interface EyelidLiftFormProps {
   onBack: () => void;
 }
 
 const initialFormData: ConsentFormData = {
-  type: "LIP_AUGMENTATION",
+  type: "EYELID_LIFT",
   imieNazwisko: "",
   ulica: "",
   kodPocztowy: "",
@@ -36,7 +37,7 @@ const initialFormData: ConsentFormData = {
   obszarZabiegu: "",
   celEfektu: "",
   numerZabiegu: "",
-  przeciwwskazania: Object.entries(modelowanieUstContraindications).reduce(
+  przeciwwskazania: Object.entries(plasmaLiftingContraindications).reduce(
     (acc, [key, value]) => {
       const hasFollowUp = typeof value === "object" && value.hasFollowUp;
       return {
@@ -61,7 +62,7 @@ const initialFormData: ConsentFormData = {
   zastrzeniaKlienta: "",
 };
 
-export default function LipModelingForm({ onBack }: LipModelingFormProps) {
+export default function EyelidLiftForm({ onBack }: EyelidLiftFormProps) {
   const [formData, setFormData] = useState<ConsentFormData>(initialFormData);
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -70,31 +71,62 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
     useState(0);
   const [showContraindicationsWizard, setShowContraindicationsWizard] =
     useState(true);
+  const [isWizardComplete, setIsWizardComplete] = useState(false);
 
-  // Form Steps: DATA -> RODO -> RODO2 -> TREATMENT -> MARKETING
-  const [currentStep, setCurrentStep] = useState<
-    "DATA" | "RODO" | "RODO2" | "TREATMENT" | "MARKETING"
-  >("DATA");
+  // Form Steps: DATA -> SMS -> RODO -> TREATMENT -> MARKETING
+  type Step = "DATA" | "RODO" | "RODO2" | "TREATMENT" | "MARKETING";
+  const [currentStep, setCurrentStep] = useState<Step>("DATA");
 
   // Digital Signature State
   const [showSignatureModal, setShowSignatureModal] = useState(false);
   const [isSignatureVerified, setIsSignatureVerified] = useState(false);
   const [auditLog, setAuditLog] = useState<AuditLogData | null>(null);
 
-  const contraindicationKeys = Object.keys(modelowanieUstContraindications);
+  const contraindicationKeys = Object.keys(plasmaLiftingContraindications);
   const currentContraindicationKey =
     contraindicationKeys[currentContraindicationIndex];
-  const currentContraindicationValue = modelowanieUstContraindications[
-    currentContraindicationKey
-  ] as string | ContraindicationWithFollowUp;
+  const currentContraindicationValue =
+    plasmaLiftingContraindications[currentContraindicationKey];
   const currentContraindicationObject:
     | ContraindicationWithFollowUp
     | undefined =
     typeof currentContraindicationValue === "string"
       ? undefined
       : currentContraindicationValue;
-  const isWizardComplete =
-    currentContraindicationIndex === contraindicationKeys.length;
+
+  // Calculate next potential question index (skipping completed wizard steps)
+  const getNextIncompleteIndex = () => {
+    // If wizard not started or just starting
+    if (currentContraindicationIndex === -1) return 0;
+
+    // Check from current index onwards
+    for (
+      let i = currentContraindicationIndex;
+      i < contraindicationKeys.length;
+      i++
+    ) {
+      const key = contraindicationKeys[i];
+      // If this key hasn't been answered yet (is null or undefined)
+      if (
+        formData.przeciwwskazania[key] === undefined ||
+        formData.przeciwwskazania[key] === null
+      ) {
+        return i;
+      }
+    }
+    return -1; // All done
+  };
+
+  // Update wizard completion status
+  // REMOVED: Auto-completion effect caused premature closing on last question follow-up
+  // useEffect(() => {
+  //   const isComplete = contraindicationKeys.every(
+  //     (key) =>
+  //       formData.przeciwwskazania[key] !== undefined &&
+  //       formData.przeciwwskazania[key] !== null,
+  //   );
+  //   setIsWizardComplete(isComplete);
+  // }, [formData.przeciwwskazania, contraindicationKeys]);
 
   // Scroll to top on step change
   useEffect(() => {
@@ -103,28 +135,40 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
 
   const handleWizardAnswer = (value: boolean) => {
     handleContraindicationChange(currentContraindicationKey, value);
-    // For follow-up questions, don't auto-advance — user must click "Dalej"
-    const currentValue =
-      modelowanieUstContraindications[currentContraindicationKey];
+
+    // If answer is YES and has follow-up, stay on step to allow input
     const hasFollowUp =
-      typeof currentValue === "object" && currentValue.hasFollowUp;
-    if (hasFollowUp) {
+      typeof currentContraindicationObject === "object" &&
+      currentContraindicationObject?.hasFollowUp;
+
+    if (value === true && hasFollowUp) {
       return;
     }
-    if (currentContraindicationIndex < contraindicationKeys.length) {
+
+    if (currentContraindicationIndex < contraindicationKeys.length - 1) {
       setCurrentContraindicationIndex((prev) => prev + 1);
+    } else {
+      setIsWizardComplete(true);
     }
   };
 
-  const handleWizardNext = () => {
-    if (currentContraindicationIndex < contraindicationKeys.length) {
+  const handleNextStep = () => {
+    if (currentContraindicationIndex < contraindicationKeys.length - 1) {
       setCurrentContraindicationIndex((prev) => prev + 1);
+    } else {
+      setIsWizardComplete(true);
     }
   };
 
   const resetWizard = () => {
+    // Clear all contraindication answers
+    setFormData((prev) => ({
+      ...prev,
+      przeciwwskazania: {},
+    }));
     setCurrentContraindicationIndex(0);
     setShowContraindicationsWizard(true);
+    setIsWizardComplete(false);
   };
 
   const handleInputChange = (
@@ -145,8 +189,6 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
     const formatted = formatPhoneNumber(value);
     setFormData((prev) => ({ ...prev, telefon: formatted }));
   };
-
-  // Oblicz wiek na podstawie daty urodzenia
 
   const isAgeValid = calculateAge(formData.dataUrodzenia) >= 16;
 
@@ -306,50 +348,36 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
             <BackButton onClick={onBack} className="self-start" />
             <div className="flex gap-2 text-xs md:text-sm font-medium text-white/50 overflow-x-auto pb-2 md:pb-0">
               <span
-                className={
-                  currentStep === "DATA"
-                    ? "text-brand font-bold"
-                    : "text-white/50"
-                }
+                className={currentStep === "DATA" ? "text-brand font-bold" : ""}
               >
                 1. Dane
               </span>
-              <span className="text-white/50">→</span>
+              <span>→</span>
               <span
-                className={
-                  currentStep === "RODO"
-                    ? "text-brand font-bold"
-                    : "text-white/50"
-                }
+                className={currentStep === "RODO" ? "text-brand font-bold" : ""}
               >
                 2. RODO
               </span>
-              <span className="text-white/50">→</span>
+              <span>→</span>
               <span
                 className={
-                  currentStep === "RODO2"
-                    ? "text-brand font-bold"
-                    : "text-white/50"
+                  currentStep === "RODO2" ? "text-brand font-bold" : ""
                 }
               >
                 3. RODO 2
               </span>
-              <span className="text-white/50">→</span>
+              <span>→</span>
               <span
                 className={
-                  currentStep === "TREATMENT"
-                    ? "text-brand font-bold"
-                    : "text-white/50"
+                  currentStep === "TREATMENT" ? "text-brand font-bold" : ""
                 }
               >
                 4. Zabieg
               </span>
-              <span className="text-white/50">→</span>
+              <span>→</span>
               <span
                 className={
-                  currentStep === "MARKETING"
-                    ? "text-brand font-bold"
-                    : "text-white/50"
+                  currentStep === "MARKETING" ? "text-brand font-bold" : ""
                 }
               >
                 5. Zgody
@@ -359,12 +387,12 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
 
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-serif text-white mb-3 tracking-tight">
-              Modelowanie <span className="text-brand">Ust</span>
+              Lifting <span className="text-brand">Powiek</span>
             </h1>
             <div className="flex items-center justify-center gap-4">
               <div className="h-px w-12 bg-brand"></div>
               <p className="text-brand text-sm md:text-lg font-light tracking-[0.3em] uppercase drop-shadow-sm">
-                Kwas Hialuronowy
+                Plasma lifting
               </p>
               <div className="h-px w-12 bg-brand"></div>
             </div>
@@ -376,9 +404,9 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
           {currentStep === "DATA" && (
             <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
               {/* Dane osobowe */}
-              <section className="bg-gradient-emerald rounded-2xl border border-[#D4AF37] p-6 md:p-8">
+              <section className="bg-gradient-emerald rounded-2xl border border-[#D4AF37] p-6 md:p-8 gold-glow-sm">
                 <h2 className="text-2xl font-serif text-white mb-6 flex items-center gap-3">
-                  <span className="w-8 h-8 bg-brand text-black rounded-full flex items-center justify-center text-sm font-sans font-bold">
+                  <span className="w-8 h-8 bg-brand text-white rounded-full flex items-center justify-center text-sm font-sans">
                     1
                   </span>
                   Dane Osobowe
@@ -396,7 +424,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                       onChange={(e) =>
                         handleInputChange("imieNazwisko", e.target.value)
                       }
-                      className="w-full px-4 py-3 bg-ui-bg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none transition-all text-white placeholder-white/40"
+                      className="w-full px-4 py-3 bg-ui-bg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
                       placeholder="Imię i Nazwisko"
                     />
                   </div>
@@ -411,8 +439,8 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                       onChange={(e) =>
                         handleInputChange("miejscowoscData", e.target.value)
                       }
-                      className="w-full px-4 py-3 bg-ui-bg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none transition-all text-white placeholder-white/40"
-                      placeholder="Krosno, 27.01.2026"
+                      className="w-full px-4 py-3 bg-ui-bg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
+                      placeholder={`${SALON_CONFIG.city}, 27.01.2026`}
                     />
                   </div>
                   <div>
@@ -425,7 +453,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                         type="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className="w-full pl-12 pr-4 py-3 bg-ui-bg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none transition-all text-white placeholder-white/40"
+                        className="w-full pl-12 pr-4 py-3 bg-ui-bg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
                         placeholder={SALON_CONFIG.email}
                       />
                     </div>
@@ -442,7 +470,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                         onChange={(e) =>
                           handleInputChange("ulica", e.target.value)
                         }
-                        className="w-full px-4 py-3 bg-ui-bg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none transition-all text-white placeholder-white/40"
+                        className="w-full px-4 py-3 bg-ui-bg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
                         placeholder="ul. Przykładowa 1/2"
                         autoComplete="street-address"
                       />
@@ -457,7 +485,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                         onChange={(e) =>
                           handleInputChange("kodPocztowy", e.target.value)
                         }
-                        className="w-full px-4 py-3 bg-ui-bg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none transition-all text-white placeholder-white/40"
+                        className="w-full px-4 py-3 bg-ui-bg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
                         placeholder="38-400"
                         autoComplete="postal-code"
                       />
@@ -472,7 +500,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                         onChange={(e) =>
                           handleInputChange("miasto", e.target.value)
                         }
-                        className="w-full px-4 py-3 bg-ui-bg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none transition-all text-white placeholder-white/40"
+                        className="w-full px-4 py-3 bg-ui-bg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
                         placeholder={SALON_CONFIG.city}
                         autoComplete="address-level2"
                       />
@@ -521,7 +549,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                         required
                         value={formData.telefon}
                         onChange={(e) => handlePhoneChange(e.target.value)}
-                        className="w-full px-4 py-3 bg-ui-bg border border-[#D4AF37] rounded-r-xl focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none transition-all text-white placeholder-white/40"
+                        className="w-full px-4 py-3 bg-ui-bg border border-[#D4AF37] rounded-r-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
                         placeholder="123 456 789"
                         maxLength={11}
                       />
@@ -531,432 +559,165 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
               </section>
 
               {/* Informacja o Zabiegu */}
-              <section className="bg-gradient-emerald rounded-2xl border border-[#D4AF37] p-6 md:p-8">
+              <section className="bg-gradient-emerald rounded-2xl border border-[#D4AF37] p-6 md:p-8 gold-glow-sm">
                 <h2 className="text-2xl font-serif text-white mb-6 flex items-center gap-3">
-                  <span className="w-8 h-8 bg-brand text-black rounded-full flex items-center justify-center text-sm font-sans font-bold">
+                  <span className="w-8 h-8 bg-brand text-white rounded-full flex items-center justify-center text-sm font-sans">
                     2
                   </span>
                   Informacja o Zabiegu
                 </h2>
-                <div className="bg-ui-bg p-6 rounded-xl border border-[#D4AF37] text-ui-textSecondary leading-relaxed space-y-4">
+                <div className="prose prose-sm max-w-none text-ui-textSecondary leading-relaxed space-y-4">
                   <p>
-                    Zabieg modelowania ust wykonywany jest przy użyciu kwasu
-                    hialuronowego. Jest zabiegiem inwazyjnym gdyż związany jest
-                    z przerwaniem ciągłości naskórka - wobec czego nie jest
-                    pozbawiony ryzyka.
+                    Plazma PLEXR to inteligentne i bezpieczne urządzenie służące
+                    przede wszystkim do wykonywania liftingu powiek, pozwalające
+                    uzyskać zadowalający efekt już po pierwszym zabiegu.
+                    Urządzenie Plazma generuje kontrolowaną i celowaną mikro
+                    wiązkę plazmy dzięki jonizacji gazów zawartych w powietrzu.
+                    Wytwarzany jest niewielki łuk elektryczny, który w
+                    kontrolowany sposób powoduje sublimację naskórka i tym samym
+                    obkurczanie skóry w miejscu jego działania co skutkuje
+                    uniesieniem powiek.
                   </p>
                   <p>
-                    Zabieg polega na wstrzyknięciu produktu za pomocą igły w
-                    miejsce poddane zabiegowi. Celem zabiegu jest powiększenie
-                    ust, nawilżenie ust, wyrównanie asymetrii, uniesienie
-                    kącików ust, stworzenie odpowiedniej proporcji między
-                    wargami, a także poprawa walorów estetycznych i samopoczucia
-                    klienta. Wprowadzony produkt jest przeźroczystym, ulegającym
-                    biodegradacji żelem zawierającym kwas hialuronowy,
-                    pochodzenia niezwierzęcego.
+                    Zabieg wykonywany jest punktowo bez oddziaływania na
+                    otaczające tkanki. Nie powoduje stanu zapalnego, krwawienia
+                    ani uszkodzenia otaczających tkanek, ponieważ jego działanie
+                    ogranicza się do granicy warstwy podstawnej skóry właściwej.
                   </p>
                   <p>
-                    Zabieg odbywa się zawsze po wykluczeniu wszelkich
-                    przeciwwskazań do wykonania zabiegu. W rozmowie z Klientem
-                    zostają określone potrzeby i oczekiwania od wykonania
-                    zabiegu z użyciem kwasu hialuronowego. Specjalista wraz z
-                    klientką dobierają odpowiednio ilość preparatu, który ma
-                    zostać podany w trakcie zabiegu.
+                    <strong>Wskazania:</strong> Opadające powieki górne/dolne
+                    (nieinwazyjna blefaroplastyka), zmarszczki okolic oczu, ust
+                    (tzw. „zmarszczki palacza"), przy uszach, zmarszczki szyi i
+                    dekoltu, wiotkość skóry (okolice łokci, kolan, brzucha),
+                    zmiany skórne (kępki żółte, włókniaki, brodawki, plamy
+                    soczewicowate, rogowacenie słoneczne, kurzajki).
                   </p>
                   <p>
-                    Kolejnym etapem jest znieczulenie, które minimalizuje
-                    dyskomfort podczas zabiegu. Próg bólu odczuwany jest
-                    indywidualnie. Do zabiegu wykorzystuje się znieczulenie.
-                    Zastosowanie znieczulenia gwarantuje zminimalizowanie bólu,
-                    który w większości przypadków. Czas zabiegu zależny jest od
-                    miejsca aplikacji oraz cech indywidualnych naskórka, ale
-                    średnio trwa ok. godziny. Efekt końcowy widoczny jest po 21
-                    dniach od przeprowadzonego zabiegu.
+                    <strong>Opis zabiegu:</strong> Procedura polega na wykonaniu
+                    niewielkich punktów na powierzchni skóry poprzez plazmę
+                    generowaną z urządzenia Plasma PLEXR. W trakcie zabiegu igła
+                    nie dotyka skóry, znajduje się ona w niewielkiej odległości
+                    od miejsca poddanego zabiegowi. Punkty sublimacji
+                    rozmieszczone są w odległości ok 0,5 mm jeden od drugiego.
+                    Powodują one &apos;odparowanie&apos; nadmiaru skóry bez
+                    uszkadzania warstwy podstawnej skóry właściwej, bez
+                    krwawienia i bez uszkodzenia otaczających tkanek. Zabieg
+                    trwa ok. 40 minut.
                   </p>
                   <p>
-                    Zabieg modelowania ust nie daje efektów trwałych, jego efekt
-                    utrzymuje się przez okres około od 1 do 10 miesięcy i należy
-                    go powtórzyć. Efekt zabiegu utrzymuje się w zależności od
-                    rodzaju skóry, wstrzykniętej ilości preparatu, oraz techniki
-                    iniekcji, ale także od jakości życia. Średni okres
-                    utrzymywania się efektu może być krótszy ze względu na silne
-                    unaczynienie. Specjalista informuje Klienta o tym, że efekty
-                    zabiegu nie są identyczne w przypadku każdego Klienta.
+                    Dla pełnego komfortu pacjenta stosujemy miejscowo maść
+                    znieczulającą na ok. 30 minut przed zabiegiem. Odczuwalne
+                    jest jedynie lekkie ciepło w miejscu poddanemu zabiegowi.
+                    Podczas i po zabiegu korekcji powiek zachowana jest pełna
+                    ruchomość powiek. Punkty sublimacji o średnicy mniejszej niż
+                    1 mm utrzymują się do tygodnia.
                   </p>
+                  <p>
+                    <strong>Zalety zabiegu:</strong> Mało inwazyjny (dla osób,
+                    które nie chcą decydować się na zabieg chirurgiczny),
+                    precyzyjny (mikrowiązka plazmy działa jedynie w obrębie
+                    naskórka), dający natychmiastowy efekt (efekty widoczne już
+                    po pierwszym zabiegu), bezpieczny (działa miejscowo),
+                    komfortowy (nie wymaga wyłączenia z codziennych aktywności).
+                  </p>
+                  <p>
+                    <strong>Ilość i częstotliwość zabiegów:</strong> Efekty
+                    widoczne są już po pierwszym zabiegu. Jednak dla uzyskania
+                    najlepszego efektu zaleca się wykonanie 2-4 zabiegów w
+                    odstępach min. 40 dni.
+                  </p>
+                  <p>
+                    <strong>Efekty:</strong> Efekty widoczne są po wygojeniu
+                    skóry. Okres rekonwalescencji trwa od 1,5 tygodnia do 2
+                    tygodni.
+                  </p>
+
+                  <div className="bg-ui-bg p-5 rounded-xl border border-[#D4AF37] mt-6">
+                    <p className="text-sm font-medium text-white mb-3">
+                      <strong>ZALECENIA PRZED ZABIEGIEM:</strong>
+                    </p>
+                    <ul className="space-y-2 text-sm text-ui-textSecondary">
+                      {plazmaPlexrPreCare.map((instruction, index) => (
+                        <li key={index} className="flex items-start gap-2">
+                          <span className="text-brand">∙</span>
+                          <span>{instruction}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </section>
 
-              {/* Szczegóły Zabiegu */}
+              {/* Obszar Zabiegu */}
               <section className="bg-gradient-emerald rounded-2xl border border-[#D4AF37] p-6 md:p-8 gold-glow-sm">
                 <h2 className="text-2xl font-serif text-white mb-6 flex items-center gap-3">
                   <span className="w-8 h-8 bg-brand text-white rounded-full flex items-center justify-center text-sm font-sans">
                     3
                   </span>
-                  Szczegóły Zabiegu
+                  Obszar Zabiegu
                 </h2>
                 <div className="space-y-6">
-                  <div>
-                    <label className="block text-sm text-ui-textSecondary mb-2 font-medium">
-                      Nazwa preparatu
-                    </label>
-                    <div className="space-y-4">
-                      {/* Product Selection */}
-                      <div className="flex flex-col gap-3">
-                        {[
-                          {
-                            name: "Revolax Deep ",
-                            desc: "Gęstszy żel, który świetnie utrzymuje kształt. Polecany dla osób oczekujących wyraźniejszego powiększenia ust lub wypełnienia bruzd nosowo-wargowych.",
-                          },
-                          {
-                            name: "Neuramis Deep",
-                            desc: "Plastyczny i miękki żel. Doskonały dla osób ceniących subtelny, naturalny wygląd ust (soft lips) oraz do spłycania średnich zmarszczek.",
-                          },
-                        ].map((product) => {
-                          const currentName = formData.nazwaProduktu || "";
-                          const baseName = currentName
-                            .split(" (")[0]
-                            .split(" - ")[0];
-                          const isSelectedProduct = baseName === product.name;
-
-                          return (
-                            <div
-                              key={product.name}
-                              onClick={() => {
-                                // Select product only, reset volume if switching to new product
-                                if (!isSelectedProduct) {
-                                  handleInputChange(
-                                    "nazwaProduktu",
-                                    product.name,
-                                  );
-                                }
-                              }}
-                              className={`p-4 rounded-xl border-2 transition-all cursor-pointer ${
-                                isSelectedProduct
-                                  ? "border-brand bg-brand/10 gold-glow"
-                                  : "border-[#D4AF37] bg-ui-bg hover:border-brand/60"
-                              } shadow-xl shadow-brand/5`}
-                            >
-                              <div className="flex justify-between items-center mb-1">
-                                <span
-                                  className={`font-serif text-lg font-medium ${
-                                    isSelectedProduct
-                                      ? "text-white"
-                                      : "text-white"
-                                  }`}
-                                >
-                                  {product.name}
-                                </span>
-                                {isSelectedProduct && (
-                                  <div className="w-6 h-6 bg-brand rounded flex items-center justify-center">
-                                    <Check className="w-4 h-4 text-black" />
-                                  </div>
-                                )}
-                              </div>
-                              <p className="text-sm text-ui-textSecondary leading-relaxed mb-4">
-                                {product.desc}
-                              </p>
-
-                              {/* Volume Selection inside Product Card */}
-                              {isSelectedProduct && (
-                                <div className="border-t border-[#D4AF37] pt-3 animate-in fade-in slide-in-from-top-2 duration-300">
-                                  <p className="text-xs font-medium text-brand mb-2 uppercase tracking-wide">
-                                    Wybierz ilość:
-                                  </p>
-                                  <div className="flex flex-wrap gap-2">
-                                    {["1.0", "2.0", "3.0", "4.0"].map((vol) => {
-                                      const isSelectedVolume =
-                                        currentName ===
-                                        `${product.name} - ${vol}ml`;
-                                      return (
-                                        <button
-                                          key={vol}
-                                          type="button"
-                                          onClick={(e) => {
-                                            e.stopPropagation(); // Prevent bubbling
-                                            handleInputChange(
-                                              "nazwaProduktu",
-                                              `${product.name} - ${vol}ml`,
-                                            );
-                                          }}
-                                          className={`px-3 py-1.5 rounded-lg border text-xs font-medium transition-all ${
-                                            isSelectedVolume
-                                              ? "border-brand bg-brand text-white shadow-sm"
-                                              : "border-[#D4AF37] bg-ui-bg text-ui-textSecondary hover:border-brand hover:text-brand"
-                                          }`}
-                                        >
-                                          {vol} ml
-                                        </button>
-                                      );
-                                    })}
-                                  </div>
-                                </div>
-                              )}
-                            </div>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Additional History Section */}
-                <div className="pt-8 mt-8 border-t border-brand/10">
-                  <div className="bg-gradient-emerald p-5 rounded-xl border border-[#D4AF37] mb-6 space-y-4">
-                    <h3 className="ont-serif text-white text-lg mb-2">
-                      Historia zabiegowa ust
-                    </h3>
-                    <p className="text-xs text-brand uppercase tracking-widest font-medium">
-                      Informacje wymagane dla bezpieczeństwa
+                  {/* Okolice oka */}
+                  <div className="space-y-3">
+                    <p className="text-sm text-white font-medium">
+                      Zabieg dotyczy:
                     </p>
-                    <div className="space-y-3">
-                      {[
-                        "Usta modelowane pierwszy raz",
-                        "Usta modelowane drugi raz, w tym samym gabinecie",
-                        "Usta modelowane drugi raz, pierwszy raz w innym gabinecie",
-                      ].map((option) => (
-                        <label
-                          key={option}
-                          className="flex items-start gap-3 cursor-pointer group"
-                        >
-                          <div className="relative flex items-center pt-1">
-                            <input
-                              type="checkbox"
-                              checked={(
-                                formData.informacjaDodatkowa || ""
-                              ).includes(option)}
-                              onChange={(e) => {
-                                let parts = (formData.informacjaDodatkowa || "")
-                                  .split("\n")
-                                  .filter(Boolean);
-
-                                if (e.target.checked) {
-                                  // Remove other exclusive options if checked
-                                  const exclusiveGroup = [
-                                    "Usta modelowane pierwszy raz",
-                                    "Usta modelowane drugi raz, w tym samym gabinecie",
-                                    "Usta modelowane drugi raz, pierwszy raz w innym gabinecie",
-                                  ];
-                                  // Also remove the "Multiple times" option which starts with the prefix
-                                  const multipleTimesPrefix =
-                                    "Usta modelowane więcej razy";
-
-                                  parts = parts.filter(
-                                    (p) =>
-                                      !exclusiveGroup.includes(p) &&
-                                      !p.startsWith(multipleTimesPrefix),
-                                  );
-                                  parts.push(option);
-                                } else {
-                                  parts = parts.filter((p) => p !== option);
-                                }
-                                handleInputChange(
-                                  "informacjaDodatkowa",
-                                  parts.join("\n"),
-                                );
-                              }}
-                              className="w-5 h-5 rounded border-brand/30 text-brand focus:ring-brand focus:ring-offset-0 accent-brand bg-ui-bgSecondary"
-                            />
-                          </div>
-                          <span className="text-ui-textSecondary text-sm group-hover:text-white transition-colors">
-                            {option}
-                          </span>
-                        </label>
-                      ))}
-
-                      {/* Multiple Times with customized input */}
-                      <div className="space-y-2">
-                        <label className="flex items-start gap-3 cursor-pointer group">
-                          <div className="relative flex items-center pt-1">
-                            <input
-                              type="checkbox"
-                              checked={(
-                                formData.informacjaDodatkowa || ""
-                              ).includes("Usta modelowane więcej razy")}
-                              onChange={(e) => {
-                                let parts = (
-                                  formData.informacjaDodatkowa || ""
-                                ).split("\n");
-                                const prefix = "Usta modelowane więcej razy: ";
-                                if (e.target.checked) {
-                                  // Remove other exclusive options
-                                  const exclusiveGroup = [
-                                    "Usta modelowane pierwszy raz",
-                                    "Usta modelowane drugi raz, w tym samym gabinecie",
-                                    "Usta modelowane drugi raz, pierwszy raz w innym gabinecie",
-                                  ];
-                                  parts = parts.filter(
-                                    (p) => !exclusiveGroup.includes(p),
-                                  );
-                                  parts.push(prefix);
-                                } else {
-                                  parts = parts.filter(
-                                    (p) => !p.startsWith(prefix),
-                                  );
-                                }
-                                handleInputChange(
-                                  "informacjaDodatkowa",
-                                  parts.filter(Boolean).join("\n"),
-                                );
-                              }}
-                              className="w-5 h-5 rounded border-[#D4AF37] text-brand focus:ring-brand focus:ring-offset-0 accent-brand bg-ui-bg"
-                            />
-                          </div>
-                          <span className="text-ui-textSecondary text-sm group-hover:text-white transition-colors">
-                            Usta modelowane więcej razy
-                          </span>
-                        </label>
-                        {(formData.informacjaDodatkowa || "").includes(
-                          "Usta modelowane więcej razy",
-                        ) && (
-                          <input
-                            type="text"
-                            className="w-full ml-8 px-3 py-2 text-sm bg-ui-bg border border-[#D4AF37] rounded-lg focus:border-brand outline-none text-white placeholder-ui-textMuted"
-                            placeholder="Kiedy, jaki preparat, ile razy?"
-                            value={
-                              (formData.informacjaDodatkowa || "")
-                                .split("\n")
-                                .find((p) =>
-                                  p.startsWith("Usta modelowane więcej razy: "),
-                                )
-                                ?.replace(
-                                  "Usta modelowane więcej razy: ",
-                                  "",
-                                ) || ""
-                            }
-                            onChange={(e) => {
-                              const parts = (
-                                formData.informacjaDodatkowa || ""
-                              ).split("\n");
-                              const index = parts.findIndex((p) =>
-                                p.startsWith("Usta modelowane więcej razy: "),
-                              );
-                              if (index !== -1) {
-                                parts[index] =
-                                  `Usta modelowane więcej razy: ${e.target.value}`;
-                                handleInputChange(
-                                  "informacjaDodatkowa",
-                                  parts.join("\n"),
-                                );
-                              }
-                            }}
-                          />
-                        )}
-                      </div>
-
-                      {/* Hyaluronidase */}
-                      <label className="flex items-start gap-3 cursor-pointer group pt-2 border-t border-[#D4AF37]/50">
-                        <div className="relative flex items-center pt-1">
-                          <input
-                            type="checkbox"
-                            checked={(
-                              formData.informacjaDodatkowa || ""
-                            ).includes("Usta po hialuronidazie")}
-                            onChange={(e) => {
-                              let parts = (
-                                formData.informacjaDodatkowa || ""
-                              ).split("\n");
-                              if (e.target.checked) {
-                                parts.push("Usta po hialuronidazie");
-                              } else {
-                                parts = parts.filter(
-                                  (p) => p !== "Usta po hialuronidazie",
-                                );
-                              }
-                              handleInputChange(
-                                "informacjaDodatkowa",
-                                parts.filter(Boolean).join("\n"),
-                              );
-                            }}
-                            className="w-5 h-5 rounded border-[#D4AF37] text-brand focus:ring-brand focus:ring-offset-0 accent-brand bg-ui-bg"
-                          />
-                        </div>
-                        <span className="text-ui-textSecondary text-sm group-hover:text-white transition-colors">
-                          Usta po hialuronidazie
-                        </span>
-                      </label>
-
-                      {/* Other */}
-                      <div className="pt-2">
-                        <label className="block text-sm text-ui-textSecondary mb-2 font-medium">
-                          Inne informacje
-                        </label>
-                        <textarea
-                          rows={3}
-                          className="w-full px-4 py-3 bg-ui-bg border border-[#D4AF37] rounded-xl focus:border-brand outline-none text-sm text-white placeholder-ui-textMuted"
-                          placeholder="Dodatkowe uwagi..."
-                          value={
-                            (formData.informacjaDodatkowa || "")
-                              .split("\n")
-                              .find((p) => p.startsWith("Inne: "))
-                              ?.replace("Inne: ", "") || ""
-                          }
-                          onChange={(e) => {
-                            const parts = (
-                              formData.informacjaDodatkowa || ""
-                            ).split("\n");
-                            const newVal = `Inne: ${e.target.value}`;
-                            const index = parts.findIndex((p) =>
-                              p.startsWith("Inne: "),
-                            );
-                            if (index !== -1) {
-                              if (e.target.value) {
-                                parts[index] = newVal;
-                              } else {
-                                parts.splice(index, 1);
-                              }
-                            } else if (e.target.value) {
-                              parts.push(newVal);
-                            }
-                            handleInputChange(
-                              "informacjaDodatkowa",
-                              parts.filter(Boolean).join("\n"),
-                            );
-                          }}
-                        />
-                      </div>
-                    </div>
+                    <input
+                      type="text"
+                      placeholder="Określ dokładnie obszar (np. powieka górna, powieka dolna, kurze łapki...)"
+                      value={(formData.obszarZabiegu || "")
+                        .split(", ")
+                        .filter((p) => p && !p.startsWith("część ciała:"))
+                        .join(", ")}
+                      onChange={(e) => {
+                        const czescCialaPart = (formData.obszarZabiegu || "")
+                          .split(", ")
+                          .find((p) => p.startsWith("część ciała:"));
+                        const parts: string[] = [];
+                        if (e.target.value) parts.push(e.target.value);
+                        if (czescCialaPart) parts.push(czescCialaPart);
+                        handleInputChange("obszarZabiegu", parts.join(", "));
+                      }}
+                      className="w-full bg-ui-card border border-[#D4AF37]/30 rounded-lg px-4 py-3 text-white placeholder:text-ui-textSecondary/50 focus:border-brand focus:ring-1 focus:ring-brand outline-none transition-colors text-sm"
+                    />
                   </div>
-                </div>
-                <div>
-                  <label className="block text-sm text-ui-textSecondary mb-2 font-medium">
-                    Oczekiwany efekt
-                  </label>
-                  <div className="grid grid-cols-2 gap-3 mb-3">
-                    {[
-                      "Delikatny efekt",
-                      "Powiększenie",
-                      "Nawilżenie",
-                      "Wyrównanie asymetrii",
-                    ].map((effect) => (
-                      <button
-                        key={effect}
-                        type="button"
-                        onClick={() => {
-                          const current = formData.celEfektu
-                            ? formData.celEfektu.split(", ")
-                            : [];
-                          const newValue = current.includes(effect)
-                            ? current.filter((i) => i !== effect).join(", ")
-                            : [...current, effect].join(", ");
-                          handleInputChange("celEfektu", newValue);
-                        }}
-                        className={`py-3 px-4 rounded-xl border-2 transition-all font-medium text-sm ${
-                          formData.celEfektu.split(", ").includes(effect)
-                            ? "border-brand bg-brand text-black"
-                            : "border-[#D4AF37] bg-ui-bg text-ui-textSecondary hover:border-brand hover:text-brand"
-                        }`}
-                      >
-                        {effect}
-                      </button>
-                    ))}
+
+                  {/* Część ciała */}
+                  <div className="space-y-3 pt-3 border-t border-[#D4AF37]/30">
+                    <p className="text-sm text-white font-medium">
+                      Zabieg wykonywany jest na części ciała:
+                    </p>
+                    <input
+                      type="text"
+                      placeholder="Wpisz część ciała..."
+                      value={
+                        (formData.obszarZabiegu || "")
+                          .split(", ")
+                          .find((p) => p.startsWith("część ciała:"))
+                          ?.replace("część ciała: ", "") || ""
+                      }
+                      onChange={(e) => {
+                        const otherParts = (formData.obszarZabiegu || "")
+                          .split(", ")
+                          .filter((p) => p && !p.startsWith("część ciała:"));
+                        if (e.target.value) {
+                          otherParts.push(`część ciała: ${e.target.value}`);
+                        }
+                        handleInputChange(
+                          "obszarZabiegu",
+                          otherParts.join(", "),
+                        );
+                      }}
+                      className="w-full bg-ui-card border border-[#D4AF37]/30 rounded-lg px-4 py-3 text-white placeholder:text-ui-textSecondary/50 focus:border-brand focus:ring-1 focus:ring-brand outline-none transition-colors text-sm"
+                    />
                   </div>
                 </div>
               </section>
 
               {/* Wywiad Medyczny Hyaluronic */}
-              <section className="bg-gradient-emerald rounded-2xl border border-[#D4AF37] p-6 md:p-8">
+              <section className="bg-gradient-emerald rounded-2xl border border-[#D4AF37] p-6 md:p-8 gold-glow-sm">
                 <h2 className="text-2xl font-serif text-white mb-6 flex items-center gap-3">
-                  <span className="w-8 h-8 bg-brand text-black rounded-full flex items-center justify-center text-sm font-sans font-bold">
+                  <span className="w-8 h-8 bg-brand text-white rounded-full flex items-center justify-center text-sm font-sans">
                     4
                   </span>
                   Wywiad Medyczny
@@ -968,7 +729,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                 {/* Medications Input */}
                 <div className="bg-ui-bg p-5 rounded-xl border border-[#D4AF37] mb-6">
                   <h3 className="font-serif text-white text-lg mb-2">
-                    PRZECIWSKAZANIA DO WYKONANIA ZABIEGU
+                    PRZECIWWSKAZANIA DO WYKONANIA ZABIEGU
                   </h3>
                   <label className="block text-sm text-ui-textSecondary mb-2 font-medium">
                     Proszę wpisać wykaz wszystkich leków przyjmowanych w ciągu
@@ -1025,7 +786,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                           Pytanie {currentContraindicationIndex + 1} z{" "}
                           {contraindicationKeys.length}
                         </span>
-                        <div className="h-2 w-24 bg-gradient-emerald rounded-full overflow-hidden">
+                        <div className="h-2 w-24 bg-ui-border rounded-full overflow-hidden">
                           <div
                             className="h-full bg-brand transition-all duration-300"
                             style={{
@@ -1036,9 +797,17 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                       </div>
 
                       <h4 className="text-xl md:text-2xl font-serif text-white mb-8 min-h-[5rem] flex items-center justify-center text-center">
-                        {typeof currentContraindicationValue === "string"
-                          ? currentContraindicationValue
-                          : currentContraindicationValue.text}
+                        {typeof plasmaLiftingContraindications[
+                          currentContraindicationKey
+                        ] === "string"
+                          ? (plasmaLiftingContraindications[
+                              currentContraindicationKey
+                            ] as string)
+                          : (
+                              plasmaLiftingContraindications[
+                                currentContraindicationKey
+                              ] as ContraindicationWithFollowUp
+                            ).text}
                       </h4>
 
                       {/* Show follow-up input if user answered TAK and question has follow-up */}
@@ -1048,7 +817,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                           <div className="mb-6 animate-in fade-in slide-in-from-top-2">
                             <input
                               type="text"
-                              className="w-full px-4 py-3 text-base bg-ui-bg border-2 border-[#D4AF37] rounded-xl focus:border-brand outline-none transition-colors text-white placeholder-white/40"
+                              className="w-full px-4 py-3 text-base bg-ui-bg border-2 border-[#D4AF37] rounded-xl focus:border-brand outline-none transition-colors"
                               placeholder={
                                 currentContraindicationObject.followUpPlaceholder
                               }
@@ -1080,8 +849,8 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                             formData.przeciwwskazania[
                               currentContraindicationKey
                             ] === false
-                              ? "border-green-600 bg-green-600 text-white"
-                              : "bg-ui-bg border-[#D4AF37] text-ui-textSecondary active:border-green-600 active:bg-green-600 active:text-white md:hover:border-green-600 md:hover:bg-green-600 md:hover:text-white"
+                              ? "border-green-500 bg-green-500 text-white"
+                              : "bg-ui-bg border-[#D4AF37] text-ui-textSecondary active:border-green-500 active:bg-green-500 active:text-white md:hover:border-green-500 md:hover:bg-green-500 md:hover:text-white"
                           }`}
                         >
                           NIE
@@ -1109,7 +878,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                           <div className="max-w-md mx-auto mt-4">
                             <button
                               type="button"
-                              onClick={handleWizardNext}
+                              onClick={handleNextStep}
                               className="w-full py-4 px-6 rounded-xl bg-brand text-white transition-all text-lg font-medium shadow-sm hover:shadow-md hover:bg-brand-dark active:scale-95 flex items-center justify-center"
                             >
                               Dalej →
@@ -1117,7 +886,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                           </div>
                         )}
 
-                      <div className="mt-8 flex justify-between items-center border-t border-[#D4AF37]/50 pt-6">
+                      <div className="mt-8 flex justify-between items-center border-t border-[#D4AF37] pt-6">
                         <button
                           type="button"
                           onClick={() =>
@@ -1131,32 +900,32 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                           <ArrowLeft className="w-4 h-4" />
                           Poprzednie
                         </button>
-                        <span className="text-xs text-white/50 uppercase tracking-wider font-medium">
+                        <span className="text-xs text-brand uppercase tracking-wider font-medium">
                           Krok {currentContraindicationIndex + 1}
                         </span>
                       </div>
                     </div>
                   ) : (
                     <div className="space-y-4">
-                      <div className="flex items-center justify-between p-4 bg-green-900/10 border border-green-500/20 rounded-xl mb-6">
+                      <div className="flex items-center justify-between p-4 bg-green-900/20 border border-green-900/50 rounded-xl mb-6">
                         <div className="flex items-center gap-3">
                           <div className="w-8 h-8 bg-green-900/30 rounded-full flex items-center justify-center">
                             <Check className="w-5 h-5 text-green-500" />
                           </div>
-                          <span className="text-green-500 font-medium">
+                          <span className="text-green-400 font-medium">
                             Wywiad medyczny zakończony
                           </span>
                         </div>
                         <button
                           type="button"
                           onClick={resetWizard}
-                          className="text-sm text-green-500 hover:text-green-400 font-medium underline"
+                          className="text-sm text-green-400 hover:text-green-300 font-medium underline"
                         >
                           Edytuj odpowiedzi
                         </button>
                       </div>
 
-                      {Object.entries(modelowanieUstContraindications).map(
+                      {Object.entries(plasmaLiftingContraindications).map(
                         ([key, value], index) => {
                           const questionText =
                             typeof value === "string" ? value : value.text;
@@ -1170,8 +939,8 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                               key={key}
                               className={`flex items-start gap-4 p-4 rounded-xl transition-colors ${
                                 formData.przeciwwskazania[key]
-                                  ? "bg-red-900/10 border border-red-500/20"
-                                  : "bg-green-900/10 border border-green-500/20"
+                                  ? "bg-red-900/20 border border-red-900/50"
+                                  : "bg-green-900/10 border border-green-900/30"
                               }`}
                             >
                               <span className="text-brand font-medium min-w-[1.5rem] mt-0.5">
@@ -1210,9 +979,9 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
               </section>
 
               {/* Skutki Uboczne i Powikłania */}
-              <section className="bg-gradient-emerald rounded-2xl border border-[#D4AF37] p-6 md:p-8">
+              <section className="bg-gradient-emerald rounded-2xl border border-[#D4AF37] p-6 md:p-8 gold-glow-sm">
                 <h2 className="text-2xl font-serif text-white mb-6 flex items-center gap-3">
-                  <span className="w-8 h-8 bg-brand text-black rounded-full flex items-center justify-center text-sm font-sans font-bold">
+                  <span className="w-8 h-8 bg-brand text-white rounded-full flex items-center justify-center text-sm font-sans">
                     5
                   </span>
                   Informacje o Skutkach Ubocznych i Powikłaniach
@@ -1226,12 +995,14 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                       ZABIEGU - CZĘSTE
                     </p>
                     <ul className="space-y-2 text-sm text-ui-textSecondary">
-                      {modelowanieUstNaturalReactions.map((reaction, index) => (
-                        <li key={index} className="flex items-start gap-2">
-                          <span className="text-brand">∙</span>
-                          <span>{reaction}</span>
-                        </li>
-                      ))}
+                      {wolumetriaTwarzyNaturalReactions.map(
+                        (reaction, index) => (
+                          <li key={index} className="flex items-start gap-2">
+                            <span className="text-brand">∙</span>
+                            <span>{reaction}</span>
+                          </li>
+                        ),
+                      )}
                     </ul>
                   </div>
 
@@ -1241,7 +1012,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                       MOŻLIWE POWIKŁANIA PO PRZEPROWADZONYM ZABIEGU – RZADKIE
                     </p>
                     <ul className="space-y-2 text-sm text-ui-textSecondary">
-                      {modelowanieUstComplications.rzadkie.map(
+                      {wolumetriaTwarzyComplications.rzadkie.map(
                         (complication, index) => (
                           <li key={index} className="flex items-start gap-2">
                             <span className="text-brand">∙</span>
@@ -1253,13 +1024,13 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                   </div>
 
                   {/* Bardzo rzadkie powikłania */}
-                  <div className="bg-ui-bg p-5 rounded-xl border border-[#D4AF37]">
+                  <div className="bg-ui-bg p-5 rounded-xl border border-[#D4AF37]/50">
                     <p className="text-sm font-medium text-white mb-3">
                       MOŻLIWE POWIKŁANIA PO PRZEPROWADZONYM ZABIEGU – BARDZO
                       RZADKIE
                     </p>
                     <ul className="space-y-2 text-sm text-ui-textSecondary">
-                      {modelowanieUstComplications.bardzoRzadkie.map(
+                      {wolumetriaTwarzyComplications.bardzoRzadkie.map(
                         (complication, index) => (
                           <li key={index} className="flex items-start gap-2">
                             <span className="text-brand">∙</span>
@@ -1273,9 +1044,9 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
               </section>
 
               {/* Zalecenia Pozabiegowe */}
-              <section className="bg-gradient-emerald rounded-2xl border border-[#D4AF37] p-6 md:p-8">
+              <section className="bg-gradient-emerald rounded-2xl border border-[#D4AF37] p-6 md:p-8 gold-glow-sm">
                 <h2 className="text-2xl font-serif text-white mb-6 flex items-center gap-3">
-                  <span className="w-8 h-8 bg-brand text-black rounded-full flex items-center justify-center text-sm font-sans font-bold">
+                  <span className="w-8 h-8 bg-brand text-white rounded-full flex items-center justify-center text-sm font-sans">
                     6
                   </span>
                   Zalecenia Pozabiegowe
@@ -1290,7 +1061,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                     </strong>
                   </p>
                   <ul className="space-y-2 text-sm text-ui-textSecondary">
-                    {modelowanieUstPostCare.map((instruction, index) => (
+                    {plazmaPlexrPostCare.map((instruction, index) => (
                       <li key={index} className="flex items-start gap-2">
                         <span className="text-brand">∙</span>
                         <span
@@ -1313,7 +1084,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                   type="button"
                   onClick={() => setShowSignatureModal(true)}
                   disabled={!isStep1Valid}
-                  className="bg-brand text-black py-4 px-8 rounded-xl text-lg font-bold shadow-lg hover:bg-brand-dark hover:text-white disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center gap-3"
+                  className="bg-brand text-white py-4 px-8 rounded-xl text-lg font-medium shadow-lg hover:bg-brand-dark disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center gap-3"
                 >
                   <Shield className="w-5 h-5" />
                   Weryfikuj Tożsamość (SMS) i Przejdź Dalej
@@ -1325,7 +1096,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
           {/* KROK 2: RODO */}
           {currentStep === "RODO" && (
             <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
-              <section className="bg-gradient-emerald rounded-2xl border border-[#D4AF37] overflow-hidden">
+              <section className="bg-gradient-emerald rounded-2xl border border-[#D4AF37] overflow-hidden gold-glow-sm">
                 <div className="p-6 md:p-8">
                   <h3 className="text-2xl font-serif text-white mb-6">
                     {rodoInfo.consentTitle}
@@ -1338,7 +1109,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                     <p className="text-sm text-ui-textSecondary mb-4 font-medium uppercase tracking-wide">
                       Podpis Klienta (Zgoda na przetwarzanie danych):
                     </p>
-                    <div className="bg-white rounded-xl overflow-hidden min-h-[200px] border border-[#D4AF37] p-1">
+                    <div className="bg-ui-bg rounded-xl overflow-hidden min-h-[200px] border border-[#D4AF37] p-1">
                       <SignaturePad
                         label=""
                         value={formData.podpisRodo || ""}
@@ -1361,7 +1132,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                 <button
                   type="button"
                   onClick={() => setCurrentStep("DATA")}
-                  className="text-brand hover:text-brand-light px-6 py-3 font-medium transition-colors"
+                  className="text-brand hover:text-white px-6 py-3 font-medium transition-colors"
                 >
                   ← Wróć do danych
                 </button>
@@ -1369,7 +1140,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                   type="button"
                   onClick={() => setCurrentStep("RODO2")}
                   disabled={!formData.podpisRodo}
-                  className="bg-brand text-black py-3 px-8 rounded-xl text-lg font-bold shadow-lg hover:bg-brand-dark hover:text-white disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                  className="bg-brand text-white py-3 px-8 rounded-xl text-lg font-medium shadow-lg hover:bg-brand-dark disabled:opacity-50 disabled:cursor-not-allowed transition-all"
                 >
                   Dalej →
                 </button>
@@ -1380,7 +1151,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
           {/* KROK 3: RODO 2 */}
           {currentStep === "RODO2" && (
             <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
-              <section className="bg-gradient-emerald rounded-2xl border border-[#D4AF37] overflow-hidden">
+              <section className="bg-gradient-emerald rounded-2xl border border-[#D4AF37] overflow-hidden gold-glow-sm">
                 <div className="p-6 md:p-8">
                   <h3 className="text-2xl font-serif text-white mb-6">
                     {rodoInfo.clauseTitle}
@@ -1393,7 +1164,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                     <p className="text-sm text-ui-textSecondary mb-4 font-medium uppercase tracking-wide">
                       Podpis Klienta (Klauzula informacyjna):
                     </p>
-                    <div className="bg-white rounded-xl overflow-hidden min-h-[200px] border border-[#D4AF37] p-1">
+                    <div className="bg-ui-bg rounded-xl overflow-hidden min-h-[200px] border border-[#D4AF37] p-1">
                       <SignaturePad
                         label=""
                         value={formData.podpisRodo2 || ""}
@@ -1416,7 +1187,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                 <button
                   type="button"
                   onClick={() => setCurrentStep("RODO")}
-                  className="text-brand hover:text-brand-light px-6 py-3 font-medium transition-colors"
+                  className="text-brand hover:text-white px-6 py-3 font-medium transition-colors"
                 >
                   ← Wróć do RODO
                 </button>
@@ -1424,7 +1195,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                   type="button"
                   onClick={() => setCurrentStep("TREATMENT")}
                   disabled={!formData.podpisRodo2}
-                  className="bg-brand text-black py-3 px-8 rounded-xl text-lg font-bold shadow-lg hover:bg-brand-dark hover:text-white disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                  className="bg-brand text-white py-3 px-8 rounded-xl text-lg font-medium shadow-lg hover:bg-brand-dark disabled:opacity-50 disabled:cursor-not-allowed transition-all"
                 >
                   Dalej →
                 </button>
@@ -1432,11 +1203,11 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
             </div>
           )}
 
-          {/* KROK 4: ZABIEG */}
+          {/* KROK 3: ZABIEG */}
           {currentStep === "TREATMENT" && (
             <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
               {/* Ryzyko Hyaluronic */}
-              <section className="bg-gradient-emerald rounded-2xl border border-[#D4AF37] shadow-lg">
+              <section className="bg-gradient-emerald rounded-2xl border border-[#D4AF37] gold-glow-sm">
                 <div className="p-6 md:p-8">
                   <h3 className="text-2xl font-serif text-white mb-6 border-b border-[#D4AF37] pb-2">
                     Świadomość Ryzyka
@@ -1452,7 +1223,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                         Możliwe naturalne reakcje:
                       </p>
                       <ul className="space-y-2 text-sm text-ui-textSecondary">
-                        {modelowanieUstNaturalReactions.map(
+                        {wolumetriaTwarzyNaturalReactions.map(
                           (reaction, index) => (
                             <li key={index} className="flex items-start gap-2">
                               <span className="text-brand">•</span>
@@ -1463,22 +1234,24 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                       </ul>
                     </div>
 
-                    <div className="bg-gradient-emerald p-5 rounded-xl border border-[#D4AF37]/50">
+                    <div className="bg-ui-bg p-5 rounded-xl border border-[#D4AF37]">
                       <p className="text-sm font-medium text-white mb-3">
                         Możliwe powikłania:
                       </p>
                       <div className="space-y-3 text-sm text-ui-textSecondary">
                         <p>
                           <span className="font-medium">Częste:</span>{" "}
-                          {modelowanieUstComplications.czeste.join(", ")}
+                          {wolumetriaTwarzyComplications.czeste.join(", ")}
                         </p>
                         <p>
                           <span className="font-medium">Rzadkie:</span>{" "}
-                          {modelowanieUstComplications.rzadkie.join(", ")}
+                          {wolumetriaTwarzyComplications.rzadkie.join(", ")}
                         </p>
                         <p>
                           <span className="font-medium">Bardzo rzadkie:</span>{" "}
-                          {modelowanieUstComplications.bardzoRzadkie.join(", ")}
+                          {wolumetriaTwarzyComplications.bardzoRzadkie.join(
+                            ", ",
+                          )}
                         </p>
                       </div>
                     </div>
@@ -1487,7 +1260,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
               </section>
 
               {/* Zalecenia Hyaluronic */}
-              <section className="bg-gradient-emerald rounded-2xl border border-[#D4AF37] shadow-lg">
+              <section className="bg-gradient-emerald rounded-2xl border border-[#D4AF37] gold-glow-sm">
                 <div className="p-6 md:p-8">
                   <h3 className="text-2xl font-serif text-white mb-6 border-b border-[#D4AF37] pb-2">
                     Zobowiązania Pozabiegowe
@@ -1495,8 +1268,8 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                   <p className="text-sm text-ui-textSecondary mb-4">
                     Zobowiązuję się do przestrzegania następujących zaleceń:
                   </p>
-                  <ul className="space-y-2 text-ui-textSecondary text-sm bg-ui-bg p-4 rounded-xl border border-[#D4AF37]">
-                    {modelowanieUstPostCare.map((instruction, index) => (
+                  <ul className="space-y-2 text-ui-textSecondary text-sm bg-ui-bg p-4 rounded-xl border border-[#D4AF37]/30">
+                    {plazmaPlexrPostCare.map((instruction, index) => (
                       <li key={index} className="flex items-start gap-2">
                         <span className="text-brand">•</span>
                         <span
@@ -1515,14 +1288,14 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
               </section>
 
               {/* Oświadczenia */}
-              <section className="bg-gradient-emerald rounded-2xl border border-[#D4AF37] shadow-lg p-6 md:p-8">
+              <section className="bg-gradient-emerald rounded-2xl border border-[#D4AF37] p-6 md:p-8 gold-glow-sm">
                 <h3 className="text-2xl font-serif text-white mb-6 border-b border-[#D4AF37] pb-2">
                   Oświadczenia
                 </h3>
                 <div className="bg-ui-bg p-5 rounded-xl mb-6 border border-[#D4AF37]">
                   <h4 className="font-serif text-white text-lg mb-4">
-                    OŚWIADCZENIE I ŚWIADOMA ZGODA NA ZABIEG MODELOWANIA /
-                    POWIĘKSZANIA UST
+                    OŚWIADCZENIE I ŚWIADOMA ZGODA NA ZABIEG WOLUMETRII TWARZY
+                    (MODELOWANIE KWASEM HIALURONOWYM)
                   </h4>
                   <p className="text-sm text-ui-textSecondary mb-4">
                     Ja, niżej podpisana/y, po przeprowadzeniu szczegółowego
@@ -1535,10 +1308,13 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                       pełnych i prawdziwych odpowiedzi na pytania dotyczące
                       mojego stanu zdrowia. Oświadczam, że nie występują u mnie
                       żadne przeciwwskazania medyczne, fizyczne lub psychiczne,
-                      które mogłyby wpłynąć na moją decyzję. W chwili
-                      podpisywania niniejszego dokumentu nie jestem pod wpływem
-                      alkoholu, narkotyków ani innych środków odurzających.
-                      Decyzję o poddaniu się zabiegowi podejmuję w pełni
+                      które mogłyby wpłynąć na moją decyzję. Mam świadomość
+                      ryzyka wystąpienia reakcji alergicznej na środek
+                      znieczulający lub wstrzyknięty preparat (kwas
+                      hialuronowy). Akceptuję to ryzyko i w przypadku
+                      wystąpienia reakcji uczuleniowej przyjmuję na siebie
+                      odpowiedzialność za skutki jej wystąpienia. Decyzję o
+                      poddaniu się zabiegowi wolumetrii podejmuję w pełni
                       świadomie, dobrowolnie i w sposób przemyślany.
                     </p>
                     <p>
@@ -1547,55 +1323,53 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                       techniki jego wykonania, wskazań oraz przebiegu. Miałam/em
                       możliwość zadawania pytań i uzyskałam/em na nie zrozumiałe
                       odpowiedzi. Potwierdzam, że materiały (w tym
-                      ampułkostrzykawka z preparatem) użyte do zabiegu są
-                      sterylne, jednorazowe i zostały otwarte w mojej obecności.
+                      ampułkostrzykawka z kwasem hialuronowym) użyte do zabiegu
+                      są sterylne, jednorazowe i zostały otwarte w mojej
+                      obecności. W Salonie zachowane są najwyższe normy
+                      higieniczne.
                     </p>
                     <p>
                       <strong>Ryzyko i powikłania:</strong> Zostałam/em
                       poinformowana/y o możliwych skutkach ubocznych, takich
                       jak: opuchlizna, zaczerwienienie, zasinienia (krwiaki),
-                      tkliwość, które mogą utrzymywać się przez kilka dni. Mam
-                      świadomość ryzyka wystąpienia reakcji alergicznej na
-                      środek znieczulający lub wstrzyknięty preparat. Akceptuję
-                      to ryzyko i nie będę wnosić roszczeń z tytułu
-                      indywidualnej reakcji mojego organizmu. Oświadczam, że
+                      tkliwość, które mogą utrzymywać się przez kilka dni w
+                      zależności od mojego trybu życia. Oświadczam, że
                       rozumiejąc ryzyko powikłań, nie będę wnosić roszczeń
                       odszkodowawczych w przypadku wystąpienia typowych
-                      następstw zabiegu lub powikłań, o których zostałam/em
-                      uprzedzona/y.
+                      następstw zabiegu, o których zostałam/em uprzedzona/y.
                     </p>
                     <p>
-                      <strong>Efekty i brak gwarancji:</strong> Zostałam/em
-                      poinformowana/y, że efekt końcowy zależy od indywidualnych
-                      cech organizmu (biochemii, rodzaju skóry, plastyczności
-                      tkanek, kształtu anatomicznego) oraz ilości użytego
-                      preparatu (np. różnica przy użyciu 1 ml jest zależna od
-                      wielkości obszaru zabiegowego). Przyjmuję do wiadomości,
-                      że efekty zabiegu utrzymują się zazwyczaj od 1 miesiąca do
-                      1 roku, co jest kwestią indywidualną. Rozumiem, że
-                      medycyna estetyczna i kosmetologia nie są naukami
-                      ścisłymi, w związku z czym nie udziela się gwarancji na
-                      uzyskanie identycznego efektu jak u innych osób, ani na
-                      100% zadowolenie z rezultatu estetycznego. Rozbieżność
-                      między moimi oczekiwaniami a realnym rezultatem
-                      (określonym przez Specjalistę) nie stanowi podstawy do
-                      roszczeń.
+                      <strong>Efekty, trwałość i brak gwarancji:</strong>{" "}
+                      Zostałam/em poinformowana/y, że efekt końcowy zależy od
+                      indywidualnych cech organizmu (biochemii, rodzaju skóry,
+                      ilości wstrzykniętego preparatu) oraz zastosowanej
+                      techniki. Przyjmuję do wiadomości, że efekty zabiegu
+                      wolumetrii utrzymują się zazwyczaj od 1 roku do 2 lat, co
+                      jest kwestią indywidualną, a zabieg należy powtarzać dla
+                      podtrzymania rezultatu. Rozumiem, że nie udziela się
+                      gwarancji na uzyskanie identycznego efektu jak u innych
+                      osób, ani na 100% zadowolenie z rezultatu estetycznego.
+                      Rozbieżność między moimi oczekiwaniami a realnym
+                      rezultatem (określonym przez Specjalistę jako możliwy do
+                      osiągnięcia) nie stanowi podstawy do roszczeń.
                     </p>
                     <p>
                       <strong>Zalecenia pozabiegowe:</strong> Zobowiązuję się do
                       ścisłego przestrzegania zaleceń pozabiegowych, które
                       zostały mi przekazane i wyjaśnione. Mam świadomość, że
-                      nieprzestrzeganie zaleceń (np. higieny, unikania pewnych
-                      czynników) może prowadzić do poważnych powikłań, takich
-                      jak zakażenia, przemieszczenie preparatu czy powstanie
-                      blizn, za co Specjalista nie ponosi odpowiedzialności.
+                      nieprzestrzeganie zaleceń może prowadzić do poważnych
+                      powikłań, takich jak zakażenia czy powstanie blizn, za co
+                      Specjalista nie ponosi odpowiedzialności.
                     </p>
                     <p>
                       <strong>Kwalifikacje wykonującego:</strong> Oświadczam, że
                       mam pełną świadomość, iż Specjalista wykonujący zabieg nie
-                      jest lekarzem medycyny, ale posiada odpowiednie
-                      przeszkolenie i doświadczenie w zakresie wykonywanych
-                      zabiegów estetycznych. Akceptuję ten fakt.
+                      jest lekarzem medycyny estetycznej, ale posiada bogate
+                      doświadczenie i przeszkolenie w zakresie wykonywanych
+                      zabiegów. Akceptuję ten fakt i w przypadku wykonania
+                      zabiegu zgodnie z zasadami i etyką pracy, a nieuzyskania
+                      spodziewanego efektu, nie będę wnosić roszczeń do osoby
+                      wykonującej zabieg.
                     </p>
                     <p className="mt-4 font-medium text-brand">
                       * W przypadku osoby niepełnoletniej wymagany jest podpis
@@ -1605,7 +1379,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                 </div>
 
                 {/* Podpis pod Zabiegiem (Nowy, obowiązkowy) */}
-                <div className="bg-gradient-emerald rounded-2xl border border-[#D4AF37] shadow-lg p-6 md:p-8 mt-8">
+                <div className="bg-gradient-emerald rounded-2xl border border-[#D4AF37] p-6 md:p-8 mt-8 gold-glow-sm">
                   <h3 className="text-xl font-serif text-white mb-4 border-b border-[#D4AF37] pb-2">
                     Potwierdzenie Zgody na Zabieg
                   </h3>
@@ -1632,7 +1406,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                 <button
                   type="button"
                   onClick={() => setCurrentStep("RODO")}
-                  className="text-brand hover:text-brand-light px-6 py-3 font-medium transition-colors"
+                  className="text-brand hover:text-white px-6 py-3 font-medium transition-colors"
                 >
                   ← Wróć do RODO
                 </button>
@@ -1640,7 +1414,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                   type="button"
                   onClick={() => setCurrentStep("MARKETING")}
                   disabled={!formData.podpisDane}
-                  className="bg-brand text-black py-3 px-8 rounded-xl text-lg font-bold shadow-lg hover:bg-brand-dark hover:text-white disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                  className="bg-brand text-white py-3 px-8 rounded-xl text-lg font-medium shadow-lg hover:bg-brand-dark disabled:opacity-50 disabled:cursor-not-allowed transition-all"
                 >
                   Dalej (Zgody dodatkowe) →
                 </button>
@@ -1651,9 +1425,9 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
           {/* KROK 4: MARKETING */}
           {currentStep === "MARKETING" && (
             <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
-              <section className="bg-gradient-emerald rounded-2xl border border-[#D4AF37] p-6 md:p-8">
+              <section className="bg-gradient-emerald rounded-2xl border border-[#D4AF37] p-6 md:p-8 gold-glow-sm">
                 <h3 className="text-2xl font-serif text-white mb-6 flex items-center gap-3">
-                  <span className="w-8 h-8 bg-brand text-black rounded-full flex items-center justify-center text-sm font-sans font-bold">
+                  <span className="w-8 h-8 bg-brand text-white rounded-full flex items-center justify-center text-sm font-sans">
                     7
                   </span>
                   Zgody Dodatkowe
@@ -1663,7 +1437,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                 </p>
 
                 {/* Zgoda na marketing */}
-                <div className="bg-ui-bg rounded-xl shadow-sm overflow-hidden border border-[#D4AF37] hover:border-brand transition-colors">
+                <div className="bg-ui-bg/60 backdrop-blur-sm rounded-xl shadow-sm overflow-hidden border border-brand/50 hover:shadow-md transition-shadow gold-glow-sm">
                   <div className="p-6">
                     <h4 className="font-serif text-white text-lg mb-3">
                       Zgoda Marketingowa
@@ -1687,7 +1461,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                 </div>
 
                 {/* Zgoda na wizerunek */}
-                <div className="bg-ui-bg rounded-xl shadow-sm overflow-hidden border border-[#D4AF37] hover:border-brand transition-colors">
+                <div className="bg-ui-bg/60 backdrop-blur-sm rounded-xl shadow-sm overflow-hidden border border-brand/50 hover:shadow-md transition-shadow gold-glow-sm">
                   <div className="p-6">
                     <h4 className="font-serif text-white text-lg mb-3">
                       Zgoda na Wykorzystanie Wizerunku
@@ -1711,7 +1485,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                             e.target.value,
                           )
                         }
-                        className="w-full px-4 py-2 bg-gradient-emerald border-b border-[#D4AF37] focus:border-brand outline-none text-sm transition-colors text-white placeholder-ui-textMuted"
+                        className="w-full px-4 py-2 bg-ui-bg border-b border-[#D4AF37] focus:border-brand outline-none text-sm transition-colors text-white"
                         placeholder="np. Instagram, Facebook (zostaw puste = wszystkie)"
                       />
                     </div>
@@ -1729,22 +1503,22 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                 </div>
               </section>
 
-              <div className="flex justify-between pt-4 pb-12 items-center border-t border-[#D4AF37]/50 mt-8">
+              <div className="flex justify-between pt-4 pb-12 items-center border-t border-[#D4AF37] mt-8">
                 <button
                   type="button"
                   onClick={() => setCurrentStep("TREATMENT")}
-                  className="text-brand hover:text-brand-light px-6 py-3 font-medium transition-colors"
+                  className="text-brand hover:text-white px-6 py-3 font-medium transition-colors"
                 >
                   ← Wróć do zabiegu
                 </button>
                 <button
                   type="submit"
                   disabled={isSubmitting || !isSignatureVerified}
-                  className="bg-brand text-black py-4 px-12 rounded-xl text-lg font-bold shadow-lg hover:bg-brand-dark hover:text-white disabled:opacity-50 disabled:cursor-not-allowed transition-all transform hover:-translate-y-0.5"
+                  className="bg-brand text-white py-4 px-12 rounded-xl text-lg font-medium shadow-lg hover:bg-brand-dark disabled:opacity-50 disabled:cursor-not-allowed transition-all transform hover:-translate-y-0.5"
                 >
                   {isSubmitting ? (
                     <div className="flex items-center gap-2">
-                      <div className="w-5 h-5 border-2 border-black/30 border-t-black rounded-full animate-spin" />
+                      <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                       Zapisywanie...
                     </div>
                   ) : (

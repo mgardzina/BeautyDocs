@@ -11,6 +11,11 @@ import WrinkleLevelingForm from "./components/forms/WrinkleLevelingForm";
 import { FormType } from "../types/booking";
 import PermamentMakeupForm from "./components/forms/PermamentMakeupForm";
 import InjectionLipolysisForm from "./components/forms/InjectionLipolysisForm";
+import EyelidLiftForm from "./components/forms/EyelidLiftForm";
+import TissueStimulationForm from "./components/forms/TissueStimulationForm";
+import EyebrowTintingForm from "./components/forms/EyebrowTintingForm";
+import EyebrowLaminationForm from "./components/forms/EyebrowLaminationForm";
+import EyelashExtensionForm from "./components/forms/EyelashExtensionForm";
 
 export default function HomePage() {
   const [selectedForm, setSelectedForm] = useState<FormType | null>(null);
@@ -44,6 +49,16 @@ export default function HomePage() {
       return <InjectionLipolysisForm onBack={() => setSelectedForm(null)} />;
     case "NEEDLE_MESOTHERAPY":
       return <NeedleMesotherapyForm onBack={() => setSelectedForm(null)} />;
+    case "EYELID_LIFT":
+      return <EyelidLiftForm onBack={() => setSelectedForm(null)} />;
+    case "TISSUE_STIMULATION":
+      return <TissueStimulationForm onBack={() => setSelectedForm(null)} />;
+    case "EYEBROW_TINTING":
+      return <EyebrowTintingForm onBack={() => setSelectedForm(null)} />;
+    case "EYEBROW_LAMINATION":
+      return <EyebrowLaminationForm onBack={() => setSelectedForm(null)} />;
+    case "EYELASH_EXTENSION":
+      return <EyelashExtensionForm onBack={() => setSelectedForm(null)} />;
     default:
       return <div>Formularz nieznany</div>;
   }

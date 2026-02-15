@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import AnatomyBodySelector from "../AnatomyBodySelector";
 import { Phone, Check, ArrowLeft, Instagram, Mail, Shield } from "lucide-react";
 import { getTodayDate } from "@/lib/dateUtils";
 import SignaturePad from "@/components/SignaturePad";
@@ -18,6 +19,7 @@ import {
 } from "../../../types/booking";
 import { depilacjaLaserowaContraindications } from "../../../types/booking";
 import { SALON_CONFIG } from "@/app/config/salon";
+import { BODY_ZONES } from "@/types/body-zones";
 
 interface LaserRemovalFormProps {
   onBack: () => void;
@@ -29,7 +31,7 @@ const initialFormData: ConsentFormData = {
   ulica: "",
   kodPocztowy: "",
   miasto: SALON_CONFIG.city,
-  pesel: "",
+  dataUrodzenia: "",
   telefon: "",
   miejscowoscData: `${SALON_CONFIG.city}, ${getTodayDate()}`,
   osobaPrzeprowadzajacaZabieg: "",
@@ -147,10 +149,20 @@ export default function LaserRemovalForm({ onBack }: LaserRemovalFormProps) {
     setFormData((prev) => ({ ...prev, telefon: formatted }));
   };
 
-  const handlePeselChange = (value: string) => {
-    const digits = value.replace(/\D/g, "").slice(0, 11);
-    setFormData((prev) => ({ ...prev, pesel: digits }));
+  // Oblicz wiek na podstawie daty urodzenia
+  const calculateAge = (birthDate: string): number => {
+    if (!birthDate) return 0;
+    const today = new Date();
+    const birth = new Date(birthDate);
+    let age = today.getFullYear() - birth.getFullYear();
+    const monthDiff = today.getMonth() - birth.getMonth();
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
+      age--;
+    }
+    return age;
   };
+
+  const isAgeValid = calculateAge(formData.dataUrodzenia) >= 16;
 
   const handleContraindicationChange = (key: string, value: boolean) => {
     setFormData((prev) => ({
@@ -181,7 +193,7 @@ export default function LaserRemovalForm({ onBack }: LaserRemovalFormProps) {
       type: formData.type,
       imieNazwisko: formData.imieNazwisko,
       telefon: formData.telefon,
-      pesel: formData.pesel,
+      dataUrodzenia: formData.dataUrodzenia,
       przeciwwskazania: formData.przeciwwskazania,
       timestamp: new Date().toISOString(),
     });
@@ -268,8 +280,8 @@ export default function LaserRemovalForm({ onBack }: LaserRemovalFormProps) {
     formData.telefon &&
     formData.telefon.replace(/\D/g, "").length === 9 &&
     formData.miejscowoscData &&
-    formData.pesel &&
-    formData.pesel.length === 11 &&
+    formData.dataUrodzenia &&
+    isAgeValid &&
     isWizardComplete;
 
   return (
@@ -483,17 +495,27 @@ export default function LaserRemovalForm({ onBack }: LaserRemovalFormProps) {
 
                   <div>
                     <label className="block text-sm text-ui-textSecondary mb-2 font-medium">
-                      PESEL *
+                      Data urodzenia * (min. 16 lat)
                     </label>
                     <input
-                      type="text"
+                      type="date"
                       required
-                      value={formData.pesel}
-                      onChange={(e) => handlePeselChange(e.target.value)}
-                      className="w-full px-4 py-3 bg-ui-bg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
-                      placeholder="np. 85010112345"
-                      maxLength={11}
+                      value={formData.dataUrodzenia}
+                      onChange={(e) =>
+                        handleInputChange("dataUrodzenia", e.target.value)
+                      }
+                      max={new Date(new Date().setFullYear(new Date().getFullYear() - 16)).toISOString().split('T')[0]}
+                      className={`w-full px-4 py-3 bg-ui-bg border rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all ${
+                        formData.dataUrodzenia && !isAgeValid
+                          ? "border-red-500"
+                          : "border-[#D4AF37]"
+                      }`}
                     />
+                    {formData.dataUrodzenia && !isAgeValid && (
+                      <p className="text-red-400 text-xs mt-1">
+                        Musisz mieć ukończone 16 lat
+                      </p>
+                    )}
                   </div>
                   <div>
                     <label className="block text-sm text-ui-textSecondary mb-2 font-medium">
@@ -581,48 +603,28 @@ export default function LaserRemovalForm({ onBack }: LaserRemovalFormProps) {
                       <label className="block text-sm text-ui-textSecondary mb-2 font-medium">
                         Obszar Zabiegu
                       </label>
-                      <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                        {[
-                          "Wąsik",
-                          "Broda",
-                          "Twarz",
-                          "Pachy",
-                          "Ramiona",
-                          "Bikini",
-                          "Uda",
-                          "Łydki",
-                          "Całe nogi",
-                          "Plecy",
-                          "Klatka piersiowa",
-                          "Brzuch",
-                        ].map((area) => {
-                          const isSelected = (formData.obszarZabiegu || "")
-                            .split(", ")
-                            .includes(area);
-                          return (
-                            <button
-                              key={area}
-                              type="button"
-                              onClick={() => {
-                                const current = formData.obszarZabiegu
-                                  ? formData.obszarZabiegu.split(", ")
-                                  : [];
-                                const newValue = current.includes(area)
-                                  ? current.filter((i) => i !== area).join(", ")
-                                  : [...current, area].join(", ");
-                                handleInputChange("obszarZabiegu", newValue);
-                              }}
-                              className={`py-3 px-4 rounded-xl border-2 transition-all font-medium text-sm ${
-                                isSelected
-                                  ? "border-brand bg-brand text-black shadow-lg shadow-brand/20 scale-[1.02]"
-                                  : "border-[#D4AF37] bg-ui-bg text-ui-textSecondary hover:border-brand hover:text-brand"
-                              }`}
-                            >
-                              {area}
-                            </button>
-                          );
-                        })}
-                      </div>
+                      <AnatomyBodySelector
+                        initialSelected={
+                          formData.obszarZabiegu
+                            ? formData.obszarZabiegu
+                                .split(", ")
+                                .map(
+                                  (name) =>
+                                    BODY_ZONES.find((z) => z.name === name)?.id,
+                                )
+                                .filter((id): id is string => !!id)
+                            : []
+                        }
+                        onSelect={(ids: string[]) => {
+                          const names = ids
+                            .map(
+                              (id) => BODY_ZONES.find((z) => z.id === id)?.name,
+                            )
+                            .filter(Boolean)
+                            .join(", ");
+                          handleInputChange("obszarZabiegu", names);
+                        }}
+                      />
                     </div>
                   </div>
                 </div>

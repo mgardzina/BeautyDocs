@@ -8,7 +8,12 @@ export type FormType =
   | 'PERMANENT_MAKEUP'
   | 'LASER_HAIR_REMOVAL'
   | 'LASER_TATTOO_REMOVAL'
-  | 'WRINKLE_REDUCTION';
+  | 'WRINKLE_REDUCTION'
+  | 'EYELID_LIFT'
+  | 'TISSUE_STIMULATION'
+  | 'EYEBROW_TINTING'
+  | 'EYELASH_EXTENSION'
+  | 'EYEBROW_LAMINATION';
 
 export interface ConsentFormData {
   type: FormType;
@@ -18,7 +23,7 @@ export interface ConsentFormData {
   ulica: string;
   kodPocztowy: string;
   miasto: string;
-  pesel: string;
+  dataUrodzenia: string;
   telefon: string;
   email?: string;
   miejscowoscData: string;
@@ -52,6 +57,13 @@ export interface ConsentFormData {
   zastrzeniaKlienta?: string;
   wykazLekow?: string;
   inneSchorzenia?: string;
+
+  // Seria zabiegowa (Stymulacja tkankowa)
+  planowanaIloscZabiegow?: string;
+  odstepMiedzyZabiegami?: string;
+  kolejneZabiegiOdstepy?: string;
+  iloscProduktu?: string;
+  znieczulenie?: string;
 }
 
 export const mezoterapiaIglowaCategoryBreaks: Record<number, string> = {
@@ -616,6 +628,7 @@ export interface ContraindicationWithFollowUp {
   text: string;
   hasFollowUp?: boolean;
   followUpPlaceholder?: string;
+  isPositiveAnswerSafe?: boolean;
 }
 
 export const modelowanieUstContraindications: Record<string, string | ContraindicationWithFollowUp> = {
@@ -875,6 +888,79 @@ export const wolumetriaTwarzyPostCare = [
   'Nie poddawać się zabiegom mezoterapii i z zastosowaniem toksyny botulinowej po zabiegu',
   'Nie poddawać się zabiegom peelingu chemicznego i mechanicznego przez okres 3 tygodni od zabiegu',
 ];
+
+// PLAZMA_PLEXR - Plasma Lifting Powiek
+export const plazmaPlexrPreCare = [
+  'Zaniechanie ekspozycji na promienie UV (słońce, solarium) na 1,5 miesiąca przed planowanym zabiegiem',
+  '1 tydzień przed zabiegiem nie wykonywać peelingów mechanicznych i depilacji w miejscu, które ma zostać poddane zabiegowi',
+  'W dniu zabiegu należy precyzyjnie i dokładnie oczyścić skórę',
+];
+
+export const plazmaPlexrPostCare = [
+  'Po zabiegu na skórze widoczne są niewielkie punkciki (strupki), które utrzymują się 7-14 dni - absolutnie nie wolno ich zdrapywać',
+  'Można stosować kremy przyspieszające regenerację (Bepanten, Alantan, Panthenol)',
+  'Drugiego lub trzeciego dnia po zabiegu pojawia się obrzęk okolicy poddanej zabiegowi, który utrzymuje się około 3 dni',
+  'W czasie obrzęku stosujemy tylko produkty jałowe (gaziki jednorazowe do przemywania, sól fizjologiczną lub Octenisept) i krem regeneracyjny',
+  'Nie należy stosować makijażu korygującego w okresie gojenia',
+  'Po odpadnięciu strupków skóra może być lekko zaczerwieniona przez 1-2 tygodnie - stosować kremy przyspieszające regenerację i redukujące rumień',
+  'Nie wolno opalać się co najmniej 4 tygodnie po zabiegu (również w solarium) - stosować filtr min. SPF 50',
+  'Miejsce poddane zabiegowi traktować ze szczególną ostrożnością - nie dotykać ani nie masować',
+  'Zachować wysoką higienę dłoni - istnieje duże ryzyko wtórnego zakażenia',
+  'Unikać wzmożonego wysiłku fizycznego oraz gorących kąpieli w wannie',
+  'Ochładzać powierzchnię gdzie był wykonywany zabieg suchymi okładami',
+  'Unikać spożywania alkoholu',
+  'Nie nakładać makijażu w obszarze objętym zabiegiem',
+  'Nie korzystać z basenu i sauny przez okres wykonywania zabiegów oraz pomiędzy zabiegami',
+  'Mycie obszaru na którym wykonywano zabieg możliwe jest dopiero po upływie 24 godzin',
+  'Miejsce poddane zabiegowi należy zabezpieczać kremem z filtrem',
+  'Zakaz poddawania się zabiegom peelingu chemicznego i mechanicznego',
+  'Nie stosować toników na bazie alkoholu oraz kremów z kwasami owocowymi i witaminą A, C przez okres 4 tygodni od zabiegu',
+  'Nie przemywać obszaru objętego zabiegiem preparatami z zawartością alkoholu (dopuszczalny jest Octenisept)',
+  'Przez około 2-3 miesięcy po zabiegu skóra będzie wrażliwa i podatna na czynniki zewnętrzne - wymaga odpowiedniej pielęgnacji',
+  'Kolejny zabieg można wykonać po minimum 40 dniach (optymalnie po 3 miesiącach)',
+  'UWAGA!!! Należy stosować się ściśle do zaleceń pozabiegowych',
+  'UWAGA!!! Wystąpienie jakichkolwiek reakcji niepożądanych należy niezwłocznie zgłosić Specjaliście wykonującemu zabieg',
+];
+
+export const plasmaLiftingContraindications: Record<string, string | ContraindicationWithFollowUp> = {
+  // BEZWZGLĘDNE PRZECIWWSKAZANIA
+  ciazaLaktacja: 'Czy jest Pani w ciąży lub w okresie laktacji?',
+  zapalenieZakazenieSkory: 'Czy ma Pani/Pan zapalenie lub zakażenie skóry (trądzik, opryszczka, zapalenia skórne, alergiczne lub grzybicze zmiany w okolicach podlegających zabiegowi, naczyniaki, liszaje, brodawczaki, przerwania ciągłości naskórka, poparzenia słoneczne)?',
+  chorobySerca: 'Czy choruje Pani/Pan na choroby serca?',
+  chorobyAutoimmunologiczne: 'Czy choruje Pani/Pan na choroby autoimmunologiczne?',
+  wysokieCisnienie: 'Czy ma Pani/Pan wysokie ciśnienie krwi?',
+  cukrzycaZaburzeniaNaczyniowe: 'Czy choruje Pani/Pan na cukrzycę z zaburzeniami naczyniowymi?',
+  chemioterapiaRadioterapia: 'Czy w ciągu ostatniego roku była/był Pani/Pan poddawana chemioterapii lub radioterapii?',
+  nowotwor: 'Czy choruje Pani/Pan na nowotwór?',
+  zoltaczkaChorobyWatrobyNerek: 'Czy choruje Pani/Pan na żółtaczkę lub ciężkie choroby wątroby lub nerek?',
+  zaburzeniaTarczycy: 'Czy choruje Pani/Pan na zaburzenia pracy tarczycy?',
+  epilepsja: 'Czy choruje Pani/Pan na epilepsję?',
+  chorobyImmunologiczne: 'Czy choruje Pani/Pan na choroby immunologiczne?',
+  luszczycaBielactwo: 'Czy choruje Pani/Pan na łuszczycę lub bielactwo?',
+  chorobyTkankiLacznej: 'Czy choruje Pani/Pan na choroby tkanki łącznej?',
+
+  // WZGLĘDNE PRZECIWSKAZANIA
+  problemyKrazeniem: 'Czy ma Pani/Pan problemy z krążeniem?',
+
+  // CZASOWE PRZECIWSKAZANIA
+  lekiMiejscowe: 'Czy stosuje Pani/Pan leki do aplikacji miejscowej w obszarze objętym zabiegiem?',
+  temperaturaPrzeziebienie: 'Czy ma Pani/Pan podniesioną temperaturę ciała lub jest przeziębiona w dniu zabiegu?',
+  lekiSwiatlouczulajace: {
+    text: 'Czy przyjmuje Pani/Pan leki światłouczulające lub suplementy diety (nagietek, dziurawiec, pokrzywa, czystek, skrzyp polny)?',
+    hasFollowUp: true,
+    followUpPlaceholder: 'Jeżeli tak, to jakie?'
+  },
+  lekiAntydepresyjneSterydy: 'Czy przyjmuje Pani/Pan leki antydepresyjne, sterydy?',
+  antybiotykoterapiaRetynoidy: 'Czy jest Pani/Pan w trakcie kuracji antybiotykowej (w tym retynoidy)?',
+  leczenieStomatologiczne: 'Czy była Pani/Pan w ciągu ostatniego tygodnia na leczeniu stomatologicznym?',
+
+  // INNE
+  inneSchorzenia: {
+    text: 'Czy posiada Pani/Pan inne schorzenia niewymienione powyżej?',
+    hasFollowUp: true,
+    followUpPlaceholder: 'Jeżeli tak, to jakie?'
+  },
+};
 
 // MEZOTERAPIA_IGLOWA - Mezoterapia igłowa
 export const mezoterapiaIglowaNaturalReactions = [
@@ -1319,6 +1405,240 @@ export const depilacjaLaserowaComplications = {
 
 
 
+// BIOSTYMULATORY - Stymulacja tkankowa
+export const biostymulatoryContraindications: Record<string, string | ContraindicationWithFollowUp> = {
+  // BEZWZGLĘDNE PRZECIWSKAZANIA
+  ciazaLaktacja: 'Czy jest Pani w ciąży lub w okresie laktacji?',
+  zapalenieZakazenieSkory: 'Czy ma Pani/Pan zapalenie lub zakażenie skóry (trądzik, opryszczka, zapalenia skórne, alergiczne lub grzybicze zmiany w okolicach podlegających zabiegowi, naczyniaki, liszaje, brodawczaki, przerwania ciągłości naskórka, poparzenia słoneczne?)',
+  nadwrazliwoscPreparat: {
+    text: 'Czy ma Pani/Pan nadwrażliwość na preparat?',
+    hasFollowUp: true,
+    followUpPlaceholder: 'Jaki?'
+  },
+  grzybiczeBakteryjneZapalenie: 'Czy występuje u Pani/Pana grzybicze/bakteryjne zapalenie skóry?',
+  zaburzeniaSercowoNaczyniowe: 'Czy ma Pani/Pan zaburzenia sercowo – naczyniowe?',
+  hemofilia: 'Czy choruje Pani/Pan na hemofilię?',
+  chemioterapiaRadioterapia: 'Czy w ciągu ostatniego roku była /Pan poddawana chemioterapii lub radioterapii?',
+  nowotwor: 'Czy choruje Pani/Pan na nowotwór?',
+  hivZoltaczka: 'Czy choruje Pani/Pan na HIV lub żółtaczkę?',
+  luszczycaAktywna: 'Czy choruje Pani/Pan na łuszczycę?',
+  epilepsja: 'Czy choruje Pani/Pan na epilepsję?',
+  problemyGojenieRan: 'Czy ma Pani/Pan problem/trudności z gojeniem ran?',
+  problemyKrzepliwoscKrwi: 'Czy ma Pani/Pan problemy z krzepnięciem krwi?',
+  alergiaSkladnikiPreparatu: 'Czy posiada Pani/Pan alergie na składniki preparatu?',
+  alergiaZnieczulenie: 'Czy ma Pani/Pan alergie na preparaty stosowane do miejscowego znieczulenia?',
+  podatnoscBlizny: 'Czy ma Pani/Pan podatność na przerost blizn?',
+  alkoholSrodkiOdurzajace: 'Czy w ciągu ostatnich 2 dni przyjmowała Pani/Pan alkohol lub inne środku odurzające?',
+  lekiPrzeciwzakrzepowe: 'Czy stosuje Pani/Pan leki przeciwzakrzepowe?',
+  cukrzyca: 'Czy choruje Pani/Pan na cukrzycę?',
+  dnaMoczanowa: 'Czy choruje Pani/Pan na dnę moczanową?',
+  trudnosciOddychaniem: 'Czy cierpi Pani/ Pan na trudności z oddychaniem?',
+
+  // WZGLĘDNE PRZECIWSKAZANIA
+  problemyKrazeniem: 'Czy ma Pani/Pan problemy z krążeniem?',
+  chorobyAutoimmunologiczne: 'Czy choruje Pani/Pan na choroby autoimmunologiczne?',
+
+  // CZASOWE PRZECIWSKAZANIA
+  wypelniaczeSkorneKwasHialuronowy: 'Czy korzystała Pani/Pan z wypełniaczy skórnych - kwasu hialuronowego?',
+  zabiegiChirurgiczneTwarz: {
+    text: 'Czy korzystała Pani/Pan z zabiegów chirurgicznych w okolicy twarzy?',
+    hasFollowUp: true,
+    followUpPlaceholder: 'Jeżeli tak, to z jakich?'
+  },
+  antybiotykoterapia: 'Czy jest Pani/Pan w trakcie stosowania antybiotykoterapii?',
+  lekiRozrzedzajaceKrew: 'Czy stosuje Pani/Pan leki rozrzedzające krew? (aspiryna, paracetamol, witamina E, inne)',
+  lekiMiejscowe: 'Czy stosuje Pani/Pan leki do aplikacji miejscowej w obszarze objętym zabiegiem?',
+  temperaturaPrzeziebienie: 'Czy ma Pani/Pan podniesioną temperaturę ciała lub jest przeziębiona w dniu zabiegu?',
+  sklonnosciSinceKrwawienie: 'Czy ma Pani/Pan skłonności do sińców lub krwawienia?',
+  tatuaze: 'Czy posiada Pani/Pan tatuaże?',
+  makijazPermanentny: {
+    text: 'Czy posiada Pani/Pan makijaż permanentny?',
+    hasFollowUp: true,
+    followUpPlaceholder: 'Jeżeli tak, to kiedy został wykonany i jaką techniką?'
+  },
+  inneSchorzenia: {
+    text: 'Czy posiada Pani/Pan inne schorzenia',
+    hasFollowUp: true,
+    followUpPlaceholder: 'Proszę podać jakie:'
+  }
+};
+
+export const biostymulatorySideEffects = [
+  'zaczerwienienie',
+  'obrzęk',
+  'krwawienie',
+  'zasinienie',
+  'rumień',
+  'swędzenie',
+  'ból',
+  'zgrubienie lub grudki'
+];
+
+export const biostymulatoryComplications = {
+  rzadkie: [
+    'zakażenie wirusowe',
+    'powstanie blizn',
+    'reakcje alergiczne',
+    'zakażenie bakteryjne',
+    'asymetria twarzy'
+  ],
+  bardzoRzadkie: [
+    'bliznowce'
+  ]
+};
+
+export const biostymulatoryPreTreatment = [
+  'unikać stosowania leków przeciwzapalnych na kilka dni przed zabiegiem',
+  'zażywać preparaty z … na kilka dni przed zabiegiem i do … po zabiegu',
+  'unikać picia alkoholu z dniu zabiegu',
+  'unikać opalania lub korzystania z sauny na … dni przed zabiegiem'
+];
+
+export const biostymulatoryPostTreatment = [
+  'miejsce poddane zabiegowi traktować ze szczególną ostrożnością',
+  'unikać uciskania i masażu twarzy lub innego miejsca poddanego zabiegowi',
+  'przez około … unikać nadmiernej mimiki',
+  'zachować wysoką higienę dłoni, istnieje bowiem duże ryzyko wtórnego zakażenia',
+  'nie przemywać wodą, mydłem i środkami złuszczającymi miejsc poddanych iniekcji min. …',
+  'unikać silnej ekspozycji słonecznej przez … i stosować kremy z wysokim filtrem UV',
+  'nie korzystać z solarium i zabiegów krioterapii przez okres …',
+  'nie korzystać z sauny, basenu przez okres min. …',
+  'unikać wysiłku fizycznego bezpośrednio po zabiegu',
+  'nie poddawać się zabiegom peelingu chemicznego i mechanicznego przez okres … tygodni od zabiegu',
+  'UWAGA!!! Należy stosować się ściśle do zaleceń pozabiegowych.',
+  'UWAGA!!! Wystąpienie jakichkolwiek reakcji niepożądanych należy niezwłocznie zgłosić Specjaliście wykonującemu zabieg.'
+];
+
+export const eyebrowTintingContraindications: Record<string, string | ContraindicationWithFollowUp> = {
+  reakcjaAlergiczna: {
+    text: "Czy miała Pani kiedykolwiek reakcję alergiczną po farbowaniu brwi, rzęs lub włosów?",
+    hasFollowUp: true,
+    followUpPlaceholder: "Jeśli tak, proszę opisać objawy...",
+  },
+  uczulenieSkladniki: {
+    text: "Czy ma Pani uczulenie na którykolwiek z poniższych składników?",
+    hasFollowUp: true,
+    followUpPlaceholder: "Jeśli tak, jakie?...",
+  },
+  chorobySkoryOczu: {
+    text: "Czy cierpi Pani na choroby skóry lub oczu (np. egzema, opryszczka, jęczmień, zapalenie spojówek)?",
+    hasFollowUp: true,
+    followUpPlaceholder: "Jeśli tak, jakie?...",
+  },
+  wrazliweOczy: "Czy oczy łatwo się łzawią, pieką lub są bardzo wrażliwe?",
+  testUczuleniowy: {
+    text: "Czy wykonywała Pani test uczuleniowy na farbę w ciągu ostatnich 48h?",
+    isPositiveAnswerSafe: true,
+  },
+  leki: {
+    text: "Czy przyjmuje Pani obecnie jakieś leki?",
+    hasFollowUp: true,
+    followUpPlaceholder: "Jeśli tak, jakie?...",
+  },
+  ciazaKarmienie: "Czy jest Pani w ciąży lub karmi piersią?",
+  zabiegiOczy: {
+    text: "Czy w ciągu ostatnich 2 tygodni miała Pani jakiekolwiek zabiegi w okolicach oczu?",
+    hasFollowUp: true,
+    followUpPlaceholder: "Jakie?...",
+  },
+};
+
+export const eyebrowTintingPostCare: string[] = [
+  "Unikaj kontaktu z wodą przez 24 godziny – Nie myj twarzy bezpośrednio w okolicy oczu, nie korzystaj z basenu, sauny ani gorących kąpieli.",
+  "Nie pocieraj i nie drap okolicy oczu i brwi – Skóra może być lekko wrażliwa, a pocieranie może osłabić efekt farby.",
+  "Nie używaj tłustych kremów i olejków wokół oczu – Mogą rozpuścić barwnik i skrócić trwałość koloru.",
+  "Zrezygnuj z makijażu oczu przez 24 godziny – Szczególnie tusz do rzęs i eyeliner – mogą podrażnić świeżo zafarbowaną okolicę.",
+  "Unikaj ekspozycji na słońce i solarium przez 1–2 dni – Promienie UV mogą osłabić pigment i wywołać podrażnienia.",
+  "Nie stosuj silnych preparatów do demakijażu przez kilka dni – Zwłaszcza tych zawierających alkohol, SLS, AHA lub inne drażniące składniki.",
+  "Nie wykonuj innych zabiegów w okolicy oczu przez kilka dni – Np. regulacji brwi, laminacji rzęs, liftingu itp.",
+  "Delikatny demakijaż i pielęgnacja",
+];
+
+export const eyebrowLaminationContraindications: Record<string, string | ContraindicationWithFollowUp> = {
+  alergiaSkladniki: {
+    text: "Czy ma Pani alergię na którykolwiek ze składników kosmetyków? (np. farbki, henna, keratyna, lateks, konserwanty)",
+    hasFollowUp: true,
+    followUpPlaceholder: "Jeśli tak, na jakie?...",
+  },
+  reakcjaAlergiczna: {
+    text: "Czy kiedykolwiek wystąpiła u Pani reakcja alergiczna po farbowaniu brwi/rzęs lub włosów?",
+    hasFollowUp: true,
+    followUpPlaceholder: "Jeśli tak, proszę opisać objawy...",
+  },
+  reakcjaOczyBrwi: {
+    text: "Czy po wcześniejszych zabiegach kosmetycznych w okolicy oczu lub brwi wystąpiły jakiekolwiek reakcje uczuleniowe (np. zaczerwienienie, swędzenie, opuchlizna, wysypka)?",
+    hasFollowUp: true,
+    followUpPlaceholder: "Jeśli tak, jakie?...",
+  },
+  chorobySkory: {
+    text: "Czy ma Pani atopowe zapalenie skóry (AZS), łuszczycę lub inną chorobę skóry?",
+    hasFollowUp: true,
+    followUpPlaceholder: "Jeśli tak, jaką?...",
+  },
+  alergiaSezonowa: {
+    text: "Czy ma Pani alergię sezonową (np. na pyłki, kurz) lub astmę? (czasem osoby z takimi alergiami są bardziej wrażliwe na inne składniki)",
+    hasFollowUp: true,
+    followUpPlaceholder: "Jeśli tak, na co?...",
+  },
+  skoraWrazliwa: "Czy ma Pani wrażliwą, reaktywną skórę, która łatwo się podrażnia?",
+  noweKosmetyki: "Czy w ciągu ostatnich 48 godzin stosowała Pani nowe kosmetyki w okolicy oczu lub brwi?",
+  lekiAntyhistaminowe: {
+    text: "Czy obecnie przyjmuje Pani leki antyhistaminowe, sterydowe lub immunosupresyjne?",
+    hasFollowUp: true,
+    followUpPlaceholder: "Jeśli tak, jakie?...",
+  },
+  ciazaKarmienie: "Czy jesteś w ciąży lub karmisz piersią? (wzmożona wrażliwość skóry, zmieniona reakcja na składniki)",
+  zabiegiIntensywne: {
+    text: "Czy w ciągu ostatnich 3 dni wykonywałaś peelingi, zabiegi laserowe, kwasy, retinol lub inne intensywne zabiegi w okolicy oczu/brwi?",
+    hasFollowUp: true,
+    followUpPlaceholder: "Jeśli tak, jakie?...",
+  },
+};
+
+export const eyebrowLaminationPostCare: string[] = [
+  "Nawilżaj włoski – najlepiej odżywką keratynową lub specjalnym serum do brwi/rzęs poleconym przez Stylistkę.",
+  "Delikatnie przeczesuj brwi/rzęsy codziennie szczoteczką otrzymaną po zabiegu.",
+  "Unikaj silnych kosmetyków z alkoholem, kwasami i retinolem w okolicy brwi/rzęs.",
+  "Unikaj kontaktu z wodą przez 24 godziny.",
+  "Unikaj ekspozycji na słońce i solarium przez 48 godzin.",
+];
+
+export const eyelashExtensionContraindications: Record<string, string | ContraindicationWithFollowUp> = {
+  previousReaction: "Czy kiedykolwiek wystąpiła u Pani reakcja alergiczna po zabiegu przedłużania rzęs?",
+  glueAllergy: "Czy ma Pani alergię na którykolwiek ze składników kleju do rzęs (np. cyjanoakrylan, lateks)?",
+  eyeInfections: "Czy ma Pani jakiekolwiek alergie skórne lub oczne, takie jak zapalenie spojówek, jęczmień lub inne infekcje oczu?",
+  sensitiveEyes: "Czy ma Pani wrażliwą skórę lub oczy, które łatwo się podrażniają?",
+  eyeDiseases: "Czy cierpi Pani na jakiekolwiek choroby oczu, takie jak zespół suchego oka, nużeniec, lub łzawienie oczu?",
+  medications: {
+    text: "Czy aktualnie przyjmuje Pani jakiekolwiek leki (w tym leki sterydowe, przeciwalergiczne, lub preparaty na oczy)?",
+    hasFollowUp: true,
+    followUpPlaceholder: "Jeśli tak, prosimy podać nazwę leku...",
+  },
+  pregnancy: "Czy jest Pani w ciąży lub karmi Pani piersią?",
+  cosmeticsAllergy: "Czy miała Pani wcześniej jakiekolwiek reakcje alergiczne po użyciu kosmetyków do oczu lub twarzy?",
+  contactLenses: {
+    text: "Czy nosi Pani soczewki kontaktowe? (Jeśli tak, prosimy zdjąć soczewki przed zabiegiem.)",
+    hasFollowUp: false,
+  },
+  recentCosmetics: "Czy w ciągu ostatnich 48 godzin używała Pani kosmetyków do oczu, takich jak tusz do rzęs, eyeliner, lub odżywki?",
+  recentTreatments: {
+    text: "Czy miała Pani jakiekolwiek zabiegi w okolicach oczu (np. botoks, zabiegi medycyny estetycznej)?",
+    hasFollowUp: true,
+    followUpPlaceholder: "Jeśli tak, prosimy o szczegóły...",
+  },
+};
+
+export const eyelashExtensionPostCare: string[] = [
+  "UWAGA: Unikaj tłustych kosmetyków w okolicach oczu (szczególnie demakijażu na bazie olejków), gdyż osłabiają klej.",
+  "Nie pocieraj oczu i nie ciągnij za rzęsy – może to prowadzić do ich uszkodzenia lub wypadania.",
+  "Regularnie myj rzęsy specjalnym szamponem lub delikatnym środkiem, aby usunąć zanieczyszczenia.",
+  "Czesz rzęsy codziennie miękką szczoteczką, aby utrzymać ich kształt.",
+  "Nie używaj zalotki na przedłużonych rzęsach – może je połamać.",
+  "Unikaj stosowania tuszu do rzęs (obciąża rzęsy i przyspiesza odklejanie).",
+  "Regularnie uzupełniaj rzęsy co 2–3 tygodnie, aby utrzymać efekt.",
+  "Śpij na plecach lub unikaj dociskania twarzy do poduszki.",
+];
+
 // Mapowanie typów na zestawy pytań
 export const contraindicationsByFormType: Record<FormType, Record<string, string | ContraindicationWithFollowUp>> = {
   LIP_AUGMENTATION: modelowanieUstContraindications,
@@ -1330,9 +1650,13 @@ export const contraindicationsByFormType: Record<FormType, Record<string, string
   LASER_HAIR_REMOVAL: depilacjaLaserowaContraindications,
   LASER_TATTOO_REMOVAL: laseroweUsuwanieContraindications,
   WRINKLE_REDUCTION: wolumetriaTwarzyContraindications,
+  EYELID_LIFT: plasmaLiftingContraindications,
+  TISSUE_STIMULATION: biostymulatoryContraindications,
+  EYEBROW_TINTING: eyebrowTintingContraindications,
+  EYEBROW_LAMINATION: eyebrowLaminationContraindications,
+  EYELASH_EXTENSION: eyelashExtensionContraindications,
 };
 
 // Zachowanie kompatybilności wstecznej (dla starych importów)
 export const defaultContraindications = {};
 export const contraindicationLabels = hyaluronicContraindications;
-

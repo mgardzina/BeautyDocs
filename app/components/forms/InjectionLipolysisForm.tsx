@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Phone, Check, ArrowLeft, Instagram, Mail, Shield } from "lucide-react";
-import { getTodayDate } from "@/lib/dateUtils";
+import { getTodayDate, formatBirthDate, calculateAge } from "@/lib/dateUtils";
 import SignaturePad from "@/components/SignaturePad";
 import SignatureVerificationModal from "@/components/SignatureVerificationModal";
 import { AuditLogData } from "@/app/actions/otp";
@@ -29,7 +29,7 @@ const initialFormData: ConsentFormData = {
   ulica: "",
   kodPocztowy: "",
   miasto: SALON_CONFIG.city,
-  pesel: "",
+  dataUrodzenia: "",
   telefon: "",
   miejscowoscData: `${SALON_CONFIG.city}, ${getTodayDate()}`,
   osobaPrzeprowadzajacaZabieg: "",
@@ -151,10 +151,7 @@ export default function InjectionLipolysisForm({
     setFormData((prev) => ({ ...prev, telefon: formatted }));
   };
 
-  const handlePeselChange = (value: string) => {
-    const digits = value.replace(/\D/g, "").slice(0, 11);
-    setFormData((prev) => ({ ...prev, pesel: digits }));
-  };
+  const isAgeValid = calculateAge(formData.dataUrodzenia) >= 16;
 
   const handleContraindicationChange = (key: string, value: boolean) => {
     setFormData((prev) => ({
@@ -184,7 +181,7 @@ export default function InjectionLipolysisForm({
       type: formData.type,
       imieNazwisko: formData.imieNazwisko,
       telefon: formData.telefon,
-      pesel: formData.pesel,
+      dataUrodzenia: formData.dataUrodzenia,
       przeciwwskazania: formData.przeciwwskazania,
       timestamp: new Date().toISOString(),
     });
@@ -271,8 +268,8 @@ export default function InjectionLipolysisForm({
     formData.telefon &&
     formData.telefon.replace(/\D/g, "").length === 9 &&
     formData.miejscowoscData &&
-    formData.pesel &&
-    formData.pesel.length === 11 &&
+    formData.dataUrodzenia &&
+    isAgeValid &&
     isWizardComplete;
 
   return (
@@ -472,17 +469,32 @@ export default function InjectionLipolysisForm({
 
                   <div>
                     <label className="block text-sm text-ui-textSecondary mb-2 font-medium">
-                      PESEL *
+                      Data urodzenia * (min. 16 lat)
                     </label>
                     <input
                       type="text"
+                      inputMode="numeric"
                       required
-                      value={formData.pesel}
-                      onChange={(e) => handlePeselChange(e.target.value)}
-                      className="w-full px-4 py-3 bg-ui-bg border border-[#D4AF37] rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all"
-                      placeholder="np. 85010112345"
-                      maxLength={11}
+                      value={formData.dataUrodzenia}
+                      onChange={(e) =>
+                        handleInputChange(
+                          "dataUrodzenia",
+                          formatBirthDate(e.target.value),
+                        )
+                      }
+                      placeholder="dd.mm.rrrr"
+                      maxLength={10}
+                      className={`w-full px-4 py-3 bg-ui-bg border rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all ${
+                        formData.dataUrodzenia && !isAgeValid
+                          ? "border-red-500"
+                          : "border-[#D4AF37]"
+                      }`}
                     />
+                    {formData.dataUrodzenia && !isAgeValid && (
+                      <p className="text-red-400 text-xs mt-1">
+                        Musisz mieć ukończone 16 lat
+                      </p>
+                    )}
                   </div>
                   <div>
                     <label className="block text-sm text-ui-textSecondary mb-2 font-medium">

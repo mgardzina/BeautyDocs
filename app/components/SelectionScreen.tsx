@@ -92,6 +92,38 @@ export default function SelectionScreen({ onSelect }: SelectionScreenProps) {
             title="Usuwanie Tatuażu"
             subtitle="Laser pikosekundowy"
           />
+
+          <SelectionCard
+            onClick={() => onSelect("EYELID_LIFT")}
+            icon={<Syringe className="w-10 h-10" />}
+            title="Lifting Powiek"
+            subtitle="Zabieg liftingowy"
+          />
+
+          <SelectionCard
+            onClick={() => onSelect("TISSUE_STIMULATION")}
+            icon={<Syringe className="w-10 h-10" />}
+            title="Stymulacja Tkankowa"
+            subtitle="Zabieg liftingowy"
+          />
+          <SelectionCard
+            onClick={() => onSelect("EYEBROW_TINTING")}
+            icon={<Sparkles className="w-10 h-10" />}
+            title="Farbowanie Rzęs i Brwi"
+            subtitle="Henna / Farba"
+          />
+          <SelectionCard
+            onClick={() => onSelect("EYEBROW_LAMINATION")}
+            icon={<Sparkles className="w-10 h-10" />}
+            title="Laminacja Rzęs i Brwi"
+            subtitle="Laminacja / Lifting"
+          />
+          <SelectionCard
+            onClick={() => onSelect("EYELASH_EXTENSION")}
+            icon={<Sparkles className="w-10 h-10" />}
+            title="Przedłużanie Rzęs"
+            subtitle="1:1 / Objętościowe"
+          />
         </div>
 
         <div className="mt-16 text-center flex gap-6 justify-center items-center">

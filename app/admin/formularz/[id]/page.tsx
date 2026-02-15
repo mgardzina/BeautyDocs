@@ -542,24 +542,38 @@ export default function FormDetailsPage() {
                 )}
               </div>
               <div>
-                <label className="block text-sm font-medium text-ui-textSecondary mb-1">
+                <label className="block text-sm font-medium text-ui-textSecondary mb-2">
                   Osoba przeprowadzająca zabieg
                 </label>
                 {isEditing ? (
-                  <input
-                    type="text"
-                    value={editedForm.osobaPrzeprowadzajacaZabieg || ""}
-                    onChange={(e) =>
-                      setEditedForm({
-                        ...editedForm,
-                        osobaPrzeprowadzajacaZabieg: e.target.value,
-                      })
-                    }
-                    className="w-full px-3 py-2 bg-black/40 border border-emerald/30 rounded-lg focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none text-white"
-                    placeholder="Imię i Nazwisko Specjalisty"
-                  />
+                  <div className="flex flex-wrap gap-2">
+                    {[
+                      "Malwa Zięba- właściciel",
+                      "Żaneta Baran- kosmetolog",
+                      "Julia Dudzińska- kosmetolog",
+                      "Weronika Kopeć- stylistka rzęs",
+                    ].map((person) => (
+                      <button
+                        key={person}
+                        type="button"
+                        onClick={() =>
+                          setEditedForm({
+                            ...editedForm,
+                            osobaPrzeprowadzajacaZabieg: person,
+                          })
+                        }
+                        className={`px-3 py-2 rounded-lg text-sm transition-all border ${
+                          editedForm.osobaPrzeprowadzajacaZabieg === person
+                            ? "bg-brand text-black border-brand font-medium shadow-[0_0_10px_rgba(212,175,55,0.3)]"
+                            : "bg-black/40 border-emerald/30 text-white hover:border-brand hover:text-brand"
+                        }`}
+                      >
+                        {person}
+                      </button>
+                    ))}
+                  </div>
                 ) : (
-                  <p className="text-white">
+                  <p className="text-white text-lg font-medium">
                     {form.osobaPrzeprowadzajacaZabieg || "Nie przypisano"}
                   </p>
                 )}
