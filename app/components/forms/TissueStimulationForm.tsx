@@ -25,18 +25,16 @@ import {
 } from "../../../types/booking";
 
 const PRODUCT_DESCRIPTIONS: Record<string, string> = {
-  "EJAL 40":
-    "Bio-rewitalizujący żel z kwasem hialuronowym. Przywraca fizjologiczne funkcje skóry, poprawia jej gęstość i elastyczność.",
   PROFHILO:
     "„Molekuła Młodości” z najwyższym stężeniem kwasu hialuronowego. Działa jako stymulator tkankowy do remodelingu skóry.",
   NUCLEOFIL:
     "Preparat na bazie polinukleotydów. Zapewnia głębokie nawilżenie, działanie antyoksydacyjne i stymulację produkcji kolagenu.",
-  "PINK GLOW":
-    "Zaawansowany koktajl z 55 składnikami aktywnymi. Rozjaśnia przebarwienia, rozświetla skórę i głęboko ją odżywia.",
-  "LUMI EYES":
-    "Stymulator dedykowany okolicy oka. Regeneruje tkanki, redukuje cienie pod oczami i wygładza drobne zmarszczki.",
-  "SUNEKOS 200":
-    "Połączenie kwasu hialuronowego i aminokwasów. Stymuluje produkcję kolagenu i elastyny, odmładzając skórę okolicy oka.",
+  "Nucleofill eyes":
+    "Preparat na bazie polinukleotydów dedykowany delikatnej okolicy oka. Poprawia napięcie skóry, redukuje cienie i zmarszczki.",
+  "Xella Rederm":
+    "Innowacyjny preparat łączący bursztynian sodu i kwas hialuronowy. Redukuje cienie pod oczami, obrzęki i przebarwienia.",
+  Tropocollagen:
+    "Czysty kolagen typu I. Regeneruje strukturę skóry, przyspiesza gojenie i odbudowuje ubytki tkankowe.",
 };
 
 interface FacialVolumetryFormProps {
@@ -604,10 +602,6 @@ export default function FacialVolumetryForm({
                     Zabieg stymulatorami tkankowymi jest wykonywany przy użyciu
                     produktów takich jak:
                   </p>
-                  <ul className="list-disc pl-5 space-y-1">
-                    <li>EJAL 40, PROFHILO, NUCLEOFIL, PINK GLOW – twarz</li>
-                    <li>LUMI EYES, SUNEKOS 200 – pod oczami</li>
-                  </ul>
                   <p>
                     Każdorazowo preparat, który zostanie użyty podczas zabiegu
                     jest dobierany przez Specjalistę, według oczekiwań i potrzeb
@@ -683,7 +677,97 @@ export default function FacialVolumetryForm({
                       Stymulatory - TWARZ
                     </h4>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                      {["EJAL 40", "PROFHILO", "NUCLEOFIL", "PINK GLOW"].map(
+                      {["PROFHILO", "NUCLEOFIL"].map((name) => {
+                        const currentName = formData.nazwaProduktu || "";
+                        const baseName = currentName.split(" - ")[0];
+                        const isSelected = baseName === name;
+
+                        return (
+                          <div
+                            key={name}
+                            onClick={() => {
+                              if (!isSelected) {
+                                handleInputChange("nazwaProduktu", name);
+                                handleInputChange("iloscProduktu", ""); // Reset volume
+                              }
+                            }}
+                            className={`p-4 rounded-xl border-2 transition-all cursor-pointer ${
+                              isSelected
+                                ? "border-brand bg-brand/10 gold-glow"
+                                : "border-[#D4AF37] bg-ui-bg hover:border-brand/60"
+                            } shadow-xl shadow-brand/5`}
+                          >
+                            <div className="flex justify-between items-center mb-2">
+                              <span
+                                className={`font-serif text-lg font-medium ${
+                                  isSelected ? "text-white" : "text-white"
+                                }`}
+                              >
+                                {name}
+                              </span>
+                              {isSelected && (
+                                <div className="w-6 h-6 bg-brand rounded flex items-center justify-center">
+                                  <Check className="w-4 h-4 text-black" />
+                                </div>
+                              )}
+                            </div>
+
+                            <p className="text-xs text-ui-textSecondary mb-3 leading-relaxed">
+                              {PRODUCT_DESCRIPTIONS[name]}
+                            </p>
+
+                            {/* Volume Selection */}
+                            {isSelected && (
+                              <div className="border-t border-[#D4AF37] pt-3 animate-in fade-in slide-in-from-top-2 duration-300">
+                                <p className="text-xs font-medium text-brand mb-2 uppercase tracking-wide">
+                                  Wybierz ilość (ml):
+                                </p>
+                                <div className="flex flex-wrap gap-2">
+                                  {["1.0", "2.0", "3.0", "4.0"].map((vol) => {
+                                    const isSelectedVol =
+                                      formData.iloscProduktu === vol;
+                                    return (
+                                      <button
+                                        key={vol}
+                                        type="button"
+                                        onClick={(e) => {
+                                          e.stopPropagation();
+                                          handleInputChange(
+                                            "iloscProduktu",
+                                            vol,
+                                          );
+                                          handleInputChange(
+                                            "nazwaProduktu",
+                                            `${name} - ${vol}ml`,
+                                          );
+                                        }}
+                                        className={`px-3 py-1.5 rounded-lg border text-xs font-medium transition-all ${
+                                          isSelectedVol
+                                            ? "border-brand bg-brand text-white shadow-sm"
+                                            : "border-[#D4AF37] bg-ui-bg text-ui-textSecondary hover:border-brand hover:text-brand"
+                                        }`}
+                                      >
+                                        {vol} ml
+                                      </button>
+                                    );
+                                  })}
+                                </div>
+                              </div>
+                            )}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  {/* OKOLICA OKA */}
+                  <div>
+                    <h4 className="font-serif text-white text-lg mb-4 flex items-center gap-2">
+                      <div className="w-1.5 h-1.5 bg-brand rounded-full"></div>
+                      Stymulatory - OKOLICA OKA
+                    </h4>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                      {["Nucleofill eyes", "Xella Rederm", "Tropocollagen"].map(
                         (name) => {
                           const currentName = formData.nazwaProduktu || "";
                           const baseName = currentName.split(" - ")[0];
@@ -765,96 +849,6 @@ export default function FacialVolumetryForm({
                           );
                         },
                       )}
-                    </div>
-                  </div>
-
-                  {/* OKOLICA OKA */}
-                  <div>
-                    <h4 className="font-serif text-white text-lg mb-4 flex items-center gap-2">
-                      <div className="w-1.5 h-1.5 bg-brand rounded-full"></div>
-                      Stymulatory - OKOLICA OKA
-                    </h4>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                      {["LUMI EYES", "SUNEKOS 200"].map((name) => {
-                        const currentName = formData.nazwaProduktu || "";
-                        const baseName = currentName.split(" - ")[0];
-                        const isSelected = baseName === name;
-
-                        return (
-                          <div
-                            key={name}
-                            onClick={() => {
-                              if (!isSelected) {
-                                handleInputChange("nazwaProduktu", name);
-                                handleInputChange("iloscProduktu", ""); // Reset volume
-                              }
-                            }}
-                            className={`p-4 rounded-xl border-2 transition-all cursor-pointer ${
-                              isSelected
-                                ? "border-brand bg-brand/10 gold-glow"
-                                : "border-[#D4AF37] bg-ui-bg hover:border-brand/60"
-                            } shadow-xl shadow-brand/5`}
-                          >
-                            <div className="flex justify-between items-center mb-2">
-                              <span
-                                className={`font-serif text-lg font-medium ${
-                                  isSelected ? "text-white" : "text-white"
-                                }`}
-                              >
-                                {name}
-                              </span>
-                              {isSelected && (
-                                <div className="w-6 h-6 bg-brand rounded flex items-center justify-center">
-                                  <Check className="w-4 h-4 text-black" />
-                                </div>
-                              )}
-                            </div>
-
-                            <p className="text-xs text-ui-textSecondary mb-3 leading-relaxed">
-                              {PRODUCT_DESCRIPTIONS[name]}
-                            </p>
-
-                            {/* Volume Selection */}
-                            {isSelected && (
-                              <div className="border-t border-[#D4AF37] pt-3 animate-in fade-in slide-in-from-top-2 duration-300">
-                                <p className="text-xs font-medium text-brand mb-2 uppercase tracking-wide">
-                                  Wybierz ilość (ml):
-                                </p>
-                                <div className="flex flex-wrap gap-2">
-                                  {["1.0", "2.0", "3.0", "4.0"].map((vol) => {
-                                    const isSelectedVol =
-                                      formData.iloscProduktu === vol;
-                                    return (
-                                      <button
-                                        key={vol}
-                                        type="button"
-                                        onClick={(e) => {
-                                          e.stopPropagation();
-                                          handleInputChange(
-                                            "iloscProduktu",
-                                            vol,
-                                          );
-                                          handleInputChange(
-                                            "nazwaProduktu",
-                                            `${name} - ${vol}ml`,
-                                          );
-                                        }}
-                                        className={`px-3 py-1.5 rounded-lg border text-xs font-medium transition-all ${
-                                          isSelectedVol
-                                            ? "border-brand bg-brand text-white shadow-sm"
-                                            : "border-[#D4AF37] bg-ui-bg text-ui-textSecondary hover:border-brand hover:text-brand"
-                                        }`}
-                                      >
-                                        {vol} ml
-                                      </button>
-                                    );
-                                  })}
-                                </div>
-                              </div>
-                            )}
-                          </div>
-                        );
-                      })}
                     </div>
                   </div>
                 </div>

@@ -48,6 +48,11 @@ export async function POST(request: NextRequest) {
         zastrzeniaKlienta: body.zastrzeniaKlienta || null,
         numerZabiegu: body.numerZabiegu || null,
         osobaPrzeprowadzajacaZabieg: body.osobaPrzeprowadzajacaZabieg || null,
+        // Seria zabiegowa
+        planowanaIloscZabiegow: body.planowanaIloscZabiegow || null,
+        odstepMiedzyZabiegami: body.odstepMiedzyZabiegami || null,
+        kolejneZabiegiOdstepy: body.kolejneZabiegiOdstepy || null,
+        iloscProduktu: body.iloscProduktu || null,
         clientId: client.id, // Powiązanie z klientką
         // Digital Signature & Audit Log (Art. 78¹ KC - Forma Dokumentowa)
         signatureStatus: body.signatureStatus || 'PENDING',

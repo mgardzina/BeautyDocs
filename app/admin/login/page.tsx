@@ -8,34 +8,75 @@ import BackButton from "@/app/components/BackButton";
 
 export default function LoginPage() {
   const router = useRouter();
+  const [step, setStep] = useState<"credentials" | "otp">("credentials");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [otp, setOtp] = useState("");
+  const [maskedPhone, setMaskedPhone] = useState("");
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handlePreLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
     setIsLoading(true);
 
     try {
+      const response = await fetch("/api/auth/pre-login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        setError(data.error || "Błąd logowania");
+        setIsLoading(false);
+        return;
+      }
+
+      if (data.requires2FA) {
+        setMaskedPhone(data.maskedPhone);
+        setStep("otp");
+      } else {
+        // Logowanie bez 2FA (jeśli dozwolone)
+        await performLogin();
+      }
+    } catch {
+      setError("Wystąpił błąd połączenia");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const performLogin = async () => {
+    try {
       const result = await signIn("credentials", {
         email,
         password,
+        code: otp, // Przekaż kod OTP (jeśli jest)
         redirect: false,
       });
 
       if (result?.error) {
-        setError("Nieprawidłowy email lub hasło");
+        setError("Nieprawidłowy kod weryfikacyjny lub dane logowania");
+        setIsLoading(false);
       } else {
         router.push("/admin");
         router.refresh();
       }
     } catch {
-      setError("Wystąpił błąd podczas logowania");
-    } finally {
+      setError("Wystąpił błąd podczas finalizacji logowania");
       setIsLoading(false);
     }
+  };
+
+  const handleOtpSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError("");
+    setIsLoading(true);
+    await performLogin();
   };
 
   return (
@@ -50,49 +91,103 @@ export default function LoginPage() {
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-6">
-          {error && (
-            <div className="bg-red-50 text-red-600 p-4 rounded-xl text-sm">
-              {error}
+        {step === "credentials" ? (
+          <form onSubmit={handlePreLogin} className="space-y-6">
+            {error && (
+              <div className="bg-red-50 text-red-600 p-4 rounded-xl text-sm">
+                {error}
+              </div>
+            )}
+
+            <div>
+              <label className="block text-sm text-ui-textSecondary mb-2 font-medium">
+                Email
+              </label>
+              <input
+                type="email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full px-4 py-3 bg-ui-bg border border-emerald/30 rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/30 outline-none transition-all"
+                placeholder={SALON_CONFIG.email}
+              />
             </div>
-          )}
 
-          <div>
-            <label className="block text-sm text-ui-textSecondary mb-2 font-medium">
-              Email
-            </label>
-            <input
-              type="email"
-              required
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-4 py-3 bg-ui-bg border border-emerald/30 rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/30 outline-none transition-all"
-              placeholder={SALON_CONFIG.email}
-            />
-          </div>
+            <div>
+              <label className="block text-sm text-ui-textSecondary mb-2 font-medium">
+                Hasło
+              </label>
+              <input
+                type="password"
+                required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="w-full px-4 py-3 bg-ui-bg border border-emerald/30 rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/30 outline-none transition-all"
+                placeholder="••••••••"
+              />
+            </div>
 
-          <div>
-            <label className="block text-sm text-ui-textSecondary mb-2 font-medium">
-              Hasło
-            </label>
-            <input
-              type="password"
-              required
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-4 py-3 bg-ui-bg border border-emerald/30 rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/30 outline-none transition-all"
-              placeholder="••••••••"
-            />
-          </div>
-
-          <button
-            type="submit"
-            disabled={isLoading}
-            className="w-full bg-brand text-white py-4 rounded-xl text-lg font-medium hover:bg-brand-dark disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-lg gold-glow-sm"
+            <button
+              type="submit"
+              disabled={isLoading}
+              className="w-full bg-brand text-white py-4 rounded-xl text-lg font-medium hover:bg-brand-dark disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-lg gold-glow-sm"
+            >
+              {isLoading ? "Weryfikacja..." : "Dalej"}
+            </button>
+          </form>
+        ) : (
+          <form
+            onSubmit={handleOtpSubmit}
+            className="space-y-6 animate-in fade-in slide-in-from-right-4 duration-300"
           >
-            {isLoading ? "Logowanie..." : "Zaloguj się"}
-          </button>
-        </form>
+            {error && (
+              <div className="bg-red-50 text-red-600 p-4 rounded-xl text-sm">
+                {error}
+              </div>
+            )}
+
+            <div className="text-center mb-6">
+              <p className="text-white text-sm mb-2">
+                Wysłaliśmy kod weryfikacyjny SMS na numer:
+              </p>
+              <p className="text-brand font-mono text-lg font-bold">
+                {maskedPhone}
+              </p>
+            </div>
+
+            <div>
+              <label className="block text-sm text-ui-textSecondary mb-2 font-medium text-center">
+                Wprowadź 6-cyfrowy kod
+              </label>
+              <input
+                type="text"
+                required
+                maxLength={6}
+                value={otp}
+                onChange={(e) => setOtp(e.target.value.replace(/\D/g, ""))}
+                className="w-full px-4 py-3 bg-ui-bg border border-emerald/30 rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/30 outline-none transition-all text-center text-2xl tracking-widest font-mono"
+                placeholder="000000"
+                autoFocus
+              />
+            </div>
+
+            <button
+              type="submit"
+              disabled={isLoading || otp.length !== 6}
+              className="w-full bg-brand text-white py-4 rounded-xl text-lg font-medium hover:bg-brand-dark disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-lg gold-glow-sm"
+            >
+              {isLoading ? "Logowanie..." : "Potwierdź kod"}
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setStep("credentials")}
+              className="w-full text-sm text-ui-textSecondary hover:text-white transition-colors mt-4"
+            >
+              Zmień dane logowania
+            </button>
+          </form>
+        )}
 
         <div className="flex justify-center mt-8">
           <BackButton

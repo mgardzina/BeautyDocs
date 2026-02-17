@@ -62,6 +62,11 @@ export async function PATCH(
       "miasto",
       "type",
       "przeciwwskazania",
+      // Seria zabiegowa
+      "planowanaIloscZabiegow",
+      "odstepMiedzyZabiegami",
+      "kolejneZabiegiOdstepy",
+      "iloscProduktu",
     ];
 
     // Filtruj tylko dozwolone pola

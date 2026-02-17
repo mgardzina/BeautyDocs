@@ -6,10 +6,16 @@ async function main() {
   const email = process.env.ADMIN_EMAIL;
   const password = process.env.ADMIN_PASSWORD;
   const name = process.env.ADMIN_NAME;
+  const phoneNumber = process.env.PHONE_NUMBER;
   const databaseUrl = process.env.DATABASE_URL;
 
   if (!email || !password || !name) {
     console.error("❌ Błąd: Ustaw zmienne ADMIN_EMAIL, ADMIN_PASSWORD i ADMIN_NAME w pliku .env");
+    process.exit(1);
+  }
+  
+  if (!phoneNumber) {
+    console.error("❌ Błąd: Ustaw zmienną PHONE_NUMBER (np. +48xxxxxxxxx) w pliku .env lub przekaż jako PHONE_NUMBER=+48... npx ts-node scripts/create-admin.ts");
     process.exit(1);
   }
 
@@ -18,62 +24,66 @@ async function main() {
     process.exit(1);
   }
 
-  // Wyciągnij hasło z URL i zdekoduj je
-  let connectionString = databaseUrl;
-  const port = process.env.DB_PORT || "5432";
+  // Wyciągnij konfigurację z DATABASE_URL lub użyj domyślnej
+  let connectionConfig: any = {
+    ssl: false
+  };
 
-  try {
-    // Proste parsowanie dla postgresql://user:pass@host/db
-    const urlPattern = /postgresql:\/\/([^:]+):([^@]+)@([^/?]+)\/([^?]+)/;
-    const match = databaseUrl.match(urlPattern);
-    
-    if (match) {
-      const user = match[1];
-      const encodedPass = match[2];
-      const hostPath = match[3];
-      const dbName = match[4];
-      
-      const decodedPass = decodeURIComponent(encodedPass);
-      
-      // Budujemy nowe połączenie lokalne
-      connectionString = `postgresql://${user}:${encodeURIComponent(decodedPass)}@localhost:${port}/${dbName}?sslmode=disable`;
+  if (databaseUrl) {
+    try {
+        console.log("Using DATABASE_URL for connection...");
+        // Regex poprawiony, aby nie "zjadał" portu
+        const urlPattern = /postgresql:\/\/([^:]+):([^@]+)@([^/:?]+)(?::(\d+))?\/([^?]+)/;
+        const match = databaseUrl.match(urlPattern);
+
+        if (match) {
+            const user = match[1];
+            const encodedPass = match[2];
+            const host = match[3];
+            // Użyj portu z URL lub zmiennej środowiskowej, lub domyślnego 5432
+            const port = match[4] || process.env.DB_PORT || "5432";
+            const dbName = match[5];
+            
+            console.log(`Using host: ${host}, port: ${port}`);
+
+            connectionConfig = {
+                user,
+                password: decodeURIComponent(encodedPass),
+                host,
+                port: parseInt(port),
+                database: dbName,
+                ssl: false
+            };
+        } else {
+             // Fallback to direct string if parsing fails
+             console.log("⚠️  Could not parse DATABASE_URL with regex, using connection string directly.");
+             connectionConfig = { connectionString: databaseUrl, ssl: false };
+        }
+    } catch (e) {
+        console.warn("⚠️  Błąd parsowania DATABASE_URL, używam connectionString bezpośrednio.");
+        connectionConfig = { connectionString: databaseUrl, ssl: false };
     }
-  } catch (e) {
-    console.warn("⚠️  Ostrzeżenie: Nie udało się automatycznie przemapować DATABASE_URL, używam oryginału.");
   }
 
-  console.log(`Connecting to database on port ${port}...`);
+  console.log(`Connecting to database...`);
   
-  const pool = new Pool({ 
-    connectionString,
-    ssl: false 
-  });
+  const pool = new Pool(connectionConfig);
 
   try {
-    // Sprawdź czy admin już istnieje
-    const existing = await pool.query(
-      'SELECT id FROM "AdminUser" WHERE email = $1',
-      [email]
-    );
-
-    if (existing.rows.length > 0) {
-      console.log(`Admin z emailem ${email} już istnieje.`);
-      return;
-    }
-
-    // Hashuj hasło
+    // 2. Hashuj hasło
     const passwordHash = await hash(password, 12);
 
-    // Utwórz admina
+    // 3. Utwórz nowego admina
+    console.log(`👤 Tworzenie admina: ${email} (tel: ${phoneNumber})...`);
     await pool.query(
-      'INSERT INTO "AdminUser" (id, email, "passwordHash", name) VALUES (gen_random_uuid(), $1, $2, $3)',
-      [email, passwordHash, name]
+      'INSERT INTO "AdminUser" (id, email, "passwordHash", name, "phoneNumber") VALUES (gen_random_uuid(), $1, $2, $3, $4)',
+      [email, passwordHash, name, phoneNumber]
     );
 
-    console.log(`✅ Admin utworzony pomyślnie:`);
+    console.log(`✅ Admin utworzony pomyślnie!`);
     console.log(`   Email: ${email}`);
-    console.log(`   Nazwa: ${name}`);
-    console.log(`\n⚠️  WAŻNE: Zmień hasło po pierwszym logowaniu!`);
+    console.log(`   Telefon: ${phoneNumber}`);
+    console.log(`   Hasło: (zdefiniowane w env)`);
   } catch (error) {
     console.error("❌ Błąd podczas tworzenia admina:", error instanceof Error ? error.message : error);
     process.exit(1);

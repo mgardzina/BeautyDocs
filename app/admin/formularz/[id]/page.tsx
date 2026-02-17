@@ -82,6 +82,10 @@ interface ConsentFormFull {
   informacjaDodatkowa: string | null;
   osobaPrzeprowadzajacaZabieg: string | null;
   clientId: string | null;
+  planowanaIloscZabiegow: string | null;
+  odstepMiedzyZabiegami: string | null;
+  kolejneZabiegiOdstepy: string | null;
+  iloscProduktu: string | null;
 }
 
 const formTypeLabels: Record<string, string> = {
@@ -596,6 +600,110 @@ export default function FormDetailsPage() {
                   </div>
                 </div>
               </div>
+
+              {/* Seria Zabiegowa (Tylko dla Stymulacji Tkankowej / Wolumetrii) */}
+              {(form.type === "FACIAL_VOLUMETRY" ||
+                form.type === "TISSUE_STIMULATION") && (
+                <div className="mt-4 border-t border-emerald/30 pt-4">
+                  <label className="block text-sm font-medium text-ui-textSecondary mb-4">
+                    Seria Zabiegowa
+                  </label>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs text-ui-textSecondary mb-1">
+                        Ilość zabiegów
+                      </label>
+                      {isEditing ? (
+                        <input
+                          type="text"
+                          value={editedForm.planowanaIloscZabiegow || ""}
+                          onChange={(e) =>
+                            setEditedForm({
+                              ...editedForm,
+                              planowanaIloscZabiegow: e.target.value,
+                            })
+                          }
+                          className="w-full px-3 py-2 bg-black/40 border border-emerald/30 rounded-lg focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none text-white text-sm"
+                          placeholder="Np. 3"
+                        />
+                      ) : (
+                        <p className="text-white">
+                          {form.planowanaIloscZabiegow || "-"}
+                        </p>
+                      )}
+                    </div>
+                    <div>
+                      <label className="block text-xs text-ui-textSecondary mb-1">
+                        Odstęp (drugi zabieg)
+                      </label>
+                      {isEditing ? (
+                        <input
+                          type="text"
+                          value={editedForm.odstepMiedzyZabiegami || ""}
+                          onChange={(e) =>
+                            setEditedForm({
+                              ...editedForm,
+                              odstepMiedzyZabiegami: e.target.value,
+                            })
+                          }
+                          className="w-full px-3 py-2 bg-black/40 border border-emerald/30 rounded-lg focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none text-white text-sm"
+                          placeholder="Np. 4 tygodnie"
+                        />
+                      ) : (
+                        <p className="text-white">
+                          {form.odstepMiedzyZabiegami || "-"}
+                        </p>
+                      )}
+                    </div>
+                    <div>
+                      <label className="block text-xs text-ui-textSecondary mb-1">
+                        Kolejne w odstępie
+                      </label>
+                      {isEditing ? (
+                        <input
+                          type="text"
+                          value={editedForm.kolejneZabiegiOdstepy || ""}
+                          onChange={(e) =>
+                            setEditedForm({
+                              ...editedForm,
+                              kolejneZabiegiOdstepy: e.target.value,
+                            })
+                          }
+                          className="w-full px-3 py-2 bg-black/40 border border-emerald/30 rounded-lg focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none text-white text-sm"
+                          placeholder="Np. 6 miesięcy"
+                        />
+                      ) : (
+                        <p className="text-white">
+                          {form.kolejneZabiegiOdstepy || "-"}
+                        </p>
+                      )}
+                    </div>
+                    <div>
+                      <label className="block text-xs text-ui-textSecondary mb-1">
+                        Ilość produktu (ml)
+                      </label>
+                      {isEditing ? (
+                        <input
+                          type="text"
+                          value={editedForm.iloscProduktu || ""}
+                          onChange={(e) =>
+                            setEditedForm({
+                              ...editedForm,
+                              iloscProduktu: e.target.value,
+                            })
+                          }
+                          className="w-full px-3 py-2 bg-black/40 border border-emerald/30 rounded-lg focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none text-white text-sm"
+                          placeholder="Np. 1.5 ml"
+                        />
+                      ) : (
+                        <p className="text-white">
+                          {form.iloscProduktu || "-"}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              )}
               <div>
                 <label className="block text-sm font-medium text-ui-textSecondary mb-1">
                   Cel / efekt

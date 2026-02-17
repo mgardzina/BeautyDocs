@@ -106,6 +106,12 @@ model ConsentForm {
   numerZabiegu                String?
   osobaPrzeprowadzajacaZabieg String?
 
+  // Seria zabiegowa (Facial Volumetry / Tissue Stimulation)
+  planowanaIloscZabiegow String?
+  odstepMiedzyZabiegami  String?
+  kolejneZabiegiOdstepy  String?
+  iloscProduktu          String?
+
   // Digital Signature & Audit Log (Art. 78¹ KC - Forma Dokumentowa)
   signatureStatus     String?   @default("PENDING") // PENDING, VERIFIED, SIGNED
   signatureVerifiedAt DateTime?
@@ -133,6 +139,7 @@ model OtpVerification {
 model AdminUser {
   id           String  @id @default(uuid())
   email        String  @unique
+  phoneNumber  String? @unique
   passwordHash String
   name         String?
 }
