@@ -911,7 +911,7 @@ export default function FormDetailsPage() {
                 <span
                   className={`px-3 py-1 rounded-full text-[10px] font-bold tracking-wider ${form.podpisRodo ? "bg-green-500/20 text-green-400 border border-green-500/30" : "bg-red-500/20 text-red-400 border border-red-500/30"}`}
                 >
-                  {form.podpisRodo ? "PODPISANO" : "BRAK ZGODY/PODPISU"}
+                  {form.podpisRodo ? "WYRAŻONO ZGODĘ" : "BRAK ZGODY/PODPISU"}
                 </span>
               </div>
               <div className="flex items-start gap-4 mb-4">
@@ -934,8 +934,16 @@ export default function FormDetailsPage() {
                   <img
                     src={form.podpisRodo}
                     alt="Podpis RODO"
-                    className="w-full h-auto max-h-40 object-contain mx-auto md:mx-0 invert brightness-200"
+                    className="w-[320px] h-[160px] object-contain mx-auto md:mx-0 invert brightness-200"
                   />
+                  {form.miejscowoscData && (
+                    <p className="text-xs text-ui-textSecondary mt-2 text-center md:text-left">
+                      Podpisano:{" "}
+                      <span className="text-brand font-medium">
+                        {form.miejscowoscData}
+                      </span>
+                    </p>
+                  )}
                 </div>
               ) : (
                 <div className="bg-red-500/10 p-4 rounded-xl border border-red-500/20 text-red-400 text-sm italic">
@@ -955,7 +963,9 @@ export default function FormDetailsPage() {
                       : "bg-red-500/20 text-red-400 border border-red-500/30"
                   }`}
                 >
-                  {(form as any).podpisRodo2 ? "PODPISANO" : "BRAK PODPISU"}
+                  {(form as any).podpisRodo2
+                    ? "WYRAŻONO ZGODĘ"
+                    : "BRAK PODPISU"}
                 </span>
               </div>
               <p className="text-sm text-ui-textSecondary mb-4">
@@ -969,8 +979,16 @@ export default function FormDetailsPage() {
                   <img
                     src={(form as any).podpisRodo2}
                     alt="Podpis RODO 2"
-                    className="w-full h-auto max-h-40 object-contain mx-auto md:mx-0 invert brightness-200"
+                    className="w-[320px] h-[160px] object-contain mx-auto md:mx-0 invert brightness-200"
                   />
+                  {form.miejscowoscData && (
+                    <p className="text-xs text-ui-textSecondary mt-2 text-center md:text-left">
+                      Podpisano:{" "}
+                      <span className="text-brand font-medium">
+                        {form.miejscowoscData}
+                      </span>
+                    </p>
+                  )}
                 </div>
               ) : (
                 <div className="bg-red-500/10 p-4 rounded-xl border border-red-500/20 text-red-400 text-sm italic">
@@ -1003,8 +1021,16 @@ export default function FormDetailsPage() {
                   <img
                     src={form.podpisMarketing}
                     alt="Podpis Marketing"
-                    className="w-full h-auto max-h-40 object-contain mx-auto md:mx-0 invert brightness-200"
+                    className="w-[320px] h-[160px] object-contain mx-auto md:mx-0 invert brightness-200"
                   />
+                  {form.miejscowoscData && (
+                    <p className="text-xs text-ui-textSecondary mt-2 text-center md:text-left">
+                      Podpisano:{" "}
+                      <span className="text-brand font-medium">
+                        {form.miejscowoscData}
+                      </span>
+                    </p>
+                  )}
                 </div>
               ) : (
                 <p className="text-sm text-ui-textSecondary italic">
@@ -1044,8 +1070,16 @@ export default function FormDetailsPage() {
                   <img
                     src={form.podpisFotografie}
                     alt="Podpis Foto"
-                    className="w-full h-auto max-h-40 object-contain mx-auto md:mx-0 invert brightness-200"
+                    className="w-[320px] h-[160px] object-contain mx-auto md:mx-0 invert brightness-200"
                   />
+                  {form.miejscowoscData && (
+                    <p className="text-xs text-ui-textSecondary mt-2 text-center md:text-left">
+                      Podpisano:{" "}
+                      <span className="text-brand font-medium">
+                        {form.miejscowoscData}
+                      </span>
+                    </p>
+                  )}
                 </div>
               ) : (
                 <p className="text-sm text-ui-textSecondary italic">
@@ -1078,8 +1112,16 @@ export default function FormDetailsPage() {
                   <img
                     src={form.podpisDane}
                     alt="Podpis Zabieg"
-                    className="w-full h-auto max-h-40 object-contain mx-auto md:mx-0 invert brightness-200"
+                    className="w-[320px] h-[160px] object-contain mx-auto md:mx-0 invert brightness-200"
                   />
+                  {form.miejscowoscData && (
+                    <p className="text-xs text-ui-textSecondary mt-2 text-center md:text-left">
+                      Podpisano:{" "}
+                      <span className="text-brand font-medium">
+                        {form.miejscowoscData}
+                      </span>
+                    </p>
+                  )}
                 </div>
               ) : (
                 <p className="text-sm text-ui-textSecondary italic">

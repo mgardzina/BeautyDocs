@@ -491,15 +491,19 @@ export default function ClientDetailsPage({
                   return (
                     <div
                       key={note.id}
-                      className={`p-4 rounded-xl border relative group ${config.bgColor}`}
+                      className="p-4 rounded-xl border relative group bg-black border-brand/50 shadow-lg"
                     >
                       <div className="flex items-start gap-2 mb-2">
-                        <Icon className={`w-4 h-4 mt-0.5 ${config.color}`} />
-                        <span className={`text-xs font-medium ${config.color}`}>
+                        <Icon
+                          className={`w-4 h-4 mt-0.5 ${config.color.replace("text-gray-600", "text-brand").replace("text-red-600", "text-red-400").replace("text-amber-600", "text-amber-400").replace("text-purple-600", "text-purple-400")}`}
+                        />
+                        <span
+                          className={`text-xs font-medium uppercase tracking-wider ${config.color.replace("text-gray-600", "text-brand").replace("text-red-600", "text-red-400").replace("text-amber-600", "text-amber-400").replace("text-purple-600", "text-purple-400")}`}
+                        >
                           {config.label}
                         </span>
                       </div>
-                      <p className="text-gray-900 font-medium text-sm whitespace-pre-wrap pl-6">
+                      <p className="text-white font-medium text-sm whitespace-pre-wrap pl-6">
                         {note.content}
                       </p>
                       <div className="mt-2 flex justify-between items-center text-xs text-[#8b8580] pl-6">
