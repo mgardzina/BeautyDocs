@@ -10,7 +10,12 @@ import {
   Clock,
   Sparkles,
 } from "lucide-react";
-import { getTodayDate, formatBirthDate, calculateAge } from "@/lib/dateUtils";
+import {
+  getTodayDate,
+  formatBirthDate,
+  calculateAge,
+  validateBirthDate,
+} from "@/lib/dateUtils";
 import SignaturePad from "@/components/SignaturePad";
 import SignatureVerificationModal from "@/components/SignatureVerificationModal";
 import { AuditLogData } from "@/app/actions/otp";
@@ -163,6 +168,7 @@ export default function EyebrowLaminationForm({
   };
 
   const isAgeValid = calculateAge(formData.dataUrodzenia) >= 16;
+  const birthDateError = validateBirthDate(formData.dataUrodzenia);
 
   const handleContraindicationChange = (key: string, value: boolean) => {
     setFormData((prev) => ({
@@ -479,7 +485,7 @@ export default function EyebrowLaminationForm({
                   </div>
 
                   <div>
-                    <label className="block text-sm text-ui-textSecondary mb-2 font-medium">
+                    <label className="block text-sm text-[#4a4540] mb-2 font-medium">
                       Data urodzenia * (min. 16 lat)
                     </label>
                     <input
@@ -493,18 +499,16 @@ export default function EyebrowLaminationForm({
                           formatBirthDate(e.target.value),
                         )
                       }
-                      placeholder="dd.mm.rrrr"
+                      placeholder="DD.MM.RRRR"
                       maxLength={10}
-                      className={`w-full px-4 py-3 bg-ui-bg border rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all ${
-                        formData.dataUrodzenia && !isAgeValid
-                          ? "border-red-500"
-                          : "border-[#D4AF37]"
+                      className={`w-full px-4 py-3 bg-white border rounded-xl focus:border-[#C4B5A0] focus:ring-2 focus:ring-[#C4B5A0]/20 text-[#4a4540] placeholder-[#8b7355]/40 outline-none transition-all ${
+                        birthDateError ? "border-red-500" : "border-[#d4cec4]"
                       }`}
                     />
-                    {formData.dataUrodzenia && !isAgeValid && (
-                      <p className="text-red-400 text-xs mt-1">
-                        Musisz mieć ukończone 16 lat
-                      </p>
+                    {birthDateError && (
+                      <div className="mt-2 flex items-center gap-2 text-red-600 text-sm animate-in fade-in slide-in-from-top-1">
+                        <span>{birthDateError}</span>
+                      </div>
                     )}
                   </div>
                   <div>

@@ -1,7 +1,12 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Phone, Check, ArrowLeft, Instagram, Mail, Shield } from "lucide-react";
-import { getTodayDate, formatBirthDate, calculateAge } from "@/lib/dateUtils";
+import {
+  getTodayDate,
+  formatBirthDate,
+  calculateAge,
+  validateBirthDate,
+} from "@/lib/dateUtils";
 import SignaturePad from "@/components/SignaturePad";
 import SignatureVerificationModal from "@/components/SignatureVerificationModal";
 import { AuditLogData } from "@/app/actions/otp";
@@ -498,9 +503,9 @@ export default function NeedleMesotherapyForm({
                           : "border-[#D4AF37]"
                       }`}
                     />
-                    {formData.dataUrodzenia && !isAgeValid && (
+                    {validateBirthDate(formData.dataUrodzenia) !== null && (
                       <p className="text-red-400 text-xs mt-1">
-                        Musisz mieć ukończone 16 lat
+                        {validateBirthDate(formData.dataUrodzenia)}
                       </p>
                     )}
                   </div>

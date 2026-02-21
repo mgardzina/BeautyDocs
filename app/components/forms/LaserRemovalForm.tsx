@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import AnatomyBodySelector from "../AnatomyBodySelector";
 import { Phone, Check, ArrowLeft, Instagram, Mail, Shield } from "lucide-react";
-import { getTodayDate } from "@/lib/dateUtils";
+import { getTodayDate, validateBirthDate } from "@/lib/dateUtils";
 import SignaturePad from "@/components/SignaturePad";
 import SignatureVerificationModal from "@/components/SignatureVerificationModal";
 import { AuditLogData } from "@/app/actions/otp";
@@ -156,7 +156,10 @@ export default function LaserRemovalForm({ onBack }: LaserRemovalFormProps) {
     const birth = new Date(birthDate);
     let age = today.getFullYear() - birth.getFullYear();
     const monthDiff = today.getMonth() - birth.getMonth();
-    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
+    if (
+      monthDiff < 0 ||
+      (monthDiff === 0 && today.getDate() < birth.getDate())
+    ) {
       age--;
     }
     return age;
@@ -504,16 +507,22 @@ export default function LaserRemovalForm({ onBack }: LaserRemovalFormProps) {
                       onChange={(e) =>
                         handleInputChange("dataUrodzenia", e.target.value)
                       }
-                      max={new Date(new Date().setFullYear(new Date().getFullYear() - 16)).toISOString().split('T')[0]}
+                      max={
+                        new Date(
+                          new Date().setFullYear(new Date().getFullYear() - 16),
+                        )
+                          .toISOString()
+                          .split("T")[0]
+                      }
                       className={`w-full px-4 py-3 bg-ui-bg border rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all ${
-                        formData.dataUrodzenia && !isAgeValid
+                        validateBirthDate(formData.dataUrodzenia) !== null
                           ? "border-red-500"
                           : "border-[#D4AF37]"
                       }`}
                     />
-                    {formData.dataUrodzenia && !isAgeValid && (
+                    {validateBirthDate(formData.dataUrodzenia) !== null && (
                       <p className="text-red-400 text-xs mt-1">
-                        Musisz mieć ukończone 16 lat
+                        {validateBirthDate(formData.dataUrodzenia)}
                       </p>
                     )}
                   </div>
