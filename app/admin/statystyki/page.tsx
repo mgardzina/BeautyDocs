@@ -9,8 +9,13 @@ import { ArrowLeft, BarChart3, Camera, Megaphone, Shield } from "lucide-react";
 interface StatsData {
   total: number;
   zgodaMarketing: number;
+  podpisMarketing: number;
   zgodaFotografie: number;
+  podpisFotografie: number;
   zgodaPrzetwarzanieDanych: number;
+  podpisRodo: number;
+  podpisRodo2: number;
+  podpisDane: number;
 }
 
 export default function StatystykiPage() {
@@ -19,8 +24,13 @@ export default function StatystykiPage() {
   const [stats, setStats] = useState<StatsData>({
     total: 0,
     zgodaMarketing: 0,
+    podpisMarketing: 0,
     zgodaFotografie: 0,
+    podpisFotografie: 0,
     zgodaPrzetwarzanieDanych: 0,
+    podpisRodo: 0,
+    podpisRodo2: 0,
+    podpisDane: 0,
   });
   const [isLoading, setIsLoading] = useState(true);
 
@@ -44,16 +54,16 @@ export default function StatystykiPage() {
         const forms = data.forms;
         setStats({
           total: forms.length,
-          zgodaMarketing: forms.filter(
-            (f: { zgodaMarketing: boolean }) => f.zgodaMarketing,
-          ).length,
-          zgodaFotografie: forms.filter(
-            (f: { zgodaFotografie: boolean }) => f.zgodaFotografie,
-          ).length,
+          zgodaMarketing: forms.filter((f: any) => f.zgodaMarketing).length,
+          podpisMarketing: forms.filter((f: any) => f.podpisMarketing).length,
+          zgodaFotografie: forms.filter((f: any) => f.zgodaFotografie).length,
+          podpisFotografie: forms.filter((f: any) => f.podpisFotografie).length,
           zgodaPrzetwarzanieDanych: forms.filter(
-            (f: { zgodaPrzetwarzanieDanych: boolean }) =>
-              f.zgodaPrzetwarzanieDanych,
+            (f: any) => f.zgodaPrzetwarzanieDanych,
           ).length,
+          podpisRodo: forms.filter((f: any) => f.podpisRodo).length,
+          podpisRodo2: forms.filter((f: any) => f.podpisRodo2).length,
+          podpisDane: forms.filter((f: any) => f.podpisDane).length,
         });
       }
     } catch (error) {
@@ -184,61 +194,206 @@ export default function StatystykiPage() {
               <div className="space-y-6">
                 {/* RODO */}
                 <div>
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="text-ui-textSecondary font-medium">
-                      Zgoda RODO (przetwarzanie danych)
-                    </span>
-                    <span className="text-brand font-medium">
-                      {stats.zgodaPrzetwarzanieDanych} / {stats.total}
-                    </span>
-                  </div>
-                  <div className="h-3 bg-black/40 rounded-full overflow-hidden border border-emerald/10">
-                    <div
-                      className="h-full bg-green-500 rounded-full transition-all duration-500 shadow-[0_0_10px_rgba(34,197,94,0.3)]"
-                      style={{
-                        width: `${calculatePercentage(stats.zgodaPrzetwarzanieDanych)}%`,
-                      }}
-                    />
+                  <h3 className="text-white font-serif mb-3 flex items-center gap-2">
+                    <Shield className="w-4 h-4 text-green-500" />
+                    Ochrona Danych (RODO)
+                  </h3>
+
+                  <div className="space-y-3 pl-6">
+                    {/* Zgoda (Checkbox) */}
+                    <div>
+                      <div className="flex justify-between items-center mb-1">
+                        <span className="text-sm text-ui-textSecondary">
+                          Wyrażona Zgoda (Checkbox)
+                        </span>
+                        <span className="text-sm font-medium text-white">
+                          {stats.zgodaPrzetwarzanieDanych} / {stats.total}
+                        </span>
+                      </div>
+                      <div className="h-2 bg-black/40 rounded-full overflow-hidden border border-emerald/10">
+                        <div
+                          className="h-full bg-green-500/50 rounded-full transition-all duration-500"
+                          style={{
+                            width: `${calculatePercentage(stats.zgodaPrzetwarzanieDanych)}%`,
+                          }}
+                        />
+                      </div>
+                    </div>
+
+                    {/* Podpis Oświadczenia */}
+                    <div>
+                      <div className="flex justify-between items-center mb-1">
+                        <span className="text-sm text-ui-textSecondary">
+                          Podpis (Oświadczenie RODO)
+                        </span>
+                        <span className="text-sm font-medium text-white">
+                          {stats.podpisRodo} / {stats.total}
+                        </span>
+                      </div>
+                      <div className="h-2 bg-black/40 rounded-full overflow-hidden border border-emerald/10">
+                        <div
+                          className="h-full bg-green-500 rounded-full transition-all duration-500 shadow-[0_0_8px_rgba(34,197,94,0.4)]"
+                          style={{
+                            width: `${calculatePercentage(stats.podpisRodo)}%`,
+                          }}
+                        />
+                      </div>
+                    </div>
+
+                    {/* Podpis Klauzuli */}
+                    <div>
+                      <div className="flex justify-between items-center mb-1">
+                        <span className="text-sm text-ui-textSecondary">
+                          Podpis (Klauzula Informacyjna)
+                        </span>
+                        <span className="text-sm font-medium text-white">
+                          {stats.podpisRodo2} / {stats.total}
+                        </span>
+                      </div>
+                      <div className="h-2 bg-black/40 rounded-full overflow-hidden border border-emerald/10">
+                        <div
+                          className="h-full bg-emerald-400 rounded-full transition-all duration-500 shadow-[0_0_8px_rgba(52,211,153,0.4)]"
+                          style={{
+                            width: `${calculatePercentage(stats.podpisRodo2)}%`,
+                          }}
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
+
+                <div className="border-t border-emerald/20 my-4"></div>
+
+                {/* Zgoda na Zabieg */}
+                <div>
+                  <h3 className="text-white font-serif mb-3 flex items-center gap-2">
+                    <Shield className="w-4 h-4 text-brand" />
+                    Zgoda na Zabieg (Świadoma zgoda)
+                  </h3>
+
+                  <div className="space-y-3 pl-6">
+                    <div>
+                      <div className="flex justify-between items-center mb-1">
+                        <span className="text-sm text-ui-textSecondary">
+                          Podpis (Zgoda Główna)
+                        </span>
+                        <span className="text-sm font-medium text-white">
+                          {stats.podpisDane} / {stats.total}
+                        </span>
+                      </div>
+                      <div className="h-2 bg-black/40 rounded-full overflow-hidden border border-emerald/10">
+                        <div
+                          className="h-full bg-brand rounded-full transition-all duration-500 shadow-[0_0_8px_rgba(212,175,55,0.4)]"
+                          style={{
+                            width: `${calculatePercentage(stats.podpisDane)}%`,
+                          }}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="border-t border-emerald/20 my-4"></div>
 
                 {/* Marketing */}
                 <div>
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="text-ui-textSecondary font-medium">
-                      Zgoda marketingowa
-                    </span>
-                    <span className="text-brand font-medium">
-                      {stats.zgodaMarketing} / {stats.total}
-                    </span>
-                  </div>
-                  <div className="h-3 bg-black/40 rounded-full overflow-hidden border border-emerald/10">
-                    <div
-                      className="h-full bg-purple-500 rounded-full transition-all duration-500 shadow-[0_0_10px_rgba(168,85,247,0.3)]"
-                      style={{
-                        width: `${calculatePercentage(stats.zgodaMarketing)}%`,
-                      }}
-                    />
+                  <h3 className="text-white font-serif mb-3 flex items-center gap-2">
+                    <Megaphone className="w-4 h-4 text-purple-400" />
+                    Marketing
+                  </h3>
+
+                  <div className="space-y-3 pl-6">
+                    {/* Zgoda */}
+                    <div>
+                      <div className="flex justify-between items-center mb-1">
+                        <span className="text-sm text-ui-textSecondary">
+                          Wyrażona Zgoda
+                        </span>
+                        <span className="text-sm font-medium text-white">
+                          {stats.zgodaMarketing} / {stats.total}
+                        </span>
+                      </div>
+                      <div className="h-2 bg-black/40 rounded-full overflow-hidden border border-emerald/10">
+                        <div
+                          className="h-full bg-purple-500/50 rounded-full transition-all duration-500"
+                          style={{
+                            width: `${calculatePercentage(stats.zgodaMarketing)}%`,
+                          }}
+                        />
+                      </div>
+                    </div>
+
+                    {/* Podpis */}
+                    <div>
+                      <div className="flex justify-between items-center mb-1">
+                        <span className="text-sm text-ui-textSecondary">
+                          Złożony Podpis
+                        </span>
+                        <span className="text-sm font-medium text-white">
+                          {stats.podpisMarketing} / {stats.total}
+                        </span>
+                      </div>
+                      <div className="h-2 bg-black/40 rounded-full overflow-hidden border border-emerald/10">
+                        <div
+                          className="h-full bg-purple-500 rounded-full transition-all duration-500 shadow-[0_0_8px_rgba(168,85,247,0.4)]"
+                          style={{
+                            width: `${calculatePercentage(stats.podpisMarketing)}%`,
+                          }}
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
 
+                <div className="border-t border-emerald/20 my-4"></div>
+
                 {/* Foto */}
                 <div>
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="text-ui-textSecondary font-medium">
-                      Zgoda na fotografie
-                    </span>
-                    <span className="text-brand font-medium">
-                      {stats.zgodaFotografie} / {stats.total}
-                    </span>
-                  </div>
-                  <div className="h-3 bg-black/40 rounded-full overflow-hidden border border-emerald/10">
-                    <div
-                      className="h-full bg-blue-500 rounded-full transition-all duration-500 shadow-[0_0_10px_rgba(59,130,246,0.3)]"
-                      style={{
-                        width: `${calculatePercentage(stats.zgodaFotografie)}%`,
-                      }}
-                    />
+                  <h3 className="text-white font-serif mb-3 flex items-center gap-2">
+                    <Camera className="w-4 h-4 text-blue-400" />
+                    Wizerunek (Fotografie)
+                  </h3>
+
+                  <div className="space-y-3 pl-6">
+                    {/* Zgoda */}
+                    <div>
+                      <div className="flex justify-between items-center mb-1">
+                        <span className="text-sm text-ui-textSecondary">
+                          Wyrażona Zgoda
+                        </span>
+                        <span className="text-sm font-medium text-white">
+                          {stats.zgodaFotografie} / {stats.total}
+                        </span>
+                      </div>
+                      <div className="h-2 bg-black/40 rounded-full overflow-hidden border border-emerald/10">
+                        <div
+                          className="h-full bg-blue-500/50 rounded-full transition-all duration-500"
+                          style={{
+                            width: `${calculatePercentage(stats.zgodaFotografie)}%`,
+                          }}
+                        />
+                      </div>
+                    </div>
+
+                    {/* Podpis */}
+                    <div>
+                      <div className="flex justify-between items-center mb-1">
+                        <span className="text-sm text-ui-textSecondary">
+                          Złożony Podpis
+                        </span>
+                        <span className="text-sm font-medium text-white">
+                          {stats.podpisFotografie} / {stats.total}
+                        </span>
+                      </div>
+                      <div className="h-2 bg-black/40 rounded-full overflow-hidden border border-emerald/10">
+                        <div
+                          className="h-full bg-blue-500 rounded-full transition-all duration-500 shadow-[0_0_8px_rgba(59,130,246,0.4)]"
+                          style={{
+                            width: `${calculatePercentage(stats.podpisFotografie)}%`,
+                          }}
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

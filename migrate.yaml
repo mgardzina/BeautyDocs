@@ -12,7 +12,7 @@ steps:
       chmod +x cloud-sql-proxy
 
       # 3. Start Proxy in background
-      ./cloud-sql-proxy royal-lips:europe-west3:royal-lips-db-small --port 5433 &
+      ./cloud-sql-proxy royal-lips:europe-west1:royal-lips-db-small --port 5433 &
       PID=$$!
       echo "Waiting for proxy to start..."
       sleep 5

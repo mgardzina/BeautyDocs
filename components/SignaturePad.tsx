@@ -56,7 +56,7 @@ export default function SignaturePad({
             <SignatureCanvas
               ref={sigCanvas}
               canvasProps={{
-                className: "w-full h-full touch-none block bg-white",
+                className: "w-full h-full touch-none block bg-white invert",
               }}
               backgroundColor="white"
               penColor="black"

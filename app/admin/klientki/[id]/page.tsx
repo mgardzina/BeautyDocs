@@ -494,16 +494,12 @@ export default function ClientDetailsPage({
                       className={`p-4 rounded-xl border relative group ${config.bgColor}`}
                     >
                       <div className="flex items-start gap-2 mb-2">
-                        <Icon
-                          className={`w-4 h-4 mt-0.5 ${config.color.replace("text-gray-600", "text-white").replace("text-red-600", "text-red-400").replace("text-amber-600", "text-amber-400").replace("text-purple-600", "text-purple-400")}`}
-                        />
-                        <span
-                          className={`text-xs font-medium ${config.color.replace("text-gray-600", "text-white").replace("text-red-600", "text-red-400").replace("text-amber-600", "text-amber-400").replace("text-purple-600", "text-purple-400")}`}
-                        >
+                        <Icon className={`w-4 h-4 mt-0.5 ${config.color}`} />
+                        <span className={`text-xs font-medium ${config.color}`}>
                           {config.label}
                         </span>
                       </div>
-                      <p className="text-white text-sm whitespace-pre-wrap pl-6">
+                      <p className="text-gray-900 font-medium text-sm whitespace-pre-wrap pl-6">
                         {note.content}
                       </p>
                       <div className="mt-2 flex justify-between items-center text-xs text-[#8b8580] pl-6">
@@ -877,32 +873,40 @@ export default function ClientDetailsPage({
                                     item.formType}
                               </span>
 
-                              {item.type === "visit" && (
-                                <div className="flex items-center gap-1">
-                                  <button
-                                    onClick={() =>
-                                      startEditingHistory({
-                                        id: item.id,
-                                        date: item.date.toISOString(),
-                                        description: item.description,
-                                        znieczulenie: (item as any)
-                                          .znieczulenie,
-                                      })
-                                    }
-                                    className="p-1.5 text-emerald-400 hover:text-emerald-600 transition-colors"
-                                    title="Edytuj"
-                                  >
-                                    <Edit2 className="w-4 h-4" />
-                                  </button>
-                                  <button
-                                    onClick={() => handleDeleteHistory(item.id)}
-                                    className="p-1.5 text-red-400 hover:text-red-600 transition-colors"
-                                    title="Usuń"
-                                  >
-                                    <Trash2 className="w-4 h-4" />
-                                  </button>
-                                </div>
-                              )}
+                              <div className="flex items-center gap-3">
+                                <span className="text-xs text-ui-textSecondary flex items-center gap-1 font-medium bg-black/40 px-2 py-1 rounded-md border border-emerald/10">
+                                  <Calendar className="w-3 h-3 text-brand" />
+                                  {formatDate(item.date.toISOString())}
+                                </span>
+                                {item.type === "visit" && (
+                                  <div className="flex items-center gap-1">
+                                    <button
+                                      onClick={() =>
+                                        startEditingHistory({
+                                          id: item.id,
+                                          date: item.date.toISOString(),
+                                          description: item.description,
+                                          znieczulenie: (item as any)
+                                            .znieczulenie,
+                                        })
+                                      }
+                                      className="p-1.5 text-emerald-400 hover:text-emerald-600 transition-colors"
+                                      title="Edytuj"
+                                    >
+                                      <Edit2 className="w-4 h-4" />
+                                    </button>
+                                    <button
+                                      onClick={() =>
+                                        handleDeleteHistory(item.id)
+                                      }
+                                      className="p-1.5 text-red-400 hover:text-red-600 transition-colors"
+                                      title="Usuń"
+                                    >
+                                      <Trash2 className="w-4 h-4" />
+                                    </button>
+                                  </div>
+                                )}
+                              </div>
                             </div>
 
                             {item.type === "visit" ? (
@@ -926,10 +930,6 @@ export default function ClientDetailsPage({
                                 href={`/admin/formularz/${item.id}`}
                                 className="block hover:text-brand transition-colors"
                               >
-                                <p className="font-bold text-white text-base mb-1">
-                                  {formTypeLabels[item.formType] ||
-                                    item.formType}
-                                </p>
                                 <p className="text-sm text-ui-textSecondary font-medium">
                                   {translateZones(item.obszarZabiegu)}
                                 </p>

@@ -329,23 +329,9 @@ export default function FormDetailsPage() {
                 <h1 className="text-2xl md:text-3xl font-serif text-white">
                   {form.imieNazwisko}
                 </h1>
-                {isEditing ? (
-                  <select
-                    value={editedForm.type || form.type}
-                    onChange={(e) =>
-                      setEditedForm({ ...editedForm, type: e.target.value })
-                    }
-                    className="px-3 py-1.5 bg-black/40 border border-emerald/30 rounded-lg text-sm focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none text-white"
-                  >
-                    <option value="HYALURONIC">Kwas hialuronowy</option>
-                    <option value="PMU">Makijaż permanentny</option>
-                    <option value="LASER">Laser</option>
-                  </select>
-                ) : (
-                  <span className="px-3 py-1 bg-brand/10 text-brand rounded-lg text-sm font-medium">
-                    {formTypeLabels[form.type] || form.type}
-                  </span>
-                )}
+                <span className="px-3 py-1 bg-brand/10 text-brand rounded-lg text-sm font-medium">
+                  {formTypeLabels[form.type] || form.type}
+                </span>
                 {form.clientId && (
                   <Link
                     href={`/admin/klientki/${form.clientId}`}
@@ -948,7 +934,7 @@ export default function FormDetailsPage() {
                   <img
                     src={form.podpisRodo}
                     alt="Podpis RODO"
-                    className="h-40 object-contain mx-auto md:mx-0 invert brightness-200"
+                    className="w-full h-auto max-h-40 object-contain mx-auto md:mx-0 invert brightness-200"
                   />
                 </div>
               ) : (
@@ -983,7 +969,7 @@ export default function FormDetailsPage() {
                   <img
                     src={(form as any).podpisRodo2}
                     alt="Podpis RODO 2"
-                    className="h-40 object-contain mx-auto md:mx-0 invert brightness-200"
+                    className="w-full h-auto max-h-40 object-contain mx-auto md:mx-0 invert brightness-200"
                   />
                 </div>
               ) : (
@@ -1017,7 +1003,7 @@ export default function FormDetailsPage() {
                   <img
                     src={form.podpisMarketing}
                     alt="Podpis Marketing"
-                    className="h-40 object-contain mx-auto md:mx-0 invert brightness-200"
+                    className="w-full h-auto max-h-40 object-contain mx-auto md:mx-0 invert brightness-200"
                   />
                 </div>
               ) : (
@@ -1058,7 +1044,7 @@ export default function FormDetailsPage() {
                   <img
                     src={form.podpisFotografie}
                     alt="Podpis Foto"
-                    className="h-40 object-contain mx-auto md:mx-0 invert brightness-200"
+                    className="w-full h-auto max-h-40 object-contain mx-auto md:mx-0 invert brightness-200"
                   />
                 </div>
               ) : (
@@ -1092,7 +1078,7 @@ export default function FormDetailsPage() {
                   <img
                     src={form.podpisDane}
                     alt="Podpis Zabieg"
-                    className="h-40 object-contain mx-auto md:mx-0 invert brightness-200"
+                    className="w-full h-auto max-h-40 object-contain mx-auto md:mx-0 invert brightness-200"
                   />
                 </div>
               ) : (

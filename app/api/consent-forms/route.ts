@@ -95,6 +95,11 @@ export async function GET() {
         zgodaPrzetwarzanieDanych: true,
         zgodaMarketing: true,
         zgodaFotografie: true,
+        podpisRodo: true,
+        podpisRodo2: true,
+        podpisMarketing: true,
+        podpisFotografie: true,
+        podpisDane: true,
       },
     });
 
