@@ -1,6 +1,6 @@
 {
-  "name": "royal-lips",
-  "version": "0.1.0",
+  "name": "powderbrowsacademypl",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",

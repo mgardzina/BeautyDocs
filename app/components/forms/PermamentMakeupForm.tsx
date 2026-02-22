@@ -1171,7 +1171,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                     <p className="text-sm text-ui-textSecondary mb-4 font-medium uppercase tracking-wide">
                       Podpis Klienta (Zgoda na przetwarzanie danych):
                     </p>
-                    <div className="bg-ui-bg rounded-xl overflow-hidden min-h-[200px] border border-[#D4AF37] p-1">
+                    <div className="bg-ui-bg rounded-xl overflow-hidden border border-[#D4AF37]">
                       <SignaturePad
                         label=""
                         value={formData.podpisRodo || ""}
@@ -1226,7 +1226,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                     <p className="text-sm text-ui-textSecondary mb-4 font-medium uppercase tracking-wide">
                       Podpis Klienta (Klauzula informacyjna):
                     </p>
-                    <div className="bg-ui-bg rounded-xl overflow-hidden min-h-[200px] border border-[#D4AF37] p-1">
+                    <div className="bg-ui-bg rounded-xl overflow-hidden border border-[#D4AF37]">
                       <SignaturePad
                         label=""
                         value={formData.podpisRodo2 || ""}
