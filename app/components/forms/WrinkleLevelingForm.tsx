@@ -966,14 +966,10 @@ export default function FacialVolumetryForm({
                     <div className="space-y-4">
                       {wolumetriaTwarzyNaturalReactions.map(
                         (reaction, index) => (
-                          <div key={index} className="flex items-start gap-3">
-                            <div className="mt-1">
-                              <Check className="w-5 h-5 text-brand" />
-                            </div>
-                            <p className="text-ui-textSecondary leading-relaxed">
-                              {reaction}
-                            </p>
-                          </div>
+                          <li key={index} className="flex items-start gap-2">
+                            <span className="text-brand">∙</span>
+                            <span>{reaction}</span>
+                          </li>
                         ),
                       )}
                     </div>
