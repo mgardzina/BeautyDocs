@@ -67,6 +67,7 @@ export async function PATCH(
       "odstepMiedzyZabiegami",
       "kolejneZabiegiOdstepy",
       "iloscProduktu",
+      "osobaPrzeprowadzajacaZabieg",
     ];
 
     // Filtruj tylko dozwolone pola
