@@ -17,7 +17,9 @@ import {
   Pencil,
   Save,
   XCircle,
+  FileDown,
 } from "lucide-react";
+
 import { contraindicationsByFormType, FormType } from "@/types/booking";
 import AnatomyFaceSelector from "@/app/components/AnatomyFaceSelector";
 import { ZONES } from "@/types/face-zones";
@@ -109,6 +111,8 @@ export default function FormDetailsPage() {
   const [isDeleting, setIsDeleting] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
+  const [isDownloadingPdf, setIsDownloadingPdf] = useState(false);
+
   const [editedForm, setEditedForm] = useState<Partial<ConsentFormFull>>({});
   const [activeTab, setActiveTab] = useState<
     "details" | "contraindications" | "consents"
@@ -219,6 +223,32 @@ export default function FormDetailsPage() {
     setIsEditing(false);
   };
 
+  const handleDownloadPdf = async () => {
+    setIsDownloadingPdf(true);
+    try {
+      const response = await fetch(`/api/consent-forms/${params.id}/pdf`);
+      if (!response.ok) throw new Error("Błąd generowania PDF");
+      const blob = await response.blob();
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      const cd = response.headers.get("content-disposition") || "";
+      const match = cd.match(/filename\*=UTF-8''(.+)/);
+      link.download = match
+        ? decodeURIComponent(match[1])
+        : `karta_zgody_${params.id}.pdf`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+    } catch (err) {
+      alert("Nie udało się wygenerować PDF. Sprawdź konsolę.");
+      console.error(err);
+    } finally {
+      setIsDownloadingPdf(false);
+    }
+  };
+
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString("pl-PL", {
       day: "2-digit",
@@ -297,6 +327,17 @@ export default function FormDetailsPage() {
               </>
             ) : (
               <>
+                <button
+                  onClick={handleDownloadPdf}
+                  disabled={isDownloadingPdf}
+                  title="Pobierz PDF"
+                  className="flex items-center gap-2 text-brand hover:text-brand-light transition-colors disabled:opacity-50"
+                >
+                  <FileDown className="w-5 h-5" />
+                  <span className="hidden md:inline">
+                    {isDownloadingPdf ? "Generowanie..." : "Pobierz PDF"}
+                  </span>
+                </button>
                 <button
                   onClick={() => setIsEditing(true)}
                   className="flex items-center gap-2 text-white/80 hover:text-white transition-colors"
