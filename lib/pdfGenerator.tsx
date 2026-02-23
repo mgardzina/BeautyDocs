@@ -1359,7 +1359,7 @@ function ConsentFormPDF({
         </View>
 
         {/* Podpisy (Wszystkie na końcu) */}
-        <View style={styles.section}>
+        <View style={[styles.section, { marginBottom: 6 }]}>
           <Text style={styles.sectionTitle}>Podpisy Klienta</Text>
 
           <View
@@ -1367,7 +1367,7 @@ function ConsentFormPDF({
               flexDirection: "row",
               flexWrap: "wrap",
               justifyContent: "space-between",
-              gap: 8,
+              gap: 4,
             }}
           >
             {/* RODO 1 */}
@@ -1375,14 +1375,20 @@ function ConsentFormPDF({
               <View
                 style={[
                   styles.signatureSection,
-                  { width: "48%", marginTop: 0 },
+                  { width: "48%", marginTop: 0, padding: 4 },
                 ]}
                 wrap={false}
               >
                 <Text style={styles.signatureLabel}>
                   RODO (Przetwarzanie Danych):
                 </Text>
-                <Image src={form.podpisRodo} style={styles.signatureImage} />
+                <Image
+                  src={form.podpisRodo}
+                  style={[
+                    styles.signatureImage,
+                    { height: 40, marginBottom: 2 },
+                  ]}
+                />
                 <Text style={styles.signatureDate}>{form.miejscowoscData}</Text>
               </View>
             )}
@@ -1392,12 +1398,18 @@ function ConsentFormPDF({
               <View
                 style={[
                   styles.signatureSection,
-                  { width: "48%", marginTop: 0 },
+                  { width: "48%", marginTop: 0, padding: 4 },
                 ]}
                 wrap={false}
               >
                 <Text style={styles.signatureLabel}>RODO (Klauzula):</Text>
-                <Image src={form.podpisRodo2} style={styles.signatureImage} />
+                <Image
+                  src={form.podpisRodo2}
+                  style={[
+                    styles.signatureImage,
+                    { height: 40, marginBottom: 2 },
+                  ]}
+                />
                 <Text style={styles.signatureDate}>{form.miejscowoscData}</Text>
               </View>
             )}
@@ -1405,13 +1417,22 @@ function ConsentFormPDF({
             {/* Zabieg */}
             {form.podpisDane && (
               <View
-                style={[styles.signatureSection, { width: "48%" }]}
+                style={[
+                  styles.signatureSection,
+                  { width: "48%", marginTop: 0, padding: 4 },
+                ]}
                 wrap={false}
               >
                 <Text style={styles.signatureLabel}>
                   Świadoma Zgoda (Wymagane):
                 </Text>
-                <Image src={form.podpisDane} style={styles.signatureImage} />
+                <Image
+                  src={form.podpisDane}
+                  style={[
+                    styles.signatureImage,
+                    { height: 40, marginBottom: 2 },
+                  ]}
+                />
                 <Text style={styles.signatureDate}>{form.miejscowoscData}</Text>
               </View>
             )}
@@ -1419,13 +1440,19 @@ function ConsentFormPDF({
             {/* Marketing */}
             {form.podpisMarketing && (
               <View
-                style={[styles.signatureSection, { width: "48%" }]}
+                style={[
+                  styles.signatureSection,
+                  { width: "48%", marginTop: 0, padding: 4 },
+                ]}
                 wrap={false}
               >
                 <Text style={styles.signatureLabel}>Zgoda Marketingowa:</Text>
                 <Image
                   src={form.podpisMarketing}
-                  style={styles.signatureImage}
+                  style={[
+                    styles.signatureImage,
+                    { height: 40, marginBottom: 2 },
+                  ]}
                 />
                 <Text style={styles.signatureDate}>{form.miejscowoscData}</Text>
               </View>
@@ -1434,13 +1461,19 @@ function ConsentFormPDF({
             {/* Fotografie */}
             {form.podpisFotografie && (
               <View
-                style={[styles.signatureSection, { width: "48%" }]}
+                style={[
+                  styles.signatureSection,
+                  { width: "48%", marginTop: 0, padding: 4 },
+                ]}
                 wrap={false}
               >
                 <Text style={styles.signatureLabel}>Zgoda na Wizerunek:</Text>
                 <Image
                   src={form.podpisFotografie}
-                  style={styles.signatureImage}
+                  style={[
+                    styles.signatureImage,
+                    { height: 40, marginBottom: 2 },
+                  ]}
                 />
                 <Text style={styles.signatureDate}>{form.miejscowoscData}</Text>
               </View>
@@ -1449,8 +1482,13 @@ function ConsentFormPDF({
         </View>
 
         {/* Podsumowanie prawne */}
-        <View style={[styles.consentBox, { marginTop: 10 }]}>
-          <Text style={[styles.consentText, { fontSize: 7, color: GRAY }]}>
+        <View
+          style={[
+            styles.consentBox,
+            { marginTop: 0, marginBottom: 0, padding: 6 },
+          ]}
+        >
+          <Text style={[styles.consentText, { fontSize: 6.5, color: GRAY }]}>
             Niniejszy dokument stanowi kartę zgody i wywiad medyczny wypełniony
             elektronicznie przez klienta. Podpisy złożone na tym dokumencie mają
             charakter podpisu elektronicznego zgodnie z Art. 78¹ KC (forma
