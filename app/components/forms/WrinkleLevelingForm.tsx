@@ -20,7 +20,7 @@ import {
   wolumetriaTwarzyContraindications,
   wolumetriaTwarzyNaturalReactions,
   wolumetriaTwarzyComplications,
-  wolumetriaTwarzyPostCare,
+  niwelowaineZmarszczekPostCare,
   rodoInfo,
 } from "../../../types/booking";
 
@@ -411,12 +411,12 @@ export default function FacialVolumetryForm({
 
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-serif text-white mb-3 tracking-tight">
-              Usuwanie <span className="text-brand">Zmarszczek</span>
+              Niwelowanie <span className="text-brand">Zmarszczek</span>
             </h1>
             <div className="flex items-center justify-center gap-4">
               <div className="h-px w-12 bg-brand"></div>
               <p className="text-brand text-sm md:text-lg font-light tracking-[0.3em] uppercase drop-shadow-sm">
-                Zabieg z zakresu usuwania zmarszczek
+                Zabieg z zakresu niwelowania zmarszczek
               </p>
               <div className="h-px w-12 bg-brand"></div>
             </div>
@@ -1030,7 +1030,7 @@ export default function FacialVolumetryForm({
                     </strong>
                   </p>
                   <ul className="space-y-2 text-sm text-ui-textSecondary">
-                    {wolumetriaTwarzyPostCare.map((instruction, index) => (
+                    {niwelowaineZmarszczekPostCare.map((instruction, index) => (
                       <li key={index} className="flex items-start gap-2">
                         <span className="text-brand">∙</span>
                         <span
@@ -1241,7 +1241,7 @@ export default function FacialVolumetryForm({
                     Zobowiązuję się do przestrzegania następujących zaleceń:
                   </p>
                   <ul className="space-y-2 text-ui-textSecondary text-sm bg-ui-bg p-4 rounded-xl border border-[#D4AF37]">
-                    {wolumetriaTwarzyPostCare.map((instruction, index) => (
+                    {niwelowaineZmarszczekPostCare.map((instruction, index) => (
                       <li key={index} className="flex items-start gap-2">
                         <span className="text-brand">•</span>
                         <span

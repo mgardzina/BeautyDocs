@@ -11,12 +11,100 @@ import {
   View,
   StyleSheet,
   Image,
+  Svg,
+  Path,
   renderToBuffer,
   Font,
 } from "@react-pdf/renderer";
 
 // Ścieżka do logo — bezwzględna, wymagana przez @react-pdf/renderer
 const LOGO_PATH = path.join(process.cwd(), "public", "logo.png");
+
+// ─── Rejestracja fontu z obsługą polskich znaków ────────────────────────────
+Font.register({
+  family: "Roboto",
+  fonts: [
+    {
+      src: "https://cdnjs.cloudflare.com/ajax/libs/ink/3.1.10/fonts/Roboto/roboto-regular-webfont.ttf",
+      fontWeight: "normal",
+    },
+    {
+      src: "https://cdnjs.cloudflare.com/ajax/libs/ink/3.1.10/fonts/Roboto/roboto-bold-webfont.ttf",
+      fontWeight: "bold",
+    },
+    {
+      src: "https://cdnjs.cloudflare.com/ajax/libs/ink/3.1.10/fonts/Roboto/roboto-italic-webfont.ttf",
+      fontStyle: "italic",
+    },
+  ],
+});
+
+// ─── Mapowanie nazw stref zabiegowych (ID → polska nazwa) ──────────────────
+const ZONE_NAME_MAP: Record<string, string> = {
+  forehead: "Czoło",
+  glabella: "Lwia Zmarszczka",
+  nose: "Nos",
+  eyebrow_right: "Brew Prawa",
+  eyebrow_left: "Brew Lewa",
+  left_eye: "Oko Lewe (Dolina łez)",
+  right_eye: "Oko Prawe (Dolina łez)",
+  left_cheek: "Policzek Lewy",
+  right_cheek: "Policzek Prawy",
+  lips: "Usta",
+  chin: "Broda",
+  marionette_lines: "Linie Marionetki",
+  jaw_left: "Żuchwa (Lewa)",
+  jaw_right: "Żuchwa (Prawa)",
+  nasolabial_folds: "Bruzdy Nosowo-Wargowe",
+  dekolt: "Dekolt",
+  eyelid_left: "Powieka Lewa",
+  eyelid_right: "Powieka Prawa",
+  // Body zones
+  arm_left: "Lewe Ramię",
+  arm_right: "Prawe Ramię",
+  forearm_left: "Lewe Przedramię",
+  forearm_right: "Prawe Przedramię",
+  belly: "Brzuch",
+  chest: "Klatka Piersiowa",
+  thight_left: "Lewe Udo",
+  thight_right: "Prawe Udo",
+  back: "Plecy",
+  calf_left: "Lewa Łydka",
+  calf_right: "Prawa Łydka",
+  neck: "Szyja",
+  shin_left: "Lewy Piszczel",
+  shin_right: "Prawy Piszczel",
+  bikini_area: "Bikini",
+  ass: "Pośladki",
+  face: "Twarz",
+};
+
+// Zbiory ID stref: twarz vs ciało
+const FACE_ZONE_IDS = new Set([
+  "forehead", "glabella", "nose", "eyebrow_right", "eyebrow_left",
+  "left_eye", "right_eye", "left_cheek", "right_cheek", "lips",
+  "chin", "marionette_lines", "jaw_left", "jaw_right",
+  "nasolabial_folds", "dekolt", "eyelid_left", "eyelid_right", "neck",
+]);
+
+/** Rozdziela zone IDs na twarz i ciało */
+function splitZonesByType(zones: string): { face: string[]; body: string[] } {
+  const ids = zones.split(",").map((z) => z.trim()).filter(Boolean);
+  const face: string[] = [];
+  const body: string[] = [];
+  for (const id of ids) {
+    if (FACE_ZONE_IDS.has(id)) {
+      face.push(id);
+    } else {
+      body.push(id);
+    }
+  }
+  return { face, body };
+}
+
+// ─── Import danych stref anatomicznych ────────────────────────────────────
+import { ZONES as FACE_ZONES } from "@/types/face-zones";
+import { BODY_ZONES } from "@/types/body-zones";
 
 // ─── Import danych per-typ formularza ──────────────────────────────────────
 import {
@@ -271,7 +359,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 36,
     backgroundColor: WHITE,
     fontSize: 9,
-    fontFamily: "Helvetica",
+    fontFamily: "Roboto",
     color: DARK,
   },
   // Header
@@ -288,13 +376,13 @@ const styles = StyleSheet.create({
   },
   salonName: {
     fontSize: 12,
-    fontFamily: "Helvetica-Bold",
+    fontFamily: "Roboto", fontWeight: "bold",
     color: GOLD,
     marginTop: 2,
   },
   logoImage: {
-    height: 40,
-    width: 120,
+    height: 60,
+    width: 180,
     objectFit: "contain",
   },
 
@@ -311,7 +399,7 @@ const styles = StyleSheet.create({
   docTitle: {
     marginTop: 10,
     fontSize: 13,
-    fontFamily: "Helvetica-Bold",
+    fontFamily: "Roboto", fontWeight: "bold",
     color: DARK,
     textAlign: "center",
     textTransform: "uppercase",
@@ -329,7 +417,7 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     fontSize: 8.5,
-    fontFamily: "Helvetica-Bold",
+    fontFamily: "Roboto", fontWeight: "bold",
     color: GOLD,
     textTransform: "uppercase",
     letterSpacing: 0.5,
@@ -347,7 +435,7 @@ const styles = StyleSheet.create({
     fontSize: 8,
     color: GRAY,
     width: 100,
-    fontFamily: "Helvetica-Bold",
+    fontFamily: "Roboto", fontWeight: "bold",
   },
   value: {
     fontSize: 8.5,
@@ -376,7 +464,7 @@ const styles = StyleSheet.create({
     width: 22,
     textAlign: "center",
     fontSize: 7.5,
-    fontFamily: "Helvetica-Bold",
+    fontFamily: "Roboto", fontWeight: "bold",
     paddingHorizontal: 3,
     paddingVertical: 1,
     borderRadius: 2,
@@ -393,17 +481,26 @@ const styles = StyleSheet.create({
     marginTop: 2,
     marginLeft: 4,
     flex: 1,
-    fontFamily: "Helvetica-Oblique",
+    fontFamily: "Roboto", fontStyle: "italic",
   },
   // Lista punktowana
   bulletItem: {
     flexDirection: "row",
     marginBottom: 2,
+    alignItems: "flex-start",
   },
   bullet: {
     fontSize: 8,
     color: GOLD,
     width: 10,
+  },
+  goldDot: {
+    width: 4,
+    height: 4,
+    borderRadius: 2,
+    backgroundColor: GOLD,
+    marginRight: 6,
+    marginTop: 3,
   },
   bulletText: {
     fontSize: 7.5,
@@ -421,20 +518,19 @@ const styles = StyleSheet.create({
   signatureLabel: {
     fontSize: 8,
     color: GRAY,
-    fontFamily: "Helvetica-Bold",
+    fontFamily: "Roboto", fontWeight: "bold",
     marginBottom: 4,
   },
   signatureImage: {
     height: 60,
     objectFit: "contain",
-    backgroundColor: "#f9f9f9",
     marginBottom: 4,
   },
   signatureDate: {
     fontSize: 7.5,
     color: GRAY,
     textAlign: "right",
-    fontFamily: "Helvetica-Oblique",
+    fontFamily: "Roboto", fontStyle: "italic",
   },
   // Stopka
   footer: {
@@ -455,7 +551,7 @@ const styles = StyleSheet.create({
   footerGold: {
     fontSize: 7,
     color: GOLD,
-    fontFamily: "Helvetica-Bold",
+    fontFamily: "Roboto", fontWeight: "bold",
   },
   // Status badge
   statusBadge: {
@@ -474,7 +570,7 @@ const styles = StyleSheet.create({
   statusText: {
     fontSize: 7.5,
     color: GREEN_DARK,
-    fontFamily: "Helvetica-Bold",
+    fontFamily: "Roboto", fontWeight: "bold",
   },
   pageNumber: {
     fontSize: 7,
@@ -514,6 +610,20 @@ const styles = StyleSheet.create({
     borderRadius: 3,
     fontSize: 7.5,
   },
+  zoneChip: {
+    paddingHorizontal: 8,
+    paddingVertical: 3,
+    backgroundColor: "#f5f0e0",
+    borderWidth: 1,
+    borderColor: GOLD,
+    borderRadius: 10,
+    fontSize: 7,
+    color: GOLD,
+    fontFamily: "Roboto",
+    fontWeight: "bold",
+    textTransform: "uppercase",
+    letterSpacing: 0.3,
+  },
   consentRow: {
     flexDirection: "row",
     alignItems: "center",
@@ -529,10 +639,22 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  consentCheckFilled: {
+    width: 10,
+    height: 10,
+    borderWidth: 1,
+    borderColor: GREEN_DARK,
+    backgroundColor: GREEN_DARK,
+    marginRight: 5,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+  },
   checkMark: {
-    fontSize: 7,
-    color: GREEN_DARK,
-    fontFamily: "Helvetica-Bold",
+    fontSize: 8,
+    color: WHITE,
+    fontFamily: "Roboto",
+    fontWeight: "bold",
   },
   consentLabel: {
     fontSize: 8,
@@ -545,6 +667,48 @@ const styles = StyleSheet.create({
 function getContraText(val: string | ContraindicationWithFollowUp): string {
   if (typeof val === "string") return val;
   return val.text;
+}
+
+// ─── Komponenty schematów anatomicznych do PDF ──────────────────────────────
+
+/** Schemat twarzy — zaznaczone strefy w złocie, reszta w szarym */
+function FaceDiagramPDF({ selectedIds }: { selectedIds: string[] }) {
+  const selected = new Set(selectedIds);
+  return (
+    <Svg viewBox="0 0 980 980" style={{ width: 200, height: 200 }}>
+      {FACE_ZONES.map((zone) => (
+        <Path
+          key={zone.id}
+          d={zone.d}
+          fill={selected.has(zone.id) ? "rgba(212, 175, 55, 0.5)" : "rgba(143, 166, 157, 0.15)"}
+          stroke={selected.has(zone.id) ? "#D4AF37" : "rgba(143, 166, 157, 0.4)"}
+          strokeWidth={selected.has(zone.id) ? 3 : 1}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      ))}
+    </Svg>
+  );
+}
+
+/** Schemat ciała — zaznaczone strefy w złocie, reszta w szarym */
+function BodyDiagramPDF({ selectedIds }: { selectedIds: string[] }) {
+  const selected = new Set(selectedIds);
+  return (
+    <Svg viewBox="0 0 724 1024" style={{ width: 140, height: 198 }}>
+      {BODY_ZONES.map((zone) => (
+        <Path
+          key={zone.id}
+          d={zone.d}
+          fill={selected.has(zone.id) ? "rgba(212, 175, 55, 0.8)" : "rgba(143, 166, 157, 0.6)"}
+          stroke={selected.has(zone.id) ? "#D4AF37" : "rgba(143, 166, 157, 0.5)"}
+          strokeWidth={selected.has(zone.id) ? 3 : 1}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      ))}
+    </Svg>
+  );
 }
 
 // ─── Komponent PDF ─────────────────────────────────────────────────────────
@@ -672,7 +836,6 @@ function ConsentFormPDF({
 
         {/* Szczegóły zabiegu */}
         {(form.nazwaProduktu ||
-          form.obszarZabiegu ||
           form.iloscProduktu ||
           form.celEfektu) && (
           <View style={styles.section}>
@@ -693,12 +856,6 @@ function ConsentFormPDF({
                 )}
               </View>
               <View style={styles.col}>
-                {form.obszarZabiegu && (
-                  <View style={styles.row}>
-                    <Text style={styles.label}>Obszar zabiegu:</Text>
-                    <Text style={styles.value}>{form.obszarZabiegu}</Text>
-                  </View>
-                )}
                 {form.celEfektu && (
                   <View style={styles.row}>
                     <Text style={styles.label}>Cel / efekt:</Text>
@@ -720,6 +877,60 @@ function ConsentFormPDF({
             )}
           </View>
         )}
+
+        {/* Obszar Zabiegu — schemat anatomiczny z zaznaczonymi strefami */}
+        {form.obszarZabiegu && (() => {
+          const { face, body } = splitZonesByType(form.obszarZabiegu);
+          return (
+            <View style={styles.section}>
+              <Text style={styles.sectionTitle}>Obszar Zabiegu</Text>
+              <View style={{ flexDirection: "row", gap: 12, alignItems: "flex-start" }}>
+                {/* Schemat(y) anatomiczny(e) */}
+                <View style={{ flexDirection: "row", gap: 8, alignItems: "flex-start" }}>
+                  {face.length > 0 && (
+                    <View style={{ alignItems: "center" }}>
+                      <FaceDiagramPDF selectedIds={face} />
+                      <Text style={{ fontSize: 6.5, color: GRAY, marginTop: 2 }}>Twarz</Text>
+                    </View>
+                  )}
+                  {body.length > 0 && (
+                    <View style={{ alignItems: "center" }}>
+                      <BodyDiagramPDF selectedIds={body} />
+                      <Text style={{ fontSize: 6.5, color: GRAY, marginTop: 2 }}>Ciało</Text>
+                    </View>
+                  )}
+                </View>
+                {/* Lista zaznaczonych stref tekstowo */}
+                <View style={{ flex: 1 }}>
+                  {face.length > 0 && (
+                    <View style={{ marginBottom: body.length > 0 ? 6 : 0 }}>
+                      <Text style={{ fontSize: 7.5, fontFamily: "Roboto", fontWeight: "bold", color: GRAY, marginBottom: 3 }}>
+                        Zaznaczone strefy — Twarz:
+                      </Text>
+                      <View style={styles.chipRow}>
+                        {face.map((id, i) => (
+                          <Text key={i} style={styles.zoneChip}>{ZONE_NAME_MAP[id] || id}</Text>
+                        ))}
+                      </View>
+                    </View>
+                  )}
+                  {body.length > 0 && (
+                    <View>
+                      <Text style={{ fontSize: 7.5, fontFamily: "Roboto", fontWeight: "bold", color: GRAY, marginBottom: 3 }}>
+                        Zaznaczone strefy — Ciało:
+                      </Text>
+                      <View style={styles.chipRow}>
+                        {body.map((id, i) => (
+                          <Text key={i} style={styles.zoneChip}>{ZONE_NAME_MAP[id] || id}</Text>
+                        ))}
+                      </View>
+                    </View>
+                  )}
+                </View>
+              </View>
+            </View>
+          );
+        })()}
 
         {/* Przeciwwskazania */}
         <View style={styles.section}>
@@ -787,7 +998,7 @@ function ConsentFormPDF({
           <View style={styles.headerTop}>
             <Image
               src={LOGO_PATH}
-              style={[styles.logoImage, { height: 28, width: 85 }]}
+              style={[styles.logoImage, { height: 45, width: 135 }]}
             />
             <Text style={[styles.docTitle, { fontSize: 10 }]}>
               {content.title} — Ciąg Dalszy
@@ -803,7 +1014,7 @@ function ConsentFormPDF({
             </Text>
             {content.naturalReactions.map((r, i) => (
               <View key={i} style={styles.bulletItem}>
-                <Text style={styles.bullet}>∙</Text>
+                <View style={styles.goldDot} />
                 <Text style={styles.bulletText}>{r}</Text>
               </View>
             ))}
@@ -821,7 +1032,7 @@ function ConsentFormPDF({
                     <Text
                       style={{
                         fontSize: 7.5,
-                        fontFamily: "Helvetica-Bold",
+                        fontFamily: "Roboto", fontWeight: "bold",
                         color: GRAY,
                         marginBottom: 3,
                       }}
@@ -830,7 +1041,7 @@ function ConsentFormPDF({
                     </Text>
                     {content.complications!.czeste.map((c, i) => (
                       <View key={i} style={styles.bulletItem}>
-                        <Text style={styles.bullet}>∙</Text>
+                        <View style={styles.goldDot} />
                         <Text style={styles.bulletText}>{c}</Text>
                       </View>
                     ))}
@@ -846,7 +1057,7 @@ function ConsentFormPDF({
                         <Text
                           style={{
                             fontSize: 7.5,
-                            fontFamily: "Helvetica-Bold",
+                            fontFamily: "Roboto", fontWeight: "bold",
                             color: GRAY,
                             marginBottom: 3,
                           }}
@@ -855,7 +1066,7 @@ function ConsentFormPDF({
                         </Text>
                         {content.complications!.rzadkie.map((c, i) => (
                           <View key={i} style={styles.bulletItem}>
-                            <Text style={styles.bullet}>∙</Text>
+                            <View style={styles.goldDot} />
                             <Text style={styles.bulletText}>{c}</Text>
                           </View>
                         ))}
@@ -867,7 +1078,7 @@ function ConsentFormPDF({
                         <Text
                           style={{
                             fontSize: 7.5,
-                            fontFamily: "Helvetica-Bold",
+                            fontFamily: "Roboto", fontWeight: "bold",
                             color: GRAY,
                             marginBottom: 3,
                             marginTop: 4,
@@ -877,7 +1088,7 @@ function ConsentFormPDF({
                         </Text>
                         {content.complications!.bardzoRzadkie.map((c, i) => (
                           <View key={i} style={styles.bulletItem}>
-                            <Text style={styles.bullet}>∙</Text>
+                            <View style={styles.goldDot} />
                             <Text style={styles.bulletText}>{c}</Text>
                           </View>
                         ))}
@@ -895,12 +1106,12 @@ function ConsentFormPDF({
             <Text style={styles.sectionTitle}>Zalecenia Pozabiegowe</Text>
             {content.postCare.map((p, i) => (
               <View key={i} style={styles.bulletItem}>
-                <Text style={styles.bullet}>∙</Text>
+                <View style={styles.goldDot} />
                 <Text
                   style={[
                     styles.bulletText,
                     p.startsWith("UWAGA")
-                      ? { fontFamily: "Helvetica-Bold", color: RED }
+                      ? { fontFamily: "Roboto", fontWeight: "bold", color: RED }
                       : {},
                   ]}
                 >
@@ -966,7 +1177,7 @@ function ConsentFormPDF({
           <View style={styles.headerTop}>
             <Image
               src={LOGO_PATH}
-              style={[styles.logoImage, { height: 28, width: 85 }]}
+              style={[styles.logoImage, { height: 45, width: 135 }]}
             />
             <Text style={[styles.docTitle, { fontSize: 10 }]}>
               {content.title} — Zgody i Podpisy
@@ -978,9 +1189,9 @@ function ConsentFormPDF({
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Udzielone Zgody</Text>
           <View style={styles.consentRow}>
-            <View style={styles.consentCheck}>
+            <View style={form.zgodaPrzetwarzanieDanych ? styles.consentCheckFilled : styles.consentCheck}>
               {form.zgodaPrzetwarzanieDanych && (
-                <Text style={styles.checkMark}>✓</Text>
+                <Text style={styles.checkMark}>X</Text>
               )}
             </View>
             <Text style={styles.consentLabel}>
@@ -988,16 +1199,16 @@ function ConsentFormPDF({
             </Text>
           </View>
           <View style={styles.consentRow}>
-            <View style={styles.consentCheck}>
-              {form.zgodaMarketing && <Text style={styles.checkMark}>✓</Text>}
+            <View style={form.zgodaMarketing ? styles.consentCheckFilled : styles.consentCheck}>
+              {form.zgodaMarketing && <Text style={styles.checkMark}>X</Text>}
             </View>
             <Text style={styles.consentLabel}>
               Zgoda marketingowa (SMS/Email)
             </Text>
           </View>
           <View style={styles.consentRow}>
-            <View style={styles.consentCheck}>
-              {form.zgodaFotografie && <Text style={styles.checkMark}>✓</Text>}
+            <View style={form.zgodaFotografie ? styles.consentCheckFilled : styles.consentCheck}>
+              {form.zgodaFotografie && <Text style={styles.checkMark}>X</Text>}
             </View>
             <Text style={styles.consentLabel}>
               Zgoda na wykorzystanie wizerunku
@@ -1007,8 +1218,8 @@ function ConsentFormPDF({
             </Text>
           </View>
           <View style={styles.consentRow}>
-            <View style={styles.consentCheck}>
-              {form.zgodaPomocPrawna && <Text style={styles.checkMark}>✓</Text>}
+            <View style={form.zgodaPomocPrawna ? styles.consentCheckFilled : styles.consentCheck}>
+              {form.zgodaPomocPrawna && <Text style={styles.checkMark}>X</Text>}
             </View>
             <Text style={styles.consentLabel}>
               Świadoma zgoda na przeprowadzenie zabiegu

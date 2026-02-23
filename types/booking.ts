@@ -889,6 +889,30 @@ export const wolumetriaTwarzyPostCare = [
   'Nie poddawać się zabiegom peelingu chemicznego i mechanicznego przez okres 3 tygodni od zabiegu',
 ];
 
+// WRINKLE_REDUCTION - Niwelowanie Zmarszczek - Zalecenia pozabiegowe
+export const niwelowaineZmarszczekPostCare = [
+  'Unikać silnych przechyleń do przodu',
+  'Miejsce poddane zabiegowi traktować ze szczególną ostrożnością',
+  'Przez 14 dni nie wykonywać innych zabiegów kosmetycznych',
+  'Ograniczyć ćwiczenia ruchowe przez około 48 h',
+  'Przez 48 h ograniczyć wykonywanie makijażu',
+  'Nie przemywać wodą, mydłem i środkami złuszczającymi miejsc poddanych wypełnieniu przez min. 4 tygodnie',
+  'Unikanie masowania i uciskania skóry w miejscu poddanej iniekcji',
+  'Przez około 24 h unikać nadmiernej mimiki twarzy',
+  'Unikać silnej ekspozycji słonecznej przez 4 tyg. i stosować kremy z wysokim filtrem UV',
+  'Nie korzystać z solarium i zabiegów krioterapii przez okres 4 tyg.',
+  'Nie korzystać z sauny, basenu przez okres min. 14 dni',
+  'Stosować zimne okłady w obszarze poddanym zabiegowi, należy jednak pamiętać iż powinny się one znajdować blisko tego obszaru ale nie wywierać nacisku na obszar zabiegowy',
+  'Zachować wysoką higienę dłoni, istnieje bowiem duże ryzyko wtórnego zakażenia',
+  'Unikać spania przez kilka dni w pozycji mogącej spowodować uciśnięcie miejsca iniekcji, najlepiej spać na plecach',
+  'Nie latać samolotem przez 48 godzin po zabiegu',
+  'Unikać spożywania alkoholu przez 48h od zabiegu',
+  'Nie poddawać się zabiegom masażu limfatycznego lub innym zabiegom kosmetycznym minimum 4 tygodnie po zabiegu',
+  'Przed zabiegami kosmetycznymi/kosmetologicznymi informować osobę wykonującą zabieg o okresie poddania się ostrzyknięciem toksyną botulinową (są zabiegi dla których jest on przeciwskazaniem)',
+  'UWAGA!!! Należy stosować się ściśle do zaleceń pozabiegowych.',
+  'UWAGA!!! Wystąpienie jakichkolwiek reakcji niepożądanych należy niezwłocznie zgłosić Specjaliście wykonującemu zabieg.',
+];
+
 // PLAZMA_PLEXR - Plasma Lifting Powiek
 export const plazmaPlexrPreCare = [
   'Zaniechanie ekspozycji na promienie UV (słońce, solarium) na 1,5 miesiąca przed planowanym zabiegiem',
