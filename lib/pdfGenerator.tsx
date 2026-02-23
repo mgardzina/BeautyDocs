@@ -675,14 +675,14 @@ function getContraText(val: string | ContraindicationWithFollowUp): string {
 function FaceDiagramPDF({ selectedIds }: { selectedIds: string[] }) {
   const selected = new Set(selectedIds);
   return (
-    <Svg viewBox="0 0 980 980" style={{ width: 200, height: 200 }}>
+    <Svg viewBox="0 0 980 980" style={{ width: 220, height: 220 }}>
       {FACE_ZONES.map((zone) => (
         <Path
           key={zone.id}
           d={zone.d}
-          fill={selected.has(zone.id) ? "rgba(212, 175, 55, 0.5)" : "rgba(143, 166, 157, 0.15)"}
-          stroke={selected.has(zone.id) ? "#D4AF37" : "rgba(143, 166, 157, 0.4)"}
-          strokeWidth={selected.has(zone.id) ? 3 : 1}
+          fill={selected.has(zone.id) ? "rgba(201, 168, 76, 0.6)" : "rgba(200, 200, 200, 0.25)"}
+          stroke={selected.has(zone.id) ? "#C9A84C" : "rgba(160, 160, 160, 0.5)"}
+          strokeWidth={selected.has(zone.id) ? 4 : 1.5}
           strokeLinecap="round"
           strokeLinejoin="round"
         />
@@ -695,14 +695,14 @@ function FaceDiagramPDF({ selectedIds }: { selectedIds: string[] }) {
 function BodyDiagramPDF({ selectedIds }: { selectedIds: string[] }) {
   const selected = new Set(selectedIds);
   return (
-    <Svg viewBox="0 0 724 1024" style={{ width: 140, height: 198 }}>
+    <Svg viewBox="0 0 724 1024" style={{ width: 155, height: 220 }}>
       {BODY_ZONES.map((zone) => (
         <Path
           key={zone.id}
           d={zone.d}
-          fill={selected.has(zone.id) ? "rgba(212, 175, 55, 0.8)" : "rgba(143, 166, 157, 0.6)"}
-          stroke={selected.has(zone.id) ? "#D4AF37" : "rgba(143, 166, 157, 0.5)"}
-          strokeWidth={selected.has(zone.id) ? 3 : 1}
+          fill={selected.has(zone.id) ? "rgba(201, 168, 76, 0.7)" : "rgba(200, 200, 200, 0.35)"}
+          stroke={selected.has(zone.id) ? "#C9A84C" : "rgba(160, 160, 160, 0.5)"}
+          strokeWidth={selected.has(zone.id) ? 4 : 1.5}
           strokeLinecap="round"
           strokeLinejoin="round"
         />
@@ -884,23 +884,22 @@ function ConsentFormPDF({
           return (
             <View style={styles.section}>
               <Text style={styles.sectionTitle}>Obszar Zabiegu</Text>
+              {/* Schematy anatomiczne obok chipów */}
               <View style={{ flexDirection: "row", gap: 12, alignItems: "flex-start" }}>
-                {/* Schemat(y) anatomiczny(e) */}
                 <View style={{ flexDirection: "row", gap: 8, alignItems: "flex-start" }}>
                   {face.length > 0 && (
                     <View style={{ alignItems: "center" }}>
                       <FaceDiagramPDF selectedIds={face} />
-                      <Text style={{ fontSize: 6.5, color: GRAY, marginTop: 2 }}>Twarz</Text>
+                      <Text style={{ fontSize: 6.5, color: GOLD, fontFamily: "Roboto", fontWeight: "bold", marginTop: 2, textTransform: "uppercase", letterSpacing: 0.5 }}>Twarz</Text>
                     </View>
                   )}
                   {body.length > 0 && (
                     <View style={{ alignItems: "center" }}>
                       <BodyDiagramPDF selectedIds={body} />
-                      <Text style={{ fontSize: 6.5, color: GRAY, marginTop: 2 }}>Ciało</Text>
+                      <Text style={{ fontSize: 6.5, color: GOLD, fontFamily: "Roboto", fontWeight: "bold", marginTop: 2, textTransform: "uppercase", letterSpacing: 0.5 }}>Ciało</Text>
                     </View>
                   )}
                 </View>
-                {/* Lista zaznaczonych stref tekstowo */}
                 <View style={{ flex: 1 }}>
                   {face.length > 0 && (
                     <View style={{ marginBottom: body.length > 0 ? 6 : 0 }}>
@@ -932,8 +931,8 @@ function ConsentFormPDF({
           );
         })()}
 
-        {/* Przeciwwskazania */}
-        <View style={styles.section}>
+        {/* Przeciwwskazania — na osobnej stronie */}
+        <View style={styles.section} break>
           <Text style={styles.sectionTitle}>
             Wywiad Medyczny — Przeciwwskazania
           </Text>
@@ -981,18 +980,18 @@ function ConsentFormPDF({
           </View>
         )}
 
-        {/* Stopka strony 1 */}
+        {/* Stopka */}
         <View style={styles.footer} fixed>
           <Text style={styles.footerText}>
             {rodoInfo.firmaNazwa} • Karta Zgody nr{" "}
             {form.id.substring(0, 8).toUpperCase()}
           </Text>
-          <Text style={styles.footerGold}>Strona 1/3</Text>
+          <Text style={styles.footerGold} render={({ pageNumber, totalPages }) => `Strona ${pageNumber}/${totalPages}`} />
         </View>
       </Page>
 
       {/* ═══ STRONA 2: Skutki, Zalecenia, RODO ═══ */}
-      <Page size="A4" style={styles.page}>
+      <Page size="A4" style={styles.page} wrap>
         {/* Nagłówek kontynuacji ze logo */}
         <View style={[styles.header, { paddingBottom: 6 }]}>
           <View style={styles.headerTop}>
@@ -1129,11 +1128,11 @@ function ConsentFormPDF({
           </Text>
           <View style={styles.consentBox}>
             <Text style={styles.consentText}>
-              {rodoInfo.consentText.substring(0, 600)}...
+              {rodoInfo.consentText}
             </Text>
           </View>
           {form.podpisRodo && (
-            <View style={styles.signatureSection}>
+            <View style={styles.signatureSection} wrap={false}>
               <Text style={styles.signatureLabel}>
                 Podpis Klienta (Zgoda RODO):
               </Text>
@@ -1148,11 +1147,11 @@ function ConsentFormPDF({
           <Text style={styles.sectionTitle}>Klauzula Informacyjna RODO</Text>
           <View style={styles.consentBox}>
             <Text style={styles.consentText}>
-              {rodoInfo.clauseText.substring(0, 600)}...
+              {rodoInfo.clauseText}
             </Text>
           </View>
           {form.podpisRodo2 && (
-            <View style={styles.signatureSection}>
+            <View style={styles.signatureSection} wrap={false}>
               <Text style={styles.signatureLabel}>
                 Podpis Klienta (Klauzula informacyjna):
               </Text>
@@ -1167,12 +1166,12 @@ function ConsentFormPDF({
             {rodoInfo.firmaNazwa} • Karta Zgody nr{" "}
             {form.id.substring(0, 8).toUpperCase()}
           </Text>
-          <Text style={styles.footerGold}>Strona 2/3</Text>
+          <Text style={styles.footerGold} render={({ pageNumber, totalPages }) => `Strona ${pageNumber}/${totalPages}`} />
         </View>
       </Page>
 
       {/* ═══ STRONA 3: Zgody + Podpisy zabiegowe ═══ */}
-      <Page size="A4" style={styles.page}>
+      <Page size="A4" style={styles.page} wrap>
         <View style={[styles.header, { paddingBottom: 6 }]}>
           <View style={styles.headerTop}>
             <Image
@@ -1297,9 +1296,7 @@ function ConsentFormPDF({
             {rodoInfo.firmaNazwa} • Karta Zgody nr{" "}
             {form.id.substring(0, 8).toUpperCase()}
           </Text>
-          <Text style={styles.footerGold}>
-            Strona 3/3 • Dokument wygenerowany: {today}
-          </Text>
+          <Text style={styles.footerGold} render={({ pageNumber, totalPages }) => `Strona ${pageNumber}/${totalPages} • Dokument wygenerowany: ${today}`} />
         </View>
       </Page>
     </Document>
