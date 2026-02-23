@@ -3,6 +3,7 @@
  * Używa @react-pdf/renderer — działa TYLKO po stronie serwera (Node.js / Next.js API Routes)
  */
 import React from "react";
+import path from "path";
 import {
   Document,
   Page,
@@ -13,6 +14,9 @@ import {
   renderToBuffer,
   Font,
 } from "@react-pdf/renderer";
+
+// Ścieżka do logo — bezwzględna, wymagana przez @react-pdf/renderer
+const LOGO_PATH = path.join(process.cwd(), "public", "logo.png");
 
 // ─── Import danych per-typ formularza ──────────────────────────────────────
 import {
@@ -283,10 +287,17 @@ const styles = StyleSheet.create({
     alignItems: "flex-start",
   },
   salonName: {
-    fontSize: 14,
+    fontSize: 12,
     fontFamily: "Helvetica-Bold",
     color: GOLD,
+    marginTop: 2,
   },
+  logoImage: {
+    height: 40,
+    width: 120,
+    objectFit: "contain",
+  },
+
   salonSubtitle: {
     fontSize: 8,
     color: GRAY,
@@ -578,11 +589,11 @@ function ConsentFormPDF({
     >
       {/* ═══ STRONA 1: Dane osobowe + Przeciwwskazania ═══ */}
       <Page size="A4" style={styles.page} wrap>
-        {/* Header */}
+        {/* Header ze logo */}
         <View style={styles.header}>
           <View style={styles.headerTop}>
             <View>
-              <Text style={styles.salonName}>{rodoInfo.firmaNazwa}</Text>
+              <Image src={LOGO_PATH} style={styles.logoImage} />
               <Text style={styles.salonSubtitle}>{rodoInfo.adres}</Text>
             </View>
             <View>
@@ -771,14 +782,17 @@ function ConsentFormPDF({
 
       {/* ═══ STRONA 2: Skutki, Zalecenia, RODO ═══ */}
       <Page size="A4" style={styles.page}>
-        {/* Nagłówek kontynuacji */}
+        {/* Nagłówek kontynuacji ze logo */}
         <View style={[styles.header, { paddingBottom: 6 }]}>
-          <Text style={[styles.salonName, { fontSize: 10 }]}>
-            {rodoInfo.firmaNazwa}
-          </Text>
-          <Text style={[styles.docTitle, { fontSize: 10 }]}>
-            {content.title} — Ciąg Dalszy
-          </Text>
+          <View style={styles.headerTop}>
+            <Image
+              src={LOGO_PATH}
+              style={[styles.logoImage, { height: 28, width: 85 }]}
+            />
+            <Text style={[styles.docTitle, { fontSize: 10 }]}>
+              {content.title} — Ciąg Dalszy
+            </Text>
+          </View>
         </View>
 
         {/* Naturalne reakcje */}
@@ -949,12 +963,15 @@ function ConsentFormPDF({
       {/* ═══ STRONA 3: Zgody + Podpisy zabiegowe ═══ */}
       <Page size="A4" style={styles.page}>
         <View style={[styles.header, { paddingBottom: 6 }]}>
-          <Text style={[styles.salonName, { fontSize: 10 }]}>
-            {rodoInfo.firmaNazwa}
-          </Text>
-          <Text style={[styles.docTitle, { fontSize: 10 }]}>
-            {content.title} — Zgody i Podpisy
-          </Text>
+          <View style={styles.headerTop}>
+            <Image
+              src={LOGO_PATH}
+              style={[styles.logoImage, { height: 28, width: 85 }]}
+            />
+            <Text style={[styles.docTitle, { fontSize: 10 }]}>
+              {content.title} — Zgody i Podpisy
+            </Text>
+          </View>
         </View>
 
         {/* Zgody i Oświadczenia */}
