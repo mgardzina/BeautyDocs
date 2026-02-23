@@ -7,10 +7,8 @@
  */
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.SMTP_TOKEN);
-
 // Adres admina / salonu — zawsze dostaje kopię
-const SALON_EMAIL = "powderbrows@gmail.com";
+const SALON_EMAIL = "[EMAIL_ADDRESS]";
 const SALON_NAME = "Powder Brows Academy";
 
 // Adres nadawcy — musi być zweryfikowaną domeną w Resend
@@ -198,6 +196,14 @@ export async function sendConsentFormEmail(
     filename: pdfFilename,
     content: pdfBuffer.toString("base64"),
   };
+
+  // Lazy initialization — Resend wymaga klucza tylko w runtime, nie podczas build
+  const apiKey = process.env.SMTP_TOKEN;
+  if (!apiKey) {
+    console.error("[Resend] Brak SMTP_TOKEN w env — email nie zostanie wysłany");
+    return { success: false, error: "Missing SMTP_TOKEN" };
+  }
+  const resend = new Resend(apiKey);
 
   try {
     // 1. Email do klienta (jeśli podał email)
