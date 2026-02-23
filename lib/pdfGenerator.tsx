@@ -81,15 +81,33 @@ const ZONE_NAME_MAP: Record<string, string> = {
 
 // Zbiory ID stref: twarz vs ciało
 const FACE_ZONE_IDS = new Set([
-  "forehead", "glabella", "nose", "eyebrow_right", "eyebrow_left",
-  "left_eye", "right_eye", "left_cheek", "right_cheek", "lips",
-  "chin", "marionette_lines", "jaw_left", "jaw_right",
-  "nasolabial_folds", "dekolt", "eyelid_left", "eyelid_right", "neck",
+  "forehead",
+  "glabella",
+  "nose",
+  "eyebrow_right",
+  "eyebrow_left",
+  "left_eye",
+  "right_eye",
+  "left_cheek",
+  "right_cheek",
+  "lips",
+  "chin",
+  "marionette_lines",
+  "jaw_left",
+  "jaw_right",
+  "nasolabial_folds",
+  "dekolt",
+  "eyelid_left",
+  "eyelid_right",
+  "neck",
 ]);
 
 /** Rozdziela zone IDs na twarz i ciało */
 function splitZonesByType(zones: string): { face: string[]; body: string[] } {
-  const ids = zones.split(",").map((z) => z.trim()).filter(Boolean);
+  const ids = zones
+    .split(",")
+    .map((z) => z.trim())
+    .filter(Boolean);
   const face: string[] = [];
   const body: string[] = [];
   for (const id of ids) {
@@ -376,7 +394,8 @@ const styles = StyleSheet.create({
   },
   salonName: {
     fontSize: 12,
-    fontFamily: "Roboto", fontWeight: "bold",
+    fontFamily: "Roboto",
+    fontWeight: "bold",
     color: GOLD,
     marginTop: 2,
   },
@@ -399,7 +418,8 @@ const styles = StyleSheet.create({
   docTitle: {
     marginTop: 10,
     fontSize: 13,
-    fontFamily: "Roboto", fontWeight: "bold",
+    fontFamily: "Roboto",
+    fontWeight: "bold",
     color: DARK,
     textAlign: "center",
     textTransform: "uppercase",
@@ -417,7 +437,8 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     fontSize: 8.5,
-    fontFamily: "Roboto", fontWeight: "bold",
+    fontFamily: "Roboto",
+    fontWeight: "bold",
     color: GOLD,
     textTransform: "uppercase",
     letterSpacing: 0.5,
@@ -435,7 +456,8 @@ const styles = StyleSheet.create({
     fontSize: 8,
     color: GRAY,
     width: 100,
-    fontFamily: "Roboto", fontWeight: "bold",
+    fontFamily: "Roboto",
+    fontWeight: "bold",
   },
   value: {
     fontSize: 8.5,
@@ -464,7 +486,8 @@ const styles = StyleSheet.create({
     width: 22,
     textAlign: "center",
     fontSize: 7.5,
-    fontFamily: "Roboto", fontWeight: "bold",
+    fontFamily: "Roboto",
+    fontWeight: "bold",
     paddingHorizontal: 3,
     paddingVertical: 1,
     borderRadius: 2,
@@ -481,7 +504,8 @@ const styles = StyleSheet.create({
     marginTop: 2,
     marginLeft: 4,
     flex: 1,
-    fontFamily: "Roboto", fontStyle: "italic",
+    fontFamily: "Roboto",
+    fontStyle: "italic",
   },
   // Lista punktowana
   bulletItem: {
@@ -518,7 +542,8 @@ const styles = StyleSheet.create({
   signatureLabel: {
     fontSize: 8,
     color: GRAY,
-    fontFamily: "Roboto", fontWeight: "bold",
+    fontFamily: "Roboto",
+    fontWeight: "bold",
     marginBottom: 4,
   },
   signatureImage: {
@@ -530,7 +555,8 @@ const styles = StyleSheet.create({
     fontSize: 7.5,
     color: GRAY,
     textAlign: "right",
-    fontFamily: "Roboto", fontStyle: "italic",
+    fontFamily: "Roboto",
+    fontStyle: "italic",
   },
   // Stopka
   footer: {
@@ -551,7 +577,8 @@ const styles = StyleSheet.create({
   footerGold: {
     fontSize: 7,
     color: GOLD,
-    fontFamily: "Roboto", fontWeight: "bold",
+    fontFamily: "Roboto",
+    fontWeight: "bold",
   },
   // Status badge
   statusBadge: {
@@ -570,7 +597,8 @@ const styles = StyleSheet.create({
   statusText: {
     fontSize: 7.5,
     color: GREEN_DARK,
-    fontFamily: "Roboto", fontWeight: "bold",
+    fontFamily: "Roboto",
+    fontWeight: "bold",
   },
   pageNumber: {
     fontSize: 7,
@@ -680,8 +708,14 @@ function FaceDiagramPDF({ selectedIds }: { selectedIds: string[] }) {
         <Path
           key={zone.id}
           d={zone.d}
-          fill={selected.has(zone.id) ? "rgba(201, 168, 76, 0.6)" : "rgba(200, 200, 200, 0.25)"}
-          stroke={selected.has(zone.id) ? "#C9A84C" : "rgba(160, 160, 160, 0.5)"}
+          fill={
+            selected.has(zone.id)
+              ? "rgba(201, 168, 76, 0.6)"
+              : "rgba(200, 200, 200, 0.25)"
+          }
+          stroke={
+            selected.has(zone.id) ? "#C9A84C" : "rgba(160, 160, 160, 0.5)"
+          }
           strokeWidth={selected.has(zone.id) ? 4 : 1.5}
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -700,8 +734,14 @@ function BodyDiagramPDF({ selectedIds }: { selectedIds: string[] }) {
         <Path
           key={zone.id}
           d={zone.d}
-          fill={selected.has(zone.id) ? "rgba(201, 168, 76, 0.7)" : "rgba(200, 200, 200, 0.35)"}
-          stroke={selected.has(zone.id) ? "#C9A84C" : "rgba(160, 160, 160, 0.5)"}
+          fill={
+            selected.has(zone.id)
+              ? "rgba(201, 168, 76, 0.7)"
+              : "rgba(200, 200, 200, 0.35)"
+          }
+          stroke={
+            selected.has(zone.id) ? "#C9A84C" : "rgba(160, 160, 160, 0.5)"
+          }
           strokeWidth={selected.has(zone.id) ? 4 : 1.5}
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -835,9 +875,7 @@ function ConsentFormPDF({
         </View>
 
         {/* Szczegóły zabiegu */}
-        {(form.nazwaProduktu ||
-          form.iloscProduktu ||
-          form.celEfektu) && (
+        {(form.nazwaProduktu || form.iloscProduktu || form.celEfektu) && (
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Szczegóły Zabiegu</Text>
             <View style={styles.twoCol}>
@@ -878,58 +916,62 @@ function ConsentFormPDF({
           </View>
         )}
 
-        {/* Obszar Zabiegu — schemat anatomiczny z zaznaczonymi strefami */}
-        {form.obszarZabiegu && (() => {
-          const { face, body } = splitZonesByType(form.obszarZabiegu);
-          return (
-            <View style={styles.section}>
-              <Text style={styles.sectionTitle}>Obszar Zabiegu</Text>
-              {/* Schematy anatomiczne obok chipów */}
-              <View style={{ flexDirection: "row", gap: 12, alignItems: "flex-start" }}>
-                <View style={{ flexDirection: "row", gap: 8, alignItems: "flex-start" }}>
+        {/* Obszar Zabiegu — tylko tekstowe chipy stref */}
+        {form.obszarZabiegu &&
+          (() => {
+            const { face, body } = splitZonesByType(form.obszarZabiegu);
+            return (
+              <View style={styles.section}>
+                <Text style={styles.sectionTitle}>Obszar Zabiegu</Text>
+                <View style={{ gap: 6 }}>
                   {face.length > 0 && (
-                    <View style={{ alignItems: "center" }}>
-                      <FaceDiagramPDF selectedIds={face} />
-                      <Text style={{ fontSize: 6.5, color: GOLD, fontFamily: "Roboto", fontWeight: "bold", marginTop: 2, textTransform: "uppercase", letterSpacing: 0.5 }}>Twarz</Text>
-                    </View>
-                  )}
-                  {body.length > 0 && (
-                    <View style={{ alignItems: "center" }}>
-                      <BodyDiagramPDF selectedIds={body} />
-                      <Text style={{ fontSize: 6.5, color: GOLD, fontFamily: "Roboto", fontWeight: "bold", marginTop: 2, textTransform: "uppercase", letterSpacing: 0.5 }}>Ciało</Text>
-                    </View>
-                  )}
-                </View>
-                <View style={{ flex: 1 }}>
-                  {face.length > 0 && (
-                    <View style={{ marginBottom: body.length > 0 ? 6 : 0 }}>
-                      <Text style={{ fontSize: 7.5, fontFamily: "Roboto", fontWeight: "bold", color: GRAY, marginBottom: 3 }}>
+                    <View>
+                      <Text
+                        style={{
+                          fontSize: 7.5,
+                          fontFamily: "Roboto",
+                          fontWeight: "bold",
+                          color: GRAY,
+                          marginBottom: 3,
+                        }}
+                      >
                         Zaznaczone strefy — Twarz:
                       </Text>
                       <View style={styles.chipRow}>
                         {face.map((id, i) => (
-                          <Text key={i} style={styles.zoneChip}>{ZONE_NAME_MAP[id] || id}</Text>
+                          <Text key={i} style={styles.zoneChip}>
+                            {ZONE_NAME_MAP[id] || id}
+                          </Text>
                         ))}
                       </View>
                     </View>
                   )}
                   {body.length > 0 && (
                     <View>
-                      <Text style={{ fontSize: 7.5, fontFamily: "Roboto", fontWeight: "bold", color: GRAY, marginBottom: 3 }}>
+                      <Text
+                        style={{
+                          fontSize: 7.5,
+                          fontFamily: "Roboto",
+                          fontWeight: "bold",
+                          color: GRAY,
+                          marginBottom: 3,
+                        }}
+                      >
                         Zaznaczone strefy — Ciało:
                       </Text>
                       <View style={styles.chipRow}>
                         {body.map((id, i) => (
-                          <Text key={i} style={styles.zoneChip}>{ZONE_NAME_MAP[id] || id}</Text>
+                          <Text key={i} style={styles.zoneChip}>
+                            {ZONE_NAME_MAP[id] || id}
+                          </Text>
                         ))}
                       </View>
                     </View>
                   )}
                 </View>
               </View>
-            </View>
-          );
-        })()}
+            );
+          })()}
 
         {/* Przeciwwskazania — na osobnej stronie */}
         <View style={styles.section} break>
@@ -986,7 +1028,12 @@ function ConsentFormPDF({
             {rodoInfo.firmaNazwa} • Karta Zgody nr{" "}
             {form.id.substring(0, 8).toUpperCase()}
           </Text>
-          <Text style={styles.footerGold} render={({ pageNumber, totalPages }) => `Strona ${pageNumber}/${totalPages}`} />
+          <Text
+            style={styles.footerGold}
+            render={({ pageNumber, totalPages }) =>
+              `Strona ${pageNumber}/${totalPages}`
+            }
+          />
         </View>
       </Page>
 
@@ -1031,7 +1078,8 @@ function ConsentFormPDF({
                     <Text
                       style={{
                         fontSize: 7.5,
-                        fontFamily: "Roboto", fontWeight: "bold",
+                        fontFamily: "Roboto",
+                        fontWeight: "bold",
                         color: GRAY,
                         marginBottom: 3,
                       }}
@@ -1056,7 +1104,8 @@ function ConsentFormPDF({
                         <Text
                           style={{
                             fontSize: 7.5,
-                            fontFamily: "Roboto", fontWeight: "bold",
+                            fontFamily: "Roboto",
+                            fontWeight: "bold",
                             color: GRAY,
                             marginBottom: 3,
                           }}
@@ -1077,7 +1126,8 @@ function ConsentFormPDF({
                         <Text
                           style={{
                             fontSize: 7.5,
-                            fontFamily: "Roboto", fontWeight: "bold",
+                            fontFamily: "Roboto",
+                            fontWeight: "bold",
                             color: GRAY,
                             marginBottom: 3,
                             marginTop: 4,
@@ -1127,9 +1177,7 @@ function ConsentFormPDF({
             RODO — Zgoda na Przetwarzanie Danych
           </Text>
           <View style={styles.consentBox}>
-            <Text style={styles.consentText}>
-              {rodoInfo.consentText}
-            </Text>
+            <Text style={styles.consentText}>{rodoInfo.consentText}</Text>
           </View>
           {form.podpisRodo && (
             <View style={styles.signatureSection} wrap={false}>
@@ -1146,9 +1194,7 @@ function ConsentFormPDF({
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Klauzula Informacyjna RODO</Text>
           <View style={styles.consentBox}>
-            <Text style={styles.consentText}>
-              {rodoInfo.clauseText}
-            </Text>
+            <Text style={styles.consentText}>{rodoInfo.clauseText}</Text>
           </View>
           {form.podpisRodo2 && (
             <View style={styles.signatureSection} wrap={false}>
@@ -1166,7 +1212,12 @@ function ConsentFormPDF({
             {rodoInfo.firmaNazwa} • Karta Zgody nr{" "}
             {form.id.substring(0, 8).toUpperCase()}
           </Text>
-          <Text style={styles.footerGold} render={({ pageNumber, totalPages }) => `Strona ${pageNumber}/${totalPages}`} />
+          <Text
+            style={styles.footerGold}
+            render={({ pageNumber, totalPages }) =>
+              `Strona ${pageNumber}/${totalPages}`
+            }
+          />
         </View>
       </Page>
 
@@ -1188,7 +1239,13 @@ function ConsentFormPDF({
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Udzielone Zgody</Text>
           <View style={styles.consentRow}>
-            <View style={form.zgodaPrzetwarzanieDanych ? styles.consentCheckFilled : styles.consentCheck}>
+            <View
+              style={
+                form.zgodaPrzetwarzanieDanych
+                  ? styles.consentCheckFilled
+                  : styles.consentCheck
+              }
+            >
               {form.zgodaPrzetwarzanieDanych && (
                 <Text style={styles.checkMark}>X</Text>
               )}
@@ -1198,7 +1255,13 @@ function ConsentFormPDF({
             </Text>
           </View>
           <View style={styles.consentRow}>
-            <View style={form.zgodaMarketing ? styles.consentCheckFilled : styles.consentCheck}>
+            <View
+              style={
+                form.zgodaMarketing
+                  ? styles.consentCheckFilled
+                  : styles.consentCheck
+              }
+            >
               {form.zgodaMarketing && <Text style={styles.checkMark}>X</Text>}
             </View>
             <Text style={styles.consentLabel}>
@@ -1206,7 +1269,13 @@ function ConsentFormPDF({
             </Text>
           </View>
           <View style={styles.consentRow}>
-            <View style={form.zgodaFotografie ? styles.consentCheckFilled : styles.consentCheck}>
+            <View
+              style={
+                form.zgodaFotografie
+                  ? styles.consentCheckFilled
+                  : styles.consentCheck
+              }
+            >
               {form.zgodaFotografie && <Text style={styles.checkMark}>X</Text>}
             </View>
             <Text style={styles.consentLabel}>
@@ -1217,7 +1286,13 @@ function ConsentFormPDF({
             </Text>
           </View>
           <View style={styles.consentRow}>
-            <View style={form.zgodaPomocPrawna ? styles.consentCheckFilled : styles.consentCheck}>
+            <View
+              style={
+                form.zgodaPomocPrawna
+                  ? styles.consentCheckFilled
+                  : styles.consentCheck
+              }
+            >
               {form.zgodaPomocPrawna && <Text style={styles.checkMark}>X</Text>}
             </View>
             <Text style={styles.consentLabel}>
@@ -1296,7 +1371,12 @@ function ConsentFormPDF({
             {rodoInfo.firmaNazwa} • Karta Zgody nr{" "}
             {form.id.substring(0, 8).toUpperCase()}
           </Text>
-          <Text style={styles.footerGold} render={({ pageNumber, totalPages }) => `Strona ${pageNumber}/${totalPages} • Dokument wygenerowany: ${today}`} />
+          <Text
+            style={styles.footerGold}
+            render={({ pageNumber, totalPages }) =>
+              `Strona ${pageNumber}/${totalPages} • Dokument wygenerowany: ${today}`
+            }
+          />
         </View>
       </Page>
     </Document>
