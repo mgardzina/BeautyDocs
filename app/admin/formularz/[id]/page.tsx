@@ -268,7 +268,7 @@ export default function FormDetailsPage() {
   if (isLoading) {
     // Original: if (isLoading)
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center">
         <div className="text-brand text-lg">Ładowanie...</div>
       </div>
     );
@@ -277,7 +277,7 @@ export default function FormDetailsPage() {
   if (!form) {
     // Original: if (!form)
     return (
-      <div className="min-h-screen bg-black p-8 text-center">
+      <div className="min-h-screen p-8 text-center">
         <div className="max-w-md mx-auto bg-gradient-emerald backdrop-blur-sm p-8 rounded-2xl shadow-lg border border-red-500/20">
           <p className="text-red-400 mb-6">
             {"Nie udało się załadować danych"}
@@ -299,7 +299,7 @@ export default function FormDetailsPage() {
   const formData = form; // Alias for consistency with the diff's new structure
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen">
       {/* Header */}
       <header className="bg-gradient-emerald backdrop-blur-sm sticky top-0 z-50 shadow-lg border-b border-brand">
         <div className="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
@@ -309,7 +309,7 @@ export default function FormDetailsPage() {
               <>
                 <button
                   onClick={handleCancel}
-                  className="flex items-center gap-2 text-white/60 hover:text-white transition-colors"
+                  className="flex items-center gap-2 text-marble-text/60 hover:text-brand transition-colors"
                 >
                   <XCircle className="w-5 h-5" />
                   <span className="hidden md:inline">Anuluj</span>
@@ -340,7 +340,7 @@ export default function FormDetailsPage() {
                 </button>
                 <button
                   onClick={() => setIsEditing(true)}
-                  className="flex items-center gap-2 text-white/80 hover:text-white transition-colors"
+                  className="flex items-center gap-2 text-marble-text/80 hover:text-brand transition-colors"
                 >
                   <Pencil className="w-5 h-5" />
                   <span className="hidden md:inline">Edytuj</span>
@@ -363,11 +363,11 @@ export default function FormDetailsPage() {
 
       <main className="max-w-4xl mx-auto px-4 py-8 space-y-6">
         {/* Header Info - Always Visible */}
-        <div className="bg-gradient-emerald backdrop-blur-sm rounded-2xl shadow-lg p-4 md:p-8 border border-emerald/20">
+        <div className="bg-gradient-emerald backdrop-blur-sm rounded-2xl shadow-lg p-4 md:p-8 border border-brand/15">
           <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-6">
             <div>
               <div className="flex items-center gap-4 flex-wrap">
-                <h1 className="text-2xl md:text-3xl font-serif text-white">
+                <h1 className="text-2xl md:text-3xl font-serif text-marble-text">
                   {form.imieNazwisko}
                 </h1>
                 <span className="px-3 py-1 bg-brand/10 text-brand rounded-lg text-sm font-medium">
@@ -390,7 +390,7 @@ export default function FormDetailsPage() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-4">
-            <div className="flex items-center gap-3 text-white">
+            <div className="flex items-center gap-3 text-marble-text">
               <Phone className="w-5 h-5 text-brand flex-shrink-0" />
               {isEditing ? (
                 <input
@@ -399,14 +399,14 @@ export default function FormDetailsPage() {
                   onChange={(e) =>
                     setEditedForm({ ...editedForm, telefon: e.target.value })
                   }
-                  className="flex-1 px-3 py-1.5 bg-black/40 border border-emerald/30 rounded-lg text-sm focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none text-white"
+                  className="flex-1 px-3 py-1.5 bg-marble-border/40 border border-brand/20 rounded-lg text-sm focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none text-marble-text"
                   placeholder="Telefon"
                 />
               ) : (
                 <span>+48 {form.telefon}</span>
               )}
             </div>
-            <div className="flex items-center gap-3 text-white">
+            <div className="flex items-center gap-3 text-marble-text">
               <Mail className="w-5 h-5 text-brand flex-shrink-0" />
               {isEditing ? (
                 <input
@@ -415,14 +415,14 @@ export default function FormDetailsPage() {
                   onChange={(e) =>
                     setEditedForm({ ...editedForm, email: e.target.value })
                   }
-                  className="flex-1 px-3 py-1.5 bg-black/40 border border-emerald/30 rounded-lg text-sm focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none text-white"
+                  className="flex-1 px-3 py-1.5 bg-marble-border/40 border border-brand/20 rounded-lg text-sm focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none text-marble-text"
                   placeholder="Email"
                 />
               ) : (
                 <span>{form.email || "Brak email"}</span>
               )}
             </div>
-            <div className="flex items-start gap-3 text-white">
+            <div className="flex items-start gap-3 text-marble-text">
               <MapPin className="w-5 h-5 text-brand flex-shrink-0 mt-1" />
               {isEditing ? (
                 <div className="flex-1 space-y-2">
@@ -432,7 +432,7 @@ export default function FormDetailsPage() {
                     onChange={(e) =>
                       setEditedForm({ ...editedForm, ulica: e.target.value })
                     }
-                    className="w-full px-3 py-1.5 bg-black/40 border border-emerald/30 rounded-lg text-sm focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none text-white"
+                    className="w-full px-3 py-1.5 bg-marble-border/40 border border-brand/20 rounded-lg text-sm focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none text-marble-text"
                     placeholder="Ulica"
                   />
                   <div className="flex gap-2">
@@ -445,7 +445,7 @@ export default function FormDetailsPage() {
                           kodPocztowy: e.target.value,
                         })
                       }
-                      className="w-24 px-3 py-1.5 bg-black/40 border border-emerald/30 rounded-lg text-sm focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none text-white"
+                      className="w-24 px-3 py-1.5 bg-marble-border/40 border border-brand/20 rounded-lg text-sm focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none text-marble-text"
                       placeholder="Kod"
                     />
                     <input
@@ -454,7 +454,7 @@ export default function FormDetailsPage() {
                       onChange={(e) =>
                         setEditedForm({ ...editedForm, miasto: e.target.value })
                       }
-                      className="flex-1 px-3 py-1.5 bg-black/40 border border-emerald/30 rounded-lg text-sm focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none text-white"
+                      className="flex-1 px-3 py-1.5 bg-marble-border/40 border border-brand/20 rounded-lg text-sm focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none text-marble-text"
                       placeholder="Miasto"
                     />
                   </div>
@@ -463,7 +463,7 @@ export default function FormDetailsPage() {
                 <div className="flex flex-col">
                   {form.ulica || form.miasto ? (
                     <>
-                      <span className="text-white">{form.ulica}</span>
+                      <span className="text-marble-text">{form.ulica}</span>
                       <span className="text-ui-textSecondary">
                         {form.kodPocztowy} {form.miasto}
                       </span>
@@ -477,7 +477,7 @@ export default function FormDetailsPage() {
               )}
             </div>
             {form.pesel && (
-              <div className="flex items-center gap-3 text-white">
+              <div className="flex items-center gap-3 text-marble-text">
                 <User className="w-5 h-5 text-brand" />
                 <span>PESEL: {form.pesel}</span>
               </div>
@@ -486,13 +486,13 @@ export default function FormDetailsPage() {
         </div>
 
         {/* Tabs Navigation */}
-        <div className="flex gap-2 border-b border-emerald/30 overflow-x-auto pb-1">
+        <div className="flex gap-2 border-b border-brand/20 overflow-x-auto pb-1">
           <button
             onClick={() => setActiveTab("details")}
             className={`px-4 py-2 text-sm font-medium transition-colors whitespace-nowrap ${
               activeTab === "details"
                 ? "text-brand border-b-2 border-brand"
-                : "text-ui-textSecondary hover:text-white"
+                : "text-ui-textSecondary hover:text-brand"
             }`}
           >
             Szczegóły zabiegu
@@ -502,7 +502,7 @@ export default function FormDetailsPage() {
             className={`px-4 py-2 text-sm font-medium transition-colors whitespace-nowrap ${
               activeTab === "contraindications"
                 ? "text-brand border-b-2 border-brand"
-                : "text-ui-textSecondary hover:text-white"
+                : "text-ui-textSecondary hover:text-brand"
             }`}
           >
             Przeciwwskazania
@@ -512,7 +512,7 @@ export default function FormDetailsPage() {
             className={`px-4 py-2 text-sm font-medium transition-colors whitespace-nowrap ${
               activeTab === "consents"
                 ? "text-brand border-b-2 border-brand"
-                : "text-ui-textSecondary hover:text-white"
+                : "text-ui-textSecondary hover:text-brand"
             }`}
           >
             Zgody i Podpisy
@@ -521,8 +521,8 @@ export default function FormDetailsPage() {
 
         {/* Tab Content: Details */}
         {activeTab === "details" && (
-          <div className="bg-gradient-emerald backdrop-blur-sm rounded-2xl shadow-lg p-4 md:p-8 animate-in fade-in slide-in-from-bottom-2 duration-300 border border-emerald/20">
-            <h2 className="text-xl font-serif text-white mb-4 pb-3 border-b border-emerald/30">
+          <div className="bg-gradient-emerald backdrop-blur-sm rounded-2xl shadow-lg p-4 md:p-8 animate-in fade-in slide-in-from-bottom-2 duration-300 border border-brand/15">
+            <h2 className="text-xl font-serif text-marble-text mb-4 pb-3 border-b border-brand/20">
               Szczegóły zabiegu
             </h2>
             <div className="space-y-4">
@@ -540,11 +540,11 @@ export default function FormDetailsPage() {
                         nazwaProduktu: e.target.value,
                       })
                     }
-                    className="w-full px-3 py-2 bg-black/40 border border-emerald/30 rounded-lg focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none text-white"
+                    className="w-full px-3 py-2 bg-marble-border/40 border border-brand/20 rounded-lg focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none text-marble-text"
                     placeholder="Nazwa preparatu"
                   />
                 ) : (
-                  <p className="text-white">
+                  <p className="text-marble-text">
                     {cleanNazwaProduktu(form.nazwaProduktu) || "Nie podano"}
                   </p>
                 )}
@@ -563,11 +563,11 @@ export default function FormDetailsPage() {
                         obszarZabiegu: e.target.value,
                       })
                     }
-                    className="w-full px-3 py-2 bg-black/40 border border-emerald/30 rounded-lg focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none text-white"
+                    className="w-full px-3 py-2 bg-marble-border/40 border border-brand/20 rounded-lg focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none text-marble-text"
                     placeholder="Obszar zabiegu"
                   />
                 ) : (
-                  <p className="text-white">
+                  <p className="text-marble-text">
                     {translateZones(form.obszarZabiegu)}
                   </p>
                 )}
@@ -596,7 +596,7 @@ export default function FormDetailsPage() {
                         className={`px-3 py-2 rounded-lg text-sm transition-all border ${
                           editedForm.osobaPrzeprowadzajacaZabieg === person
                             ? "bg-brand text-black border-brand font-medium shadow-[0_0_10px_rgba(212,175,55,0.3)]"
-                            : "bg-black/40 border-emerald/30 text-white hover:border-brand hover:text-brand"
+                            : "bg-marble-border/40 border-brand/20 text-marble-text hover:border-brand hover:text-brand"
                         }`}
                       >
                         {person}
@@ -604,18 +604,18 @@ export default function FormDetailsPage() {
                     ))}
                   </div>
                 ) : (
-                  <p className="text-white text-lg font-medium">
+                  <p className="text-marble-text text-lg font-medium">
                     {form.osobaPrzeprowadzajacaZabieg || "Nie przypisano"}
                   </p>
                 )}
               </div>
 
               {/* Visual Face Selector for Admin - Improved Visibility */}
-              <div className="mt-4 border-t border-emerald/30 pt-4">
+              <div className="mt-4 border-t border-brand/20 pt-4">
                 <label className="block text-sm font-medium text-ui-textSecondary mb-4">
                   Wizualizacja obszaru zabiegu
                 </label>
-                <div className="bg-black/20 rounded-xl border border-emerald/20 p-6 flex justify-center pointer-events-none">
+                <div className="bg-marble-border/20 rounded-xl border border-brand/15 p-6 flex justify-center pointer-events-none">
                   <div className="w-full max-w-lg aspect-square relative">
                     <AnatomyFaceSelector
                       initialSelected={
@@ -631,7 +631,7 @@ export default function FormDetailsPage() {
               {/* Seria Zabiegowa (Tylko dla Stymulacji Tkankowej / Wolumetrii) */}
               {(form.type === "FACIAL_VOLUMETRY" ||
                 form.type === "TISSUE_STIMULATION") && (
-                <div className="mt-4 border-t border-emerald/30 pt-4">
+                <div className="mt-4 border-t border-brand/20 pt-4">
                   <label className="block text-sm font-medium text-ui-textSecondary mb-4">
                     Seria Zabiegowa
                   </label>
@@ -650,11 +650,11 @@ export default function FormDetailsPage() {
                               planowanaIloscZabiegow: e.target.value,
                             })
                           }
-                          className="w-full px-3 py-2 bg-black/40 border border-emerald/30 rounded-lg focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none text-white text-sm"
+                          className="w-full px-3 py-2 bg-marble-border/40 border border-brand/20 rounded-lg focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none text-marble-text text-sm"
                           placeholder="Np. 3"
                         />
                       ) : (
-                        <p className="text-white">
+                        <p className="text-marble-text">
                           {form.planowanaIloscZabiegow || "-"}
                         </p>
                       )}
@@ -673,11 +673,11 @@ export default function FormDetailsPage() {
                               odstepMiedzyZabiegami: e.target.value,
                             })
                           }
-                          className="w-full px-3 py-2 bg-black/40 border border-emerald/30 rounded-lg focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none text-white text-sm"
+                          className="w-full px-3 py-2 bg-marble-border/40 border border-brand/20 rounded-lg focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none text-marble-text text-sm"
                           placeholder="Np. 4 tygodnie"
                         />
                       ) : (
-                        <p className="text-white">
+                        <p className="text-marble-text">
                           {form.odstepMiedzyZabiegami || "-"}
                         </p>
                       )}
@@ -696,11 +696,11 @@ export default function FormDetailsPage() {
                               kolejneZabiegiOdstepy: e.target.value,
                             })
                           }
-                          className="w-full px-3 py-2 bg-black/40 border border-emerald/30 rounded-lg focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none text-white text-sm"
+                          className="w-full px-3 py-2 bg-marble-border/40 border border-brand/20 rounded-lg focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none text-marble-text text-sm"
                           placeholder="Np. 6 miesięcy"
                         />
                       ) : (
-                        <p className="text-white">
+                        <p className="text-marble-text">
                           {form.kolejneZabiegiOdstepy || "-"}
                         </p>
                       )}
@@ -719,11 +719,11 @@ export default function FormDetailsPage() {
                               iloscProduktu: e.target.value,
                             })
                           }
-                          className="w-full px-3 py-2 bg-black/40 border border-emerald/30 rounded-lg focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none text-white text-sm"
+                          className="w-full px-3 py-2 bg-marble-border/40 border border-brand/20 rounded-lg focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none text-marble-text text-sm"
                           placeholder="Np. 1.5 ml"
                         />
                       ) : (
-                        <p className="text-white">
+                        <p className="text-marble-text">
                           {form.iloscProduktu || "-"}
                         </p>
                       )}
@@ -744,11 +744,11 @@ export default function FormDetailsPage() {
                         celEfektu: e.target.value,
                       })
                     }
-                    className="w-full px-3 py-2 bg-black/40 border border-emerald/30 rounded-lg focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none text-white resize-none h-20"
+                    className="w-full px-3 py-2 bg-marble-border/40 border border-brand/20 rounded-lg focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none text-marble-text resize-none h-20"
                     placeholder="Cel zabiegu"
                   />
                 ) : (
-                  <p className="text-white">{form.celEfektu || "Nie podano"}</p>
+                  <p className="text-marble-text">{form.celEfektu || "Nie podano"}</p>
                 )}
               </div>
               <div>
@@ -824,9 +824,9 @@ export default function FormDetailsPage() {
                       )}
 
                       {/* 3. General Notes */}
-                      <div className="bg-black/20 p-3 rounded-lg border border-emerald/20 min-h-[60px]">
+                      <div className="bg-marble-border/20 p-3 rounded-lg border border-brand/15 min-h-[60px]">
                         {otherNotes.length > 0 ? (
-                          <div className="text-white text-sm whitespace-pre-line">
+                          <div className="text-marble-text text-sm whitespace-pre-line">
                             {otherNotes.join("\n")}
                           </div>
                         ) : (
@@ -845,8 +845,8 @@ export default function FormDetailsPage() {
 
         {/* Tab Content: Contraindications */}
         {activeTab === "contraindications" && (
-          <div className="bg-gradient-emerald backdrop-blur-sm rounded-2xl shadow-lg p-4 md:p-8 animate-in fade-in slide-in-from-bottom-2 duration-300 border border-emerald/20">
-            <h2 className="text-xl font-serif text-white mb-4 pb-3 border-b border-emerald/30">
+          <div className="bg-gradient-emerald backdrop-blur-sm rounded-2xl shadow-lg p-4 md:p-8 animate-in fade-in slide-in-from-bottom-2 duration-300 border border-brand/15">
+            <h2 className="text-xl font-serif text-marble-text mb-4 pb-3 border-b border-brand/20">
               Przeciwwskazania
             </h2>
             <div className="space-y-2">
@@ -861,7 +861,7 @@ export default function FormDetailsPage() {
                 return (
                   <div
                     key={key}
-                    className="flex items-center gap-3 py-2 border-b border-emerald/10 last:border-0"
+                    className="flex items-center gap-3 py-2 border-b border-brand/10 last:border-0"
                   >
                     {isEditing ? (
                       <div className="flex gap-1 flex-shrink-0">
@@ -932,7 +932,7 @@ export default function FormDetailsPage() {
                         )}
                       </>
                     )}
-                    <span className="text-sm text-white">
+                    <span className="text-sm text-marble-text">
                       {typeof label === "string" ? label : label.text}
                     </span>
                   </div>
@@ -946,8 +946,8 @@ export default function FormDetailsPage() {
         {activeTab === "consents" && (
           <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-300">
             {/* RODO / Główne */}
-            <div className="bg-gradient-emerald backdrop-blur-sm rounded-2xl shadow-lg border border-emerald/20 p-6">
-              <div className="flex justify-between items-center mb-4 border-b border-emerald/30 pb-2 text-white font-serif">
+            <div className="bg-gradient-emerald backdrop-blur-sm rounded-2xl shadow-lg border border-brand/15 p-6">
+              <div className="flex justify-between items-center mb-4 border-b border-brand/20 pb-2 text-marble-text font-serif">
                 Zgoda RODO
                 <span
                   className={`px-3 py-1 rounded-full text-[10px] font-bold tracking-wider ${form.podpisRodo ? "bg-green-500/20 text-green-400 border border-green-500/30" : "bg-red-500/20 text-red-400 border border-red-500/30"}`}
@@ -968,7 +968,7 @@ export default function FormDetailsPage() {
               </div>
 
               {form.podpisRodo ? (
-                <div className="p-4 rounded-xl bg-black/30 border border-emerald/10">
+                <div className="p-4 rounded-xl bg-marble-border/30 border border-brand/10">
                   <p className="text-xs text-ui-textSecondary uppercase tracking-wider mb-2 font-medium">
                     Podpis RODO
                   </p>
@@ -994,8 +994,8 @@ export default function FormDetailsPage() {
             </div>
 
             {/* RODO Clause (Section 2) */}
-            <div className="bg-gradient-emerald backdrop-blur-sm rounded-2xl shadow-lg border border-emerald/20 p-6">
-              <div className="flex justify-between items-center mb-4 border-b border-emerald/30 pb-2 text-white font-serif">
+            <div className="bg-gradient-emerald backdrop-blur-sm rounded-2xl shadow-lg border border-brand/15 p-6">
+              <div className="flex justify-between items-center mb-4 border-b border-brand/20 pb-2 text-marble-text font-serif">
                 Klauzula Informacyjna RODO
                 <span
                   className={`px-3 py-1 rounded-full text-[10px] font-bold tracking-wider ${
@@ -1013,7 +1013,7 @@ export default function FormDetailsPage() {
                 Potwierdzenie: Zapoznanie się z klauzulą informacyjną RODO.
               </p>
               {(form as any).podpisRodo2 ? (
-                <div className="p-4 rounded-xl bg-black/30 border border-emerald/10">
+                <div className="p-4 rounded-xl bg-marble-border/30 border border-brand/10">
                   <p className="text-xs text-ui-textSecondary uppercase tracking-wider mb-2 font-medium">
                     Podpis RODO (Klauzula)
                   </p>
@@ -1039,13 +1039,13 @@ export default function FormDetailsPage() {
             </div>
 
             {/* Marketing */}
-            <div className="bg-gradient-emerald backdrop-blur-sm rounded-2xl shadow-lg border border-emerald/20 p-6">
-              <div className="flex justify-between items-center mb-4 border-b border-emerald/30 pb-2">
-                <h3 className="text-lg font-serif text-white">
+            <div className="bg-gradient-emerald backdrop-blur-sm rounded-2xl shadow-lg border border-brand/15 p-6">
+              <div className="flex justify-between items-center mb-4 border-b border-brand/20 pb-2">
+                <h3 className="text-lg font-serif text-marble-text">
                   Zgoda Marketingowa
                 </h3>
                 <span
-                  className={`px-3 py-1 rounded-full text-[10px] font-bold tracking-wider ${form.zgodaMarketing ? "bg-green-500/20 text-green-400 border border-green-500/30" : "bg-ui-bg text-ui-textSecondary border border-emerald/30"}`}
+                  className={`px-3 py-1 rounded-full text-[10px] font-bold tracking-wider ${form.zgodaMarketing ? "bg-green-500/20 text-green-400 border border-green-500/30" : "bg-ui-bg text-ui-textSecondary border border-brand/20"}`}
                 >
                   {form.zgodaMarketing ? "WYRAŻONO ZGODĘ" : "BRAK ZGODY"}
                 </span>
@@ -1055,7 +1055,7 @@ export default function FormDetailsPage() {
                 (SMS/Email).
               </p>
               {form.zgodaMarketing && form.podpisMarketing ? (
-                <div className="p-4 rounded-xl bg-black/30 border border-emerald/10">
+                <div className="p-4 rounded-xl bg-marble-border/30 border border-brand/10">
                   <p className="text-xs text-ui-textSecondary uppercase tracking-wider mb-2 font-medium">
                     Podpis Marketingowy
                   </p>
@@ -1081,13 +1081,13 @@ export default function FormDetailsPage() {
             </div>
 
             {/* Wizerunek */}
-            <div className="bg-gradient-emerald backdrop-blur-sm rounded-2xl shadow-lg border border-emerald/20 p-6">
-              <div className="flex justify-between items-center mb-4 border-b border-emerald/30 pb-2">
-                <h3 className="text-lg font-serif text-white">
+            <div className="bg-gradient-emerald backdrop-blur-sm rounded-2xl shadow-lg border border-brand/15 p-6">
+              <div className="flex justify-between items-center mb-4 border-b border-brand/20 pb-2">
+                <h3 className="text-lg font-serif text-marble-text">
                   Zgoda na Wizerunek
                 </h3>
                 <span
-                  className={`px-3 py-1 rounded-full text-[10px] font-bold tracking-wider ${form.zgodaFotografie ? "bg-green-500/20 text-green-400 border border-green-500/30" : "bg-ui-bg text-ui-textSecondary border border-emerald/30"}`}
+                  className={`px-3 py-1 rounded-full text-[10px] font-bold tracking-wider ${form.zgodaFotografie ? "bg-green-500/20 text-green-400 border border-green-500/30" : "bg-ui-bg text-ui-textSecondary border border-brand/20"}`}
                 >
                   {form.zgodaFotografie ? "WYRAŻONO ZGODĘ" : "BRAK ZGODY"}
                 </span>
@@ -1096,7 +1096,7 @@ export default function FormDetailsPage() {
                 Zgoda na publikację zdjęć/wideo z zabiegu.
               </p>
               {form.miejscaPublikacjiFotografii && (
-                <p className="text-sm text-white mb-4 font-medium">
+                <p className="text-sm text-marble-text mb-4 font-medium">
                   Ograniczenia publikacji:{" "}
                   <span className="text-brand">
                     {form.miejscaPublikacjiFotografii}
@@ -1104,7 +1104,7 @@ export default function FormDetailsPage() {
                 </p>
               )}
               {form.zgodaFotografie && form.podpisFotografie ? (
-                <div className="p-4 rounded-xl bg-black/30 border border-emerald/10">
+                <div className="p-4 rounded-xl bg-marble-border/30 border border-brand/10">
                   <p className="text-xs text-ui-textSecondary uppercase tracking-wider mb-2 font-medium">
                     Podpis Wizerunek
                   </p>
@@ -1130,13 +1130,13 @@ export default function FormDetailsPage() {
             </div>
 
             {/* Zgoda na Zabieg (dawniej Pomoc Prawna) */}
-            <div className="bg-gradient-emerald backdrop-blur-sm rounded-2xl shadow-lg border border-emerald/20 p-6">
-              <div className="flex justify-between items-center mb-4 border-b border-emerald/30 pb-2">
-                <h3 className="text-lg font-serif text-white">
+            <div className="bg-gradient-emerald backdrop-blur-sm rounded-2xl shadow-lg border border-brand/15 p-6">
+              <div className="flex justify-between items-center mb-4 border-b border-brand/20 pb-2">
+                <h3 className="text-lg font-serif text-marble-text">
                   Zgoda na Zabieg
                 </h3>
                 <span
-                  className={`px-3 py-1 rounded-full text-[10px] font-bold tracking-wider ${form.zgodaPomocPrawna ? "bg-green-500/20 text-green-400 border border-green-500/30" : "bg-ui-bg text-ui-textSecondary border border-emerald/30"}`}
+                  className={`px-3 py-1 rounded-full text-[10px] font-bold tracking-wider ${form.zgodaPomocPrawna ? "bg-green-500/20 text-green-400 border border-green-500/30" : "bg-ui-bg text-ui-textSecondary border border-brand/20"}`}
                 >
                   {form.zgodaPomocPrawna ? "WYRAŻONO ZGODĘ" : "BRAK ZGODY"}
                 </span>
@@ -1146,7 +1146,7 @@ export default function FormDetailsPage() {
                 zapoznaniu się z informacjami i ryzykiem.
               </p>
               {form.zgodaPomocPrawna && form.podpisDane ? (
-                <div className="p-4 rounded-xl bg-black/30 border border-emerald/10">
+                <div className="p-4 rounded-xl bg-marble-border/30 border border-brand/10">
                   <p className="text-xs text-ui-textSecondary uppercase tracking-wider mb-2 font-medium">
                     Podpis Klienta
                   </p>

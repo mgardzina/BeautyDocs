@@ -22,7 +22,7 @@ const siteUrl = "https://powderbrowsacademy.com.pl";
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#0a0a0a",
+  themeColor: "#F2EDE7",
 };
 
 export const metadata: Metadata = {

@@ -9,7 +9,7 @@ interface SelectionScreenProps {
 
 export default function SelectionScreen({ onSelect }: SelectionScreenProps) {
   return (
-    <div className="min-h-screen bg-black flex items-center justify-center p-4 py-12">
+    <div className="min-h-screen flex items-center justify-center p-4 py-12">
       <div className="max-w-6xl w-full">
         <div className="text-center mb-12">
           <div className="flex justify-center mb-6">
@@ -23,7 +23,7 @@ export default function SelectionScreen({ onSelect }: SelectionScreenProps) {
             />
           </div>
           <div className="w-20 h-0.5 bg-brand mx-auto mb-6" />
-          <p className="text-lg text-white/80 font-light tracking-wider uppercase">
+          <p className="text-lg text-marble-text/70 font-light tracking-wider uppercase">
             Wybierz rodzaj zabiegu
           </p>
         </div>
@@ -129,14 +129,14 @@ export default function SelectionScreen({ onSelect }: SelectionScreenProps) {
         <div className="mt-16 text-center flex gap-6 justify-center items-center">
           <a
             href="/polityka-prywatnosci"
-            className="text-white/50 text-sm hover:text-brand transition-colors tracking-wider uppercase"
+            className="text-marble-textSecondary text-sm hover:text-brand transition-colors tracking-wider uppercase"
           >
             Polityka Prywatności
           </a>
-          <span className="text-white/30">|</span>
+          <span className="text-marble-border">|</span>
           <a
             href="/regulamin"
-            className="text-white/50 text-sm hover:text-brand transition-colors tracking-wider uppercase"
+            className="text-marble-textSecondary text-sm hover:text-brand transition-colors tracking-wider uppercase"
           >
             Regulamin
           </a>
@@ -160,17 +160,17 @@ function SelectionCard({
   return (
     <button
       onClick={onClick}
-      className="group bg-gradient-emerald p-8 border-2 border-emerald/30 hover:border-brand/50 hover:gold-glow transition-all duration-300 rounded-3xl flex flex-col items-center gap-5 backdrop-blur-sm"
+      className="group bg-white/80 p-8 border-2 border-brand/30 hover:border-brand hover:gold-glow transition-all duration-300 rounded-3xl flex flex-col items-center gap-5 shadow-marble-lg hover:shadow-lg"
     >
-      <div className="w-20 h-20 bg-black/40 rounded-full flex items-center justify-center border-2 border-emerald/30/30 transition-all duration-300 text-brand">
+      <div className="w-20 h-20 bg-brand/10 rounded-full flex items-center justify-center border-2 border-brand/30 group-hover:border-brand group-hover:bg-brand/20 transition-all duration-300 text-brand">
         {icon}
       </div>
 
       <div className="text-center">
-        <h3 className="text-xl font-serif text-white mb-1 tracking-wide">
+        <h3 className="text-xl font-serif text-marble-text mb-1 tracking-wide">
           {title}
         </h3>
-        <p className="text-sm text-white/60 tracking-wider uppercase">
+        <p className="text-sm text-marble-textSecondary tracking-wider uppercase">
           {subtitle}
         </p>
       </div>

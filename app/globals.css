@@ -4,23 +4,23 @@
 
 @layer base {
   :root {
-    --background: 0 0% 4%; /* #0a0a0a */
-    --foreground: 0 0% 100%; /* #ffffff */
+    --background: 30 15% 93%; /* #F2EDE7 warm marble */
+    --foreground: 25 15% 15%; /* #2D2520 dark brown */
 
-    --card: 0 0% 7%; /* #121212 */
-    --card-foreground: 0 0% 100%; /* #ffffff */
+    --card: 30 20% 97%; /* #FAF8F5 light card */
+    --card-foreground: 25 15% 15%; /* #2D2520 */
 
-    --popover: 0 0% 4%; /* #0a0a0a */
-    --popover-foreground: 0 0% 100%; /* #ffffff */
+    --popover: 30 20% 97%; /* #FAF8F5 */
+    --popover-foreground: 25 15% 15%; /* #2D2520 */
 
     --primary: 46 65% 52%; /* #D4AF37 Gold */
     --primary-foreground: 0 0% 100%; /* #ffffff */
 
-    --secondary: 0 0% 9%; /* #171717 */
-    --secondary-foreground: 0 0% 100%; /* #ffffff */
+    --secondary: 30 10% 90%; /* #E8E2DA light stone */
+    --secondary-foreground: 25 15% 15%; /* #2D2520 */
 
-    --muted: 0 0% 9%; /* #171717 */
-    --muted-foreground: 240 5% 64.9%; /* #a1a1aa */
+    --muted: 30 10% 90%; /* #E8E2DA */
+    --muted-foreground: 25 10% 45%; /* #7A6E62 warm muted */
 
     --accent: 46 65% 52%; /* #D4AF37 Gold */
     --accent-foreground: 0 0% 100%; /* #ffffff */
@@ -28,39 +28,66 @@
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 20%; /* #333333 */
-    --input: 0 0% 20%; /* #333333 */
+    --border: 30 12% 80%; /* #D1C9BF marble border */
+    --input: 30 12% 80%; /* #D1C9BF */
     --ring: 46 65% 52%; /* #D4AF37 Gold */
   }
 }
 
 @layer base {
   * {
-    border-color: theme('colors.ui.border');
+    border-color: hsl(var(--border));
   }
   body {
-    background-color: theme('colors.ui.bg');
-    color: theme('colors.brand.text');
+    color: #2D2520;
     font-family: theme('fontFamily.sans');
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+    /* Marble texture background */
+    background-color: #F2EDE7;
+    background-image:
+      /* Primary diagonal veins - warm cream */
+      linear-gradient(137deg,
+        transparent 0%, transparent 38%,
+        rgba(212, 200, 184, 0.4) 40%, rgba(225, 215, 200, 0.6) 42%,
+        rgba(212, 200, 184, 0.3) 44%, transparent 46%, transparent 100%),
+      /* Gold-tinted accent vein */
+      linear-gradient(295deg,
+        transparent 0%, transparent 52%,
+        rgba(212, 175, 55, 0.06) 54%, rgba(212, 175, 55, 0.1) 55%,
+        rgba(212, 175, 55, 0.06) 56%, transparent 58%, transparent 100%),
+      /* Secondary thin veins */
+      linear-gradient(82deg,
+        transparent 0%, transparent 28%,
+        rgba(200, 190, 175, 0.25) 29.5%, rgba(210, 200, 185, 0.35) 30.5%,
+        rgba(200, 190, 175, 0.2) 31.5%, transparent 33%, transparent 100%),
+      linear-gradient(205deg,
+        transparent 0%, transparent 63%,
+        rgba(195, 185, 170, 0.2) 64%, rgba(205, 195, 180, 0.3) 65%,
+        rgba(195, 185, 170, 0.15) 66%, transparent 67.5%, transparent 100%),
+      /* Subtle warm cloud texture */
+      radial-gradient(ellipse at 25% 35%, rgba(235, 225, 210, 0.5), transparent 55%),
+      radial-gradient(ellipse at 75% 65%, rgba(230, 220, 205, 0.4), transparent 50%),
+      radial-gradient(ellipse at 50% 50%, rgba(240, 232, 220, 0.3), transparent 70%);
+    background-attachment: fixed;
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: theme('fontFamily.serif');
   }
 }
 
-/* Custom Scrollbar for Dark Theme */
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #121212;
+  background: #E8E2DA;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #333;
+  background: #C4BAA8;
   border-radius: 5px;
 }
 
@@ -84,11 +111,11 @@
   }
 }
 
-/* Gold Glow Effect for Selected Elements */
+/* Gold Glow Effect → refined shadow for light marble theme */
 .gold-glow {
-  box-shadow: 0 0 15px rgba(212, 175, 55, 0.4), 0 0 30px rgba(212, 175, 55, 0.2);
+  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.15), 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 .gold-glow-sm {
-  box-shadow: 0 0 8px rgba(212, 175, 55, 0.3), 0 0 15px rgba(212, 175, 55, 0.15);
+  box-shadow: 0 2px 12px rgba(212, 175, 55, 0.12), 0 1px 4px rgba(0, 0, 0, 0.04);
 }

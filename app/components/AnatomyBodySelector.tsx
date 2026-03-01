@@ -97,7 +97,7 @@ export default function AnatomyBodySelector({
     <div className="flex flex-col items-center w-full max-w-2xl mx-auto">
       {/* Nagłówek z nazwą strefy po najechaniu (szybki podgląd) */}
       <div className="mb-2 flex items-center justify-between w-full">
-        <div className="h-8 flex items-center justify-center flex-1 bg-black/40 rounded-md border border-emerald/30 mr-2">
+        <div className="h-8 flex items-center justify-center flex-1 bg-marble-border/40 rounded-md border border-brand/20 mr-2">
           {hovered ? (
             <span className="text-brand font-semibold text-sm animate-pulse transition-all">
               {getZoneName(hovered)}
@@ -198,7 +198,7 @@ export default function AnatomyBodySelector({
       {/* Cursor Tooltip */}
       {hovered && (
         <div
-          className="fixed pointer-events-none z-[9999] bg-ui-card text-white px-4 py-2 rounded-lg shadow-2xl border border-brand/30 text-xs font-bold uppercase tracking-widest transform -translate-x-1/2 -translate-y-[120%] backdrop-blur-md"
+          className="fixed pointer-events-none z-[9999] bg-ui-card text-marble-text px-4 py-2 rounded-lg shadow-2xl border border-brand/30 text-xs font-bold uppercase tracking-widest transform -translate-x-1/2 -translate-y-[120%] backdrop-blur-md"
           style={{
             left: mousePos.x,
             top: mousePos.y,

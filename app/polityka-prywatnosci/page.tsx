@@ -9,13 +9,13 @@ import { useRouter } from "next/navigation";
 export default function PolitykaPrywatnosciPage() {
   const router = useRouter();
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-emerald backdrop-blur-sm border-b border-emerald/30 shadow-lg">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-emerald backdrop-blur-sm border-b border-brand/20 shadow-marble">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-24">
             <Link href="/" className="flex items-center">
-              <h1 className="text-xl md:text-3xl font-serif font-light text-[#f8f6f3] tracking-widest uppercase">
+              <h1 className="text-xl md:text-3xl font-serif font-light text-marble-text tracking-widest uppercase">
                 {SALON_CONFIG.name}
               </h1>
             </Link>
@@ -25,12 +25,12 @@ export default function PolitykaPrywatnosciPage() {
       </nav>
 
       {/* Header */}
-      <section className="pt-40 pb-12 px-4 border-b border-emerald/30/10">
+      <section className="pt-40 pb-12 px-4 border-b border-marble-border">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-serif font-light text-white mb-4 tracking-wider uppercase">
+          <h1 className="text-4xl md:text-5xl font-serif font-light text-marble-text mb-4 tracking-wider uppercase">
             POLITYKA PRYWATNOŚCI
           </h1>
-          <p className="text-sm text-ui-textSecondary font-light italic">
+          <p className="text-sm text-marble-textSecondary font-light italic">
             Ostatnia aktualizacja: Styczeń 2026
           </p>
         </div>
@@ -39,7 +39,7 @@ export default function PolitykaPrywatnosciPage() {
       {/* Content */}
       <section className="py-16 px-4">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-gradient-emerald backdrop-blur-sm p-8 md:p-12 space-y-8 rounded-2xl shadow-lg border border-emerald/20">
+          <div className="bg-gradient-emerald backdrop-blur-sm p-8 md:p-12 space-y-8 rounded-2xl shadow-marble-lg border border-brand/20">
             <div>
               <h2 className="text-xl font-serif font-light text-brand mb-4 tracking-wider uppercase">
                 §1. Administrator danych
@@ -179,7 +179,7 @@ export default function PolitykaPrywatnosciPage() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gradient-emerald text-white py-16 border-t border-emerald/30 shadow-lg">
+      <footer className="bg-gradient-emerald text-marble-text py-16 border-t border-brand/20 shadow-marble">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-6 md:mb-0 text-center md:text-left">

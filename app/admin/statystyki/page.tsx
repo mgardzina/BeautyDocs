@@ -80,29 +80,29 @@ export default function StatystykiPage() {
 
   if (status === "loading" || status === "unauthenticated") {
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center">
         <div className="text-brand text-lg">Ładowanie...</div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen">
       {/* Header */}
       <header className="bg-gradient-emerald backdrop-blur-sm sticky top-0 z-50 shadow-lg border-b border-brand">
         <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
           <div className="flex items-center gap-4">
             <Link
               href="/admin"
-              className="text-white/60 hover:text-white transition-colors"
+              className="text-marble-text/60 hover:text-brand transition-colors"
             >
               <ArrowLeft className="w-5 h-5" />
             </Link>
             <div>
-              <h1 className="text-2xl font-serif text-white tracking-wider">
+              <h1 className="text-2xl font-serif text-marble-text tracking-wider">
                 Statystyki
               </h1>
-              <p className="text-white/60 text-sm">Zgody i RODO</p>
+              <p className="text-marble-text/60 text-sm">Zgody i RODO</p>
             </div>
           </div>
         </div>
@@ -118,7 +118,7 @@ export default function StatystykiPage() {
             {/* Główne statystyki */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
               {/* Wszystkie formularze */}
-              <div className="bg-gradient-emerald backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-emerald/20">
+              <div className="bg-gradient-emerald backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-brand/15">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="p-3 bg-brand/10 rounded-xl">
                     <BarChart3 className="w-6 h-6 text-brand" />
@@ -127,11 +127,11 @@ export default function StatystykiPage() {
                     Wszystkie formularze
                   </p>
                 </div>
-                <p className="text-4xl font-serif text-white">{stats.total}</p>
+                <p className="text-4xl font-serif text-marble-text">{stats.total}</p>
               </div>
 
               {/* Zgody RODO */}
-              <div className="bg-gradient-emerald backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-emerald/20">
+              <div className="bg-gradient-emerald backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-brand/15">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="p-3 bg-green-500/10 rounded-xl">
                     <Shield className="w-6 h-6 text-green-500" />
@@ -140,7 +140,7 @@ export default function StatystykiPage() {
                     Zgody RODO (dane)
                   </p>
                 </div>
-                <p className="text-4xl font-serif text-white">
+                <p className="text-4xl font-serif text-marble-text">
                   {stats.zgodaPrzetwarzanieDanych}
                 </p>
                 <p className="text-sm text-ui-textSecondary mt-2 italic">
@@ -150,7 +150,7 @@ export default function StatystykiPage() {
               </div>
 
               {/* Zgody marketing */}
-              <div className="bg-gradient-emerald backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-emerald/20">
+              <div className="bg-gradient-emerald backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-brand/15">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="p-3 bg-purple-500/10 rounded-xl">
                     <Megaphone className="w-6 h-6 text-purple-400" />
@@ -159,7 +159,7 @@ export default function StatystykiPage() {
                     Zgody marketing
                   </p>
                 </div>
-                <p className="text-4xl font-serif text-white">
+                <p className="text-4xl font-serif text-marble-text">
                   {stats.zgodaMarketing}
                 </p>
                 <p className="text-sm text-ui-textSecondary mt-2 italic">
@@ -168,7 +168,7 @@ export default function StatystykiPage() {
               </div>
 
               {/* Zgody foto */}
-              <div className="bg-gradient-emerald backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-emerald/20">
+              <div className="bg-gradient-emerald backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-brand/15">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="p-3 bg-blue-500/10 rounded-xl">
                     <Camera className="w-6 h-6 text-blue-400" />
@@ -177,7 +177,7 @@ export default function StatystykiPage() {
                     Zgody foto
                   </p>
                 </div>
-                <p className="text-4xl font-serif text-white">
+                <p className="text-4xl font-serif text-marble-text">
                   {stats.zgodaFotografie}
                 </p>
                 <p className="text-sm text-ui-textSecondary mt-2 italic">
@@ -187,14 +187,14 @@ export default function StatystykiPage() {
             </div>
 
             {/* Podsumowanie */}
-            <div className="bg-gradient-emerald backdrop-blur-sm rounded-2xl p-6 md:p-8 shadow-lg border border-emerald/20">
-              <h2 className="text-xl font-serif text-white mb-6 pb-3 border-b border-emerald/30">
+            <div className="bg-gradient-emerald backdrop-blur-sm rounded-2xl p-6 md:p-8 shadow-lg border border-brand/15">
+              <h2 className="text-xl font-serif text-marble-text mb-6 pb-3 border-b border-brand/20">
                 Podsumowanie zgód
               </h2>
               <div className="space-y-6">
                 {/* RODO */}
                 <div>
-                  <h3 className="text-white font-serif mb-3 flex items-center gap-2">
+                  <h3 className="text-marble-text font-serif mb-3 flex items-center gap-2">
                     <Shield className="w-4 h-4 text-green-500" />
                     Ochrona Danych (RODO)
                   </h3>
@@ -206,11 +206,11 @@ export default function StatystykiPage() {
                         <span className="text-sm text-ui-textSecondary">
                           Wyrażona Zgoda (Checkbox)
                         </span>
-                        <span className="text-sm font-medium text-white">
+                        <span className="text-sm font-medium text-marble-text">
                           {stats.zgodaPrzetwarzanieDanych} / {stats.total}
                         </span>
                       </div>
-                      <div className="h-2 bg-black/40 rounded-full overflow-hidden border border-emerald/10">
+                      <div className="h-2 bg-marble-border/40 rounded-full overflow-hidden border border-brand/10">
                         <div
                           className="h-full bg-green-500/50 rounded-full transition-all duration-500"
                           style={{
@@ -226,11 +226,11 @@ export default function StatystykiPage() {
                         <span className="text-sm text-ui-textSecondary">
                           Podpis (Oświadczenie RODO)
                         </span>
-                        <span className="text-sm font-medium text-white">
+                        <span className="text-sm font-medium text-marble-text">
                           {stats.podpisRodo} / {stats.total}
                         </span>
                       </div>
-                      <div className="h-2 bg-black/40 rounded-full overflow-hidden border border-emerald/10">
+                      <div className="h-2 bg-marble-border/40 rounded-full overflow-hidden border border-brand/10">
                         <div
                           className="h-full bg-green-500 rounded-full transition-all duration-500 shadow-[0_0_8px_rgba(34,197,94,0.4)]"
                           style={{
@@ -246,13 +246,13 @@ export default function StatystykiPage() {
                         <span className="text-sm text-ui-textSecondary">
                           Podpis (Klauzula Informacyjna)
                         </span>
-                        <span className="text-sm font-medium text-white">
+                        <span className="text-sm font-medium text-marble-text">
                           {stats.podpisRodo2} / {stats.total}
                         </span>
                       </div>
-                      <div className="h-2 bg-black/40 rounded-full overflow-hidden border border-emerald/10">
+                      <div className="h-2 bg-marble-border/40 rounded-full overflow-hidden border border-brand/10">
                         <div
-                          className="h-full bg-emerald-400 rounded-full transition-all duration-500 shadow-[0_0_8px_rgba(52,211,153,0.4)]"
+                          className="h-full bg-brand rounded-full transition-all duration-500 shadow-[0_0_8px_rgba(212,175,55,0.4)]"
                           style={{
                             width: `${calculatePercentage(stats.podpisRodo2)}%`,
                           }}
@@ -262,11 +262,11 @@ export default function StatystykiPage() {
                   </div>
                 </div>
 
-                <div className="border-t border-emerald/20 my-4"></div>
+                <div className="border-t border-brand/15 my-4"></div>
 
                 {/* Zgoda na Zabieg */}
                 <div>
-                  <h3 className="text-white font-serif mb-3 flex items-center gap-2">
+                  <h3 className="text-marble-text font-serif mb-3 flex items-center gap-2">
                     <Shield className="w-4 h-4 text-brand" />
                     Zgoda na Zabieg (Świadoma zgoda)
                   </h3>
@@ -277,11 +277,11 @@ export default function StatystykiPage() {
                         <span className="text-sm text-ui-textSecondary">
                           Podpis (Zgoda Główna)
                         </span>
-                        <span className="text-sm font-medium text-white">
+                        <span className="text-sm font-medium text-marble-text">
                           {stats.podpisDane} / {stats.total}
                         </span>
                       </div>
-                      <div className="h-2 bg-black/40 rounded-full overflow-hidden border border-emerald/10">
+                      <div className="h-2 bg-marble-border/40 rounded-full overflow-hidden border border-brand/10">
                         <div
                           className="h-full bg-brand rounded-full transition-all duration-500 shadow-[0_0_8px_rgba(212,175,55,0.4)]"
                           style={{
@@ -293,11 +293,11 @@ export default function StatystykiPage() {
                   </div>
                 </div>
 
-                <div className="border-t border-emerald/20 my-4"></div>
+                <div className="border-t border-brand/15 my-4"></div>
 
                 {/* Marketing */}
                 <div>
-                  <h3 className="text-white font-serif mb-3 flex items-center gap-2">
+                  <h3 className="text-marble-text font-serif mb-3 flex items-center gap-2">
                     <Megaphone className="w-4 h-4 text-purple-400" />
                     Marketing
                   </h3>
@@ -309,11 +309,11 @@ export default function StatystykiPage() {
                         <span className="text-sm text-ui-textSecondary">
                           Wyrażona Zgoda
                         </span>
-                        <span className="text-sm font-medium text-white">
+                        <span className="text-sm font-medium text-marble-text">
                           {stats.zgodaMarketing} / {stats.total}
                         </span>
                       </div>
-                      <div className="h-2 bg-black/40 rounded-full overflow-hidden border border-emerald/10">
+                      <div className="h-2 bg-marble-border/40 rounded-full overflow-hidden border border-brand/10">
                         <div
                           className="h-full bg-purple-500/50 rounded-full transition-all duration-500"
                           style={{
@@ -329,11 +329,11 @@ export default function StatystykiPage() {
                         <span className="text-sm text-ui-textSecondary">
                           Złożony Podpis
                         </span>
-                        <span className="text-sm font-medium text-white">
+                        <span className="text-sm font-medium text-marble-text">
                           {stats.podpisMarketing} / {stats.total}
                         </span>
                       </div>
-                      <div className="h-2 bg-black/40 rounded-full overflow-hidden border border-emerald/10">
+                      <div className="h-2 bg-marble-border/40 rounded-full overflow-hidden border border-brand/10">
                         <div
                           className="h-full bg-purple-500 rounded-full transition-all duration-500 shadow-[0_0_8px_rgba(168,85,247,0.4)]"
                           style={{
@@ -345,11 +345,11 @@ export default function StatystykiPage() {
                   </div>
                 </div>
 
-                <div className="border-t border-emerald/20 my-4"></div>
+                <div className="border-t border-brand/15 my-4"></div>
 
                 {/* Foto */}
                 <div>
-                  <h3 className="text-white font-serif mb-3 flex items-center gap-2">
+                  <h3 className="text-marble-text font-serif mb-3 flex items-center gap-2">
                     <Camera className="w-4 h-4 text-blue-400" />
                     Wizerunek (Fotografie)
                   </h3>
@@ -361,11 +361,11 @@ export default function StatystykiPage() {
                         <span className="text-sm text-ui-textSecondary">
                           Wyrażona Zgoda
                         </span>
-                        <span className="text-sm font-medium text-white">
+                        <span className="text-sm font-medium text-marble-text">
                           {stats.zgodaFotografie} / {stats.total}
                         </span>
                       </div>
-                      <div className="h-2 bg-black/40 rounded-full overflow-hidden border border-emerald/10">
+                      <div className="h-2 bg-marble-border/40 rounded-full overflow-hidden border border-brand/10">
                         <div
                           className="h-full bg-blue-500/50 rounded-full transition-all duration-500"
                           style={{
@@ -381,11 +381,11 @@ export default function StatystykiPage() {
                         <span className="text-sm text-ui-textSecondary">
                           Złożony Podpis
                         </span>
-                        <span className="text-sm font-medium text-white">
+                        <span className="text-sm font-medium text-marble-text">
                           {stats.podpisFotografie} / {stats.total}
                         </span>
                       </div>
-                      <div className="h-2 bg-black/40 rounded-full overflow-hidden border border-emerald/10">
+                      <div className="h-2 bg-marble-border/40 rounded-full overflow-hidden border border-brand/10">
                         <div
                           className="h-full bg-blue-500 rounded-full transition-all duration-500 shadow-[0_0_8px_rgba(59,130,246,0.4)]"
                           style={{

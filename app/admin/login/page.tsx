@@ -80,10 +80,10 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-black flex items-center justify-center p-4">
-      <div className="bg-gradient-emerald backdrop-blur-sm rounded-3xl shadow-2xl p-6 md:p-12 w-full max-w-md border border-emerald/30">
+    <div className="min-h-screen flex items-center justify-center p-4">
+      <div className="bg-gradient-emerald backdrop-blur-sm rounded-3xl shadow-2xl p-6 md:p-12 w-full max-w-md border border-brand/20">
         <div className="text-center mb-8">
-          <h1 className="text-2xl md:text-3xl font-serif text-white mb-2 uppercase tracking-wider">
+          <h1 className="text-2xl md:text-3xl font-serif text-marble-text mb-2 uppercase tracking-wider">
             {SALON_CONFIG.name}
           </h1>
           <p className="text-ui-textSecondary uppercase tracking-widest text-xs">
@@ -108,7 +108,7 @@ export default function LoginPage() {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-4 py-3 bg-ui-bg border border-emerald/30 rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/30 outline-none transition-all"
+                className="w-full px-4 py-3 bg-ui-bg border border-brand/20 rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-marble-text placeholder-marble-textSecondary outline-none transition-all"
                 placeholder={SALON_CONFIG.email}
               />
             </div>
@@ -122,7 +122,7 @@ export default function LoginPage() {
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-4 py-3 bg-ui-bg border border-emerald/30 rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/30 outline-none transition-all"
+                className="w-full px-4 py-3 bg-ui-bg border border-brand/20 rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-marble-text placeholder-marble-textSecondary outline-none transition-all"
                 placeholder="••••••••"
               />
             </div>
@@ -147,7 +147,7 @@ export default function LoginPage() {
             )}
 
             <div className="text-center mb-6">
-              <p className="text-white text-sm mb-2">
+              <p className="text-marble-text text-sm mb-2">
                 Wysłaliśmy kod weryfikacyjny SMS na numer:
               </p>
               <p className="text-brand font-mono text-lg font-bold">
@@ -165,7 +165,7 @@ export default function LoginPage() {
                 maxLength={6}
                 value={otp}
                 onChange={(e) => setOtp(e.target.value.replace(/\D/g, ""))}
-                className="w-full px-4 py-3 bg-ui-bg border border-emerald/30 rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/30 outline-none transition-all text-center text-2xl tracking-widest font-mono"
+                className="w-full px-4 py-3 bg-ui-bg border border-brand/20 rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-marble-text placeholder-marble-textSecondary outline-none transition-all text-center text-2xl tracking-widest font-mono"
                 placeholder="000000"
                 autoFocus
               />
@@ -182,7 +182,7 @@ export default function LoginPage() {
             <button
               type="button"
               onClick={() => setStep("credentials")}
-              className="w-full text-sm text-ui-textSecondary hover:text-white transition-colors mt-4"
+              className="w-full text-sm text-ui-textSecondary hover:text-brand transition-colors mt-4"
             >
               Zmień dane logowania
             </button>

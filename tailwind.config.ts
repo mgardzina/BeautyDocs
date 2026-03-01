@@ -9,47 +9,56 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // --- STYLE #2: ROYAL / EXCLUSIVE PALETTE ---
-        
-        // 1. ZŁOTO (Akcenty luksusowe, ikony, nagłówki)
+        // --- STYLE: GOLD & MARBLE PALETTE (LIGHT) ---
+
+        // 1. ZŁOTO (Akcenty luksusowe, bordy, ikony)
         brand: {
           DEFAULT: "#D4AF37", // Metallic Gold
-          dark: "#B5952F",    // Darker gold
+          dark: "#B5952F",    // Darker gold (hover)
           light: "#F3E5AB",   // Champagne
-          text: "#FFFFFF",    // White text
+          text: "#FFFFFF",    // White text (on gold buttons only)
         },
 
-        // 2. BUTELKOWA ZIELEŃ (Główny kolor stylu nr 2)
+        // 2. JASNY MARMUR (Sekcje formularzy - jasne karty)
         emerald: {
-          DEFAULT: "#1B4D3E", // Deep Emerald (Butelkowa zieleń) - do sekcji tła
-          dark: "#13382d",    // Darker shade for hovers/active states
-          light: "#2C6E5A",   // Lighter emerald for highlights
-          sage: "#8FA69D",    // Sage (Szałwia) - kolor uzupełniający/interaktywny
-          glass: "rgba(27, 77, 62, 0.8)", // Przezroczysta zieleń (efekt szkła)
+          DEFAULT: "#F2EDE7", // Marble white - section bg
+          dark: "#E8E2DA",    // Slightly darker marble (hover)
+          light: "#FAF8F5",   // Almost white marble (highlights)
+          sage: "#4A4038",    // Dark stone (label text - czytelne)
+          glass: "rgba(242, 237, 231, 0.92)", // Semi-transparent marble
         },
 
-        // 3. UI & STRUCTURE (Ciemna baza)
+        // 3. UI & STRUCTURE (Jasna baza)
         ui: {
-          bg: "#111111",      // Soft Black (lepsza niż #000000)
-          bgSecondary: "#1a1a1a", // Dark gray (alternatywa dla kart)
-          card: "#1a1a1a",    // Standard dark card background
-          border: "#333333",      
-          borderStrong: "#D4AF37", // Gold border
-          textSecondary: "#8FA69D", // Sage instead of gray for subtext (Styl #2 touch)
-          textMuted: "#71717A",     
-          textLight: "#E4E4E7",     
+          bg: "#FAF8F5",        // Light marble for inputs
+          bgSecondary: "#F2EDE7", // Marble secondary
+          card: "#FAF8F5",      // Card background
+          border: "#D4AF37",    // Gold borders
+          borderStrong: "#D4AF37", // Gold border strong
+          borderLight: "#D1C9BF", // Subtle marble border
+          textSecondary: "#4A4038", // Darker muted labels (czytelne)
+          textMuted: "#7A6E62",
+          textLight: "#5A4F44",
         },
 
-        // Validation Colors (Standard)
+        // Marble surface colors
+        marble: {
+          bg: "#F2EDE7",        // Marble background
+          text: "#2D2520",      // Dark text on marble
+          textSecondary: "#5A4F44", // Darker muted text (czytelne)
+          border: "#D1C9BF",    // Subtle border
+        },
+
+        // Validation Colors
         success: {
-          bg: "rgba(21, 128, 61, 0.1)",  
-          text: "#4ade80", 
-          border: "rgba(74, 222, 128, 0.2)", 
+          bg: "rgba(21, 128, 61, 0.1)",
+          text: "#16a34a",
+          border: "rgba(22, 163, 106, 0.25)",
         },
         error: {
           bg: "rgba(185, 28, 28, 0.1)",
-          text: "#f87171",
-          border: "rgba(248, 113, 113, 0.2)",
+          text: "#dc2626",
+          border: "rgba(220, 38, 38, 0.25)",
         },
 
         // Shadcn/UI mappings
@@ -59,23 +68,23 @@ const config: Config = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
 
-        // Legacy scaffolding (Mapped to new Style #2)
+        // Legacy scaffolding
         primary: {
-          beige: "#D4AF37", // Gold remains
-          taupe: "#1B4D3E", // Taupe mapped to Emerald for compatibility
-          green: "#1B4D3E", // New direct mapping
+          beige: "#D4AF37",
+          taupe: "#F2EDE7",
+          green: "#F2EDE7",
         },
         bg: {
-          light: "#111111",
-          main: "#000000",
+          light: "#F2EDE7",
+          main: "#F2EDE7",
         },
         text: {
-          dark: "#FFFFFF",
-          light: "#8FA69D", // Light text mapped to Sage
+          dark: "#2D2520",
+          light: "#7A6E62",
         },
         accent: {
           warm: "#D4AF37",
-          cool: "#8FA69D", // Sage as cool accent
+          cool: "#7A6E62",
         },
       },
       fontFamily: {
@@ -84,7 +93,11 @@ const config: Config = {
       },
       backgroundImage: {
         'gradient-gold': 'linear-gradient(45deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C)',
-        'gradient-emerald': 'linear-gradient(to bottom, #111111, #2D2D2D)',
+        'gradient-emerald': 'linear-gradient(to bottom, #F2EDE7, #EBE5DD)',
+      },
+      boxShadow: {
+        'marble': '0 2px 15px rgba(0, 0, 0, 0.06), 0 1px 4px rgba(0, 0, 0, 0.04)',
+        'marble-lg': '0 4px 25px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.05)',
       },
       letterSpacing: {
         widest: "0.2em",

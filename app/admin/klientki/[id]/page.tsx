@@ -371,7 +371,7 @@ export default function ClientDetailsPage({
 
   if (status === "loading" || status === "unauthenticated" || isLoading) {
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center">
         <div className="text-brand text-lg">Ładowanie...</div>
       </div>
     );
@@ -379,24 +379,24 @@ export default function ClientDetailsPage({
 
   if (!client) {
     return (
-      <div className="min-h-screen bg-black p-8 text-center text-ui-textSecondary italic">
+      <div className="min-h-screen p-8 text-center text-ui-textSecondary italic">
         Klientka nie znaleziona
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen">
       {/* Header */}
       <header className="bg-gradient-emerald backdrop-blur-sm sticky top-0 z-50 shadow-lg border-b border-brand">
         <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
           <div className="flex items-center gap-4">
             <BackButton onClick={() => router.push("/admin/klientki")} />
             <div>
-              <h1 className="text-2xl font-serif text-white tracking-wider">
+              <h1 className="text-2xl font-serif text-marble-text tracking-wider">
                 {client.imieNazwisko}
               </h1>
-              <div className="flex items-center gap-4 text-white/60 text-sm">
+              <div className="flex items-center gap-4 text-marble-text/60 text-sm">
                 <span className="flex items-center gap-1">
                   <Phone className="w-3 h-3" />
                   {client.telefon ? `+48 ${client.telefon}` : "Brak telefonu"}
@@ -416,8 +416,8 @@ export default function ClientDetailsPage({
       <main className="max-w-6xl mx-auto px-4 py-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Lewa kolumna - Notatki */}
         <div className="lg:col-span-1 space-y-6">
-          <div className="bg-gradient-emerald backdrop-blur-sm rounded-2xl shadow-lg p-4 md:p-6 border border-emerald/20">
-            <h2 className="text-xl font-serif text-white flex items-center gap-2 mb-4">
+          <div className="bg-gradient-emerald backdrop-blur-sm rounded-2xl shadow-lg p-4 md:p-6 border border-brand/15">
+            <h2 className="text-xl font-serif text-marble-text flex items-center gap-2 mb-4">
               <StickyNote className="w-5 h-5 text-brand" />
               Notatki i adnotacje
             </h2>
@@ -442,8 +442,8 @@ export default function ClientDetailsPage({
                         onClick={() => setNewNoteCategory(key)}
                         className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-all border ${
                           newNoteCategory === key
-                            ? `${config.bgColor.replace("bg-gray-50", "bg-white/10").replace("bg-red-50", "bg-red-500/10").replace("bg-amber-50", "bg-amber-500/10").replace("bg-purple-50", "bg-purple-500/10")} ${config.color.replace("text-gray-600", "text-white").replace("text-red-600", "text-red-400").replace("text-amber-600", "text-amber-400").replace("text-purple-600", "text-purple-400")} border-current`
-                            : "bg-ui-bg border-emerald/30 text-ui-textSecondary/50 hover:bg-white/5"
+                            ? `${config.bgColor.replace("bg-gray-50", "bg-white/10").replace("bg-red-50", "bg-red-500/10").replace("bg-amber-50", "bg-amber-500/10").replace("bg-purple-50", "bg-purple-500/10")} ${config.color.replace("text-gray-600", "text-marble-text").replace("text-red-600", "text-red-400").replace("text-amber-600", "text-amber-400").replace("text-purple-600", "text-purple-400")} border-current`
+                            : "bg-ui-bg border-brand/20 text-ui-textSecondary/50 hover:bg-white/5"
                         }`}
                       >
                         <Icon className="w-4 h-4" />
@@ -465,7 +465,7 @@ export default function ClientDetailsPage({
                         ? "Opisz preferencję klientki..."
                         : "Dodaj notatkę..."
                 }
-                className="w-full p-3 bg-ui-bg border border-emerald/30 rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none text-white placeholder-white/30 transition-all resize-none h-24 text-sm"
+                className="w-full p-3 bg-ui-bg border border-brand/20 rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none text-marble-text placeholder-marble-textSecondary transition-all resize-none h-24 text-sm"
               />
               <button
                 type="submit"
@@ -503,7 +503,7 @@ export default function ClientDetailsPage({
                           {config.label}
                         </span>
                       </div>
-                      <p className="text-white font-medium text-sm whitespace-pre-wrap pl-6">
+                      <p className="text-marble-text font-medium text-sm whitespace-pre-wrap pl-6">
                         {note.content}
                       </p>
                       <div className="mt-2 flex justify-between items-center text-xs text-[#8b8580] pl-6">
@@ -528,21 +528,21 @@ export default function ClientDetailsPage({
         <div className="lg:col-span-2 space-y-8">
           {/* Sekcja dodawania nowej wizyty (Szybka akcja) - widoczna tylko po kliknięciu */}
           {showAddHistoryForm && (
-            <div className="bg-gradient-emerald backdrop-blur-sm rounded-2xl shadow-lg p-6 md:p-8 border border-emerald/30 animate-in fade-in slide-in-from-top-2 duration-300">
+            <div className="bg-gradient-emerald backdrop-blur-sm rounded-2xl shadow-lg p-6 md:p-8 border border-brand/20 animate-in fade-in slide-in-from-top-2 duration-300">
               <div className="flex justify-between items-center mb-6">
-                <h2 className="text-xl font-serif text-white flex items-center gap-2">
+                <h2 className="text-xl font-serif text-marble-text flex items-center gap-2">
                   <FileText className="w-6 h-6 text-brand" />
                   Dodaj nową wizytę
                 </h2>
                 <button
                   onClick={() => setShowAddHistoryForm(false)}
-                  className="text-ui-textSecondary hover:text-white transition-colors"
+                  className="text-ui-textSecondary hover:text-brand transition-colors"
                 >
                   Anuluj
                 </button>
               </div>
 
-              <div className="bg-black/20 rounded-xl p-5 shadow-inner border border-emerald/10">
+              <div className="bg-marble-border/20 rounded-xl p-5 shadow-inner border border-brand/10">
                 <div className="grid gap-4">
                   {/* Data i Czas - osobne pola */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -564,7 +564,7 @@ export default function ClientDetailsPage({
                             date: `${e.target.value}T${time}`,
                           });
                         }}
-                        className="w-full px-3 py-2 bg-ui-bg border border-emerald/30 rounded-lg focus:border-brand outline-none text-white text-sm"
+                        className="w-full px-3 py-2 bg-ui-bg border border-brand/20 rounded-lg focus:border-brand outline-none text-marble-text text-sm"
                       />
                     </div>
                     <div>
@@ -585,7 +585,7 @@ export default function ClientDetailsPage({
                             date: `${date}T${e.target.value}`,
                           });
                         }}
-                        className="w-full px-3 py-2 bg-ui-bg border border-emerald/30 rounded-lg focus:border-brand outline-none text-white text-sm"
+                        className="w-full px-3 py-2 bg-ui-bg border border-brand/20 rounded-lg focus:border-brand outline-none text-marble-text text-sm"
                       />
                     </div>
                   </div>
@@ -606,7 +606,7 @@ export default function ClientDetailsPage({
                           })
                         }
                         placeholder="np. Maść znieczulająca"
-                        className="w-full px-3 py-2 bg-ui-bg border border-emerald/30 rounded-lg focus:border-brand outline-none text-white text-sm"
+                        className="w-full px-3 py-2 bg-ui-bg border border-brand/20 rounded-lg focus:border-brand outline-none text-marble-text text-sm"
                       />
                     </div>
                   </div>
@@ -641,7 +641,7 @@ export default function ClientDetailsPage({
                           });
                         }}
                         placeholder="np. Zabieg przypominający"
-                        className="w-full px-3 py-2 bg-ui-bg border border-emerald/30 rounded-lg focus:border-brand outline-none text-white text-sm"
+                        className="w-full px-3 py-2 bg-ui-bg border border-brand/20 rounded-lg focus:border-brand outline-none text-marble-text text-sm"
                       />
                     </div>
                     <div>
@@ -677,7 +677,7 @@ export default function ClientDetailsPage({
                           });
                         }}
                         placeholder="np. Usta"
-                        className="w-full px-3 py-2 bg-ui-bg border border-emerald/30 rounded-lg focus:border-brand outline-none text-white text-sm"
+                        className="w-full px-3 py-2 bg-ui-bg border border-brand/20 rounded-lg focus:border-brand outline-none text-marble-text text-sm"
                       />
                     </div>
                   </div>
@@ -711,7 +711,7 @@ export default function ClientDetailsPage({
                           description: `${annotation} | ${area} | ${e.target.value}`,
                         });
                       }}
-                      className="w-full px-3 py-2 bg-ui-bg border border-emerald/30 rounded-lg focus:border-brand outline-none text-white text-sm h-20 resize-none"
+                      className="w-full px-3 py-2 bg-ui-bg border border-brand/20 rounded-lg focus:border-brand outline-none text-marble-text text-sm h-20 resize-none"
                       placeholder="np. Stylage M 1ml, efekt naturalny..."
                     />
                   </div>
@@ -738,9 +738,9 @@ export default function ClientDetailsPage({
           )}
 
           {/* Unified Timeline - Historia i Formularze */}
-          <div className="bg-gradient-emerald backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden border border-emerald/20">
-            <div className="p-4 md:p-6 border-b border-emerald/30 flex justify-between items-center">
-              <h2 className="text-xl font-serif text-white">
+          <div className="bg-gradient-emerald backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden border border-brand/15">
+            <div className="p-4 md:p-6 border-b border-brand/20 flex justify-between items-center">
+              <h2 className="text-xl font-serif text-marble-text">
                 Historia klientki
               </h2>
               <button
@@ -786,11 +786,11 @@ export default function ClientDetailsPage({
                 return timelineItems.map((item) => (
                   <div
                     key={`${item.type}-${item.id}`}
-                    className="group bg-black/30 rounded-xl p-4 border border-emerald/10 shadow-sm hover:border-emerald/30 transition-all backdrop-blur-sm"
+                    className="group bg-marble-border/30 rounded-xl p-4 border border-brand/10 shadow-sm hover:border-brand/20 transition-all backdrop-blur-sm"
                   >
                     <div className="flex items-start gap-3">
                       <span
-                        className={`text-[10px] uppercase tracking-wider font-bold text-white px-2 py-1 rounded-md whitespace-nowrap mt-0.5 ${item.type === "visit" ? "bg-brand/80" : "bg-emerald-900/50 border border-emerald/30"}`}
+                        className={`text-[10px] uppercase tracking-wider font-bold px-2 py-1 rounded-md whitespace-nowrap mt-0.5 ${item.type === "visit" ? "bg-brand/80 text-white" : "bg-emerald/50 border border-brand/20 text-marble-text"}`}
                       >
                         {item.type === "visit" ? "Wizyta" : "Formularz"}
                       </span>
@@ -869,7 +869,7 @@ export default function ClientDetailsPage({
                           <>
                             {/* WIDOK STANDARDOWY */}
                             <div className="flex justify-between items-start mb-2">
-                              <span className="text-white font-semibold text-base">
+                              <span className="text-marble-text font-semibold text-base">
                                 {item.type === "visit"
                                   ? item.description.split(" | ")[0] ||
                                     "Brak adnotacji"
@@ -878,7 +878,7 @@ export default function ClientDetailsPage({
                               </span>
 
                               <div className="flex items-center gap-3">
-                                <span className="text-xs text-ui-textSecondary flex items-center gap-1 font-medium bg-black/40 px-2 py-1 rounded-md border border-emerald/10">
+                                <span className="text-xs text-ui-textSecondary flex items-center gap-1 font-medium bg-marble-border/40 px-2 py-1 rounded-md border border-brand/10">
                                   <Calendar className="w-3 h-3 text-brand" />
                                   {formatDate(item.date.toISOString())}
                                 </span>
@@ -894,7 +894,7 @@ export default function ClientDetailsPage({
                                             .znieczulenie,
                                         })
                                       }
-                                      className="p-1.5 text-emerald-400 hover:text-emerald-600 transition-colors"
+                                      className="p-1.5 text-brand hover:text-brand-dark transition-colors"
                                       title="Edytuj"
                                     >
                                       <Edit2 className="w-4 h-4" />
@@ -915,7 +915,7 @@ export default function ClientDetailsPage({
 
                             {item.type === "visit" ? (
                               <>
-                                <p className="text-white text-base leading-relaxed whitespace-pre-wrap font-medium">
+                                <p className="text-marble-text text-base leading-relaxed whitespace-pre-wrap font-medium">
                                   {item.description}
                                 </p>
                                 {(item as any).znieczulenie && (
@@ -923,7 +923,7 @@ export default function ClientDetailsPage({
                                     <span className="text-xs font-bold text-brand uppercase tracking-wider">
                                       Znieczulenie
                                     </span>
-                                    <span className="text-sm font-medium text-white">
+                                    <span className="text-sm font-medium text-marble-text">
                                       {(item as any).znieczulenie}
                                     </span>
                                   </div>
@@ -949,7 +949,7 @@ export default function ClientDetailsPage({
                                     <span className="text-xs font-bold text-brand uppercase tracking-wider">
                                       Znieczulenie
                                     </span>
-                                    <span className="text-sm font-medium text-white">
+                                    <span className="text-sm font-medium text-marble-text">
                                       {(item as any).znieczulenie}
                                     </span>
                                   </div>

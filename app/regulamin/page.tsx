@@ -9,13 +9,13 @@ import { ArrowLeft } from "lucide-react";
 export default function RegulaminPage() {
   const router = useRouter();
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-emerald backdrop-blur-sm border-b border-emerald/30 shadow-lg">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-emerald backdrop-blur-sm border-b border-brand/20 shadow-marble">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-24">
             <Link href="/" className="flex items-center">
-              <h1 className="text-2xl md:text-3xl font-serif font-light text-[#f8f6f3] tracking-widest">
+              <h1 className="text-2xl md:text-3xl font-serif font-light text-marble-text tracking-widest">
                 {SALON_CONFIG.name}
               </h1>
             </Link>
@@ -25,15 +25,15 @@ export default function RegulaminPage() {
       </nav>
 
       {/* Header */}
-      <section className="pt-40 pb-12 px-4 border-b border-emerald/30/10">
+      <section className="pt-40 pb-12 px-4 border-b border-marble-border">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-serif font-light text-white mb-2 tracking-wider uppercase">
+          <h1 className="text-4xl md:text-5xl font-serif font-light text-marble-text mb-2 tracking-wider uppercase">
             REGULAMIN
           </h1>
           <p className="text-lg text-brand font-light tracking-wide uppercase">
             Świadczenia Usług
           </p>
-          <p className="text-sm text-ui-textSecondary font-light mt-2 italic">
+          <p className="text-sm text-marble-textSecondary font-light mt-2 italic">
             {SALON_CONFIG.name} – {SALON_CONFIG.owner}
           </p>
         </div>
@@ -42,7 +42,7 @@ export default function RegulaminPage() {
       {/* Content */}
       <section className="py-16 px-4">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-gradient-emerald backdrop-blur-sm p-8 md:p-12 space-y-10 rounded-2xl shadow-lg border border-emerald/20">
+          <div className="bg-gradient-emerald backdrop-blur-sm p-8 md:p-12 space-y-10 rounded-2xl shadow-marble-lg border border-brand/20">
             {/* §1 */}
             <div>
               <h2 className="text-xl font-serif font-light text-brand mb-4 tracking-wider uppercase">
@@ -96,8 +96,8 @@ export default function RegulaminPage() {
                   skutkuje automatycznym anulowaniem rezerwacji.
                 </p>
                 <p>Wpłaty można dokonać przelewem na konto bankowe:</p>
-                <div className="bg-black/20 p-4 rounded-xl border border-emerald/30/50 my-2 shadow-inner">
-                  <p className="font-medium text-white">
+                <div className="bg-marble-border/20 p-4 rounded-xl border border-brand/20 my-2 shadow-inner">
+                  <p className="font-medium text-marble-text">
                     {SALON_CONFIG.accountNumber}
                   </p>
                   <p className="text-sm mt-1">
@@ -243,8 +243,8 @@ export default function RegulaminPage() {
                   bezpłatnej korekty może zostać wydłużony do 3 miesięcy, pod
                   warunkiem zgłoszenia tego faktu podczas pierwszego zabiegu.
                 </p>
-                <div className="bg-black/20 p-4 rounded-xl border border-emerald/30/50 my-2 shadow-inner">
-                  <p className="font-medium text-white mb-2">
+                <div className="bg-marble-border/20 p-4 rounded-xl border border-brand/20 my-2 shadow-inner">
+                  <p className="font-medium text-marble-text mb-2">
                     Odświeżenie makijażu po roku (tzw. „Refresh"):
                   </p>
                   <ul className="list-disc list-inside space-y-1 ml-2">
@@ -314,7 +314,7 @@ export default function RegulaminPage() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gradient-emerald text-white py-16 border-t border-emerald/30 shadow-lg">
+      <footer className="bg-gradient-emerald text-marble-text py-16 border-t border-brand/20 shadow-marble">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-6 md:mb-0 text-center md:text-left">
