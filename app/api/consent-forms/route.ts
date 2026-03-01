@@ -4,6 +4,21 @@ import { auth } from "../../../lib/auth";
 import { generateConsentFormPdf } from "@/lib/pdfGenerator";
 import { sendConsentFormEmail, getFormTypeLabel } from "@/lib/sendConsentEmail";
 
+function normalizeName(name: string | undefined | null): string {
+  if (!name) return "";
+  return name
+    .trim()
+    .replace(/\s+/g, " ")
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    .join(" ");
+}
+
+function normalizePhone(phone: string | undefined | null): string {
+  if (!phone) return "";
+  return phone.replace(/\D/g, "");
+}
+
 // POST - zapisz nowy formularz (publiczny)
 export async function POST(request: NextRequest) {
   try {
@@ -11,28 +26,32 @@ export async function POST(request: NextRequest) {
 
     const formType = body.type || "HYALURONIC";
 
+    // Normalizacja danych klienckich zapobiegająca duplikatom
+    const normalizedName = normalizeName(body.imieNazwisko);
+    const normalizedPhone = normalizePhone(body.telefon);
+
     // Znajdź lub utwórz klientkę po imieniu i nazwisku
     const client = await prisma.client.upsert({
-      where: { imieNazwisko: body.imieNazwisko },
+      where: { imieNazwisko: normalizedName },
       update: {
-        telefon: body.telefon,
+        telefon: normalizedPhone,
       },
       create: {
-        imieNazwisko: body.imieNazwisko,
-        telefon: body.telefon,
+        imieNazwisko: normalizedName,
+        telefon: normalizedPhone,
       },
     });
 
     const consentForm = await prisma.consentForm.create({
       data: {
         type: formType,
-        imieNazwisko: body.imieNazwisko,
+        imieNazwisko: normalizedName,
         email: body.email || null,
         ulica: body.ulica || null,
         kodPocztowy: body.kodPocztowy || null,
         miasto: body.miasto || null,
         dataUrodzenia: body.dataUrodzenia || null,
-        telefon: body.telefon,
+        telefon: normalizedPhone,
         miejscowoscData: body.miejscowoscData,
         nazwaProduktu: body.nazwaProduktu || null,
         obszarZabiegu: body.obszarZabiegu || null,
@@ -75,13 +94,13 @@ export async function POST(request: NextRequest) {
           id: consentForm.id,
           type: formType,
           createdAt: consentForm.createdAt.toISOString(),
-          imieNazwisko: body.imieNazwisko,
+          imieNazwisko: normalizedName,
           email: body.email || null,
           ulica: body.ulica || null,
           kodPocztowy: body.kodPocztowy || null,
           miasto: body.miasto || null,
           dataUrodzenia: body.dataUrodzenia || null,
-          telefon: body.telefon,
+          telefon: normalizedPhone,
           miejscowoscData: body.miejscowoscData,
           nazwaProduktu: body.nazwaProduktu || null,
           obszarZabiegu: body.obszarZabiegu || null,
@@ -110,7 +129,7 @@ export async function POST(request: NextRequest) {
         });
 
         const formTypeLabel = getFormTypeLabel(formType);
-        const safeName = body.imieNazwisko
+        const safeName = normalizedName
           .replace(/[^a-zA-Z0-9\s]/g, "")
           .replace(/\s+/g, "_");
         const date = new Date(consentForm.createdAt)
@@ -120,7 +139,7 @@ export async function POST(request: NextRequest) {
 
         await sendConsentFormEmail({
           formId: consentForm.id,
-          clientName: body.imieNazwisko,
+          clientName: normalizedName,
           clientEmail: body.email || null,
           formTypeLabel,
           formDate: body.miejscowoscData,

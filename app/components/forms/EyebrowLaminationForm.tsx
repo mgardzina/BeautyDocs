@@ -485,7 +485,7 @@ export default function EyebrowLaminationForm({
                   </div>
 
                   <div>
-                    <label className="block text-sm text-[#4a4540] mb-2 font-medium">
+                    <label className="block text-sm text-ui-textSecondary mb-2 font-medium">
                       Data urodzenia * (min. 16 lat)
                     </label>
                     <input
@@ -499,10 +499,10 @@ export default function EyebrowLaminationForm({
                           formatBirthDate(e.target.value),
                         )
                       }
-                      placeholder="DD.MM.RRRR"
+                      placeholder="dd.mm.rrrr"
                       maxLength={10}
-                      className={`w-full px-4 py-3 bg-white border rounded-xl focus:border-[#C4B5A0] focus:ring-2 focus:ring-[#C4B5A0]/20 text-[#4a4540] placeholder-[#8b7355]/40 outline-none transition-all ${
-                        birthDateError ? "border-red-500" : "border-[#d4cec4]"
+                      className={`w-full px-4 py-3 bg-ui-bg border rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-white placeholder-white/40 outline-none transition-all ${
+                        birthDateError ? "border-red-500" : "border-[#D4AF37]"
                       }`}
                     />
                     {birthDateError && (

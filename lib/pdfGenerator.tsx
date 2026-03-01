@@ -1179,6 +1179,24 @@ function ConsentFormPDF({
           <View style={styles.consentBox}>
             <Text style={styles.consentText}>{rodoInfo.consentText}</Text>
           </View>
+          {form.podpisRodo && (
+            <View
+              style={[
+                styles.signatureSection,
+                { width: "50%", alignSelf: "flex-end", marginTop: 4 },
+              ]}
+              wrap={false}
+            >
+              <Text style={styles.signatureLabel}>
+                RODO (Przetwarzanie Danych):
+              </Text>
+              <Image
+                src={form.podpisRodo}
+                style={[styles.signatureImage, { height: 40, marginBottom: 2 }]}
+              />
+              <Text style={styles.signatureDate}>{form.miejscowoscData}</Text>
+            </View>
+          )}
         </View>
 
         {/* RODO Klauzula */}
@@ -1187,6 +1205,22 @@ function ConsentFormPDF({
           <View style={styles.consentBox}>
             <Text style={styles.consentText}>{rodoInfo.clauseText}</Text>
           </View>
+          {form.podpisRodo2 && (
+            <View
+              style={[
+                styles.signatureSection,
+                { width: "50%", alignSelf: "flex-end", marginTop: 4 },
+              ]}
+              wrap={false}
+            >
+              <Text style={styles.signatureLabel}>RODO (Klauzula):</Text>
+              <Image
+                src={form.podpisRodo2}
+                style={[styles.signatureImage, { height: 40, marginBottom: 2 }]}
+              />
+              <Text style={styles.signatureDate}>{form.miejscowoscData}</Text>
+            </View>
+          )}
         </View>
 
         <View style={styles.footer} fixed>
@@ -1287,9 +1321,11 @@ function ConsentFormPDF({
 
         {/* Oświadczenia (Teksty Zgód) */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Treść Oświadczeń i Zgód</Text>
+          <Text style={styles.sectionTitle}>
+            Treść Oświadczeń i Zgód i Podpisy
+          </Text>
 
-          <View style={[styles.consentBox, { marginBottom: 4 }]}>
+          <View style={[styles.consentBox, { marginBottom: 4 }]} wrap={false}>
             <Text
               style={[
                 styles.consentText,
@@ -1307,44 +1343,123 @@ function ConsentFormPDF({
               się procedurze podejmuję w pełni świadomie i dobrowolnie.
             </Text>
           </View>
+          {form.podpisDane && (
+            <View
+              style={[
+                styles.signatureSection,
+                {
+                  width: "50%",
+                  alignSelf: "flex-end",
+                  marginTop: 0,
+                  marginBottom: 8,
+                },
+              ]}
+              wrap={false}
+            >
+              <Text style={styles.signatureLabel}>
+                Świadoma Zgoda (Wymagane):
+              </Text>
+              <Image
+                src={form.podpisDane}
+                style={[styles.signatureImage, { height: 40, marginBottom: 2 }]}
+              />
+              <Text style={styles.signatureDate}>{form.miejscowoscData}</Text>
+            </View>
+          )}
 
           {form.zgodaMarketing && (
-            <View style={[styles.consentBox, { marginBottom: 4 }]}>
-              <Text
-                style={[
-                  styles.consentText,
-                  { fontFamily: "Roboto", fontWeight: "bold" },
-                ]}
-              >
-                Zgoda Marketingowa
-              </Text>
-              <Text style={styles.consentText}>
-                Wyrażam zgodę na otrzymywanie informacji o nowościach,
-                promocjach i ofertach specjalnych od firmy {rodoInfo.firmaNazwa}{" "}
-                drogą elektroniczną (SMS / E-mail).
-              </Text>
+            <View wrap={false}>
+              <View style={[styles.consentBox, { marginBottom: 4 }]}>
+                <Text
+                  style={[
+                    styles.consentText,
+                    { fontFamily: "Roboto", fontWeight: "bold" },
+                  ]}
+                >
+                  Zgoda Marketingowa
+                </Text>
+                <Text style={styles.consentText}>
+                  Wyrażam zgodę na otrzymywanie informacji o nowościach,
+                  promocjach i ofertach specjalnych od firmy{" "}
+                  {rodoInfo.firmaNazwa} drogą elektroniczną (SMS / E-mail).
+                </Text>
+              </View>
+              {form.podpisMarketing && (
+                <View
+                  style={[
+                    styles.signatureSection,
+                    {
+                      width: "50%",
+                      alignSelf: "flex-end",
+                      marginTop: 0,
+                      marginBottom: 8,
+                    },
+                  ]}
+                  wrap={false}
+                >
+                  <Text style={styles.signatureLabel}>Zgoda Marketingowa:</Text>
+                  <Image
+                    src={form.podpisMarketing}
+                    style={[
+                      styles.signatureImage,
+                      { height: 40, marginBottom: 2 },
+                    ]}
+                  />
+                  <Text style={styles.signatureDate}>
+                    {form.miejscowoscData}
+                  </Text>
+                </View>
+              )}
             </View>
           )}
 
           {form.zgodaFotografie && (
-            <View style={[styles.consentBox, { marginBottom: 4 }]}>
-              <Text
-                style={[
-                  styles.consentText,
-                  { fontFamily: "Roboto", fontWeight: "bold" },
-                ]}
-              >
-                Zgoda na Wykorzystanie Wizerunku
-              </Text>
-              <Text style={styles.consentText}>
-                Wyrażam nieodpłatną zgodę na utrwalenie i rozpowszechnianie
-                mojego wizerunku (zdjęcia/video) w celach promocyjnych.
-              </Text>
+            <View wrap={false}>
+              <View style={[styles.consentBox, { marginBottom: 4 }]}>
+                <Text
+                  style={[
+                    styles.consentText,
+                    { fontFamily: "Roboto", fontWeight: "bold" },
+                  ]}
+                >
+                  Zgoda na Wykorzystanie Wizerunku
+                </Text>
+                <Text style={styles.consentText}>
+                  Wyrażam nieodpłatną zgodę na utrwalenie i rozpowszechnianie
+                  mojego wizerunku (zdjęcia/video) w celach promocyjnych.
+                </Text>
+              </View>
+              {form.podpisFotografie && (
+                <View
+                  style={[
+                    styles.signatureSection,
+                    {
+                      width: "50%",
+                      alignSelf: "flex-end",
+                      marginTop: 0,
+                      marginBottom: 8,
+                    },
+                  ]}
+                  wrap={false}
+                >
+                  <Text style={styles.signatureLabel}>Zgoda na Wizerunek:</Text>
+                  <Image
+                    src={form.podpisFotografie}
+                    style={[
+                      styles.signatureImage,
+                      { height: 40, marginBottom: 2 },
+                    ]}
+                  />
+                  <Text style={styles.signatureDate}>
+                    {form.miejscowoscData}
+                  </Text>
+                </View>
+              )}
             </View>
           )}
 
           {form.zastrzeniaKlienta && (
-            <View style={styles.consentBox}>
+            <View style={styles.consentBox} wrap={false}>
               <Text
                 style={[
                   styles.consentText,
@@ -1356,129 +1471,6 @@ function ConsentFormPDF({
               <Text style={styles.consentText}>{form.zastrzeniaKlienta}</Text>
             </View>
           )}
-        </View>
-
-        {/* Podpisy (Wszystkie na końcu) */}
-        <View style={[styles.section, { marginBottom: 6 }]}>
-          <Text style={styles.sectionTitle}>Podpisy Klienta</Text>
-
-          <View
-            style={{
-              flexDirection: "row",
-              flexWrap: "wrap",
-              justifyContent: "space-between",
-              gap: 4,
-            }}
-          >
-            {/* RODO 1 */}
-            {form.podpisRodo && (
-              <View
-                style={[
-                  styles.signatureSection,
-                  { width: "48%", marginTop: 0, padding: 4 },
-                ]}
-                wrap={false}
-              >
-                <Text style={styles.signatureLabel}>
-                  RODO (Przetwarzanie Danych):
-                </Text>
-                <Image
-                  src={form.podpisRodo}
-                  style={[
-                    styles.signatureImage,
-                    { height: 40, marginBottom: 2 },
-                  ]}
-                />
-                <Text style={styles.signatureDate}>{form.miejscowoscData}</Text>
-              </View>
-            )}
-
-            {/* RODO 2 */}
-            {form.podpisRodo2 && (
-              <View
-                style={[
-                  styles.signatureSection,
-                  { width: "48%", marginTop: 0, padding: 4 },
-                ]}
-                wrap={false}
-              >
-                <Text style={styles.signatureLabel}>RODO (Klauzula):</Text>
-                <Image
-                  src={form.podpisRodo2}
-                  style={[
-                    styles.signatureImage,
-                    { height: 40, marginBottom: 2 },
-                  ]}
-                />
-                <Text style={styles.signatureDate}>{form.miejscowoscData}</Text>
-              </View>
-            )}
-
-            {/* Zabieg */}
-            {form.podpisDane && (
-              <View
-                style={[
-                  styles.signatureSection,
-                  { width: "48%", marginTop: 0, padding: 4 },
-                ]}
-                wrap={false}
-              >
-                <Text style={styles.signatureLabel}>
-                  Świadoma Zgoda (Wymagane):
-                </Text>
-                <Image
-                  src={form.podpisDane}
-                  style={[
-                    styles.signatureImage,
-                    { height: 40, marginBottom: 2 },
-                  ]}
-                />
-                <Text style={styles.signatureDate}>{form.miejscowoscData}</Text>
-              </View>
-            )}
-
-            {/* Marketing */}
-            {form.podpisMarketing && (
-              <View
-                style={[
-                  styles.signatureSection,
-                  { width: "48%", marginTop: 0, padding: 4 },
-                ]}
-                wrap={false}
-              >
-                <Text style={styles.signatureLabel}>Zgoda Marketingowa:</Text>
-                <Image
-                  src={form.podpisMarketing}
-                  style={[
-                    styles.signatureImage,
-                    { height: 40, marginBottom: 2 },
-                  ]}
-                />
-                <Text style={styles.signatureDate}>{form.miejscowoscData}</Text>
-              </View>
-            )}
-
-            {/* Fotografie */}
-            {form.podpisFotografie && (
-              <View
-                style={[
-                  styles.signatureSection,
-                  { width: "48%", marginTop: 0, padding: 4 },
-                ]}
-                wrap={false}
-              >
-                <Text style={styles.signatureLabel}>Zgoda na Wizerunek:</Text>
-                <Image
-                  src={form.podpisFotografie}
-                  style={[
-                    styles.signatureImage,
-                    { height: 40, marginBottom: 2 },
-                  ]}
-                />
-                <Text style={styles.signatureDate}>{form.miejscowoscData}</Text>
-              </View>
-            )}
-          </View>
         </View>
 
         {/* Podsumowanie prawne */}

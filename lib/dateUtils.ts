@@ -64,6 +64,7 @@ export const getTodayDate = (): string => {
 };
 
 // Format birth date (dd.mm.rrrr) with clamping of day/month
+// Format birth date (dd.mm.rrrr) with clamping of day/month
 export const formatBirthDate = (value: string): string => {
   const digits = value.replace(/\D/g, "").slice(0, 8);
 
