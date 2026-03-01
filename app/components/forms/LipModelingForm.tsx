@@ -232,7 +232,7 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
       <div className="min-h-screen flex items-center justify-center p-4">
         <div className="bg-gradient-emerald backdrop-blur-sm rounded-3xl shadow-2xl border border-[#D4AF37] p-12 max-w-lg text-center">
           <div className="w-20 h-20 bg-green-900/20 rounded-full flex items-center justify-center mx-auto mb-6">
-            <Check className="w-10 h-10 text-green-500" />
+            <Check className="w-10 h-10 text-green-600" />
           </div>
           <h2 className="text-3xl font-serif text-marble-text mb-4">Dziękujemy!</h2>
           <p className="text-ui-textSecondary mb-8">
@@ -1145,8 +1145,8 @@ export default function LipModelingForm({ onBack }: LipModelingFormProps) {
                     <div className="space-y-4">
                       <div className="flex items-center justify-between p-4 bg-green-900/10 border border-green-500/20 rounded-xl mb-6">
                         <div className="flex items-center gap-3">
-                          <div className="w-8 h-8 bg-green-900/30 rounded-full flex items-center justify-center">
-                            <Check className="w-5 h-5 text-green-500" />
+                          <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                            <Check className="w-5 h-5 text-green-600" />
                           </div>
                           <span className="text-green-500 font-medium">
                             Wywiad medyczny zakończony

@@ -295,7 +295,7 @@ export default function CookieConsent() {
       {showCookieButton && !showBanner && (
         <button
           onClick={handleOpenSettings}
-          className="fixed bottom-4 left-4 z-[98] p-3 bg-emerald-DEFAULT border border-brand-DEFAULT/30 rounded-full shadow-[0_0_15px_rgba(27,77,62,0.4)] hover:shadow-[0_0_20px_rgba(212,175,55,0.3)] transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-brand-DEFAULT focus:ring-offset-2 focus:ring-offset-black group"
+          className="fixed bottom-4 left-4 z-[98] p-3 bg-white border border-brand-DEFAULT/30 rounded-full shadow-marble-lg hover:shadow-[0_0_20px_rgba(212,175,55,0.3)] transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-brand-DEFAULT focus:ring-offset-2 focus:ring-offset-marble-bg group"
           aria-label="Otwórz ustawienia plików cookie"
         >
           <Cookie className="w-5 h-5 text-brand-DEFAULT" />
@@ -333,7 +333,7 @@ export default function CookieConsent() {
                     </div>
                     <h2
                       id="cookie-banner-title"
-                      className="text-xl font-serif font-light tracking-wider text-white uppercase"
+                      className="text-xl font-serif font-light tracking-wider text-marble-text uppercase"
                     >
                       Używamy{" "}
                       <span className="text-brand-DEFAULT">plików cookie</span>
@@ -393,11 +393,11 @@ export default function CookieConsent() {
                             />
                           </div>
                           <div className="flex items-center gap-2">
-                            <span className="font-medium text-white group-hover:text-brand-DEFAULT transition-colors">
+                            <span className="font-medium text-marble-text group-hover:text-brand-DEFAULT transition-colors">
                               {category.title}
                             </span>
                             {category.required && (
-                              <span className="text-[10px] px-2 py-0.5 bg-brand-DEFAULT text-[#D4AF37] border border-brand-DEFAULT/30 rounded-full uppercase tracking-tighter font-bold">
+                              <span className="text-[10px] px-2 py-0.5 bg-brand-DEFAULT text-white border border-brand-DEFAULT/30 rounded-full uppercase tracking-tighter font-bold">
                                 Wymagane
                               </span>
                             )}
@@ -446,7 +446,7 @@ export default function CookieConsent() {
                           `}
                         aria-hidden={!isExpanded}
                       >
-                        <div className="p-4 pt-2 bg-black/20 border-t border-ui-border">
+                        <div className="p-4 pt-2 bg-marble-bg/50 border-t border-ui-border">
                           <p className="text-sm text-emerald-sage leading-relaxed mb-3 font-light">
                             {category.description}
                           </p>
@@ -487,11 +487,11 @@ export default function CookieConsent() {
               </div>
 
               {/* Footer with Actions - Emerald Royal Theme style */}
-              <div className="p-6 pt-4 border-t border-ui-border bg-black/40">
+              <div className="p-6 pt-4 border-t border-ui-border bg-marble-bg/60">
                 <div className="flex flex-col sm:flex-row gap-3">
                   <button
                     onClick={handleAcceptNecessary}
-                    className="flex-1 px-4 py-3 border border-ui-border text-ui-textSecondary font-light text-xs rounded-xl hover:bg-white/5 hover:text-white transition-all duration-300 tracking-widest uppercase"
+                    className="flex-1 px-4 py-3 border border-ui-border text-marble-textSecondary font-light text-xs rounded-xl hover:bg-marble-border/20 hover:text-marble-text transition-all duration-300 tracking-widest uppercase"
                   >
                     Tylko niezbędne
                   </button>
