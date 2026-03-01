@@ -1172,7 +1172,7 @@ function ConsentFormPDF({
         )}
 
         {/* RODO Zgoda */}
-        <View style={styles.section}>
+        <View style={styles.section} wrap={false}>
           <Text style={styles.sectionTitle}>
             RODO — Zgoda na Przetwarzanie Danych
           </Text>
@@ -1200,7 +1200,7 @@ function ConsentFormPDF({
         </View>
 
         {/* RODO Klauzula */}
-        <View style={styles.section}>
+        <View style={styles.section} wrap={false}>
           <Text style={styles.sectionTitle}>Klauzula Informacyjna RODO</Text>
           <View style={styles.consentBox}>
             <Text style={styles.consentText}>{rodoInfo.clauseText}</Text>
