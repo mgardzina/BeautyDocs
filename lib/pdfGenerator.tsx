@@ -836,7 +836,7 @@ function ConsentFormPDF({
               </View>
               <View style={styles.row}>
                 <Text style={styles.label}>Data urodzenia:</Text>
-                <Text style={styles.value}>{form.dataUrodzenia || "—"}</Text>
+                <Text style={styles.value}>{formatDate(form.dataUrodzenia)}</Text>
               </View>
               <View style={styles.row}>
                 <Text style={styles.label}>Telefon:</Text>

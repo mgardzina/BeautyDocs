@@ -37,22 +37,22 @@ export default function AnatomyBodySelector({
 
   // KOLORYSTYKA STREF
   const colors = {
-    // 1. BAZOWY (Widoczny od razu): Delikatny szary
+    // 1. BAZOWY (Widoczny od razu): Złoty z niskim opacity
     base: {
-      fill: "rgba(143, 166, 157, 0.8)", // sage z większą widocznością (szare pola) - ZMIANA NA 0.8
-      stroke: "rgba(143, 166, 157, 0.6)", // sage obrys
+      fill: "rgba(212, 175, 55, 0.15)",
+      stroke: "rgba(212, 175, 55, 0.3)",
       strokeWidth: 1,
     },
-    // 2. HOVER (Po najechaniu): Złoty (Brand)
+    // 2. HOVER (Po najechaniu): Złoty ze średnim opacity
     hover: {
-      fill: "rgba(212, 175, 55, 0.6)", // Brand (#D4AF37) z przezroczystością - TEŻ ZWIĘKSZAM LEKKO
-      stroke: "#D4AF37", // Pełny kolor obrysu (Brand)
+      fill: "rgba(212, 175, 55, 0.4)",
+      stroke: "#D4AF37",
       strokeWidth: 2,
     },
-    // 3. SELECTED (Wybrany): Mocny Złoty
+    // 3. SELECTED (Wybrany): Złoty z wysokim opacity
     selected: {
-      fill: "rgba(212, 175, 55, 0.9)", // Brand (#D4AF37) z większą przezroczystością - TEŻ ZWIĘKSZAM
-      stroke: "#D4AF37", // mocny złoty (Brand)
+      fill: "rgba(212, 175, 55, 0.7)",
+      stroke: "#D4AF37",
       strokeWidth: 3,
     },
   };
