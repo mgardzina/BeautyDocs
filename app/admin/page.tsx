@@ -7,6 +7,22 @@ import Link from "next/link";
 import { LogOut, FileText, Check, X, Search } from "lucide-react";
 import { SALON_CONFIG } from "@/app/config/salon";
 
+const FORM_TYPE_BADGE: Record<string, { label: string; color: string }> = {
+  LIP_AUGMENTATION:    { label: "Powiększanie ust",     color: "bg-pink-500/20 text-pink-400 border border-pink-500/30" },
+  FACIAL_VOLUMETRY:    { label: "Wolumetria",           color: "bg-purple-500/20 text-purple-400 border border-purple-500/30" },
+  NEEDLE_MESOTHERAPY:  { label: "Mezoterapia",          color: "bg-blue-500/20 text-blue-400 border border-blue-500/30" },
+  INJECTION_LIPOLYSIS: { label: "Lipoliza",             color: "bg-orange-500/20 text-orange-400 border border-orange-500/30" },
+  PERMANENT_MAKEUP:    { label: "PMU",                  color: "bg-green-500/20 text-green-400 border border-green-500/30" },
+  LASER_HAIR_REMOVAL:  { label: "Laser depilacja",      color: "bg-red-500/20 text-red-400 border border-red-500/30" },
+  LASER_TATTOO_REMOVAL:{ label: "Laser tatuaż",         color: "bg-red-500/20 text-red-400 border border-red-500/30" },
+  WRINKLE_REDUCTION:   { label: "Redukcja zmarszczek",  color: "bg-indigo-500/20 text-indigo-400 border border-indigo-500/30" },
+  EYELID_LIFT:         { label: "Lifting powiek",       color: "bg-teal-500/20 text-teal-400 border border-teal-500/30" },
+  TISSUE_STIMULATION:  { label: "Biostymulatory",       color: "bg-amber-500/20 text-amber-400 border border-amber-500/30" },
+  EYEBROW_TINTING:     { label: "Henna brwi",           color: "bg-yellow-500/20 text-yellow-400 border border-yellow-500/30" },
+  EYELASH_EXTENSION:   { label: "Przedłużanie rzęs",    color: "bg-fuchsia-500/20 text-fuchsia-400 border border-fuchsia-500/30" },
+  EYEBROW_LAMINATION:  { label: "Laminacja brwi",       color: "bg-lime-500/20 text-lime-400 border border-lime-500/30" },
+};
+
 interface ConsentFormSummary {
   id: string;
   type: string;
@@ -161,18 +177,11 @@ export default function AdminDashboard() {
                         {form.imieNazwisko}
                         <span
                           className={`text-xs px-2 py-0.5 rounded-full ${
-                            form.type === "PMU"
-                              ? "bg-green-500/20 text-green-400 border border-green-500/30"
-                              : form.type === "LASER"
-                                ? "bg-red-500/20 text-red-400 border border-red-500/30"
-                                : "bg-blue-500/20 text-blue-400 border border-blue-500/30"
+                            FORM_TYPE_BADGE[form.type as keyof typeof FORM_TYPE_BADGE]?.color
+                              ?? "bg-gray-500/20 text-gray-400 border border-gray-500/30"
                           }`}
                         >
-                          {form.type === "PMU"
-                            ? "PMU"
-                            : form.type === "LASER"
-                              ? "LASER"
-                              : "KWAS"}
+                          {FORM_TYPE_BADGE[form.type as keyof typeof FORM_TYPE_BADGE]?.label ?? form.type}
                         </span>
                       </h3>
                       <p className="text-sm text-ui-textSecondary">

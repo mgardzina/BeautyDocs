@@ -8,7 +8,7 @@ COPY package*.json ./
 COPY prisma ./prisma/
 COPY prisma.config.ts ./
 RUN npm ci
-RUN npx prisma generate
+RUN DATABASE_URL="postgresql://dummy:dummy@localhost/dummy" npx prisma generate
 
 # Stage 2: Builder
 FROM node:20-alpine AS builder

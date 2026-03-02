@@ -34,7 +34,7 @@ steps:
         chmod 777 /cloudsql &&
         ./cloud-sql-proxy --unix-socket=/cloudsql powderbrowsacademypl:europe-west1:powderbrowspl-db-be &
         sleep 5 &&
-        npm install prisma @prisma/client &&
+        npm install prisma @prisma/client @prisma/config dotenv &&
         npx prisma db push --accept-data-loss
     env:
       - 'DATABASE_URL=postgresql://postgres:0p494r%60%29V-%3A%5DN%60%3Bp@localhost/powderbrowsacademypl?host=/cloudsql/powderbrowsacademypl:europe-west1:powderbrowspl-db-be'
