@@ -761,8 +761,12 @@ function ConsentFormPDF({
 }) {
   const formatDate = (d?: string | null) => {
     if (!d) return "—";
+    // Already in dd.mm.rrrr format
+    if (/^\d{2}\.\d{2}\.\d{4}$/.test(d)) return d;
     try {
-      return new Date(d).toLocaleDateString("pl-PL", {
+      const date = new Date(d);
+      if (isNaN(date.getTime())) return d;
+      return date.toLocaleDateString("pl-PL", {
         day: "2-digit",
         month: "2-digit",
         year: "numeric",

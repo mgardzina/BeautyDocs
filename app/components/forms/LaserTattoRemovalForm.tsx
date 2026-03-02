@@ -166,22 +166,6 @@ export default function LaserTattoRemovalForm({
     setFormData((prev) => ({ ...prev, telefon: formatted }));
   };
 
-  // Oblicz wiek na podstawie daty urodzenia
-  const calculateAge = (birthDate: string): number => {
-    if (!birthDate) return 0;
-    const today = new Date();
-    const birth = new Date(birthDate);
-    let age = today.getFullYear() - birth.getFullYear();
-    const monthDiff = today.getMonth() - birth.getMonth();
-    if (
-      monthDiff < 0 ||
-      (monthDiff === 0 && today.getDate() < birth.getDate())
-    ) {
-      age--;
-    }
-    return age;
-  };
-
   const isAgeValid = calculateAge(formData.dataUrodzenia) >= 16;
 
   const handleContraindicationChange = (key: string, value: boolean) => {
@@ -518,19 +502,18 @@ export default function LaserTattoRemovalForm({
                       Data urodzenia * (min. 16 lat)
                     </label>
                     <input
-                      type="date"
+                      type="text"
+                      inputMode="numeric"
                       required
                       value={formData.dataUrodzenia}
                       onChange={(e) =>
-                        handleInputChange("dataUrodzenia", e.target.value)
-                      }
-                      max={
-                        new Date(
-                          new Date().setFullYear(new Date().getFullYear() - 16),
+                        handleInputChange(
+                          "dataUrodzenia",
+                          formatBirthDate(e.target.value),
                         )
-                          .toISOString()
-                          .split("T")[0]
                       }
+                      placeholder="dd.mm.rrrr"
+                      maxLength={10}
                       className={`w-full px-4 py-3 bg-ui-bg border rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-marble-text placeholder-marble-textSecondary outline-none transition-all ${
                         formData.dataUrodzenia && !isAgeValid
                           ? "border-red-500"

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import AnatomyBodySelector from "../AnatomyBodySelector";
 import { Phone, Check, ArrowLeft, Instagram, Mail, Shield } from "lucide-react";
-import { getTodayDate, validateBirthDate } from "@/lib/dateUtils";
+import { getTodayDate, formatBirthDate, calculateAge, validateBirthDate } from "@/lib/dateUtils";
 import SignaturePad from "@/components/SignaturePad";
 import SignatureVerificationModal from "@/components/SignatureVerificationModal";
 import { AuditLogData } from "@/app/actions/otp";
@@ -147,22 +147,6 @@ export default function LaserRemovalForm({ onBack }: LaserRemovalFormProps) {
   const handlePhoneChange = (value: string) => {
     const formatted = formatPhoneNumber(value);
     setFormData((prev) => ({ ...prev, telefon: formatted }));
-  };
-
-  // Oblicz wiek na podstawie daty urodzenia
-  const calculateAge = (birthDate: string): number => {
-    if (!birthDate) return 0;
-    const today = new Date();
-    const birth = new Date(birthDate);
-    let age = today.getFullYear() - birth.getFullYear();
-    const monthDiff = today.getMonth() - birth.getMonth();
-    if (
-      monthDiff < 0 ||
-      (monthDiff === 0 && today.getDate() < birth.getDate())
-    ) {
-      age--;
-    }
-    return age;
   };
 
   const isAgeValid = calculateAge(formData.dataUrodzenia) >= 16;
@@ -501,21 +485,20 @@ export default function LaserRemovalForm({ onBack }: LaserRemovalFormProps) {
                       Data urodzenia * (min. 16 lat)
                     </label>
                     <input
-                      type="date"
+                      type="text"
+                      inputMode="numeric"
                       required
                       value={formData.dataUrodzenia}
                       onChange={(e) =>
-                        handleInputChange("dataUrodzenia", e.target.value)
-                      }
-                      max={
-                        new Date(
-                          new Date().setFullYear(new Date().getFullYear() - 16),
+                        handleInputChange(
+                          "dataUrodzenia",
+                          formatBirthDate(e.target.value),
                         )
-                          .toISOString()
-                          .split("T")[0]
                       }
+                      placeholder="dd.mm.rrrr"
+                      maxLength={10}
                       className={`w-full px-4 py-3 bg-ui-bg border rounded-xl focus:border-brand focus:ring-2 focus:ring-brand/20 text-marble-text placeholder-marble-textSecondary outline-none transition-all ${
-                        validateBirthDate(formData.dataUrodzenia) !== null
+                        formData.dataUrodzenia && !isAgeValid
                           ? "border-red-500"
                           : "border-[#D4AF37]"
                       }`}
