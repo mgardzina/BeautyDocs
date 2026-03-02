@@ -323,36 +323,36 @@ export default function EyelashExtensionForm({
             <BackButton onClick={onBack} className="self-start" />
             <div className="flex gap-2 text-xs md:text-sm font-medium text-marble-textSecondary overflow-x-auto pb-2 md:pb-0">
               <span
-                className={currentStep === "DATA" ? "text-brand font-bold" : ""}
+                className={currentStep === "DATA" ? "text-brand font-bold" : "text-marble-textSecondary"}
               >
                 1. Dane
               </span>
-              <span>→</span>
+              <span className="text-marble-textSecondary">→</span>
               <span
-                className={currentStep === "RODO" ? "text-brand font-bold" : ""}
+                className={currentStep === "RODO" ? "text-brand font-bold" : "text-marble-textSecondary"}
               >
                 2. RODO
               </span>
-              <span>→</span>
+              <span className="text-marble-textSecondary">→</span>
               <span
                 className={
-                  currentStep === "RODO2" ? "text-brand font-bold" : ""
+                  currentStep === "RODO2" ? "text-brand font-bold" : "text-marble-textSecondary"
                 }
               >
                 3. RODO 2
               </span>
-              <span>→</span>
+              <span className="text-marble-textSecondary">→</span>
               <span
                 className={
-                  currentStep === "TREATMENT" ? "text-brand font-bold" : ""
+                  currentStep === "TREATMENT" ? "text-brand font-bold" : "text-marble-textSecondary"
                 }
               >
                 4. Zabieg
               </span>
-              <span>→</span>
+              <span className="text-marble-textSecondary">→</span>
               <span
                 className={
-                  currentStep === "MARKETING" ? "text-brand font-bold" : ""
+                  currentStep === "MARKETING" ? "text-brand font-bold" : "text-marble-textSecondary"
                 }
               >
                 5. Zgody
@@ -1310,76 +1310,6 @@ export default function EyelashExtensionForm({
                       zabiegu i zobowiązuję się do ich przestrzegania.
                     </p>
 
-                    <div className="bg-marble-border/20 p-4 rounded-lg border border-[#D4AF37]/30 my-4">
-                      <p className="mb-3 font-medium text-marble-text">
-                        <strong>Zgoda na wizerunek (opcjonalnie):</strong>{" "}
-                        Wyrażam zgodę na wykonanie zdjęć przed i po zabiegu w
-                        celach dokumentacyjnych, szkoleniowych oraz
-                        promocyjnych:
-                      </p>
-                      <div className="flex gap-6">
-                        <label className="flex items-center gap-3 cursor-pointer group">
-                          <div
-                            className={`w-6 h-6 rounded-md border-2 flex items-center justify-center transition-colors ${formData.zgodaFotografie ? "bg-brand border-brand text-black" : "border-[#D4AF37] group-hover:border-brand"}`}
-                          >
-                            {formData.zgodaFotografie && (
-                              <Check className="w-4 h-4" />
-                            )}
-                          </div>
-                          <input
-                            type="checkbox"
-                            className="hidden"
-                            checked={formData.zgodaFotografie}
-                            onChange={(e) => {
-                              const checked = e.target.checked;
-                              handleInputChange("zgodaFotografie", checked);
-                              // Auto-sign photo consent if checked, or clear signature if unchecked
-                              if (checked && !formData.podpisFotografie) {
-                                // We'll leverage the main signature for this since it's inline
-                                handleInputChange(
-                                  "podpisFotografie",
-                                  "INLINE_CONSENT",
-                                );
-                              } else if (!checked) {
-                                handleInputChange("podpisFotografie", "");
-                              }
-                            }}
-                          />
-                          <span
-                            className={`font-medium ${formData.zgodaFotografie ? "text-brand" : "text-ui-textSecondary group-hover:text-brand"}`}
-                          >
-                            TAK
-                          </span>
-                        </label>
-
-                        <label className="flex items-center gap-3 cursor-pointer group">
-                          <div
-                            className={`w-6 h-6 rounded-md border-2 flex items-center justify-center transition-colors ${!formData.zgodaFotografie ? "bg-ui-bg border-[#D4AF37]" : "border-[#D4AF37] group-hover:border-brand"}`}
-                          >
-                            {!formData.zgodaFotografie && (
-                              <div className="w-3 h-3 bg-ui-textMuted rounded-sm" />
-                            )}
-                          </div>
-                          <input
-                            type="checkbox"
-                            className="hidden"
-                            checked={!formData.zgodaFotografie}
-                            onChange={(e) => {
-                              if (e.target.checked) {
-                                handleInputChange("zgodaFotografie", false);
-                                handleInputChange("podpisFotografie", "");
-                              }
-                            }}
-                          />
-                          <span
-                            className={`font-medium ${!formData.zgodaFotografie ? "text-ui-textSecondary" : "text-ui-textMuted group-hover:text-brand"}`}
-                          >
-                            NIE
-                          </span>
-                        </label>
-                      </div>
-                    </div>
-
                     <p>
                       <strong>Odpowiedzialność:</strong> Rozumiem i akceptuję
                       ryzyko związane z zabiegiem i wyrażam zgodę na jego
@@ -1474,6 +1404,48 @@ export default function EyelashExtensionForm({
                       onChange={(sig) => {
                         handleInputChange("podpisMarketing", sig);
                         handleInputChange("zgodaMarketing", !!sig);
+                      }}
+                      date={formData.miejscowoscData}
+                    />
+                  </div>
+                </div>
+
+                {/* Zgoda na wizerunek */}
+                <div className="bg-ui-bg/60 backdrop-blur-sm rounded-xl shadow-sm overflow-hidden border border-[#D4AF37] hover:shadow-md transition-shadow">
+                  <div className="p-6">
+                    <h4 className="font-serif text-marble-text text-lg mb-3">
+                      Zgoda na Wykorzystanie Wizerunku
+                    </h4>
+                    <p className="text-sm text-ui-textSecondary leading-relaxed mb-4">
+                      Wyrażam nieodpłatną zgodę na utrwalenie i
+                      rozpowszechnianie mojego wizerunku (zdjęcia/video efektów
+                      zabiegu) w celach promocyjnych salonu {SALON_CONFIG.name}.
+                    </p>
+
+                    <div className="mb-6">
+                      <label className="block text-xs uppercase tracking-wider text-marble-textSecondary mb-2 font-medium">
+                        Gdzie możemy publikować? (opcjonalnie)
+                      </label>
+                      <input
+                        type="text"
+                        value={formData.miejscaPublikacjiFotografii}
+                        onChange={(e) =>
+                          handleInputChange(
+                            "miejscaPublikacjiFotografii",
+                            e.target.value,
+                          )
+                        }
+                        className="w-full px-4 py-2 bg-ui-bg border-b border-[#D4AF37] focus:border-brand outline-none text-sm transition-colors text-marble-text"
+                        placeholder="np. Instagram, Facebook (zostaw puste = wszystkie)"
+                      />
+                    </div>
+
+                    <SignaturePad
+                      label="Podpis (Zgadzam się)"
+                      value={formData.podpisFotografie}
+                      onChange={(sig) => {
+                        handleInputChange("podpisFotografie", sig);
+                        handleInputChange("zgodaFotografie", !!sig);
                       }}
                       date={formData.miejscowoscData}
                     />

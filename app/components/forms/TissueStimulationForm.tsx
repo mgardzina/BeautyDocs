@@ -375,36 +375,36 @@ export default function FacialVolumetryForm({
             <BackButton onClick={onBack} className="self-start" />
             <div className="flex gap-2 text-xs md:text-sm font-medium text-marble-textSecondary overflow-x-auto pb-2 md:pb-0">
               <span
-                className={currentStep === "DATA" ? "text-brand font-bold" : ""}
+                className={currentStep === "DATA" ? "text-brand font-bold" : "text-marble-textSecondary"}
               >
                 1. Dane
               </span>
-              <span>→</span>
+              <span className="text-marble-textSecondary">→</span>
               <span
-                className={currentStep === "RODO" ? "text-brand font-bold" : ""}
+                className={currentStep === "RODO" ? "text-brand font-bold" : "text-marble-textSecondary"}
               >
                 2. RODO
               </span>
-              <span>→</span>
+              <span className="text-marble-textSecondary">→</span>
               <span
                 className={
-                  currentStep === "RODO2" ? "text-brand font-bold" : ""
+                  currentStep === "RODO2" ? "text-brand font-bold" : "text-marble-textSecondary"
                 }
               >
                 3. RODO 2
               </span>
-              <span>→</span>
+              <span className="text-marble-textSecondary">→</span>
               <span
                 className={
-                  currentStep === "TREATMENT" ? "text-brand font-bold" : ""
+                  currentStep === "TREATMENT" ? "text-brand font-bold" : "text-marble-textSecondary"
                 }
               >
                 4. Zabieg
               </span>
-              <span>→</span>
+              <span className="text-marble-textSecondary">→</span>
               <span
                 className={
-                  currentStep === "MARKETING" ? "text-brand font-bold" : ""
+                  currentStep === "MARKETING" ? "text-brand font-bold" : "text-marble-textSecondary"
                 }
               >
                 5. Zgody

@@ -97,8 +97,14 @@ const formTypeLabels: Record<string, string> = {
   WRINKLE_REDUCTION: "Niwelowanie zmarszczek",
   NEEDLE_MESOTHERAPY: "Mezoterapia igłowa",
   INJECTION_LIPOLYSIS: "Lipoliza iniekcyjna",
-  PERMANENT_MAKEUP: "Makijaż permanentny (Legacy)",
+  TISSUE_STIMULATION: "Stymulacja tkankowa",
+  PERMANENT_MAKEUP: "Makijaż permanentny",
   LASER_HAIR_REMOVAL: "Depilacja laserowa",
+  LASER_TATTOO_REMOVAL: "Laserowe usuwanie tatuażu",
+  EYEBROW_TINTING: "Henna brwi",
+  EYEBROW_LAMINATION: "Laminacja brwi",
+  EYELASH_EXTENSION: "Przedłużanie rzęs",
+  EYELID_LIFT: "Lifting powiek",
 };
 
 export default function FormDetailsPage() {
