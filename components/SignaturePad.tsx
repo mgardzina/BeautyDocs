@@ -107,7 +107,7 @@ export default function SignaturePad({
                 },
               }}
               backgroundColor="#F5F3F0"
-              penColor="#1a1a1a"
+              penColor="#000000"
               minWidth={1.0}
               maxWidth={2.5}
               onEnd={handleEnd}

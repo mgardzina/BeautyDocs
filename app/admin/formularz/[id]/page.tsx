@@ -22,6 +22,7 @@ import {
 
 import { contraindicationsByFormType, FormType } from "@/types/booking";
 import AnatomyFaceSelector from "@/app/components/AnatomyFaceSelector";
+import AnatomyBodySelector from "@/app/components/AnatomyBodySelector";
 import { ZONES } from "@/types/face-zones";
 
 // Helper do tłumaczenia stref
@@ -610,23 +611,39 @@ export default function FormDetailsPage() {
                 )}
               </div>
 
-              {/* Visual Face Selector for Admin - Improved Visibility */}
-              <div className="mt-4 border-t border-brand/20 pt-4">
-                <label className="block text-sm font-medium text-ui-textSecondary mb-4">
-                  Wizualizacja obszaru zabiegu
-                </label>
-                <div className="bg-marble-border/20 rounded-xl border border-brand/15 p-6 flex justify-center pointer-events-none">
-                  <div className="w-full max-w-lg aspect-square relative">
-                    <AnatomyFaceSelector
-                      initialSelected={
-                        form.obszarZabiegu
-                          ? form.obszarZabiegu.split(",").map((s) => s.trim())
-                          : []
-                      }
-                    />
+              {/* Visual Zone Selector for Admin - Face or Body depending on form type */}
+              {(() => {
+                const BODY_FORM_TYPES = [
+                  "LASER_HAIR_REMOVAL",
+                  "LASER_TATTOO_REMOVAL",
+                ];
+                const isBodyForm = BODY_FORM_TYPES.includes(form.type);
+                const selectedZones = form.obszarZabiegu
+                  ? form.obszarZabiegu.split(",").map((s) => s.trim())
+                  : [];
+                return (
+                  <div className="mt-4 border-t border-brand/20 pt-4">
+                    <label className="block text-sm font-medium text-ui-textSecondary mb-4">
+                      Wizualizacja obszaru zabiegu
+                    </label>
+                    <div className="bg-marble-border/20 rounded-xl border border-brand/15 p-6 flex justify-center pointer-events-none">
+                      <div
+                        className={`w-full max-w-lg ${isBodyForm ? "aspect-[724/1024]" : "aspect-square"} relative`}
+                      >
+                        {isBodyForm ? (
+                          <AnatomyBodySelector
+                            initialSelected={selectedZones}
+                          />
+                        ) : (
+                          <AnatomyFaceSelector
+                            initialSelected={selectedZones}
+                          />
+                        )}
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
+                );
+              })()}
 
               {/* Seria Zabiegowa (Tylko dla Stymulacji Tkankowej / Wolumetrii) */}
               {(form.type === "FACIAL_VOLUMETRY" ||
@@ -748,7 +765,9 @@ export default function FormDetailsPage() {
                     placeholder="Cel zabiegu"
                   />
                 ) : (
-                  <p className="text-marble-text">{form.celEfektu || "Nie podano"}</p>
+                  <p className="text-marble-text">
+                    {form.celEfektu || "Nie podano"}
+                  </p>
                 )}
               </div>
               <div>

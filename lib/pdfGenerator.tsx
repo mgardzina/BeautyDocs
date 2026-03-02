@@ -4,6 +4,7 @@
  */
 import React from "react";
 import path from "path";
+import fs from "fs";
 import {
   Document,
   Page,
@@ -19,6 +20,20 @@ import {
 
 // Ścieżka do logo — bezwzględna, wymagana przez @react-pdf/renderer
 const LOGO_PATH = path.join(process.cwd(), "public", "logo.png");
+const FACE_CHART_PATH = path.join(
+  process.cwd(),
+  "public",
+  "women-face-chart.jpg",
+);
+const BODY_CHART_PATH = path.join(
+  process.cwd(),
+  "public",
+  "women-body-chart.JPG",
+);
+
+// Pre-load images as base64 data URLs for embedding in PDF diagrams
+const FACE_CHART_B64 = `data:image/jpeg;base64,${fs.readFileSync(FACE_CHART_PATH).toString("base64")}`;
+const BODY_CHART_B64 = `data:image/jpeg;base64,${fs.readFileSync(BODY_CHART_PATH).toString("base64")}`;
 
 // ─── Rejestracja fontu z obsługą polskich znaków ────────────────────────────
 Font.register({
@@ -699,43 +714,95 @@ function getContraText(val: string | ContraindicationWithFollowUp): string {
 
 // ─── Komponenty schematów anatomicznych do PDF ──────────────────────────────
 
-/** Schemat twarzy — zaznaczone strefy w złocie (brand #D4AF37), reszta w neutralnym beżu */
+/** Schemat twarzy — zdjęcie twarzy z narośleżonymi strefami */
 function FaceDiagramPDF({ selectedIds }: { selectedIds: string[] }) {
   const selected = new Set(selectedIds);
   return (
-    <Svg viewBox="0 0 980 980" style={{ width: 280, height: 280 }}>
-      {FACE_ZONES.map((zone) => (
-        <Path
-          key={zone.id}
-          d={zone.d}
-          fill={selected.has(zone.id) ? "#D4AF37" : "#e8d5c4"}
-          stroke={selected.has(zone.id) ? "#B8941E" : "#c5b0a0"}
-          strokeWidth={selected.has(zone.id) ? 4 : 1.5}
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      ))}
-    </Svg>
+    <View style={{ width: 200, height: 200, position: "relative" }}>
+      {/* Tło: zdjęcie twarzy */}
+      <Image
+        src={FACE_CHART_B64}
+        style={{
+          width: 200,
+          height: 200,
+          position: "absolute",
+          top: 0,
+          left: 0,
+        }}
+      />
+      {/* Overlay SVG ze strefami */}
+      <View
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: 200,
+          height: 200,
+        }}
+      >
+        <Svg viewBox="0 0 980 980" style={{ width: 200, height: 200 }}>
+          {FACE_ZONES.map((zone) =>
+            selected.has(zone.id) ? (
+              <Path
+                key={zone.id}
+                d={zone.d}
+                fill="rgba(212, 175, 55, 0.55)"
+                stroke="#D4AF37"
+                strokeWidth={5}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            ) : null,
+          )}
+        </Svg>
+      </View>
+    </View>
   );
 }
 
-/** Schemat ciała — zaznaczone strefy w złocie (brand #D4AF37), reszta w neutralnym beżu */
+/** Schemat ciała — zdjęcie ciała z narośleżonymi strefami */
 function BodyDiagramPDF({ selectedIds }: { selectedIds: string[] }) {
   const selected = new Set(selectedIds);
   return (
-    <Svg viewBox="0 0 724 1024" style={{ width: 198, height: 280 }}>
-      {BODY_ZONES.map((zone) => (
-        <Path
-          key={zone.id}
-          d={zone.d}
-          fill={selected.has(zone.id) ? "#D4AF37" : "#e8d5c4"}
-          stroke={selected.has(zone.id) ? "#B8941E" : "#c5b0a0"}
-          strokeWidth={selected.has(zone.id) ? 4 : 1.5}
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      ))}
-    </Svg>
+    <View style={{ width: 140, height: 198, position: "relative" }}>
+      {/* Tło: zdjęcie ciała */}
+      <Image
+        src={BODY_CHART_B64}
+        style={{
+          width: 140,
+          height: 198,
+          position: "absolute",
+          top: 0,
+          left: 0,
+        }}
+      />
+      {/* Overlay SVG ze strefami */}
+      <View
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: 140,
+          height: 198,
+        }}
+      >
+        <Svg viewBox="0 0 724 1024" style={{ width: 140, height: 198 }}>
+          {BODY_ZONES.map((zone) =>
+            selected.has(zone.id) ? (
+              <Path
+                key={zone.id}
+                d={zone.d}
+                fill="rgba(212, 175, 55, 0.55)"
+                stroke="#D4AF37"
+                strokeWidth={5}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            ) : null,
+          )}
+        </Svg>
+      </View>
+    </View>
   );
 }
 
@@ -930,7 +997,7 @@ function ConsentFormPDF({
             const showBodyDiagram =
               FORMS_WITH_BODY_SELECTOR.includes(form.type) && body.length > 0;
             return (
-              <View style={styles.section}>
+              <View style={styles.section} wrap={false}>
                 <Text style={styles.sectionTitle}>Obszar Zabiegu</Text>
                 <View style={{ gap: 6 }}>
                   {face.length > 0 && (
