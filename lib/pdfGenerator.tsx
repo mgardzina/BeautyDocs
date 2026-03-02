@@ -739,20 +739,21 @@ function FaceDiagramPDF({ selectedIds }: { selectedIds: string[] }) {
         }}
       >
         <Svg viewBox="0 0 980 980" style={{ width: 250, height: 250 }}>
-          {FACE_ZONES.map((zone) =>
-            selected.has(zone.id) ? (
+          {FACE_ZONES.map((zone) => {
+            const isSelected = selected.has(zone.id);
+            return (
               <Path
                 key={zone.id}
                 d={zone.d}
-                fill="#D4AF37"
-                fillOpacity={0.55}
-                stroke="#B8941E"
-                strokeWidth={5}
+                fill={isSelected ? "#D4AF37" : "transparent"}
+                fillOpacity={isSelected ? 0.55 : 0}
+                stroke={isSelected ? "#B8941E" : "#E5E7EB"}
+                strokeWidth={isSelected ? 5 : 2}
                 strokeLinecap="round"
                 strokeLinejoin="round"
               />
-            ) : null,
-          )}
+            );
+          })}
         </Svg>
       </View>
     </View>
@@ -784,20 +785,21 @@ function BodyDiagramPDF({ selectedIds }: { selectedIds: string[] }) {
         }}
       >
         <Svg viewBox="0 0 724 1024" style={{ width: 177, height: 250 }}>
-          {BODY_ZONES.map((zone) =>
-            selected.has(zone.id) ? (
+          {BODY_ZONES.map((zone) => {
+            const isSelected = selected.has(zone.id);
+            return (
               <Path
                 key={zone.id}
                 d={zone.d}
-                fill="#D4AF37"
-                fillOpacity={0.55}
-                stroke="#B8941E"
-                strokeWidth={5}
+                fill={isSelected ? "#D4AF37" : "transparent"}
+                fillOpacity={isSelected ? 0.55 : 0}
+                stroke={isSelected ? "#B8941E" : "#E5E7EB"}
+                strokeWidth={isSelected ? 5 : 2}
                 strokeLinecap="round"
                 strokeLinejoin="round"
               />
-            ) : null,
-          )}
+            );
+          })}
         </Svg>
       </View>
     </View>

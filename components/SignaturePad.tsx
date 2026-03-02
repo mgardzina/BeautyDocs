@@ -90,55 +90,54 @@ export default function SignaturePad({
 
       <div className="relative group">
         <div
-          className={`rounded-xl overflow-hidden ${
+          ref={wrapperRef}
+          className={`rounded-xl overflow-hidden relative w-full h-[160px] ${
             hasBorder ? "border border-[#d4cec4]" : ""
           }`}
         >
-          <div ref={wrapperRef} style={{ height: "160px", width: "100%" }}>
-            <SignatureCanvas
-              ref={sigCanvas}
-              canvasProps={{
-                style: {
-                  width: "100%",
-                  height: "100%",
-                  display: "block",
-                  backgroundColor: "#F5F3F0",
-                  touchAction: "none",
-                },
-              }}
-              backgroundColor="#F5F3F0"
-              penColor="#000000"
-              minWidth={1.0}
-              maxWidth={2.5}
-              onEnd={handleEnd}
-            />
-          </div>
-        </div>
+          <SignatureCanvas
+            ref={sigCanvas}
+            canvasProps={{
+              style: {
+                width: "100%",
+                height: "100%",
+                display: "block",
+                backgroundColor: "#F5F3F0",
+                touchAction: "none",
+              },
+            }}
+            backgroundColor="#F5F3F0"
+            penColor="#000000"
+            minWidth={1.0}
+            maxWidth={2.5}
+            onEnd={handleEnd}
+          />
 
-        {/* Clear button */}
-        <div className="absolute bottom-2 right-2 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-          <button
-            type="button"
-            onClick={handleClear}
-            className="text-xs bg-white/80 px-2 py-1 rounded shadow-sm text-[#8b7355] hover:text-[#6b5540] transition-colors"
-          >
-            Wyczyść
-          </button>
-        </div>
-
-        {/* Placeholder text if empty */}
-        {!value && (
-          <div className="absolute bottom-4 left-4 pointer-events-none select-none">
-            <span className="text-[#d4cec4] text-xs uppercase tracking-widest border-t border-[#d4cec4] pt-1">
-              Podpisz tutaj
-            </span>
+          {/* Clear button */}
+          <div className="absolute bottom-2 right-2 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity z-10">
+            <button
+              type="button"
+              onClick={handleClear}
+              className="text-xs bg-white/80 px-2 py-1 rounded shadow-sm text-[#8b7355] hover:text-[#6b5540] transition-colors"
+            >
+              Wyczyść
+            </button>
           </div>
-        )}
+
+          {/* Placeholder text if empty */}
+          {!value && (
+            <div className="absolute bottom-4 left-4 pointer-events-none select-none z-0">
+              <span className="text-[#d4cec4] text-xs uppercase tracking-widest border-t border-[#d4cec4] pt-1">
+                Podpisz tutaj
+              </span>
+            </div>
+          )}
+        </div>
       </div>
 
       {/* Date label BELOW signature */}
       {date && (
-        <p className="text-xs text-[#6b6560] font-serif italic text-right mr-2">
+        <p className="text-xs text-[#6b6560] font-serif italic text-right mt-1">
           {date}
         </p>
       )}
