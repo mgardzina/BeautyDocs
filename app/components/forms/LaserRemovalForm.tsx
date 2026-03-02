@@ -1036,23 +1036,17 @@ export default function LaserRemovalForm({ onBack }: LaserRemovalFormProps) {
                     {rodoInfo.consentText}
                   </div>
                   <div className="mt-8">
-                    <p className="text-sm text-ui-textSecondary mb-4 font-medium uppercase tracking-wide">
-                      Podpis Klienta (Zgoda na przetwarzanie danych):
-                    </p>
-                    <div className="bg-ui-bg rounded-xl overflow-hidden border border-[#D4AF37]">
-                      <SignaturePad
-                        label=""
-                        value={formData.podpisRodo || ""}
-                        onChange={(sig) => {
-                          handleInputChange("podpisRodo", sig);
-                          if (sig && !formData.zgodaPrzetwarzanieDanych) {
-                            handleInputChange("zgodaPrzetwarzanieDanych", true);
-                          }
-                        }}
-                        date={formData.miejscowoscData}
-                        hasBorder={false}
-                      />
-                    </div>
+                    <SignaturePad
+                      label="Podpis Klienta (Zgoda na przetwarzanie danych)"
+                      value={formData.podpisRodo || ""}
+                      onChange={(sig) => {
+                        handleInputChange("podpisRodo", sig);
+                        if (sig && !formData.zgodaPrzetwarzanieDanych) {
+                          handleInputChange("zgodaPrzetwarzanieDanych", true);
+                        }
+                      }}
+                      date={formData.miejscowoscData}
+                    />
                   </div>
                 </div>
               </section>

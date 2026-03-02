@@ -47,7 +47,7 @@ interface FacialVolumetryFormProps {
 }
 
 const initialFormData: ConsentFormData = {
-  type: "FACIAL_VOLUMETRY",
+  type: "TISSUE_STIMULATION",
   imieNazwisko: "",
   ulica: "",
   kodPocztowy: "",

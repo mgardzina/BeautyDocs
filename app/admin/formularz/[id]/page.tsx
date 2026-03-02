@@ -994,7 +994,7 @@ export default function FormDetailsPage() {
                   <img
                     src={form.podpisRodo}
                     alt="Podpis RODO"
-                    className="h-40 max-w-full object-contain mx-auto md:mx-0 invert brightness-200 mix-blend-screen"
+                    className="h-40 max-w-full object-contain mx-auto md:mx-0 "
                   />
                   {form.miejscowoscData && (
                     <p className="text-xs text-ui-textSecondary mt-2 text-center md:text-left">
@@ -1039,7 +1039,7 @@ export default function FormDetailsPage() {
                   <img
                     src={(form as any).podpisRodo2}
                     alt="Podpis RODO 2"
-                    className="h-40 max-w-full object-contain mx-auto md:mx-0 invert brightness-200 mix-blend-screen"
+                    className="h-40 max-w-full object-contain mx-auto md:mx-0 "
                   />
                   {form.miejscowoscData && (
                     <p className="text-xs text-ui-textSecondary mt-2 text-center md:text-left">
@@ -1081,7 +1081,7 @@ export default function FormDetailsPage() {
                   <img
                     src={form.podpisMarketing}
                     alt="Podpis Marketing"
-                    className="h-40 max-w-full object-contain mx-auto md:mx-0 invert brightness-200 mix-blend-screen"
+                    className="h-40 max-w-full object-contain mx-auto md:mx-0 "
                   />
                   {form.miejscowoscData && (
                     <p className="text-xs text-ui-textSecondary mt-2 text-center md:text-left">
@@ -1130,7 +1130,7 @@ export default function FormDetailsPage() {
                   <img
                     src={form.podpisFotografie}
                     alt="Podpis Foto"
-                    className="h-40 max-w-full object-contain mx-auto md:mx-0 invert brightness-200 mix-blend-screen"
+                    className="h-40 max-w-full object-contain mx-auto md:mx-0 "
                   />
                   {form.miejscowoscData && (
                     <p className="text-xs text-ui-textSecondary mt-2 text-center md:text-left">
@@ -1172,7 +1172,7 @@ export default function FormDetailsPage() {
                   <img
                     src={form.podpisDane}
                     alt="Podpis Zabieg"
-                    className="h-40 max-w-full object-contain mx-auto md:mx-0 invert brightness-200 mix-blend-screen"
+                    className="h-40 max-w-full object-contain mx-auto md:mx-0 "
                   />
                   {form.miejscowoscData && (
                     <p className="text-xs text-ui-textSecondary mt-2 text-center md:text-left">
