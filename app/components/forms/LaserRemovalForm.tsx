@@ -2,7 +2,12 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import AnatomyBodySelector from "../AnatomyBodySelector";
 import { Phone, Check, ArrowLeft, Instagram, Mail, Shield } from "lucide-react";
-import { getTodayDate, formatBirthDate, calculateAge, validateBirthDate } from "@/lib/dateUtils";
+import {
+  getTodayDate,
+  formatBirthDate,
+  calculateAge,
+  validateBirthDate,
+} from "@/lib/dateUtils";
 import SignaturePad from "@/components/SignaturePad";
 import SignatureVerificationModal from "@/components/SignatureVerificationModal";
 import { AuditLogData } from "@/app/actions/otp";
@@ -106,14 +111,15 @@ export default function LaserRemovalForm({ onBack }: LaserRemovalFormProps) {
 
   const handleWizardAnswer = (value: boolean) => {
     handleContraindicationChange(currentContraindicationKey, value);
-    // Determine if the answer given requires a follow-up
+
+    // For follow-up questions, user must click "Kontynuuj"
     const hasFollowUp = currentContraindicationObject?.hasFollowUp;
-    const isSafePositive = currentContraindicationObject?.isPositiveAnswerSafe;
-    const requiresFollowUp = hasFollowUp && (isSafePositive ? value === false : value === true);
-    
-    if (requiresFollowUp) {
+
+    // If TAK (true) is selected on a follow-up question, stay to wait for details
+    if (hasFollowUp && value === true) {
       return;
     }
+
     if (currentContraindicationIndex < contraindicationKeys.length) {
       setCurrentContraindicationIndex((prev) => prev + 1);
     }
@@ -230,7 +236,9 @@ export default function LaserRemovalForm({ onBack }: LaserRemovalFormProps) {
           <div className="w-20 h-20 bg-green-900/20 rounded-full flex items-center justify-center mx-auto mb-6">
             <Check className="w-10 h-10 text-green-600" />
           </div>
-          <h2 className="text-3xl font-serif text-marble-text mb-4">Dziękujemy!</h2>
+          <h2 className="text-3xl font-serif text-marble-text mb-4">
+            Dziękujemy!
+          </h2>
           <p className="text-ui-textSecondary mb-8">
             Twój formularz został zapisany.
           </p>
@@ -770,7 +778,7 @@ export default function LaserRemovalForm({ onBack }: LaserRemovalFormProps) {
                       {currentContraindicationObject?.hasFollowUp &&
                         formData.przeciwwskazania[
                           currentContraindicationKey
-                        ] !== null && (
+                        ] === true && (
                           <div className="max-w-md mx-auto mt-6 animate-in fade-in zoom-in-95 duration-300">
                             <button
                               type="button"
@@ -1156,11 +1164,15 @@ export default function LaserRemovalForm({ onBack }: LaserRemovalFormProps) {
                     </p>
                     <div className="space-y-3 text-sm text-ui-textSecondary">
                       <p>
-                        <span className="font-bold text-marble-text">Częste:</span>{" "}
+                        <span className="font-bold text-marble-text">
+                          Częste:
+                        </span>{" "}
                         {depilacjaLaserowaComplications.czeste.join(", ")}
                       </p>
                       <p>
-                        <span className="font-bold text-marble-text">Rzadkie:</span>{" "}
+                        <span className="font-bold text-marble-text">
+                          Rzadkie:
+                        </span>{" "}
                         {depilacjaLaserowaComplications.rzadkie.join(", ")}
                       </p>
                       <p>

@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { after } from "next/server";
 import { prisma } from "../../../lib/prisma";
 import { auth } from "../../../lib/auth";
 import { generateConsentFormPdf } from "@/lib/pdfGenerator";
@@ -84,11 +85,9 @@ export async function POST(request: NextRequest) {
       },
     });
 
-    // Odpowiedz natychmiast — PDF/email wysyłamy asynchronicznie w tle
-    const responseData = { success: true, id: consentForm.id };
-
-    // Generuj PDF i wyślij email w tle (nie blokuje odpowiedzi dla klienta)
-    (async () => {
+    // Generuj PDF i wyślij email w tle — after() gwarantuje że runtime
+    // nie zostanie zabity przed zakończeniem zadania (serverless/Vercel)
+    after(async () => {
       try {
         const pdfBuffer = await generateConsentFormPdf({
           id: consentForm.id,
@@ -151,15 +150,14 @@ export async function POST(request: NextRequest) {
           `[PDF] Wygenerowano i wysłano email dla formularza ${consentForm.id}`
         );
       } catch (emailError) {
-        // Błąd emaila NIE powinien psować odpowiedzi — logujemy tylko
         console.error(
           "[PDF/Email] Błąd podczas generowania/wysyłki:",
           emailError
         );
       }
-    })();
+    });
 
-    return NextResponse.json(responseData);
+    return NextResponse.json({ success: true, id: consentForm.id });
   } catch (error) {
     console.error("Błąd zapisu formularza:", error);
     return NextResponse.json(

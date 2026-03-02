@@ -753,9 +753,9 @@ function FaceDiagramPDF({ selectedIds }: { selectedIds: string[] }) {
               <Path
                 key={zone.id}
                 d={zone.d}
-                fill={isSelected ? "#D4AF37" : "transparent"}
-                fillOpacity={isSelected ? 0.55 : 0}
-                stroke={isSelected ? "#B8941E" : "#E5E7EB"}
+                fill="#D4AF37"
+                fillOpacity={isSelected ? 0.55 : 0.15}
+                stroke={isSelected ? "#B8941E" : "#D4AF37"}
                 strokeWidth={isSelected ? 5 : 2}
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -780,12 +780,12 @@ function BodyDiagramPDF({ selectedIds }: { selectedIds: string[] }) {
   });
   const selected = new Set(activeIds);
   return (
-    <View style={{ width: 177, height: 250, position: "relative" }}>
+    <View style={{ width: 220, height: 310, position: "relative" }}>
       <Image
         src={BODY_CHART_B64}
         style={{
-          width: 177,
-          height: 250,
+          width: 220,
+          height: 310,
           position: "absolute",
           top: 0,
           left: 0,
@@ -796,20 +796,20 @@ function BodyDiagramPDF({ selectedIds }: { selectedIds: string[] }) {
           position: "absolute",
           top: 0,
           left: 0,
-          width: 177,
-          height: 250,
+          width: 220,
+          height: 310,
         }}
       >
-        <Svg viewBox="0 0 724 1024" style={{ width: 177, height: 250 }}>
+        <Svg viewBox="0 0 724 1024" style={{ width: 220, height: 310 }}>
           {BODY_ZONES.map((zone) => {
             const isSelected = selected.has(zone.id);
             return (
               <Path
                 key={zone.id}
                 d={zone.d}
-                fill={isSelected ? "#D4AF37" : "transparent"}
-                fillOpacity={isSelected ? 0.55 : 0}
-                stroke={isSelected ? "#B8941E" : "#E5E7EB"}
+                fill="#D4AF37"
+                fillOpacity={isSelected ? 0.55 : 0.15}
+                stroke={isSelected ? "#B8941E" : "#D4AF37"}
                 strokeWidth={isSelected ? 5 : 2}
                 strokeLinecap="round"
                 strokeLinejoin="round"

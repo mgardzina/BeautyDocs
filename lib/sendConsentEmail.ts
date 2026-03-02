@@ -58,55 +58,59 @@ function clientEmailHtml(clientName: string, formType: string, formDate: string)
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Potwierdzenie karty zgody</title>
 </head>
-<body style="margin:0; padding:0; background-color:#1a1a1a; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color:#f5f5f5;">
+<body style="margin:0; padding:0; background-color:#FAF8F5; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color:#4A4038;">
   <table width="100%" cellpadding="0" cellspacing="0" style="padding: 40px 20px;">
     <tr>
       <td align="center">
-        <table width="600" cellpadding="0" cellspacing="0" style="background:#2a2a2a; border-radius:12px; overflow:hidden; border:1px solid #C9A84C;">
+        <table width="600" cellpadding="0" cellspacing="0" style="background:#FFFFFF; border-radius:12px; overflow:hidden; border:1px solid #D4AF37; box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);">
           <!-- Header -->
           <tr>
-            <td style="background:linear-gradient(135deg,#1a1a1a 0%,#2d2200 100%); padding:32px 40px; border-bottom:2px solid #C9A84C; text-align:center;">
-              <h1 style="margin:0; color:#C9A84C; font-size:22px; font-weight:300; letter-spacing:2px; text-transform:uppercase;">
+            <td style="background:linear-gradient(45deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C); padding:32px 40px; text-align:center;">
+              <h1 style="margin:0; color:#2D2520; font-size:24px; font-weight:600; letter-spacing:2px; text-transform:uppercase;">
                 ${SALON_NAME}
               </h1>
-              <p style="margin:6px 0 0; color:#888; font-size:13px;">Dokumentacja Zabiegowa</p>
+              <p style="margin:6px 0 0; color:#4A4038; font-size:13px; font-weight:500;">Dokumentacja Zabiegowa</p>
             </td>
           </tr>
           <!-- Body -->
           <tr>
             <td style="padding:32px 40px;">
-              <h2 style="color:#f5f5f5; font-size:18px; font-weight:400; margin:0 0 16px;">
+              <h2 style="color:#2D2520; font-size:20px; font-weight:500; margin:0 0 16px;">
                 Droga/i ${clientName},
               </h2>
-              <p style="color:#ccc; line-height:1.7; margin:0 0 16px;">
+              <p style="color:#5A4F44; line-height:1.7; margin:0 0 16px;">
                 Dziękujemy za wypełnienie karty zgody na zabieg
-                <strong style="color:#C9A84C;">${formType}</strong>
+                <strong style="color:#B5952F;">${formType}</strong>
                 w dniu <strong>${formDate}</strong>.
               </p>
-              <p style="color:#ccc; line-height:1.7; margin:0 0 24px;">
-                W załączniku znajdziesz podpisaną kartę zgody w formacie PDF —
-                zachowaj ją dla własnych celów. Dokument ten potwierdza Twoją
+              <p style="color:#5A4F44; line-height:1.7; margin:0 0 24px;">
+                W załączniku znajduje się Twoja podpisana karta zgody w formacie PDF. 
+                Zachowaj ją dla własnych celów. Dokument ten potwierdza Twoją
                 świadomą zgodę na przeprowadzenie zabiegu oraz zawiera wszystkie
-                istotne informacje dotyczące zabiegu.
+                istotne informacje dotyczące procedury i zaleceń pozabiegowych.
               </p>
               <!-- Divider -->
-              <hr style="border:none; border-top:1px solid #444; margin:24px 0;">
-              <p style="color:#888; font-size:12px; line-height:1.6; margin:0 0 8px;">
-                📎 W załączniku: <strong style="color:#C9A84C;">Karta zgody (PDF)</strong>
-              </p>
-              <p style="color:#888; font-size:12px; line-height:1.6; margin:0;">
-                Jeśli masz jakiekolwiek pytania, skontaktuj się z nami bezpośrednio.
+              <hr style="border:none; border-top:1px solid #D1C9BF; margin:24px 0;">
+              
+              <div style="background:#F2EDE7; padding:16px; border-radius:8px; border-left:4px solid #D4AF37;">
+                <p style="color:#4A4038; font-size:13px; line-height:1.6; margin:0;">
+                  Otwórz załącznik: <strong style="color:#B5952F;">Karta_zgody_${clientName.replace(/\s+/g, "_")}.pdf</strong>
+                </p>
+              </div>
+
+              <p style="color:#7A6E62; font-size:13px; line-height:1.6; margin:24px 0 0;">
+                W razie jakichkolwiek pytań lub wątpliwości przed zabiegiem, skontaktuj się z nami.
               </p>
             </td>
           </tr>
           <!-- Footer -->
           <tr>
-            <td style="background:#1a1a1a; padding:20px 40px; border-top:1px solid #333; text-align:center;">
-              <p style="color:#555; font-size:11px; margin:0;">
-                ${SALON_NAME} • Dokument wygenerowany automatycznie
+            <td style="background:#FAF8F5; padding:20px 40px; border-top:1px solid #D1C9BF; text-align:center;">
+              <p style="color:#7A6E62; font-size:11px; margin:0;">
+                ${SALON_NAME} • Wiadomość wygenerowana automatycznie
               </p>
-              <p style="color:#555; font-size:11px; margin:4px 0 0;">
-                Nie odpowiadaj na tę wiadomość.
+              <p style="color:#7A6E62; font-size:11px; margin:4px 0 0;">
+                Prosimy nie odpowiadać na ten adres email.
               </p>
             </td>
           </tr>
@@ -116,7 +120,7 @@ function clientEmailHtml(clientName: string, formType: string, formDate: string)
   </table>
 </body>
 </html>
-`;
+  `;
 }
 
 // ─── Email do admina ──────────────────────────────────────────────────────
@@ -133,40 +137,48 @@ function adminEmailHtml(
   <meta charset="UTF-8">
   <title>Nowa karta zgody</title>
 </head>
-<body style="margin:0; padding:0; background:#0d0d0d; font-family:Helvetica, Arial, sans-serif; color:#eee;">
-  <table width="100%" cellpadding="0" cellspacing="0" style="padding:30px 20px;">
+<body style="margin:0; padding:0; background-color:#FAF8F5; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color:#4A4038;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="padding: 40px 20px;">
     <tr>
       <td align="center">
-        <table width="600" cellpadding="0" cellspacing="0" style="background:#1a1a1a; border:1px solid #C9A84C; border-radius:10px; overflow:hidden;">
+        <table width="600" cellpadding="0" cellspacing="0" style="background:#FFFFFF; border-radius:12px; overflow:hidden; border:1px solid #D4AF37; box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);">
           <tr>
-            <td style="padding:20px 30px; border-bottom:2px solid #C9A84C; background:#111;">
-              <h2 style="margin:0; color:#C9A84C; font-size:16px; text-transform:uppercase; letter-spacing:1px;">
-                📋 Nowa Karta Zgody
+            <td style="padding:24px 30px; border-bottom:1px solid #D1C9BF; background:#FAF8F5;">
+              <h2 style="margin:0; color:#2D2520; font-size:16px; text-transform:uppercase; letter-spacing:1px; display:flex; align-items:center;">
+                <span style="color:#D4AF37; margin-right:8px;">📋</span> Nowa Karta Zgody
               </h2>
             </td>
           </tr>
           <tr>
-            <td style="padding:24px 30px;">
+            <td style="padding:32px 30px;">
               <table cellpadding="0" cellspacing="0" width="100%">
-                <tr><td style="color:#888;font-size:12px;padding-bottom:4px;">Klient:</td>
-                    <td style="color:#fff;font-size:14px;font-weight:bold;padding-bottom:4px;">${clientName}</td></tr>
-                <tr><td style="color:#888;font-size:12px;padding-bottom:4px;padding-top:8px;">Zabieg:</td>
-                    <td style="color:#C9A84C;font-size:14px;padding-bottom:4px;padding-top:8px;">${formType}</td></tr>
-                <tr><td style="color:#888;font-size:12px;padding-bottom:4px;padding-top:8px;">Data:</td>
-                    <td style="color:#eee;font-size:13px;padding-bottom:4px;padding-top:8px;">${formDate}</td></tr>
-                <tr><td style="color:#888;font-size:12px;padding-top:8px;">ID formularza:</td>
-                    <td style="color:#555;font-size:11px;font-family:monospace;padding-top:8px;">${formId}</td></tr>
+                <tr>
+                  <td style="color:#7A6E62; font-size:12px; padding-bottom:6px; width:40%;">Klient:</td>
+                  <td style="color:#2D2520; font-size:14px; font-weight:600; padding-bottom:6px;">${clientName}</td>
+                </tr>
+                <tr>
+                  <td style="color:#7A6E62; font-size:12px; padding-bottom:6px; padding-top:8px; border-top:1px solid #F2EDE7;">Zabieg:</td>
+                  <td style="color:#D4AF37; font-size:14px; font-weight:500; padding-bottom:6px; padding-top:8px; border-top:1px solid #F2EDE7;">${formType}</td>
+                </tr>
+                <tr>
+                  <td style="color:#7A6E62; font-size:12px; padding-bottom:6px; padding-top:8px; border-top:1px solid #F2EDE7;">Data zgody:</td>
+                  <td style="color:#4A4038; font-size:13px; padding-bottom:6px; padding-top:8px; border-top:1px solid #F2EDE7;">${formDate}</td>
+                </tr>
+                <tr>
+                  <td style="color:#7A6E62; font-size:12px; padding-top:8px; border-top:1px solid #F2EDE7;">ID formularza:</td>
+                  <td style="color:#7A6E62; font-size:11px; font-family:monospace; padding-top:8px; border-top:1px solid #F2EDE7;">${formId}</td>
+                </tr>
               </table>
-              <div style="margin-top:20px; padding:12px; background:#0d0d0d; border:1px solid #333; border-radius:6px;">
-                <p style="margin:0; color:#888; font-size:12px;">
-                  📎 Karta zgody PDF dołączona w załączniku.
+              <div style="margin-top:28px; padding:16px; background:#F2EDE7; border-left:4px solid #D4AF37; border-radius:0 8px 8px 0;">
+                <p style="margin:0; color:#4A4038; font-size:13px; line-height:1.6;">
+                  Szczegóły wywiadu medycznego oraz podpis klienta znajdziesz w załączonym dokumencie PDF.
                 </p>
               </div>
             </td>
           </tr>
           <tr>
-            <td style="padding:12px 30px; background:#0d0d0d; border-top:1px solid #222; text-align:center;">
-              <p style="margin:0; color:#444; font-size:11px;">${SALON_NAME} — Panel Admina</p>
+            <td style="padding:16px 30px; background:#FAF8F5; border-top:1px solid #D1C9BF; text-align:center;">
+              <p style="margin:0; color:#7A6E62; font-size:11px;">Administracja Systemu • ${SALON_NAME}</p>
             </td>
           </tr>
         </table>
@@ -175,7 +187,7 @@ function adminEmailHtml(
   </table>
 </body>
 </html>
-`;
+  `;
 }
 
 // ─── Główna funkcja wysyłki ───────────────────────────────────────────────
