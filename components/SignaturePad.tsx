@@ -91,7 +91,7 @@ export default function SignaturePad({
       <div className="relative group">
         <div
           ref={wrapperRef}
-          className={`rounded-xl overflow-hidden relative w-full h-[160px] ${
+          className={`rounded-xl overflow-hidden relative w-full h-[160px] bg-[#F5F3F0] ${
             hasBorder ? "border border-[#d4cec4]" : ""
           }`}
         >
@@ -102,11 +102,10 @@ export default function SignaturePad({
                 width: "100%",
                 height: "100%",
                 display: "block",
-                backgroundColor: "#F5F3F0",
                 touchAction: "none",
               },
             }}
-            backgroundColor="#F5F3F0"
+            backgroundColor="rgba(0,0,0,0)"
             penColor="#000000"
             minWidth={1.0}
             maxWidth={2.5}
