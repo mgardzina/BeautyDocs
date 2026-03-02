@@ -6,7 +6,7 @@ import { prisma } from "./prisma";
 export const { handlers, signIn, signOut, auth } = NextAuth({
   trustHost: true,
   session: {
-    maxAge: 3 * 60 * 60, // 3 hours
+    maxAge: 6 * 60 * 60, // 6 hours
   },
   providers: [
     Credentials({
