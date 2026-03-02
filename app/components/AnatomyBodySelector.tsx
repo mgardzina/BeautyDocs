@@ -16,12 +16,21 @@ export default function AnatomyBodySelector({
   allowedZones,
   customZones,
 }: BodyChartProps) {
-  const [selected, setSelected] = useState<string[]>(initialSelected);
+  const [selected, setSelected] = useState<string[]>([]);
 
   // Synchronize internal state with props when initialSelected changes
+  // Match by ID directly or by uppercase name since the database might store uppercase Polish names
   useEffect(() => {
-    setSelected(initialSelected);
-  }, [initialSelected]);
+    const activeIds = initialSelected.map((val) => {
+      const formVal = val.trim().toUpperCase();
+      const match = (customZones || BODY_ZONES).find(
+        (z) =>
+          z.id.toUpperCase() === formVal || z.name.toUpperCase() === formVal,
+      );
+      return match ? match.id : val;
+    });
+    setSelected(activeIds);
+  }, [initialSelected, customZones]);
 
   const [hovered, setHovered] = useState<string | null>(null);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });

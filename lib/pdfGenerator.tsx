@@ -716,7 +716,15 @@ function getContraText(val: string | ContraindicationWithFollowUp): string {
 
 /** Schemat twarzy — zdjęcie twarzy z narośleżonymi strefami */
 function FaceDiagramPDF({ selectedIds }: { selectedIds: string[] }) {
-  const selected = new Set(selectedIds);
+  // Map form values (names) to internal IDs
+  const activeIds = selectedIds.map((val) => {
+    const formVal = val.trim().toUpperCase();
+    const match = FACE_ZONES.find(
+      (z) => z.id.toUpperCase() === formVal || z.name.toUpperCase() === formVal,
+    );
+    return match ? match.id : val;
+  });
+  const selected = new Set(activeIds);
   return (
     <View style={{ width: 250, height: 250, position: "relative" }}>
       <Image
@@ -762,7 +770,15 @@ function FaceDiagramPDF({ selectedIds }: { selectedIds: string[] }) {
 
 /** Schemat ciała — zdjęcie ciała z narośleżonymi strefami */
 function BodyDiagramPDF({ selectedIds }: { selectedIds: string[] }) {
-  const selected = new Set(selectedIds);
+  // Map form values (names) to internal IDs
+  const activeIds = selectedIds.map((val) => {
+    const formVal = val.trim().toUpperCase();
+    const match = BODY_ZONES.find(
+      (z) => z.id.toUpperCase() === formVal || z.name.toUpperCase() === formVal,
+    );
+    return match ? match.id : val;
+  });
+  const selected = new Set(activeIds);
   return (
     <View style={{ width: 177, height: 250, position: "relative" }}>
       <Image
