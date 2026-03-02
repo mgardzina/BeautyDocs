@@ -699,22 +699,22 @@ function getContraText(val: string | ContraindicationWithFollowUp): string {
 
 // ─── Komponenty schematów anatomicznych do PDF ──────────────────────────────
 
-/** Schemat twarzy — zaznaczone strefy w złocie, reszta w szarym */
+/** Schemat twarzy — zaznaczone strefy w złocie (brand #D4AF37), reszta w szarym */
 function FaceDiagramPDF({ selectedIds }: { selectedIds: string[] }) {
   const selected = new Set(selectedIds);
   return (
-    <Svg viewBox="0 0 980 980" style={{ width: 220, height: 220 }}>
+    <Svg viewBox="0 0 980 980" style={{ width: 160, height: 160 }}>
       {FACE_ZONES.map((zone) => (
         <Path
           key={zone.id}
           d={zone.d}
           fill={
             selected.has(zone.id)
-              ? "rgba(201, 168, 76, 0.6)"
-              : "rgba(200, 200, 200, 0.25)"
+              ? "rgba(212, 175, 55, 0.6)"
+              : "rgba(143, 166, 157, 0.25)"
           }
           stroke={
-            selected.has(zone.id) ? "#C9A84C" : "rgba(160, 160, 160, 0.5)"
+            selected.has(zone.id) ? "#D4AF37" : "rgba(143, 166, 157, 0.5)"
           }
           strokeWidth={selected.has(zone.id) ? 4 : 1.5}
           strokeLinecap="round"
@@ -725,22 +725,22 @@ function FaceDiagramPDF({ selectedIds }: { selectedIds: string[] }) {
   );
 }
 
-/** Schemat ciała — zaznaczone strefy w złocie, reszta w szarym */
+/** Schemat ciała — zaznaczone strefy w złocie (brand #D4AF37), reszta w szarym */
 function BodyDiagramPDF({ selectedIds }: { selectedIds: string[] }) {
   const selected = new Set(selectedIds);
   return (
-    <Svg viewBox="0 0 724 1024" style={{ width: 155, height: 220 }}>
+    <Svg viewBox="0 0 724 1024" style={{ width: 113, height: 160 }}>
       {BODY_ZONES.map((zone) => (
         <Path
           key={zone.id}
           d={zone.d}
           fill={
             selected.has(zone.id)
-              ? "rgba(201, 168, 76, 0.7)"
-              : "rgba(200, 200, 200, 0.35)"
+              ? "rgba(212, 175, 55, 0.7)"
+              : "rgba(143, 166, 157, 0.3)"
           }
           stroke={
-            selected.has(zone.id) ? "#C9A84C" : "rgba(160, 160, 160, 0.5)"
+            selected.has(zone.id) ? "#D4AF37" : "rgba(143, 166, 157, 0.5)"
           }
           strokeWidth={selected.has(zone.id) ? 4 : 1.5}
           strokeLinecap="round"
@@ -916,10 +916,25 @@ function ConsentFormPDF({
           </View>
         )}
 
-        {/* Obszar Zabiegu — tylko tekstowe chipy stref */}
+        {/* Obszar Zabiegu — tekstowe chipy stref + diagramy anatomiczne */}
         {form.obszarZabiegu &&
           (() => {
             const { face, body } = splitZonesByType(form.obszarZabiegu);
+            const FORMS_WITH_FACE_SELECTOR: string[] = [
+              "FACIAL_VOLUMETRY",
+              "WRINKLE_REDUCTION",
+              "TISSUE_STIMULATION",
+              "PERMANENT_MAKEUP",
+              "LASER_TATTOO_REMOVAL",
+            ];
+            const FORMS_WITH_BODY_SELECTOR: string[] = [
+              "LASER_TATTOO_REMOVAL",
+              "LASER_HAIR_REMOVAL",
+            ];
+            const showFaceDiagram =
+              FORMS_WITH_FACE_SELECTOR.includes(form.type) && face.length > 0;
+            const showBodyDiagram =
+              FORMS_WITH_BODY_SELECTOR.includes(form.type) && body.length > 0;
             return (
               <View style={styles.section}>
                 <Text style={styles.sectionTitle}>Obszar Zabiegu</Text>
@@ -966,6 +981,21 @@ function ConsentFormPDF({
                           </Text>
                         ))}
                       </View>
+                    </View>
+                  )}
+                  {/* Diagramy anatomiczne — tylko dla formularzy z selektorem */}
+                  {(showFaceDiagram || showBodyDiagram) && (
+                    <View
+                      style={{
+                        flexDirection: "row",
+                        justifyContent: "center",
+                        alignItems: "flex-start",
+                        gap: 16,
+                        marginTop: 8,
+                      }}
+                    >
+                      {showFaceDiagram && <FaceDiagramPDF selectedIds={face} />}
+                      {showBodyDiagram && <BodyDiagramPDF selectedIds={body} />}
                     </View>
                   )}
                 </View>
