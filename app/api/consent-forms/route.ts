@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from "next/server";
-import { after } from "next/server";
 import { prisma } from "../../../lib/prisma";
 import { auth } from "../../../lib/auth";
 import { generateConsentFormPdf } from "@/lib/pdfGenerator";
@@ -85,79 +84,85 @@ export async function POST(request: NextRequest) {
       },
     });
 
-    // Generuj PDF i wyślij email w tle — after() gwarantuje że runtime
-    // nie zostanie zabity przed zakończeniem zadania (serverless/Vercel)
-    after(async () => {
-      try {
-        const pdfBuffer = await generateConsentFormPdf({
-          id: consentForm.id,
-          type: formType,
-          createdAt: consentForm.createdAt.toISOString(),
-          imieNazwisko: normalizedName,
-          email: body.email || null,
-          ulica: body.ulica || null,
-          kodPocztowy: body.kodPocztowy || null,
-          miasto: body.miasto || null,
-          dataUrodzenia: body.dataUrodzenia || null,
-          telefon: normalizedPhone,
-          miejscowoscData: body.miejscowoscData,
-          nazwaProduktu: body.nazwaProduktu || null,
-          obszarZabiegu: body.obszarZabiegu || null,
-          celEfektu: body.celEfektu || null,
-          przeciwwskazania: body.przeciwwskazania || {},
-          zgodaPrzetwarzanieDanych: Boolean(body.zgodaPrzetwarzanieDanych),
-          zgodaMarketing: Boolean(body.zgodaMarketing),
-          zgodaFotografie: Boolean(body.zgodaFotografie),
-          zgodaPomocPrawna: Boolean(body.zgodaPomocPrawna),
-          miejscaPublikacjiFotografii: body.miejscaPublikacjiFotografii || null,
-          podpisDane: body.podpisDane || null,
-          podpisMarketing: body.podpisMarketing || null,
-          podpisFotografie: body.podpisFotografie || null,
-          podpisRodo: body.podpisRodo || null,
-          podpisRodo2: body.podpisRodo2 || null,
-          informacjaDodatkowa: body.informacjaDodatkowa || null,
-          zastrzeniaKlienta: body.zastrzeniaKlienta || null,
-          numerZabiegu: body.numerZabiegu || null,
-          osobaPrzeprowadzajacaZabieg: body.osobaPrzeprowadzajacaZabieg || null,
-          planowanaIloscZabiegow: body.planowanaIloscZabiegow || null,
-          odstepMiedzyZabiegami: body.odstepMiedzyZabiegami || null,
-          kolejneZabiegiOdstepy: body.kolejneZabiegiOdstepy || null,
-          iloscProduktu: body.iloscProduktu || null,
-          signatureStatus: body.signatureStatus || "PENDING",
-          signatureVerifiedAt: body.auditLog?.signedAt || null,
-        });
+    // Generuj PDF i wyślij email PRZED zwróceniem odpowiedzi
+    let emailError: string | null = null;
+    try {
+      const pdfBuffer = await generateConsentFormPdf({
+        id: consentForm.id,
+        type: formType,
+        createdAt: consentForm.createdAt.toISOString(),
+        imieNazwisko: normalizedName,
+        email: body.email || null,
+        ulica: body.ulica || null,
+        kodPocztowy: body.kodPocztowy || null,
+        miasto: body.miasto || null,
+        dataUrodzenia: body.dataUrodzenia || null,
+        telefon: normalizedPhone,
+        miejscowoscData: body.miejscowoscData,
+        nazwaProduktu: body.nazwaProduktu || null,
+        obszarZabiegu: body.obszarZabiegu || null,
+        celEfektu: body.celEfektu || null,
+        przeciwwskazania: body.przeciwwskazania || {},
+        zgodaPrzetwarzanieDanych: Boolean(body.zgodaPrzetwarzanieDanych),
+        zgodaMarketing: Boolean(body.zgodaMarketing),
+        zgodaFotografie: Boolean(body.zgodaFotografie),
+        zgodaPomocPrawna: Boolean(body.zgodaPomocPrawna),
+        miejscaPublikacjiFotografii: body.miejscaPublikacjiFotografii || null,
+        podpisDane: body.podpisDane || null,
+        podpisMarketing: body.podpisMarketing || null,
+        podpisFotografie: body.podpisFotografie || null,
+        podpisRodo: body.podpisRodo || null,
+        podpisRodo2: body.podpisRodo2 || null,
+        informacjaDodatkowa: body.informacjaDodatkowa || null,
+        zastrzeniaKlienta: body.zastrzeniaKlienta || null,
+        numerZabiegu: body.numerZabiegu || null,
+        osobaPrzeprowadzajacaZabieg: body.osobaPrzeprowadzajacaZabieg || null,
+        planowanaIloscZabiegow: body.planowanaIloscZabiegow || null,
+        odstepMiedzyZabiegami: body.odstepMiedzyZabiegami || null,
+        kolejneZabiegiOdstepy: body.kolejneZabiegiOdstepy || null,
+        iloscProduktu: body.iloscProduktu || null,
+        signatureStatus: body.signatureStatus || "PENDING",
+        signatureVerifiedAt: body.auditLog?.signedAt || null,
+      });
 
-        const formTypeLabel = getFormTypeLabel(formType);
-        const safeName = normalizedName
-          .replace(/[^a-zA-Z0-9\s]/g, "")
-          .replace(/\s+/g, "_");
-        const date = new Date(consentForm.createdAt)
-          .toLocaleDateString("pl-PL")
-          .replace(/\./g, "-");
-        const pdfFilename = `Karta_zgody_${safeName}_${date}.pdf`;
+      const formTypeLabel = getFormTypeLabel(formType);
+      const safeName = normalizedName
+        .replace(/[^a-zA-Z0-9\s]/g, "")
+        .replace(/\s+/g, "_");
+      const date = new Date(consentForm.createdAt)
+        .toLocaleDateString("pl-PL")
+        .replace(/\./g, "-");
+      const pdfFilename = `Karta_zgody_${safeName}_${date}.pdf`;
 
-        await sendConsentFormEmail({
-          formId: consentForm.id,
-          clientName: normalizedName,
-          clientEmail: body.email || null,
-          formTypeLabel,
-          formDate: body.miejscowoscData,
-          pdfBuffer,
-          pdfFilename,
-        });
+      const emailResult = await sendConsentFormEmail({
+        formId: consentForm.id,
+        clientName: normalizedName,
+        clientEmail: body.email || null,
+        formTypeLabel,
+        formDate: body.miejscowoscData,
+        pdfBuffer,
+        pdfFilename,
+      });
 
+      if (!emailResult.success) {
+        emailError = emailResult.error || "Unknown email error";
+        console.error("[PDF/Email] Błąd wysyłki:", emailError);
+      } else {
         console.log(
           `[PDF] Wygenerowano i wysłano email dla formularza ${consentForm.id}`
         );
-      } catch (emailError) {
-        console.error(
-          "[PDF/Email] Błąd podczas generowania/wysyłki:",
-          emailError
-        );
       }
-    });
+    } catch (err) {
+      emailError = String(err);
+      console.error("[PDF/Email] Błąd podczas generowania/wysyłki:", err);
+    }
 
-    return NextResponse.json({ success: true, id: consentForm.id });
+    return NextResponse.json({
+      success: true,
+      id: consentForm.id,
+      emailSent: !emailError,
+      ...(emailError && { emailError }),
+    });
   } catch (error) {
     console.error("Błąd zapisu formularza:", error);
     return NextResponse.json(
