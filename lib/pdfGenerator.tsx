@@ -699,23 +699,17 @@ function getContraText(val: string | ContraindicationWithFollowUp): string {
 
 // ─── Komponenty schematów anatomicznych do PDF ──────────────────────────────
 
-/** Schemat twarzy — zaznaczone strefy w złocie (brand #D4AF37), reszta w szarym */
+/** Schemat twarzy — zaznaczone strefy w złocie (brand #D4AF37), reszta w neutralnym beżu */
 function FaceDiagramPDF({ selectedIds }: { selectedIds: string[] }) {
   const selected = new Set(selectedIds);
   return (
-    <Svg viewBox="0 0 980 980" style={{ width: 160, height: 160 }}>
+    <Svg viewBox="0 0 980 980" style={{ width: 280, height: 280 }}>
       {FACE_ZONES.map((zone) => (
         <Path
           key={zone.id}
           d={zone.d}
-          fill={
-            selected.has(zone.id)
-              ? "rgba(212, 175, 55, 0.6)"
-              : "rgba(143, 166, 157, 0.25)"
-          }
-          stroke={
-            selected.has(zone.id) ? "#D4AF37" : "rgba(143, 166, 157, 0.5)"
-          }
+          fill={selected.has(zone.id) ? "#D4AF37" : "#e8d5c4"}
+          stroke={selected.has(zone.id) ? "#B8941E" : "#c5b0a0"}
           strokeWidth={selected.has(zone.id) ? 4 : 1.5}
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -725,23 +719,17 @@ function FaceDiagramPDF({ selectedIds }: { selectedIds: string[] }) {
   );
 }
 
-/** Schemat ciała — zaznaczone strefy w złocie (brand #D4AF37), reszta w szarym */
+/** Schemat ciała — zaznaczone strefy w złocie (brand #D4AF37), reszta w neutralnym beżu */
 function BodyDiagramPDF({ selectedIds }: { selectedIds: string[] }) {
   const selected = new Set(selectedIds);
   return (
-    <Svg viewBox="0 0 724 1024" style={{ width: 113, height: 160 }}>
+    <Svg viewBox="0 0 724 1024" style={{ width: 198, height: 280 }}>
       {BODY_ZONES.map((zone) => (
         <Path
           key={zone.id}
           d={zone.d}
-          fill={
-            selected.has(zone.id)
-              ? "rgba(212, 175, 55, 0.7)"
-              : "rgba(143, 166, 157, 0.3)"
-          }
-          stroke={
-            selected.has(zone.id) ? "#D4AF37" : "rgba(143, 166, 157, 0.5)"
-          }
+          fill={selected.has(zone.id) ? "#D4AF37" : "#e8d5c4"}
+          stroke={selected.has(zone.id) ? "#B8941E" : "#c5b0a0"}
           strokeWidth={selected.has(zone.id) ? 4 : 1.5}
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -840,7 +828,9 @@ function ConsentFormPDF({
               </View>
               <View style={styles.row}>
                 <Text style={styles.label}>Data urodzenia:</Text>
-                <Text style={styles.value}>{formatDate(form.dataUrodzenia)}</Text>
+                <Text style={styles.value}>
+                  {formatDate(form.dataUrodzenia)}
+                </Text>
               </View>
               <View style={styles.row}>
                 <Text style={styles.label}>Telefon:</Text>

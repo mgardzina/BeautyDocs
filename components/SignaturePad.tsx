@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useCallback } from "react";
 import SignatureCanvas from "react-signature-canvas";
 
 interface SignaturePadProps {
@@ -21,12 +21,54 @@ export default function SignaturePad({
   hasBorder = true,
 }: SignaturePadProps) {
   const sigCanvas = useRef<SignatureCanvas>(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    if (value && sigCanvas.current) {
-      sigCanvas.current.fromDataURL(value);
+  // Resize the canvas to match its container dimensions
+  const resizeCanvas = useCallback(() => {
+    const wrapper = wrapperRef.current;
+    const canvas = sigCanvas.current?.getCanvas();
+    if (!wrapper || !canvas) return;
+
+    const { width, height } = wrapper.getBoundingClientRect();
+    if (width === 0 || height === 0) return;
+
+    // Save current signature data
+    const data = sigCanvas.current?.toDataURL("image/png");
+
+    canvas.width = width;
+    canvas.height = height;
+
+    // Restore signature data after resize
+    if (data && data !== "data:,") {
+      sigCanvas.current?.fromDataURL(data, { width, height });
     }
   }, []);
+
+  // Initial load: restore saved value
+  useEffect(() => {
+    if (value && sigCanvas.current) {
+      // Small delay to ensure canvas is mounted and sized
+      const t = setTimeout(() => {
+        sigCanvas.current?.fromDataURL(value);
+      }, 50);
+      return () => clearTimeout(t);
+    }
+  }, []);
+
+  // Observe wrapper size changes and resize accordingly
+  useEffect(() => {
+    const wrapper = wrapperRef.current;
+    if (!wrapper) return;
+
+    const observer = new ResizeObserver(() => {
+      resizeCanvas();
+    });
+    observer.observe(wrapper);
+    // Initial resize
+    resizeCanvas();
+
+    return () => observer.disconnect();
+  }, [resizeCanvas]);
 
   const handleClear = () => {
     sigCanvas.current?.clear();
@@ -52,23 +94,28 @@ export default function SignaturePad({
             hasBorder ? "border border-[#d4cec4]" : ""
           }`}
         >
-          <div style={{ height: "160px", width: "100%" }}>
+          <div ref={wrapperRef} style={{ height: "160px", width: "100%" }}>
             <SignatureCanvas
               ref={sigCanvas}
               canvasProps={{
-                className: "w-full h-full touch-none block",
-                style: { backgroundColor: "#F5F3F0" },
+                style: {
+                  width: "100%",
+                  height: "100%",
+                  display: "block",
+                  backgroundColor: "#F5F3F0",
+                  touchAction: "none",
+                },
               }}
               backgroundColor="#F5F3F0"
               penColor="#1a1a1a"
               minWidth={1.0}
-              maxWidth={2.5} // Optimized for Apple Pencil / Real pen feel
+              maxWidth={2.5}
               onEnd={handleEnd}
             />
           </div>
         </div>
 
-        {/* Helper text / Clear button inside/below */}
+        {/* Clear button */}
         <div className="absolute bottom-2 right-2 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
           <button
             type="button"
