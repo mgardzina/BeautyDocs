@@ -415,8 +415,8 @@ const styles = StyleSheet.create({
     marginTop: 2,
   },
   logoImage: {
-    height: 60,
-    width: 180,
+    height: 80,
+    width: 240,
     objectFit: "contain",
   },
 
@@ -1168,7 +1168,7 @@ function ConsentFormPDF({
           <View style={styles.headerTop}>
             <Image
               src={LOGO_PATH}
-              style={[styles.logoImage, { height: 45, width: 135 }]}
+              style={[styles.logoImage, { height: 55, width: 165 }]}
             />
             <Text style={[styles.docTitle, { fontSize: 10 }]}>
               {content.title} — Ciąg Dalszy
@@ -1367,7 +1367,7 @@ function ConsentFormPDF({
           <View style={styles.headerTop}>
             <Image
               src={LOGO_PATH}
-              style={[styles.logoImage, { height: 45, width: 135 }]}
+              style={[styles.logoImage, { height: 55, width: 165 }]}
             />
             <Text style={[styles.docTitle, { fontSize: 10 }]}>
               {content.title} — Zgody i Podpisy
