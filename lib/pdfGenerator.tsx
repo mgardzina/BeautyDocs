@@ -718,36 +718,35 @@ function getContraText(val: string | ContraindicationWithFollowUp): string {
 function FaceDiagramPDF({ selectedIds }: { selectedIds: string[] }) {
   const selected = new Set(selectedIds);
   return (
-    <View style={{ width: 200, height: 200, position: "relative" }}>
-      {/* Tło: zdjęcie twarzy */}
+    <View style={{ width: 250, height: 250, position: "relative" }}>
       <Image
         src={FACE_CHART_B64}
         style={{
-          width: 200,
-          height: 200,
+          width: 250,
+          height: 250,
           position: "absolute",
           top: 0,
           left: 0,
         }}
       />
-      {/* Overlay SVG ze strefami */}
       <View
         style={{
           position: "absolute",
           top: 0,
           left: 0,
-          width: 200,
-          height: 200,
+          width: 250,
+          height: 250,
         }}
       >
-        <Svg viewBox="0 0 980 980" style={{ width: 200, height: 200 }}>
+        <Svg viewBox="0 0 980 980" style={{ width: 250, height: 250 }}>
           {FACE_ZONES.map((zone) =>
             selected.has(zone.id) ? (
               <Path
                 key={zone.id}
                 d={zone.d}
-                fill="rgba(212, 175, 55, 0.55)"
-                stroke="#D4AF37"
+                fill="#D4AF37"
+                fillOpacity={0.55}
+                stroke="#B8941E"
                 strokeWidth={5}
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -764,36 +763,35 @@ function FaceDiagramPDF({ selectedIds }: { selectedIds: string[] }) {
 function BodyDiagramPDF({ selectedIds }: { selectedIds: string[] }) {
   const selected = new Set(selectedIds);
   return (
-    <View style={{ width: 140, height: 198, position: "relative" }}>
-      {/* Tło: zdjęcie ciała */}
+    <View style={{ width: 177, height: 250, position: "relative" }}>
       <Image
         src={BODY_CHART_B64}
         style={{
-          width: 140,
-          height: 198,
+          width: 177,
+          height: 250,
           position: "absolute",
           top: 0,
           left: 0,
         }}
       />
-      {/* Overlay SVG ze strefami */}
       <View
         style={{
           position: "absolute",
           top: 0,
           left: 0,
-          width: 140,
-          height: 198,
+          width: 177,
+          height: 250,
         }}
       >
-        <Svg viewBox="0 0 724 1024" style={{ width: 140, height: 198 }}>
+        <Svg viewBox="0 0 724 1024" style={{ width: 177, height: 250 }}>
           {BODY_ZONES.map((zone) =>
             selected.has(zone.id) ? (
               <Path
                 key={zone.id}
                 d={zone.d}
-                fill="rgba(212, 175, 55, 0.55)"
-                stroke="#D4AF37"
+                fill="#D4AF37"
+                fillOpacity={0.55}
+                stroke="#B8941E"
                 strokeWidth={5}
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -1044,19 +1042,36 @@ function ConsentFormPDF({
                       </View>
                     </View>
                   )}
-                  {/* Diagramy anatomiczne — tylko dla formularzy z selektorem */}
                   {(showFaceDiagram || showBodyDiagram) && (
-                    <View
-                      style={{
-                        flexDirection: "row",
-                        justifyContent: "center",
-                        alignItems: "flex-start",
-                        gap: 16,
-                        marginTop: 8,
-                      }}
-                    >
-                      {showFaceDiagram && <FaceDiagramPDF selectedIds={face} />}
-                      {showBodyDiagram && <BodyDiagramPDF selectedIds={body} />}
+                    <View style={{ marginTop: 8 }}>
+                      <Text
+                        style={{
+                          fontSize: 7.5,
+                          fontFamily: "Roboto",
+                          fontWeight: "bold",
+                          color: GRAY,
+                          marginBottom: 6,
+                          textTransform: "uppercase",
+                          letterSpacing: 0.5,
+                        }}
+                      >
+                        Wizualizacja obszaru zabiegu
+                      </Text>
+                      <View
+                        style={{
+                          flexDirection: "row",
+                          justifyContent: "center",
+                          alignItems: "flex-start",
+                          gap: 16,
+                        }}
+                      >
+                        {showFaceDiagram && (
+                          <FaceDiagramPDF selectedIds={face} />
+                        )}
+                        {showBodyDiagram && (
+                          <BodyDiagramPDF selectedIds={body} />
+                        )}
+                      </View>
                     </View>
                   )}
                 </View>
