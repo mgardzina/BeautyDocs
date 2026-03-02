@@ -717,7 +717,7 @@ function getContraText(val: string | ContraindicationWithFollowUp): string {
 /** Schemat twarzy — zdjęcie twarzy z narośleżonymi strefami */
 function FaceDiagramPDF({ selectedIds }: { selectedIds: string[] }) {
   // Map form values (names) to internal IDs
-  const activeIds = selectedIds.map((val) => {
+  const activeIds = (selectedIds || []).map((val) => {
     const formVal = val.trim().toUpperCase();
     const match = FACE_ZONES.find(
       (z) => z.id.toUpperCase() === formVal || z.name.toUpperCase() === formVal,
@@ -771,7 +771,7 @@ function FaceDiagramPDF({ selectedIds }: { selectedIds: string[] }) {
 /** Schemat ciała — zdjęcie ciała z narośleżonymi strefami */
 function BodyDiagramPDF({ selectedIds }: { selectedIds: string[] }) {
   // Map form values (names) to internal IDs
-  const activeIds = selectedIds.map((val) => {
+  const activeIds = (selectedIds || []).map((val) => {
     const formVal = val.trim().toUpperCase();
     const match = BODY_ZONES.find(
       (z) => z.id.toUpperCase() === formVal || z.name.toUpperCase() === formVal,

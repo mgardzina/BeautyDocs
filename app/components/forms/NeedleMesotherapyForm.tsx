@@ -115,12 +115,12 @@ export default function NeedleMesotherapyForm({
 
   const handleWizardAnswer = (value: boolean) => {
     handleContraindicationChange(currentContraindicationKey, value);
-    // For follow-up questions, don't auto-advance — user must click "Dalej"
-    const currentValue =
-      mezoterapiaIglowaContraindications[currentContraindicationKey];
-    const hasFollowUp =
-      typeof currentValue === "object" && currentValue.hasFollowUp;
-    if (hasFollowUp) {
+    // Determine if the answer given requires a follow-up
+    const hasFollowUp = currentContraindicationObject?.hasFollowUp;
+    const isSafePositive = currentContraindicationObject?.isPositiveAnswerSafe;
+    const requiresFollowUp = hasFollowUp && (isSafePositive ? value === false : value === true);
+    
+    if (requiresFollowUp) {
       return;
     }
     if (currentContraindicationIndex < contraindicationKeys.length) {
@@ -752,9 +752,7 @@ export default function NeedleMesotherapyForm({
                             : currentContraindicationValue.text}
                         </h3>
                         {currentContraindicationObject?.hasFollowUp &&
-                          formData.przeciwwskazania[
-                            currentContraindicationKey
-                          ] === true && (
+                        formData.przeciwwskazania[currentContraindicationKey] === (currentContraindicationObject.isPositiveAnswerSafe ? false : true) && (
                             <div className="animate-in fade-in slide-in-from-top-2 max-w-md mx-auto w-full text-left">
                               <input
                                 type="text"

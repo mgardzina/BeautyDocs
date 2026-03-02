@@ -113,12 +113,12 @@ export default function InjectionLipolysisForm({
 
   const handleWizardAnswer = (value: boolean) => {
     handleContraindicationChange(currentContraindicationKey, value);
-    // For follow-up questions, don't auto-advance — user must click "Dalej"
-    const currentValue =
-      lipolizaIniekcyjnaContraindications[currentContraindicationKey];
-    const hasFollowUp =
-      typeof currentValue === "object" && currentValue.hasFollowUp;
-    if (hasFollowUp) {
+    // Determine if the answer given requires a follow-up
+    const hasFollowUp = currentContraindicationObject?.hasFollowUp;
+    const isSafePositive = currentContraindicationObject?.isPositiveAnswerSafe;
+    const requiresFollowUp = hasFollowUp && (isSafePositive ? value === false : value === true);
+    
+    if (requiresFollowUp) {
       return;
     }
     if (currentContraindicationIndex < contraindicationKeys.length) {
@@ -746,7 +746,7 @@ export default function InjectionLipolysisForm({
                           <div
                             className="h-full bg-brand transition-all duration-300 shadow-[0_0_10px_rgba(212,175,55,0.5)]"
                             style={{
-                              width: `${((currentContraindicationIndex + 1) / contraindicationKeys.length) * 100}%`,
+                              width: `${Math.round(((currentContraindicationIndex + 1) / contraindicationKeys.length) * 100)}%`,
                             }}
                           ></div>
                         </div>

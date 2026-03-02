@@ -8,7 +8,7 @@
 import { Resend } from "resend";
 
 // Adres admina / salonu — zawsze dostaje kopię
-const SALON_EMAIL = "[EMAIL_ADDRESS]";
+const SALON_EMAIL = process.env.SALON_EMAIL || "kontakt@powderbrowsacademy.com.pl";
 const SALON_NAME = "Powder Brows Academy";
 
 // Adres nadawcy — musi być zweryfikowaną domeną w Resend

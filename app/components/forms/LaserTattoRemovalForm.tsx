@@ -123,11 +123,12 @@ export default function LaserTattoRemovalForm({
 
   const handleWizardAnswer = (value: boolean) => {
     handleContraindicationChange(currentContraindicationKey, value);
-    // If question has follow-up and user answered TAK, don't auto-advance
-    // The user needs to fill in the details first
+    // Determine if the answer given requires a follow-up
     const hasFollowUp = currentContraindicationObject?.hasFollowUp;
-    if (value && hasFollowUp) {
-      // Don't advance - the UI will show the follow-up input
+    const isSafePositive = currentContraindicationObject?.isPositiveAnswerSafe;
+    const requiresFollowUp = hasFollowUp && (isSafePositive ? value === false : value === true);
+    
+    if (requiresFollowUp) {
       return;
     }
     if (currentContraindicationIndex < contraindicationKeys.length) {
@@ -875,7 +876,7 @@ export default function LaserTattoRemovalForm({
                           <div
                             className="h-full bg-brand transition-all duration-500 shadow-[0_0_10px_rgba(212,175,55,0.5)]"
                             style={{
-                              width: `${((currentContraindicationIndex + 1) / contraindicationKeys.length) * 100}%`,
+                              width: `${Math.round(((currentContraindicationIndex + 1) / contraindicationKeys.length) * 100)}%`,
                             }}
                           ></div>
                         </div>

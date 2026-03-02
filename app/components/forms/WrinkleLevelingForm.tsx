@@ -759,7 +759,7 @@ export default function FacialVolumetryForm({
                           <div
                             className="h-full bg-brand transition-all duration-300"
                             style={{
-                              width: `${((currentContraindicationIndex + 1) / contraindicationKeys.length) * 100}%`,
+                              width: `${Math.round(((currentContraindicationIndex + 1) / contraindicationKeys.length) * 100)}%`,
                             }}
                           ></div>
                         </div>

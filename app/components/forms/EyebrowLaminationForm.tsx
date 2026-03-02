@@ -846,7 +846,7 @@ export default function EyebrowLaminationForm({
                           <div
                             className="h-full bg-brand transition-all duration-300 shadow-[0_0_10px_rgba(212,175,55,0.5)]"
                             style={{
-                              width: `${((currentContraindicationIndex + 1) / contraindicationKeys.length) * 100}%`,
+                              width: `${Math.round(((currentContraindicationIndex + 1) / contraindicationKeys.length) * 100)}%`,
                             }}
                           ></div>
                         </div>
@@ -1055,9 +1055,7 @@ export default function EyebrowLaminationForm({
                       )}
 
                       {currentContraindicationObject?.hasFollowUp &&
-                        formData.przeciwwskazania[
-                          currentContraindicationKey
-                        ] === true && (
+                        formData.przeciwwskazania[currentContraindicationKey] === (currentContraindicationObject.isPositiveAnswerSafe ? false : true) && (
                           <div className="max-w-md mx-auto mt-4">
                             <button
                               type="button"
