@@ -56,7 +56,7 @@ steps:
       - '--add-cloudsql-instances'
       - 'powderbrowsacademypl:europe-west1:powderbrowspl-db-be'
       - '--set-env-vars'
-      - 'DATABASE_URL=postgresql://postgres:0p494r%60%29V-%3A%5DN%60%3Bp@/powderbrowsacademypl?host=/cloudsql/powderbrowsacademypl:europe-west1:powderbrowspl-db-be,NEXTAUTH_SECRET=rQG+KCcnUPBB4C5f2EVnSSZmozRHFk85aAJjOHVpwLA=,NEXTAUTH_URL=https://powderbrowsacademy.com.pl,SMSAPI_TOKEN=pH4CnKnd4QciFZQ94CV1oKVrqk7eMxGbrODwSxsP,SMSAPI_SENDER=PowderBrows'
+      - 'DATABASE_URL=postgresql://postgres:0p494r%60%29V-%3A%5DN%60%3Bp@/powderbrowsacademypl?host=/cloudsql/powderbrowsacademypl:europe-west1:powderbrowspl-db-be,NEXTAUTH_SECRET=rQG+KCcnUPBB4C5f2EVnSSZmozRHFk85aAJjOHVpwLA=,NEXTAUTH_URL=https://powderbrowsacademy.com.pl,SMSAPI_TOKEN=pH4CnKnd4QciFZQ94CV1oKVrqk7eMxGbrODwSxsP,SMSAPI_SENDER=PowderBrows,SMSAPI_TOKEN=re_LxAXCCQa_PZTBBChboNXmpRHnB1urXmh8'
       - '--memory'
       - '512Mi'
       - '--cpu'
