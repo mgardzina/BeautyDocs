@@ -220,6 +220,7 @@ interface ConsentFormData {
   odstepMiedzyZabiegami?: string | null;
   kolejneZabiegiOdstepy?: string | null;
   iloscProduktu?: string | null;
+  znieczulenie?: string | null;
   signatureStatus?: string | null;
   signatureVerifiedAt?: string | null;
 }
@@ -952,7 +953,7 @@ function ConsentFormPDF({
         </View>
 
         {/* Szczegóły zabiegu */}
-        {(form.nazwaProduktu || form.iloscProduktu || form.celEfektu) && (
+        {(form.nazwaProduktu || form.iloscProduktu || form.celEfektu || form.znieczulenie) && (
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Szczegóły Zabiegu</Text>
             <View style={styles.twoCol}>
@@ -961,6 +962,12 @@ function ConsentFormPDF({
                   <View style={styles.row}>
                     <Text style={styles.label}>Preparat:</Text>
                     <Text style={styles.value}>{form.nazwaProduktu}</Text>
+                  </View>
+                )}
+                {form.znieczulenie && (
+                  <View style={styles.row}>
+                    <Text style={styles.label}>Znieczulenie:</Text>
+                    <Text style={styles.value}>{form.znieczulenie}</Text>
                   </View>
                 )}
                 {form.iloscProduktu && (

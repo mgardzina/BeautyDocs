@@ -76,6 +76,7 @@ export async function POST(request: NextRequest) {
         odstepMiedzyZabiegami: body.odstepMiedzyZabiegami || null,
         kolejneZabiegiOdstepy: body.kolejneZabiegiOdstepy || null,
         iloscProduktu: body.iloscProduktu || null,
+        znieczulenie: body.znieczulenie || null,
         clientId: client.id,
         // Digital Signature & Audit Log (Art. 78¹ KC - Forma Dokumentowa)
         signatureStatus: body.signatureStatus || "PENDING",
@@ -121,6 +122,7 @@ export async function POST(request: NextRequest) {
         odstepMiedzyZabiegami: body.odstepMiedzyZabiegami || null,
         kolejneZabiegiOdstepy: body.kolejneZabiegiOdstepy || null,
         iloscProduktu: body.iloscProduktu || null,
+        znieczulenie: body.znieczulenie || null,
         signatureStatus: body.signatureStatus || "PENDING",
         signatureVerifiedAt: body.auditLog?.signedAt || null,
       });

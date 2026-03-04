@@ -24,8 +24,11 @@ import { contraindicationsByFormType, FormType } from "@/types/booking";
 import AnatomyFaceSelector from "@/app/components/AnatomyFaceSelector";
 import AnatomyBodySelector from "@/app/components/AnatomyBodySelector";
 import { ZONES } from "@/types/face-zones";
+import { BODY_ZONES } from "@/types/body-zones";
 
 // Helper do tłumaczenia stref
+const ALL_ZONES = [...ZONES, ...BODY_ZONES];
+
 const translateZones = (zonesString: string | null): string => {
   if (!zonesString) return "Nie podano";
 
@@ -33,8 +36,8 @@ const translateZones = (zonesString: string | null): string => {
 
   return selectedIds
     .map((id) => {
-      const zone = ZONES.find((z) => z.id === id);
-      return zone ? zone.name : id; // Fallback to ID if name not found
+      const zone = ALL_ZONES.find((z) => z.id === id);
+      return zone ? zone.name : id;
     })
     .join(", ");
 };
@@ -83,6 +86,7 @@ interface ConsentFormFull {
   podpisRodo: string | null;
   podpisRodo2: string | null;
   informacjaDodatkowa: string | null;
+  znieczulenie: string | null;
   osobaPrzeprowadzajacaZabieg: string | null;
   clientId: string | null;
   planowanaIloscZabiegow: string | null;
@@ -558,21 +562,82 @@ export default function FormDetailsPage() {
               </div>
               <div>
                 <label className="block text-sm font-medium text-ui-textSecondary mb-1">
-                  Obszar zabiegu
+                  Znieczulenie
                 </label>
                 {isEditing ? (
                   <input
                     type="text"
-                    value={editedForm.obszarZabiegu || ""}
+                    value={editedForm.znieczulenie || ""}
                     onChange={(e) =>
                       setEditedForm({
                         ...editedForm,
-                        obszarZabiegu: e.target.value,
+                        znieczulenie: e.target.value,
                       })
                     }
                     className="w-full px-3 py-2 bg-marble-border/40 border border-brand/20 rounded-lg focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none text-marble-text"
-                    placeholder="Obszar zabiegu"
+                    placeholder="np. Lidokaina 9,6%, maść EMLA"
                   />
+                ) : (
+                  <p className="text-marble-text">
+                    {form.znieczulenie || "Nie podano"}
+                  </p>
+                )}
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-ui-textSecondary mb-1">
+                  Obszar zabiegu
+                </label>
+                {isEditing ? (
+                  <div className="space-y-3">
+                    <div className="flex flex-wrap gap-2">
+                      {(() => {
+                        const BODY_FORM_TYPES = ["LASER_HAIR_REMOVAL", "LASER_TATTOO_REMOVAL"];
+                        const isBodyForm = BODY_FORM_TYPES.includes(form.type);
+                        const zones = isBodyForm ? [...ZONES, ...BODY_ZONES] : ZONES;
+                        const selectedIds = (editedForm.obszarZabiegu || "")
+                          .split(",")
+                          .map((s) => s.trim())
+                          .filter(Boolean);
+                        return zones.map((zone) => {
+                          const isSelected = selectedIds.includes(zone.id);
+                          return (
+                            <button
+                              key={zone.id}
+                              type="button"
+                              onClick={() => {
+                                const newSelected = isSelected
+                                  ? selectedIds.filter((id) => id !== zone.id)
+                                  : [...selectedIds, zone.id];
+                                setEditedForm({
+                                  ...editedForm,
+                                  obszarZabiegu: newSelected.join(","),
+                                });
+                              }}
+                              className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all border ${
+                                isSelected
+                                  ? "bg-brand text-black border-brand shadow-[0_0_10px_rgba(212,175,55,0.3)]"
+                                  : "bg-marble-border/40 border-brand/20 text-marble-text hover:border-brand hover:text-brand"
+                              }`}
+                            >
+                              {zone.name}
+                            </button>
+                          );
+                        });
+                      })()}
+                    </div>
+                    <input
+                      type="text"
+                      value={editedForm.obszarZabiegu || ""}
+                      onChange={(e) =>
+                        setEditedForm({
+                          ...editedForm,
+                          obszarZabiegu: e.target.value,
+                        })
+                      }
+                      className="w-full px-3 py-2 bg-marble-border/40 border border-brand/20 rounded-lg focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none text-marble-text text-xs"
+                      placeholder="Lub wpisz ręcznie (ID stref rozdzielone przecinkami)"
+                    />
+                  </div>
                 ) : (
                   <p className="text-marble-text">
                     {translateZones(form.obszarZabiegu)}
