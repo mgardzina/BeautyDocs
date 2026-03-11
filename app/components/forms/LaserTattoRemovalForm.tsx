@@ -121,6 +121,13 @@ export default function LaserTattoRemovalForm({
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [currentStep]);
 
+  // Auto-close wizard when all questions are answered
+  useEffect(() => {
+    if (isWizardComplete && showContraindicationsWizard) {
+      setShowContraindicationsWizard(false);
+    }
+  }, [isWizardComplete, showContraindicationsWizard]);
+
   const handleWizardAnswer = (value: boolean) => {
     handleContraindicationChange(currentContraindicationKey, value);
     // Determine if the answer given requires a follow-up

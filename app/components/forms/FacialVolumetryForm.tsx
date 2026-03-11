@@ -140,6 +140,13 @@ export default function FacialVolumetryForm({
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [currentStep]);
 
+  // Auto-close wizard when all questions are answered
+  useEffect(() => {
+    if (isWizardComplete && showContraindicationsWizard) {
+      setShowContraindicationsWizard(false);
+    }
+  }, [isWizardComplete, showContraindicationsWizard]);
+
   const handleWizardAnswer = (value: boolean) => {
     handleContraindicationChange(currentContraindicationKey, value);
 
@@ -1144,7 +1151,7 @@ export default function FacialVolumetryForm({
                               currentContraindicationKey
                             ] === false
                               ? "border-green-500 bg-green-500 text-white"
-                              : "bg-ui-bg border-[#D4AF37] text-ui-textSecondary active:border-green-500 active:bg-green-500 active:text-white md:hover:border-green-500 md:hover:bg-green-500 md:hover:text-brand"
+                              : "bg-ui-bg border-[#D4AF37] text-ui-textSecondary active:border-green-500 active:bg-green-500 active:text-white md:hover:border-green-500 md:hover:bg-green-500 md:hover:text-white"
                           }`}
                         >
                           NIE
@@ -1158,7 +1165,7 @@ export default function FacialVolumetryForm({
                               currentContraindicationKey
                             ] === true
                               ? "border-red-500 bg-red-500 text-white"
-                              : "bg-ui-bg border-[#D4AF37] text-ui-textSecondary active:border-red-500 active:bg-red-500 active:text-white md:hover:border-red-500 md:hover:bg-red-500 md:hover:text-brand"
+                              : "bg-ui-bg border-[#D4AF37] text-ui-textSecondary active:border-red-500 active:bg-red-500 active:text-white md:hover:border-red-500 md:hover:bg-red-500 md:hover:text-white"
                           }`}
                         >
                           TAK

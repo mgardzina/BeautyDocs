@@ -109,6 +109,13 @@ export default function LaserRemovalForm({ onBack }: LaserRemovalFormProps) {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [currentStep]);
 
+  // Auto-close wizard when all questions are answered
+  useEffect(() => {
+    if (isWizardComplete && showContraindicationsWizard) {
+      setShowContraindicationsWizard(false);
+    }
+  }, [isWizardComplete, showContraindicationsWizard]);
+
   const handleWizardAnswer = (value: boolean) => {
     handleContraindicationChange(currentContraindicationKey, value);
 

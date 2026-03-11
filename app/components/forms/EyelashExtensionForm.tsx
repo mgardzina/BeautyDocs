@@ -116,6 +116,13 @@ export default function EyelashExtensionForm({
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [currentStep]);
 
+  // Auto-close wizard when all questions are answered
+  useEffect(() => {
+    if (isWizardComplete && showContraindicationsWizard) {
+      setShowContraindicationsWizard(false);
+    }
+  }, [isWizardComplete, showContraindicationsWizard]);
+
   const handleWizardAnswer = (value: boolean) => {
     handleContraindicationChange(currentContraindicationKey, value);
     // For follow-up questions, don't auto-advance — user must click "Dalej"
