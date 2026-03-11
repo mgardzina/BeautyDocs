@@ -591,9 +591,14 @@ export default function FormDetailsPage() {
                   <div className="space-y-3">
                     <div className="flex flex-wrap gap-2">
                       {(() => {
-                        const BODY_FORM_TYPES = ["LASER_HAIR_REMOVAL", "LASER_TATTOO_REMOVAL"];
+                        const BODY_FORM_TYPES = [
+                          "LASER_HAIR_REMOVAL",
+                          "LASER_TATTOO_REMOVAL",
+                        ];
                         const isBodyForm = BODY_FORM_TYPES.includes(form.type);
-                        const zones = isBodyForm ? [...ZONES, ...BODY_ZONES] : ZONES;
+                        const zones = isBodyForm
+                          ? [...ZONES, ...BODY_ZONES]
+                          : ZONES;
                         const selectedIds = (editedForm.obszarZabiegu || "")
                           .split(",")
                           .map((s) => s.trim())
@@ -682,35 +687,55 @@ export default function FormDetailsPage() {
                 )}
               </div>
 
-              {/* Visual Zone Selector for Admin - Face or Body depending on form type */}
+              {/* Visual Zone Selector for Admin - Face or Body depending on selected zones */}
               {(() => {
-                const BODY_FORM_TYPES = [
-                  "LASER_HAIR_REMOVAL",
-                  "LASER_TATTOO_REMOVAL",
-                ];
-                const isBodyForm = BODY_FORM_TYPES.includes(form.type);
                 const selectedZones = form.obszarZabiegu
                   ? form.obszarZabiegu.split(",").map((s) => s.trim())
                   : [];
+
+                if (selectedZones.length === 0) return null;
+
+                const FACE_ZONE_IDS_ALL = new Set(ZONES.map((z) => z.id));
+                const BODY_ZONE_IDS_ALL = new Set(BODY_ZONES.map((z) => z.id));
+
+                const selectedFaceZones = selectedZones.filter((id) =>
+                  FACE_ZONE_IDS_ALL.has(id),
+                );
+                const selectedBodyZones = selectedZones.filter((id) =>
+                  BODY_ZONE_IDS_ALL.has(id),
+                );
+
                 return (
                   <div className="mt-4 border-t border-brand/20 pt-4">
                     <label className="block text-sm font-medium text-ui-textSecondary mb-4">
                       Wizualizacja obszaru zabiegu
                     </label>
-                    <div className="bg-marble-border/20 rounded-xl border border-brand/15 p-6 flex justify-center pointer-events-none">
-                      <div
-                        className={`w-full max-w-lg ${isBodyForm ? "aspect-[724/1024]" : "aspect-square"} relative`}
-                      >
-                        {isBodyForm ? (
-                          <AnatomyBodySelector
-                            initialSelected={selectedZones}
-                          />
-                        ) : (
-                          <AnatomyFaceSelector
-                            initialSelected={selectedZones}
-                          />
-                        )}
-                      </div>
+                    <div className="space-y-6">
+                      {selectedFaceZones.length > 0 && (
+                        <div className="bg-marble-border/20 rounded-xl border border-brand/15 p-6 shadow-inner">
+                          <p className="text-xs text-brand/60 uppercase tracking-widest mb-4 font-bold text-center">
+                            Twarz
+                          </p>
+                          <div className="w-full max-w-lg aspect-square relative mx-auto pointer-events-none opacity-90">
+                            <AnatomyFaceSelector
+                              initialSelected={selectedFaceZones}
+                            />
+                          </div>
+                        </div>
+                      )}
+
+                      {selectedBodyZones.length > 0 && (
+                        <div className="bg-marble-border/20 rounded-xl border border-brand/15 p-6 shadow-inner">
+                          <p className="text-xs text-brand/60 uppercase tracking-widest mb-4 font-bold text-center">
+                            Ciało
+                          </p>
+                          <div className="w-full max-w-lg aspect-[724/1024] relative mx-auto pointer-events-none opacity-90">
+                            <AnatomyBodySelector
+                              initialSelected={selectedBodyZones}
+                            />
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </div>
                 );

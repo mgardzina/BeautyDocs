@@ -92,6 +92,10 @@ const ZONE_NAME_MAP: Record<string, string> = {
   bikini_area: "Bikini",
   ass: "Pośladki",
   face: "Twarz",
+  eyes: "Okolice Oczu",
+  thighs: "Okolice Ud",
+  head: "Głowa",
+  body: "Ciało",
 };
 
 // Zbiory ID stref: twarz vs ciało
@@ -115,6 +119,8 @@ const FACE_ZONE_IDS = new Set([
   "eyelid_left",
   "eyelid_right",
   "neck",
+  "eyes",
+  "head",
 ]);
 
 /** Rozdziela zone IDs na twarz i ciało */
@@ -954,7 +960,11 @@ function ConsentFormPDF({
         </View>
 
         {/* Szczegóły zabiegu */}
-        {(form.nazwaProduktu || form.iloscProduktu || form.celEfektu || form.znieczulenie || form.metodaZabiegu) && (
+        {(form.nazwaProduktu ||
+          form.iloscProduktu ||
+          form.celEfektu ||
+          form.znieczulenie ||
+          form.metodaZabiegu) && (
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Szczegóły Zabiegu</Text>
             <View style={styles.twoCol}>

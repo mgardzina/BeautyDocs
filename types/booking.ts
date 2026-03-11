@@ -127,8 +127,6 @@ export const mezoterapiaIglowaContraindications: Record<
     "Czy stosuje Pan/ i leki rozrzedzające krew? (aspiryna, paracetamol, witamina E, inne)",
   lekiMiejscowe:
     "Czy stosuje Pan/i leki do aplikacji miejscowej w obszarze objętym zabiegiem?",
-  zluszczanie4tygodnie2:
-    "Czy w okresie 4 tyg. przed zabiegiem miał/a Pan/i zabieg złuszczania naskórka?",
   temperatura:
     "Czy ma Pan/i podniesioną temperaturę ciała lub jest przeziębiona w dniu zabiegu?",
   tarczyca: "Czy posiada Pan/i zaburzenia funkcji tarczycy?",

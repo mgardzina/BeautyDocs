@@ -762,7 +762,7 @@ export default function FacialVolumetryForm({
                           Pytanie {currentContraindicationIndex + 1} z{" "}
                           {contraindicationKeys.length}
                         </span>
-                        <div className="h-2 w-24 bg-ui-border rounded-full overflow-hidden">
+                        <div className="h-2 w-24 bg-black/20 rounded-full overflow-hidden">
                           <div
                             className="h-full bg-brand transition-all duration-300"
                             style={{

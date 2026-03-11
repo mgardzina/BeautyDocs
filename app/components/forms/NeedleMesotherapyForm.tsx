@@ -610,13 +610,18 @@ export default function NeedleMesotherapyForm({
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-6">
                   {[
                     { value: "Mezoterapia", label: "Mezoterapia" },
-                    { value: "Osocze bogatopłytkowe (PRP)", label: "Osocze bogatopłytkowe" },
+                    {
+                      value: "Osocze bogatopłytkowe (PRP)",
+                      label: "Osocze bogatopłytkowe",
+                    },
                     { value: "Osocze + egzosomy", label: "Osocze + egzosomy" },
                   ].map((method) => (
                     <button
                       key={method.value}
                       type="button"
-                      onClick={() => handleInputChange("metodaZabiegu", method.value)}
+                      onClick={() =>
+                        handleInputChange("metodaZabiegu", method.value)
+                      }
                       className={`py-3 px-4 rounded-xl border-2 transition-all font-medium text-sm ${
                         formData.metodaZabiegu === method.value
                           ? "border-brand bg-brand text-white"
@@ -631,26 +636,63 @@ export default function NeedleMesotherapyForm({
                 {/* Opis metody Mezoterapia */}
                 {formData.metodaZabiegu === "Mezoterapia" && (
                   <div className="bg-ui-bg p-6 rounded-xl border border-[#D4AF37] text-ui-textSecondary leading-relaxed space-y-4 animate-in fade-in slide-in-from-top-2 duration-300">
-                    <h3 className="font-serif text-marble-text text-lg">Mezoterapia igłowa</h3>
+                    <h3 className="font-serif text-marble-text text-lg">
+                      Mezoterapia igłowa
+                    </h3>
                     <p>
-                      Zabieg mezoterapii igłowej polega na bezpośrednim podaniu cienką igłą małych dawek substancji aktywnych śródskórnie w miejsca, które zostaną poddane zabiegowi. Wstrzyknięcie substancji do obszaru tkanki poddanej zabiegowi tworzy depozyt, z którego substancja zostaje uwalniana stopniowo.
+                      Zabieg mezoterapii igłowej polega na bezpośrednim podaniu
+                      cienką igłą małych dawek substancji aktywnych śródskórnie
+                      w miejsca, które zostaną poddane zabiegowi. Wstrzyknięcie
+                      substancji do obszaru tkanki poddanej zabiegowi tworzy
+                      depozyt, z którego substancja zostaje uwalniana stopniowo.
                     </p>
                     <p>
-                      Wskazaniem do zabiegu są: przebarwienia, skóra zmęczona - wymagająca rewitalizacji, łojotok, osłabienie włosów i wypadanie włosów, łysienie, cellulit a także stosuje się w profilaktyce przeciwstarzeniowej skóry oraz w usuwaniu objawów starzenia się skóry związanych z wiekiem, ekspozycją na słońce jak również paleniem tytoniu.
+                      Wskazaniem do zabiegu są: przebarwienia, skóra zmęczona -
+                      wymagająca rewitalizacji, łojotok, osłabienie włosów i
+                      wypadanie włosów, łysienie, cellulit a także stosuje się w
+                      profilaktyce przeciwstarzeniowej skóry oraz w usuwaniu
+                      objawów starzenia się skóry związanych z wiekiem,
+                      ekspozycją na słońce jak również paleniem tytoniu.
                     </p>
                     <p>
-                      Zabieg mezoterapii igłowej wykonywany jest z użyciem jednego z wybranych produktów lub mieszanki produktów. Zabieg odbywa się zawsze po wykluczeniu wszelkich przeciwwskazań do wykonania zabiegu. W rozmowie określone zostają potrzeby i oczekiwania od wykonania zabiegu mezoterapii igłowej.
+                      Zabieg mezoterapii igłowej wykonywany jest z użyciem
+                      jednego z wybranych produktów lub mieszanki produktów.
+                      Zabieg odbywa się zawsze po wykluczeniu wszelkich
+                      przeciwwskazań do wykonania zabiegu. W rozmowie określone
+                      zostają potrzeby i oczekiwania od wykonania zabiegu
+                      mezoterapii igłowej.
                     </p>
-                    <p className="font-medium text-marble-text">Efekty zabiegu:</p>
+                    <p className="font-medium text-marble-text">
+                      Efekty zabiegu:
+                    </p>
                     <ul className="space-y-1 text-sm">
-                      <li className="flex items-start gap-2"><span className="text-brand">•</span>rewitalizacja i odmłodzenie skóry</li>
-                      <li className="flex items-start gap-2"><span className="text-brand">•</span>redukcja przebarwień i wyrównanie kolorytu</li>
-                      <li className="flex items-start gap-2"><span className="text-brand">•</span>wygładzenie drobnych zmarszczek</li>
-                      <li className="flex items-start gap-2"><span className="text-brand">•</span>poprawa napięcia i elastyczności skóry</li>
-                      <li className="flex items-start gap-2"><span className="text-brand">•</span>głębokie nawilżenie i odżywienie skóry</li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-brand">•</span>rewitalizacja i
+                        odmłodzenie skóry
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-brand">•</span>redukcja
+                        przebarwień i wyrównanie kolorytu
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-brand">•</span>wygładzenie
+                        drobnych zmarszczek
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-brand">•</span>poprawa napięcia i
+                        elastyczności skóry
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-brand">•</span>głębokie nawilżenie
+                        i odżywienie skóry
+                      </li>
                     </ul>
                     <p className="text-sm italic">
-                      Czas trwania zabiegu zależny jest od cech indywidualnych naskórka, ale średnio trwa ok. godziny. W celu uzyskania optymalnego efektu utrzymującego się przez ok. 6–12 miesięcy zaleca się wykonanie pełnej serii zabiegów, powtarzanych w odstępach co 2–4 tygodnie.
+                      Czas trwania zabiegu zależny jest od cech indywidualnych
+                      naskórka, ale średnio trwa ok. godziny. W celu uzyskania
+                      optymalnego efektu utrzymującego się przez ok. 6–12
+                      miesięcy zaleca się wykonanie pełnej serii zabiegów,
+                      powtarzanych w odstępach co 2–4 tygodnie.
                     </p>
                   </div>
                 )}
@@ -658,23 +700,51 @@ export default function NeedleMesotherapyForm({
                 {/* Opis metody PRP */}
                 {formData.metodaZabiegu === "Osocze bogatopłytkowe (PRP)" && (
                   <div className="bg-ui-bg p-6 rounded-xl border border-[#D4AF37] text-ui-textSecondary leading-relaxed space-y-4 animate-in fade-in slide-in-from-top-2 duration-300">
-                    <h3 className="font-serif text-marble-text text-lg">Zabieg z wykorzystaniem osocza bogatopłytkowego (PRP)</h3>
+                    <h3 className="font-serif text-marble-text text-lg">
+                      Zabieg z wykorzystaniem osocza bogatopłytkowego (PRP)
+                    </h3>
                     <p>
-                      To naturalna terapia regeneracyjna wykorzystująca Twoją własną krew. Podczas zabiegu pobierana jest niewielka ilość krwi, która następnie trafia do specjalnej wirówki. Dzięki temu oddzielane jest osocze bogatopłytkowe, pełne czynników wzrostu odpowiedzialnych za regenerację i odbudowę tkanek.
+                      To naturalna terapia regeneracyjna wykorzystująca Twoją
+                      własną krew. Podczas zabiegu pobierana jest niewielka
+                      ilość krwi, która następnie trafia do specjalnej wirówki.
+                      Dzięki temu oddzielane jest osocze bogatopłytkowe, pełne
+                      czynników wzrostu odpowiedzialnych za regenerację i
+                      odbudowę tkanek.
                     </p>
                     <p>
-                      Preparat podawany jest w skórę twarzy metodą mezoterapii, gdzie intensywnie stymuluje procesy naprawcze i regeneracyjne.
+                      Preparat podawany jest w skórę twarzy metodą mezoterapii,
+                      gdzie intensywnie stymuluje procesy naprawcze i
+                      regeneracyjne.
                     </p>
-                    <p className="font-medium text-marble-text">Efekty zabiegu:</p>
+                    <p className="font-medium text-marble-text">
+                      Efekty zabiegu:
+                    </p>
                     <ul className="space-y-1 text-sm">
-                      <li className="flex items-start gap-2"><span className="text-brand">•</span>poprawa napięcia i elastyczności skóry</li>
-                      <li className="flex items-start gap-2"><span className="text-brand">•</span>wygładzenie drobnych zmarszczek</li>
-                      <li className="flex items-start gap-2"><span className="text-brand">•</span>rozświetlenie i odświeżenie cery</li>
-                      <li className="flex items-start gap-2"><span className="text-brand">•</span>pobudzenie produkcji kolagenu i elastyny</li>
-                      <li className="flex items-start gap-2"><span className="text-brand">•</span>naturalna regeneracja i odmłodzenie skóry</li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-brand">•</span>poprawa napięcia i
+                        elastyczności skóry
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-brand">•</span>wygładzenie
+                        drobnych zmarszczek
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-brand">•</span>rozświetlenie i
+                        odświeżenie cery
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-brand">•</span>pobudzenie
+                        produkcji kolagenu i elastyny
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-brand">•</span>naturalna
+                        regeneracja i odmłodzenie skóry
+                      </li>
                     </ul>
                     <p className="text-sm italic">
-                      Zabieg jest w pełni bezpieczny, ponieważ wykorzystuje materiał biologiczny pochodzący z Twojego organizmu, dzięki czemu minimalizuje ryzyko reakcji alergicznych.
+                      Zabieg jest w pełni bezpieczny, ponieważ wykorzystuje
+                      materiał biologiczny pochodzący z Twojego organizmu,
+                      dzięki czemu minimalizuje ryzyko reakcji alergicznych.
                     </p>
                   </div>
                 )}
@@ -682,15 +752,28 @@ export default function NeedleMesotherapyForm({
                 {/* Opis metody Osocze + egzosomy */}
                 {formData.metodaZabiegu === "Osocze + egzosomy" && (
                   <div className="bg-ui-bg p-6 rounded-xl border border-[#D4AF37] text-ui-textSecondary leading-relaxed space-y-4 animate-in fade-in slide-in-from-top-2 duration-300">
-                    <h3 className="font-serif text-marble-text text-lg">Osocze bogatopłytkowe + egzosomy – zaawansowana regeneracja skóry</h3>
+                    <h3 className="font-serif text-marble-text text-lg">
+                      Osocze bogatopłytkowe + egzosomy – zaawansowana
+                      regeneracja skóry
+                    </h3>
                     <p>
-                      Połączenie osocza bogatopłytkowego (PRP) z egzosomami to nowoczesna terapia, która jeszcze silniej pobudza skórę do odbudowy i odmłodzenia.
+                      Połączenie osocza bogatopłytkowego (PRP) z egzosomami to
+                      nowoczesna terapia, która jeszcze silniej pobudza skórę do
+                      odbudowy i odmłodzenia.
                     </p>
                     <p>
-                      Podczas zabiegu pobierana jest niewielka ilość krwi, z której uzyskujemy osocze bogate w czynniki wzrostu. Następnie łączymy je z egzosomami – mikroskopijnymi przekaźnikami biologicznymi, które wspierają komunikację między komórkami i przyspieszają procesy regeneracyjne. Preparat podawany jest w skórę twarzy metodą mezoterapii.
+                      Podczas zabiegu pobierana jest niewielka ilość krwi, z
+                      której uzyskujemy osocze bogate w czynniki wzrostu.
+                      Następnie łączymy je z egzosomami – mikroskopijnymi
+                      przekaźnikami biologicznymi, które wspierają komunikację
+                      między komórkami i przyspieszają procesy regeneracyjne.
+                      Preparat podawany jest w skórę twarzy metodą mezoterapii.
                     </p>
                     <p className="text-sm italic">
-                      To jeden z najbardziej zaawansowanych zabiegów biostymulujących, który łączy naturalną regenerację z nowoczesną biotechnologią dla jeszcze lepszych efektów odmłodzenia skóry.
+                      To jeden z najbardziej zaawansowanych zabiegów
+                      biostymulujących, który łączy naturalną regenerację z
+                      nowoczesną biotechnologią dla jeszcze lepszych efektów
+                      odmłodzenia skóry.
                     </p>
                   </div>
                 )}
@@ -709,28 +792,43 @@ export default function NeedleMesotherapyForm({
                   <label className="block text-sm text-ui-textSecondary mb-2 font-medium">
                     Obszar zabiegu
                   </label>
-                  <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-3">
+                  <div className="flex flex-wrap gap-2">
                     {[
-                      "Twarz",
-                      "Szyja",
-                      "Dekolt",
-                      "Okolice Oczu",
-                      "Okolice Ud",
-                      "Głowa",
-                    ].map((area) => (
-                      <button
-                        key={area}
-                        type="button"
-                        onClick={() => handleInputChange("obszarZabiegu", area)}
-                        className={`py-3 px-4 rounded-xl border-2 transition-all font-medium text-sm ${
-                          formData.obszarZabiegu === area
-                            ? "border-brand bg-brand text-white"
-                            : "border-[#D4AF37] bg-ui-bg text-ui-textSecondary hover:border-brand hover:text-brand"
-                        }`}
-                      >
-                        {area}
-                      </button>
-                    ))}
+                      { id: "face", label: "Twarz" },
+                      { id: "neck", label: "Szyja" },
+                      { id: "dekolt", label: "Dekolt" },
+                      { id: "eyes", label: "Okolice Oczu" },
+                      { id: "thighs", label: "Okolice Ud" },
+                      { id: "head", label: "Głowa" },
+                      { id: "body", label: "Ciało" },
+                    ].map((area) => {
+                      const selectedAreas = (formData.obszarZabiegu || "")
+                        .split(",")
+                        .filter(Boolean);
+                      const isSelected = selectedAreas.includes(area.id);
+                      return (
+                        <button
+                          key={area.id}
+                          type="button"
+                          onClick={() => {
+                            const newAreas = isSelected
+                              ? selectedAreas.filter((a) => a !== area.id)
+                              : [...selectedAreas, area.id];
+                            handleInputChange(
+                              "obszarZabiegu",
+                              newAreas.join(","),
+                            );
+                          }}
+                          className={`py-2 px-4 rounded-xl border-2 transition-all font-medium text-sm ${
+                            isSelected
+                              ? "border-brand bg-brand text-white shadow-[0_0_15px_rgba(212,175,55,0.3)]"
+                              : "border-[#D4AF37] bg-ui-bg text-ui-textSecondary hover:border-brand hover:text-brand"
+                          }`}
+                        >
+                          {area.label}
+                        </button>
+                      );
+                    })}
                   </div>
                 </div>
               </section>
@@ -801,7 +899,7 @@ export default function NeedleMesotherapyForm({
                         Pytanie {currentContraindicationIndex + 1} z{" "}
                         {contraindicationKeys.length}
                       </span>
-                      <div className="h-2 w-24 bg-ui-border rounded-full overflow-hidden">
+                      <div className="h-2 w-24 bg-black/20 rounded-full overflow-hidden">
                         <div
                           className="h-full bg-brand transition-all duration-300"
                           style={{
