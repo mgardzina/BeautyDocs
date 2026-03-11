@@ -21,6 +21,7 @@ enum FormType {
   EYEBROW_TINTING
   EYELASH_EXTENSION
   EYEBROW_LAMINATION
+  FACIAL_CLEANSING
 
   // Deprecated (keep for backward compatibility)
   HYALURONIC

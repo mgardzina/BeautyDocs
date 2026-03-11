@@ -41,6 +41,7 @@ function getFormTypeLabel(type: string): string {
     EYEBROW_LAMINATION: "Laminacja brwi",
     EYELASH_EXTENSION: "Przedłużanie rzęs",
     EYELID_LIFT: "Lifting powiek",
+    FACIAL_CLEANSING: "Oczyszczanie twarzy",
     HYALURONIC: "Kwas hialuronowy",
     PMU: "Makijaż permanentny",
     LASER: "Laser",
