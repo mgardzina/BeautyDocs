@@ -13,7 +13,8 @@ export type FormType =
   | 'TISSUE_STIMULATION'
   | 'EYEBROW_TINTING'
   | 'EYELASH_EXTENSION'
-  | 'EYEBROW_LAMINATION';
+  | 'EYEBROW_LAMINATION'
+  | 'FACIAL_CLEANSING';
 
 export interface ConsentFormData {
   type: FormType;
@@ -1664,6 +1665,88 @@ export const eyelashExtensionPostCare: string[] = [
   "Śpij na plecach lub unikaj dociskania twarzy do poduszki.",
 ];
 
+// ==========================================
+// Oczyszczanie Twarzy (Peeling kawitacyjny, jonoforeza, mikromasaż)
+// ==========================================
+
+export const oczyszczanieTwarzyContraindications: Record<
+  string,
+  string | ContraindicationWithFollowUp
+> = {
+  opiekaMedyczna: {
+    text: "Czy jest Pani pod stałą opieką medyczną?",
+    hasFollowUp: true,
+    followUpPlaceholder: "Jeśli tak, to proszę o podanie powodu...",
+  },
+  pobytSzpital: "Czy ostatnio przebywała Pani w szpitalu?",
+  ciaza: "Czy jest Pani w ciąży?",
+  alergiaKosmetyki: {
+    text: "Czy jest Pani uczulona na składniki kosmetyczne?",
+    hasFollowUp: true,
+    followUpPlaceholder: "Jeśli tak, to jakie...",
+  },
+  zazywaLeki: {
+    text: "Czy zażywa Pani jakieś leki?",
+    hasFollowUp: true,
+    followUpPlaceholder: "Jeśli tak, to jakie...",
+  },
+  implantyMetalowe:
+    "Czy w miejscach zabiegowych posiada Pani implanty lub elementy metalowe?",
+  rozrusznikSerca:
+    "Czy posiada Pani rozrusznik serca lub zastawkę serca?",
+  nowotworKuracja:
+    "Nowotwory do 5 lat po zakończeniu kuracji – czy dotyczy to Pani?",
+  przerwanaNaskorkowa:
+    "Czy posiada Pani przerwaną ciągłość naskórka w miejscu zabiegu?",
+  goraczkaStanyZapalne:
+    "Czy występuje u Pani gorączka lub stany zapalne organizmu?",
+  epilepsja: "Czy choruje Pani na epilepsję?",
+  uczulenieUltradzwieki: "Czy ma Pani uczulenie na ultradźwięki?",
+  czynnaGruzlica: "Czy choruje Pani na czynną gruźlicę płuc?",
+  tradzikRopowiczy:
+    "Czy występuje u Pani trądzik ropowiczy lub różowaty?",
+  nadczynnoscTarczycy: "Czy choruje Pani na nadczynność tarczycy?",
+};
+
+export const oczyszczanieTwarzyCategoryBreaks: Record<number, string> = {
+  0: "WYWIAD MEDYCZNY – OCZYSZCZANIE TWARZY",
+};
+
+export const oczyszczanieTwarzyNaturalReactions: string[] = [
+  "zaczerwienienie skóry utrzymujące się do kilku godzin po zabiegu",
+  "lekkie podrażnienie i uczucie ściągnięcia skóry",
+  "zwiększona wrażliwość skóry na dotyk przez 24–48 godzin",
+  "delikatne łuszczenie się naskórka w ciągu 2–3 dni po zabiegu",
+  "przejściowe wysuszenie skóry",
+  "lekkie mrowienie lub uczucie ciepła podczas zabiegu",
+];
+
+export const oczyszczanieTwarzyComplications: string[] = [
+  "reakcje alergiczne na zastosowane preparaty kosmetyczne",
+  "podrażnienie skóry utrzymujące się dłużej niż 48 godzin",
+  "nasilenie istniejących zmian trądzikowych (przejściowe)",
+  "przebarwienia pozapalne (szczególnie przy braku ochrony przeciwsłonecznej)",
+];
+
+export const oczyszczanieTwarzyComplicationsVeryRare: string[] = [
+  "oparzenie naskórka (przy nieprawidłowym ustawieniu parametrów urządzenia)",
+  "infekcja bakteryjna skóry",
+];
+
+export const oczyszczanieTwarzyPostCare: string[] = [
+  "Nie stosować makijażu przez minimum 12 godzin po zabiegu.",
+  "Unikać bezpośredniej ekspozycji słonecznej przez 48 godzin i stosować krem z filtrem SPF 50.",
+  "Nie korzystać z solarium przez okres 2 tygodni.",
+  "Nie stosować preparatów złuszczających (kwasy, retinol, peelingi) przez 5–7 dni.",
+  "Stosować delikatne, nawilżające preparaty zalecone przez Specjalistę.",
+  "Unikać sauny, basenu i gorących kąpieli przez 24–48 godzin.",
+  "Nie dotykać twarzy brudnymi rękami – ryzyko wtórnego zakażenia.",
+  "Pić dużo wody, aby wspomóc regenerację skóry.",
+  "Unikać intensywnego wysiłku fizycznego przez 24 godziny po zabiegu.",
+  "UWAGA!!! Należy stosować się ściśle do zaleceń pozabiegowych!",
+  "UWAGA!!! Wystąpienie jakichkolwiek reakcji niepożądanych należy niezwłocznie zgłosić Specjaliście wykonującemu zabieg.",
+];
+
 // Mapowanie typów na zestawy pytań
 export const contraindicationsByFormType: Record<FormType, Record<string, string | ContraindicationWithFollowUp>> = {
   LIP_AUGMENTATION: modelowanieUstContraindications,
@@ -1680,6 +1763,7 @@ export const contraindicationsByFormType: Record<FormType, Record<string, string
   EYEBROW_TINTING: eyebrowTintingContraindications,
   EYEBROW_LAMINATION: eyebrowLaminationContraindications,
   EYELASH_EXTENSION: eyelashExtensionContraindications,
+  FACIAL_CLEANSING: oczyszczanieTwarzyContraindications,
 };
 
 // Zachowanie kompatybilności wstecznej (dla starych importów)

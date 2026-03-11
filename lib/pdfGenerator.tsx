@@ -183,6 +183,11 @@ import {
   eyebrowTintingContraindications,
   eyebrowTintingPostCare,
   eyebrowLaminationContraindications,
+  oczyszczanieTwarzyContraindications,
+  oczyszczanieTwarzyNaturalReactions,
+  oczyszczanieTwarzyComplications,
+  oczyszczanieTwarzyComplicationsVeryRare,
+  oczyszczanieTwarzyPostCare,
   hyaluronicContraindications,
   hyaluronicNaturalReactions,
   hyaluronicPostCare,
@@ -340,6 +345,18 @@ function getFormContent(type: string): FormContent {
         title: "KARTA ZGODY NA LAMINACJĘ BRWI",
         subtitle: "Laminacja Brwi",
         contraindications: eyebrowLaminationContraindications,
+      };
+    case "FACIAL_CLEANSING":
+      return {
+        title: "KARTA ZGODY NA ZABIEG OCZYSZCZANIA TWARZY",
+        subtitle: "Oczyszczanie Twarzy (Peeling kawitacyjny, jonoforeza, mikromasaż)",
+        contraindications: oczyszczanieTwarzyContraindications,
+        naturalReactions: oczyszczanieTwarzyNaturalReactions,
+        complications: {
+          czeste: oczyszczanieTwarzyComplications,
+          bardzoRzadkie: oczyszczanieTwarzyComplicationsVeryRare,
+        },
+        postCare: oczyszczanieTwarzyPostCare,
       };
     case "EYELASH_EXTENSION":
       return {

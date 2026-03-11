@@ -124,6 +124,12 @@ export default function SelectionScreen({ onSelect }: SelectionScreenProps) {
             title="Przedłużanie Rzęs"
             subtitle="1:1 / Objętościowe"
           />
+          <SelectionCard
+            onClick={() => onSelect("FACIAL_CLEANSING")}
+            icon={<Sparkles className="w-10 h-10" />}
+            title="Oczyszczanie Twarzy"
+            subtitle="Zabieg oczyszczający"
+          />
         </div>
 
         <div className="mt-16 text-center flex gap-6 justify-center items-center">

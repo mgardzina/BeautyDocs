@@ -109,6 +109,7 @@ const formTypeLabels: Record<string, string> = {
   EYEBROW_LAMINATION: "Laminacja brwi",
   EYELASH_EXTENSION: "Przedłużanie rzęs",
   EYELID_LIFT: "Lifting powiek",
+  FACIAL_CLEANSING: "Oczyszczanie twarzy",
 };
 
 export default function FormDetailsPage() {

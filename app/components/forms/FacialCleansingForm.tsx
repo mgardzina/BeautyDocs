@@ -16,21 +16,21 @@ import {
   ConsentFormData,
   ContraindicationWithFollowUp,
   rodoInfo,
-  mezoterapiaIglowaContraindications,
-  mezoterapiaIglowaCategoryBreaks,
-  mezoterapiaIglowaNaturalReactions,
-  mezoterapiaIglowaComplications,
-  mezoterapiaIglowaComplicationsVeryRare,
-  mezoterapiaIglowaPostCare,
+  oczyszczanieTwarzyContraindications,
+  oczyszczanieTwarzyCategoryBreaks,
+  oczyszczanieTwarzyNaturalReactions,
+  oczyszczanieTwarzyComplications,
+  oczyszczanieTwarzyComplicationsVeryRare,
+  oczyszczanieTwarzyPostCare,
 } from "../../../types/booking";
 import { SALON_CONFIG } from "@/app/config/salon";
 
-interface NeedleMesotherapyFormProps {
+interface FacialCleansingFormProps {
   onBack: () => void;
 }
 
 const initialFormData: ConsentFormData = {
-  type: "NEEDLE_MESOTHERAPY",
+  type: "FACIAL_CLEANSING",
   imieNazwisko: "",
   ulica: "",
   kodPocztowy: "",
@@ -44,7 +44,7 @@ const initialFormData: ConsentFormData = {
   celEfektu: "",
   numerZabiegu: "",
   metodaZabiegu: "",
-  przeciwwskazania: Object.entries(mezoterapiaIglowaContraindications).reduce(
+  przeciwwskazania: Object.entries(oczyszczanieTwarzyContraindications).reduce(
     (acc, [key, value]) => {
       const hasFollowUp = typeof value === "object" && value.hasFollowUp;
       return {
@@ -71,9 +71,9 @@ const initialFormData: ConsentFormData = {
   inneSchorzenia: "", // INITIALIZE
 };
 
-export default function NeedleMesotherapyForm({
+export default function FacialCleansingForm({
   onBack,
-}: NeedleMesotherapyFormProps) {
+}: FacialCleansingFormProps) {
   const [formData, setFormData] = useState<ConsentFormData>(initialFormData);
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -93,11 +93,11 @@ export default function NeedleMesotherapyForm({
   const [isSignatureVerified, setIsSignatureVerified] = useState(false);
   const [auditLog, setAuditLog] = useState<AuditLogData | null>(null);
 
-  const contraindicationKeys = Object.keys(mezoterapiaIglowaContraindications);
+  const contraindicationKeys = Object.keys(oczyszczanieTwarzyContraindications);
   const currentContraindicationKey =
     contraindicationKeys[currentContraindicationIndex];
 
-  const currentContraindicationValue = mezoterapiaIglowaContraindications[
+  const currentContraindicationValue = oczyszczanieTwarzyContraindications[
     currentContraindicationKey
   ] as string | ContraindicationWithFollowUp;
   const currentContraindicationObject:
@@ -385,12 +385,12 @@ export default function NeedleMesotherapyForm({
 
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-serif text-marble-text mb-3 tracking-tighter drop-shadow-lg">
-              Mezoterapia <span className="text-brand">Igłowa</span>
+              Oczyszczanie <span className="text-brand">Twarzy</span>
             </h1>
             <div className="flex items-center justify-center gap-4">
               <div className="h-[1px] w-12 bg-gradient-to-r from-transparent to-brand"></div>
               <p className="text-brand text-xs md:text-base font-light tracking-[0.4em] uppercase">
-                Zabieg z zakresu mezoterapii igłowej
+                Peeling kawitacyjny, jonoforeza, mikromasaż.
               </p>
               <div className="h-[1px] w-12 bg-gradient-to-l from-transparent to-brand"></div>
             </div>
@@ -566,59 +566,52 @@ export default function NeedleMesotherapyForm({
                 </h2>
                 <div className="bg-ui-bg p-6 rounded-xl border border-[#D4AF37] text-ui-textSecondary leading-relaxed space-y-4">
                   <p>
-                    Zabieg mezoterapii igłowej polega na bezpośrednim podaniu
-                    cienką igłą małych dawek substancji aktywnych śródskórnie w
-                    miejsca, które zostaną poddane zabiegowi. Wstrzyknięcie
-                    substancji do obszaru tkanki poddanej zabiegowi tworzy
-                    depozyt, z którego substancja zostaje uwalniana stopniowo.
+                    Zabieg oczyszczania twarzy to profesjonalna procedura
+                    kosmetyczna obejmująca szereg technik oczyszczających,
+                    pielęgnacyjnych i regenerujących. W zależności od wybranej
+                    metody zabieg może obejmować: peeling kawitacyjny,
+                    jonoforezę, mikromasaż, infuzję tlenową, terapię światłem
+                    LED oraz inne zaawansowane techniki kosmetyczne.
                   </p>
                   <p>
-                    Wskazaniem do zabiegu są: przebarwienia, skóra zmęczona -
-                    wymagająca rewitalizacji, łojotok, osłabienie włosów i
-                    wypadanie włosów, łysienie, cellulit a także stosuje się w
-                    profilaktyce przeciwstarzeniowej skóry oraz w usuwaniu
-                    objawów starzenia się skóry związanych z wiekiem, ekspozycją
-                    na słońce jak również paleniem tytoniu.
+                    Wskazaniem do zabiegu są: zaskórniki, rozszerzone pory,
+                    nadmierne wydzielanie sebum, skóra matowa i zmęczona,
+                    nierówny koloryt, odwodnienie, osłabiona bariera
+                    hydrolipidowa, zmiany trądzikowe oraz ogólna potrzeba
+                    odświeżenia i regeneracji skóry.
                   </p>
                   <p>
-                    Zabieg mezoterapii igłowej wykonywany jest z użyciem jednego
-                    z wybranych produktów lub mieszanki produktów. Zabieg odbywa
-                    się zawsze po wykluczeniu wszelkich przeciwwskazań do
-                    wykonania zabiegu. W rozmowie określone zostają potrzeby i
-                    oczekiwania od wykonania zabiegu mezoterapii igłowej.
+                    Zabieg wykonywany jest z użyciem profesjonalnych preparatów
+                    kosmetycznych dobranych indywidualnie do potrzeb skóry.
+                    Przed przystąpieniem do zabiegu przeprowadzany jest wywiad
+                    medyczny w celu wykluczenia przeciwwskazań oraz określenia
+                    potrzeb i oczekiwań.
                   </p>
                   <p>
-                    Czas trwania zabiegu zależny jest od cech indywidualnych
-                    naskórka, ale średnio trwa ok. godziny. W celu uzyskania
-                    optymalnego efektu utrzymującego się przez ok. 6–12 miesięcy
-                    zaleca się wykonanie pełnej serii zabiegów, powtarzanych w
-                    odstępach co 2–4 tygodnie. Zabieg mezoterapii igłowej nie
-                    jest zabiegiem trwałym, dla podtrzymania efektu zaleca się
-                    wykonywanie zabiegu przypominającego co 3–6 miesięcy.
+                    Czas trwania zabiegu zależy od wybranej metody i stanu
+                    skóry, średnio trwa od 45 minut do 1,5 godziny. Dla
+                    uzyskania optymalnych efektów zaleca się regularne
+                    wykonywanie zabiegów w odstępach co 3–4 tygodnie.
                   </p>
                 </div>
               </section>
 
-              {/* Metoda Zabiegu */}
+              {/* Rodzaj Zabiegu */}
               <section className="bg-gradient-emerald rounded-2xl border border-[#D4AF37] p-6 md:p-8">
                 <h2 className="text-2xl font-serif text-marble-text mb-6 flex items-center gap-3">
                   <span className="w-8 h-8 bg-brand text-black rounded-full flex items-center justify-center text-sm font-sans font-bold">
                     3
                   </span>
-                  Metoda Zabiegu
+                  Rodzaj Zabiegu
                 </h2>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
                   {[
-                    { value: "Mezoterapia", label: "Mezoterapia" },
-                    {
-                      value: "Osocze bogatopłytkowe (PRP)",
-                      label: "Osocze bogatopłytkowe",
-                    },
-                    { value: "Osocze + egzosomy", label: "Osocze + egzosomy" },
-                    {
-                      value: "Kwas polimlekowy (PLA)",
-                      label: "Kwas polimlekowy",
-                    },
+                    { value: "Oczyszczanie twarzy", label: "Oczyszczanie twarzy" },
+                    { value: "Odbudowa bariery hydrolipidowej", label: "Odbudowa bariery hydrolipidowej" },
+                    { value: "Terapia łączona na trądzik", label: "Terapia łączona na trądzik" },
+                    { value: "Pro XN", label: "Pro XN" },
+                    { value: "Terapia światłem LED", label: "Terapia światłem LED" },
+                    { value: "Analiza skóry", label: "Analiza skóry" },
                   ].map((method) => (
                     <button
                       key={method.value}
@@ -637,258 +630,276 @@ export default function NeedleMesotherapyForm({
                   ))}
                 </div>
 
-                {/* Opis metody Mezoterapia */}
-                {formData.metodaZabiegu === "Mezoterapia" && (
+                {/* Opis: Oczyszczanie twarzy */}
+                {formData.metodaZabiegu === "Oczyszczanie twarzy" && (
                   <div className="bg-ui-bg p-6 rounded-xl border border-[#D4AF37] text-ui-textSecondary leading-relaxed space-y-4 animate-in fade-in slide-in-from-top-2 duration-300">
                     <h3 className="font-serif text-marble-text text-lg">
-                      Mezoterapia igłowa
+                      Oczyszczanie twarzy (kawitacja, ultradźwięki, infuzja tlenowa)
                     </h3>
                     <p>
-                      Zabieg mezoterapii igłowej polega na bezpośrednim podaniu
-                      cienką igłą małych dawek substancji aktywnych śródskórnie
-                      w miejsca, które zostaną poddane zabiegowi. Wstrzyknięcie
-                      substancji do obszaru tkanki poddanej zabiegowi tworzy
-                      depozyt, z którego substancja zostaje uwalniana stopniowo.
-                    </p>
-                    <p>
-                      Wskazaniem do zabiegu są: przebarwienia, skóra zmęczona -
-                      wymagająca rewitalizacji, łojotok, osłabienie włosów i
-                      wypadanie włosów, łysienie, cellulit a także stosuje się w
-                      profilaktyce przeciwstarzeniowej skóry oraz w usuwaniu
-                      objawów starzenia się skóry związanych z wiekiem,
-                      ekspozycją na słońce jak również paleniem tytoniu.
-                    </p>
-                    <p>
-                      Zabieg mezoterapii igłowej wykonywany jest z użyciem
-                      jednego z wybranych produktów lub mieszanki produktów.
-                      Zabieg odbywa się zawsze po wykluczeniu wszelkich
-                      przeciwwskazań do wykonania zabiegu. W rozmowie określone
-                      zostają potrzeby i oczekiwania od wykonania zabiegu
-                      mezoterapii igłowej.
+                      Kompleksowy zabieg oczyszczający łączący kilka zaawansowanych
+                      technologii. Peeling kawitacyjny wykorzystuje fale ultradźwiękowe
+                      do delikatnego usunięcia martwego naskórka, zaskórników i
+                      zanieczyszczeń z porów. Ultradźwięki wspomagają wchłanianie
+                      substancji aktywnych w głębsze warstwy skóry, zwiększając
+                      efektywność stosowanych preparatów. Infuzja tlenowa dostarcza
+                      skoncentrowany tlen wraz z aktywnymi składnikami bezpośrednio
+                      do skóry.
                     </p>
                     <p className="font-medium text-marble-text">
                       Efekty zabiegu:
                     </p>
                     <ul className="space-y-1 text-sm">
                       <li className="flex items-start gap-2">
-                        <span className="text-brand">•</span>rewitalizacja i
-                        odmłodzenie skóry
+                        <span className="text-brand">•</span>głębokie oczyszczenie porów i usunięcie zaskórników
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="text-brand">•</span>redukcja
-                        przebarwień i wyrównanie kolorytu
+                        <span className="text-brand">•</span>wygładzenie i wyrównanie kolorytu skóry
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="text-brand">•</span>wygładzenie
-                        drobnych zmarszczek
+                        <span className="text-brand">•</span>nawilżenie i dotlenienie skóry
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="text-brand">•</span>poprawa napięcia i
-                        elastyczności skóry
+                        <span className="text-brand">•</span>poprawa elastyczności i jędrności
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="text-brand">•</span>głębokie nawilżenie
-                        i odżywienie skóry
+                        <span className="text-brand">•</span>rozświetlenie i odświeżenie cery
                       </li>
                     </ul>
                     <p className="text-sm italic">
-                      Czas trwania zabiegu zależny jest od cech indywidualnych
-                      naskórka, ale średnio trwa ok. godziny. W celu uzyskania
-                      optymalnego efektu utrzymującego się przez ok. 6–12
-                      miesięcy zaleca się wykonanie pełnej serii zabiegów,
-                      powtarzanych w odstępach co 2–4 tygodnie.
+                      Zabieg jest nieinwazyjny i bezbolesny. Zalecany dla każdego
+                      rodzaju skóry, szczególnie skóry z zaskórnikami, rozszerzonymi
+                      porami, matowej i zmęczonej.
                     </p>
                   </div>
                 )}
 
-                {/* Opis metody PRP */}
-                {formData.metodaZabiegu === "Osocze bogatopłytkowe (PRP)" && (
+                {/* Opis: Odbudowa bariery hydrolipidowej */}
+                {formData.metodaZabiegu === "Odbudowa bariery hydrolipidowej" && (
                   <div className="bg-ui-bg p-6 rounded-xl border border-[#D4AF37] text-ui-textSecondary leading-relaxed space-y-4 animate-in fade-in slide-in-from-top-2 duration-300">
                     <h3 className="font-serif text-marble-text text-lg">
-                      Zabieg z wykorzystaniem osocza bogatopłytkowego (PRP)
+                      Odbudowa bariery hydrolipidowej
                     </h3>
                     <p>
-                      To naturalna terapia regeneracyjna wykorzystująca Twoją
-                      własną krew. Podczas zabiegu pobierana jest niewielka
-                      ilość krwi, która następnie trafia do specjalnej wirówki.
-                      Dzięki temu oddzielane jest osocze bogatopłytkowe, pełne
-                      czynników wzrostu odpowiedzialnych za regenerację i
-                      odbudowę tkanek.
+                      Zabieg dedykowany skórze odwodnionej, wrażliwej i podrażnionej,
+                      której bariera ochronna została naruszona. Bariera hydrolipidowa
+                      to naturalna warstwa ochronna skóry, która chroni przed utratą
+                      wody, czynnikami zewnętrznymi i drobnoustrojami. Jej osłabienie
+                      prowadzi do suchości, zaczerwienień i nadmiernej reaktywności skóry.
                     </p>
                     <p>
-                      Preparat podawany jest w skórę twarzy metodą mezoterapii,
-                      gdzie intensywnie stymuluje procesy naprawcze i
-                      regeneracyjne.
+                      Podczas zabiegu stosowane są preparaty bogate w ceramidy, kwasy
+                      tłuszczowe, cholesterol i składniki nawilżające, które odbudowują
+                      i wzmacniają płaszcz hydrolipidowy skóry.
                     </p>
                     <p className="font-medium text-marble-text">
                       Efekty zabiegu:
                     </p>
                     <ul className="space-y-1 text-sm">
                       <li className="flex items-start gap-2">
-                        <span className="text-brand">•</span>poprawa napięcia i
-                        elastyczności skóry
+                        <span className="text-brand">•</span>odbudowa naturalnej bariery ochronnej skóry
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="text-brand">•</span>wygładzenie
-                        drobnych zmarszczek
+                        <span className="text-brand">•</span>głębokie nawilżenie i zmniejszenie uczucia ściągnięcia
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="text-brand">•</span>rozświetlenie i
-                        odświeżenie cery
+                        <span className="text-brand">•</span>redukcja zaczerwienień i podrażnień
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="text-brand">•</span>pobudzenie
-                        produkcji kolagenu i elastyny
+                        <span className="text-brand">•</span>wzmocnienie odporności skóry na czynniki zewnętrzne
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="text-brand">•</span>naturalna
-                        regeneracja i odmłodzenie skóry
+                        <span className="text-brand">•</span>przywrócenie komfortu i gładkości skóry
                       </li>
                     </ul>
                     <p className="text-sm italic">
-                      Zabieg jest w pełni bezpieczny, ponieważ wykorzystuje
-                      materiał biologiczny pochodzący z Twojego organizmu,
-                      dzięki czemu minimalizuje ryzyko reakcji alergicznych.
+                      Zabieg szczególnie polecany po intensywnych zabiegach
+                      złuszczających, w okresie zimowym oraz dla skóry narażonej
+                      na czynniki środowiskowe.
                     </p>
                   </div>
                 )}
 
-                {/* Opis metody Osocze + egzosomy */}
-                {formData.metodaZabiegu === "Osocze + egzosomy" && (
+                {/* Opis: Terapia łączona na trądzik */}
+                {formData.metodaZabiegu === "Terapia łączona na trądzik" && (
                   <div className="bg-ui-bg p-6 rounded-xl border border-[#D4AF37] text-ui-textSecondary leading-relaxed space-y-4 animate-in fade-in slide-in-from-top-2 duration-300">
                     <h3 className="font-serif text-marble-text text-lg">
-                      Osocze bogatopłytkowe + egzosomy – zaawansowana
-                      regeneracja skóry
+                      Terapia łączona na trądzik
                     </h3>
                     <p>
-                      Połączenie osocza bogatopłytkowego (PRP) z egzosomami to
-                      nowoczesna terapia, która jeszcze silniej pobudza skórę do
-                      odbudowy i odmłodzenia.
+                      Kompleksowa terapia skierowana do osób zmagających się z trądzikiem
+                      w różnych stadiach zaawansowania. Zabieg łączy kilka technik
+                      oczyszczania, regulacji sebum i działania przeciwzapalnego,
+                      dostosowanych indywidualnie do potrzeb skóry.
                     </p>
                     <p>
-                      Podczas zabiegu pobierana jest niewielka ilość krwi, z
-                      której uzyskujemy osocze bogate w czynniki wzrostu.
-                      Następnie łączymy je z egzosomami – mikroskopijnymi
-                      przekaźnikami biologicznymi, które wspierają komunikację
-                      między komórkami i przyspieszają procesy regeneracyjne.
-                      Preparat podawany jest w skórę twarzy metodą mezoterapii.
-                    </p>
-                    <p className="text-sm italic">
-                      To jeden z najbardziej zaawansowanych zabiegów
-                      biostymulujących, który łączy naturalną regenerację z
-                      nowoczesną biotechnologią dla jeszcze lepszych efektów
-                      odmłodzenia skóry.
-                    </p>
-                  </div>
-                )}
-
-                {/* Opis metody Kwas polimlekowy */}
-                {formData.metodaZabiegu === "Kwas polimlekowy (PLA)" && (
-                  <div className="bg-ui-bg p-6 rounded-xl border border-[#D4AF37] text-ui-textSecondary leading-relaxed space-y-4 animate-in fade-in slide-in-from-top-2 duration-300">
-                    <h3 className="font-serif text-marble-text text-lg">
-                      Kwas polimlekowy (PLA) – biostymulacja kolagenowa
-                    </h3>
-                    <p>
-                      Kwas polimlekowy (PLA – Poly-L-lactic acid) to substancja
-                      stosowana w medycynie estetycznej jako biostymulator, czyli
-                      preparat pobudzający skórę do produkcji własnego kolagenu.
-                      Dzięki temu skóra stopniowo staje się jędrniejsza, grubsza
-                      i bardziej napięta.
-                    </p>
-                    <p>
-                      Preparat podawany jest śródskórnie metodą mezoterapii
-                      igłowej. Po wstrzyknięciu mikrocząsteczki kwasu
-                      polimlekowego tworzą rusztowanie, wokół którego organizm
-                      buduje nowe włókna kolagenowe. Efekt narasta stopniowo
-                      w ciągu kilku tygodni po zabiegu.
+                      Protokół zabiegu może obejmować: oczyszczanie kawitacyjne,
+                      ekstrakcję zaskórników, aplikację preparatów antybakteryjnych
+                      i regulujących wydzielanie sebum, a także terapię światłem
+                      o działaniu przeciwzapalnym.
                     </p>
                     <p className="font-medium text-marble-text">
                       Efekty zabiegu:
                     </p>
                     <ul className="space-y-1 text-sm">
                       <li className="flex items-start gap-2">
-                        <span className="text-brand">•</span>stymulacja
-                        produkcji własnego kolagenu
+                        <span className="text-brand">•</span>redukcja aktywnych zmian trądzikowych
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="text-brand">•</span>poprawa jędrności
-                        i napięcia skóry
+                        <span className="text-brand">•</span>oczyszczenie i zwężenie porów
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="text-brand">•</span>redukcja
-                        wiotkości i spłycenie zmarszczek
+                        <span className="text-brand">•</span>regulacja nadmiernego wydzielania sebum
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="text-brand">•</span>poprawa owalu
-                        twarzy i konturu
+                        <span className="text-brand">•</span>zmniejszenie stanów zapalnych i zaczerwienień
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="text-brand">•</span>długotrwały efekt
-                        odmłodzenia (do 2 lat)
+                        <span className="text-brand">•</span>poprawa ogólnej kondycji i wyglądu skóry
                       </li>
                     </ul>
                     <p className="text-sm italic">
-                      Efekty zabiegu narastają stopniowo – pełny rezultat
-                      widoczny jest po ok. 4–6 tygodniach. Zaleca się serię
-                      2–3 zabiegów w odstępach co 4–6 tygodni dla optymalnych
-                      rezultatów.
+                      Dla uzyskania optymalnych efektów zalecana jest seria zabiegów
+                      w odstępach co 2–3 tygodnie. Czas trwania i intensywność zabiegu
+                      dobierane są indywidualnie.
                     </p>
                   </div>
                 )}
-              </section>
 
-              {/* Szczegóły Zabiegu */}
-              <section className="bg-gradient-emerald rounded-2xl border border-[#D4AF37] p-6 md:p-8">
-                <h2 className="text-2xl font-serif text-marble-text mb-6 flex items-center gap-3">
-                  <span className="w-8 h-8 bg-brand text-black rounded-full flex items-center justify-center text-sm font-sans font-bold">
-                    4
-                  </span>
-                  Szczegóły Zabiegu
-                </h2>
-                {/* Obszar zabiegu */}
-                <div>
-                  <label className="block text-sm text-ui-textSecondary mb-2 font-medium">
-                    Obszar zabiegu
-                  </label>
-                  <div className="flex flex-wrap gap-2">
-                    {[
-                      { id: "face", label: "Twarz" },
-                      { id: "neck", label: "Szyja" },
-                      { id: "dekolt", label: "Dekolt" },
-                      { id: "eyes", label: "Okolice Oczu" },
-                      { id: "thighs", label: "Okolice Ud" },
-                      { id: "head", label: "Głowa" },
-                      { id: "body", label: "Ciało" },
-                    ].map((area) => {
-                      const selectedAreas = (formData.obszarZabiegu || "")
-                        .split(",")
-                        .filter(Boolean);
-                      const isSelected = selectedAreas.includes(area.id);
-                      return (
-                        <button
-                          key={area.id}
-                          type="button"
-                          onClick={() => {
-                            const newAreas = isSelected
-                              ? selectedAreas.filter((a) => a !== area.id)
-                              : [...selectedAreas, area.id];
-                            handleInputChange(
-                              "obszarZabiegu",
-                              newAreas.join(","),
-                            );
-                          }}
-                          className={`py-2 px-4 rounded-xl border-2 transition-all font-medium text-sm ${
-                            isSelected
-                              ? "border-brand bg-brand text-white shadow-[0_0_15px_rgba(212,175,55,0.3)]"
-                              : "border-[#D4AF37] bg-ui-bg text-ui-textSecondary hover:border-brand hover:text-brand"
-                          }`}
-                        >
-                          {area.label}
-                        </button>
-                      );
-                    })}
+                {/* Opis: Pro XN */}
+                {formData.metodaZabiegu === "Pro XN" && (
+                  <div className="bg-ui-bg p-6 rounded-xl border border-[#D4AF37] text-ui-textSecondary leading-relaxed space-y-4 animate-in fade-in slide-in-from-top-2 duration-300">
+                    <h3 className="font-serif text-marble-text text-lg">
+                      Pro XN
+                    </h3>
+                    <p>
+                      Zaawansowany zabieg profesjonalny wykorzystujący innowacyjną
+                      technologię do intensywnej regeneracji i odmłodzenia skóry.
+                      Pro XN łączy działanie aktywnych składników z zaawansowanymi
+                      metodami ich dostarczania do głębszych warstw skóry.
+                    </p>
+                    <p>
+                      Zabieg stymuluje naturalne procesy naprawcze skóry, wspomaga
+                      produkcję kolagenu i elastyny oraz poprawia mikrokrążenie.
+                      Protokół jest dostosowywany indywidualnie w zależności od
+                      potrzeb i stanu skóry.
+                    </p>
+                    <p className="font-medium text-marble-text">
+                      Efekty zabiegu:
+                    </p>
+                    <ul className="space-y-1 text-sm">
+                      <li className="flex items-start gap-2">
+                        <span className="text-brand">•</span>intensywna regeneracja i odmłodzenie skóry
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-brand">•</span>poprawa jędrności i elastyczności
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-brand">•</span>wygładzenie drobnych zmarszczek
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-brand">•</span>rozświetlenie i ujednolicenie kolorytu
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-brand">•</span>głębokie odżywienie i nawilżenie skóry
+                      </li>
+                    </ul>
+                    <p className="text-sm italic">
+                      Zabieg przeznaczony dla osób poszukujących zaawansowanej
+                      pielęgnacji anti-aging oraz intensywnej rewitalizacji skóry.
+                    </p>
                   </div>
-                </div>
+                )}
+
+                {/* Opis: Terapia światłem LED */}
+                {formData.metodaZabiegu === "Terapia światłem LED" && (
+                  <div className="bg-ui-bg p-6 rounded-xl border border-[#D4AF37] text-ui-textSecondary leading-relaxed space-y-4 animate-in fade-in slide-in-from-top-2 duration-300">
+                    <h3 className="font-serif text-marble-text text-lg">
+                      Terapia światłem LED
+                    </h3>
+                    <p>
+                      Nieinwazyjna terapia wykorzystująca światło LED o różnych
+                      długościach fali do stymulacji komórek skóry. Każdy kolor
+                      światła oddziałuje na inne procesy: światło czerwone pobudza
+                      produkcję kolagenu i przyspiesza regenerację, światło niebieskie
+                      działa antybakteryjnie i jest skuteczne w walce z trądzikiem,
+                      a światło żółte wspomaga mikrokrążenie i redukuje zaczerwienienia.
+                    </p>
+                    <p className="font-medium text-marble-text">
+                      Efekty zabiegu:
+                    </p>
+                    <ul className="space-y-1 text-sm">
+                      <li className="flex items-start gap-2">
+                        <span className="text-brand">•</span>stymulacja produkcji kolagenu i elastyny
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-brand">•</span>redukcja stanów zapalnych i trądziku
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-brand">•</span>przyspieszenie procesów regeneracyjnych skóry
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-brand">•</span>poprawa kolorytu i rozświetlenie cery
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-brand">•</span>redukcja zmarszczek i poprawa elastyczności
+                      </li>
+                    </ul>
+                    <p className="text-sm italic">
+                      Zabieg jest całkowicie bezbolesny i bezpieczny. Może być
+                      stosowany jako samodzielna terapia lub jako uzupełnienie
+                      innych zabiegów kosmetycznych. Zalecana seria: 6–10 zabiegów
+                      w odstępach co 3–7 dni.
+                    </p>
+                  </div>
+                )}
+
+                {/* Opis: Analiza skóry */}
+                {formData.metodaZabiegu === "Analiza skóry" && (
+                  <div className="bg-ui-bg p-6 rounded-xl border border-[#D4AF37] text-ui-textSecondary leading-relaxed space-y-4 animate-in fade-in slide-in-from-top-2 duration-300">
+                    <h3 className="font-serif text-marble-text text-lg">
+                      Analiza skóry
+                    </h3>
+                    <p>
+                      Profesjonalna analiza skóry z wykorzystaniem specjalistycznego
+                      sprzętu diagnostycznego. Badanie pozwala na dokładną ocenę
+                      stanu skóry, jej potrzeb oraz identyfikację problemów
+                      niewidocznych gołym okiem.
+                    </p>
+                    <p>
+                      Podczas analizy oceniane są: poziom nawilżenia, elastyczność,
+                      głębokość zmarszczek, stan porów, poziom sebum, przebarwienia,
+                      stan bariery hydrolipidowej oraz wrażliwość skóry. Na podstawie
+                      wyników specjalista dobiera indywidualny plan pielęgnacji
+                      domowej i gabinetowej.
+                    </p>
+                    <p className="font-medium text-marble-text">
+                      Co zyskujesz:
+                    </p>
+                    <ul className="space-y-1 text-sm">
+                      <li className="flex items-start gap-2">
+                        <span className="text-brand">•</span>precyzyjne określenie typu i stanu skóry
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-brand">•</span>identyfikacja ukrytych problemów skórnych
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-brand">•</span>indywidualny plan pielęgnacji gabinetowej
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-brand">•</span>dobór odpowiednich kosmetyków do pielęgnacji domowej
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-brand">•</span>możliwość monitorowania efektów terapii w czasie
+                      </li>
+                    </ul>
+                    <p className="text-sm italic">
+                      Analiza skóry jest idealnym pierwszym krokiem przed rozpoczęciem
+                      jakiejkolwiek terapii skórnej. Pozwala na świadome dobieranie
+                      zabiegów i kosmetyków.
+                    </p>
+                  </div>
+                )}
               </section>
 
               <section className="bg-gradient-emerald rounded-2xl border border-[#D4AF37] p-6 md:p-8">
@@ -1095,7 +1106,7 @@ export default function NeedleMesotherapyForm({
                       </button>
                     </div>
 
-                    {Object.entries(mezoterapiaIglowaContraindications).map(
+                    {Object.entries(oczyszczanieTwarzyContraindications).map(
                       ([key, value], index) => {
                         const questionText =
                           typeof value === "string" ? value : value.text;
@@ -1169,7 +1180,7 @@ export default function NeedleMesotherapyForm({
                       organizmu:
                     </p>
                     <ul className="space-y-2 text-sm text-ui-textSecondary">
-                      {mezoterapiaIglowaNaturalReactions.map(
+                      {oczyszczanieTwarzyNaturalReactions.map(
                         (reaction, index) => (
                           <li key={index} className="flex items-start gap-2">
                             <span className="text-brand">∙</span>
@@ -1179,9 +1190,9 @@ export default function NeedleMesotherapyForm({
                       )}
                     </ul>
                     <p className="text-sm font-bold text-brand mt-4">
-                      UWAGA! Zabieg mezoterapii igłowej przeprowadzany w trakcie
-                      menstruacji może być bardziej bolesny, ponieważ odczuwanie
-                      bólu w tym czasie jest zwykle zwiększone.
+                      UWAGA! Skóra w trakcie menstruacji może być bardziej
+                      wrażliwa i reaktywna, co może wpływać na komfort
+                      podczas zabiegu.
                     </p>
                   </div>
 
@@ -1191,7 +1202,7 @@ export default function NeedleMesotherapyForm({
                       MOŻLIWE POWIKŁANIA PO PRZEPROWADZONYM ZABIEGU – RZADKIE
                     </p>
                     <ul className="space-y-2 text-sm text-ui-textSecondary">
-                      {mezoterapiaIglowaComplications.map(
+                      {oczyszczanieTwarzyComplications.map(
                         (complication, index) => (
                           <li key={index} className="flex items-start gap-2">
                             <span className="text-brand">∙</span>
@@ -1209,7 +1220,7 @@ export default function NeedleMesotherapyForm({
                       RZADKIE
                     </p>
                     <ul className="space-y-2 text-sm text-ui-textSecondary">
-                      {mezoterapiaIglowaComplicationsVeryRare.map(
+                      {oczyszczanieTwarzyComplicationsVeryRare.map(
                         (complication, index) => (
                           <li key={index} className="flex items-start gap-2">
                             <span className="text-brand">∙</span>
@@ -1241,7 +1252,7 @@ export default function NeedleMesotherapyForm({
                     przestrzegania następujących zaleceń:
                   </p>
                   <ul className="space-y-2 text-sm text-ui-textSecondary">
-                    {mezoterapiaIglowaPostCare.map((instruction, index) => (
+                    {oczyszczanieTwarzyPostCare.map((instruction, index) => (
                       <li key={index} className="flex items-start gap-2">
                         <span className="text-brand">∙</span>
                         <span
@@ -1393,7 +1404,7 @@ export default function NeedleMesotherapyForm({
                       MOŻLIWE DO WYSTĄPIENIA NATURALNE REAKCJE PO ZABIEGU:
                     </p>
                     <ul className="space-y-2 text-sm text-ui-textSecondary">
-                      {mezoterapiaIglowaNaturalReactions.map(
+                      {oczyszczanieTwarzyNaturalReactions.map(
                         (reaction, index) => (
                           <li key={index} className="flex items-start gap-2">
                             <span className="text-brand">∙</span>
@@ -1409,7 +1420,7 @@ export default function NeedleMesotherapyForm({
                       MOŻLIWE POWIKŁANIA PO ZABIEGU:
                     </p>
                     <ul className="space-y-2 text-sm text-ui-textSecondary">
-                      {mezoterapiaIglowaComplications.map(
+                      {oczyszczanieTwarzyComplications.map(
                         (complication, index) => (
                           <li key={index} className="flex items-start gap-2">
                             <span className="text-brand">∙</span>
@@ -1437,7 +1448,7 @@ export default function NeedleMesotherapyForm({
                     </strong>
                   </p>
                   <ul className="space-y-2 text-sm text-ui-textSecondary">
-                    {mezoterapiaIglowaPostCare.map((instruction, index) => (
+                    {oczyszczanieTwarzyPostCare.map((instruction, index) => (
                       <li key={index} className="flex items-start gap-2">
                         <span className="text-brand">∙</span>
                         <span
@@ -1474,136 +1485,39 @@ export default function NeedleMesotherapyForm({
                       regulaminu oraz wymienione poniżej zasady.
                     </li>
                     <li>
-                      Przy rezerwacji terminu na makijaż permanentny wymagana
-                      jest opłata (zadatek) w wysokości 50% wartości zabiegu.
-                    </li>
-                    <li>
-                      Na uregulowanie zadatku Klient/ka ma 3 dni od momentu
-                      zapisu. Jeśli tego nie zrobi rezerwacja zostaje
-                      automatycznie anulowana, a zarezerwowany dotychczas termin
-                      staje się dostępny dla innych Klientów.
-                    </li>
-                    <li>
-                      Jeżeli zabieg się odbędzie, to jego cena pomniejszona jest
-                      o wartość zadatku.
-                    </li>
-                    <li>
-                      Zadatek można uregulować przelewem na konto bankowe. Numer
-                      konta dostępny jest na stronie www, na miejscu, po
-                      kontakcie telefonicznym lub na FB:{" "}
-                      <span className="font-medium text-marble-text">
-                        NUMER KONTA 76249000050000460039252048
-                      </span>{" "}
-                      — w tytule przelewu należy wpisać datę zabiegu oraz imię i
-                      nazwisko Klienta.
-                    </li>
-                    <li>
                       Rezerwując termin warto jest się upewnić, że nie ma
                       żadnych przeciwwskazań do wykonania zabiegu.
                     </li>
                     <li>
-                      Konsultacja dotycząca wykonania zabiegu makijażu
-                      permanentnego jest zawsze bezpłatna. Jeśli masz
-                      jakiekolwiek wątpliwości dotyczące zabiegu umów się
-                      telefonicznie na bezpłatną konsultację.
+                      Jeśli masz jakiekolwiek wątpliwości dotyczące zabiegu,
+                      umów się telefonicznie na bezpłatną konsultację.
                     </li>
                     <li>
-                      Klientka ma prawo odwołać wizytę na 3 dni przed planowanym
-                      terminem. Jeśli odwołanie wizyty odbędzie się w terminie
-                      krótszym niż 3 dni przed planowanym zabiegiem wówczas
-                      Klient zobowiązuje się na swoje miejsce znaleźć inną
-                      osobę. Jeśli na zarezerwowaną wizytę nie znajdzie się
-                      osoba chętna wówczas przedpłata przepada.
-                    </li>
-                    <li>
-                      Klientka ma prawo do zmiany terminu wizyty najpóźniej na
-                      24h przed planowaną wizytą, rezygnacja z terminu w
-                      ostatniej chwili tj. tego samego dnia skutkuje wpisaniem
-                      Klientki na naszą „Czarną listę&quot;. Rozumiemy sytuacje
+                      Klientka ma prawo odwołać wizytę na 24 godziny przed
+                      planowanym terminem. Rezygnacja z terminu w ostatniej
+                      chwili tj. tego samego dnia skutkuje wpisaniem Klientki
+                      na naszą „Czarną listę&quot;. Rozumiemy sytuacje
                       wyjątkowe i przypadki losowe (należy je potwierdzić np.
                       zwolnieniem lekarskim).
                     </li>
                     <li>
-                      Klientki, które miały kiedykolwiek wykonywany makijaż
-                      permanentny na danym obszarze (nawet mało widoczny) są
-                      zobowiązane przy zapisie powiadomić o tym fakcie recepcję,
-                      ponieważ zdarza się, że zabieg makijażu permanentnego
-                      powinien zostać poprzedzony laserowym usuwaniem śladów po
-                      starym, a to wymaga innego czasu oraz sprzętu.
+                      Klientka ma prawo do zmiany terminu wizyty najpóźniej na
+                      24h przed planowaną wizytą.
                     </li>
                     <li>
-                      Podczas zabiegu makijażu permanentnego wykonywana jest
-                      wizualizacja i wybierana jest odpowiednia metoda makijażu
-                      permanentnego. Rodzaj metody oraz pigmenty wybierane są
-                      przez linergistkę i dopasowane do naturalnej urody
-                      Klientki.
+                      Specjalista ma prawo odmówić wykonania zabiegu, jeżeli
+                      stwierdzi przeciwwskazania zdrowotne lub skórne
+                      uniemożliwiające bezpieczne przeprowadzenie zabiegu.
                     </li>
                     <li>
-                      Linergistka ma prawo do odmowy wykonania usługi, jeżeli
-                      oczekiwania Klientki co do kształtu są niezgodne z
-                      klasycznym układem brwi.
+                      Klientka zobowiązana jest poinformować Specjalistę o
+                      wszelkich zmianach stanu zdrowia, przyjmowanych lekach
+                      oraz alergiach przed przystąpieniem do zabiegu.
                     </li>
                     <li>
-                      Decydując się na zabieg należy zapoznać się z pracami,
-                      stylem i techniką linergistek w Salonie.
-                    </li>
-                    <li>
-                      W przypadku, gdy Klientka nie akceptuje proponowanego
-                      kształtu, metody i koloru pigmentu oraz decyduje o
-                      rezygnacji z pigmentacji podczas wizyty — zadatek nie jest
-                      zwracany.
-                    </li>
-                    <li>
-                      Jeżeli Klientka, która skorzystała z usługi makijażu
-                      permanentnego w naszym salonie ma uwagi co do
-                      koloru/kształtu itp. to w ciągu 2 miesięcy od wykonania
-                      może je do nas zgłosić (i zostaną one bezpłatnie
-                      skorygowane), natomiast wszelkie sugestie po upływie 2
-                      miesięcy od zabiegu będą wyceniane indywidualnie.
-                    </li>
-                    <li>
-                      Jeśli Klientka ma umówioną darmową korektę przysługującą w
-                      ciągu 50 dni od daty zabiegu makijażu i na tę wizytę nie
-                      przyjdzie/nie odwoła na 24 godz. to uważa się ją za odbytą
-                      i kolejna umówiona korekta jest już płatna — dokładną cenę
-                      usługi w tej sytuacji ustala linergistka podczas wizyty.
-                      Każdy 1 miesiąc opóźnienia to dodatkowa opłata 100 zł.
-                    </li>
-                    <li>
-                      Jeżeli Klientka jest z zagranicy i nie może odbyć korekty
-                      w ciągu 50 dni od daty pierwszego zabiegu, to istnieje
-                      możliwość wydłużenia umownego okresu do 3 miesięcy po
-                      pierwszej pigmentacji, należy jednak zgłosić fakt
-                      przebywania za granicą linergistce, która zanotuje
-                      informacje w systemie i tylko na tej podstawie okres
-                      korekty wydłuża się. Jeśli Klientka nie zgłosi się w
-                      terminie 3 miesięcy od dnia pierwszej wizyty na korektę
-                      makijażu, to po tym czasie korekta jest już płatna. Cenę
-                      ustala linergistka podczas wizyty.
-                    </li>
-                    <li>
-                      Jeżeli Klientka, która wykonywała zabieg makijażu
-                      permanentnego brwi w naszym Salonie po zabiegu dowiaduje
-                      się o ciąży i odkłada korektę makijażu do okresu po
-                      porodzie, i chce dokonać korekty np. po ok. roku to
-                      wówczas cena zabiegu to 50% aktualnej ceny makijażu
-                      permanentnego.
-                    </li>
-                    <li>
-                      Makijaż permanentny zmienia swoją intensywność w kolejnych
-                      miesiącach po zabiegu dlatego po roku zaleca się wykonanie
-                      korekty płatnej, której koszt zgodnie z cennikiem to 50%
-                      aktualnej ceny makijażu permanentnego. Jeżeli natomiast
-                      będzie potrzebna dodatkowa pigmentacja jej koszt to 200zł.
-                      Korekta po upływie min. 2 latach od ostatniego zabiegu
-                      makijażu permanentnego to koszt 100% aktualnej ceny lub w
-                      wyjątkowych sytuacjach wycena indywidualna.
-                    </li>
-                    <li>
-                      Korekty makijażu permanentnego po innych salonach są
-                      zawsze wyceniane indywidualnie i zwykle traktowane jako
-                      usługa wykonywana od początku + koszt usuwania laserem
-                      wyceniany jest indywidualnie.
+                      Salon nie ponosi odpowiedzialności za skutki wynikające
+                      z nieprzestrzegania zaleceń pozabiegowych przekazanych
+                      przez Specjalistę.
                     </li>
                     <li>
                       Zastrzegamy sobie prawo do zmiany poszczególnych punktów
@@ -1613,14 +1527,6 @@ export default function NeedleMesotherapyForm({
                       Zastrzegamy sobie prawo do zmiany ustalonego wcześniej
                       terminu wizyty po ustaleniu z Klientką innego, dogodnego
                       dla obu stron.
-                    </li>
-                    <li>
-                      Korekta po około roku dotyczy głównie makijażu
-                      permanentnego brwi, ponieważ pigment w innych częściach
-                      utrzymuje się dłużej w związku z tym np. usta po roku są
-                      wyraźnie zabarwione i nie wymagają korekty. Brwi natomiast
-                      znajdują się w strefie T, co skutkuje szybszym
-                      wypłukiwaniem barwnika.
                     </li>
                   </ol>
                 </div>
@@ -1636,7 +1542,7 @@ export default function NeedleMesotherapyForm({
                 </h2>
                 <div className="bg-ui-bg p-5 rounded-xl mb-6 border border-[#D4AF37]">
                   <h4 className="font-serif text-brand text-lg mb-4 uppercase tracking-wider">
-                    OŚWIADCZENIE I ŚWIADOMA ZGODA NA ZABIEG MEZOTERAPII IGŁOWEJ
+                    OŚWIADCZENIE I ŚWIADOMA ZGODA NA ZABIEG OCZYSZCZANIA TWARZY
                   </h4>
                   <p className="text-sm text-ui-textSecondary mb-4 italic">
                     Ja, niżej podpisana/y, po przeprowadzeniu szczegółowego
@@ -1648,7 +1554,8 @@ export default function NeedleMesotherapyForm({
                       <strong>Stan zdrowia i odpowiedzialność:</strong>{" "}
                       Specjalista poinformował mnie o przeciwwskazaniach do
                       zabiegu. Oświadczam, że nie występują u mnie żadne z nich
-                      (m.in. ciąża, cukrzyca, choroby krwi, aktywne infekcje).
+                      (m.in. ciąża, epilepsja, nowotwory, czynna gruźlica,
+                      nadczynność tarczycy, implanty metalowe w miejscu zabiegu).
                     </p>
                     <p>
                       Udzieliłam/em pełnych i prawdziwych informacji o moim
@@ -1663,46 +1570,38 @@ export default function NeedleMesotherapyForm({
                     <p>
                       <strong>Informacja o zabiegu i higiena:</strong>{" "}
                       Otrzymałam/em wyczerpujące informacje na temat zabiegu
-                      mezoterapii igłowej, techniki jego wykonania oraz celu.
+                      oczyszczania twarzy, techniki jego wykonania oraz celu.
                       Miałam/em możliwość zadawania pytań i uzyskałam/em na nie
                       jasne odpowiedzi.
                     </p>
                     <p>
-                      Potwierdzam, że materiały użyte do zabiegu (igły,
-                      strzykawki) są sterylne, jednorazowe i zostały otwarte w
-                      mojej obecności. W Salonie zachowane są najwyższe normy
-                      higieniczne.
+                      Potwierdzam, że sprzęt i materiały użyte do zabiegu są
+                      czyste i zdezynfekowane. W Salonie zachowane są najwyższe
+                      normy higieniczne.
                     </p>
 
                     <p>
                       <strong>Przebieg i rekonwalescencja:</strong> Zostałam/em
-                      poinformowana/y, że po zabiegu naturalnym objawem jest
-                      opuchlizna i zaczerwienienie skóry, które ustępują
-                      zazwyczaj w ciągu 3-4 dni, w zależności od trybu życia.
-                      Mogą również pojawić się drobne sińce i krwiaki w
-                      miejscach wkłuć.
+                      poinformowana/y, że po zabiegu naturalnym objawem może być
+                      zaczerwienienie skóry, lekkie podrażnienie lub uczucie
+                      ściągnięcia, które ustępują zazwyczaj w ciągu kilku godzin
+                      do 2 dni.
                     </p>
                     <p>
                       Wiem, że mogę powrócić do codziennych czynności po
                       zabiegu, jednak zobowiązuję się do ograniczenia stosowania
-                      makijażu i drażniących kosmetyków przez 24 godziny.
+                      makijażu i drażniących kosmetyków przez 12 godzin oraz
+                      stosowania ochrony przeciwsłonecznej.
                     </p>
 
                     <p>
                       <strong>Częstotliwość i trwałość efektów:</strong>{" "}
                       Poinformowano mnie, że czas trwania zabiegu zależy od
-                      obszaru i cech naskórka (średnio ok. 1h).
+                      wybranej metody i stanu skóry (średnio 45 min – 1,5h).
                     </p>
                     <p>
-                      W celu uzyskania optymalnego efektu utrzymującego się
-                      przez ok. 6–12 miesięcy, zaleca się wykonanie pełnej serii
-                      zabiegów (zazwyczaj 3 do 6 powtórzeń), w odstępach co 2–4
-                      tygodnie.
-                    </p>
-                    <p>
-                      Rozumiem, że zabieg mezoterapii nie jest zabiegiem trwałym
-                      i dla podtrzymania efektu zaleca się wykonywanie zabiegu
-                      przypominającego co 3–6 miesięcy.
+                      Dla uzyskania optymalnych efektów zaleca się regularne
+                      wykonywanie zabiegów w odstępach co 3–4 tygodnie.
                     </p>
 
                     <p>
@@ -1720,10 +1619,9 @@ export default function NeedleMesotherapyForm({
 
                     <p>
                       <strong>Kwalifikacje i decyzja:</strong> Oświadczam, że
-                      mam świadomość, iż Specjalista wykonujący zabieg nie jest
-                      lekarzem medycyny estetycznej, ale posiada bogate
-                      doświadczenie i przeszkolenie w zakresie wykonywanych
-                      zabiegów.
+                      mam świadomość, iż Specjalista wykonujący zabieg posiada
+                      odpowiednie kwalifikacje i przeszkolenie w zakresie
+                      wykonywanych zabiegów kosmetycznych.
                     </p>
                     <p>
                       Decyzję o poddaniu się zabiegowi podejmuję świadomie,

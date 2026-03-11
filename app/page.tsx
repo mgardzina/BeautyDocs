@@ -16,6 +16,7 @@ import TissueStimulationForm from "./components/forms/TissueStimulationForm";
 import EyebrowTintingForm from "./components/forms/EyebrowTintingForm";
 import EyebrowLaminationForm from "./components/forms/EyebrowLaminationForm";
 import EyelashExtensionForm from "./components/forms/EyelashExtensionForm";
+import FacialCleansingForm from "./components/forms/FacialCleansingForm";
 
 export default function HomePage() {
   const [selectedForm, setSelectedForm] = useState<FormType | null>(null);
@@ -59,6 +60,8 @@ export default function HomePage() {
       return <EyebrowLaminationForm onBack={() => setSelectedForm(null)} />;
     case "EYELASH_EXTENSION":
       return <EyelashExtensionForm onBack={() => setSelectedForm(null)} />;
+    case "FACIAL_CLEANSING":
+      return <FacialCleansingForm onBack={() => setSelectedForm(null)} />;
     default:
       return <div>Formularz nieznany</div>;
   }
