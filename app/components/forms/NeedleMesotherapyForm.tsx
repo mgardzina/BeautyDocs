@@ -43,6 +43,7 @@ const initialFormData: ConsentFormData = {
   obszarZabiegu: "",
   celEfektu: "",
   numerZabiegu: "",
+  metodaZabiegu: "",
   przeciwwskazania: Object.entries(mezoterapiaIglowaContraindications).reduce(
     (acc, [key, value]) => {
       const hasFollowUp = typeof value === "object" && value.hasFollowUp;
@@ -118,8 +119,9 @@ export default function NeedleMesotherapyForm({
     // Determine if the answer given requires a follow-up
     const hasFollowUp = currentContraindicationObject?.hasFollowUp;
     const isSafePositive = currentContraindicationObject?.isPositiveAnswerSafe;
-    const requiresFollowUp = hasFollowUp && (isSafePositive ? value === false : value === true);
-    
+    const requiresFollowUp =
+      hasFollowUp && (isSafePositive ? value === false : value === true);
+
     if (requiresFollowUp) {
       return;
     }
@@ -244,7 +246,9 @@ export default function NeedleMesotherapyForm({
           <div className="w-20 h-20 bg-green-900/20 rounded-full flex items-center justify-center mx-auto mb-6">
             <Check className="w-10 h-10 text-green-600" />
           </div>
-          <h2 className="text-3xl font-serif text-marble-text mb-4">Dziękujemy!</h2>
+          <h2 className="text-3xl font-serif text-marble-text mb-4">
+            Dziękujemy!
+          </h2>
           <p className="text-ui-textSecondary mb-8">
             Twój formularz został zapisany.
           </p>
@@ -321,20 +325,30 @@ export default function NeedleMesotherapyForm({
             <BackButton onClick={onBack} className="self-start" />
             <div className="flex gap-2 text-xs md:text-sm font-medium text-marble-textSecondary overflow-x-auto pb-2 md:pb-0">
               <span
-                className={currentStep === "DATA" ? "text-brand font-bold" : "text-marble-textSecondary"}
+                className={
+                  currentStep === "DATA"
+                    ? "text-brand font-bold"
+                    : "text-marble-textSecondary"
+                }
               >
                 1. Dane
               </span>
               <span className="text-marble-textSecondary">→</span>
               <span
-                className={currentStep === "RODO" ? "text-brand font-bold" : "text-marble-textSecondary"}
+                className={
+                  currentStep === "RODO"
+                    ? "text-brand font-bold"
+                    : "text-marble-textSecondary"
+                }
               >
                 2. RODO
               </span>
               <span className="text-marble-textSecondary">→</span>
               <span
                 className={
-                  currentStep === "RODO2" ? "text-brand font-bold" : "text-marble-textSecondary"
+                  currentStep === "RODO2"
+                    ? "text-brand font-bold"
+                    : "text-marble-textSecondary"
                 }
               >
                 3. RODO 2
@@ -342,7 +356,9 @@ export default function NeedleMesotherapyForm({
               <span className="text-marble-textSecondary">→</span>
               <span
                 className={
-                  currentStep === "TREATMENT" ? "text-brand font-bold" : "text-marble-textSecondary"
+                  currentStep === "TREATMENT"
+                    ? "text-brand font-bold"
+                    : "text-marble-textSecondary"
                 }
               >
                 4. Zabieg
@@ -350,7 +366,9 @@ export default function NeedleMesotherapyForm({
               <span className="text-marble-textSecondary">→</span>
               <span
                 className={
-                  currentStep === "MARKETING" ? "text-brand font-bold" : "text-marble-textSecondary"
+                  currentStep === "MARKETING"
+                    ? "text-brand font-bold"
+                    : "text-marble-textSecondary"
                 }
               >
                 5. Zgody
@@ -555,63 +573,12 @@ export default function NeedleMesotherapyForm({
                     objawów starzenia się skóry związanych z wiekiem, ekspozycją
                     na słońce jak również paleniem tytoniu.
                   </p>
-                  <div className="bg-ui-bg p-4 rounded-xl border border-[#D4AF37]/50 space-y-4">
-                    <div>
-                      <p className="font-medium text-marble-text mb-1 uppercase">
-                        Mezoterapia igłowa twarzy
-                      </p>
-                      <p>
-                        Jest jednym z najlepszych zabiegów, który skutecznie
-                        redukuje zmarszczki mimiczne i chroni skórę przed
-                        negatywnym działaniem czynników zewnętrznych
-                        występujących w środowisku. Do mezoterapii twarzy
-                        najczęściej stosowane są preparaty na bazie kwasu
-                        hialuronowego oraz witamin A, C, E a także oraz czynnych
-                        substancji aktywnych.
-                      </p>
-                    </div>
-                    <div>
-                      <p className="font-medium text-marble-text mb-1 uppercase">
-                        Mezoterapia igłowa szyi i dekoltu
-                      </p>
-                      <p>
-                        Obok twarzy - jest obszarem najczęściej poddawanym
-                        zabiegowi mezoterapii. Poprawia elastyczność i odżywia
-                        skórę. W miejscach, takich jak szyja czy dekolt, skóra
-                        szybko traci blask, a po zabiegu jest nie tylko
-                        zregenerowana i odmłodzona, ale też bardzo mocno
-                        nawilżona. Zmniejszone i wygładzone zostają także
-                        zmarszczki i bruzdy.
-                      </p>
-                    </div>
-                    <div>
-                      <p className="font-medium text-marble-text mb-1 uppercase">
-                        Mezoterapia igłowa skóry głowy
-                      </p>
-                      <p>
-                        Stosowana jest jako profilaktyka i leczenie łysienia.
-                        Jej wykonanie przywraca prawidłowe krążenie w skórze
-                        głowy, które pobudza wzrost nowych mieszków włosowych.
-                        Szczególnie polecana jest dla osób cierpiących na
-                        łysienie plackowate oraz androgenowe.
-                      </p>
-                    </div>
-                  </div>
                   <p>
                     Zabieg mezoterapii igłowej wykonywany jest z użyciem jednego
                     z wybranych produktów lub mieszanki produktów. Zabieg odbywa
                     się zawsze po wykluczeniu wszelkich przeciwwskazań do
                     wykonania zabiegu. W rozmowie określone zostają potrzeby i
                     oczekiwania od wykonania zabiegu mezoterapii igłowej.
-                  </p>
-                  <p>
-                    Kolejnym etapem jest znieczulenie, które minimalizuje
-                    dyskomfort podczas zabiegu. Próg bólu odczuwany jest
-                    indywidualnie oraz uzależniony jest od rodzaju skóry.
-                    Stosowane jest znieczulenie <strong>Lidokaina 9,6%</strong>.
-                    Zastosowanie znieczulenia gwarantuje zminimalizowanie bólu,
-                    który w większości przypadków określany jest, jako niemal
-                    nie odczuwalny.
                   </p>
                   <p>
                     Czas trwania zabiegu zależny jest od cech indywidualnych
@@ -625,11 +592,81 @@ export default function NeedleMesotherapyForm({
                 </div>
               </section>
 
-              {/* Szczegóły Zabiegu */}
+              {/* Metoda Zabiegu */}
               <section className="bg-gradient-emerald rounded-2xl border border-[#D4AF37] p-6 md:p-8">
                 <h2 className="text-2xl font-serif text-marble-text mb-6 flex items-center gap-3">
                   <span className="w-8 h-8 bg-brand text-black rounded-full flex items-center justify-center text-sm font-sans font-bold">
                     3
+                  </span>
+                  Metoda Zabiegu
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-6">
+                  {[
+                    { value: "Mezoterapia", label: "Mezoterapia" },
+                    { value: "Osocze bogatopłytkowe (PRP)", label: "Osocze bogatopłytkowe" },
+                    { value: "Osocze + egzosomy", label: "Osocze + egzosomy" },
+                  ].map((method) => (
+                    <button
+                      key={method.value}
+                      type="button"
+                      onClick={() => handleInputChange("metodaZabiegu", method.value)}
+                      className={`py-3 px-4 rounded-xl border-2 transition-all font-medium text-sm ${
+                        formData.metodaZabiegu === method.value
+                          ? "border-brand bg-brand text-white"
+                          : "border-[#D4AF37] bg-ui-bg text-ui-textSecondary hover:border-brand hover:text-brand"
+                      }`}
+                    >
+                      {method.label}
+                    </button>
+                  ))}
+                </div>
+
+                {/* Opis metody PRP */}
+                {formData.metodaZabiegu === "Osocze bogatopłytkowe (PRP)" && (
+                  <div className="bg-ui-bg p-6 rounded-xl border border-[#D4AF37] text-ui-textSecondary leading-relaxed space-y-4 animate-in fade-in slide-in-from-top-2 duration-300">
+                    <h3 className="font-serif text-marble-text text-lg">Zabieg z wykorzystaniem osocza bogatopłytkowego (PRP)</h3>
+                    <p>
+                      To naturalna terapia regeneracyjna wykorzystująca Twoją własną krew. Podczas zabiegu pobierana jest niewielka ilość krwi, która następnie trafia do specjalnej wirówki. Dzięki temu oddzielane jest osocze bogatopłytkowe, pełne czynników wzrostu odpowiedzialnych za regenerację i odbudowę tkanek.
+                    </p>
+                    <p>
+                      Preparat podawany jest w skórę twarzy metodą mezoterapii, gdzie intensywnie stymuluje procesy naprawcze i regeneracyjne.
+                    </p>
+                    <p className="font-medium text-marble-text">Efekty zabiegu:</p>
+                    <ul className="space-y-1 text-sm">
+                      <li className="flex items-start gap-2"><span className="text-brand">•</span>poprawa napięcia i elastyczności skóry</li>
+                      <li className="flex items-start gap-2"><span className="text-brand">•</span>wygładzenie drobnych zmarszczek</li>
+                      <li className="flex items-start gap-2"><span className="text-brand">•</span>rozświetlenie i odświeżenie cery</li>
+                      <li className="flex items-start gap-2"><span className="text-brand">•</span>pobudzenie produkcji kolagenu i elastyny</li>
+                      <li className="flex items-start gap-2"><span className="text-brand">•</span>naturalna regeneracja i odmłodzenie skóry</li>
+                    </ul>
+                    <p className="text-sm italic">
+                      Zabieg jest w pełni bezpieczny, ponieważ wykorzystuje materiał biologiczny pochodzący z Twojego organizmu, dzięki czemu minimalizuje ryzyko reakcji alergicznych.
+                    </p>
+                  </div>
+                )}
+
+                {/* Opis metody Osocze + egzosomy */}
+                {formData.metodaZabiegu === "Osocze + egzosomy" && (
+                  <div className="bg-ui-bg p-6 rounded-xl border border-[#D4AF37] text-ui-textSecondary leading-relaxed space-y-4 animate-in fade-in slide-in-from-top-2 duration-300">
+                    <h3 className="font-serif text-marble-text text-lg">Osocze bogatopłytkowe + egzosomy – zaawansowana regeneracja skóry</h3>
+                    <p>
+                      Połączenie osocza bogatopłytkowego (PRP) z egzosomami to nowoczesna terapia, która jeszcze silniej pobudza skórę do odbudowy i odmłodzenia.
+                    </p>
+                    <p>
+                      Podczas zabiegu pobierana jest niewielka ilość krwi, z której uzyskujemy osocze bogate w czynniki wzrostu. Następnie łączymy je z egzosomami – mikroskopijnymi przekaźnikami biologicznymi, które wspierają komunikację między komórkami i przyspieszają procesy regeneracyjne. Preparat podawany jest w skórę twarzy metodą mezoterapii.
+                    </p>
+                    <p className="text-sm italic">
+                      To jeden z najbardziej zaawansowanych zabiegów biostymulujących, który łączy naturalną regenerację z nowoczesną biotechnologią dla jeszcze lepszych efektów odmłodzenia skóry.
+                    </p>
+                  </div>
+                )}
+              </section>
+
+              {/* Szczegóły Zabiegu */}
+              <section className="bg-gradient-emerald rounded-2xl border border-[#D4AF37] p-6 md:p-8">
+                <h2 className="text-2xl font-serif text-marble-text mb-6 flex items-center gap-3">
+                  <span className="w-8 h-8 bg-brand text-black rounded-full flex items-center justify-center text-sm font-sans font-bold">
+                    4
                   </span>
                   Szczegóły Zabiegu
                 </h2>
@@ -667,7 +704,7 @@ export default function NeedleMesotherapyForm({
               <section className="bg-gradient-emerald rounded-2xl border border-[#D4AF37] p-6 md:p-8">
                 <h2 className="text-2xl font-serif text-marble-text mb-6 flex items-center gap-3">
                   <span className="w-8 h-8 bg-brand text-black rounded-full flex items-center justify-center text-sm font-sans font-bold">
-                    4
+                    5
                   </span>
                   Wywiad Medyczny
                 </h2>
@@ -752,7 +789,12 @@ export default function NeedleMesotherapyForm({
                             : currentContraindicationValue.text}
                         </h3>
                         {currentContraindicationObject?.hasFollowUp &&
-                        formData.przeciwwskazania[currentContraindicationKey] === (currentContraindicationObject.isPositiveAnswerSafe ? false : true) && (
+                          formData.przeciwwskazania[
+                            currentContraindicationKey
+                          ] ===
+                            (currentContraindicationObject.isPositiveAnswerSafe
+                              ? false
+                              : true) && (
                             <div className="animate-in fade-in slide-in-from-top-2 max-w-md mx-auto w-full text-left">
                               <input
                                 type="text"
@@ -919,7 +961,7 @@ export default function NeedleMesotherapyForm({
               <section className="bg-gradient-emerald rounded-2xl border border-[#D4AF37] p-6 md:p-8">
                 <h2 className="text-2xl font-serif text-marble-text mb-6 flex items-center gap-3">
                   <span className="w-8 h-8 bg-brand text-black rounded-full flex items-center justify-center text-sm font-sans font-bold">
-                    5
+                    6
                   </span>
                   Informacje o Skutkach Ubocznych i Powikłaniach
                 </h2>
@@ -995,7 +1037,7 @@ export default function NeedleMesotherapyForm({
               <section className="bg-gradient-emerald rounded-2xl border border-[#D4AF37] p-6 md:p-8">
                 <h2 className="text-2xl font-serif text-marble-text mb-6 flex items-center gap-3">
                   <span className="w-8 h-8 bg-brand text-black rounded-full flex items-center justify-center text-sm font-sans font-bold">
-                    6
+                    7
                   </span>
                   Zalecenia Pozabiegowe
                 </h2>

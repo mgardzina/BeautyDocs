@@ -280,7 +280,9 @@ export default function FacialVolumetryForm({
           <div className="w-20 h-20 bg-green-900/20 rounded-full flex items-center justify-center mx-auto mb-6">
             <Check className="w-10 h-10 text-green-600" />
           </div>
-          <h2 className="text-3xl font-serif text-marble-text mb-4">Dziękujemy!</h2>
+          <h2 className="text-3xl font-serif text-marble-text mb-4">
+            Dziękujemy!
+          </h2>
           <p className="text-ui-textSecondary mb-8">
             Twój formularz został zapisany.
           </p>
@@ -357,20 +359,30 @@ export default function FacialVolumetryForm({
             <BackButton onClick={onBack} className="self-start" />
             <div className="flex gap-2 text-xs md:text-sm font-medium text-marble-textSecondary overflow-x-auto pb-2 md:pb-0">
               <span
-                className={currentStep === "DATA" ? "text-brand font-bold" : "text-marble-textSecondary"}
+                className={
+                  currentStep === "DATA"
+                    ? "text-brand font-bold"
+                    : "text-marble-textSecondary"
+                }
               >
                 1. Dane
               </span>
               <span className="text-marble-textSecondary">→</span>
               <span
-                className={currentStep === "RODO" ? "text-brand font-bold" : "text-marble-textSecondary"}
+                className={
+                  currentStep === "RODO"
+                    ? "text-brand font-bold"
+                    : "text-marble-textSecondary"
+                }
               >
                 2. RODO
               </span>
               <span className="text-marble-textSecondary">→</span>
               <span
                 className={
-                  currentStep === "RODO2" ? "text-brand font-bold" : "text-marble-textSecondary"
+                  currentStep === "RODO2"
+                    ? "text-brand font-bold"
+                    : "text-marble-textSecondary"
                 }
               >
                 3. RODO 2
@@ -378,7 +390,9 @@ export default function FacialVolumetryForm({
               <span className="text-marble-textSecondary">→</span>
               <span
                 className={
-                  currentStep === "TREATMENT" ? "text-brand font-bold" : "text-marble-textSecondary"
+                  currentStep === "TREATMENT"
+                    ? "text-brand font-bold"
+                    : "text-marble-textSecondary"
                 }
               >
                 4. Zabieg
@@ -386,7 +400,9 @@ export default function FacialVolumetryForm({
               <span className="text-marble-textSecondary">→</span>
               <span
                 className={
-                  currentStep === "MARKETING" ? "text-brand font-bold" : "text-marble-textSecondary"
+                  currentStep === "MARKETING"
+                    ? "text-brand font-bold"
+                    : "text-marble-textSecondary"
                 }
               >
                 5. Zgody
@@ -586,13 +602,6 @@ export default function FacialVolumetryForm({
                     stymulatorów tkankowych. Jest to zabieg inwazyjny, związany
                     z przerwaniem ciągłości naskórka, dlatego nie jest
                     pozbawiony ryzyka.
-                  </p>
-                  <p>
-                    Zabieg wykonywany jest przy użyciu produktów takich jak:
-                    Stylage L, Stylage XL (kwas hialuronowy) lub Neauvia
-                    Stimulate, Radiesse (stymulatory tkankowe). Wybór preparatu
-                    zależy od indywidualnych potrzeb klienta i oczekiwanych
-                    efektów.
                   </p>
                   <p>
                     Zabieg odbywa się zawsze po wykluczeniu wszelkich

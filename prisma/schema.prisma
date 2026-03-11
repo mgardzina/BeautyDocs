@@ -111,6 +111,9 @@ model ConsentForm {
   numerZabiegu                String?
   osobaPrzeprowadzajacaZabieg String?
 
+  // Metoda zabiegu (Mezoterapia igłowa)
+  metodaZabiegu String?
+
   // Seria zabiegowa (Facial Volumetry / Tissue Stimulation)
   planowanaIloscZabiegow String?
   odstepMiedzyZabiegami  String?

@@ -58,6 +58,9 @@ export interface ConsentFormData {
   wykazLekow?: string;
   inneSchorzenia?: string;
 
+  // Metoda zabiegu (Mezoterapia igłowa)
+  metodaZabiegu?: string;
+
   // Seria zabiegowa (Stymulacja tkankowa)
   planowanaIloscZabiegow?: string;
   odstepMiedzyZabiegami?: string;
