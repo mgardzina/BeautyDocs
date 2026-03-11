@@ -5,6 +5,7 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import BackButton from "@/app/components/BackButton";
+import ConfirmModal from "@/app/components/ConfirmModal";
 import {
   ArrowLeft,
   Plus,
@@ -157,6 +158,24 @@ export default function ClientDetailsPage({
   });
   const [isSavingEdit, setIsSavingEdit] = useState(false);
 
+  // Modal state
+  const [modal, setModal] = useState<{
+    isOpen: boolean;
+    title: string;
+    message: string;
+    variant: "danger" | "warning" | "success" | "info";
+    alertOnly: boolean;
+    onConfirm?: () => void;
+  }>({ isOpen: false, title: "", message: "", variant: "info", alertOnly: false });
+
+  const showConfirm = (title: string, message: string, onConfirm: () => void, variant: "danger" | "warning" = "danger") => {
+    setModal({ isOpen: true, title, message, variant, alertOnly: false, onConfirm });
+  };
+
+  const showAlert = (title: string, message: string, variant: "danger" | "warning" | "success" | "info" = "warning") => {
+    setModal({ isOpen: true, title, message, variant, alertOnly: true });
+  };
+
   useEffect(() => {
     params.then((p) => setClientId(p.id));
   }, [params]);
@@ -231,7 +250,7 @@ export default function ClientDetailsPage({
 
   const handleAddHistory = async (): Promise<boolean> => {
     if (!newHistory.date || !newHistory.description) {
-      alert("Wypełnij datę i opis wizyty.");
+      showAlert("Brakujące dane", "Wypełnij datę i opis wizyty.", "warning");
       return false;
     }
 
@@ -251,59 +270,66 @@ export default function ClientDetailsPage({
         const err = await response.json();
         console.error("API Error Response:", err);
         if (err.error?.includes("Client has no forms")) {
-          alert(
+          showAlert(
+            "Brak formularza",
             "Klientka nie ma jeszcze żadnego formularza. Wypełnij najpierw formularz, aby dodać historię.",
+            "warning",
           );
         } else {
-          let msg = `Błąd zapisu: ${err.error || "Nieznany błąd"}`;
-          if (err.details) {
-            msg += `\n\nSzczegóły:\n${err.details}`;
-          }
-          alert(msg);
+          const details = err.details ? `\n\nSzczegóły: ${err.details}` : "";
+          showAlert("Błąd zapisu", `${err.error || "Nieznany błąd"}${details}`, "danger");
         }
         return false;
       }
     } catch (error) {
       console.error("Error adding history:", error);
-      alert("Wystąpił błąd połączenia.");
+      showAlert("Błąd połączenia", "Wystąpił błąd połączenia z serwerem.", "danger");
       return false;
     } finally {
       setIsAddingHistory(false);
     }
   };
 
-  const handleDeleteNote = async (noteId: string) => {
-    if (!confirm("Czy na pewno chcesz usunąć tę notatkę?")) return;
-
-    try {
-      const response = await fetch(`/api/clients/${clientId}/notes/${noteId}`, {
-        method: "DELETE",
-      });
-      const data = await response.json();
-      if (data.success) {
-        fetchClientDetails();
-      }
-    } catch (error) {
-      console.error("Błąd usuwania notatki:", error);
-    }
+  const handleDeleteNote = (noteId: string) => {
+    showConfirm(
+      "Usunąć notatkę?",
+      "Ta notatka zostanie trwale usunięta.",
+      async () => {
+        try {
+          const response = await fetch(`/api/clients/${clientId}/notes/${noteId}`, {
+            method: "DELETE",
+          });
+          const data = await response.json();
+          if (data.success) {
+            fetchClientDetails();
+          }
+        } catch (error) {
+          console.error("Błąd usuwania notatki:", error);
+        }
+      },
+    );
   };
 
-  const handleDeleteHistory = async (historyId: string) => {
-    if (!confirm("Czy na pewno chcesz usunąć tę wizytę z historii?")) return;
-
-    try {
-      const response = await fetch(`/api/history/${historyId}`, {
-        method: "DELETE",
-      });
-      if (response.ok) {
-        await fetchHistory();
-      } else {
-        alert("Wystąpił błąd podczas usuwania.");
-      }
-    } catch (error) {
-      console.error("Error deleting history:", error);
-      alert("Błąd połączenia.");
-    }
+  const handleDeleteHistory = (historyId: string) => {
+    showConfirm(
+      "Usunąć wizytę?",
+      "Ta wizyta zostanie trwale usunięta z historii.",
+      async () => {
+        try {
+          const response = await fetch(`/api/history/${historyId}`, {
+            method: "DELETE",
+          });
+          if (response.ok) {
+            await fetchHistory();
+          } else {
+            showAlert("Błąd", "Wystąpił błąd podczas usuwania.", "danger");
+          }
+        } catch (error) {
+          console.error("Error deleting history:", error);
+          showAlert("Błąd połączenia", "Nie udało się połączyć z serwerem.", "danger");
+        }
+      },
+    );
   };
 
   const startEditingHistory = (item: TreatmentHistory) => {
@@ -336,11 +362,11 @@ export default function ClientDetailsPage({
         await fetchHistory();
         cancelEditing();
       } else {
-        alert("Błąd aktualizacji wpisu.");
+        showAlert("Błąd", "Nie udało się zaktualizować wpisu.", "danger");
       }
     } catch (error) {
       console.error("Error updating history:", error);
-      alert("Błąd połączenia.");
+      showAlert("Błąd połączenia", "Nie udało się połączyć z serwerem.", "danger");
     } finally {
       setIsSavingEdit(false);
     }

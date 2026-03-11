@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import BackButton from "@/app/components/BackButton";
+import ConfirmModal from "@/app/components/ConfirmModal";
 import {
   ArrowLeft,
   User,
@@ -93,6 +94,7 @@ interface ConsentFormFull {
   odstepMiedzyZabiegami: string | null;
   kolejneZabiegiOdstepy: string | null;
   iloscProduktu: string | null;
+  metodaZabiegu: string | null;
 }
 
 const formTypeLabels: Record<string, string> = {
@@ -129,6 +131,24 @@ export default function FormDetailsPage() {
   const [activeTab, setActiveTab] = useState<
     "details" | "contraindications" | "consents"
   >("details");
+
+  // Modal state
+  const [modal, setModal] = useState<{
+    isOpen: boolean;
+    title: string;
+    message: string;
+    variant: "danger" | "warning" | "success" | "info";
+    alertOnly: boolean;
+    onConfirm?: () => void;
+  }>({ isOpen: false, title: "", message: "", variant: "info", alertOnly: false });
+
+  const showConfirm = (title: string, message: string, onConfirm: () => void, variant: "danger" | "warning" = "danger") => {
+    setModal({ isOpen: true, title, message, variant, alertOnly: false, onConfirm });
+  };
+
+  const showAlert = (title: string, message: string, variant: "danger" | "warning" | "success" | "info" = "warning") => {
+    setModal({ isOpen: true, title, message, variant, alertOnly: true });
+  };
 
   useEffect(() => {
     fetchForm();
@@ -188,23 +208,28 @@ export default function FormDetailsPage() {
     }
   };
 
-  const handleDelete = async () => {
-    if (!confirm("Czy na pewno chcesz usunąć ten formularz?")) return;
-
-    setIsDeleting(true);
-    try {
-      const response = await fetch(`/api/consent-forms/${params.id}`, {
-        method: "DELETE",
-      });
-      const data = await response.json();
-      if (data.success) {
-        router.push("/admin");
-      }
-    } catch (error) {
-      console.error("Błąd usuwania:", error);
-    } finally {
-      setIsDeleting(false);
-    }
+  const handleDelete = () => {
+    showConfirm(
+      "Usunąć formularz?",
+      "Ta operacja jest nieodwracalna. Formularz zostanie trwale usunięty z bazy danych.",
+      async () => {
+        setIsDeleting(true);
+        try {
+          const response = await fetch(`/api/consent-forms/${params.id}`, {
+            method: "DELETE",
+          });
+          const data = await response.json();
+          if (data.success) {
+            router.push("/admin");
+          }
+        } catch (error) {
+          console.error("Błąd usuwania:", error);
+        } finally {
+          setIsDeleting(false);
+        }
+      },
+      "danger",
+    );
   };
 
   const handleSave = async () => {
@@ -254,7 +279,7 @@ export default function FormDetailsPage() {
       document.body.removeChild(link);
       URL.revokeObjectURL(url);
     } catch (err) {
-      alert("Nie udało się wygenerować PDF. Sprawdź konsolę.");
+      showAlert("Błąd PDF", "Nie udało się wygenerować PDF. Spróbuj ponownie.", "danger");
       console.error(err);
     } finally {
       setIsDownloadingPdf(false);
@@ -538,6 +563,16 @@ export default function FormDetailsPage() {
               Szczegóły zabiegu
             </h2>
             <div className="space-y-4">
+              {form.metodaZabiegu && (
+                <div>
+                  <label className="block text-sm font-medium text-ui-textSecondary mb-1">
+                    Rodzaj / Metoda zabiegu
+                  </label>
+                  <p className="text-marble-text font-medium">
+                    {form.metodaZabiegu}
+                  </p>
+                </div>
+              )}
               <div>
                 <label className="block text-sm font-medium text-ui-textSecondary mb-1">
                   Preparat
@@ -920,8 +955,8 @@ export default function FormDetailsPage() {
 
                       {/* 2. Medications Section */}
                       {medications.length > 0 && (
-                        <div className="bg-red-500/10 p-4 rounded-lg border border-red-500/20">
-                          <h4 className="text-xs font-bold text-red-400 uppercase tracking-wide mb-2 flex items-center gap-2">
+                        <div className="bg-amber-50 p-4 rounded-lg border border-amber-300">
+                          <h4 className="text-xs font-bold text-amber-700 uppercase tracking-wide mb-2 flex items-center gap-2">
                             <User className="w-3 h-3" />
                             Przyjmowane Leki (ostatnie 6 m-cy)
                           </h4>
@@ -929,7 +964,7 @@ export default function FormDetailsPage() {
                             {medications.map((med, i) => (
                               <li
                                 key={i}
-                                className="text-sm text-red-100 font-medium"
+                                className="text-sm text-amber-900 font-medium"
                               >
                                 {med.replace("Leki (6 m-cy):", "").trim() ||
                                   "BRAK"}
@@ -940,7 +975,7 @@ export default function FormDetailsPage() {
                       )}
 
                       {/* 3. General Notes */}
-                      <div className="bg-marble-border/20 p-3 rounded-lg border border-brand/15 min-h-[60px]">
+                      <div className="bg-gray-50 p-3 rounded-lg border border-gray-200 min-h-[60px]">
                         {otherNotes.length > 0 ? (
                           <div className="text-marble-text text-sm whitespace-pre-line">
                             {otherNotes.join("\n")}
@@ -1289,6 +1324,17 @@ export default function FormDetailsPage() {
           </div>
         )}
       </main>
+
+      <ConfirmModal
+        isOpen={modal.isOpen}
+        onClose={() => setModal((prev) => ({ ...prev, isOpen: false }))}
+        onConfirm={modal.onConfirm}
+        title={modal.title}
+        message={modal.message}
+        variant={modal.variant}
+        alertOnly={modal.alertOnly}
+        confirmLabel="Usuń"
+      />
     </div>
   );
 }

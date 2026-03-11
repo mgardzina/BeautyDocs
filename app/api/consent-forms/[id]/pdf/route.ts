@@ -69,6 +69,7 @@ export async function GET(
       kolejneZabiegiOdstepy: form.kolejneZabiegiOdstepy,
       iloscProduktu: form.iloscProduktu,
       znieczulenie: form.znieczulenie,
+      metodaZabiegu: form.metodaZabiegu,
       signatureStatus: form.signatureStatus,
       signatureVerifiedAt: form.signatureVerifiedAt?.toISOString() ?? null,
     });
