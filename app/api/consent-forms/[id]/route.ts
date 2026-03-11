@@ -69,6 +69,7 @@ export async function PATCH(
       "iloscProduktu",
       "osobaPrzeprowadzajacaZabieg",
       "znieczulenie",
+      "metodaZabiegu",
     ];
 
     // Filtruj tylko dozwolone pola

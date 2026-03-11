@@ -563,16 +563,29 @@ export default function FormDetailsPage() {
               Szczegóły zabiegu
             </h2>
             <div className="space-y-4">
-              {form.metodaZabiegu && (
-                <div>
-                  <label className="block text-sm font-medium text-ui-textSecondary mb-1">
-                    Rodzaj / Metoda zabiegu
-                  </label>
+              <div>
+                <label className="block text-sm font-medium text-ui-textSecondary mb-1">
+                  Rodzaj / Metoda zabiegu
+                </label>
+                {isEditing ? (
+                  <input
+                    type="text"
+                    value={editedForm.metodaZabiegu || ""}
+                    onChange={(e) =>
+                      setEditedForm({
+                        ...editedForm,
+                        metodaZabiegu: e.target.value,
+                      })
+                    }
+                    className="w-full px-3 py-2 bg-marble-border/40 border border-brand/20 rounded-lg focus:border-brand focus:ring-2 focus:ring-brand/20 outline-none text-marble-text"
+                    placeholder="Wpisz metodę zabiegu"
+                  />
+                ) : (
                   <p className="text-marble-text font-medium">
-                    {form.metodaZabiegu}
+                    {form.metodaZabiegu || "Nie podano"}
                   </p>
-                </div>
-              )}
+                )}
+              </div>
               <div>
                 <label className="block text-sm font-medium text-ui-textSecondary mb-1">
                   Preparat
