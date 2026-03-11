@@ -621,6 +621,33 @@ export default function NeedleMesotherapyForm({
                   ))}
                 </div>
 
+                {/* Opis metody Mezoterapia */}
+                {formData.metodaZabiegu === "Mezoterapia" && (
+                  <div className="bg-ui-bg p-6 rounded-xl border border-[#D4AF37] text-ui-textSecondary leading-relaxed space-y-4 animate-in fade-in slide-in-from-top-2 duration-300">
+                    <h3 className="font-serif text-marble-text text-lg">Mezoterapia igłowa</h3>
+                    <p>
+                      Zabieg mezoterapii igłowej polega na bezpośrednim podaniu cienką igłą małych dawek substancji aktywnych śródskórnie w miejsca, które zostaną poddane zabiegowi. Wstrzyknięcie substancji do obszaru tkanki poddanej zabiegowi tworzy depozyt, z którego substancja zostaje uwalniana stopniowo.
+                    </p>
+                    <p>
+                      Wskazaniem do zabiegu są: przebarwienia, skóra zmęczona - wymagająca rewitalizacji, łojotok, osłabienie włosów i wypadanie włosów, łysienie, cellulit a także stosuje się w profilaktyce przeciwstarzeniowej skóry oraz w usuwaniu objawów starzenia się skóry związanych z wiekiem, ekspozycją na słońce jak również paleniem tytoniu.
+                    </p>
+                    <p>
+                      Zabieg mezoterapii igłowej wykonywany jest z użyciem jednego z wybranych produktów lub mieszanki produktów. Zabieg odbywa się zawsze po wykluczeniu wszelkich przeciwwskazań do wykonania zabiegu. W rozmowie określone zostają potrzeby i oczekiwania od wykonania zabiegu mezoterapii igłowej.
+                    </p>
+                    <p className="font-medium text-marble-text">Efekty zabiegu:</p>
+                    <ul className="space-y-1 text-sm">
+                      <li className="flex items-start gap-2"><span className="text-brand">•</span>rewitalizacja i odmłodzenie skóry</li>
+                      <li className="flex items-start gap-2"><span className="text-brand">•</span>redukcja przebarwień i wyrównanie kolorytu</li>
+                      <li className="flex items-start gap-2"><span className="text-brand">•</span>wygładzenie drobnych zmarszczek</li>
+                      <li className="flex items-start gap-2"><span className="text-brand">•</span>poprawa napięcia i elastyczności skóry</li>
+                      <li className="flex items-start gap-2"><span className="text-brand">•</span>głębokie nawilżenie i odżywienie skóry</li>
+                    </ul>
+                    <p className="text-sm italic">
+                      Czas trwania zabiegu zależny jest od cech indywidualnych naskórka, ale średnio trwa ok. godziny. W celu uzyskania optymalnego efektu utrzymującego się przez ok. 6–12 miesięcy zaleca się wykonanie pełnej serii zabiegów, powtarzanych w odstępach co 2–4 tygodnie.
+                    </p>
+                  </div>
+                )}
+
                 {/* Opis metody PRP */}
                 {formData.metodaZabiegu === "Osocze bogatopłytkowe (PRP)" && (
                   <div className="bg-ui-bg p-6 rounded-xl border border-[#D4AF37] text-ui-textSecondary leading-relaxed space-y-4 animate-in fade-in slide-in-from-top-2 duration-300">
