@@ -1,0 +1,2490 @@
+{
+  "modelowanie-ust": {
+    "legacyFormType": "LIP_AUGMENTATION",
+    "questionCount": 36,
+    "categories": [],
+    "contraindications": [
+      {
+        "key": "ciazaLaktacja",
+        "question": "Czy jest Pani w ciąży lub w okresie laktacji?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "zapalenieZakazenieSkory",
+        "question": "Czy ma Pani/Pan zapalenie lub zakażenie skóry (trądzik, opryszczka, zapalenia skórne, alergiczne lub grzybicze zmiany w okolicach podlegających zabiegowi, naczyniaki, liszaje, brodawczaki, przerwania ciągłości naskórka, poparzenia słoneczne?)",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "chemioterapiaRadioterapia",
+        "question": "Czy w ciągu ostatniego roku była/był Pan poddawana chemioterapii lub radioterapii?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "nowotwor",
+        "question": "Czy choruje Pani/Pan na nowotwór?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "hivZoltaczka",
+        "question": "Czy choruje Pani/Pan na HIV lub żółtaczkę?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "luszczycaAktywna",
+        "question": "Czy choruje Pani/Pan na łuszczycę?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "epilepsja",
+        "question": "Czy choruje Pani/Pan na epilepsję?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "problemyGojenieRan",
+        "question": "Czy ma Pani/Pan problem/trudności z gojeniem ran?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "alergiaSkładnikiPreparatu",
+        "question": "Czy posiada Pani/Pan alergie na składniki preparatu?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "alergiaZnieczulenie",
+        "question": "Czy ma Pani/Pan alergie na preparaty stosowane do miejscowego znieczulenia?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "chorobyImmunologiczne",
+        "question": "Czy choruje Pani/Pan na choroby immunologiczne (reumatoidalne zapalenie stawów, łuszczycowe zapalenie stawów, wrzodziejące zapalenie jelita grubego, chorobę Crohna, zesztywniające zapalenie stawów etc.)",
+        "hasFollowUp": true,
+        "followUpPlaceholder": "Jeżeli tak, to jakie?",
+        "category": null
+      },
+      {
+        "key": "bielactwo",
+        "question": "Czy choruje Pani/Pan na bielactwo?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "porfiriaSkorna",
+        "question": "Czy choruje Pani/Pan na portfirie skórną?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "podatnoscBlizny",
+        "question": "Czy ma Pani/Pan podatność na przerost blizn?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "alkoholNarkotyki",
+        "question": "Czy w ciągu ostatnich 2 dni przyjmowała Pani/Pan alkohol lub inne środki odurzające?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "leczenieIzotretinina",
+        "question": "Czy jest Pani/Pan w trakcie leczenia izotretinoiną (Izotek, Roaccutane, Aknenormin)",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "lekiPrzeciwbolowe",
+        "question": "Czy przyjmuje Pani/Pan leki przeciwbólowe i przeciwzapalne (np. ibuprofen)",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "utrataSwiadomosci",
+        "question": "Czy podczas zabiegu med. estetycznej miała Pani/Pan utratę świadomości?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "uczulenieSrodkiZnieczulajace",
+        "question": "Czy jest Pani/Pan uczulona na środki znieczulające?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "problemyKrazeniem",
+        "question": "Czy ma Pani/Pan problemy z krążeniem?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "chorobyAutoimmunologiczne",
+        "question": "Czy choruje Pani/Pan na choroby autoimmunologiczne?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "antykoagulantyLekiRozrzedzajace",
+        "question": "Czy przyjmuje Pani/Pan antykoagulanty lub leki rozrzedzające krew (np. acard)",
+        "hasFollowUp": true,
+        "followUpPlaceholder": "Podaj nazwę leku, dawkę i częstotliwość stosowania",
+        "category": null
+      },
+      {
+        "key": "szczepienieWzw",
+        "question": "Czy było wykonywane szczepienie na wzw?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "lekIglyKrew",
+        "question": "Czy ma Pani/Pan lęk na igły/krew",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "leczenieStomatologiczne",
+        "question": "Czy jest Pani/Pan w trakcie leczenia stomatologicznego?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "wypelniaczeSkorneKwasHialuronowy",
+        "question": "Czy korzystała Pani/Pan z wypełniaczy skórnych - kwasu hialuronowego?",
+        "hasFollowUp": true,
+        "followUpPlaceholder": "Jeżeli tak, to z jakich?",
+        "category": null
+      },
+      {
+        "key": "zastrzykiBotoks",
+        "question": "Czy korzystała Pani/Pan z zastrzyków z użyciem botoksu?",
+        "hasFollowUp": true,
+        "followUpPlaceholder": "Jeżeli tak, to z jakich?",
+        "category": null
+      },
+      {
+        "key": "zabiegiChirurgiczneTwarz",
+        "question": "Czy korzystała Pani/Pan z zabiegów chirurgicznych w okolicy twarzy?",
+        "hasFollowUp": true,
+        "followUpPlaceholder": "Jeżeli tak, to z jakich?",
+        "category": null
+      },
+      {
+        "key": "antybiotykoterapia",
+        "question": "Czy jest Pani/Pan w trakcie stosowania antybiotykoterapii?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "lekiRozrzedzajaceKrew",
+        "question": "Czy stosuje Pani/Pan leki rozrzedzające krew? (aspiryna, paracetamol, witamina E, inne)",
+        "hasFollowUp": true,
+        "followUpPlaceholder": "Podaj nazwę leku, dawkę i częstotliwość stosowania",
+        "category": null
+      },
+      {
+        "key": "lekiMiejscowe",
+        "question": "Czy stosuje Pani/Pan leki do aplikacji miejscowej w obszarze objętym zabiegiem?",
+        "hasFollowUp": true,
+        "followUpPlaceholder": "Podaj nazwę leku, dawkę i częstotliwość stosowania",
+        "category": null
+      },
+      {
+        "key": "temperaturaPrzeziebienie",
+        "question": "Czy ma Pani/Pan podniesioną temperaturę ciała lub jest przeziębiona w dniu zabiegu?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "sklonnosciSinceKrwawienie",
+        "question": "Czy ma Pani/Pan skłonności do sińców lub krwawienia?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "tatuaze",
+        "question": "Czy posiada Pani/Pan tatuaże?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "makijazPermanentny",
+        "question": "Czy posiada Pani/Pan makijaż permanentny?",
+        "hasFollowUp": true,
+        "followUpPlaceholder": "Jeżeli tak, to kiedy został wykonany i jaką techniką?",
+        "category": null
+      },
+      {
+        "key": "inneSchorzenia",
+        "question": "Czy posiada Pani/Pan inne schorzenia?",
+        "hasFollowUp": true,
+        "followUpPlaceholder": "Proszę podać jakie",
+        "category": null
+      }
+    ]
+  },
+  "wolumetria-twarzy": {
+    "legacyFormType": "FACIAL_VOLUMETRY",
+    "questionCount": 32,
+    "categories": [],
+    "contraindications": [
+      {
+        "key": "ciazaLaktacja",
+        "question": "Czy jest Pani w ciąży lub w okresie laktacji?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "zapalenieZakazenieSkory",
+        "question": "Czy ma Pani/Pan zapalenie lub zakażenie skóry (trądzik, opryszczka, zapalenia skórne, alergiczne lub grzybicze zmiany w okolicach podlegających zabiegowi, naczyniaki, liszaje, brodawczaki, przerwania ciągłości naskórka, poparzenia słoneczne?)",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "chorobySerca",
+        "question": "Czy choruje Pani/Pan na choroby serca?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "chorobyAutoimmunologiczne",
+        "question": "Czy choruje Pani/Pan na choroby autoimmunologiczne?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "cukrzyca",
+        "question": "Czy choruje Pani/Pan na cukrzycę?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "chemioterapiaRadioterapia",
+        "question": "Czy w ciągu ostatniego roku była/był Pan poddawana chemioterapii lub radioterapii?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "nowotwor",
+        "question": "Czy choruje Pani/Pan na nowotwór?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "hivZoltaczka",
+        "question": "Czy choruje Pani/Pan na HIV lub żółtaczkę?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "zaburzeniaTarczycy",
+        "question": "Czy choruje Pani/Pan na zaburzenia pracy tarczycy?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "luszczycaAktywna",
+        "question": "Czy choruje Pani/Pan na łuszczycę?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "epilepsja",
+        "question": "Czy choruje Pani/Pan na epilepsję?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "problemyGojenieRan",
+        "question": "Czy ma Pani/Pan problem/trudności z gojeniem ran?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "alergiaSkładnikiPreparatu",
+        "question": "Czy posiada Pani/Pan alergie na składniki preparatu?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "alergiaZnieczulenie",
+        "question": "Czy ma Pani/Pan alergie na preparaty stosowane do miejscowego znieczulenia?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "chorobyImmunologiczne",
+        "question": "Czy choruje Pani/Pan na choroby immunologiczne (reumatoidalne zapalenie stawów, łuszczycowe zapalenie stawów, wrzodziejące zapalenie jelita grubego, chorobę Crohna, zesztywniające zapalenie stawów etc.)",
+        "hasFollowUp": true,
+        "followUpPlaceholder": "Jeżeli tak, to jakie?",
+        "category": null
+      },
+      {
+        "key": "bielactwo",
+        "question": "Czy choruje Pani/Pan na bielactwo?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "porfiriaSkorna",
+        "question": "Czy choruje Pani/Pan na portfirie skórną?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "podatnoscBlizny",
+        "question": "Czy ma Pani/Pan podatność na przerost blizn?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "alkoholNarkotyki",
+        "question": "Czy w ciągu ostatnich 2 dni przyjmowała Pani/Pan alkohol lub inne środki odurzające?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "lekiRyzykoKrwawienia",
+        "question": "Czy stosuje Pani/Pan leki zwiększające ryzyko krwawienia? (aspiryna, paracetamol, witamina E, inne)",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "problemyKrzepliwoscKrwi",
+        "question": "Czy występują problemy z krzepliwością krwi?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "problemyKrazeniem",
+        "question": "Czy ma Pani/Pan problemy z krążeniem?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "wypelniaczeSkorneKwasHialuronowy",
+        "question": "Czy korzystała Pani/Pan z wypełniaczy skórnych - kwasu hialuronowego?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "zastrzykiBotoks",
+        "question": "Czy korzystała Pani/Pan z zastrzyków z użyciem botoksu?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "antybiotykoterapia",
+        "question": "Czy jest Pani/Pan w trakcie stosowania antybiotykoterapii?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "lekiMiejscowe",
+        "question": "Czy stosuje Pani/Pan leki do aplikacji miejscowej w obszarze objętym zabiegiem?",
+        "hasFollowUp": true,
+        "followUpPlaceholder": "Podaj nazwę leku, dawkę i częstotliwość stosowania",
+        "category": null
+      },
+      {
+        "key": "temperaturaPrzeziebienie",
+        "question": "Czy ma Pani/Pan podniesioną temperaturę ciała lub jest przeziębiona w dniu zabiegu?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "sklonnosciSinceKrwawienie",
+        "question": "Czy ma Pani/Pan skłonności do sińców lub krwawienia?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "tatuaze",
+        "question": "Czy posiada Pani/Pan tatuaże?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "makijazPermanentny",
+        "question": "Czy posiada Pani/Pan makijaż permanentny?",
+        "hasFollowUp": true,
+        "followUpPlaceholder": "Jeżeli tak, to kiedy został wykonany i jaką techniką?",
+        "category": null
+      },
+      {
+        "key": "zabiegiChirurgiczneTwarz",
+        "question": "Czy korzystała Pani/Pan z zabiegów chirurgicznych w okolicy twarzy?",
+        "hasFollowUp": true,
+        "followUpPlaceholder": "Jeżeli tak, to z jakich?",
+        "category": null
+      },
+      {
+        "key": "inneSchorzenia",
+        "question": "Czy posiada Pani/Pan inne schorzenia niewymienione?",
+        "hasFollowUp": true,
+        "followUpPlaceholder": "Proszę podać jakie",
+        "category": null
+      }
+    ]
+  },
+  "mezoterapia-iglowa": {
+    "legacyFormType": "NEEDLE_MESOTHERAPY",
+    "questionCount": 33,
+    "categories": [
+      "BEZWZGLĘDNE PRZECIWSKAZANIA DO WYKONANIA ZABIEGU",
+      "WZGLĘDNE PRZECIWSKAZANIA DO WYKONANIA ZABIEGU",
+      "CZASOWE PRZECIWSKAZANIA DO WYKONANIA ZABIEGU"
+    ],
+    "contraindications": [
+      {
+        "key": "ciazaLaktacja",
+        "question": "Czy jest Pani w ciąży lub w okresie laktacji?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "BEZWZGLĘDNE PRZECIWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "chemoRadioTerapia",
+        "question": "Czy w ciągu ostatniego roku był/a Pan/i poddawana chemioterapii lub radioterapii?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "BEZWZGLĘDNE PRZECIWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "kortykosteroidy",
+        "question": "Czy stosuje Pan/i terapię kortykosteroidami?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "BEZWZGLĘDNE PRZECIWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "nowotwor",
+        "question": "Czy choruje Pan/i na nowotwór?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "BEZWZGLĘDNE PRZECIWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "hivZoltaczka",
+        "question": "Czy choruje Pan/i na HIV lub żółtaczkę?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "BEZWZGLĘDNE PRZECIWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "luszczyca",
+        "question": "Czy choruje Pan/i na łuszczycę?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "BEZWZGLĘDNE PRZECIWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "epilepsja",
+        "question": "Czy choruje Pan/i na epilepsję?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "BEZWZGLĘDNE PRZECIWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "hemofilia",
+        "question": "Czy ma Pan/i stwierdzoną hemofilie?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "BEZWZGLĘDNE PRZECIWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "gojenieRan",
+        "question": "Czy ma Pan/i problem/trudności z gojeniem ran?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "BEZWZGLĘDNE PRZECIWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "alergiaZnieczulenie",
+        "question": "Czy ma Pan/i alergie na preparaty stosowane do miejscowego znieczulenia?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "BEZWZGLĘDNE PRZECIWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "alkoholSrodki",
+        "question": "Czy w ciągu ostatnich 2 dni przyjmował/a Pan/i alkohol lub inne środku odurzające?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "BEZWZGLĘDNE PRZECIWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "cukrzyca",
+        "question": "Czy choruje Pan/i na cukrzycę?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "WZGLĘDNE PRZECIWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "serce",
+        "question": "Czy choruje Pan/i na zaburzenie pracy serca?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "WZGLĘDNE PRZECIWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "anemia",
+        "question": "Czy ma Pan/i anemie?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "WZGLĘDNE PRZECIWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "problemyKrazenie",
+        "question": "Czy ma Pan/i problemy z krążeniem?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "WZGLĘDNE PRZECIWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "autoimmunologiczne",
+        "question": "Czy choruje Pan/i na choroby autoimmunologiczne?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "WZGLĘDNE PRZECIWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "zmianySkorne",
+        "question": "Czy ma Pan/i zmiany skórne w obszarze poddawanym zabiegowi (trądzik, stany ropne, alergiczne lub grzybicze zmiany w okolicach podlegających zabiegowi, naczyniaki, liszaje, brodawczaki, przerwania ciągłości naskórka, poparzenia słoneczne)?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "WZGLĘDNE PRZECIWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "lekiKrzepliwosc",
+        "question": "Czy w ostatnich 7 dniach przyjmowała Pan/i leki zmniejszające krzepliwość krwi m.in. kwas acetylosalicylowy, heparynę, acenokumarol?",
+        "hasFollowUp": true,
+        "followUpPlaceholder": "Podaj nazwę leku, dawkę i częstotliwość stosowania",
+        "category": "WZGLĘDNE PRZECIWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "opryszczka",
+        "question": "Czy ma Pan/i aktywną opryszczkę? (ust/oka)",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "CZASOWE PRZECIWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "wypelniacze",
+        "question": "Czy korzystał/a Pan/i z wypełniaczy skórnych - kwasu hialuronowego?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "CZASOWE PRZECIWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "botoks",
+        "question": "Czy korzystał/a Pan/i z zastrzyków z botoksu?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "CZASOWE PRZECIWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "zabiegiChirurgiczne",
+        "question": "Czy korzystał/a Pan/i z zabiegów chirurgicznych w okolicy twarzy?",
+        "hasFollowUp": true,
+        "followUpPlaceholder": "Jeżeli tak, to z jakich?",
+        "category": "CZASOWE PRZECIWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "zluszczanie4tygodnie",
+        "question": "Czy miał/a Pan/i robiony zabieg złuszczania naskórka przez okres 4 tygodni przed zabiegiem?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "CZASOWE PRZECIWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "chorobySkory",
+        "question": "Czy posiada Pan/i choroby skóry (łojotokowe/atopowe zapalenie)",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "CZASOWE PRZECIWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "sterydy",
+        "question": "Czy jest Pan/i w trakcie kuracji sterydowej?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "CZASOWE PRZECIWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "antybiotyki",
+        "question": "Czy jest Pan/i w trakcie stosowania antybiotykoterapii?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "CZASOWE PRZECIWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "lekiRozrzedzajace",
+        "question": "Czy stosuje Pan/ i leki rozrzedzające krew? (aspiryna, paracetamol, witamina E, inne)",
+        "hasFollowUp": true,
+        "followUpPlaceholder": "Podaj nazwę leku, dawkę i częstotliwość stosowania",
+        "category": "CZASOWE PRZECIWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "lekiMiejscowe",
+        "question": "Czy stosuje Pan/i leki do aplikacji miejscowej w obszarze objętym zabiegiem?",
+        "hasFollowUp": true,
+        "followUpPlaceholder": "Podaj nazwę leku, dawkę i częstotliwość stosowania",
+        "category": "CZASOWE PRZECIWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "temperatura",
+        "question": "Czy ma Pan/i podniesioną temperaturę ciała lub jest przeziębiona w dniu zabiegu?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "CZASOWE PRZECIWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "tarczyca",
+        "question": "Czy posiada Pan/i zaburzenia funkcji tarczycy?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "CZASOWE PRZECIWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "sinceKrwawienia",
+        "question": "Czy ma Pan/i skłonności do sińców lub krwawienia?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "CZASOWE PRZECIWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "tatuaze",
+        "question": "Czy posiada Pan/i tatuaże?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "CZASOWE PRZECIWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "makijazPermanentny",
+        "question": "Czy posiada Pani makijaż permanentny?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "CZASOWE PRZECIWSKAZANIA DO WYKONANIA ZABIEGU"
+      }
+    ]
+  },
+  "lipoliza-iniekcyjna": {
+    "legacyFormType": "INJECTION_LIPOLYSIS",
+    "questionCount": 28,
+    "categories": [],
+    "contraindications": [
+      {
+        "key": "ciazaLaktacja",
+        "question": "Czy jest Pani w ciąży lub w okresie laktacji?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "zapalenieZakazenieSkory",
+        "question": "Czy ma Pani/Pan zapalenie lub zakażenie skóry (trądzik, opryszczka, zapalenia skórne, alergiczne lub grzybicze zmiany w okolicach podlegających zabiegowi, naczyniaki, liszaje, brodawczaki, przerwania ciągłości naskórka, poparzenia słoneczne?)",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "chorobySerca",
+        "question": "Czy choruje Pani/Pan na choroby serca?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "chorobyAutoimmunologiczne",
+        "question": "Czy choruje Pani/Pan na choroby autoimmunologiczne?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "cukrzycaZaburzeniamiNaczyniowymi",
+        "question": "Czy choruje Pani/Pan na cukrzycę z zaburzeniami naczyniowymi?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "chemioterapiaRadioterapia",
+        "question": "Czy w ciągu ostatniego roku była /Pan poddawana chemioterapii lub radioterapii?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "nowotwor",
+        "question": "Czy choruje Pani/Pan na nowotwór?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "zoltaczkaChorobyWatrobyNerek",
+        "question": "Czy choruje Pani/Pan na żółtaczkę lub ciężki choroby wątroby lub nerek?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "zaburzeniaTarczycy",
+        "question": "Czy choruje Pani/Pan na zaburzenia pracy tarczycy?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "epilepsja",
+        "question": "Czy choruje Pani/Pan na epilepsję?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "alergiaSkladnikiPreparatu",
+        "question": "Czy posiada Pani/Pan alergie na składniki preparatu?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "nadwrazliwoscKwasBenzoesowy",
+        "question": "Czy posiada Pani/Pan nadwrażliwość na kwas benzoesowy, soję lub witaminę E, B?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "alergiaZnieczulenie",
+        "question": "Czy ma Pani/Pan alergie na preparaty stosowane do miejscowego znieczulenia?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "chorobyImmunologiczne",
+        "question": "Czy choruje Pani/Pan na choroby immunologiczne?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "lekiRyzykoKrwawienia",
+        "question": "Czy stosuje Pani/Pan leki zwiększające ryzyko krwawienia? (aspiryna, paracetamol, witamina E, inne)",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "problemyKrzepliwoscKrwi",
+        "question": "Czy występują problemy z krzepliwością krwi?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "zakrzepoweZapalenieZyl",
+        "question": "Czy choruje Pani/Pan na zakrzepowe zapalenie żył?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "preparatyIzotretynoina",
+        "question": "Czy przed upływem ostatnich 3 miesięcy były przyjmowane doustnie preparaty z izotretynoiną? (np. Acnenormin, Roacutan, Izotek, Curacne)?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "niewydolnoscMarskoscWatroby",
+        "question": "Czy choruje Pani/Pan na niewydolność lub marskość wątroby bądź inne choroby wątroby?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "problemyKrazeniem",
+        "question": "Czy ma Pani/Pan problemy z krążeniem?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "antybiotykoterapia",
+        "question": "Czy jest Pani/Pan w trakcie stosowania antybiotykoterapii?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "lekiMiejscowe",
+        "question": "Czy stosuje Pani/Pan leki do aplikacji miejscowej w obszarze objętym zabiegiem?",
+        "hasFollowUp": true,
+        "followUpPlaceholder": "Podaj nazwę leku, dawkę i częstotliwość stosowania",
+        "category": null
+      },
+      {
+        "key": "temperaturaPrzeziebienie",
+        "question": "Czy ma Pani/Pan podniesioną temperaturę ciała lub jest przeziębiona w dniu zabiegu?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "tatuaze",
+        "question": "Czy posiada Pani/Pan tatuaże?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "makijazPermanentny",
+        "question": "Czy posiada Pani/Pan makijaż permanentny?",
+        "hasFollowUp": true,
+        "followUpPlaceholder": "Jeżeli tak, to kiedy został wykonany i jaką techniką?",
+        "category": null
+      },
+      {
+        "key": "zabiegiKwasHialuronowyToksynaBotulinowa",
+        "question": "Czy w ciągu ostatnich 6 miesięcy były wykonywane zabiegi z zastosowaniem kwasu hialuronowego lub toksyny botulinowej?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "zabiegiChirurgiczneTwarz",
+        "question": "Czy korzystała Pani/Pan z zabiegów chirurgicznych w okolicy twarzy?",
+        "hasFollowUp": true,
+        "followUpPlaceholder": "Jeżeli tak, to z jakich?",
+        "category": null
+      },
+      {
+        "key": "inneSchorzenia",
+        "question": "Czy posiada Pani/Pan inne schorzenia niewymienione, proszę podać jakie:",
+        "hasFollowUp": true,
+        "followUpPlaceholder": "Proszę podać jakie",
+        "category": null
+      }
+    ]
+  },
+  "makijaz-permanentny": {
+    "legacyFormType": "PERMANENT_MAKEUP",
+    "questionCount": 43,
+    "categories": [
+      "BEZWZGLĘDNE PRZECIWSKAZANIA DO WYKONANIA ZABIEGU",
+      "WZGLĘDNE PRZECIWSKAZANIA DO WYKONANIA ZABIEGU",
+      "CZASOWE PRZECIWWSKAZANIA DO WYKONANIA ZABIEGU"
+    ],
+    "contraindications": [
+      {
+        "key": "ciazaLaktacja",
+        "question": "Czy jest Pani w ciąży lub w okresie laktacji?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "BEZWZGLĘDNE PRZECIWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "chemioterapiaRadioterapia",
+        "question": "Czy w ciągu ostatniego roku była Pani poddawana chemioterapii lub radioterapii?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "BEZWZGLĘDNE PRZECIWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "nowotwor",
+        "question": "Czy choruje Pani na nowotwór?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "BEZWZGLĘDNE PRZECIWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "hivZoltaczka",
+        "question": "Czy choruje Pani na HIV lub żółtaczkę?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "BEZWZGLĘDNE PRZECIWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "luszczycaAktywna",
+        "question": "Czy choruje Pani na łuszczycę?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "BEZWZGLĘDNE PRZECIWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "epilepsja",
+        "question": "Czy choruje Pani na epilepsję?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "BEZWZGLĘDNE PRZECIWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "hemofilia",
+        "question": "Czy ma Pani stwierdzoną hemofilię?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "BEZWZGLĘDNE PRZECIWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "problemyGojenieRan",
+        "question": "Czy ma Pani problem/trudności z gojeniem ran?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "BEZWZGLĘDNE PRZECIWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "alergiaBarwniki",
+        "question": "Czy posiada Pani alergie na barwniki stosowane do pigmentacji?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "BEZWZGLĘDNE PRZECIWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "alergiaZnieczulenie",
+        "question": "Czy ma Pani alergie na preparaty stosowane do miejscowego znieczulenia?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "BEZWZGLĘDNE PRZECIWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "alkoholNarkotyki",
+        "question": "Czy w ciągu ostatnich 2 dni przyjmowała Pani alkohol lub inne środki odurzające?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "BEZWZGLĘDNE PRZECIWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "nadpobudliwoscGalkiOcznej",
+        "question": "Czy ma Pani nadpobudliwość gałki ocznej?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "BEZWZGLĘDNE PRZECIWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "stanyZapalneSpojowekOczu",
+        "question": "Czy ma Pani stany zapalne spojówek oczu?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "BEZWZGLĘDNE PRZECIWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "stwardnienieSiatkowki",
+        "question": "Czy ma Pani stwardnienie siatkówki?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "BEZWZGLĘDNE PRZECIWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "skoraTendencjeKeloidyBlizny",
+        "question": "Czy ma Pani skórę z tendencjami do keloidów i blizn?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "BEZWZGLĘDNE PRZECIWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "lekiPrzeciwzapalne",
+        "question": "Czy przyjmuje Pani niesteroidowe leki przeciwzapalne?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "BEZWZGLĘDNE PRZECIWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "cukrzyca",
+        "question": "Czy choruje Pani na cukrzycę?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "WZGLĘDNE PRZECIWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "zaburzeniaSerca",
+        "question": "Czy choruje Pani na zaburzenie pracy serca?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "WZGLĘDNE PRZECIWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "anemia",
+        "question": "Czy ma Pani anemię?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "WZGLĘDNE PRZECIWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "problemyKrazeniem",
+        "question": "Czy ma Pani problemy z krążeniem?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "WZGLĘDNE PRZECIWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "chorobyAutoimmunologiczne",
+        "question": "Czy choruje Pani na choroby autoimmunologiczne?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "WZGLĘDNE PRZECIWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "zmianySkorne",
+        "question": "Czy ma Pani zmiany skórne w obszarze poddawanym zabiegowi (trądzik, stany ropne, alergiczne lub grzybicze zmiany w okolicach podlegających zabiegowi, naczyniaki, liszaje, brodawczaki, przerwania ciągłości naskórka, poparzenia słoneczne)?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "WZGLĘDNE PRZECIWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "skoraTlustaPorowata",
+        "question": "Czy ma Pani skórę tłustą lub porowatą?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "WZGLĘDNE PRZECIWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "aktywnaOpryszczka",
+        "question": "Czy ma Pani aktywną opryszczkę? (ust/oka)",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "CZASOWE PRZECIWWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "leczenieStomatologiczne",
+        "question": "Czy jest Pani w trakcie leczenia stomatologicznego?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "CZASOWE PRZECIWWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "peelingChemicznyLaserowy",
+        "question": "Czy w ciągu 6 miesięcy korzystała Pani z peelingu chemicznego czy laserowego?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "CZASOWE PRZECIWWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "wypelniaczeSkorneKwasHialuronowy",
+        "question": "Czy korzystała Pani z wypełniaczy skórnych - kwasu hialuronowego?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "CZASOWE PRZECIWWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "zastrzykiBotoks",
+        "question": "Czy korzystała Pani z zastrzyków z botoksu?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "CZASOWE PRZECIWWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "zabiegiChirurgiczneTwarz",
+        "question": "Czy korzystała Pani z zabiegów chirurgicznych w okolicy twarzy?",
+        "hasFollowUp": true,
+        "followUpPlaceholder": "Jeżeli tak, to z jakich i kiedy?",
+        "category": "CZASOWE PRZECIWWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "chorobySkory",
+        "question": "Czy posiada Pani choroby skóry (łojotokowe/atopowe zapalenie)?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "CZASOWE PRZECIWWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "kuracjaSterydowa",
+        "question": "Czy jest Pani w trakcie kuracji sterydowej?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "CZASOWE PRZECIWWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "antybiotykoterapia",
+        "question": "Czy jest Pani w trakcie stosowania antybiotykoterapii?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "CZASOWE PRZECIWWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "lekiRozrzedzajaceKrew",
+        "question": "Czy stosuje Pani leki rozrzedzające krew? (aspiryna, paracetamol, witamina E, inne)",
+        "hasFollowUp": true,
+        "followUpPlaceholder": "Podaj nazwę leku, dawkę i częstotliwość stosowania",
+        "category": "CZASOWE PRZECIWWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "lekiMiejscowe",
+        "question": "Czy stosuje Pani leki do aplikacji miejscowej w obszarze objętym zabiegiem?",
+        "hasFollowUp": true,
+        "followUpPlaceholder": "Podaj nazwę leku, dawkę i częstotliwość stosowania",
+        "category": "CZASOWE PRZECIWWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "zabiegZluszczania",
+        "question": "Czy w okresie 4 tyg. przed zabiegiem miała Pani zabieg złuszczania naskórka?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "CZASOWE PRZECIWWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "odzywkiRewitalizacjaBrwiRzesy",
+        "question": "Czy stosowała Pani odżywki do rewitalizacji, stymulacji wzrostu brwi i rzęs w okresie miesiąca przed zabiegiem?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "CZASOWE PRZECIWWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "temperaturaPrzeziebienie",
+        "question": "Czy ma Pani podniesioną temperaturę ciała lub jest przeziębiona w dniu zabiegu?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "CZASOWE PRZECIWWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "zaburzeniaTarczycy",
+        "question": "Czy posiada Pani zaburzenia funkcji tarczycy?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "CZASOWE PRZECIWWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "sklonnosciSinceKrwawienie",
+        "question": "Czy ma Pani skłonności do sińców lub krwawienia?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "CZASOWE PRZECIWWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "uczulenieLidokaina",
+        "question": "Czy posiada Pani uczulenie na lidokainę?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "CZASOWE PRZECIWWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "tatuaze",
+        "question": "Czy posiada Pani inne tatuaże?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "CZASOWE PRZECIWWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "makijazPermanentny",
+        "question": "Czy posiada Pani makijaż permanentny?",
+        "hasFollowUp": true,
+        "followUpPlaceholder": "Jeżeli tak, to kiedy został wykonany i jaką techniką?",
+        "category": "CZASOWE PRZECIWWSKAZANIA DO WYKONANIA ZABIEGU"
+      },
+      {
+        "key": "inneSchorzenia",
+        "question": "Inne schorzenia",
+        "hasFollowUp": true,
+        "followUpPlaceholder": "Proszę podać jakie",
+        "category": "CZASOWE PRZECIWWSKAZANIA DO WYKONANIA ZABIEGU"
+      }
+    ]
+  },
+  "depilacja-laserowa": {
+    "legacyFormType": "LASER_HAIR_REMOVAL",
+    "questionCount": 15,
+    "categories": [],
+    "contraindications": [
+      {
+        "key": "ciazaLaktacja",
+        "question": "Czy jest Pani/Pan w ciąży lub karmi piersią?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "chorobyNowotworowe",
+        "question": "Czy choruje Pani/Pan lub chorowała/-ł na choroby nowotworowe?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "epilepsja",
+        "question": "Czy choruje Pani/Pan na epilepsję?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "cukrzycaNiewyrownana",
+        "question": "Czy choruje Pani/Pan na cukrzycę (szczególnie niewyrównaną)?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "chorobyHormonalne",
+        "question": "Czy występują choroby hormonalne (np. tarczyca, PCOS)?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "chorobyAutoimmunologiczne",
+        "question": "Czy występują choroby autoimmunologiczne?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "sklonnoscBliznowce",
+        "question": "Czy ma Pani/Pan skłonność do powstawania bliznowców (keloidów)?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "stanyZapalneRanyInfekcje",
+        "question": "Czy w miejscu zabiegowym występują: stany zapalne, rany, infekcje, choroby skóry?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "tatuazeZnamionaMakijazPermanentny",
+        "question": "Czy posiada Pani/Pan tatuaże, znamiona lub makijaż permanentny w obszarze zabiegowym?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "swiezaOpalenizna",
+        "question": "Czy w ciągu ostatnich 14 dni była świeża opalenizna (słońce/solarium)?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "lekiSwiatlouczulajace",
+        "question": "Czy przyjmuje Pani/Pan leki, zioła lub suplementy światłouczulające?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "antybiotyki",
+        "question": "Czy w ciągu ostatnich 14 dni przyjmowała/-ł Pani/Pan antybiotyki?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "retinoidy",
+        "question": "Czy stosuje lub stosowała/-ł Pani/Pan retinoidy lub witaminę A?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "kosmetykiRetinolKwasySamoopalacz",
+        "question": "Czy w ciągu ostatnich 2 tygodni stosowała/-ł Pani/Pan kosmetyki z: retinolem, kwasami, samoopalaczem?",
+        "hasFollowUp": true,
+        "followUpPlaceholder": "Jeśli odpowiedź TAK – proszę podać szczegóły...",
+        "category": null
+      },
+      {
+        "key": "inneChorobyLeki",
+        "question": "Czy choruje Pani/Pan na inne choroby niewymienione powyżej lub przyjmuje na stałe jakiekolwiek leki, zioła bądź suplementy diety (w tym leki dostępne bez recepty)?",
+        "hasFollowUp": true,
+        "followUpPlaceholder": "Jeśli tak, proszę wymienić jakie...",
+        "category": null
+      }
+    ]
+  },
+  "usuwanie-tatuazu": {
+    "legacyFormType": "LASER_TATTOO_REMOVAL",
+    "questionCount": 22,
+    "categories": [],
+    "contraindications": [
+      {
+        "key": "ciazaLaktacja",
+        "question": "Czy jest Pani w ciąży lub w okresie laktacji?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "zapalenieZakazenieSkory",
+        "question": "Czy ma Pani/Pan zapalenie lub zakażenie skóry (trądzik, opryszczka, zapalenia skórne, alergiczne lub grzybicze zmiany w okolicach podlegających zabiegowi, naczyniaki, liszaje, brodawczaki, przerwania ciągłości naskórka, poparzenia słoneczne?)",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "chorobySerca",
+        "question": "Czy choruje Pani/Pan na choroby serca?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "chorobyAutoimmunologiczne",
+        "question": "Czy choruje Pani/Pan na choroby autoimmunologiczne?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "wysokieCisnienieKrwi",
+        "question": "Czy ma Pani/Pan wysokie ciśnienie krwi?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "cukrzycaZaburzeniamiNaczyniowymi",
+        "question": "Czy choruje Pani/Pan na cukrzycę z zaburzeniami naczyniowymi?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "chemioterapiaRadioterapia",
+        "question": "Czy w ciągu ostatniego roku była /Pan poddawana chemioterapii lub radioterapii?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "nowotwor",
+        "question": "Czy choruje Pani/Pan na nowotwór?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "zoltaczkaChorobyWatrobyNerek",
+        "question": "Czy choruje Pani/Pan na żółtaczkę lub ciężkie choroby wątroby lub nerek?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "zaburzeniaTarczycy",
+        "question": "Czy choruje Pani/Pan na zaburzenia pracy tarczycy?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "epilepsja",
+        "question": "Czy choruje Pani/Pan na epilepsję?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "chorobyImmunologiczne",
+        "question": "Czy choruje Pani/Pan na choroby immunologiczne?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "luszczycaBielactwo",
+        "question": "Czy choruje Pani/Pan na łuszczycę lub bielactwo?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "chorobyTkankiLacznej",
+        "question": "Czy choruje Pani/Pan na choroby tkanki łącznej?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "problemyKrazeniem",
+        "question": "Czy ma Pani/Pan problemy z krążeniem?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "lekiMiejscowe",
+        "question": "Czy stosuje Pani/Pan leki do aplikacji miejscowej w obszarze objętym zabiegiem?",
+        "hasFollowUp": true,
+        "followUpPlaceholder": "Podaj nazwę leku, dawkę i częstotliwość stosowania",
+        "category": null
+      },
+      {
+        "key": "temperaturaPrzeziebienie",
+        "question": "Czy ma Pani/Pan podniesioną temperaturę ciała lub jest przeziębiona w dniu zabiegu?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "lekiSwiatlouczulajace",
+        "question": "Czy przyjmuje Pani/Pan leki światłouczulające lub suplementy diety: nagietek, dziurawiec, pokrzywa, czystek, skrzyp polny",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "lekiAntydepresyjneSterydy",
+        "question": "Czy przyjmuje Pani/Pan leki antydepresyjne, sterydy?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "kuracjaAntybiotykowa",
+        "question": "Czy jest Pani/Pan w trakcie kuracji antybiotykowej w tym retinoidy?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "leczenieStomatologiczne",
+        "question": "Czy była Pani/Pan w ciągu ostatniego tygodnia na leczeniu stomatologicznym?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "inneSchorzenia",
+        "question": "Czy posiada Pani/Pan inne schorzenia niewymienione, proszę podać jakie:",
+        "hasFollowUp": true,
+        "followUpPlaceholder": null,
+        "category": null
+      }
+    ]
+  },
+  "niwelowanie-zmarszczek": {
+    "legacyFormType": "WRINKLE_REDUCTION",
+    "questionCount": 32,
+    "categories": [],
+    "contraindications": [
+      {
+        "key": "ciazaLaktacja",
+        "question": "Czy jest Pani w ciąży lub w okresie laktacji?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "zapalenieZakazenieSkory",
+        "question": "Czy ma Pani/Pan zapalenie lub zakażenie skóry (trądzik, opryszczka, zapalenia skórne, alergiczne lub grzybicze zmiany w okolicach podlegających zabiegowi, naczyniaki, liszaje, brodawczaki, przerwania ciągłości naskórka, poparzenia słoneczne?)",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "chorobySerca",
+        "question": "Czy choruje Pani/Pan na choroby serca?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "chorobyAutoimmunologiczne",
+        "question": "Czy choruje Pani/Pan na choroby autoimmunologiczne?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "cukrzyca",
+        "question": "Czy choruje Pani/Pan na cukrzycę?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "chemioterapiaRadioterapia",
+        "question": "Czy w ciągu ostatniego roku była/był Pan poddawana chemioterapii lub radioterapii?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "nowotwor",
+        "question": "Czy choruje Pani/Pan na nowotwór?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "hivZoltaczka",
+        "question": "Czy choruje Pani/Pan na HIV lub żółtaczkę?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "zaburzeniaTarczycy",
+        "question": "Czy choruje Pani/Pan na zaburzenia pracy tarczycy?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "luszczycaAktywna",
+        "question": "Czy choruje Pani/Pan na łuszczycę?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "epilepsja",
+        "question": "Czy choruje Pani/Pan na epilepsję?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "problemyGojenieRan",
+        "question": "Czy ma Pani/Pan problem/trudności z gojeniem ran?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "alergiaSkładnikiPreparatu",
+        "question": "Czy posiada Pani/Pan alergie na składniki preparatu?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "alergiaZnieczulenie",
+        "question": "Czy ma Pani/Pan alergie na preparaty stosowane do miejscowego znieczulenia?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "chorobyImmunologiczne",
+        "question": "Czy choruje Pani/Pan na choroby immunologiczne (reumatoidalne zapalenie stawów, łuszczycowe zapalenie stawów, wrzodziejące zapalenie jelita grubego, chorobę Crohna, zesztywniające zapalenie stawów etc.)",
+        "hasFollowUp": true,
+        "followUpPlaceholder": "Jeżeli tak, to jakie?",
+        "category": null
+      },
+      {
+        "key": "bielactwo",
+        "question": "Czy choruje Pani/Pan na bielactwo?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "porfiriaSkorna",
+        "question": "Czy choruje Pani/Pan na portfirie skórną?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "podatnoscBlizny",
+        "question": "Czy ma Pani/Pan podatność na przerost blizn?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "alkoholNarkotyki",
+        "question": "Czy w ciągu ostatnich 2 dni przyjmowała Pani/Pan alkohol lub inne środki odurzające?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "lekiRyzykoKrwawienia",
+        "question": "Czy stosuje Pani/Pan leki zwiększające ryzyko krwawienia? (aspiryna, paracetamol, witamina E, inne)",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "problemyKrzepliwoscKrwi",
+        "question": "Czy występują problemy z krzepliwością krwi?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "problemyKrazeniem",
+        "question": "Czy ma Pani/Pan problemy z krążeniem?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "wypelniaczeSkorneKwasHialuronowy",
+        "question": "Czy korzystała Pani/Pan z wypełniaczy skórnych - kwasu hialuronowego?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "zastrzykiBotoks",
+        "question": "Czy korzystała Pani/Pan z zastrzyków z użyciem botoksu?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "antybiotykoterapia",
+        "question": "Czy jest Pani/Pan w trakcie stosowania antybiotykoterapii?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "lekiMiejscowe",
+        "question": "Czy stosuje Pani/Pan leki do aplikacji miejscowej w obszarze objętym zabiegiem?",
+        "hasFollowUp": true,
+        "followUpPlaceholder": "Podaj nazwę leku, dawkę i częstotliwość stosowania",
+        "category": null
+      },
+      {
+        "key": "temperaturaPrzeziebienie",
+        "question": "Czy ma Pani/Pan podniesioną temperaturę ciała lub jest przeziębiona w dniu zabiegu?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "sklonnosciSinceKrwawienie",
+        "question": "Czy ma Pani/Pan skłonności do sińców lub krwawienia?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "tatuaze",
+        "question": "Czy posiada Pani/Pan tatuaże?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "makijazPermanentny",
+        "question": "Czy posiada Pani/Pan makijaż permanentny?",
+        "hasFollowUp": true,
+        "followUpPlaceholder": "Jeżeli tak, to kiedy został wykonany i jaką techniką?",
+        "category": null
+      },
+      {
+        "key": "zabiegiChirurgiczneTwarz",
+        "question": "Czy korzystała Pani/Pan z zabiegów chirurgicznych w okolicy twarzy?",
+        "hasFollowUp": true,
+        "followUpPlaceholder": "Jeżeli tak, to z jakich?",
+        "category": null
+      },
+      {
+        "key": "inneSchorzenia",
+        "question": "Czy posiada Pani/Pan inne schorzenia niewymienione?",
+        "hasFollowUp": true,
+        "followUpPlaceholder": "Proszę podać jakie",
+        "category": null
+      }
+    ]
+  },
+  "lifting-powiek": {
+    "legacyFormType": "EYELID_LIFT",
+    "questionCount": 22,
+    "categories": [],
+    "contraindications": [
+      {
+        "key": "ciazaLaktacja",
+        "question": "Czy jest Pani w ciąży lub w okresie laktacji?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "zapalenieZakazenieSkory",
+        "question": "Czy ma Pani/Pan zapalenie lub zakażenie skóry (trądzik, opryszczka, zapalenia skórne, alergiczne lub grzybicze zmiany w okolicach podlegających zabiegowi, naczyniaki, liszaje, brodawczaki, przerwania ciągłości naskórka, poparzenia słoneczne)?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "chorobySerca",
+        "question": "Czy choruje Pani/Pan na choroby serca?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "chorobyAutoimmunologiczne",
+        "question": "Czy choruje Pani/Pan na choroby autoimmunologiczne?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "wysokieCisnienie",
+        "question": "Czy ma Pani/Pan wysokie ciśnienie krwi?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "cukrzycaZaburzeniaNaczyniowe",
+        "question": "Czy choruje Pani/Pan na cukrzycę z zaburzeniami naczyniowymi?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "chemioterapiaRadioterapia",
+        "question": "Czy w ciągu ostatniego roku była/był Pani/Pan poddawana chemioterapii lub radioterapii?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "nowotwor",
+        "question": "Czy choruje Pani/Pan na nowotwór?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "zoltaczkaChorobyWatrobyNerek",
+        "question": "Czy choruje Pani/Pan na żółtaczkę lub ciężkie choroby wątroby lub nerek?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "zaburzeniaTarczycy",
+        "question": "Czy choruje Pani/Pan na zaburzenia pracy tarczycy?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "epilepsja",
+        "question": "Czy choruje Pani/Pan na epilepsję?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "chorobyImmunologiczne",
+        "question": "Czy choruje Pani/Pan na choroby immunologiczne?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "luszczycaBielactwo",
+        "question": "Czy choruje Pani/Pan na łuszczycę lub bielactwo?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "chorobyTkankiLacznej",
+        "question": "Czy choruje Pani/Pan na choroby tkanki łącznej?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "problemyKrazeniem",
+        "question": "Czy ma Pani/Pan problemy z krążeniem?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "lekiMiejscowe",
+        "question": "Czy stosuje Pani/Pan leki do aplikacji miejscowej w obszarze objętym zabiegiem?",
+        "hasFollowUp": true,
+        "followUpPlaceholder": "Podaj nazwę leku, dawkę i częstotliwość stosowania",
+        "category": null
+      },
+      {
+        "key": "temperaturaPrzeziebienie",
+        "question": "Czy ma Pani/Pan podniesioną temperaturę ciała lub jest przeziębiona w dniu zabiegu?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "lekiSwiatlouczulajace",
+        "question": "Czy przyjmuje Pani/Pan leki światłouczulające lub suplementy diety (nagietek, dziurawiec, pokrzywa, czystek, skrzyp polny)?",
+        "hasFollowUp": true,
+        "followUpPlaceholder": "Jeżeli tak, to jakie?",
+        "category": null
+      },
+      {
+        "key": "lekiAntydepresyjneSterydy",
+        "question": "Czy przyjmuje Pani/Pan leki antydepresyjne, sterydy?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "antybiotykoterapiaRetynoidy",
+        "question": "Czy jest Pani/Pan w trakcie kuracji antybiotykowej (w tym retynoidy)?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "leczenieStomatologiczne",
+        "question": "Czy była Pani/Pan w ciągu ostatniego tygodnia na leczeniu stomatologicznym?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "inneSchorzenia",
+        "question": "Czy posiada Pani/Pan inne schorzenia niewymienione powyżej?",
+        "hasFollowUp": true,
+        "followUpPlaceholder": "Jeżeli tak, to jakie?",
+        "category": null
+      }
+    ]
+  },
+  "stymulacja-tkankowa": {
+    "legacyFormType": "TISSUE_STIMULATION",
+    "questionCount": 33,
+    "categories": [],
+    "contraindications": [
+      {
+        "key": "ciazaLaktacja",
+        "question": "Czy jest Pani w ciąży lub w okresie laktacji?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "zapalenieZakazenieSkory",
+        "question": "Czy ma Pani/Pan zapalenie lub zakażenie skóry (trądzik, opryszczka, zapalenia skórne, alergiczne lub grzybicze zmiany w okolicach podlegających zabiegowi, naczyniaki, liszaje, brodawczaki, przerwania ciągłości naskórka, poparzenia słoneczne?)",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "nadwrazliwoscPreparat",
+        "question": "Czy ma Pani/Pan nadwrażliwość na preparat?",
+        "hasFollowUp": true,
+        "followUpPlaceholder": "Jaki?",
+        "category": null
+      },
+      {
+        "key": "grzybiczeBakteryjneZapalenie",
+        "question": "Czy występuje u Pani/Pana grzybicze/bakteryjne zapalenie skóry?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "zaburzeniaSercowoNaczyniowe",
+        "question": "Czy ma Pani/Pan zaburzenia sercowo – naczyniowe?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "hemofilia",
+        "question": "Czy choruje Pani/Pan na hemofilię?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "chemioterapiaRadioterapia",
+        "question": "Czy w ciągu ostatniego roku była /Pan poddawana chemioterapii lub radioterapii?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "nowotwor",
+        "question": "Czy choruje Pani/Pan na nowotwór?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "hivZoltaczka",
+        "question": "Czy choruje Pani/Pan na HIV lub żółtaczkę?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "luszczycaAktywna",
+        "question": "Czy choruje Pani/Pan na łuszczycę?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "epilepsja",
+        "question": "Czy choruje Pani/Pan na epilepsję?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "problemyGojenieRan",
+        "question": "Czy ma Pani/Pan problem/trudności z gojeniem ran?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "problemyKrzepliwoscKrwi",
+        "question": "Czy ma Pani/Pan problemy z krzepnięciem krwi?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "alergiaSkladnikiPreparatu",
+        "question": "Czy posiada Pani/Pan alergie na składniki preparatu?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "alergiaZnieczulenie",
+        "question": "Czy ma Pani/Pan alergie na preparaty stosowane do miejscowego znieczulenia?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "podatnoscBlizny",
+        "question": "Czy ma Pani/Pan podatność na przerost blizn?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "alkoholSrodkiOdurzajace",
+        "question": "Czy w ciągu ostatnich 2 dni przyjmowała Pani/Pan alkohol lub inne środku odurzające?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "lekiPrzeciwzakrzepowe",
+        "question": "Czy stosuje Pani/Pan leki przeciwzakrzepowe?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "cukrzyca",
+        "question": "Czy choruje Pani/Pan na cukrzycę?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "dnaMoczanowa",
+        "question": "Czy choruje Pani/Pan na dnę moczanową?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "trudnosciOddychaniem",
+        "question": "Czy cierpi Pani/ Pan na trudności z oddychaniem?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "problemyKrazeniem",
+        "question": "Czy ma Pani/Pan problemy z krążeniem?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "chorobyAutoimmunologiczne",
+        "question": "Czy choruje Pani/Pan na choroby autoimmunologiczne?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "wypelniaczeSkorneKwasHialuronowy",
+        "question": "Czy korzystała Pani/Pan z wypełniaczy skórnych - kwasu hialuronowego?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "zabiegiChirurgiczneTwarz",
+        "question": "Czy korzystała Pani/Pan z zabiegów chirurgicznych w okolicy twarzy?",
+        "hasFollowUp": true,
+        "followUpPlaceholder": "Jeżeli tak, to z jakich?",
+        "category": null
+      },
+      {
+        "key": "antybiotykoterapia",
+        "question": "Czy jest Pani/Pan w trakcie stosowania antybiotykoterapii?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "lekiRozrzedzajaceKrew",
+        "question": "Czy stosuje Pani/Pan leki rozrzedzające krew? (aspiryna, paracetamol, witamina E, inne)",
+        "hasFollowUp": true,
+        "followUpPlaceholder": "Podaj nazwę leku, dawkę i częstotliwość stosowania",
+        "category": null
+      },
+      {
+        "key": "lekiMiejscowe",
+        "question": "Czy stosuje Pani/Pan leki do aplikacji miejscowej w obszarze objętym zabiegiem?",
+        "hasFollowUp": true,
+        "followUpPlaceholder": "Podaj nazwę leku, dawkę i częstotliwość stosowania",
+        "category": null
+      },
+      {
+        "key": "temperaturaPrzeziebienie",
+        "question": "Czy ma Pani/Pan podniesioną temperaturę ciała lub jest przeziębiona w dniu zabiegu?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "sklonnosciSinceKrwawienie",
+        "question": "Czy ma Pani/Pan skłonności do sińców lub krwawienia?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "tatuaze",
+        "question": "Czy posiada Pani/Pan tatuaże?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "makijazPermanentny",
+        "question": "Czy posiada Pani/Pan makijaż permanentny?",
+        "hasFollowUp": true,
+        "followUpPlaceholder": "Jeżeli tak, to kiedy został wykonany i jaką techniką?",
+        "category": null
+      },
+      {
+        "key": "inneSchorzenia",
+        "question": "Czy posiada Pani/Pan inne schorzenia",
+        "hasFollowUp": true,
+        "followUpPlaceholder": "Proszę podać jakie:",
+        "category": null
+      }
+    ]
+  },
+  "farbowanie-rzes-brwi": {
+    "legacyFormType": "EYEBROW_TINTING",
+    "questionCount": 8,
+    "categories": [],
+    "contraindications": [
+      {
+        "key": "reakcjaAlergiczna",
+        "question": "Czy miała Pani kiedykolwiek reakcję alergiczną po farbowaniu brwi, rzęs lub włosów?",
+        "hasFollowUp": true,
+        "followUpPlaceholder": "Jeśli tak, proszę opisać objawy...",
+        "category": null
+      },
+      {
+        "key": "uczulenieSkladniki",
+        "question": "Czy ma Pani uczulenie na którykolwiek z poniższych składników?",
+        "hasFollowUp": true,
+        "followUpPlaceholder": "Jeśli tak, jakie?...",
+        "category": null
+      },
+      {
+        "key": "chorobySkoryOczu",
+        "question": "Czy cierpi Pani na choroby skóry lub oczu (np. egzema, opryszczka, jęczmień, zapalenie spojówek)?",
+        "hasFollowUp": true,
+        "followUpPlaceholder": "Jeśli tak, jakie?...",
+        "category": null
+      },
+      {
+        "key": "wrazliweOczy",
+        "question": "Czy oczy łatwo się łzawią, pieką lub są bardzo wrażliwe?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "testUczuleniowy",
+        "question": "Czy wykonywała Pani test uczuleniowy na farbę w ciągu ostatnich 48h?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "leki",
+        "question": "Czy przyjmuje Pani obecnie jakieś leki?",
+        "hasFollowUp": true,
+        "followUpPlaceholder": "Jeśli tak, jakie?...",
+        "category": null
+      },
+      {
+        "key": "ciazaKarmienie",
+        "question": "Czy jest Pani w ciąży lub karmi piersią?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "zabiegiOczy",
+        "question": "Czy w ciągu ostatnich 2 tygodni miała Pani jakiekolwiek zabiegi w okolicach oczu?",
+        "hasFollowUp": true,
+        "followUpPlaceholder": "Jakie?...",
+        "category": null
+      }
+    ]
+  },
+  "laminacja-rzes-brwi": {
+    "legacyFormType": "EYEBROW_LAMINATION",
+    "questionCount": 10,
+    "categories": [],
+    "contraindications": [
+      {
+        "key": "alergiaSkladniki",
+        "question": "Czy ma Pani alergię na którykolwiek ze składników kosmetyków? (np. farbki, henna, keratyna, lateks, konserwanty)",
+        "hasFollowUp": true,
+        "followUpPlaceholder": "Jeśli tak, na jakie?...",
+        "category": null
+      },
+      {
+        "key": "reakcjaAlergiczna",
+        "question": "Czy kiedykolwiek wystąpiła u Pani reakcja alergiczna po farbowaniu brwi/rzęs lub włosów?",
+        "hasFollowUp": true,
+        "followUpPlaceholder": "Jeśli tak, proszę opisać objawy...",
+        "category": null
+      },
+      {
+        "key": "reakcjaOczyBrwi",
+        "question": "Czy po wcześniejszych zabiegach kosmetycznych w okolicy oczu lub brwi wystąpiły jakiekolwiek reakcje uczuleniowe (np. zaczerwienienie, swędzenie, opuchlizna, wysypka)?",
+        "hasFollowUp": true,
+        "followUpPlaceholder": "Jeśli tak, jakie?...",
+        "category": null
+      },
+      {
+        "key": "chorobySkory",
+        "question": "Czy ma Pani atopowe zapalenie skóry (AZS), łuszczycę lub inną chorobę skóry?",
+        "hasFollowUp": true,
+        "followUpPlaceholder": "Jeśli tak, jaką?...",
+        "category": null
+      },
+      {
+        "key": "alergiaSezonowa",
+        "question": "Czy ma Pani alergię sezonową (np. na pyłki, kurz) lub astmę? (czasem osoby z takimi alergiami są bardziej wrażliwe na inne składniki)",
+        "hasFollowUp": true,
+        "followUpPlaceholder": "Jeśli tak, na co?...",
+        "category": null
+      },
+      {
+        "key": "skoraWrazliwa",
+        "question": "Czy ma Pani wrażliwą, reaktywną skórę, która łatwo się podrażnia?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "noweKosmetyki",
+        "question": "Czy w ciągu ostatnich 48 godzin stosowała Pani nowe kosmetyki w okolicy oczu lub brwi?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "lekiAntyhistaminowe",
+        "question": "Czy obecnie przyjmuje Pani leki antyhistaminowe, sterydowe lub immunosupresyjne?",
+        "hasFollowUp": true,
+        "followUpPlaceholder": "Jeśli tak, jakie?...",
+        "category": null
+      },
+      {
+        "key": "ciazaKarmienie",
+        "question": "Czy jesteś w ciąży lub karmisz piersią? (wzmożona wrażliwość skóry, zmieniona reakcja na składniki)",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "zabiegiIntensywne",
+        "question": "Czy w ciągu ostatnich 3 dni wykonywałaś peelingi, zabiegi laserowe, kwasy, retinol lub inne intensywne zabiegi w okolicy oczu/brwi?",
+        "hasFollowUp": true,
+        "followUpPlaceholder": "Jeśli tak, jakie?...",
+        "category": null
+      }
+    ]
+  },
+  "przedluzanie-rzes": {
+    "legacyFormType": "EYELASH_EXTENSION",
+    "questionCount": 11,
+    "categories": [],
+    "contraindications": [
+      {
+        "key": "previousReaction",
+        "question": "Czy kiedykolwiek wystąpiła u Pani reakcja alergiczna po zabiegu przedłużania rzęs?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "glueAllergy",
+        "question": "Czy ma Pani alergię na którykolwiek ze składników kleju do rzęs (np. cyjanoakrylan, lateks)?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "eyeInfections",
+        "question": "Czy ma Pani jakiekolwiek alergie skórne lub oczne, takie jak zapalenie spojówek, jęczmień lub inne infekcje oczu?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "sensitiveEyes",
+        "question": "Czy ma Pani wrażliwą skórę lub oczy, które łatwo się podrażniają?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "eyeDiseases",
+        "question": "Czy cierpi Pani na jakiekolwiek choroby oczu, takie jak zespół suchego oka, nużeniec, lub łzawienie oczu?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "medications",
+        "question": "Czy aktualnie przyjmuje Pani jakiekolwiek leki (w tym leki sterydowe, przeciwalergiczne, lub preparaty na oczy)?",
+        "hasFollowUp": true,
+        "followUpPlaceholder": "Jeśli tak, prosimy podać nazwę leku...",
+        "category": null
+      },
+      {
+        "key": "pregnancy",
+        "question": "Czy jest Pani w ciąży lub karmi Pani piersią?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "cosmeticsAllergy",
+        "question": "Czy miała Pani wcześniej jakiekolwiek reakcje alergiczne po użyciu kosmetyków do oczu lub twarzy?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "contactLenses",
+        "question": "Czy nosi Pani soczewki kontaktowe? (Jeśli tak, prosimy zdjąć soczewki przed zabiegiem.)",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "recentCosmetics",
+        "question": "Czy w ciągu ostatnich 48 godzin używała Pani kosmetyków do oczu, takich jak tusz do rzęs, eyeliner, lub odżywki?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": null
+      },
+      {
+        "key": "recentTreatments",
+        "question": "Czy miała Pani jakiekolwiek zabiegi w okolicach oczu (np. botoks, zabiegi medycyny estetycznej)?",
+        "hasFollowUp": true,
+        "followUpPlaceholder": "Jeśli tak, prosimy o szczegóły...",
+        "category": null
+      }
+    ]
+  },
+  "oczyszczanie-twarzy": {
+    "legacyFormType": "FACIAL_CLEANSING",
+    "questionCount": 15,
+    "categories": [
+      "WYWIAD MEDYCZNY – OCZYSZCZANIE TWARZY"
+    ],
+    "contraindications": [
+      {
+        "key": "opiekaMedyczna",
+        "question": "Czy jest Pani pod stałą opieką medyczną?",
+        "hasFollowUp": true,
+        "followUpPlaceholder": "Jeśli tak, to proszę o podanie powodu...",
+        "category": "WYWIAD MEDYCZNY – OCZYSZCZANIE TWARZY"
+      },
+      {
+        "key": "pobytSzpital",
+        "question": "Czy ostatnio przebywała Pani w szpitalu?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "WYWIAD MEDYCZNY – OCZYSZCZANIE TWARZY"
+      },
+      {
+        "key": "ciaza",
+        "question": "Czy jest Pani w ciąży?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "WYWIAD MEDYCZNY – OCZYSZCZANIE TWARZY"
+      },
+      {
+        "key": "alergiaKosmetyki",
+        "question": "Czy jest Pani uczulona na składniki kosmetyczne?",
+        "hasFollowUp": true,
+        "followUpPlaceholder": "Jeśli tak, to jakie...",
+        "category": "WYWIAD MEDYCZNY – OCZYSZCZANIE TWARZY"
+      },
+      {
+        "key": "zazywaLeki",
+        "question": "Czy zażywa Pani jakieś leki?",
+        "hasFollowUp": true,
+        "followUpPlaceholder": "Jeśli tak, to jakie...",
+        "category": "WYWIAD MEDYCZNY – OCZYSZCZANIE TWARZY"
+      },
+      {
+        "key": "implantyMetalowe",
+        "question": "Czy w miejscach zabiegowych posiada Pani implanty lub elementy metalowe?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "WYWIAD MEDYCZNY – OCZYSZCZANIE TWARZY"
+      },
+      {
+        "key": "rozrusznikSerca",
+        "question": "Czy posiada Pani rozrusznik serca lub zastawkę serca?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "WYWIAD MEDYCZNY – OCZYSZCZANIE TWARZY"
+      },
+      {
+        "key": "nowotworKuracja",
+        "question": "Nowotwory do 5 lat po zakończeniu kuracji – czy dotyczy to Pani?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "WYWIAD MEDYCZNY – OCZYSZCZANIE TWARZY"
+      },
+      {
+        "key": "przerwanaNaskorkowa",
+        "question": "Czy posiada Pani przerwaną ciągłość naskórka w miejscu zabiegu?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "WYWIAD MEDYCZNY – OCZYSZCZANIE TWARZY"
+      },
+      {
+        "key": "goraczkaStanyZapalne",
+        "question": "Czy występuje u Pani gorączka lub stany zapalne organizmu?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "WYWIAD MEDYCZNY – OCZYSZCZANIE TWARZY"
+      },
+      {
+        "key": "epilepsja",
+        "question": "Czy choruje Pani na epilepsję?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "WYWIAD MEDYCZNY – OCZYSZCZANIE TWARZY"
+      },
+      {
+        "key": "uczulenieUltradzwieki",
+        "question": "Czy ma Pani uczulenie na ultradźwięki?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "WYWIAD MEDYCZNY – OCZYSZCZANIE TWARZY"
+      },
+      {
+        "key": "czynnaGruzlica",
+        "question": "Czy choruje Pani na czynną gruźlicę płuc?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "WYWIAD MEDYCZNY – OCZYSZCZANIE TWARZY"
+      },
+      {
+        "key": "tradzikRopowiczy",
+        "question": "Czy występuje u Pani trądzik ropowiczy lub różowaty?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "WYWIAD MEDYCZNY – OCZYSZCZANIE TWARZY"
+      },
+      {
+        "key": "nadczynnoscTarczycy",
+        "question": "Czy choruje Pani na nadczynność tarczycy?",
+        "hasFollowUp": false,
+        "followUpPlaceholder": null,
+        "category": "WYWIAD MEDYCZNY – OCZYSZCZANIE TWARZY"
+      }
+    ]
+  }
+}

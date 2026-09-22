@@ -1,0 +1,11 @@
+export { BeautyDocsContact } from "./BeautyDocsContact";
+export { BeautyDocsFeatureGrid } from "./BeautyDocsFeatureGrid";
+export { BeautyDocsFinalCta } from "./BeautyDocsFinalCta";
+export { BeautyDocsHero } from "./BeautyDocsHero";
+export { BeautyDocsMarketingFooter } from "./BeautyDocsMarketingFooter";
+export { BeautyDocsMarketingHeader } from "./BeautyDocsMarketingHeader";
+export { BeautyDocsOnboarding } from "./BeautyDocsOnboarding";
+export { BeautyDocsPricing } from "./BeautyDocsPricing";
+export { BeautyDocsReveal } from "./BeautyDocsReveal";
+export { BeautyDocsStats, type BeautyDocsStatsData } from "./BeautyDocsStats";
+export { BeautyDocsTestimonials } from "./BeautyDocsTestimonials";

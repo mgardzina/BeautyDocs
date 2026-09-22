@@ -2,7 +2,7 @@
 
 import { headers } from "next/headers";
 import { createHash } from "crypto";
-import { prisma } from "@/lib/prisma";
+import { legacyDatabase } from "@/lib/legacy-database";
 import {
   sendSMS,
   generateOTPCode,
@@ -47,12 +47,10 @@ export interface AuditLogData {
 /**
  * Wysyła kod OTP na podany numer telefonu
  */
-// Helper to check if we are in test mode
-const isTestMode = () => 
-  // Only use test mode if explicitly requested OR if token is missing/placeholder
-  process.env.NEXT_PUBLIC_USE_TEST_MODE === "true" ||
-  !process.env.SMSAPI_TOKEN || 
-  process.env.SMSAPI_TOKEN === "your_smsapi_oauth_token_here";
+// Tryb testowy musi być włączony jawnie i nigdy nie może działać na produkcji.
+const isTestMode = () =>
+  process.env.NODE_ENV !== "production" &&
+  process.env.USE_TEST_OTP === "true";
 
 /**
  * Wysyła kod OTP na podany numer telefonu
@@ -84,7 +82,7 @@ export async function sendOTP(phoneNumber: string): Promise<SendOTPResult> {
     }
 
     // Sprawdź cooldown - czy nie wysłano już SMS w ostatnich 60 sekundach
-    const recentOtp = await prisma.otpVerification.findFirst({
+    const recentOtp = await legacyDatabase.otpVerification.findFirst({
       where: {
         phoneNumber: normalized,
         createdAt: {
@@ -121,7 +119,7 @@ export async function sendOTP(phoneNumber: string): Promise<SendOTPResult> {
     }
 
     // Zapisz OTP w bazie danych
-    await prisma.otpVerification.create({
+    await legacyDatabase.otpVerification.create({
       data: {
         phoneNumber: normalized,
         code: code,
@@ -207,7 +205,7 @@ export async function verifyOTP(
     }
 
     // Znajdź aktywny kod OTP
-    const otpRecord = await prisma.otpVerification.findFirst({
+    const otpRecord = await legacyDatabase.otpVerification.findFirst({
       where: {
         phoneNumber: normalized,
         verified: false,
@@ -226,7 +224,7 @@ export async function verifyOTP(
     // Sprawdź liczbę prób
     if (otpRecord.attempts >= MAX_VERIFICATION_ATTEMPTS) {
       // Oznacz jako zużyty
-      await prisma.otpVerification.update({
+      await legacyDatabase.otpVerification.update({
         where: { id: otpRecord.id },
         data: { verified: true }, // Blokujemy dalsze próby
       });
@@ -241,7 +239,7 @@ export async function verifyOTP(
     // Sprawdź kod
     if (otpRecord.code !== code) {
       // Zwiększ licznik prób
-      await prisma.otpVerification.update({
+      await legacyDatabase.otpVerification.update({
         where: { id: otpRecord.id },
         data: { attempts: otpRecord.attempts + 1 },
       });
@@ -256,7 +254,7 @@ export async function verifyOTP(
     }
 
     // Kod poprawny - oznacz jako zweryfikowany
-    await prisma.otpVerification.update({
+    await legacyDatabase.otpVerification.update({
       where: { id: otpRecord.id },
       data: { verified: true },
     });
@@ -319,6 +317,5 @@ export async function generateDocumentHash(content: string): Promise<string> {
 
 // Deklaracja typu dla globalnego cache messageId
 declare global {
-  // eslint-disable-next-line no-var
   var __smsMessageIds: Record<string, string | undefined> | undefined;
 }

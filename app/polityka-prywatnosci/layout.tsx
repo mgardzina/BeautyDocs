@@ -1,17 +1,17 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Polityka Prywatności",
+  title: { absolute: "Polityka prywatności — BeautyDocs" },
   description:
-    "Polityka prywatności PowderBrows Academy. Dowiedz się jak przetwarzamy Twoje dane osobowe, jakie masz prawa i jak chronimy Twoją prywatność.",
+    "Polityka prywatności platformy BeautyDocs: role salonu i operatora, zakres danych, bezpieczeństwo oraz prawa użytkowników.",
   alternates: {
-    canonical: "https://powderbrowsacademy.com.pl/polityka-prywatnosci",
+    canonical: "https://beautydocs.pl/polityka-prywatnosci",
   },
   openGraph: {
-    title: "Polityka Prywatności | PowderBrows Academy Stalowa Wola",
+    title: "Polityka prywatności | BeautyDocs",
     description:
-      "Polityka prywatności PowderBrows Academy - salon makijażu permanentnego w Stalowej Woli.",
-    url: "https://powderbrowsacademy.com.pl/polityka-prywatnosci",
+      "Dowiedz się, jak BeautyDocs i salony przetwarzają dane użytkowników platformy.",
+    url: "https://beautydocs.pl/polityka-prywatnosci",
   },
 };
 

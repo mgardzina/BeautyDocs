@@ -1,6 +1,6 @@
 
 import { NextRequest, NextResponse } from "next/server";
-import { prisma } from "@/lib/prisma";
+import { legacyDatabase } from "@/lib/legacy-database";
 import { auth } from "@/lib/auth";
 
 export async function DELETE(
@@ -15,7 +15,7 @@ export async function DELETE(
   const { id } = await params;
 
   try {
-    await prisma.treatmentHistory.delete({
+    await legacyDatabase.treatmentHistory.delete({
       where: { id },
     });
 
@@ -51,7 +51,7 @@ export async function PATCH(
       );
     }
 
-    const updated = await prisma.treatmentHistory.update({
+    const updated = await legacyDatabase.treatmentHistory.update({
       where: { id },
       data: {
         date: new Date(date),

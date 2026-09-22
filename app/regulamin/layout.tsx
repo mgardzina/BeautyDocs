@@ -1,17 +1,17 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Regulamin",
+  title: { absolute: "Regulamin platformy — BeautyDocs" },
   description:
-    "Regulamin salonu PowderBrows Academy. Zasady rezerwacji wizyt, przeciwwskazania do zabiegów makijażu permanentnego, informacje o płatnościach i reklamacjach.",
+    "Regulamin korzystania z platformy BeautyDocs przez salony, pracowników i klientki.",
   alternates: {
-    canonical: "https://powderbrowsacademy.com.pl/regulamin",
+    canonical: "https://beautydocs.pl/regulamin",
   },
   openGraph: {
-    title: "Regulamin | PowderBrows Academy Stalowa Wola",
+    title: "Regulamin platformy | BeautyDocs",
     description:
-      "Regulamin salonu PowderBrows Academy - zasady korzystania z usług makijażu permanentnego.",
-    url: "https://powderbrowsacademy.com.pl/regulamin",
+      "Zasady kont, wizyt, formularzy, podpisów i komunikacji w BeautyDocs.",
+    url: "https://beautydocs.pl/regulamin",
   },
 };
 

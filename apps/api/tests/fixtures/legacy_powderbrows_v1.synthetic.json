@@ -1,0 +1,127 @@
+{
+  "schemaVersion": "powderbrows-legacy-export/v1",
+  "exportedAt": "2026-07-19T10:00:00Z",
+  "mode": "restricted-records",
+  "source": {
+    "provider": "prisma-postgresql",
+    "schemaFingerprint": "ac20beb67d73f8fc92d1251197f15e3439a9359307c2ae0957679a553831ad0e",
+    "prismaSchemaFingerprint": "0e810110d44090e1bd272db947f147c4ccdead81cc0797e1a825eaa4bebadeed",
+    "readOnlyTransaction": true
+  },
+  "recordCounts": {
+    "clients": 2,
+    "clientNotes": 1,
+    "consentForms": 1,
+    "adminUsers": 1,
+    "treatmentHistories": 1
+  },
+  "redactions": {
+    "ConsentForm:30000000-0000-0000-0000-000000000001": [
+      "auditLog",
+      "podpisDane",
+      "podpisRodo"
+    ],
+    "AdminUser:40000000-0000-0000-0000-000000000001": [
+      "passwordHash"
+    ]
+  },
+  "omitted": [
+    {
+      "entity": "otpVerifications",
+      "count": 2,
+      "reason": "Synthetic OTP records intentionally omitted"
+    }
+  ],
+  "records": {
+    "clients": [
+      {
+        "id": "10000000-0000-0000-0000-000000000001",
+        "createdAt": "2025-01-02T09:00:00Z",
+        "updatedAt": "2025-01-03T09:00:00Z",
+        "imieNazwisko": "Anna Testowa",
+        "telefon": "+48 111 222 333"
+      },
+      {
+        "id": "10000000-0000-0000-0000-000000000002",
+        "createdAt": "2025-02-02T09:00:00Z",
+        "updatedAt": "2025-02-02T09:00:00Z",
+        "imieNazwisko": "Beata Przykład",
+        "telefon": "222333444"
+      }
+    ],
+    "clientNotes": [
+      {
+        "id": "20000000-0000-0000-0000-000000000001",
+        "createdAt": "2025-01-04T09:00:00Z",
+        "updatedAt": "2025-01-04T09:00:00Z",
+        "content": "Syntetyczna notatka testowa",
+        "category": "UWAGA",
+        "clientId": "10000000-0000-0000-0000-000000000001"
+      }
+    ],
+    "consentForms": [
+      {
+        "id": "30000000-0000-0000-0000-000000000001",
+        "type": "WRINKLE_REDUCTION",
+        "createdAt": "2025-01-05T09:00:00Z",
+        "imieNazwisko": "Anna Testowa",
+        "email": "anna.synthetic@example.test",
+        "ulica": "ul. Testowa 1",
+        "kodPocztowy": "00-001",
+        "miasto": "Testowo",
+        "dataUrodzenia": "1990-01-01",
+        "telefon": "48111222333",
+        "miejscowoscData": "Testowo, 2025-01-05",
+        "nazwaProduktu": "Produkt syntetyczny",
+        "obszarZabiegu": "obszar testowy",
+        "celEfektu": "efekt testowy",
+        "znieczulenie": null,
+        "przeciwwskazania": {
+          "syntheticQuestion": false
+        },
+        "zgodaPrzetwarzanieDanych": true,
+        "zgodaMarketing": false,
+        "zgodaFotografie": false,
+        "zgodaPomocPrawna": false,
+        "miejscaPublikacjiFotografii": null,
+        "podpisDane": null,
+        "podpisMarketing": null,
+        "podpisFotografie": null,
+        "podpisRodo": null,
+        "podpisRodo2": null,
+        "informacjaDodatkowa": null,
+        "zastrzeniaKlienta": null,
+        "numerZabiegu": "pierwszy",
+        "osobaPrzeprowadzajacaZabieg": "Specjalista Testowy",
+        "metodaZabiegu": null,
+        "planowanaIloscZabiegow": null,
+        "odstepMiedzyZabiegami": null,
+        "kolejneZabiegiOdstepy": null,
+        "iloscProduktu": null,
+        "signatureStatus": "VERIFIED",
+        "signatureVerifiedAt": "2025-01-05T09:05:00Z",
+        "auditLog": null,
+        "clientId": "10000000-0000-0000-0000-000000000001"
+      }
+    ],
+    "adminUsers": [
+      {
+        "id": "40000000-0000-0000-0000-000000000001",
+        "email": "admin.synthetic@example.test",
+        "phoneNumber": "+48 555 000 111",
+        "passwordHash": null,
+        "name": "Administrator Testowy"
+      }
+    ],
+    "treatmentHistories": [
+      {
+        "id": "50000000-0000-0000-0000-000000000001",
+        "createdAt": "2025-01-05T10:00:00Z",
+        "date": "2025-01-05T10:00:00Z",
+        "description": "Syntetyczna historia zabiegu",
+        "znieczulenie": null,
+        "formId": "30000000-0000-0000-0000-000000000001"
+      }
+    ]
+  }
+}

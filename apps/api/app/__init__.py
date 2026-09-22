@@ -1,0 +1,1 @@
+"""BeautyDocs API package."""

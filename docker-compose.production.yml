@@ -1,0 +1,66 @@
+# Use together with docker-compose.yml; requires Docker Compose 2.24.4+.
+services:
+  db:
+    ports: !reset []
+  api:
+    ports: !reset []
+    env_file: !override
+      - path: .env.api.production.local
+        required: false
+    environment:
+      BEAUTYDOCS_ENVIRONMENT: production
+      BEAUTYDOCS_DEBUG: "false"
+      BEAUTYDOCS_DOCS_ENABLED: "false"
+      BEAUTYDOCS_ALLOW_LOCALHOST_TENANTS: "false"
+      BEAUTYDOCS_TENANT_ROOT_DOMAIN: beautydocs.pl
+      BEAUTYDOCS_PUBLIC_WEB_URL: https://beautydocs.pl
+      BEAUTYDOCS_AUTH_ALLOWED_ORIGINS: https://beautydocs.pl
+      BEAUTYDOCS_CORS_ALLOWED_ORIGINS: https://beautydocs.pl
+      BEAUTYDOCS_MFA_ENCRYPTION_KEY: ${BEAUTYDOCS_MFA_ENCRYPTION_KEY:?Set the production MFA key}
+      BEAUTYDOCS_CHECK_IN_SIGNING_KEY: ${BEAUTYDOCS_CHECK_IN_SIGNING_KEY:?Set the check-in signing key}
+  app:
+    ports: !reset []
+    env_file: !reset []
+    environment:
+      AUTH_SECRET: ${AUTH_SECRET:?Set AUTH_SECRET}
+      AUTH_URL: https://beautydocs.pl
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:8080/admin/login').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 10s
+      timeout: 5s
+      retries: 15
+      start_period: 20s
+  nginx:
+    image: nginx:stable-alpine
+    entrypoint: ["/bin/sh", "/etc/beautydocs-nginx/start.sh"]
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./docker/nginx:/etc/beautydocs-nginx:ro
+      - certificates:/etc/letsencrypt:ro
+      - acme_webroot:/var/www/certbot:ro
+    # Bootstrap can run before the app. Docker DNS resolves app on each request.
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "nginx", "-t"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+  certbot:
+    image: certbot/certbot:latest
+    profiles: ["tools"]
+    volumes:
+      - certificates:/etc/letsencrypt
+      - acme_webroot:/var/www/certbot
+  certbot-renew:
+    image: certbot/certbot:latest
+    entrypoint: ["/bin/sh", "/renew.sh"]
+    volumes:
+      - ./docker/nginx/renew.sh:/renew.sh:ro
+      - certificates:/etc/letsencrypt
+      - acme_webroot:/var/www/certbot
+    restart: unless-stopped
+volumes:
+  certificates:
+  acme_webroot:

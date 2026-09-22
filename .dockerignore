@@ -45,3 +45,25 @@ next-env.d.ts
 # documentation
 *.md
 !README.md
+
+# Nested API environments and local data must never enter the web image.
+**/.env
+**/.env.*
+**/.venv
+**/__pycache__
+**/.data
+.next-dev
+.agents
+.claude
+.cursor
+.codex
+
+# Backend dependencies and persisted local content are not part of the web build.
+apps
+docker
+docs
+**/.pytest_cache
+**/.mypy_cache
+**/.ruff_cache
+**/.env*
+.env*

@@ -1,0 +1,6009 @@
+{
+  "source": "https://gigipoland.pl/sklep/",
+  "reviewedAt": "2026-08-24",
+  "count": 145,
+  "priceAccess": "Ceny widoczne wyłącznie po zalogowaniu zweryfikowanego profesjonalisty",
+  "products": [
+    {
+      "id": "684",
+      "slug": "684-acnon-calming-soothing-mask",
+      "name": "ACNON CALMING & SOOTHING MASK",
+      "brand": "GIGI Laboratories",
+      "summary": "ACNON CALMING & SOOTHING MASK z linii Acnon marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Acnon",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Maska",
+      "manufacturerUses": [
+        "Regeneracja",
+        "Nierównomierny koloryt i pigmentacja"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Regeneracja",
+        "Przebarwienia"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Pantenol"
+      ],
+      "skinTypes": [
+        "Skóra wrażliwa i naczyniowa"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "ACNON CALMING & SOOTHING MASK",
+        "Acnon",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/acnon-calming-soothing-mask/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/684.webp",
+      "imageAlt": "ACNON CALMING & SOOTHING MASK — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "676",
+      "slug": "676-acnon-day-control-moisturizer",
+      "name": "ACNON DAY CONTROL MOISTURIZER",
+      "brand": "GIGI Laboratories",
+      "summary": "ACNON DAY CONTROL MOISTURIZER z linii Acnon marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Acnon",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Krem NA Dzien",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Tradzik Pospolity"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwas Salicylowy"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "ACNON DAY CONTROL MOISTURIZER",
+        "Acnon",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/acnon-day-control-moisturizer/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/676.webp",
+      "imageAlt": "ACNON DAY CONTROL MOISTURIZER — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "688",
+      "slug": "688-acnon-day-control-moisturizer",
+      "name": "ACNON DAY CONTROL MOISTURIZER",
+      "brand": "GIGI Laboratories",
+      "summary": "ACNON DAY CONTROL MOISTURIZER z linii Acnon marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Acnon",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Krem NA Dzien",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Tradzik Pospolity"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwas Salicylowy"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "ACNON DAY CONTROL MOISTURIZER",
+        "Acnon",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/acnon-day-control-moisturizer-pro/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/688.webp",
+      "imageAlt": "ACNON DAY CONTROL MOISTURIZER — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "680",
+      "slug": "680-acnon-facial-cleanser-for-sensitive-skin",
+      "name": "ACNON FACIAL CLEANSER FOR SENSITIVE SKIN",
+      "brand": "GIGI Laboratories",
+      "summary": "ACNON FACIAL CLEANSER FOR SENSITIVE SKIN z linii Acnon marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Acnon",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Produkt Oczyszczajacy",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Stan Zapalny Zaskorniki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Betaina"
+      ],
+      "skinTypes": [
+        "Skóra wrażliwa i naczyniowa"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "ACNON FACIAL CLEANSER FOR SENSITIVE SKIN",
+        "Acnon",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/acnon-facial-cleanser-for-sensitive-skin/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/680.webp",
+      "imageAlt": "ACNON FACIAL CLEANSER FOR SENSITIVE SKIN — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "686",
+      "slug": "686-acnon-multi-peeling",
+      "name": "ACNON MULTI PEELING",
+      "brand": "GIGI Laboratories",
+      "summary": "ACNON MULTI PEELING z linii Acnon marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Acnon",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Peeling",
+      "manufacturerUses": [
+        "Złuszczanie",
+        "Nierównomierny koloryt i pigmentacja"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Złuszczanie",
+        "Przebarwienia"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwas mlekowy"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "ACNON MULTI PEELING",
+        "Acnon",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/acnon-multi-peeling/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/686.webp",
+      "imageAlt": "ACNON MULTI PEELING — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "674",
+      "slug": "674-acnon-overnight-treatment",
+      "name": "ACNON OVERNIGHT TREATMENT",
+      "brand": "GIGI Laboratories",
+      "summary": "ACNON OVERNIGHT TREATMENT z linii Acnon marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Acnon",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Krem NA NOC",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Okolica oczu"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie",
+        "Pielęgnacja okolicy oczu"
+      ],
+      "applicationAreas": [
+        {
+          "code": "EYES",
+          "label": "Okolica oczu"
+        }
+      ],
+      "keyIngredients": [
+        "Kompleks RET"
+      ],
+      "skinTypes": [
+        "Skora Tlusta Tradzikowa"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "ACNON OVERNIGHT TREATMENT",
+        "Acnon",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/acnon-overnight-treatment/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/674.webp",
+      "imageAlt": "ACNON OVERNIGHT TREATMENT — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "672",
+      "slug": "672-acnon-pore-purifying-mask",
+      "name": "ACNON PORE PURIFYING MASK",
+      "brand": "GIGI Laboratories",
+      "summary": "ACNON PORE PURIFYING MASK z linii Acnon marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Acnon",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Maska",
+      "manufacturerUses": [
+        "Oczyszczanie",
+        "Rozszerzone pory"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Oczyszczanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kompleks RET"
+      ],
+      "skinTypes": [
+        "Skora Tlusta Tradzikowa"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "ACNON PORE PURIFYING MASK",
+        "Acnon",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/acnon-pore-purifying-mask/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/672.webp",
+      "imageAlt": "ACNON PORE PURIFYING MASK — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "682",
+      "slug": "682-acnon-pre-treatment-softening-gel",
+      "name": "ACNON PRE-TREATMENT SOFTENING GEL",
+      "brand": "GIGI Laboratories",
+      "summary": "ACNON PRE-TREATMENT SOFTENING GEL z linii Acnon marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Acnon",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "ZEL",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Stan Zapalny Zaskorniki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwas mlekowy"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "ACNON PRE-TREATMENT SOFTENING GEL",
+        "Acnon",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/acnon-pre-treatment-softening-gel/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/682.webp",
+      "imageAlt": "ACNON PRE-TREATMENT SOFTENING GEL — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "668",
+      "slug": "668-acnon-smoothing-facial-cleanser",
+      "name": "ACNON SMOOTHING FACIAL CLEANSER",
+      "brand": "GIGI Laboratories",
+      "summary": "ACNON SMOOTHING FACIAL CLEANSER z linii Acnon marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Acnon",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Produkt Oczyszczajacy",
+      "manufacturerUses": [
+        "Oczyszczanie",
+        "Rozszerzone pory"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Oczyszczanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Ekstrakt Z Wierzbowki Kiprzycy"
+      ],
+      "skinTypes": [
+        "Skora Tlusta Tradzikowa"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "ACNON SMOOTHING FACIAL CLEANSER",
+        "Acnon",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/acnon-smoothing-facial-cleanser/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/668.webp",
+      "imageAlt": "ACNON SMOOTHING FACIAL CLEANSER — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "670",
+      "slug": "670-acnon-spotless-skin-refresher",
+      "name": "ACNON SPOTLESS SKIN REFRESHER",
+      "brand": "GIGI Laboratories",
+      "summary": "ACNON SPOTLESS SKIN REFRESHER z linii Acnon marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Acnon",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Tonik",
+      "manufacturerUses": [
+        "Oczyszczanie",
+        "Okolica oczu"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Oczyszczanie",
+        "Pielęgnacja okolicy oczu"
+      ],
+      "applicationAreas": [
+        {
+          "code": "EYES",
+          "label": "Okolica oczu"
+        }
+      ],
+      "keyIngredients": [
+        "Kompleks RET"
+      ],
+      "skinTypes": [
+        "Skora Tlusta Tradzikowa"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "ACNON SPOTLESS SKIN REFRESHER",
+        "Acnon",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/acnon-spotless-skin-refresher/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/670.webp",
+      "imageAlt": "ACNON SPOTLESS SKIN REFRESHER — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "678",
+      "slug": "678-acnon-treatment-set-cleanser-skin-refresher-overnight-treatment",
+      "name": "ACNON TREATMENT SET (cleanser, skin refresher, overnight treatment)",
+      "brand": "GIGI Laboratories",
+      "summary": "ACNON TREATMENT SET (cleanser, skin refresher, overnight treatment) z linii Acnon marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Acnon",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Zestaw Zabiegowy",
+      "manufacturerUses": [
+        "Oczyszczanie",
+        "Tradzik Pospolity"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Oczyszczanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kompleks RET"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "ACNON TREATMENT SET (cleanser, skin refresher, overnight treatment)",
+        "Acnon",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/acnon-treatment-set-cleanser-skin-refresher-overnight-treatment/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/678.webp",
+      "imageAlt": "ACNON TREATMENT SET (cleanser, skin refresher, overnight treatment) — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "861",
+      "slug": "861-aroma-essence-soap-deep-pore-cleanser",
+      "name": "AROMA ESSENCE SOAP Deep Pore Cleanser",
+      "brand": "GIGI Laboratories",
+      "summary": "AROMA ESSENCE SOAP Deep Pore Cleanser z linii Aroma Essence marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Aroma Essence",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Produkt Oczyszczajacy",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Tradzik Pospolity"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Aloes"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "AROMA ESSENCE SOAP Deep Pore Cleanser",
+        "Aroma Essence",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/aroma-essence-soap-deep-pore-cleanser/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/861.webp",
+      "imageAlt": "AROMA ESSENCE SOAP Deep Pore Cleanser — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "863",
+      "slug": "863-aroma-essence-soap-ph-balanced-cleanser",
+      "name": "AROMA ESSENCE SOAP pH Balanced Cleanser",
+      "brand": "GIGI Laboratories",
+      "summary": "AROMA ESSENCE SOAP pH Balanced Cleanser z linii Aroma Essence marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Aroma Essence",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "ZEL",
+      "manufacturerUses": [
+        "Oczyszczanie",
+        "Stan Zapalny Zaskorniki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Oczyszczanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Ekstrakt Z Lisci Margosa"
+      ],
+      "skinTypes": [
+        "Skóra wrażliwa i naczyniowa"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "AROMA ESSENCE SOAP pH Balanced Cleanser",
+        "Aroma Essence",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/aroma-essence-soap-ph-balanced-cleanser/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/863.webp",
+      "imageAlt": "AROMA ESSENCE SOAP pH Balanced Cleanser — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "865",
+      "slug": "865-aroma-essence-soap-ultra-cleanser-for-hypoallergenic-skin",
+      "name": "AROMA ESSENCE SOAP Ultra Cleanser for\nHypoallergenic Skin",
+      "brand": "GIGI Laboratories",
+      "summary": "AROMA ESSENCE SOAP Ultra Cleanser for\nHypoallergenic Skin z linii Aroma Essence marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Aroma Essence",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Produkt Oczyszczajacy",
+      "manufacturerUses": [
+        "Oczyszczanie",
+        "Stan Zapalny Zaskorniki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Oczyszczanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Ekstrakt Z Owocow Cucumis Sativus"
+      ],
+      "skinTypes": [
+        "Skora Sucha Odwodniona"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "AROMA ESSENCE SOAP Ultra Cleanser for\nHypoallergenic Skin",
+        "Aroma Essence",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/aroma-essence-soap-ultra-cleanser-forhypoallergenic-skin/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/865.webp",
+      "imageAlt": "AROMA ESSENCE SOAP Ultra Cleanser for\nHypoallergenic Skin — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "859",
+      "slug": "859-aroma-essence-soap-ultra-cleanser-for-dry-skin",
+      "name": "AROMA ESSENCE SOAP Ultra Cleanser for Dry Skin",
+      "brand": "GIGI Laboratories",
+      "summary": "AROMA ESSENCE SOAP Ultra Cleanser for Dry Skin z linii Aroma Essence marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Aroma Essence",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Produkt Oczyszczajacy",
+      "manufacturerUses": [
+        "Oczyszczanie",
+        "Stan Zapalny Zaskorniki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Oczyszczanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Papaina"
+      ],
+      "skinTypes": [
+        "Skora Sucha Odwodniona"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "AROMA ESSENCE SOAP Ultra Cleanser for Dry Skin",
+        "Aroma Essence",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/aroma-essence-soap-ultra-cleanser-for-dry-skin/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/859.webp",
+      "imageAlt": "AROMA ESSENCE SOAP Ultra Cleanser for Dry Skin — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "700",
+      "slug": "700-city-nap-fresh-water-mist",
+      "name": "CITY NAP FRESH WATER MIST",
+      "brand": "GIGI Laboratories",
+      "summary": "CITY NAP FRESH WATER MIST z linii City NAP marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "City NAP",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Mgielka",
+      "manufacturerUses": [
+        "Pielęgnacja",
+        "Stan Zapalny Zaskorniki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Pielęgnacja"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Aloes"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "CITY NAP FRESH WATER MIST",
+        "City NAP",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/city-nap-fresh-water-mist/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/700.webp",
+      "imageAlt": "CITY NAP FRESH WATER MIST — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "706",
+      "slug": "706-city-nap-urban-beauty-mask",
+      "name": "CITY NAP URBAN BEAUTY MASK",
+      "brand": "GIGI Laboratories",
+      "summary": "CITY NAP URBAN BEAUTY MASK z linii City NAP marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "City NAP",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Maska",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Stan Zapalny Zaskorniki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Algi"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "CITY NAP URBAN BEAUTY MASK",
+        "City NAP",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/city-nap-urban-beauty-mask/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/706.webp",
+      "imageAlt": "CITY NAP URBAN BEAUTY MASK — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "692",
+      "slug": "692-city-nap-urban-day-cream",
+      "name": "CITY NAP URBAN DAY CREAM",
+      "brand": "GIGI Laboratories",
+      "summary": "CITY NAP URBAN DAY CREAM z linii City NAP marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "City NAP",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Krem NA Dzien",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Zmarszczki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie",
+        "Pielęgnacja anti-aging"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwas hialuronowy"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "CITY NAP URBAN DAY CREAM",
+        "City NAP",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/city-nap-urban-day-cream/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/692.webp",
+      "imageAlt": "CITY NAP URBAN DAY CREAM — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "702",
+      "slug": "702-city-nap-urban-day-cream",
+      "name": "CITY NAP URBAN DAY CREAM",
+      "brand": "GIGI Laboratories",
+      "summary": "CITY NAP URBAN DAY CREAM z linii City NAP marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "City NAP",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Krem NA Dzien",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Zmarszczki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie",
+        "Pielęgnacja anti-aging"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwas hialuronowy"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "CITY NAP URBAN DAY CREAM",
+        "City NAP",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/city-nap-urban-day-cream-pro/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/702.webp",
+      "imageAlt": "CITY NAP URBAN DAY CREAM — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "694",
+      "slug": "694-city-nap-urban-night-cream",
+      "name": "CITY NAP URBAN NIGHT CREAM",
+      "brand": "GIGI Laboratories",
+      "summary": "CITY NAP URBAN NIGHT CREAM z linii City NAP marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "City NAP",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Krem NA NOC",
+      "manufacturerUses": [
+        "Lifting",
+        "Zmarszczki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Lifting",
+        "Pielęgnacja anti-aging"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwas hialuronowy"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "CITY NAP URBAN NIGHT CREAM",
+        "City NAP",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/city-nap-urban-night-cream/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/694.webp",
+      "imageAlt": "CITY NAP URBAN NIGHT CREAM — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "704",
+      "slug": "704-city-nap-urban-night-cream",
+      "name": "CITY NAP URBAN NIGHT CREAM",
+      "brand": "GIGI Laboratories",
+      "summary": "CITY NAP URBAN NIGHT CREAM z linii City NAP marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "City NAP",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Krem NA NOC",
+      "manufacturerUses": [
+        "Lifting",
+        "Zmarszczki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Lifting",
+        "Pielęgnacja anti-aging"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwas hialuronowy"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "CITY NAP URBAN NIGHT CREAM",
+        "City NAP",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/city-nap-urban-night-cream-pro/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/704.webp",
+      "imageAlt": "CITY NAP URBAN NIGHT CREAM — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "696",
+      "slug": "696-city-nap-urban-serum",
+      "name": "CITY NAP URBAN SERUM",
+      "brand": "GIGI Laboratories",
+      "summary": "CITY NAP URBAN SERUM z linii City NAP marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "City NAP",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Serum",
+      "manufacturerUses": [
+        "Oczyszczanie",
+        "Zmarszczki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Oczyszczanie",
+        "Pielęgnacja anti-aging"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Aloes"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "CITY NAP URBAN SERUM",
+        "City NAP",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/city-nap-urban-serum/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/696.webp",
+      "imageAlt": "CITY NAP URBAN SERUM — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "698",
+      "slug": "698-city-nap-urban-sleeping-mask",
+      "name": "CITY NAP URBAN SLEEPING MASK",
+      "brand": "GIGI Laboratories",
+      "summary": "CITY NAP URBAN SLEEPING MASK z linii City NAP marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "City NAP",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Maska",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Zmarszczki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie",
+        "Pielęgnacja anti-aging"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Algi"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "CITY NAP URBAN SLEEPING MASK",
+        "City NAP",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/city-nap-urban-sleeping-mask/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/698.webp",
+      "imageAlt": "CITY NAP URBAN SLEEPING MASK — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "797",
+      "slug": "797-ester-c-15-mandelic-peel",
+      "name": "ESTER C 15% MANDELIC PEEL",
+      "brand": "GIGI Laboratories",
+      "summary": "ESTER C 15% MANDELIC PEEL z linii Ester C marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Ester C",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Peeling",
+      "manufacturerUses": [
+        "Oczyszczanie",
+        "Nierównomierny koloryt i pigmentacja"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Oczyszczanie",
+        "Przebarwienia"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwas Migdalowy"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "ESTER C 15% MANDELIC PEEL",
+        "Ester C",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/ester-c-15-mandelic-peel/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/797.webp",
+      "imageAlt": "ESTER C 15% MANDELIC PEEL — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "791",
+      "slug": "791-ester-c-bio-repair-booster",
+      "name": "ESTER C BIO REPAIR BOOSTER",
+      "brand": "GIGI Laboratories",
+      "summary": "ESTER C BIO REPAIR BOOSTER z linii Ester C marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Ester C",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Booster",
+      "manufacturerUses": [
+        "Rozjaśnianie",
+        "Nierównomierny koloryt i pigmentacja"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Rozjaśnianie",
+        "Przebarwienia"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Alantoina"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "ESTER C BIO REPAIR BOOSTER",
+        "Ester C",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/ester-c-bio-repair-booster/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/791.webp",
+      "imageAlt": "ESTER C BIO REPAIR BOOSTER — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "795",
+      "slug": "795-ester-c-brightening-mask",
+      "name": "ESTER C BRIGHTENING MASK",
+      "brand": "GIGI Laboratories",
+      "summary": "ESTER C BRIGHTENING MASK z linii Ester C marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Ester C",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Maska",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Nierównomierny koloryt i pigmentacja"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie",
+        "Przebarwienia"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwas mlekowy"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "ESTER C BRIGHTENING MASK",
+        "Ester C",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/ester-c-brightening-mask/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/795.webp",
+      "imageAlt": "ESTER C BRIGHTENING MASK — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "801",
+      "slug": "801-ester-c-cocktail-mandelic-peel",
+      "name": "ESTER C COCKTAIL MANDELIC PEEL",
+      "brand": "GIGI Laboratories",
+      "summary": "ESTER C COCKTAIL MANDELIC PEEL z linii Ester C marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Ester C",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Koktajl",
+      "manufacturerUses": [
+        "Złuszczanie",
+        "Nierównomierny koloryt i pigmentacja"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Złuszczanie",
+        "Przebarwienia"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwas Migdalowy"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "ESTER C COCKTAIL MANDELIC PEEL",
+        "Ester C",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/ester-c-cocktail-mandelic-peel/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/801.webp",
+      "imageAlt": "ESTER C COCKTAIL MANDELIC PEEL — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "783",
+      "slug": "783-ester-c-daily-rice-exfoliator",
+      "name": "ESTER C DAILY RICE EXFOLIATOR",
+      "brand": "GIGI Laboratories",
+      "summary": "ESTER C DAILY RICE EXFOLIATOR z linii Ester C marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Ester C",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Peeling",
+      "manufacturerUses": [
+        "Oczyszczanie",
+        "Rozszerzone pory"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Oczyszczanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Ekstrakt Z Ziaren Owsa"
+      ],
+      "skinTypes": [
+        "Skora Tlusta Tradzikowa"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "ESTER C DAILY RICE EXFOLIATOR",
+        "Ester C",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/ester-c-daily-rice-exfoliator/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/783.webp",
+      "imageAlt": "ESTER C DAILY RICE EXFOLIATOR — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "799",
+      "slug": "799-ester-c-mandelic-salicylic-peel",
+      "name": "ESTER C MANDELIC & SALICYLIC PEEL",
+      "brand": "GIGI Laboratories",
+      "summary": "ESTER C MANDELIC & SALICYLIC PEEL z linii Ester C marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Ester C",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Peeling",
+      "manufacturerUses": [
+        "Złuszczanie",
+        "Blizny"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Złuszczanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwas Migdalowy"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "ESTER C MANDELIC & SALICYLIC PEEL",
+        "Ester C",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/ester-c-mandelic-salicylic-peel/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/799.webp",
+      "imageAlt": "ESTER C MANDELIC & SALICYLIC PEEL — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "793",
+      "slug": "793-ester-c-mild-cleanser",
+      "name": "ESTER C MILD CLEANSER",
+      "brand": "GIGI Laboratories",
+      "summary": "ESTER C MILD CLEANSER z linii Ester C marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Ester C",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Produkt Oczyszczajacy",
+      "manufacturerUses": [
+        "Oczyszczanie",
+        "Nierównomierny koloryt i pigmentacja"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Oczyszczanie",
+        "Przebarwienia"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwas mlekowy"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "ESTER C MILD CLEANSER",
+        "Ester C",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/ester-c-mild-cleanser/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/793.webp",
+      "imageAlt": "ESTER C MILD CLEANSER — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "803",
+      "slug": "803-ester-c-mild-cleanser",
+      "name": "ESTER C MILD CLEANSER",
+      "brand": "GIGI Laboratories",
+      "summary": "ESTER C MILD CLEANSER z linii Ester C marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Ester C",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Produkt Oczyszczajacy",
+      "manufacturerUses": [
+        "Oczyszczanie",
+        "Nierównomierny koloryt i pigmentacja"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Oczyszczanie",
+        "Przebarwienia"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwas mlekowy"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "ESTER C MILD CLEANSER",
+        "Ester C",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/ester-c-mild-cleanser-pro/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/803.webp",
+      "imageAlt": "ESTER C MILD CLEANSER — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "789",
+      "slug": "789-ester-c-moisturizer-spf-20",
+      "name": "ESTER C MOISTURIZER SPF 20",
+      "brand": "GIGI Laboratories",
+      "summary": "ESTER C MOISTURIZER SPF 20 z linii Ester C marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Ester C",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Krem",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Stan Zapalny Zaskorniki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Octan Tokoferolu"
+      ],
+      "skinTypes": [
+        "Skóra dojrzała"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "ESTER C MOISTURIZER SPF 20",
+        "Ester C",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/ester-c-moisturizer-spf-20/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/789.webp",
+      "imageAlt": "ESTER C MOISTURIZER SPF 20 — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "807",
+      "slug": "807-ester-c-moisturizer-spf-20",
+      "name": "ESTER C MOISTURIZER SPF 20",
+      "brand": "GIGI Laboratories",
+      "summary": "ESTER C MOISTURIZER SPF 20 z linii Ester C marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Ester C",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Krem",
+      "manufacturerUses": [
+        "Złuszczanie",
+        "Rozszerzone pory"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Złuszczanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Puder Ryzowy"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "ESTER C MOISTURIZER SPF 20",
+        "Ester C",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/ester-c-moisturizer-spf-20-pro/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/807.webp",
+      "imageAlt": "ESTER C MOISTURIZER SPF 20 — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "811",
+      "slug": "811-ester-c-multi-hydroxy-peel",
+      "name": "ESTER C MULTI HYDROXY PEEL",
+      "brand": "GIGI Laboratories",
+      "summary": "ESTER C MULTI HYDROXY PEEL z linii Ester C marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Ester C",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Peeling",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Nierównomierny koloryt i pigmentacja"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie",
+        "Przebarwienia"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Magnesium Ascorbyl"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "ESTER C MULTI HYDROXY PEEL",
+        "Ester C",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/ester-c-multi-hydroxy-peel/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/811.webp",
+      "imageAlt": "ESTER C MULTI HYDROXY PEEL — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "785",
+      "slug": "785-ester-c-night-renewal-cream",
+      "name": "ESTER C NIGHT RENEWAL CREAM",
+      "brand": "GIGI Laboratories",
+      "summary": "ESTER C NIGHT RENEWAL CREAM z linii Ester C marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Ester C",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Krem NA NOC",
+      "manufacturerUses": [
+        "Oczyszczanie",
+        "Rozszerzone pory"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Oczyszczanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwas Migdalowy"
+      ],
+      "skinTypes": [
+        "Skora Tlusta Tradzikowa"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "ESTER C NIGHT RENEWAL CREAM",
+        "Ester C",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/ester-c-night-renewal-cream/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/785.webp",
+      "imageAlt": "ESTER C NIGHT RENEWAL CREAM — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "805",
+      "slug": "805-ester-c-restoration-mask",
+      "name": "ESTER C RESTORATION MASK",
+      "brand": "GIGI Laboratories",
+      "summary": "ESTER C RESTORATION MASK z linii Ester C marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Ester C",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Maska",
+      "manufacturerUses": [
+        "Regeneracja",
+        "Stan Zapalny Zaskorniki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Regeneracja"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwas Migdalowy"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "ESTER C RESTORATION MASK",
+        "Ester C",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/ester-c-restoration-mask/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/805.webp",
+      "imageAlt": "ESTER C RESTORATION MASK — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "814",
+      "slug": "814-ester-c-rice-exfoliator-2-salicylic-acid",
+      "name": "ESTER C RICE EXFOLIATOR 2% SALICYLIC ACID",
+      "brand": "GIGI Laboratories",
+      "summary": "ESTER C RICE EXFOLIATOR 2% SALICYLIC ACID z linii Ester C marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Ester C",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Peeling",
+      "manufacturerUses": [
+        "Złuszczanie",
+        "Stan Zapalny Zaskorniki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Złuszczanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwas Salicylowy"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "ESTER C RICE EXFOLIATOR 2% SALICYLIC ACID",
+        "Ester C",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/ester-c-rice-exfoliator-2-salicylic-acid/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/814.webp",
+      "imageAlt": "ESTER C RICE EXFOLIATOR 2% SALICYLIC ACID — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "787",
+      "slug": "787-ester-c-total-serum",
+      "name": "ESTER C TOTAL SERUM",
+      "brand": "GIGI Laboratories",
+      "summary": "ESTER C TOTAL SERUM z linii Ester C marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Ester C",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Serum",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Nierównomierny koloryt i pigmentacja"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie",
+        "Przebarwienia"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwas hialuronowy"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "ESTER C TOTAL SERUM",
+        "Ester C",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/ester-c-total-serum/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/787.webp",
+      "imageAlt": "ESTER C TOTAL SERUM — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "809",
+      "slug": "809-ester-c-total-serum",
+      "name": "ESTER C TOTAL SERUM",
+      "brand": "GIGI Laboratories",
+      "summary": "ESTER C TOTAL SERUM z linii Ester C marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Ester C",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Serum",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Stan Zapalny Zaskorniki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Alantoina"
+      ],
+      "skinTypes": [
+        "Skóra dojrzała"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "ESTER C TOTAL SERUM",
+        "Ester C",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/ester-c-total-serum-pro/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/809.webp",
+      "imageAlt": "ESTER C TOTAL SERUM — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "1385",
+      "slug": "1385-exfoliation-rejuvenation-treatment-forte",
+      "name": "Exfoliation & Rejuvenation Treatment Forte",
+      "brand": "GIGI Laboratories",
+      "summary": "Exfoliation & Rejuvenation Treatment Forte z linii GIGI Laboratories marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "GIGI Laboratories",
+      "presentation": "1 szt.",
+      "productCategory": "Protokół zabiegowy GIGI",
+      "productFamily": "Protokół zabiegowy",
+      "manufacturerUses": [
+        "Odmładzanie",
+        "Złuszczanie",
+        "Rozszerzone pory",
+        "Tradzik Pospolity"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Odmładzanie",
+        "Złuszczanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "skinTypes": [
+        "Skora Tlusta Tradzikowa"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "Exfoliation & Rejuvenation Treatment Forte",
+        "GIGI Laboratories",
+        "GIGI"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/exfoliation-rejuvenation-treatment-forte/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/1385.webp",
+      "imageAlt": "Exfoliation & Rejuvenation Treatment Forte — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "867",
+      "slug": "867-lipacid-facial-soap",
+      "name": "LIPACID FACIAL SOAP",
+      "brand": "GIGI Laboratories",
+      "summary": "LIPACID FACIAL SOAP z linii Lipacid marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Lipacid",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Produkt Oczyszczajacy",
+      "manufacturerUses": [
+        "Oczyszczanie",
+        "Rozszerzone pory"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Oczyszczanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kamfora"
+      ],
+      "skinTypes": [
+        "Skora Tlusta Tradzikowa"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "LIPACID FACIAL SOAP",
+        "Lipacid",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/lipacid-facial-soap/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/867.webp",
+      "imageAlt": "LIPACID FACIAL SOAP — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "871",
+      "slug": "871-lipacid-mask",
+      "name": "LIPACID MASK",
+      "brand": "GIGI Laboratories",
+      "summary": "LIPACID MASK z linii Lipacid marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Lipacid",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Maska",
+      "manufacturerUses": [
+        "Oczyszczanie",
+        "Okolica oczu"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Oczyszczanie",
+        "Pielęgnacja okolicy oczu"
+      ],
+      "applicationAreas": [
+        {
+          "code": "EYES",
+          "label": "Okolica oczu"
+        }
+      ],
+      "keyIngredients": [
+        "Tlenek Cynku"
+      ],
+      "skinTypes": [
+        "Skora Tlusta Tradzikowa"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "LIPACID MASK",
+        "Lipacid",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/lipacid-mask/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/871.webp",
+      "imageAlt": "LIPACID MASK — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "869",
+      "slug": "869-lipacid-moisturizer",
+      "name": "LIPACID MOISTURIZER",
+      "brand": "GIGI Laboratories",
+      "summary": "LIPACID MOISTURIZER z linii Lipacid marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Lipacid",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Krem",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Rozszerzone pory"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Ekstrakt Z Oczaru Wirginijskiego"
+      ],
+      "skinTypes": [
+        "Skora Tlusta Tradzikowa"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "LIPACID MOISTURIZER",
+        "Lipacid",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/lipacid-moisturizer/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/869.webp",
+      "imageAlt": "LIPACID MOISTURIZER — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "873",
+      "slug": "873-lipacid-softening-gel",
+      "name": "LIPACID SOFTENING GEL",
+      "brand": "GIGI Laboratories",
+      "summary": "LIPACID SOFTENING GEL z linii Lipacid marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Lipacid",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "ZEL",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Rozszerzone pory"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Mocznik"
+      ],
+      "skinTypes": [
+        "Skora Tlusta Tradzikowa"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "LIPACID SOFTENING GEL",
+        "Lipacid",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/lipacid-softening-gel/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/873.webp",
+      "imageAlt": "LIPACID SOFTENING GEL — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "891",
+      "slug": "891-lotus-buttermilk-mask",
+      "name": "LOTUS BUTTERMILK MASK",
+      "brand": "GIGI Laboratories",
+      "summary": "LOTUS BUTTERMILK MASK z linii Lotus marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Lotus",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Maska",
+      "manufacturerUses": [
+        "Regeneracja",
+        "Nierównomierny koloryt i pigmentacja"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Regeneracja",
+        "Przebarwienia"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Ekstrakt Z Kwiatow Lotosu"
+      ],
+      "skinTypes": [
+        "Skóra dojrzała"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "LOTUS BUTTERMILK MASK",
+        "Lotus",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/lotus-buttermilk-mask/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/891.webp",
+      "imageAlt": "LOTUS BUTTERMILK MASK — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "881",
+      "slug": "881-lotus-moisturizer-dry-skin",
+      "name": "LOTUS MOISTURIZER Dry Skin",
+      "brand": "GIGI Laboratories",
+      "summary": "LOTUS MOISTURIZER Dry Skin z linii Lotus marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Lotus",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Krem",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Nierównomierny koloryt i pigmentacja"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie",
+        "Przebarwienia"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Ekstrakt Z Lotosu"
+      ],
+      "skinTypes": [
+        "Skora Sucha Odwodniona"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "LOTUS MOISTURIZER Dry Skin",
+        "Lotus",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/lotus-moisturizer-dry-skin/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/881.webp",
+      "imageAlt": "LOTUS MOISTURIZER Dry Skin — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "887",
+      "slug": "887-lotus-moisturizer-for-dry-skin",
+      "name": "LOTUS MOISTURIZER FOR DRY SKIN",
+      "brand": "GIGI Laboratories",
+      "summary": "LOTUS MOISTURIZER FOR DRY SKIN z linii Lotus marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Lotus",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Krem",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Nierównomierny koloryt i pigmentacja"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie",
+        "Przebarwienia"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Ekstrakt Z Lotosu"
+      ],
+      "skinTypes": [
+        "Skora Sucha Odwodniona"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "LOTUS MOISTURIZER FOR DRY SKIN",
+        "Lotus",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/lotus-moisturizer-for-dry-skin/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/887.webp",
+      "imageAlt": "LOTUS MOISTURIZER FOR DRY SKIN — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "883",
+      "slug": "883-lotus-moisturizing-serum-hyaluronic-acid",
+      "name": "LOTUS MOISTURIZING SERUM HYALURONIC ACID",
+      "brand": "GIGI Laboratories",
+      "summary": "LOTUS MOISTURIZING SERUM HYALURONIC ACID z linii Lotus marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Lotus",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Serum",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Zmarszczki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie",
+        "Pielęgnacja anti-aging"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Wyciag Z Lotosu"
+      ],
+      "skinTypes": [
+        "Skora Sucha Odwodniona"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "LOTUS MOISTURIZING SERUM HYALURONIC ACID",
+        "Lotus",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/lotus-moisturizing-serum-hyaluronic-acid/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/883.webp",
+      "imageAlt": "LOTUS MOISTURIZING SERUM HYALURONIC ACID — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "893",
+      "slug": "893-lotus-moisturizing-serum-hyaluronic-acid",
+      "name": "LOTUS MOISTURIZING SERUM HYALURONIC ACID",
+      "brand": "GIGI Laboratories",
+      "summary": "LOTUS MOISTURIZING SERUM HYALURONIC ACID z linii Lotus marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Lotus",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Serum",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Zmarszczki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie",
+        "Pielęgnacja anti-aging"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Wyciag Z Lotosu"
+      ],
+      "skinTypes": [
+        "Skora Sucha Odwodniona"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "LOTUS MOISTURIZING SERUM HYALURONIC ACID",
+        "Lotus",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/lotus-moisturizing-serum-hyaluronic-acid-pro/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/893.webp",
+      "imageAlt": "LOTUS MOISTURIZING SERUM HYALURONIC ACID — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "885",
+      "slug": "885-lotus-toner",
+      "name": "LOTUS TONER",
+      "brand": "GIGI Laboratories",
+      "summary": "LOTUS TONER z linii Lotus marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Lotus",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Tonik",
+      "manufacturerUses": [
+        "Oczyszczanie",
+        "Zmarszczki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Oczyszczanie",
+        "Pielęgnacja anti-aging"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Wyciag Z Zielonej Herbaty"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "LOTUS TONER",
+        "Lotus",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/lotus-toner/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/885.webp",
+      "imageAlt": "LOTUS TONER — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "889",
+      "slug": "889-lotus-toner",
+      "name": "LOTUS TONER",
+      "brand": "GIGI Laboratories",
+      "summary": "LOTUS TONER z linii Lotus marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Lotus",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Tonik",
+      "manufacturerUses": [
+        "Oczyszczanie",
+        "Zmarszczki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Oczyszczanie",
+        "Pielęgnacja anti-aging"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Wyciag Z Zielonej Herbaty"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "LOTUS TONER",
+        "Lotus",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/lotus-toner-pro/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/889.webp",
+      "imageAlt": "LOTUS TONER — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "879",
+      "slug": "879-medic-peel-pma47-clear-skin-peel",
+      "name": "MEDIC PEEL PMA47 CLEAR SKIN PEEL",
+      "brand": "GIGI Laboratories",
+      "summary": "MEDIC PEEL PMA47 CLEAR SKIN PEEL z linii Medic Peel marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Medic Peel",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Peeling",
+      "manufacturerUses": [
+        "Oczyszczanie",
+        "Tradzik Pospolity"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Oczyszczanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwas"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "MEDIC PEEL PMA47 CLEAR SKIN PEEL",
+        "Medic Peel",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/medic-peel-pma47-clear-skin-peel/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/879.webp",
+      "imageAlt": "MEDIC PEEL PMA47 CLEAR SKIN PEEL — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "877",
+      "slug": "877-medic-peel-pma47-melasma-peel",
+      "name": "MEDIC PEEL PMA47 MELASMA PEEL",
+      "brand": "GIGI Laboratories",
+      "summary": "MEDIC PEEL PMA47 MELASMA PEEL z linii Medic Peel marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Medic Peel",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Peeling",
+      "manufacturerUses": [
+        "Rozjaśnianie",
+        "Tradzik Pospolity"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Rozjaśnianie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwas"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "MEDIC PEEL PMA47 MELASMA PEEL",
+        "Medic Peel",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/medic-peel-pma47-melasma-peel/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/877.webp",
+      "imageAlt": "MEDIC PEEL PMA47 MELASMA PEEL — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "875",
+      "slug": "875-medic-peel-pma47-rejuvenating-peel",
+      "name": "MEDIC PEEL PMA47 REJUVENATING PEEL",
+      "brand": "GIGI Laboratories",
+      "summary": "MEDIC PEEL PMA47 REJUVENATING PEEL z linii Medic Peel marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Medic Peel",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Peeling",
+      "manufacturerUses": [
+        "Złuszczanie",
+        "Blizny"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Złuszczanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwas"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "MEDIC PEEL PMA47 REJUVENATING PEEL",
+        "Medic Peel",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/medic-peel-pma47-rejuvenating-peel/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/875.webp",
+      "imageAlt": "MEDIC PEEL PMA47 REJUVENATING PEEL — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "665",
+      "slug": "665-mesopro-dmae-cocktail",
+      "name": "MESOPRO DMAE COCKTAIL",
+      "brand": "GIGI Laboratories",
+      "summary": "MESOPRO DMAE COCKTAIL z linii Mesopro marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Mesopro",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Koktajl",
+      "manufacturerUses": [
+        "Lifting",
+        "Tradzik Pospolity"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Lifting"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwas hialuronowy"
+      ],
+      "skinTypes": [
+        "Skóra dojrzała"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "MESOPRO DMAE COCKTAIL",
+        "Mesopro",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/mesopro-dmae-cocktail/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/665.webp",
+      "imageAlt": "MESOPRO DMAE COCKTAIL — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "664",
+      "slug": "664-mesopro-rebuilding-mask",
+      "name": "MESOPRO REBUILDING MASK",
+      "brand": "GIGI Laboratories",
+      "summary": "MESOPRO REBUILDING MASK z linii Mesopro marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Mesopro",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Maska",
+      "manufacturerUses": [
+        "Oczyszczanie",
+        "Blizny"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Oczyszczanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwas Bursztynowy"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "MESOPRO REBUILDING MASK",
+        "Mesopro",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/mesopro-rebuilding-mask/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/664.webp",
+      "imageAlt": "MESOPRO REBUILDING MASK — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "662",
+      "slug": "662-mesopro-skin-reglow",
+      "name": "MESOPRO SKIN REGLOW",
+      "brand": "GIGI Laboratories",
+      "summary": "MESOPRO SKIN REGLOW z linii Mesopro marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Mesopro",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Koktajl",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Zmarszczki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie",
+        "Pielęgnacja anti-aging"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwas hialuronowy"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "MESOPRO SKIN REGLOW",
+        "Mesopro",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/mesopro-skin-reglow/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/662.webp",
+      "imageAlt": "MESOPRO SKIN REGLOW — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "663",
+      "slug": "663-mesopro-ttr3-antipigmentation",
+      "name": "MESOPRO TTR3 ANTIPIGMENTATION",
+      "brand": "GIGI Laboratories",
+      "summary": "MESOPRO TTR3 ANTIPIGMENTATION z linii Mesopro marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Mesopro",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Koktajl",
+      "manufacturerUses": [
+        "Oczyszczanie",
+        "Nierównomierny koloryt i pigmentacja"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Oczyszczanie",
+        "Przebarwienia"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwas Traneksamowy"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "MESOPRO TTR3 ANTIPIGMENTATION",
+        "Mesopro",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/mesopro-ttr3-antipigmentation/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/663.webp",
+      "imageAlt": "MESOPRO TTR3 ANTIPIGMENTATION — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "652",
+      "slug": "652-new-age-g4-cell-regeneration-trial-kit",
+      "name": "NEW AGE G4 CELL REGENERATION TRIAL KIT",
+      "brand": "GIGI Laboratories",
+      "summary": "NEW AGE G4 CELL REGENERATION TRIAL KIT z linii NEW AGE G4 marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "NEW AGE G4",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Zestaw Zabiegowy",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Odwodnienie"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Peptydy"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "NEW AGE G4 CELL REGENERATION TRIAL KIT",
+        "NEW AGE G4",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/new-age-g4-cell-regeneration-trial-kit/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/652.webp",
+      "imageAlt": "NEW AGE G4 CELL REGENERATION TRIAL KIT — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "642",
+      "slug": "642-new-age-g4-day-cream-spf-20",
+      "name": "NEW AGE G4 DAY CREAM SPF 20",
+      "brand": "GIGI Laboratories",
+      "summary": "NEW AGE G4 DAY CREAM SPF 20 z linii NEW AGE G4 marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "NEW AGE G4",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Krem NA Dzien",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Stan Zapalny Zaskorniki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Peptydy"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "NEW AGE G4 DAY CREAM SPF 20",
+        "NEW AGE G4",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/new-age-g4-day-cream-spf-20/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/642.webp",
+      "imageAlt": "NEW AGE G4 DAY CREAM SPF 20 — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "648",
+      "slug": "648-new-age-g4-day-cream-spf-20",
+      "name": "NEW AGE G4 DAY CREAM SPF 20",
+      "brand": "GIGI Laboratories",
+      "summary": "NEW AGE G4 DAY CREAM SPF 20 z linii NEW AGE G4 marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "NEW AGE G4",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Krem NA Dzien",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Stan Zapalny Zaskorniki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Peptydy"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "NEW AGE G4 DAY CREAM SPF 20",
+        "NEW AGE G4",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/new-age-g4-day-cream-spf-20-pro/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/648.webp",
+      "imageAlt": "NEW AGE G4 DAY CREAM SPF 20 — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "638",
+      "slug": "638-new-age-g4-eye-cream",
+      "name": "NEW AGE G4 EYE CREAM",
+      "brand": "GIGI Laboratories",
+      "summary": "NEW AGE G4 EYE CREAM z linii NEW AGE G4 marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "NEW AGE G4",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Krem POD Oczy",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Okolica oczu"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie",
+        "Pielęgnacja okolicy oczu"
+      ],
+      "applicationAreas": [
+        {
+          "code": "EYES",
+          "label": "Okolica oczu"
+        }
+      ],
+      "keyIngredients": [
+        "Peptydy"
+      ],
+      "skinTypes": [
+        "Skóra dojrzała"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "NEW AGE G4 EYE CREAM",
+        "NEW AGE G4",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/new-age-g4-eye-cream/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/638.webp",
+      "imageAlt": "NEW AGE G4 EYE CREAM — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "640",
+      "slug": "640-new-age-g4-glow-up-serum",
+      "name": "NEW AGE G4 GLOW UP SERUM",
+      "brand": "GIGI Laboratories",
+      "summary": "NEW AGE G4 GLOW UP SERUM z linii NEW AGE G4 marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "NEW AGE G4",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Serum",
+      "manufacturerUses": [
+        "Pielęgnacja",
+        "Stan Zapalny Zaskorniki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Pielęgnacja"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Peptydy"
+      ],
+      "skinTypes": [
+        "Skóra dojrzała"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "NEW AGE G4 GLOW UP SERUM",
+        "NEW AGE G4",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/new-age-g4-glow-up-serum/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/640.webp",
+      "imageAlt": "NEW AGE G4 GLOW UP SERUM — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "650",
+      "slug": "650-new-age-g4-glow-up-serum",
+      "name": "NEW AGE G4 GLOW UP SERUM",
+      "brand": "GIGI Laboratories",
+      "summary": "NEW AGE G4 GLOW UP SERUM z linii NEW AGE G4 marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "NEW AGE G4",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Serum",
+      "manufacturerUses": [
+        "Pielęgnacja",
+        "Stan Zapalny Zaskorniki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Pielęgnacja"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Peptydy"
+      ],
+      "skinTypes": [
+        "Skóra dojrzała"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "NEW AGE G4 GLOW UP SERUM",
+        "NEW AGE G4",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/new-age-g4-glow-up-serum-pro/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/650.webp",
+      "imageAlt": "NEW AGE G4 GLOW UP SERUM — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "646",
+      "slug": "646-new-age-g4-mega-oil-serum",
+      "name": "NEW AGE G4 MEGA OIL SERUM",
+      "brand": "GIGI Laboratories",
+      "summary": "NEW AGE G4 MEGA OIL SERUM z linii NEW AGE G4 marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "NEW AGE G4",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Serum",
+      "manufacturerUses": [
+        "Oczyszczanie",
+        "Stan Zapalny Zaskorniki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Oczyszczanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Ceramid 2"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "NEW AGE G4 MEGA OIL SERUM",
+        "NEW AGE G4",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/new-age-g4-mega-oil-serum/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/646.webp",
+      "imageAlt": "NEW AGE G4 MEGA OIL SERUM — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "644",
+      "slug": "644-new-age-g4-neck-decollete-cream",
+      "name": "NEW AGE G4 NECK & DECOLLETE CREAM",
+      "brand": "GIGI Laboratories",
+      "summary": "NEW AGE G4 NECK & DECOLLETE CREAM z linii NEW AGE G4 marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "NEW AGE G4",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Krem",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Zmarszczki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie",
+        "Pielęgnacja anti-aging"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Peptydy"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "NEW AGE G4 NECK & DECOLLETE CREAM",
+        "NEW AGE G4",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/new-age-g4-neck-decollete-cream/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/644.webp",
+      "imageAlt": "NEW AGE G4 NECK & DECOLLETE CREAM — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "636",
+      "slug": "636-new-age-g4-night-cream",
+      "name": "NEW AGE G4 NIGHT CREAM",
+      "brand": "GIGI Laboratories",
+      "summary": "NEW AGE G4 NIGHT CREAM z linii NEW AGE G4 marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "NEW AGE G4",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Krem NA NOC",
+      "manufacturerUses": [
+        "Lifting",
+        "Zmarszczki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Lifting",
+        "Pielęgnacja anti-aging"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Peptydy"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "NEW AGE G4 NIGHT CREAM",
+        "NEW AGE G4",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/new-age-g4-night-cream/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/636.webp",
+      "imageAlt": "NEW AGE G4 NIGHT CREAM — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "634",
+      "slug": "634-new-age-g4-nutritious-mousse-mask",
+      "name": "NEW AGE G4 NUTRITIOUS MOUSSE MASK",
+      "brand": "GIGI Laboratories",
+      "summary": "NEW AGE G4 NUTRITIOUS MOUSSE MASK z linii NEW AGE G4 marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "NEW AGE G4",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Maska",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Zmarszczki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie",
+        "Pielęgnacja anti-aging"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Ceramid 2"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "NEW AGE G4 NUTRITIOUS MOUSSE MASK",
+        "NEW AGE G4",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/new-age-g4-nutritious-mousse-mask/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/634.webp",
+      "imageAlt": "NEW AGE G4 NUTRITIOUS MOUSSE MASK — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "760",
+      "slug": "760-nutri-peptide-10-glycolic-cream",
+      "name": "NUTRI PEPTIDE 10% GLYCOLIC CREAM",
+      "brand": "GIGI Laboratories",
+      "summary": "NUTRI PEPTIDE 10% GLYCOLIC CREAM z linii Nutri Peptide marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Nutri Peptide",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Krem",
+      "manufacturerUses": [
+        "Złuszczanie",
+        "Zmarszczki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Złuszczanie",
+        "Pielęgnacja anti-aging"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Peptydy"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "NUTRI PEPTIDE 10% GLYCOLIC CREAM",
+        "Nutri Peptide",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/nutri-peptide-10-glycolic-cream/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/760.webp",
+      "imageAlt": "NUTRI PEPTIDE 10% GLYCOLIC CREAM — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "756",
+      "slug": "756-nutri-peptide-10-lactic-cream",
+      "name": "NUTRI PEPTIDE 10% LACTIC CREAM",
+      "brand": "GIGI Laboratories",
+      "summary": "NUTRI PEPTIDE 10% LACTIC CREAM z linii Nutri Peptide marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Nutri Peptide",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Krem",
+      "manufacturerUses": [
+        "Rozjaśnianie",
+        "Nierównomierny koloryt i pigmentacja"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Rozjaśnianie",
+        "Przebarwienia"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Peptydy"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "NUTRI PEPTIDE 10% LACTIC CREAM",
+        "Nutri Peptide",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/nutri-peptide-10-lactic-cream/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/756.webp",
+      "imageAlt": "NUTRI PEPTIDE 10% LACTIC CREAM — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "770",
+      "slug": "770-nutri-peptide-anti-aging-booster",
+      "name": "NUTRI PEPTIDE ANTI AGING BOOSTER",
+      "brand": "GIGI Laboratories",
+      "summary": "NUTRI PEPTIDE ANTI AGING BOOSTER z linii Nutri Peptide marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Nutri Peptide",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Booster",
+      "manufacturerUses": [
+        "Odmładzanie",
+        "Zmarszczki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Odmładzanie",
+        "Pielęgnacja anti-aging"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Peptydy"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "NUTRI PEPTIDE ANTI AGING BOOSTER",
+        "Nutri Peptide",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/nutri-peptide-anti-aging-booster/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/770.webp",
+      "imageAlt": "NUTRI PEPTIDE ANTI AGING BOOSTER — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "764",
+      "slug": "764-nutri-peptide-balancing-moisturizer",
+      "name": "NUTRI PEPTIDE BALANCING MOISTURIZER",
+      "brand": "GIGI Laboratories",
+      "summary": "NUTRI PEPTIDE BALANCING MOISTURIZER z linii Nutri Peptide marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Nutri Peptide",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Krem",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Rozszerzone pory"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Peptydy"
+      ],
+      "skinTypes": [
+        "Skora Tlusta Tradzikowa"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "NUTRI PEPTIDE BALANCING MOISTURIZER",
+        "Nutri Peptide",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/nutri-peptide-balancing-moisturizer/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/764.webp",
+      "imageAlt": "NUTRI PEPTIDE BALANCING MOISTURIZER — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "746",
+      "slug": "746-nutri-peptide-balancing-moisturizer-normal-oily",
+      "name": "NUTRI PEPTIDE BALANCING MOISTURIZER - Normal / Oily",
+      "brand": "GIGI Laboratories",
+      "summary": "NUTRI PEPTIDE BALANCING MOISTURIZER - Normal / Oily z linii Nutri Peptide marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Nutri Peptide",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Krem",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Rozszerzone pory"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Peptydy"
+      ],
+      "skinTypes": [
+        "Skora Tlusta Tradzikowa"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "NUTRI PEPTIDE BALANCING MOISTURIZER - Normal / Oily",
+        "Nutri Peptide",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/nutri-peptide-balancing-moisturizer-normal-oily/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/746.webp",
+      "imageAlt": "NUTRI PEPTIDE BALANCING MOISTURIZER - Normal / Oily — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "742",
+      "slug": "742-nutri-peptide-clearing-cleanser",
+      "name": "NUTRI PEPTIDE CLEARING CLEANSER",
+      "brand": "GIGI Laboratories",
+      "summary": "NUTRI PEPTIDE CLEARING CLEANSER z linii Nutri Peptide marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Nutri Peptide",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Produkt Oczyszczajacy",
+      "manufacturerUses": [
+        "Oczyszczanie",
+        "Stan Zapalny Zaskorniki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Oczyszczanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Peptydy"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "NUTRI PEPTIDE CLEARING CLEANSER",
+        "Nutri Peptide",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/nutri-peptide-clearing-cleanser/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/742.webp",
+      "imageAlt": "NUTRI PEPTIDE CLEARING CLEANSER — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "754",
+      "slug": "754-nutri-peptide-eye-contour-cream",
+      "name": "NUTRI PEPTIDE EYE CONTOUR CREAM",
+      "brand": "GIGI Laboratories",
+      "summary": "NUTRI PEPTIDE EYE CONTOUR CREAM z linii Nutri Peptide marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Nutri Peptide",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Krem POD Oczy",
+      "manufacturerUses": [
+        "Rozjaśnianie",
+        "Okolica oczu"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Rozjaśnianie",
+        "Pielęgnacja okolicy oczu"
+      ],
+      "applicationAreas": [
+        {
+          "code": "EYES",
+          "label": "Okolica oczu"
+        }
+      ],
+      "keyIngredients": [
+        "Peptydy"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "NUTRI PEPTIDE EYE CONTOUR CREAM",
+        "Nutri Peptide",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/nutri-peptide-eye-contour-cream/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/754.webp",
+      "imageAlt": "NUTRI PEPTIDE EYE CONTOUR CREAM — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "768",
+      "slug": "768-nutri-peptide-hydra-vitality-mask",
+      "name": "NUTRI PEPTIDE HYDRA VITALITY MASK",
+      "brand": "GIGI Laboratories",
+      "summary": "NUTRI PEPTIDE HYDRA VITALITY MASK z linii Nutri Peptide marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Nutri Peptide",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Maska",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Stan Zapalny Zaskorniki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Peptydy"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "NUTRI PEPTIDE HYDRA VITALITY MASK",
+        "Nutri Peptide",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/nutri-peptide-hydra-vitality-mask-pro/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/768.webp",
+      "imageAlt": "NUTRI PEPTIDE HYDRA VITALITY MASK — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "748",
+      "slug": "748-nutri-peptide-hydra-vitality-mask",
+      "name": "NUTRI PEPTIDE HYDRA VITALITY MASK",
+      "brand": "GIGI Laboratories",
+      "summary": "NUTRI PEPTIDE HYDRA VITALITY MASK z linii Nutri Peptide marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Nutri Peptide",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Maska",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Stan Zapalny Zaskorniki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Peptydy"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "NUTRI PEPTIDE HYDRA VITALITY MASK",
+        "Nutri Peptide",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/nutri-peptide-hydra-vitality-mask/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/748.webp",
+      "imageAlt": "NUTRI PEPTIDE HYDRA VITALITY MASK — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "762",
+      "slug": "762-nutri-peptide-instant-moisturizer",
+      "name": "NUTRI PEPTIDE INSTANT MOISTURIZER",
+      "brand": "GIGI Laboratories",
+      "summary": "NUTRI PEPTIDE INSTANT MOISTURIZER z linii Nutri Peptide marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Nutri Peptide",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Krem",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Nierównomierny koloryt i pigmentacja"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie",
+        "Przebarwienia"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Peptydy"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "NUTRI PEPTIDE INSTANT MOISTURIZER",
+        "Nutri Peptide",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/nutri-peptide-instant-moisturizer/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/762.webp",
+      "imageAlt": "NUTRI PEPTIDE INSTANT MOISTURIZER — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "744",
+      "slug": "744-nutri-peptide-instant-moisturizer-normal-dry",
+      "name": "NUTRI PEPTIDE INSTANT MOISTURIZER - Normal / Dry",
+      "brand": "GIGI Laboratories",
+      "summary": "NUTRI PEPTIDE INSTANT MOISTURIZER - Normal / Dry z linii Nutri Peptide marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Nutri Peptide",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Krem",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Nierównomierny koloryt i pigmentacja"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie",
+        "Przebarwienia"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Peptydy"
+      ],
+      "skinTypes": [
+        "Skora Sucha Odwodniona"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "NUTRI PEPTIDE INSTANT MOISTURIZER - Normal / Dry",
+        "Nutri Peptide",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/nutri-peptide-instant-moisturizer-normal-dry/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/744.webp",
+      "imageAlt": "NUTRI PEPTIDE INSTANT MOISTURIZER - Normal / Dry — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "758",
+      "slug": "758-nutri-peptide-intense-cold-cream",
+      "name": "NUTRI PEPTIDE INTENSE COLD CREAM",
+      "brand": "GIGI Laboratories",
+      "summary": "NUTRI PEPTIDE INTENSE COLD CREAM z linii Nutri Peptide marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Nutri Peptide",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Krem",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Stan Zapalny Zaskorniki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Peptydy"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "NUTRI PEPTIDE INTENSE COLD CREAM",
+        "Nutri Peptide",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/nutri-peptide-intense-cold-cream/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/758.webp",
+      "imageAlt": "NUTRI PEPTIDE INTENSE COLD CREAM — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "780",
+      "slug": "780-nutri-peptide-lactic-peel",
+      "name": "NUTRI PEPTIDE LACTIC PEEL",
+      "brand": "GIGI Laboratories",
+      "summary": "NUTRI PEPTIDE LACTIC PEEL z linii Nutri Peptide marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Nutri Peptide",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Peeling",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Nierównomierny koloryt i pigmentacja"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie",
+        "Przebarwienia"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwas mlekowy"
+      ],
+      "skinTypes": [
+        "Skora Sucha Odwodniona"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "NUTRI PEPTIDE LACTIC PEEL",
+        "Nutri Peptide",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/nutri-peptide-lactic-peel/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/780.webp",
+      "imageAlt": "NUTRI PEPTIDE LACTIC PEEL — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "750",
+      "slug": "750-nutri-peptide-night-cream",
+      "name": "NUTRI PEPTIDE NIGHT CREAM",
+      "brand": "GIGI Laboratories",
+      "summary": "NUTRI PEPTIDE NIGHT CREAM z linii Nutri Peptide marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Nutri Peptide",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Krem NA NOC",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Stan Zapalny Zaskorniki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Peptydy"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "NUTRI PEPTIDE NIGHT CREAM",
+        "Nutri Peptide",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/nutri-peptide-night-cream/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/750.webp",
+      "imageAlt": "NUTRI PEPTIDE NIGHT CREAM — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "766",
+      "slug": "766-nutri-peptide-night-cream",
+      "name": "NUTRI PEPTIDE NIGHT CREAM",
+      "brand": "GIGI Laboratories",
+      "summary": "NUTRI PEPTIDE NIGHT CREAM z linii Nutri Peptide marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Nutri Peptide",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Krem NA NOC",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Stan Zapalny Zaskorniki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Peptydy"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "NUTRI PEPTIDE NIGHT CREAM",
+        "Nutri Peptide",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/nutri-peptide-night-cream-pro/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/766.webp",
+      "imageAlt": "NUTRI PEPTIDE NIGHT CREAM — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "774",
+      "slug": "774-nutri-peptide-oily-combination-booster",
+      "name": "NUTRI PEPTIDE OILY & COMBINATION BOOSTER",
+      "brand": "GIGI Laboratories",
+      "summary": "NUTRI PEPTIDE OILY & COMBINATION BOOSTER z linii Nutri Peptide marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Nutri Peptide",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Booster",
+      "manufacturerUses": [
+        "Oczyszczanie",
+        "Rozszerzone pory"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Oczyszczanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Canadian Willowherb"
+      ],
+      "skinTypes": [
+        "Skora Tlusta Tradzikowa"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "NUTRI PEPTIDE OILY & COMBINATION BOOSTER",
+        "Nutri Peptide",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/nutri-peptide-oily-combination-booster/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/774.webp",
+      "imageAlt": "NUTRI PEPTIDE OILY & COMBINATION BOOSTER — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "776",
+      "slug": "776-nutri-peptide-rich-gold-mask",
+      "name": "NUTRI PEPTIDE RICH GOLD MASK",
+      "brand": "GIGI Laboratories",
+      "summary": "NUTRI PEPTIDE RICH GOLD MASK z linii Nutri Peptide marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Nutri Peptide",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Maska",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Odwodnienie"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Proszek Perlowy"
+      ],
+      "skinTypes": [
+        "Skóra dojrzała"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "NUTRI PEPTIDE RICH GOLD MASK",
+        "Nutri Peptide",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/nutri-peptide-rich-gold-mask/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/776.webp",
+      "imageAlt": "NUTRI PEPTIDE RICH GOLD MASK — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "778",
+      "slug": "778-nutri-peptide-vitality-serum",
+      "name": "NUTRI PEPTIDE VITALITY SERUM",
+      "brand": "GIGI Laboratories",
+      "summary": "NUTRI PEPTIDE VITALITY SERUM z linii Nutri Peptide marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Nutri Peptide",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Serum",
+      "manufacturerUses": [
+        "Regeneracja",
+        "Zmarszczki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Regeneracja",
+        "Pielęgnacja anti-aging"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwas mlekowy"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "NUTRI PEPTIDE VITALITY SERUM",
+        "Nutri Peptide",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/nutri-peptide-vitality-serum-pro/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/778.webp",
+      "imageAlt": "NUTRI PEPTIDE VITALITY SERUM — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "752",
+      "slug": "752-nutri-peptide-vitality-serum",
+      "name": "NUTRI PEPTIDE VITALITY SERUM",
+      "brand": "GIGI Laboratories",
+      "summary": "NUTRI PEPTIDE VITALITY SERUM z linii Nutri Peptide marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Nutri Peptide",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Serum",
+      "manufacturerUses": [
+        "Regeneracja",
+        "Zmarszczki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Regeneracja",
+        "Pielęgnacja anti-aging"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Peptydy"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "NUTRI PEPTIDE VITALITY SERUM",
+        "Nutri Peptide",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/nutri-peptide-vitality-serum/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/752.webp",
+      "imageAlt": "NUTRI PEPTIDE VITALITY SERUM — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "772",
+      "slug": "772-nutri-peptide-whitening-booster",
+      "name": "NUTRI PEPTIDE WHITENING BOOSTER",
+      "brand": "GIGI Laboratories",
+      "summary": "NUTRI PEPTIDE WHITENING BOOSTER z linii Nutri Peptide marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Nutri Peptide",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Booster",
+      "manufacturerUses": [
+        "Rozjaśnianie",
+        "Nierównomierny koloryt i pigmentacja"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Rozjaśnianie",
+        "Przebarwienia"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Alantoina"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "NUTRI PEPTIDE WHITENING BOOSTER",
+        "Nutri Peptide",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/nutri-peptide-whitening-booster/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/772.webp",
+      "imageAlt": "NUTRI PEPTIDE WHITENING BOOSTER — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "818",
+      "slug": "818-recovery-daily-spf-30",
+      "name": "RECOVERY DAILY SPF 30",
+      "brand": "GIGI Laboratories",
+      "summary": "RECOVERY DAILY SPF 30 z linii Recovery marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Recovery",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Krem NA Dzien",
+      "manufacturerUses": [
+        "Regeneracja",
+        "Blizny"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Regeneracja"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Ekstrakt Z Amorphophallus Konjac"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "RECOVERY DAILY SPF 30",
+        "Recovery",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/recovery-daily-spf-30/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/818.webp",
+      "imageAlt": "RECOVERY DAILY SPF 30 — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "824",
+      "slug": "824-recovery-daily-spf-30",
+      "name": "RECOVERY DAILY SPF 30",
+      "brand": "GIGI Laboratories",
+      "summary": "RECOVERY DAILY SPF 30 z linii Recovery marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Recovery",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Krem NA Dzien",
+      "manufacturerUses": [
+        "Ochrona skóry",
+        "Tradzik Pospolity"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Ochrona skóry"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "PCT Malus Domestica"
+      ],
+      "skinTypes": [
+        "Skóra wrażliwa i naczyniowa"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "RECOVERY DAILY SPF 30",
+        "Recovery",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/recovery-daily-spf-30-pro/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/824.webp",
+      "imageAlt": "RECOVERY DAILY SPF 30 — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "828",
+      "slug": "828-recovery-optimizing-serum",
+      "name": "RECOVERY OPTIMIZING SERUM",
+      "brand": "GIGI Laboratories",
+      "summary": "RECOVERY OPTIMIZING SERUM z linii Recovery marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Recovery",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Serum",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Stan Zapalny Zaskorniki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "PCT Malus Domestica"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "RECOVERY OPTIMIZING SERUM",
+        "Recovery",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/recovery-optimizing-serum/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/828.webp",
+      "imageAlt": "RECOVERY OPTIMIZING SERUM — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "826",
+      "slug": "826-recovery-post-treatment-mask",
+      "name": "RECOVERY POST TREATMENT MASK",
+      "brand": "GIGI Laboratories",
+      "summary": "RECOVERY POST TREATMENT MASK z linii Recovery marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Recovery",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Maska",
+      "manufacturerUses": [
+        "Regeneracja",
+        "Blizny"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Regeneracja"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "PCT Malus Domestica"
+      ],
+      "skinTypes": [
+        "Skora Sucha Odwodniona"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "RECOVERY POST TREATMENT MASK",
+        "Recovery",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/recovery-post-treatment-mask/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/826.webp",
+      "imageAlt": "RECOVERY POST TREATMENT MASK — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "820",
+      "slug": "820-recovery-redness-relief-cream",
+      "name": "RECOVERY REDNESS RELIEF CREAM",
+      "brand": "GIGI Laboratories",
+      "summary": "RECOVERY REDNESS RELIEF CREAM z linii Recovery marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Recovery",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Krem",
+      "manufacturerUses": [
+        "Regeneracja",
+        "Blizny"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Regeneracja"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "PCT Malus Domestica"
+      ],
+      "skinTypes": [
+        "Skora Sucha Odwodniona"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "RECOVERY REDNESS RELIEF CREAM",
+        "Recovery",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/recovery-redness-relief-cream/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/820.webp",
+      "imageAlt": "RECOVERY REDNESS RELIEF CREAM — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "822",
+      "slug": "822-recovery-redness-relief-cream",
+      "name": "RECOVERY REDNESS RELIEF CREAM",
+      "brand": "GIGI Laboratories",
+      "summary": "RECOVERY REDNESS RELIEF CREAM z linii Recovery marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Recovery",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Krem",
+      "manufacturerUses": [
+        "Ochrona skóry",
+        "Tradzik Pospolity"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Ochrona skóry"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "PCT Malus Domestica"
+      ],
+      "skinTypes": [
+        "Skóra wrażliwa i naczyniowa"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "RECOVERY REDNESS RELIEF CREAM",
+        "Recovery",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/recovery-redness-relief-cream-pro/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/822.webp",
+      "imageAlt": "RECOVERY REDNESS RELIEF CREAM — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "831",
+      "slug": "831-recovery-restore-night-cream",
+      "name": "RECOVERY RESTORE NIGHT CREAM",
+      "brand": "GIGI Laboratories",
+      "summary": "RECOVERY RESTORE NIGHT CREAM z linii Recovery marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Recovery",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Krem NA NOC",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Zmarszczki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie",
+        "Pielęgnacja anti-aging"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Bisabolol"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "RECOVERY RESTORE NIGHT CREAM",
+        "Recovery",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/recovery-restore-night-cream/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/831.webp",
+      "imageAlt": "RECOVERY RESTORE NIGHT CREAM — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "731",
+      "slug": "731-retin-a-a-l-u-s-peeling",
+      "name": "RETIN A A.L.U.S. PEELING",
+      "brand": "GIGI Laboratories",
+      "summary": "RETIN A A.L.U.S. PEELING z linii Retin A marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Retin A",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Peeling",
+      "manufacturerUses": [
+        "Rozjaśnianie",
+        "Rozszerzone pory"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Rozjaśnianie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwas Azelainowy"
+      ],
+      "skinTypes": [
+        "Skóra dojrzała"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "RETIN A A.L.U.S. PEELING",
+        "Retin A",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/retin-a-a-l-u-s-peeling/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/731.webp",
+      "imageAlt": "RETIN A A.L.U.S. PEELING — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "733",
+      "slug": "733-retin-a-brightening-peeling",
+      "name": "RETIN A BRIGHTENING PEELING",
+      "brand": "GIGI Laboratories",
+      "summary": "RETIN A BRIGHTENING PEELING z linii Retin A marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Retin A",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Peeling",
+      "manufacturerUses": [
+        "Rozjaśnianie",
+        "Tradzik Pospolity"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Rozjaśnianie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwas Salicylowy"
+      ],
+      "skinTypes": [
+        "Skora Sucha Odwodniona"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "RETIN A BRIGHTENING PEELING",
+        "Retin A",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/retin-a-brightening-peeling/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/733.webp",
+      "imageAlt": "RETIN A BRIGHTENING PEELING — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "709",
+      "slug": "709-retin-a-foaming-cleanser-10-glycolic-acid",
+      "name": "RETIN A FOAMING CLEANSER 10% GLYCOLIC ACID",
+      "brand": "GIGI Laboratories",
+      "summary": "RETIN A FOAMING CLEANSER 10% GLYCOLIC ACID z linii Retin A marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Retin A",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Pianka",
+      "manufacturerUses": [
+        "Oczyszczanie",
+        "Rozszerzone pory"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Oczyszczanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwas Glikolowy"
+      ],
+      "skinTypes": [
+        "Skóra dojrzała"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "RETIN A FOAMING CLEANSER 10% GLYCOLIC ACID",
+        "Retin A",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/retin-a-foaming-cleanser-10-glycolic-acid/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/709.webp",
+      "imageAlt": "RETIN A FOAMING CLEANSER 10% GLYCOLIC ACID — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "723",
+      "slug": "723-retin-a-melano-block",
+      "name": "RETIN A MELANO BLOCK",
+      "brand": "GIGI Laboratories",
+      "summary": "RETIN A MELANO BLOCK z linii Retin A marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Retin A",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Krem",
+      "manufacturerUses": [
+        "Rozjaśnianie",
+        "Nierównomierny koloryt i pigmentacja"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Rozjaśnianie",
+        "Przebarwienia"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Niacynamid"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "RETIN A MELANO BLOCK",
+        "Retin A",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/retin-a-melano-block/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/723.webp",
+      "imageAlt": "RETIN A MELANO BLOCK — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "725",
+      "slug": "725-retin-a-melano-tri-corrector",
+      "name": "RETIN A MELANO TRI CORRECTOR",
+      "brand": "GIGI Laboratories",
+      "summary": "RETIN A MELANO TRI CORRECTOR z linii Retin A marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Retin A",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Krem",
+      "manufacturerUses": [
+        "Rozjaśnianie",
+        "Nierównomierny koloryt i pigmentacja"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Rozjaśnianie",
+        "Przebarwienia"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwas Hydroksycynamonowy"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "RETIN A MELANO TRI CORRECTOR",
+        "Retin A",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/retin-a-melano-tri-corrector/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/725.webp",
+      "imageAlt": "RETIN A MELANO TRI CORRECTOR — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "715",
+      "slug": "715-retin-a-miracle-soap-bar",
+      "name": "RETIN A MIRACLE SOAP BAR",
+      "brand": "GIGI Laboratories",
+      "summary": "RETIN A MIRACLE SOAP BAR z linii Retin A marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Retin A",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Produkt Oczyszczajacy",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Rozszerzone pory"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Olejek Lawendowy I Rozmarynowy"
+      ],
+      "skinTypes": [
+        "Skora Tlusta Tradzikowa"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "RETIN A MIRACLE SOAP BAR",
+        "Retin A",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/retin-a-miracle-soap-bar/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/715.webp",
+      "imageAlt": "RETIN A MIRACLE SOAP BAR — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "717",
+      "slug": "717-retin-a-mrs-cream",
+      "name": "RETIN A MRS CREAM",
+      "brand": "GIGI Laboratories",
+      "summary": "RETIN A MRS CREAM z linii Retin A marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Retin A",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Krem",
+      "manufacturerUses": [
+        "Rozjaśnianie",
+        "Nierównomierny koloryt i pigmentacja"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Rozjaśnianie",
+        "Przebarwienia"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwas hialuronowy"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "RETIN A MRS CREAM",
+        "Retin A",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/retin-a-mrs-cream/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/717.webp",
+      "imageAlt": "RETIN A MRS CREAM — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "739",
+      "slug": "739-retin-a-neutralizer",
+      "name": "RETIN A NEUTRALIZER",
+      "brand": "GIGI Laboratories",
+      "summary": "RETIN A NEUTRALIZER z linii Retin A marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Retin A",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Neutralizotor",
+      "manufacturerUses": [
+        "Pielęgnacja",
+        "Stan Zapalny Zaskorniki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Pielęgnacja"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Wodoroweglan Sodu"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "RETIN A NEUTRALIZER",
+        "Retin A",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/retin-a-neutralizer/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/739.webp",
+      "imageAlt": "RETIN A NEUTRALIZER — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "711",
+      "slug": "711-retin-a-oily-problematic-skin-soap-bar",
+      "name": "RETIN A OILY & PROBLEMATIC SKIN SOAP BAR",
+      "brand": "GIGI Laboratories",
+      "summary": "RETIN A OILY & PROBLEMATIC SKIN SOAP BAR z linii Retin A marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Retin A",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Produkt Oczyszczajacy",
+      "manufacturerUses": [
+        "Pielęgnacja",
+        "Stan Zapalny Zaskorniki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Pielęgnacja"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwas Salicylowy"
+      ],
+      "skinTypes": [
+        "Skora Tlusta Tradzikowa"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "RETIN A OILY & PROBLEMATIC SKIN SOAP BAR",
+        "Retin A",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/retin-a-oily-problematic-skin-soap-bar/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/711.webp",
+      "imageAlt": "RETIN A OILY & PROBLEMATIC SKIN SOAP BAR — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "713",
+      "slug": "713-retin-a-pigment-soap-bar",
+      "name": "RETIN A PIGMENT SOAP BAR",
+      "brand": "GIGI Laboratories",
+      "summary": "RETIN A PIGMENT SOAP BAR z linii Retin A marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Retin A",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Produkt Oczyszczajacy",
+      "manufacturerUses": [
+        "Rozjaśnianie",
+        "Nierównomierny koloryt i pigmentacja"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Rozjaśnianie",
+        "Przebarwienia"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwas Kojowy"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "RETIN A PIGMENT SOAP BAR",
+        "Retin A",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/retin-a-pigment-soap-bar/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/713.webp",
+      "imageAlt": "RETIN A PIGMENT SOAP BAR — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "737",
+      "slug": "737-retin-a-pre-peeling-toner",
+      "name": "RETIN A PRE-PEELING TONER",
+      "brand": "GIGI Laboratories",
+      "summary": "RETIN A PRE-PEELING TONER z linii Retin A marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Retin A",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Peeling",
+      "manufacturerUses": [
+        "Złuszczanie",
+        "Tradzik Pospolity"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Złuszczanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Glikol Propylenowy"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "RETIN A PRE-PEELING TONER",
+        "Retin A",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/retin-a-pre-peeling-toner/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/737.webp",
+      "imageAlt": "RETIN A PRE-PEELING TONER — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "719",
+      "slug": "719-retin-a-preparing-lotion",
+      "name": "RETIN A PREPARING LOTION",
+      "brand": "GIGI Laboratories",
+      "summary": "RETIN A PREPARING LOTION z linii Retin A marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Retin A",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Lotion",
+      "manufacturerUses": [
+        "Oczyszczanie",
+        "Stan Zapalny Zaskorniki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Oczyszczanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwas mlekowy"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "RETIN A PREPARING LOTION",
+        "Retin A",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/retin-a-preparing-lotion/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/719.webp",
+      "imageAlt": "RETIN A PREPARING LOTION — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "727",
+      "slug": "727-retin-a-professional-peeling-kit",
+      "name": "RETIN A PROFESSIONAL PEELING KIT",
+      "brand": "GIGI Laboratories",
+      "summary": "RETIN A PROFESSIONAL PEELING KIT z linii Retin A marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Retin A",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Peeling",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Stan Zapalny Zaskorniki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwas"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "RETIN A PROFESSIONAL PEELING KIT",
+        "Retin A",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/retin-a-professional-peeling-kit/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/727.webp",
+      "imageAlt": "RETIN A PROFESSIONAL PEELING KIT — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "729",
+      "slug": "729-retin-a-quatro-power-tca-peeling-kit",
+      "name": "RETIN A QUATRO POWER TCA PEELING KIT",
+      "brand": "GIGI Laboratories",
+      "summary": "RETIN A QUATRO POWER TCA PEELING KIT z linii Retin A marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Retin A",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Peeling",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Rozszerzone pory"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwas"
+      ],
+      "skinTypes": [
+        "Skora Tlusta Tradzikowa"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "RETIN A QUATRO POWER TCA PEELING KIT",
+        "Retin A",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/retin-a-quatro-power-tca-peeling-kit/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/729.webp",
+      "imageAlt": "RETIN A QUATRO POWER TCA PEELING KIT — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "735",
+      "slug": "735-retin-a-radiance-peeling",
+      "name": "RETIN A RADIANCE PEELING",
+      "brand": "GIGI Laboratories",
+      "summary": "RETIN A RADIANCE PEELING z linii Retin A marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Retin A",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Peeling",
+      "manufacturerUses": [
+        "Złuszczanie",
+        "Tradzik Pospolity"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Złuszczanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwas Salicylowy"
+      ],
+      "skinTypes": [
+        "Skora Sucha Odwodniona"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "RETIN A RADIANCE PEELING",
+        "Retin A",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/retin-a-radiance-peeling/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/735.webp",
+      "imageAlt": "RETIN A RADIANCE PEELING — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "721",
+      "slug": "721-retin-a-renewal-night-cream",
+      "name": "RETIN A RENEWAL NIGHT CREAM",
+      "brand": "GIGI Laboratories",
+      "summary": "RETIN A RENEWAL NIGHT CREAM z linii Retin A marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Retin A",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Krem NA NOC",
+      "manufacturerUses": [
+        "Oczyszczanie",
+        "Tradzik Pospolity"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Oczyszczanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwas Bursztynowy"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "RETIN A RENEWAL NIGHT CREAM",
+        "Retin A",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/retin-a-renewal-night-cream/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/721.webp",
+      "imageAlt": "RETIN A RENEWAL NIGHT CREAM — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "901",
+      "slug": "901-skin-expert-bio-derm-lotion-for-oily-skin",
+      "name": "SKIN EXPERT BIO DERM LOTION FOR OILY SKIN",
+      "brand": "GIGI Laboratories",
+      "summary": "SKIN EXPERT BIO DERM LOTION FOR OILY SKIN z linii Skin Expert marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Skin Expert",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Produkt Oczyszczajacy",
+      "manufacturerUses": [
+        "Oczyszczanie",
+        "Tradzik Pospolity"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Oczyszczanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kamfora"
+      ],
+      "skinTypes": [
+        "Skora Tlusta Tradzikowa"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "SKIN EXPERT BIO DERM LOTION FOR OILY SKIN",
+        "Skin Expert",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/skin-expert-bio-derm-lotion-for-oily-skin/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/901.webp",
+      "imageAlt": "SKIN EXPERT BIO DERM LOTION FOR OILY SKIN — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "912",
+      "slug": "912-skin-expert-carboxy-therapy",
+      "name": "SKIN EXPERT CARBOXY THERAPY",
+      "brand": "GIGI Laboratories",
+      "summary": "SKIN EXPERT CARBOXY THERAPY z linii Skin Expert marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Skin Expert",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Zestaw Zabiegowy",
+      "manufacturerUses": [
+        "Pielęgnacja",
+        "Tradzik Pospolity"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Pielęgnacja"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Peptydy"
+      ],
+      "skinTypes": [
+        "Skóra wrażliwa i naczyniowa"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "SKIN EXPERT CARBOXY THERAPY",
+        "Skin Expert",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/skin-expert-carboxy-therapy/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/912.webp",
+      "imageAlt": "SKIN EXPERT CARBOXY THERAPY — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "909",
+      "slug": "909-skin-expert-carboxy-therapy-gel-mask",
+      "name": "SKIN EXPERT CARBOXY THERAPY GEL MASK",
+      "brand": "GIGI Laboratories",
+      "summary": "SKIN EXPERT CARBOXY THERAPY GEL MASK z linii Skin Expert marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Skin Expert",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Maska",
+      "manufacturerUses": [
+        "Regeneracja",
+        "Zmarszczki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Regeneracja",
+        "Pielęgnacja anti-aging"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Peptydy"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "SKIN EXPERT CARBOXY THERAPY GEL MASK",
+        "Skin Expert",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/skin-expert-carboxy-therapy-gel-mask/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/909.webp",
+      "imageAlt": "SKIN EXPERT CARBOXY THERAPY GEL MASK — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "895",
+      "slug": "895-skin-expert-deep-cleansing-liquid-pads",
+      "name": "SKIN EXPERT DEEP CLEANSING LIQUID PADS",
+      "brand": "GIGI Laboratories",
+      "summary": "SKIN EXPERT DEEP CLEANSING LIQUID PADS z linii Skin Expert marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Skin Expert",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Produkt Oczyszczajacy",
+      "manufacturerUses": [
+        "Oczyszczanie",
+        "Okolica oczu"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Oczyszczanie",
+        "Pielęgnacja okolicy oczu"
+      ],
+      "applicationAreas": [
+        {
+          "code": "EYES",
+          "label": "Okolica oczu"
+        }
+      ],
+      "keyIngredients": [
+        "Kwas Glikolowy"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "SKIN EXPERT DEEP CLEANSING LIQUID PADS",
+        "Skin Expert",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/skin-expert-deep-cleansing-liquid-pads/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/895.webp",
+      "imageAlt": "SKIN EXPERT DEEP CLEANSING LIQUID PADS — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "905",
+      "slug": "905-skin-expert-enzymatic-peeling-gel",
+      "name": "SKIN EXPERT ENZYMATIC PEELING GEL",
+      "brand": "GIGI Laboratories",
+      "summary": "SKIN EXPERT ENZYMATIC PEELING GEL z linii Skin Expert marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Skin Expert",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Peeling",
+      "manufacturerUses": [
+        "Złuszczanie",
+        "Stan Zapalny Zaskorniki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Złuszczanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Papaina"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "SKIN EXPERT ENZYMATIC PEELING GEL",
+        "Skin Expert",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/skin-expert-enzymatic-peeling-gel/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/905.webp",
+      "imageAlt": "SKIN EXPERT ENZYMATIC PEELING GEL — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "903",
+      "slug": "903-skin-expert-massage-gel-sensitive-skin",
+      "name": "SKIN EXPERT MASSAGE GEL SENSITIVE SKIN",
+      "brand": "GIGI Laboratories",
+      "summary": "SKIN EXPERT MASSAGE GEL SENSITIVE SKIN z linii Skin Expert marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Skin Expert",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "ZEL",
+      "manufacturerUses": [
+        "Pielęgnacja",
+        "Stan Zapalny Zaskorniki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Pielęgnacja"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Aloes"
+      ],
+      "skinTypes": [
+        "Skóra wrażliwa i naczyniowa"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "SKIN EXPERT MASSAGE GEL SENSITIVE SKIN",
+        "Skin Expert",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/skin-expert-massage-gel-sensitive-skin/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/903.webp",
+      "imageAlt": "SKIN EXPERT MASSAGE GEL SENSITIVE SKIN — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "897",
+      "slug": "897-skin-expert-peeling-regular-normal-skin",
+      "name": "SKIN EXPERT PEELING REGULAR Normal Skin",
+      "brand": "GIGI Laboratories",
+      "summary": "SKIN EXPERT PEELING REGULAR Normal Skin z linii Skin Expert marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Skin Expert",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Peeling",
+      "manufacturerUses": [
+        "Oczyszczanie",
+        "Tradzik Pospolity"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Oczyszczanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwas"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "SKIN EXPERT PEELING REGULAR Normal Skin",
+        "Skin Expert",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/skin-expert-peeling-regular-normal-skin/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/897.webp",
+      "imageAlt": "SKIN EXPERT PEELING REGULAR Normal Skin — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "899",
+      "slug": "899-skin-expert-propolis-powder-mask-for-oily-skin",
+      "name": "SKIN EXPERT PROPOLIS POWDER MASK FOR OILY SKIN",
+      "brand": "GIGI Laboratories",
+      "summary": "SKIN EXPERT PROPOLIS POWDER MASK FOR OILY SKIN z linii Skin Expert marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Skin Expert",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Maska",
+      "manufacturerUses": [
+        "Oczyszczanie",
+        "Rozszerzone pory"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Oczyszczanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Propolis"
+      ],
+      "skinTypes": [
+        "Skora Tlusta Tradzikowa"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "SKIN EXPERT PROPOLIS POWDER MASK FOR OILY SKIN",
+        "Skin Expert",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/skin-expert-propolis-powder-mask-for-oily-skin/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/899.webp",
+      "imageAlt": "SKIN EXPERT PROPOLIS POWDER MASK FOR OILY SKIN — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "907",
+      "slug": "907-skin-expert-softening-gel",
+      "name": "SKIN EXPERT SOFTENING GEL",
+      "brand": "GIGI Laboratories",
+      "summary": "SKIN EXPERT SOFTENING GEL z linii Skin Expert marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Skin Expert",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "ZEL",
+      "manufacturerUses": [
+        "Oczyszczanie",
+        "Rozszerzone pory"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Oczyszczanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Mocznik"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "SKIN EXPERT SOFTENING GEL",
+        "Skin Expert",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/skin-expert-softening-gel/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/907.webp",
+      "imageAlt": "SKIN EXPERT SOFTENING GEL — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "853",
+      "slug": "853-sun-care-daily-moist-spf-50",
+      "name": "SUN CARE DAILY MOIST SPF 50",
+      "brand": "GIGI Laboratories",
+      "summary": "SUN CARE DAILY MOIST SPF 50 z linii SUN Care marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "SUN Care",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Krem",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Nierównomierny koloryt i pigmentacja"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie",
+        "Przebarwienia"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Pantenol"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "SUN CARE DAILY MOIST SPF 50",
+        "SUN Care",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/sun-care-daily-moist-spf-50/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/853.webp",
+      "imageAlt": "SUN CARE DAILY MOIST SPF 50 — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "857",
+      "slug": "857-sun-care-defense-spray-spf-50-for-all-skin-types",
+      "name": "SUN CARE DEFENSE SPRAY SPF 50 for All Skin Types",
+      "brand": "GIGI Laboratories",
+      "summary": "SUN CARE DEFENSE SPRAY SPF 50 for All Skin Types z linii SUN Care marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "SUN Care",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Mgielka",
+      "manufacturerUses": [
+        "Ochrona skóry",
+        "Zmarszczki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Ochrona skóry",
+        "Pielęgnacja anti-aging"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Pantenol"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "SUN CARE DEFENSE SPRAY SPF 50 for All Skin Types",
+        "SUN Care",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/sun-care-defense-spray-spf-50-for-all-skin-types/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/857.webp",
+      "imageAlt": "SUN CARE DEFENSE SPRAY SPF 50 for All Skin Types — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "855",
+      "slug": "855-sun-care-ultra-light-spf-50",
+      "name": "SUN CARE ULTRA LIGHT SPF 50",
+      "brand": "GIGI Laboratories",
+      "summary": "SUN CARE ULTRA LIGHT SPF 50 z linii SUN Care marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "SUN Care",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Krem",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Nierównomierny koloryt i pigmentacja"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie",
+        "Przebarwienia"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Pantenol"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "SUN CARE ULTRA LIGHT SPF 50",
+        "SUN Care",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/sun-care-ultra-light-spf-50/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/855.webp",
+      "imageAlt": "SUN CARE ULTRA LIGHT SPF 50 — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "628",
+      "slug": "628-texture-dd-cream-light",
+      "name": "TEXTURE DD CREAM LIGHT",
+      "brand": "GIGI Laboratories",
+      "summary": "TEXTURE DD CREAM LIGHT z linii Texture marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Texture",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Krem",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Okolica oczu"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie",
+        "Pielęgnacja okolicy oczu"
+      ],
+      "applicationAreas": [
+        {
+          "code": "EYES",
+          "label": "Okolica oczu"
+        }
+      ],
+      "keyIngredients": [
+        "Kofeina"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "TEXTURE DD CREAM LIGHT",
+        "Texture",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/texture-dd-cream-light/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/628.webp",
+      "imageAlt": "TEXTURE DD CREAM LIGHT — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "617",
+      "slug": "617-texture-lba-toner",
+      "name": "TEXTURE LBA TONER",
+      "brand": "GIGI Laboratories",
+      "summary": "TEXTURE LBA TONER z linii Texture marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Texture",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Tonik",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Nierównomierny koloryt i pigmentacja"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie",
+        "Przebarwienia"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwas Laktobionowy"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "TEXTURE LBA TONER",
+        "Texture",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/texture-lba-toner/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/617.webp",
+      "imageAlt": "TEXTURE LBA TONER — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "613",
+      "slug": "613-texture-magic-eye-rescue-cream",
+      "name": "TEXTURE MAGIC EYE RESCUE CREAM",
+      "brand": "GIGI Laboratories",
+      "summary": "TEXTURE MAGIC EYE RESCUE CREAM z linii Texture marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Texture",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Krem POD Oczy",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Okolica oczu"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie",
+        "Pielęgnacja okolicy oczu"
+      ],
+      "applicationAreas": [
+        {
+          "code": "EYES",
+          "label": "Okolica oczu"
+        }
+      ],
+      "keyIngredients": [
+        "Kofeina"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "TEXTURE MAGIC EYE RESCUE CREAM",
+        "Texture",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/texture-magic-eye-rescue-cream/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/613.webp",
+      "imageAlt": "TEXTURE MAGIC EYE RESCUE CREAM — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "623",
+      "slug": "623-texture-magic-eye-rescue-cream",
+      "name": "TEXTURE MAGIC EYE RESCUE CREAM",
+      "brand": "GIGI Laboratories",
+      "summary": "TEXTURE MAGIC EYE RESCUE CREAM z linii Texture marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Texture",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Krem",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Odwodnienie"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Inulina"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "TEXTURE MAGIC EYE RESCUE CREAM",
+        "Texture",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/texture-magic-eye-rescue-cream-pro/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/623.webp",
+      "imageAlt": "TEXTURE MAGIC EYE RESCUE CREAM — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "621",
+      "slug": "621-texture-probiotic-mask",
+      "name": "TEXTURE PROBIOTIC MASK",
+      "brand": "GIGI Laboratories",
+      "summary": "TEXTURE PROBIOTIC MASK z linii Texture marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Texture",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Maska",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Nierównomierny koloryt i pigmentacja"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie",
+        "Przebarwienia"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwas hialuronowy"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "TEXTURE PROBIOTIC MASK",
+        "Texture",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/texture-probiotic-mask/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/621.webp",
+      "imageAlt": "TEXTURE PROBIOTIC MASK — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "625",
+      "slug": "625-texture-probiotic-mask",
+      "name": "TEXTURE PROBIOTIC MASK",
+      "brand": "GIGI Laboratories",
+      "summary": "TEXTURE PROBIOTIC MASK z linii Texture marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Texture",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Maska",
+      "manufacturerUses": [
+        "Złuszczanie",
+        "Stan Zapalny Zaskorniki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Złuszczanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwas mlekowy"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "TEXTURE PROBIOTIC MASK",
+        "Texture",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/texture-probiotic-mask-pro/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/625.webp",
+      "imageAlt": "TEXTURE PROBIOTIC MASK — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "619",
+      "slug": "619-texture-qbs-peeling",
+      "name": "TEXTURE QBS PEELING",
+      "brand": "GIGI Laboratories",
+      "summary": "TEXTURE QBS PEELING z linii Texture marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Texture",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Peeling",
+      "manufacturerUses": [
+        "Oczyszczanie",
+        "Stan Zapalny Zaskorniki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Oczyszczanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Bromelaina"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "TEXTURE QBS PEELING",
+        "Texture",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/texture-qbs-peeling/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/619.webp",
+      "imageAlt": "TEXTURE QBS PEELING — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "611",
+      "slug": "611-texture-relief-night-care-cream",
+      "name": "TEXTURE RELIEF NIGHT CARE CREAM",
+      "brand": "GIGI Laboratories",
+      "summary": "TEXTURE RELIEF NIGHT CARE CREAM z linii Texture marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Texture",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Krem NA NOC",
+      "manufacturerUses": [
+        "Odmładzanie",
+        "Skora Sucha Odwodniona"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Odmładzanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwas hialuronowy"
+      ],
+      "skinTypes": [
+        "Skora Sucha Odwodniona"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "TEXTURE RELIEF NIGHT CARE CREAM",
+        "Texture",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/texture-relief-night-care-cream/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/611.webp",
+      "imageAlt": "TEXTURE RELIEF NIGHT CARE CREAM — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "615",
+      "slug": "615-texture-resilience-serum",
+      "name": "TEXTURE RESILIENCE SERUM",
+      "brand": "GIGI Laboratories",
+      "summary": "TEXTURE RESILIENCE SERUM z linii Texture marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Texture",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Serum",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Stan Zapalny Zaskorniki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Algi"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "TEXTURE RESILIENCE SERUM",
+        "Texture",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/texture-resilience-serum/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/615.webp",
+      "imageAlt": "TEXTURE RESILIENCE SERUM — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "630",
+      "slug": "630-texture-smart-night-peeling",
+      "name": "TEXTURE SMART NIGHT PEELING",
+      "brand": "GIGI Laboratories",
+      "summary": "TEXTURE SMART NIGHT PEELING z linii Texture marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Texture",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Peeling",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Zmarszczki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie",
+        "Pielęgnacja anti-aging"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwas"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "TEXTURE SMART NIGHT PEELING",
+        "Texture",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/texture-smart-night-peeling/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/630.webp",
+      "imageAlt": "TEXTURE SMART NIGHT PEELING — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "609",
+      "slug": "609-texture-surface-hydration-cream",
+      "name": "TEXTURE SURFACE HYDRATION CREAM",
+      "brand": "GIGI Laboratories",
+      "summary": "TEXTURE SURFACE HYDRATION CREAM z linii Texture marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Texture",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Krem",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Zmarszczki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie",
+        "Pielęgnacja anti-aging"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwas hialuronowy"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "TEXTURE SURFACE HYDRATION CREAM",
+        "Texture",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/texture-surface-hydration-cream/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/609.webp",
+      "imageAlt": "TEXTURE SURFACE HYDRATION CREAM — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "843",
+      "slug": "843-vitamin-e-eye-cream",
+      "name": "VITAMIN E EYE CREAM",
+      "brand": "GIGI Laboratories",
+      "summary": "VITAMIN E EYE CREAM z linii Vitamin E marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Vitamin E",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Krem POD Oczy",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Okolica oczu"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie",
+        "Pielęgnacja okolicy oczu"
+      ],
+      "applicationAreas": [
+        {
+          "code": "EYES",
+          "label": "Okolica oczu"
+        }
+      ],
+      "keyIngredients": [
+        "Kwas mlekowy"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "VITAMIN E EYE CREAM",
+        "Vitamin E",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/vitamin-e-eye-cream/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/843.webp",
+      "imageAlt": "VITAMIN E EYE CREAM — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "837",
+      "slug": "837-vitamin-e-hydratant-spf-20-normal-dry-skin",
+      "name": "VITAMIN E HYDRATANT SPF 20 Normal/Dry Skin",
+      "brand": "GIGI Laboratories",
+      "summary": "VITAMIN E HYDRATANT SPF 20 Normal/Dry Skin z linii Vitamin E marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Vitamin E",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Krem",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Zmarszczki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie",
+        "Pielęgnacja anti-aging"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Woda Morska"
+      ],
+      "skinTypes": [
+        "Skora Sucha Odwodniona"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "VITAMIN E HYDRATANT SPF 20 Normal/Dry Skin",
+        "Vitamin E",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/vitamin-e-hydratant-spf-20-normal-dry-skin/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/837.webp",
+      "imageAlt": "VITAMIN E HYDRATANT SPF 20 Normal/Dry Skin — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "847",
+      "slug": "847-vitamin-e-hydratant-spf-20-normal-dry-skin",
+      "name": "VITAMIN E HYDRATANT SPF 20 Normal/Dry Skin",
+      "brand": "GIGI Laboratories",
+      "summary": "VITAMIN E HYDRATANT SPF 20 Normal/Dry Skin z linii Vitamin E marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Vitamin E",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Krem",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Zmarszczki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie",
+        "Pielęgnacja anti-aging"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Arginina"
+      ],
+      "skinTypes": [
+        "Skora Sucha Odwodniona"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "VITAMIN E HYDRATANT SPF 20 Normal/Dry Skin",
+        "Vitamin E",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/vitamin-e-hydratant-spf-20-normal-dry-skin-pro/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/847.webp",
+      "imageAlt": "VITAMIN E HYDRATANT SPF 20 Normal/Dry Skin — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "839",
+      "slug": "839-vitamin-e-hydratant-spf-20-oily-large-pore-skin",
+      "name": "VITAMIN E HYDRATANT SPF 20 Oily & Large Pore Skin",
+      "brand": "GIGI Laboratories",
+      "summary": "VITAMIN E HYDRATANT SPF 20 Oily & Large Pore Skin z linii Vitamin E marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Vitamin E",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Krem",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Zmarszczki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie",
+        "Pielęgnacja anti-aging"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Skrobia Ryzowa"
+      ],
+      "skinTypes": [
+        "Skora Tlusta Tradzikowa"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "VITAMIN E HYDRATANT SPF 20 Oily & Large Pore Skin",
+        "Vitamin E",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/vitamin-e-hydratant-spf-20-oily-large-pore-skin/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/839.webp",
+      "imageAlt": "VITAMIN E HYDRATANT SPF 20 Oily & Large Pore Skin — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "845",
+      "slug": "845-vitamin-e-night-lifting-cream-normal-dry",
+      "name": "VITAMIN E NIGHT & LIFTING CREAM Normal/Dry",
+      "brand": "GIGI Laboratories",
+      "summary": "VITAMIN E NIGHT & LIFTING CREAM Normal/Dry z linii Vitamin E marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Vitamin E",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Krem NA NOC",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Zmarszczki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie",
+        "Pielęgnacja anti-aging"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Olej Jojoba"
+      ],
+      "skinTypes": [
+        "Skóra dojrzała"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "VITAMIN E NIGHT & LIFTING CREAM Normal/Dry",
+        "Vitamin E",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/vitamin-e-night-lifting-cream-normal-dry/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/845.webp",
+      "imageAlt": "VITAMIN E NIGHT & LIFTING CREAM Normal/Dry — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "851",
+      "slug": "851-vitamin-e-night-lifting-cream-normal-dry",
+      "name": "VITAMIN E NIGHT & LIFTING CREAM Normal/Dry",
+      "brand": "GIGI Laboratories",
+      "summary": "VITAMIN E NIGHT & LIFTING CREAM Normal/Dry z linii Vitamin E marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Vitamin E",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Krem NA NOC",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Zmarszczki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie",
+        "Pielęgnacja anti-aging"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Olej Jojoba"
+      ],
+      "skinTypes": [
+        "Skóra dojrzała"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "VITAMIN E NIGHT & LIFTING CREAM Normal/Dry",
+        "Vitamin E",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/vitamin-e-night-lifting-cream-normal-dry-pro/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/851.webp",
+      "imageAlt": "VITAMIN E NIGHT & LIFTING CREAM Normal/Dry — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "841",
+      "slug": "841-vitamin-e-serum",
+      "name": "VITAMIN E SERUM",
+      "brand": "GIGI Laboratories",
+      "summary": "VITAMIN E SERUM z linii Vitamin E marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Vitamin E",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Serum",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Nierównomierny koloryt i pigmentacja"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie",
+        "Przebarwienia"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Witamina E"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "VITAMIN E SERUM",
+        "Vitamin E",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/vitamin-e-serum/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/841.webp",
+      "imageAlt": "VITAMIN E SERUM — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "849",
+      "slug": "849-vitamin-e-serum",
+      "name": "VITAMIN E SERUM",
+      "brand": "GIGI Laboratories",
+      "summary": "VITAMIN E SERUM z linii Vitamin E marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Vitamin E",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Serum",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Nierównomierny koloryt i pigmentacja"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie",
+        "Przebarwienia"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwas mlekowy"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "VITAMIN E SERUM",
+        "Vitamin E",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/vitamin-e-serum-pro/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/849.webp",
+      "imageAlt": "VITAMIN E SERUM — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "835",
+      "slug": "835-vitamin-e-soap-p-h-5-5",
+      "name": "VITAMIN E SOAP P.H 5.5",
+      "brand": "GIGI Laboratories",
+      "summary": "VITAMIN E SOAP P.H 5.5 z linii Vitamin E marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "Vitamin E",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji domowej",
+      "productFamily": "Produkt Oczyszczajacy",
+      "manufacturerUses": [
+        "Pielęgnacja",
+        "Stan Zapalny Zaskorniki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Pielęgnacja"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Witamina E"
+      ],
+      "skinTypes": [
+        "Skora Normalna"
+      ],
+      "professionalOnly": false,
+      "aliases": [
+        "VITAMIN E SOAP P.H 5.5",
+        "Vitamin E",
+        "GIGI",
+        "GIGI Laboratories"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/vitamin-e-soap-p-h-5-5/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/835.webp",
+      "imageAlt": "VITAMIN E SOAP P.H 5.5 — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "1180",
+      "slug": "1180-welcome-gigi-luksusowe-rozswietlienie-anti-age-na-start-2026",
+      "name": "Welcome Gigi Luksusowe Rozswietlienie Anti Age Na Start 2026",
+      "brand": "GIGI Laboratories",
+      "summary": "Welcome Gigi Luksusowe Rozswietlienie Anti Age Na Start 2026 z linii GIGI Laboratories marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "GIGI Laboratories",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Kosmetyk",
+      "manufacturerUses": [
+        "Pielęgnacja skóry twarzy zgodnie z protokołem marki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "skinTypes": [
+        "Dobierz do potrzeb skóry"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "Welcome Gigi Luksusowe Rozswietlienie Anti Age Na Start 2026",
+        "GIGI Laboratories",
+        "GIGI"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/welcome-gigi-luksusowe-rozswietlienie-anti-age-na-start-2026/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/1180.webp",
+      "imageAlt": "Welcome Gigi Luksusowe Rozswietlienie Anti Age Na Start 2026 — oficjalne zdjęcie produktu GIGI Laboratories"
+    },
+    {
+      "id": "1176",
+      "slug": "1176-welcome-gigi-skin-glow-treatment-na-start-2026",
+      "name": "Welcome Gigi Skin Glow Treatment Na Start 2026",
+      "brand": "GIGI Laboratories",
+      "summary": "Welcome Gigi Skin Glow Treatment Na Start 2026 z linii GIGI Laboratories marki GIGI Laboratories. Oficjalna karta GIGI Poland; cena jest dostępna po zalogowaniu profesjonalisty.",
+      "series": "GIGI Laboratories",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Kosmetyk",
+      "manufacturerUses": [
+        "Pielęgnacja skóry twarzy zgodnie z protokołem marki"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "skinTypes": [
+        "Dobierz do potrzeb skóry"
+      ],
+      "professionalOnly": true,
+      "aliases": [
+        "Welcome Gigi Skin Glow Treatment Na Start 2026",
+        "GIGI Laboratories",
+        "GIGI"
+      ],
+      "sourceUrl": "https://gigipoland.pl/product/welcome-gigi-skin-glow-treatment-na-start-2026/",
+      "imagePath": "/beautydocs/catalog/gigi-poland/1176.webp",
+      "imageAlt": "Welcome Gigi Skin Glow Treatment Na Start 2026 — oficjalne zdjęcie produktu GIGI Laboratories"
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { prisma } from "../../../lib/prisma";
+import { legacyDatabase } from "@/lib/legacy-database";
 import { auth } from "../../../lib/auth";
 import { generateConsentFormPdf } from "@/lib/pdfGenerator";
 import { sendConsentFormEmail, getFormTypeLabel } from "@/lib/sendConsentEmail";
@@ -31,7 +31,7 @@ export async function POST(request: NextRequest) {
     const normalizedPhone = normalizePhone(body.telefon);
 
     // Znajdź lub utwórz klientkę po imieniu i nazwisku
-    const client = await prisma.client.upsert({
+    const client = await legacyDatabase.client.upsert({
       where: { imieNazwisko: normalizedName },
       update: {
         telefon: normalizedPhone,
@@ -42,7 +42,7 @@ export async function POST(request: NextRequest) {
       },
     });
 
-    const consentForm = await prisma.consentForm.create({
+    const consentForm = await legacyDatabase.consentForm.create({
       data: {
         type: formType,
         imieNazwisko: normalizedName,
@@ -185,7 +185,7 @@ export async function GET() {
   }
 
   try {
-    const forms = await prisma.consentForm.findMany({
+    const forms = await legacyDatabase.consentForm.findMany({
       orderBy: { createdAt: "desc" },
       select: {
         id: true,

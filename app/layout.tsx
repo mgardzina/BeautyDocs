@@ -1,20 +1,32 @@
 import type { Metadata, Viewport } from "next";
-import { Playfair_Display, Lato } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
-import CookieConsent from "../components/CookieConsent";
+import "./marketing.css";
 import GoogleAnalytics from "../components/GoogleAnalytics";
 import AuthProvider from "../components/AuthProvider";
 import JsonLd from "../components/JsonLd";
 
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-playfair",
-});
+/* eslint-disable @next/next/no-sync-scripts -- Cookiebot automatic blocking requires its synchronous loader to be the first script. */
 
-const lato = Lato({
-  weight: ["100", "300", "400", "700", "900"],
-  subsets: ["latin"],
-  variable: "--font-lato",
+const sora = localFont({
+  src: [
+    {
+      path: "./fonts/Sora-Variable.woff2",
+      weight: "100 800",
+      style: "normal",
+    },
+  ],
+  variable: "--font-sora",
+  display: "swap",
+  fallback: [
+    "system-ui",
+    "-apple-system",
+    "Segoe UI",
+    "Roboto",
+    "Helvetica",
+    "Arial",
+    "sans-serif",
+  ],
 });
 
 const siteUrl = "https://powderbrowsacademy.com.pl";
@@ -118,20 +130,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="pl" className={`${playfair.variable} ${lato.variable}`}>
+    <html lang="pl" className={sora.variable}>
       <head>
+        <script
+          data-blockingmode="auto"
+          data-cbid="ab28b772-2770-4676-bb88-e9338fba0075"
+          id="Cookiebot"
+          src="https://consent.cookiebot.com/uc.js"
+          suppressHydrationWarning
+          type="text/javascript"
+        ></script>
         <GoogleAnalytics />
         <JsonLd />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
       </head>
       <body>
         <AuthProvider>{children}</AuthProvider>
-        <CookieConsent />
       </body>
     </html>
   );

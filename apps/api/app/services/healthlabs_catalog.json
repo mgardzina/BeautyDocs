@@ -1,0 +1,2653 @@
+{
+  "source": "https://www.healthlabs.care/pl/produkty/kosmetyki",
+  "reviewedAt": "2026-08-25",
+  "count": 69,
+  "products": [
+    {
+      "slug": "letni-blask",
+      "name": "Letni blask skóry",
+      "summary": "Kolagen rybi do picia i krem z filtrem UV",
+      "presentation": "Zestaw produktów",
+      "sourceCategory": "Suplementy diety",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/letni-blask",
+      "imagePath": "/beautydocs/catalog/healthlabs/letni-blask.webp",
+      "imageAlt": "Letni blask skóry — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Kolagen rybi do picia i krem z filtrem UV"
+      ],
+      "aliases": [
+        "letni blask"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 315.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/letni-blask",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Zestaw kosmetyków",
+      "productFamily": "Zestaw pielęgnacyjny",
+      "treatmentCategories": [
+        "Zestawy kosmetyczne",
+        "Pielęgnacja twarzy",
+        "Ochrona przeciwsłoneczna",
+        "Przebarwienia i koloryt"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": []
+    },
+    {
+      "slug": "kompletny-rytual-ukojenia",
+      "name": "Kompletny rytuał ukojenia",
+      "summary": "Zestaw kosmetyków do skóry wrażliwej i po zabiegach",
+      "presentation": "Zestaw produktów",
+      "sourceCategory": "Kosmetyki do twarzy i ciała",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/kompletny-rytual-ukojenia",
+      "imagePath": "/beautydocs/catalog/healthlabs/kompletny-rytual-ukojenia.webp",
+      "imageAlt": "Kompletny rytuał ukojenia — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Zestaw kosmetyków do skóry wrażliwej i po zabiegach"
+      ],
+      "aliases": [
+        "kompletny rytual ukojenia"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 359.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/kompletny-rytual-ukojenia",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Zestaw kosmetyków",
+      "productFamily": "Zestaw pielęgnacyjny",
+      "treatmentCategories": [
+        "Zestawy kosmetyczne",
+        "Pielęgnacja twarzy",
+        "Skóra wrażliwa i reaktywna"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": []
+    },
+    {
+      "slug": "duet-przywracajacy-komfort-skorze",
+      "name": "Duet przywracający komfort skórze",
+      "summary": "Esencja i krem dla nawilżenia i ukojenia skóry wrażliwej",
+      "presentation": "Zestaw produktów",
+      "sourceCategory": "Kosmetyki do twarzy i ciała",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/duet-przywracajacy-komfort-skorze",
+      "imagePath": "/beautydocs/catalog/healthlabs/duet-przywracajacy-komfort-skorze.webp",
+      "imageAlt": "Duet przywracający komfort skórze — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Esencja i krem dla nawilżenia i ukojenia skóry wrażliwej"
+      ],
+      "aliases": [
+        "duet przywracajacy komfort skorze"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 279.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/duet-przywracajacy-komfort-skorze",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Zestaw kosmetyków",
+      "productFamily": "Zestaw pielęgnacyjny",
+      "treatmentCategories": [
+        "Zestawy kosmetyczne",
+        "Pielęgnacja twarzy",
+        "Nawilżanie",
+        "Skóra wrażliwa i reaktywna"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": []
+    },
+    {
+      "slug": "krem-kojacy-sensi-on",
+      "name": "Krem kojący Sensi On",
+      "summary": "Krem dla otulenia i komfortu skóry wrażliwej i po zabiegach",
+      "presentation": "50 ml",
+      "sourceCategory": "Kosmetyki do twarzy i ciała",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/krem-kojacy-sensi-on",
+      "imagePath": "/beautydocs/catalog/healthlabs/krem-kojacy-sensi-on.webp",
+      "imageAlt": "Krem kojący Sensi On — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Krem dla otulenia i komfortu skóry wrażliwej i po zabiegach"
+      ],
+      "aliases": [
+        "krem kojacy sensi on"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 139.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/krem-kojacy-sensi-on",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Kosmetyk do twarzy",
+      "productFamily": "Krem pielęgnacyjny",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Skóra wrażliwa i reaktywna"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": []
+    },
+    {
+      "slug": "esencja-z-ceramidami-sensi-on",
+      "name": "Esencja z ceramidami Sensi On",
+      "summary": "Silnie nawilżająca esencja dla skóry wrażliwej i po zabiegach",
+      "presentation": "30 ml",
+      "sourceCategory": "Kosmetyki do twarzy i ciała",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/esencja-z-ceramidami-sensi-on",
+      "imagePath": "/beautydocs/catalog/healthlabs/esencja-z-ceramidami-sensi-on.webp",
+      "imageAlt": "Esencja z ceramidami Sensi On — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Silnie nawilżająca esencja dla skóry wrażliwej i po zabiegach"
+      ],
+      "aliases": [
+        "esencja z ceramidami sensi on"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 169.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/esencja-z-ceramidami-sensi-on",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Kosmetyk do twarzy",
+      "productFamily": "Esencja pielęgnacyjna",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie",
+        "Skóra wrażliwa i reaktywna"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Ceramidy"
+      ]
+    },
+    {
+      "slug": "balsam-myjacy-z-prebiotykami-sensi-on",
+      "name": "Balsam myjący z prebiotykami Sensi On",
+      "summary": "Łagodny balsam myjący dla skóry wrażliwej",
+      "presentation": "200 ml",
+      "sourceCategory": "Kosmetyki do twarzy i ciała",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/balsam-myjacy-z-prebiotykami-sensi-on",
+      "imagePath": "/beautydocs/catalog/healthlabs/balsam-myjacy-z-prebiotykami-sensi-on.webp",
+      "imageAlt": "Balsam myjący z prebiotykami Sensi On — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Łagodny balsam myjący dla skóry wrażliwej"
+      ],
+      "aliases": [
+        "balsam myjacy z prebiotykami sensi on"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 99.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/balsam-myjacy-z-prebiotykami-sensi-on",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Kosmetyk do twarzy",
+      "productFamily": "Balsam pielęgnacyjny",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Oczyszczanie",
+        "Skóra wrażliwa i reaktywna"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Prebiotyki"
+      ]
+    },
+    {
+      "slug": "glow-on-serum-tetravit-c-10",
+      "name": "Serum TetraVIT C 10% Glow On",
+      "summary": "Serum do twarzy z witaminą C wspierające naturalny blask skóry",
+      "presentation": "30 ml",
+      "sourceCategory": "Kosmetyki do twarzy i ciała",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/glow-on-serum-tetravit-c-10",
+      "imagePath": "/beautydocs/catalog/healthlabs/glow-on-serum-tetravit-c-10.webp",
+      "imageAlt": "Serum TetraVIT C 10% Glow On — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Serum do twarzy z witaminą C wspierające naturalny blask skóry"
+      ],
+      "aliases": [
+        "glow on serum tetravit c 10"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 249.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/glow-on-serum-tetravit-c-10",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Kosmetyk do twarzy",
+      "productFamily": "Serum pielęgnacyjne",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Przebarwienia i koloryt"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Witamina C"
+      ]
+    },
+    {
+      "slug": "dla-skory-i-wlosow-pozbawionych-blasku",
+      "name": "Dla skóry i włosów pozbawionych blasku",
+      "summary": "Rozświetlające serum do twarzy i maska wygładzająca do włosów",
+      "presentation": "Zestaw produktów",
+      "sourceCategory": "Kosmetyki do twarzy i ciała",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/dla-skory-i-wlosow-pozbawionych-blasku",
+      "imagePath": "/beautydocs/catalog/healthlabs/dla-skory-i-wlosow-pozbawionych-blasku.webp",
+      "imageAlt": "Dla skóry i włosów pozbawionych blasku — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Rozświetlające serum do twarzy i maska wygładzająca do włosów"
+      ],
+      "aliases": [
+        "dla skory i wlosow pozbawionych blasku"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 339.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/dla-skory-i-wlosow-pozbawionych-blasku",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Zestaw kosmetyków",
+      "productFamily": "Zestaw pielęgnacyjny",
+      "treatmentCategories": [
+        "Zestawy kosmetyczne",
+        "Pielęgnacja twarzy",
+        "Pielęgnacja włosów i skóry głowy",
+        "Przebarwienia i koloryt"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": []
+    },
+    {
+      "slug": "dla-skory-i-wlosow-z-nadmiarem-sebum",
+      "name": "Dla skóry i włosów z nadmiarem sebum",
+      "summary": "Krem do twarzy z ceramidami i szampon do włosów przetłuszczających się",
+      "presentation": "Zestaw produktów",
+      "sourceCategory": "Kosmetyki do twarzy i ciała",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/dla-skory-i-wlosow-z-nadmiarem-sebum",
+      "imagePath": "/beautydocs/catalog/healthlabs/dla-skory-i-wlosow-z-nadmiarem-sebum.webp",
+      "imageAlt": "Dla skóry i włosów z nadmiarem sebum — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Krem do twarzy z ceramidami i szampon do włosów przetłuszczających się"
+      ],
+      "aliases": [
+        "dla skory i wlosow z nadmiarem sebum"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 199.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/dla-skory-i-wlosow-z-nadmiarem-sebum",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Zestaw kosmetyków",
+      "productFamily": "Zestaw pielęgnacyjny",
+      "treatmentCategories": [
+        "Zestawy kosmetyczne",
+        "Pielęgnacja twarzy",
+        "Pielęgnacja włosów i skóry głowy",
+        "Skóra trądzikowa i niedoskonałości"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Ceramidy"
+      ]
+    },
+    {
+      "slug": "dla-codziennego-oczyszczenia-skory-twarzy-i-glowy",
+      "name": "Dla codziennego oczyszczenia skóry twarzy i głowy",
+      "summary": "Żel do mycia twarzy i szampon oczyszczający do włosów",
+      "presentation": "Zestaw produktów",
+      "sourceCategory": "Kosmetyki do twarzy i ciała",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/dla-codziennego-oczyszczenia-skory-twarzy-i-glowy",
+      "imagePath": "/beautydocs/catalog/healthlabs/dla-codziennego-oczyszczenia-skory-twarzy-i-glowy.webp",
+      "imageAlt": "Dla codziennego oczyszczenia skóry twarzy i głowy — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Żel do mycia twarzy i szampon oczyszczający do włosów"
+      ],
+      "aliases": [
+        "dla codziennego oczyszczenia skory twarzy i glowy"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 199.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/dla-codziennego-oczyszczenia-skory-twarzy-i-glowy",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Zestaw kosmetyków",
+      "productFamily": "Zestaw pielęgnacyjny",
+      "treatmentCategories": [
+        "Zestawy kosmetyczne",
+        "Pielęgnacja twarzy",
+        "Pielęgnacja włosów i skóry głowy",
+        "Oczyszczanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": []
+    },
+    {
+      "slug": "glow-on-krem-spf-50-z-melanina",
+      "name": "Krem SPF 50+ z melaniną Glow On",
+      "summary": "Skuteczna ochrona skóry przed słońcem",
+      "presentation": "50 ml",
+      "sourceCategory": "Kosmetyki do twarzy i ciała",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/glow-on-krem-spf-50-z-melanina",
+      "imagePath": "/beautydocs/catalog/healthlabs/glow-on-krem-spf-50-z-melanina.webp",
+      "imageAlt": "Krem SPF 50+ z melaniną Glow On — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Skuteczna ochrona skóry przed słońcem"
+      ],
+      "aliases": [
+        "glow on krem spf 50 z melanina"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 149.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/glow-on-krem-spf-50-z-melanina",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Kosmetyk do twarzy",
+      "productFamily": "Krem pielęgnacyjny",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Ochrona przeciwsłoneczna"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Melanina"
+      ]
+    },
+    {
+      "slug": "glow-on-krem-nawilzajacy",
+      "name": "Krem nawilżający Glow On",
+      "summary": "Krem do twarzy z kwasem hialuronowym, dla promiennej i gładkiej skóry",
+      "presentation": "50 ml",
+      "sourceCategory": "Kosmetyki do twarzy i ciała",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/glow-on-krem-nawilzajacy",
+      "imagePath": "/beautydocs/catalog/healthlabs/glow-on-krem-nawilzajacy.webp",
+      "imageAlt": "Krem nawilżający Glow On — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Krem do twarzy z kwasem hialuronowym, dla promiennej i gładkiej skóry"
+      ],
+      "aliases": [
+        "glow on krem nawilzajacy"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 199.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/glow-on-krem-nawilzajacy",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Kosmetyk do twarzy",
+      "productFamily": "Krem pielęgnacyjny",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": []
+    },
+    {
+      "slug": "mocne-i-lsniace-wlosy",
+      "name": "Mocne i lśniące włosy",
+      "summary": "Pielęgnacja i nawilżenie włosów od nasady",
+      "presentation": "Zestaw produktów",
+      "sourceCategory": "Kosmetyki do włosów",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/mocne-i-lsniace-wlosy",
+      "imagePath": "/beautydocs/catalog/healthlabs/mocne-i-lsniace-wlosy.webp",
+      "imageAlt": "Mocne i lśniące włosy — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Pielęgnacja i nawilżenie włosów od nasady"
+      ],
+      "aliases": [
+        "mocne i lsniace wlosy"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 165.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/mocne-i-lsniace-wlosy",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Zestaw kosmetyków",
+      "productFamily": "Zestaw pielęgnacyjny",
+      "treatmentCategories": [
+        "Zestawy kosmetyczne",
+        "Pielęgnacja włosów i skóry głowy",
+        "Nawilżanie"
+      ],
+      "applicationAreas": [],
+      "keyIngredients": []
+    },
+    {
+      "slug": "czystosc-i-lekkosc-wlosow",
+      "name": "Czystość i lekkość włosów",
+      "summary": "Zestaw szamponów do skóry głowy i włosów",
+      "presentation": "Zestaw produktów",
+      "sourceCategory": "Kosmetyki do włosów",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/czystosc-i-lekkosc-wlosow",
+      "imagePath": "/beautydocs/catalog/healthlabs/czystosc-i-lekkosc-wlosow.webp",
+      "imageAlt": "Czystość i lekkość włosów — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Zestaw szamponów do skóry głowy i włosów"
+      ],
+      "aliases": [
+        "czystosc i lekkosc wlosow"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 150.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/czystosc-i-lekkosc-wlosow",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Zestaw kosmetyków",
+      "productFamily": "Zestaw pielęgnacyjny",
+      "treatmentCategories": [
+        "Zestawy kosmetyczne",
+        "Pielęgnacja włosów i skóry głowy"
+      ],
+      "applicationAreas": [],
+      "keyIngredients": []
+    },
+    {
+      "slug": "dwuetapowe-oczyszczanie-twarzy",
+      "name": "Dwuetapowe oczyszczanie twarzy",
+      "summary": "Podstawa codziennej pielęgnacji",
+      "presentation": "Zestaw produktów",
+      "sourceCategory": "Kosmetyki do twarzy i ciała",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/dwuetapowe-oczyszczanie-twarzy",
+      "imagePath": "/beautydocs/catalog/healthlabs/dwuetapowe-oczyszczanie-twarzy.webp",
+      "imageAlt": "Dwuetapowe oczyszczanie twarzy — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Podstawa codziennej pielęgnacji"
+      ],
+      "aliases": [
+        "dwuetapowe oczyszczanie twarzy"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 230.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/dwuetapowe-oczyszczanie-twarzy",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Zestaw kosmetyków",
+      "productFamily": "Zestaw pielęgnacyjny",
+      "treatmentCategories": [
+        "Zestawy kosmetyczne",
+        "Pielęgnacja twarzy",
+        "Oczyszczanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": []
+    },
+    {
+      "slug": "maska-intensywnie-wygladzajaca-do-wlosow-glow-on",
+      "name": "Maska intensywnie wygładzająca do włosów Glow On",
+      "summary": "Efekt tafli na włosach",
+      "presentation": "200 ml",
+      "sourceCategory": "Kosmetyki do włosów",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/maska-intensywnie-wygladzajaca-do-wlosow-glow-on",
+      "imagePath": "/beautydocs/catalog/healthlabs/maska-intensywnie-wygladzajaca-do-wlosow-glow-on.webp",
+      "imageAlt": "Maska intensywnie wygładzająca do włosów Glow On — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Efekt tafli na włosach"
+      ],
+      "aliases": [
+        "maska intensywnie wygladzajaca do wlosow glow on"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 129.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/maska-intensywnie-wygladzajaca-do-wlosow-glow-on",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Kosmetyk do włosów",
+      "productFamily": "Maska pielęgnacyjna",
+      "treatmentCategories": [
+        "Pielęgnacja włosów i skóry głowy"
+      ],
+      "applicationAreas": [],
+      "keyIngredients": []
+    },
+    {
+      "slug": "slow-on-serum-peptydowe",
+      "name": "Serum peptydowe Slow On",
+      "summary": "Serum ujędrniające do twarzy",
+      "presentation": "30 ml",
+      "sourceCategory": "Kosmetyki do twarzy i ciała",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/slow-on-serum-peptydowe",
+      "imagePath": "/beautydocs/catalog/healthlabs/slow-on-serum-peptydowe.webp",
+      "imageAlt": "Serum peptydowe Slow On — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Serum ujędrniające do twarzy"
+      ],
+      "aliases": [
+        "slow on serum peptydowe"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 239.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/slow-on-serum-peptydowe",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Kosmetyk do twarzy",
+      "productFamily": "Serum pielęgnacyjne",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Pielęgnacja pro-aging"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Peptydy"
+      ]
+    },
+    {
+      "slug": "dwuetapowe-oczyszczanie-twarzy-travel-set",
+      "name": "Dwuetapowe oczyszczanie twarzy (Travel set)",
+      "summary": "Zestaw do oczyszczania skóry w wersji mini",
+      "presentation": "Emulsja do demakijażu i oczyszczania: 20 ml, Łagodny żel myjący: 30 ml",
+      "sourceCategory": "Kosmetyki do twarzy i ciała",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/dwuetapowe-oczyszczanie-twarzy-travel-set",
+      "imagePath": "/beautydocs/catalog/healthlabs/dwuetapowe-oczyszczanie-twarzy-travel-set.webp",
+      "imageAlt": "Dwuetapowe oczyszczanie twarzy (Travel set) — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Zestaw do oczyszczania skóry w wersji mini"
+      ],
+      "aliases": [
+        "dwuetapowe oczyszczanie twarzy travel set"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 65.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/dwuetapowe-oczyszczanie-twarzy-travel-set",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Zestaw kosmetyków",
+      "productFamily": "Zestaw pielęgnacyjny",
+      "treatmentCategories": [
+        "Zestawy kosmetyczne",
+        "Pielęgnacja twarzy",
+        "Oczyszczanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": []
+    },
+    {
+      "slug": "trychoszampon-nawilzajacy-z-prebiotykami",
+      "name": "Trychoszampon nawilżający Balance On",
+      "summary": "Szampon oczyszczający do skóry głowy",
+      "presentation": "250 ml",
+      "sourceCategory": "Kosmetyki do włosów",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/trychoszampon-nawilzajacy-z-prebiotykami",
+      "imagePath": "/beautydocs/catalog/healthlabs/trychoszampon-nawilzajacy-z-prebiotykami.webp",
+      "imageAlt": "Trychoszampon nawilżający Balance On — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Szampon oczyszczający do skóry głowy"
+      ],
+      "aliases": [
+        "trychoszampon nawilzajacy z prebiotykami"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 79.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/trychoszampon-nawilzajacy-z-prebiotykami",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Kosmetyk do włosów",
+      "productFamily": "Szampon do włosów",
+      "treatmentCategories": [
+        "Pielęgnacja włosów i skóry głowy",
+        "Oczyszczanie",
+        "Nawilżanie"
+      ],
+      "applicationAreas": [],
+      "keyIngredients": [
+        "Prebiotyki"
+      ]
+    },
+    {
+      "slug": "wygladzenie-i-efekt-liftingu",
+      "name": "Wygładzenie i efekt liftingu",
+      "summary": "Serum z peptydami i krem intensywnie nawilżający",
+      "presentation": "Zestaw produktów",
+      "sourceCategory": "Kosmetyki do twarzy i ciała",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/wygladzenie-i-efekt-liftingu",
+      "imagePath": "/beautydocs/catalog/healthlabs/wygladzenie-i-efekt-liftingu.webp",
+      "imageAlt": "Wygładzenie i efekt liftingu — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Serum z peptydami i krem intensywnie nawilżający"
+      ],
+      "aliases": [
+        "wygladzenie i efekt liftingu"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 399.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/wygladzenie-i-efekt-liftingu",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Zestaw kosmetyków",
+      "productFamily": "Zestaw pielęgnacyjny",
+      "treatmentCategories": [
+        "Zestawy kosmetyczne",
+        "Pielęgnacja twarzy",
+        "Nawilżanie",
+        "Pielęgnacja pro-aging"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Peptydy"
+      ]
+    },
+    {
+      "slug": "trychoszampon-wzmacniajacy",
+      "name": "Trychoszampon wzmacniający Rise On",
+      "summary": "Szampon na wzrost włosów",
+      "presentation": "250 ml",
+      "sourceCategory": "Kosmetyki do włosów",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/trychoszampon-wzmacniajacy",
+      "imagePath": "/beautydocs/catalog/healthlabs/trychoszampon-wzmacniajacy.webp",
+      "imageAlt": "Trychoszampon wzmacniający Rise On — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Szampon na wzrost włosów"
+      ],
+      "aliases": [
+        "trychoszampon wzmacniajacy"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 79.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/trychoszampon-wzmacniajacy",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Kosmetyk do włosów",
+      "productFamily": "Szampon do włosów",
+      "treatmentCategories": [
+        "Pielęgnacja włosów i skóry głowy"
+      ],
+      "applicationAreas": [],
+      "keyIngredients": []
+    },
+    {
+      "slug": "kompleksowa-regeneracja-wlosow",
+      "name": "Kompleksowa regeneracja włosów",
+      "summary": "Profesjonalna pielęgnacja włosów",
+      "presentation": "Zestaw produktów",
+      "sourceCategory": "Kosmetyki do włosów",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/kompleksowa-regeneracja-wlosow",
+      "imagePath": "/beautydocs/catalog/healthlabs/kompleksowa-regeneracja-wlosow.webp",
+      "imageAlt": "Kompleksowa regeneracja włosów — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Profesjonalna pielęgnacja włosów"
+      ],
+      "aliases": [
+        "kompleksowa regeneracja wlosow"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 269.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/kompleksowa-regeneracja-wlosow",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Zestaw kosmetyków",
+      "productFamily": "Zestaw pielęgnacyjny",
+      "treatmentCategories": [
+        "Zestawy kosmetyczne",
+        "Pielęgnacja włosów i skóry głowy"
+      ],
+      "applicationAreas": [],
+      "keyIngredients": []
+    },
+    {
+      "slug": "trychoszampon-regulujacy-przetluszczanie-solve-on",
+      "name": "Trychoszampon regulujący przetłuszczanie Solve On",
+      "summary": "Szampon do włosów przetłuszczających się z niacynamidem",
+      "presentation": "250 ml",
+      "sourceCategory": "Kosmetyki do włosów",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/trychoszampon-regulujacy-przetluszczanie-solve-on",
+      "imagePath": "/beautydocs/catalog/healthlabs/trychoszampon-regulujacy-przetluszczanie-solve-on.webp",
+      "imageAlt": "Trychoszampon regulujący przetłuszczanie Solve On — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Szampon do włosów przetłuszczających się z niacynamidem"
+      ],
+      "aliases": [
+        "trychoszampon regulujacy przetluszczanie solve on"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 79.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/trychoszampon-regulujacy-przetluszczanie-solve-on",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Kosmetyk do włosów",
+      "productFamily": "Szampon do włosów",
+      "treatmentCategories": [
+        "Pielęgnacja włosów i skóry głowy"
+      ],
+      "applicationAreas": [],
+      "keyIngredients": [
+        "Niacynamid"
+      ]
+    },
+    {
+      "slug": "zdrowy-wzrost-wlosow",
+      "name": "Zdrowy wzrost włosów",
+      "summary": "Szampon i booster na porost włosów",
+      "presentation": "Zestaw produktów",
+      "sourceCategory": "Kosmetyki do włosów",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/zdrowy-wzrost-wlosow",
+      "imagePath": "/beautydocs/catalog/healthlabs/zdrowy-wzrost-wlosow.webp",
+      "imageAlt": "Zdrowy wzrost włosów — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Szampon i booster na porost włosów"
+      ],
+      "aliases": [
+        "zdrowy wzrost wlosow"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 165.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/zdrowy-wzrost-wlosow",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Zestaw kosmetyków",
+      "productFamily": "Zestaw pielęgnacyjny",
+      "treatmentCategories": [
+        "Zestawy kosmetyczne",
+        "Pielęgnacja włosów i skóry głowy"
+      ],
+      "applicationAreas": [],
+      "keyIngredients": []
+    },
+    {
+      "slug": "szampon-dla-mezczyzn-gentle-on",
+      "name": "Trychoszampon przeciw wypadaniu włosów Gentle On",
+      "summary": "Szampon do włosów dla mężczyzn",
+      "presentation": "250 ml",
+      "sourceCategory": "Kosmetyki do twarzy i ciała",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/szampon-dla-mezczyzn-gentle-on",
+      "imagePath": "/beautydocs/catalog/healthlabs/szampon-dla-mezczyzn-gentle-on.webp",
+      "imageAlt": "Trychoszampon przeciw wypadaniu włosów Gentle On — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Szampon do włosów dla mężczyzn"
+      ],
+      "aliases": [
+        "szampon dla mezczyzn gentle on"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 79.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/szampon-dla-mezczyzn-gentle-on",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Kosmetyk do włosów",
+      "productFamily": "Szampon do włosów",
+      "treatmentCategories": [
+        "Pielęgnacja włosów i skóry głowy"
+      ],
+      "applicationAreas": [],
+      "keyIngredients": []
+    },
+    {
+      "slug": "serum-redukujace-przebarwienia-solve-on",
+      "name": "Serum redukujące przebarwienia Solve On",
+      "summary": "Zadbaj o jednolity koloryt swojej skóry",
+      "presentation": "30 ml",
+      "sourceCategory": "Kosmetyki do twarzy i ciała",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/serum-redukujace-przebarwienia-solve-on",
+      "imagePath": "/beautydocs/catalog/healthlabs/serum-redukujace-przebarwienia-solve-on.webp",
+      "imageAlt": "Serum redukujące przebarwienia Solve On — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Zadbaj o jednolity koloryt swojej skóry"
+      ],
+      "aliases": [
+        "serum redukujace przebarwienia solve on"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 149.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/serum-redukujace-przebarwienia-solve-on",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Kosmetyk do twarzy",
+      "productFamily": "Serum pielęgnacyjne",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Przebarwienia i koloryt"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": []
+    },
+    {
+      "slug": "pure-on-delikatny-zel-myjacy",
+      "name": "Łagodny żel myjący Pure On",
+      "summary": "Nawilżający żel do mycia twarzy",
+      "presentation": "200 ml",
+      "sourceCategory": "Kosmetyki do twarzy i ciała",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/pure-on-delikatny-zel-myjacy",
+      "imagePath": "/beautydocs/catalog/healthlabs/pure-on-delikatny-zel-myjacy.webp",
+      "imageAlt": "Łagodny żel myjący Pure On — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Nawilżający żel do mycia twarzy"
+      ],
+      "aliases": [
+        "pure on delikatny zel myjacy"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 129.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/pure-on-delikatny-zel-myjacy",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Kosmetyk do twarzy",
+      "productFamily": "Żel pielęgnacyjny",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Oczyszczanie",
+        "Nawilżanie",
+        "Skóra wrażliwa i reaktywna"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": []
+    },
+    {
+      "slug": "kompleksowa-pielegnacja-pro-aging",
+      "name": "Kompleksowa pielęgnacja pro-aging",
+      "summary": "Zaawansowana pielęgnacja z retinoidami",
+      "presentation": "Zestaw produktów",
+      "sourceCategory": "Kosmetyki do twarzy i ciała",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/kompleksowa-pielegnacja-pro-aging",
+      "imagePath": "/beautydocs/catalog/healthlabs/kompleksowa-pielegnacja-pro-aging.webp",
+      "imageAlt": "Kompleksowa pielęgnacja pro-aging — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Zaawansowana pielęgnacja z retinoidami"
+      ],
+      "aliases": [
+        "kompleksowa pielegnacja pro aging"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 599.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/kompleksowa-pielegnacja-pro-aging",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Zestaw kosmetyków",
+      "productFamily": "Zestaw pielęgnacyjny",
+      "treatmentCategories": [
+        "Zestawy kosmetyczne",
+        "Pielęgnacja twarzy",
+        "Pielęgnacja pro-aging"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Retinoidy"
+      ]
+    },
+    {
+      "slug": "skora-pelna-blasku",
+      "name": "Dla prawdziwego blasku",
+      "summary": "Blask bez makijażu",
+      "presentation": "Sprawdź wariant na stronie marki",
+      "sourceCategory": "Kosmetyki do twarzy i ciała",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/skora-pelna-blasku",
+      "imagePath": "/beautydocs/catalog/healthlabs/skora-pelna-blasku.webp",
+      "imageAlt": "Dla prawdziwego blasku — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Blask bez makijażu"
+      ],
+      "aliases": [
+        "skora pelna blasku"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 399.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/skora-pelna-blasku",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Kosmetyk do twarzy",
+      "productFamily": "Kosmetyk do pielęgnacji twarzy",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Przebarwienia i koloryt"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": []
+    },
+    {
+      "slug": "krem-naprawczy-z-ceramidami",
+      "name": "Krem naprawczy z ceramidami Solve On",
+      "summary": "Krem nawilżający dla skóry z niedoskonałościami",
+      "presentation": "50 ml",
+      "sourceCategory": "Kosmetyki do twarzy i ciała",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/krem-naprawczy-z-ceramidami",
+      "imagePath": "/beautydocs/catalog/healthlabs/krem-naprawczy-z-ceramidami.webp",
+      "imageAlt": "Krem naprawczy z ceramidami Solve On — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Krem nawilżający dla skóry z niedoskonałościami"
+      ],
+      "aliases": [
+        "krem naprawczy z ceramidami"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 139.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/krem-naprawczy-z-ceramidami",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Kosmetyk do twarzy",
+      "productFamily": "Krem pielęgnacyjny",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie",
+        "Skóra trądzikowa i niedoskonałości"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Ceramidy"
+      ]
+    },
+    {
+      "slug": "acnekrem-z-kwasem-azelainowym",
+      "name": "AcneKrem z kwasem azelainowym 10% Solve On",
+      "summary": "Krem na niedoskonałości do twarzy",
+      "presentation": "30 ml",
+      "sourceCategory": "Kosmetyki do twarzy i ciała",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/acnekrem-z-kwasem-azelainowym",
+      "imagePath": "/beautydocs/catalog/healthlabs/acnekrem-z-kwasem-azelainowym.webp",
+      "imageAlt": "AcneKrem z kwasem azelainowym 10% Solve On — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Krem na niedoskonałości do twarzy"
+      ],
+      "aliases": [
+        "acnekrem z kwasem azelainowym"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 169.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/acnekrem-z-kwasem-azelainowym",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Kosmetyk do twarzy",
+      "productFamily": "Krem pielęgnacyjny",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Skóra trądzikowa i niedoskonałości"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": []
+    },
+    {
+      "slug": "pure-on-emulsja-do-demakijazu",
+      "name": "Emulsja do demakijażu i oczyszczania Pure On",
+      "summary": "Aktywna formuła do mycia twarzy",
+      "presentation": "100 ml",
+      "sourceCategory": "Kosmetyki do twarzy i ciała",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/pure-on-emulsja-do-demakijazu",
+      "imagePath": "/beautydocs/catalog/healthlabs/pure-on-emulsja-do-demakijazu.webp",
+      "imageAlt": "Emulsja do demakijażu i oczyszczania Pure On — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Aktywna formuła do mycia twarzy"
+      ],
+      "aliases": [
+        "pure on emulsja do demakijazu"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 129.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/pure-on-emulsja-do-demakijazu",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Kosmetyk do twarzy",
+      "productFamily": "Kosmetyk do pielęgnacji twarzy",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Oczyszczanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": []
+    },
+    {
+      "slug": "slow-on-krem-obudowujacy",
+      "name": "Krem odbudowujący barierę lipidową Slow On",
+      "summary": "Krem z ceramidami wspierający regenerację skóry twarzy",
+      "presentation": "50 ml",
+      "sourceCategory": "Kosmetyki do twarzy i ciała",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/slow-on-krem-obudowujacy",
+      "imagePath": "/beautydocs/catalog/healthlabs/slow-on-krem-obudowujacy.webp",
+      "imageAlt": "Krem odbudowujący barierę lipidową Slow On — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Krem z ceramidami wspierający regenerację skóry twarzy"
+      ],
+      "aliases": [
+        "slow on krem obudowujacy"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 239.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/slow-on-krem-obudowujacy",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Kosmetyk do twarzy",
+      "productFamily": "Krem pielęgnacyjny",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Ceramidy"
+      ]
+    },
+    {
+      "slug": "glow-on-krem-regenerujacy",
+      "name": "Krem regenerujący Glow On",
+      "summary": "Krem do twarzy z peptydami i prebiotykiem",
+      "presentation": "50 ml",
+      "sourceCategory": "Kosmetyki do twarzy i ciała",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/glow-on-krem-regenerujacy",
+      "imagePath": "/beautydocs/catalog/healthlabs/glow-on-krem-regenerujacy.webp",
+      "imageAlt": "Krem regenerujący Glow On — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Krem do twarzy z peptydami i prebiotykiem"
+      ],
+      "aliases": [
+        "glow on krem regenerujacy"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 289.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/glow-on-krem-regenerujacy",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Kosmetyk do twarzy",
+      "productFamily": "Krem pielęgnacyjny",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Peptydy",
+        "Prebiotyki"
+      ]
+    },
+    {
+      "slug": "retinokrem-modelujacy-owal-twarzy-slow-on",
+      "name": "Retinokrem modelujący owal twarzy Slow On",
+      "summary": "Krem z retinalem zapewniający efekt liftingu",
+      "presentation": "30 ml",
+      "sourceCategory": "Kosmetyki do twarzy i ciała",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/retinokrem-modelujacy-owal-twarzy-slow-on",
+      "imagePath": "/beautydocs/catalog/healthlabs/retinokrem-modelujacy-owal-twarzy-slow-on.webp",
+      "imageAlt": "Retinokrem modelujący owal twarzy Slow On — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Krem z retinalem zapewniający efekt liftingu"
+      ],
+      "aliases": [
+        "retinokrem modelujacy owal twarzy slow on"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 289.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/retinokrem-modelujacy-owal-twarzy-slow-on",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Kosmetyk do twarzy",
+      "productFamily": "Krem pielęgnacyjny",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Pielęgnacja pro-aging"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Retinoidy"
+      ]
+    },
+    {
+      "slug": "glow-on-rozswietlajacy-krem-pod-oczy",
+      "name": "Rozświetlający krem pod oczy Glow On",
+      "summary": "Krem redukujący cienie pod oczami z kofeiną",
+      "presentation": "15 ml",
+      "sourceCategory": "Kosmetyki do twarzy i ciała",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/glow-on-rozswietlajacy-krem-pod-oczy",
+      "imagePath": "/beautydocs/catalog/healthlabs/glow-on-rozswietlajacy-krem-pod-oczy.webp",
+      "imageAlt": "Rozświetlający krem pod oczy Glow On — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Krem redukujący cienie pod oczami z kofeiną"
+      ],
+      "aliases": [
+        "glow on rozswietlajacy krem pod oczy"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 179.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/glow-on-rozswietlajacy-krem-pod-oczy",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Kosmetyk do twarzy",
+      "productFamily": "Krem pielęgnacyjny",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Przebarwienia i koloryt",
+        "Pielęgnacja okolicy oczu"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        },
+        {
+          "code": "EYES",
+          "label": "Okolica oczu"
+        }
+      ],
+      "keyIngredients": [
+        "Kofeina"
+      ]
+    },
+    {
+      "slug": "trychomaska-z-ceramidami-do-skory-glowy",
+      "name": "Trychomaska z ceramidami do skóry głowy Balance On",
+      "summary": "Maska nawilżająca do skóry głowy",
+      "presentation": "200 ml",
+      "sourceCategory": "Kosmetyki do włosów",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/trychomaska-z-ceramidami-do-skory-glowy",
+      "imagePath": "/beautydocs/catalog/healthlabs/trychomaska-z-ceramidami-do-skory-glowy.webp",
+      "imageAlt": "Trychomaska z ceramidami do skóry głowy Balance On — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Maska nawilżająca do skóry głowy"
+      ],
+      "aliases": [
+        "trychomaska z ceramidami do skory glowy"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 99.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/trychomaska-z-ceramidami-do-skory-glowy",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Kosmetyk do włosów",
+      "productFamily": "Maska pielęgnacyjna",
+      "treatmentCategories": [
+        "Pielęgnacja włosów i skóry głowy",
+        "Nawilżanie"
+      ],
+      "applicationAreas": [],
+      "keyIngredients": [
+        "Ceramidy"
+      ]
+    },
+    {
+      "slug": "serum-regulujace-z-laktoferyna",
+      "name": "Serum regulujące z laktoferyną Solve On",
+      "summary": "Serum łagodzące na podrażnienia skóry trądzikowej",
+      "presentation": "30 ml",
+      "sourceCategory": "Kosmetyki do twarzy i ciała",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/serum-regulujace-z-laktoferyna",
+      "imagePath": "/beautydocs/catalog/healthlabs/serum-regulujace-z-laktoferyna.webp",
+      "imageAlt": "Serum regulujące z laktoferyną Solve On — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Serum łagodzące na podrażnienia skóry trądzikowej"
+      ],
+      "aliases": [
+        "serum regulujace z laktoferyna"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 189.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/serum-regulujace-z-laktoferyna",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Kosmetyk do twarzy",
+      "productFamily": "Serum pielęgnacyjne",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Skóra trądzikowa i niedoskonałości",
+        "Skóra wrażliwa i reaktywna"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Laktoferyna"
+      ]
+    },
+    {
+      "slug": "swiezosc-wlosow-od-nasady",
+      "name": "Świeżość włosów od nasady",
+      "summary": "Szampon i wcierka dla równowagi skóry głowy",
+      "presentation": "Zestaw produktów",
+      "sourceCategory": "Kosmetyki do włosów",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/swiezosc-wlosow-od-nasady",
+      "imagePath": "/beautydocs/catalog/healthlabs/swiezosc-wlosow-od-nasady.webp",
+      "imageAlt": "Świeżość włosów od nasady — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Szampon i wcierka dla równowagi skóry głowy"
+      ],
+      "aliases": [
+        "swiezosc wlosow od nasady"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 165.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/swiezosc-wlosow-od-nasady",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Zestaw kosmetyków",
+      "productFamily": "Zestaw pielęgnacyjny",
+      "treatmentCategories": [
+        "Zestawy kosmetyczne",
+        "Pielęgnacja włosów i skóry głowy"
+      ],
+      "applicationAreas": [],
+      "keyIngredients": []
+    },
+    {
+      "slug": "trychopeeling-oczyszczajacy",
+      "name": "Trychopeeling oczyszczający do skóry głowy Balance On",
+      "summary": "Kwasowy peeling trychologiczny",
+      "presentation": "100 ml",
+      "sourceCategory": "Kosmetyki do włosów",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/trychopeeling-oczyszczajacy",
+      "imagePath": "/beautydocs/catalog/healthlabs/trychopeeling-oczyszczajacy.webp",
+      "imageAlt": "Trychopeeling oczyszczający do skóry głowy Balance On — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Kwasowy peeling trychologiczny"
+      ],
+      "aliases": [
+        "trychopeeling oczyszczajacy"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 89.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/trychopeeling-oczyszczajacy",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Kosmetyk do włosów",
+      "productFamily": "Peeling kosmetyczny",
+      "treatmentCategories": [
+        "Pielęgnacja włosów i skóry głowy",
+        "Oczyszczanie"
+      ],
+      "applicationAreas": [],
+      "keyIngredients": []
+    },
+    {
+      "slug": "slow-on-retinoserum-na-noc",
+      "name": "Retinoserum na noc Slow On",
+      "summary": "Serum z innowacyjną pochodną retinolu",
+      "presentation": "30 ml",
+      "sourceCategory": "Kosmetyki do twarzy i ciała",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/slow-on-retinoserum-na-noc",
+      "imagePath": "/beautydocs/catalog/healthlabs/slow-on-retinoserum-na-noc.webp",
+      "imageAlt": "Retinoserum na noc Slow On — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Serum z innowacyjną pochodną retinolu"
+      ],
+      "aliases": [
+        "slow on retinoserum na noc"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 259.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/slow-on-retinoserum-na-noc",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Kosmetyk do twarzy",
+      "productFamily": "Serum pielęgnacyjne",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Pielęgnacja pro-aging"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Retinoidy"
+      ]
+    },
+    {
+      "slug": "glow-on-serum-zluszczajace",
+      "name": "Płynne serum złuszczające Glow On",
+      "summary": "Serum z kwasem salicylowym 2%",
+      "presentation": "100 ml",
+      "sourceCategory": "Kosmetyki do twarzy i ciała",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/glow-on-serum-zluszczajace",
+      "imagePath": "/beautydocs/catalog/healthlabs/glow-on-serum-zluszczajace.webp",
+      "imageAlt": "Płynne serum złuszczające Glow On — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Serum z kwasem salicylowym 2%"
+      ],
+      "aliases": [
+        "glow on serum zluszczajace"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 189.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/glow-on-serum-zluszczajace",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Kosmetyk do twarzy",
+      "productFamily": "Serum pielęgnacyjne",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": []
+    },
+    {
+      "slug": "lagodzacy-krem-dla-mezczyzn-gentle-on",
+      "name": "Łagodzący krem dla mężczyzn Gentle On",
+      "summary": "Krem nawilżający do twarzy z peptydem",
+      "presentation": "50 ml",
+      "sourceCategory": "Kosmetyki do twarzy i ciała",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/lagodzacy-krem-dla-mezczyzn-gentle-on",
+      "imagePath": "/beautydocs/catalog/healthlabs/lagodzacy-krem-dla-mezczyzn-gentle-on.webp",
+      "imageAlt": "Łagodzący krem dla mężczyzn Gentle On — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Krem nawilżający do twarzy z peptydem"
+      ],
+      "aliases": [
+        "lagodzacy krem dla mezczyzn gentle on"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 149.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/lagodzacy-krem-dla-mezczyzn-gentle-on",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Kosmetyk do twarzy",
+      "productFamily": "Krem pielęgnacyjny",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie",
+        "Skóra wrażliwa i reaktywna"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Peptydy"
+      ]
+    },
+    {
+      "slug": "odzywka-kondycjonujaca-do-lodygi-wlosa",
+      "name": "Odżywka kondycjonująca do łodygi włosa Balance On",
+      "summary": "Odżywka wygładzająca do włosów",
+      "presentation": "200 ml",
+      "sourceCategory": "Kosmetyki do włosów",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/odzywka-kondycjonujaca-do-lodygi-wlosa",
+      "imagePath": "/beautydocs/catalog/healthlabs/odzywka-kondycjonujaca-do-lodygi-wlosa.webp",
+      "imageAlt": "Odżywka kondycjonująca do łodygi włosa Balance On — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Odżywka wygładzająca do włosów"
+      ],
+      "aliases": [
+        "odzywka kondycjonujaca do lodygi wlosa"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 99.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/odzywka-kondycjonujaca-do-lodygi-wlosa",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Kosmetyk do włosów",
+      "productFamily": "Odżywka do włosów",
+      "treatmentCategories": [
+        "Pielęgnacja włosów i skóry głowy"
+      ],
+      "applicationAreas": [],
+      "keyIngredients": []
+    },
+    {
+      "slug": "slow-on-krem-wygladzajacy",
+      "name": "Krem wygładzający Slow On",
+      "summary": "Krem do twarzy z efektem liftingu",
+      "presentation": "50 ml",
+      "sourceCategory": "Kosmetyki do twarzy i ciała",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/slow-on-krem-wygladzajacy",
+      "imagePath": "/beautydocs/catalog/healthlabs/slow-on-krem-wygladzajacy.webp",
+      "imageAlt": "Krem wygładzający Slow On — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Krem do twarzy z efektem liftingu"
+      ],
+      "aliases": [
+        "slow on krem wygladzajacy"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 219.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/slow-on-krem-wygladzajacy",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Kosmetyk do twarzy",
+      "productFamily": "Krem pielęgnacyjny",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Pielęgnacja pro-aging"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": []
+    },
+    {
+      "slug": "acnezel-oczyszczajacy-solve-on",
+      "name": "AcneŻel Oczyszczający Solve On Face & Body",
+      "summary": "Żel do mycia twarzy i ciała z kwasami AHA i BHA",
+      "presentation": "200 ml",
+      "sourceCategory": "Kosmetyki do twarzy i ciała",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/acnezel-oczyszczajacy-solve-on",
+      "imagePath": "/beautydocs/catalog/healthlabs/acnezel-oczyszczajacy-solve-on.webp",
+      "imageAlt": "AcneŻel Oczyszczający Solve On Face & Body — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Żel do mycia twarzy i ciała z kwasami AHA i BHA"
+      ],
+      "aliases": [
+        "acnezel oczyszczajacy solve on"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 79.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/acnezel-oczyszczajacy-solve-on",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Kosmetyk do twarzy",
+      "productFamily": "Żel pielęgnacyjny",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Pielęgnacja ciała",
+        "Oczyszczanie",
+        "Skóra trądzikowa i niedoskonałości"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        },
+        {
+          "code": "BODY",
+          "label": "Skóra ciała"
+        }
+      ],
+      "keyIngredients": [
+        "BHA / kwas salicylowy",
+        "Kwasy AHA"
+      ]
+    },
+    {
+      "slug": "pure-on-mgielka-odswiezajaco-nawilzajaca",
+      "name": "Mgiełka nawilżająco-odświeżająca Pure On",
+      "summary": "Antyoksydacyjna mgiełka do twarzy",
+      "presentation": "100 ml",
+      "sourceCategory": "Kosmetyki do twarzy i ciała",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/pure-on-mgielka-odswiezajaco-nawilzajaca",
+      "imagePath": "/beautydocs/catalog/healthlabs/pure-on-mgielka-odswiezajaco-nawilzajaca.webp",
+      "imageAlt": "Mgiełka nawilżająco-odświeżająca Pure On — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Antyoksydacyjna mgiełka do twarzy"
+      ],
+      "aliases": [
+        "pure on mgielka odswiezajaco nawilzajaca"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 129.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/pure-on-mgielka-odswiezajaco-nawilzajaca",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Kosmetyk do twarzy",
+      "productFamily": "Mgiełka pielęgnacyjna",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": []
+    },
+    {
+      "slug": "kompleksowe-oczyszczanie-twarzy",
+      "name": "Kompleksowe oczyszczanie twarzy",
+      "summary": "Czysta i odświeżona skóra w 3 krokach",
+      "presentation": "Zestaw produktów",
+      "sourceCategory": "Kosmetyki do twarzy i ciała",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/kompleksowe-oczyszczanie-twarzy",
+      "imagePath": "/beautydocs/catalog/healthlabs/kompleksowe-oczyszczanie-twarzy.webp",
+      "imageAlt": "Kompleksowe oczyszczanie twarzy — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Czysta i odświeżona skóra w 3 krokach"
+      ],
+      "aliases": [
+        "kompleksowe oczyszczanie twarzy"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 349.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/kompleksowe-oczyszczanie-twarzy",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Zestaw kosmetyków",
+      "productFamily": "Zestaw pielęgnacyjny",
+      "treatmentCategories": [
+        "Zestawy kosmetyczne",
+        "Pielęgnacja twarzy",
+        "Oczyszczanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": []
+    },
+    {
+      "slug": "acne-serum-solve-on",
+      "name": "AcneSerum do twarzy AHA 5% Solve On",
+      "summary": "Serum z kwasami AHA zmniejszające widoczność porów i przebarwień",
+      "presentation": "30 ml",
+      "sourceCategory": "Kosmetyki do twarzy i ciała",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/acne-serum-solve-on",
+      "imagePath": "/beautydocs/catalog/healthlabs/acne-serum-solve-on.webp",
+      "imageAlt": "AcneSerum do twarzy AHA 5% Solve On — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Serum z kwasami AHA zmniejszające widoczność porów i przebarwień"
+      ],
+      "aliases": [
+        "acne serum solve on"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 129.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/acne-serum-solve-on",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Kosmetyk do twarzy",
+      "productFamily": "Serum pielęgnacyjne",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Skóra trądzikowa i niedoskonałości",
+        "Przebarwienia i koloryt"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwasy AHA"
+      ]
+    },
+    {
+      "slug": "kompleksowe-wsparcie-skory-tradzikowej",
+      "name": "Kompleksowe wsparcie skóry trądzikowej",
+      "summary": "Serum, krem i probiotyk na niedoskonałości*",
+      "presentation": "Zestaw produktów",
+      "sourceCategory": "Suplementy diety",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/kompleksowe-wsparcie-skory-tradzikowej",
+      "imagePath": "/beautydocs/catalog/healthlabs/kompleksowe-wsparcie-skory-tradzikowej.webp",
+      "imageAlt": "Kompleksowe wsparcie skóry trądzikowej — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Serum, krem i probiotyk na niedoskonałości*"
+      ],
+      "aliases": [
+        "kompleksowe wsparcie skory tradzikowej"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 397.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/kompleksowe-wsparcie-skory-tradzikowej",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Zestaw kosmetyków",
+      "productFamily": "Zestaw pielęgnacyjny",
+      "treatmentCategories": [
+        "Zestawy kosmetyczne",
+        "Pielęgnacja twarzy",
+        "Skóra trądzikowa i niedoskonałości"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": []
+    },
+    {
+      "slug": "podwojne-wsparcie-skory-tradzikowej",
+      "name": "Podwójne wsparcie skóry trądzikowej*",
+      "summary": "Krem z kwasem azelainowym oraz probiotyk",
+      "presentation": "Zestaw produktów",
+      "sourceCategory": "Suplementy diety",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/podwojne-wsparcie-skory-tradzikowej",
+      "imagePath": "/beautydocs/catalog/healthlabs/podwojne-wsparcie-skory-tradzikowej.webp",
+      "imageAlt": "Podwójne wsparcie skóry trądzikowej* — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Krem z kwasem azelainowym oraz probiotyk"
+      ],
+      "aliases": [
+        "podwojne wsparcie skory tradzikowej"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 298.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/podwojne-wsparcie-skory-tradzikowej",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Zestaw kosmetyków",
+      "productFamily": "Zestaw pielęgnacyjny",
+      "treatmentCategories": [
+        "Zestawy kosmetyczne",
+        "Pielęgnacja twarzy",
+        "Skóra trądzikowa i niedoskonałości"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": []
+    },
+    {
+      "slug": "glow-on-lipidowy-balsam-ujedrniajacy",
+      "name": "Lipidowy balsam ujędrniający Glow On Body",
+      "summary": "Balsam do ciała z kofeiną i karnityną",
+      "presentation": "200 ml",
+      "sourceCategory": "Kosmetyki do twarzy i ciała",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/glow-on-lipidowy-balsam-ujedrniajacy",
+      "imagePath": "/beautydocs/catalog/healthlabs/glow-on-lipidowy-balsam-ujedrniajacy.webp",
+      "imageAlt": "Lipidowy balsam ujędrniający Glow On Body — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Balsam do ciała z kofeiną i karnityną"
+      ],
+      "aliases": [
+        "glow on lipidowy balsam ujedrniajacy"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 139.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/glow-on-lipidowy-balsam-ujedrniajacy",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Kosmetyk do ciała",
+      "productFamily": "Balsam pielęgnacyjny",
+      "treatmentCategories": [
+        "Pielęgnacja ciała",
+        "Pielęgnacja pro-aging"
+      ],
+      "applicationAreas": [
+        {
+          "code": "BODY",
+          "label": "Skóra ciała"
+        }
+      ],
+      "keyIngredients": [
+        "Kofeina",
+        "L-karnityna"
+      ]
+    },
+    {
+      "slug": "podstawy-meskiej-pielegnacji",
+      "name": "Podstawy męskiej pielęgnacji",
+      "summary": "Szampon i krem do twarzy dla mężczyzn",
+      "presentation": "Zestaw produktów",
+      "sourceCategory": "Kosmetyki do twarzy i ciała",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/podstawy-meskiej-pielegnacji",
+      "imagePath": "/beautydocs/catalog/healthlabs/podstawy-meskiej-pielegnacji.webp",
+      "imageAlt": "Podstawy męskiej pielęgnacji — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Szampon i krem do twarzy dla mężczyzn"
+      ],
+      "aliases": [
+        "podstawy meskiej pielegnacji"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 209.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/podstawy-meskiej-pielegnacji",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Zestaw kosmetyków",
+      "productFamily": "Zestaw pielęgnacyjny",
+      "treatmentCategories": [
+        "Zestawy kosmetyczne",
+        "Pielęgnacja twarzy",
+        "Pielęgnacja włosów i skóry głowy"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": []
+    },
+    {
+      "slug": "serum-wcierka-regenerujaca-do-skory-glowy",
+      "name": "Serum-wcierka regenerująca do skóry głowy Balance On",
+      "summary": "Łagodząca wcierka nawilżająca",
+      "presentation": "50 ml",
+      "sourceCategory": "Kosmetyki do włosów",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/serum-wcierka-regenerujaca-do-skory-glowy",
+      "imagePath": "/beautydocs/catalog/healthlabs/serum-wcierka-regenerujaca-do-skory-glowy.webp",
+      "imageAlt": "Serum-wcierka regenerująca do skóry głowy Balance On — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Łagodząca wcierka nawilżająca"
+      ],
+      "aliases": [
+        "serum wcierka regenerujaca do skory glowy"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 99.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/serum-wcierka-regenerujaca-do-skory-glowy",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Kosmetyk do włosów",
+      "productFamily": "Serum pielęgnacyjne",
+      "treatmentCategories": [
+        "Pielęgnacja włosów i skóry głowy",
+        "Nawilżanie",
+        "Skóra wrażliwa i reaktywna"
+      ],
+      "applicationAreas": [],
+      "keyIngredients": []
+    },
+    {
+      "slug": "serum-zluszczajace-do-ciala-glow-on",
+      "name": "Serum złuszczające do ciała Glow On Body",
+      "summary": "Serum z kompleksem kwasów AHA/BHA/PHA 10%",
+      "presentation": "100 ml",
+      "sourceCategory": "Kosmetyki do twarzy i ciała",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/serum-zluszczajace-do-ciala-glow-on",
+      "imagePath": "/beautydocs/catalog/healthlabs/serum-zluszczajace-do-ciala-glow-on.webp",
+      "imageAlt": "Serum złuszczające do ciała Glow On Body — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Serum z kompleksem kwasów AHA/BHA/PHA 10%"
+      ],
+      "aliases": [
+        "serum zluszczajace do ciala glow on"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 199.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/serum-zluszczajace-do-ciala-glow-on",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Kosmetyk do ciała",
+      "productFamily": "Serum pielęgnacyjne",
+      "treatmentCategories": [
+        "Pielęgnacja ciała"
+      ],
+      "applicationAreas": [
+        {
+          "code": "BODY",
+          "label": "Skóra ciała"
+        }
+      ],
+      "keyIngredients": [
+        "BHA / kwas salicylowy",
+        "Kwasy AHA",
+        "Kwasy PHA"
+      ]
+    },
+    {
+      "slug": "pielegnacyjny-duet-smart-aging",
+      "name": "Pielęgnacyjny duet smart-aging",
+      "summary": "Ochrona UV i poprawa kolorytu skóry",
+      "presentation": "Zestaw produktów",
+      "sourceCategory": "Kosmetyki do twarzy i ciała",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/pielegnacyjny-duet-smart-aging",
+      "imagePath": "/beautydocs/catalog/healthlabs/pielegnacyjny-duet-smart-aging.webp",
+      "imageAlt": "Pielęgnacyjny duet smart-aging — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Ochrona UV i poprawa kolorytu skóry"
+      ],
+      "aliases": [
+        "pielegnacyjny duet smart aging"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 369.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/pielegnacyjny-duet-smart-aging",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Zestaw kosmetyków",
+      "productFamily": "Zestaw pielęgnacyjny",
+      "treatmentCategories": [
+        "Zestawy kosmetyczne",
+        "Pielęgnacja twarzy",
+        "Ochrona przeciwsłoneczna",
+        "Przebarwienia i koloryt"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": []
+    },
+    {
+      "slug": "promienna-skora",
+      "name": "Promienna skóra",
+      "summary": "Serum z witaminą C i kolagen rybi do picia",
+      "presentation": "Zestaw produktów",
+      "sourceCategory": "Suplementy diety",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/promienna-skora",
+      "imagePath": "/beautydocs/catalog/healthlabs/promienna-skora.webp",
+      "imageAlt": "Promienna skóra — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Serum z witaminą C i kolagen rybi do picia"
+      ],
+      "aliases": [
+        "promienna skora"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 448.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/promienna-skora",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Zestaw kosmetyków",
+      "productFamily": "Zestaw pielęgnacyjny",
+      "treatmentCategories": [
+        "Zestawy kosmetyczne",
+        "Pielęgnacja twarzy"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Witamina C"
+      ]
+    },
+    {
+      "slug": "odnowa-dojrzalej-skory",
+      "name": "Odnowa dojrzałej skóry",
+      "summary": "Serum z pochodną retinolu i kompleks antyoksydantów",
+      "presentation": "Zestaw produktów",
+      "sourceCategory": "Suplementy diety",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/odnowa-dojrzalej-skory",
+      "imagePath": "/beautydocs/catalog/healthlabs/odnowa-dojrzalej-skory.webp",
+      "imageAlt": "Odnowa dojrzałej skóry — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Serum z pochodną retinolu i kompleks antyoksydantów"
+      ],
+      "aliases": [
+        "odnowa dojrzalej skory"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 488.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/odnowa-dojrzalej-skory",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Zestaw kosmetyków",
+      "productFamily": "Zestaw pielęgnacyjny",
+      "treatmentCategories": [
+        "Zestawy kosmetyczne",
+        "Pielęgnacja twarzy",
+        "Pielęgnacja pro-aging"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Retinoidy"
+      ]
+    },
+    {
+      "slug": "booster-stymulujacy-z-peptydami",
+      "name": "Booster stymulujący z peptydami Rise On",
+      "summary": "Wcierka na porost włosów",
+      "presentation": "100 ml",
+      "sourceCategory": "Kosmetyki do włosów",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/booster-stymulujacy-z-peptydami",
+      "imagePath": "/beautydocs/catalog/healthlabs/booster-stymulujacy-z-peptydami.webp",
+      "imageAlt": "Booster stymulujący z peptydami Rise On — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Wcierka na porost włosów"
+      ],
+      "aliases": [
+        "booster stymulujacy z peptydami"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 99.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/booster-stymulujacy-z-peptydami",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Kosmetyk do włosów",
+      "productFamily": "Booster pielęgnacyjny",
+      "treatmentCategories": [
+        "Pielęgnacja włosów i skóry głowy"
+      ],
+      "applicationAreas": [],
+      "keyIngredients": [
+        "Peptydy"
+      ]
+    },
+    {
+      "slug": "kosmetyczka",
+      "name": "Kosmetyczka damska",
+      "summary": "Podręczna kosmetyczka z autorskim wzorem",
+      "presentation": "Sprawdź wariant na stronie marki",
+      "sourceCategory": "Akcesoria",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/kosmetyczka",
+      "imagePath": "/beautydocs/catalog/healthlabs/kosmetyczka.webp",
+      "imageAlt": "Kosmetyczka damska — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Podręczna kosmetyczka z autorskim wzorem"
+      ],
+      "aliases": [
+        "kosmetyczka"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 59.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/kosmetyczka",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Akcesorium kosmetyczne",
+      "productFamily": "Kosmetyczka i akcesoria",
+      "treatmentCategories": [
+        "Pielęgnacja kosmetyczna"
+      ],
+      "applicationAreas": [],
+      "keyIngredients": []
+    },
+    {
+      "slug": "regeneracja-skory-problematycznej",
+      "name": "Regeneracja skóry problematycznej",
+      "summary": "Nawilżenie i łagodzenie zmian skórnych",
+      "presentation": "Zestaw produktów",
+      "sourceCategory": "Kosmetyki do twarzy i ciała",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/regeneracja-skory-problematycznej",
+      "imagePath": "/beautydocs/catalog/healthlabs/regeneracja-skory-problematycznej.webp",
+      "imageAlt": "Regeneracja skóry problematycznej — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Nawilżenie i łagodzenie zmian skórnych"
+      ],
+      "aliases": [
+        "regeneracja skory problematycznej"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 285.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/regeneracja-skory-problematycznej",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Zestaw kosmetyków",
+      "productFamily": "Zestaw pielęgnacyjny",
+      "treatmentCategories": [
+        "Zestawy kosmetyczne",
+        "Pielęgnacja twarzy",
+        "Nawilżanie",
+        "Skóra wrażliwa i reaktywna"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": []
+    },
+    {
+      "slug": "rewitalizujacy-krem-pod-oczy-slow-on",
+      "name": "Rewitalizujący krem pod oczy Slow On",
+      "summary": "Wygładzający krem pod oczy z retinoidami",
+      "presentation": "15 ml",
+      "sourceCategory": "Kosmetyki do twarzy i ciała",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/rewitalizujacy-krem-pod-oczy-slow-on",
+      "imagePath": "/beautydocs/catalog/healthlabs/rewitalizujacy-krem-pod-oczy-slow-on.webp",
+      "imageAlt": "Rewitalizujący krem pod oczy Slow On — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Wygładzający krem pod oczy z retinoidami"
+      ],
+      "aliases": [
+        "rewitalizujacy krem pod oczy slow on"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 189.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/rewitalizujacy-krem-pod-oczy-slow-on",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Kosmetyk do twarzy",
+      "productFamily": "Krem pielęgnacyjny",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Pielęgnacja pro-aging",
+        "Pielęgnacja okolicy oczu"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        },
+        {
+          "code": "EYES",
+          "label": "Okolica oczu"
+        }
+      ],
+      "keyIngredients": [
+        "Retinoidy"
+      ]
+    },
+    {
+      "slug": "jedrna-i-miekka-skora",
+      "name": "Jędrna i miękka skóra",
+      "summary": "Krem nawilżający do twarzy i kolagen rybi do picia",
+      "presentation": "Zestaw produktów",
+      "sourceCategory": "Suplementy diety",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/jedrna-i-miekka-skora",
+      "imagePath": "/beautydocs/catalog/healthlabs/jedrna-i-miekka-skora.webp",
+      "imageAlt": "Jędrna i miękka skóra — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Krem nawilżający do twarzy i kolagen rybi do picia"
+      ],
+      "aliases": [
+        "jedrna i miekka skora"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 398.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/jedrna-i-miekka-skora",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Zestaw kosmetyków",
+      "productFamily": "Zestaw pielęgnacyjny",
+      "treatmentCategories": [
+        "Zestawy kosmetyczne",
+        "Pielęgnacja twarzy",
+        "Nawilżanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": []
+    },
+    {
+      "slug": "pelna-pielegnacja-rozswietlajaca",
+      "name": "Pełna pielęgnacja rozświetlająca",
+      "summary": "Gładka i promienna cera na co dzień",
+      "presentation": "Zestaw produktów",
+      "sourceCategory": "Kosmetyki do twarzy i ciała",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/pelna-pielegnacja-rozswietlajaca",
+      "imagePath": "/beautydocs/catalog/healthlabs/pelna-pielegnacja-rozswietlajaca.webp",
+      "imageAlt": "Pełna pielęgnacja rozświetlająca — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Gładka i promienna cera na co dzień"
+      ],
+      "aliases": [
+        "pelna pielegnacja rozswietlajaca"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 469.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/pelna-pielegnacja-rozswietlajaca",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Zestaw kosmetyków",
+      "productFamily": "Zestaw pielęgnacyjny",
+      "treatmentCategories": [
+        "Zestawy kosmetyczne",
+        "Pielęgnacja twarzy",
+        "Przebarwienia i koloryt"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": []
+    },
+    {
+      "slug": "intensywne-nawilzenie",
+      "name": "Intensywne nawilżenie",
+      "summary": "Efekt miękkiej i zregenerowanej skóry",
+      "presentation": "Zestaw produktów",
+      "sourceCategory": "Kosmetyki do twarzy i ciała",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/intensywne-nawilzenie",
+      "imagePath": "/beautydocs/catalog/healthlabs/intensywne-nawilzenie.webp",
+      "imageAlt": "Intensywne nawilżenie — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Efekt miękkiej i zregenerowanej skóry"
+      ],
+      "aliases": [
+        "intensywne nawilzenie"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 439.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/intensywne-nawilzenie",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Zestaw kosmetyków",
+      "productFamily": "Zestaw pielęgnacyjny",
+      "treatmentCategories": [
+        "Zestawy kosmetyczne",
+        "Pielęgnacja twarzy",
+        "Nawilżanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": []
+    },
+    {
+      "slug": "pielegnujacy-krem-bb-glow-on-light",
+      "name": "Pielęgnujący krem BB Glow On (light)",
+      "summary": "Podkład BB do twarzy z SPF 30",
+      "presentation": "30 ml",
+      "sourceCategory": "Kosmetyki do twarzy i ciała",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/pielegnujacy-krem-bb-glow-on-light",
+      "imagePath": "/beautydocs/catalog/healthlabs/pielegnujacy-krem-bb-glow-on-light.webp",
+      "imageAlt": "Pielęgnujący krem BB Glow On (light) — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Podkład BB do twarzy z SPF 30"
+      ],
+      "aliases": [
+        "pielegnujacy krem bb glow on light"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 149.0,
+        "shippingPricePln": 16.0,
+        "availability": "IN_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/pielegnujacy-krem-bb-glow-on-light",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Kosmetyk do twarzy",
+      "productFamily": "Krem pielęgnacyjny",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Ochrona przeciwsłoneczna"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": []
+    },
+    {
+      "slug": "glow-on-maska-oczyszczajaco-rozjasniajaca",
+      "name": "Maska oczyszczająco-rozjaśniająca Glow On",
+      "summary": "Maska na twarz redukująca przebarwienia",
+      "presentation": "50 ml",
+      "sourceCategory": "Kosmetyki do twarzy i ciała",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/glow-on-maska-oczyszczajaco-rozjasniajaca",
+      "imagePath": "/beautydocs/catalog/healthlabs/glow-on-maska-oczyszczajaco-rozjasniajaca.webp",
+      "imageAlt": "Maska oczyszczająco-rozjaśniająca Glow On — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Maska na twarz redukująca przebarwienia"
+      ],
+      "aliases": [
+        "glow on maska oczyszczajaco rozjasniajaca"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 169.0,
+        "shippingPricePln": 16.0,
+        "availability": "OUT_OF_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/glow-on-maska-oczyszczajaco-rozjasniajaca",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Kosmetyk do twarzy",
+      "productFamily": "Maska pielęgnacyjna",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Oczyszczanie",
+        "Przebarwienia i koloryt"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": []
+    },
+    {
+      "slug": "glow-on-maska-regenerujaco-nawilzajaca",
+      "name": "Maska regenerująco-nawilżająca Glow On",
+      "summary": "Głębokie nawilżenie suchej skóry",
+      "presentation": "50 ml",
+      "sourceCategory": "Kosmetyki do twarzy i ciała",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/glow-on-maska-regenerujaco-nawilzajaca",
+      "imagePath": "/beautydocs/catalog/healthlabs/glow-on-maska-regenerujaco-nawilzajaca.webp",
+      "imageAlt": "Maska regenerująco-nawilżająca Glow On — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Głębokie nawilżenie suchej skóry"
+      ],
+      "aliases": [
+        "glow on maska regenerujaco nawilzajaca"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 169.0,
+        "shippingPricePln": 16.0,
+        "availability": "OUT_OF_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/glow-on-maska-regenerujaco-nawilzajaca",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Kosmetyk do twarzy",
+      "productFamily": "Maska pielęgnacyjna",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": []
+    },
+    {
+      "slug": "pielegnujacy-krem-bb-glow-on-medium",
+      "name": "Pielęgnujący krem BB Glow On (medium)",
+      "summary": "Podkład BB do twarzy z SPF 30",
+      "presentation": "30 ml",
+      "sourceCategory": "Kosmetyki do twarzy i ciała",
+      "sourceUrl": "https://www.healthlabs.care/pl/produkt/pielegnujacy-krem-bb-glow-on-medium",
+      "imagePath": "/beautydocs/catalog/healthlabs/pielegnujacy-krem-bb-glow-on-medium.webp",
+      "imageAlt": "Pielęgnujący krem BB Glow On (medium) — oficjalne zdjęcie produktu Health Labs Care",
+      "manufacturerUses": [
+        "Podkład BB do twarzy z SPF 30"
+      ],
+      "aliases": [
+        "pielegnujacy krem bb glow on medium"
+      ],
+      "offer": {
+        "seller": "Health Labs Care",
+        "pricePln": 149.0,
+        "shippingPricePln": 16.0,
+        "availability": "OUT_OF_STOCK",
+        "url": "https://www.healthlabs.care/pl/produkt/pielegnujacy-krem-bb-glow-on-medium",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-25"
+      },
+      "productCategory": "Kosmetyk do twarzy",
+      "productFamily": "Krem pielęgnacyjny",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Ochrona przeciwsłoneczna"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": []
+    }
+  ]
+}

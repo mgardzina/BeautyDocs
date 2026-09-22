@@ -99,6 +99,8 @@ export default function JsonLd() {
 
   return (
     <script
+      data-cookieconsent="ignore"
+      suppressHydrationWarning
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
     />

@@ -1,339 +1,366 @@
-"use client";
-
-import Link from "next/link";
 import { SALON_CONFIG } from "@/app/config/salon";
-import BackButton from "@/app/components/BackButton";
-import { useRouter } from "next/navigation";
-import { ArrowLeft } from "lucide-react";
+import {
+  BeautyDocsLegalPage,
+  type BeautyDocsLegalSection,
+} from "@/components/beautydocs/legal/BeautyDocsLegalPage";
+
+const termsSections: readonly BeautyDocsLegalSection[] = [
+  {
+    id: "postanowienia-ogolne",
+    title: "Postanowienia ogólne",
+    content: (
+      <>
+        <p>
+          Niniejszy regulamin określa zasady świadczenia drogą elektroniczną usług
+          dostępnych w platformie <strong>BeautyDocs</strong>. Usługodawcą i operatorem
+          platformy jest <strong>{SALON_CONFIG.fullName}</strong>, adres: {" "}
+          {SALON_CONFIG.address}, {SALON_CONFIG.zipCode} {SALON_CONFIG.city}, NIP: {" "}
+          {SALON_CONFIG.nip}, e-mail: {" "}
+          <a href={`mailto:${SALON_CONFIG.email}`}>{SALON_CONFIG.email}</a>.
+        </p>
+        <p>
+          BeautyDocs jest platformą do obsługi salonów beauty, ich zespołów i
+          klientek. Umożliwia między innymi prowadzenie kalendarza, kartotek,
+          formularzy, zgód, podpisów, powiadomień i komunikacji związanej z wizytą.
+        </p>
+        <p>
+          BeautyDocs nie jest salonem, podmiotem leczniczym ani stroną umowy o
+          wykonanie zabiegu. Warunki zabiegu, jego kwalifikacja, cena, przebieg i
+          reklamacje wobec usługi salonu są ustalane bezpośrednio pomiędzy salonem a
+          klientką.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: "definicje",
+    title: "Użytkownicy i role",
+    content: (
+      <>
+        <ul>
+          <li>
+            <strong>Salon</strong> — przedsiębiorca, który zakłada przestrzeń
+            organizacji w BeautyDocs i odpowiada za jej konfigurację.
+          </li>
+          <li>
+            <strong>Właściciel lub administrator</strong> — osoba uprawniona do
+            zarządzania kontem salonu, zespołem i ustawieniami.
+          </li>
+          <li>
+            <strong>Pracownik</strong> — osoba zaproszona przez salon i korzystająca z
+            funkcji zgodnie z przydzieloną rolą.
+          </li>
+          <li>
+            <strong>Klientka lub klient</strong> — osoba korzystająca z konta
+            konsumenckiego, zapisów, formularzy lub komunikacji z salonem.
+          </li>
+        </ul>
+        <p>
+          Osoba tworząca konto salonu potwierdza, że działa jako przedsiębiorca lub z
+          jego upoważnienia i może zaakceptować regulamin w jego imieniu.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: "warunki-techniczne",
+    title: "Wymagania techniczne i zawarcie umowy",
+    content: (
+      <>
+        <p>
+          Do korzystania z platformy potrzebne są urządzenie z dostępem do internetu,
+          aktualna przeglądarka obsługująca JavaScript i bezpieczne połączenia HTTPS,
+          aktywny adres e-mail lub numer telefonu oraz włączone niezbędne pliki
+          cookies. Starsze konfiguracje mogą nie obsługiwać wszystkich funkcji.
+        </p>
+        <p>
+          Umowa o świadczenie usługi elektronicznej zostaje zawarta z chwilą
+          utworzenia konta albo rozpoczęcia korzystania z funkcji dostępnej bez konta.
+          Przed rejestracją użytkownik otrzymuje możliwość zapoznania się z regulaminem
+          i polityką prywatności.
+        </p>
+        <p>
+          Użytkownik powinien podawać dane prawdziwe i aktualne. W przypadku konta
+          salonu dane firmy mogą zostać sprawdzone w publicznym rejestrze na podstawie
+          numeru NIP.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: "konto-i-bezpieczenstwo",
+    title: "Konto i bezpieczeństwo dostępu",
+    content: (
+      <>
+        <p>
+          Konto jest indywidualne. Nie wolno udostępniać hasła, kodów jednorazowych ani
+          dostępu do aplikacji osobie nieuprawnionej. Użytkownik powinien niezwłocznie
+          zgłosić podejrzenie przejęcia konta i korzystać z dodatkowej weryfikacji,
+          jeżeli ją włączył.
+        </p>
+        <p>
+          Salon odpowiada za prawidłowe przydzielanie ról, odbieranie dostępu osobom,
+          które zakończyły współpracę, oraz za działania wykonane przez członków
+          zespołu w ramach udzielonych uprawnień.
+        </p>
+        <p>
+          Możemy czasowo zablokować dostęp, gdy jest to konieczne do ochrony konta,
+          danych innych użytkowników albo infrastruktury. W miarę możliwości
+          poinformujemy o przyczynie i sposobie odzyskania dostępu.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: "obowiazki-salonu",
+    title: "Obowiązki salonu",
+    content: (
+      <>
+        <p>Salon samodzielnie odpowiada za:</p>
+        <ul>
+          <li>legalność świadczonych zabiegów i kwalifikacje swojego personelu;</li>
+          <li>
+            treść informacji przekazywanych klientkom oraz dobór właściwego formularza
+            i podstawy prawnej;
+          </li>
+          <li>
+            prawidłowość danych wizyt, cen, czasu trwania usług i godzin dostępności;
+          </li>
+          <li>
+            obsługę rezerwacji, odwołań, reklamacji zabiegowych i kontaktów
+            pozabiegowych;
+          </li>
+          <li>
+            wykonanie obowiązków administratora danych, w tym udzielanie odpowiedzi na
+            żądania klientek.
+          </li>
+        </ul>
+        <p>
+          Szablony BeautyDocs wspierają prowadzenie dokumentacji, ale nie zastępują
+          indywidualnej oceny prawnej, medycznej ani zawodowej salonu.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: "wizyty-formularze-podpisy",
+    title: "Wizyty, formularze i podpisy",
+    content: (
+      <>
+        <p>
+          Rezerwacja w BeautyDocs przekazuje salonowi prośbę o wizytę na wybrany
+          termin. Ostateczne potwierdzenie, zmiana lub odwołanie zależą od zasad salonu
+          pokazanych użytkownikowi w procesie rezerwacji.
+        </p>
+        <p>
+          Odpowiedzi w formularzu należy sprawdzić przed wysłaniem. Salon może wymagać
+          potwierdzenia danych przed zabiegiem oraz podpisu osoby wykonującej zabieg.
+          Użytkownik nie powinien pomijać informacji istotnych dla bezpieczeństwa.
+        </p>
+        <p>
+          Platforma może utrwalać podpis odręczny na ekranie, kod jednorazowy, czas,
+          wersję dokumentu i dane techniczne operacji jako elementy pakietu dowodowego.
+          Taki mechanizm nie jest kwalifikowanym podpisem elektronicznym. Skutek prawny
+          konkretnego dokumentu zależy od jego treści, wymaganej formy i okoliczności
+          złożenia oświadczenia.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: "komunikacja",
+    title: "Czat i komunikacja",
+    content: (
+      <>
+        <p>
+          Czat służy komunikacji organizacyjnej i pozabiegowej między salonem a
+          klientką. Nie jest kanałem ratunkowym ani narzędziem do diagnozy. W nagłym
+          stanie użytkownik powinien skontaktować się z odpowiednimi służbami lub
+          personelem medycznym.
+        </p>
+        <p>
+          Zabronione jest wysyłanie treści bezprawnych, obraźliwych, naruszających
+          prywatność, zawierających złośliwe oprogramowanie lub niezwiązanych z
+          uzasadnionym celem komunikacji. Salon odpowiada za terminowość i merytoryczną
+          jakość odpowiedzi swojego zespołu.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: "platnosci",
+    title: "Plany, opłaty i rozliczenia",
+    content: (
+      <>
+        <p>
+          Zakres planów i aktualne ceny dla salonów są prezentowane w cenniku albo w
+          ofercie przekazanej przed zakupem. Przed złożeniem płatnego zamówienia salon
+          otrzymuje informację o cenie, okresie rozliczeniowym, podatkach i zasadach
+          odnowienia.
+        </p>
+        <p>
+          Konto klientki jest bezpłatne, o ile przy konkretnej funkcji wyraźnie nie
+          wskazano inaczej. BeautyDocs nie pobiera w imieniu salonu płatności za zabieg,
+          chyba że odrębna funkcja i jej warunki stanowią inaczej.
+        </p>
+        <p>
+          Zmiana cennika nie wpływa wstecz na opłacony okres. O zmianie ceny kolejnego
+          okresu poinformujemy z wyprzedzeniem pozwalającym zrezygnować z odnowienia.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: "dane-i-powierzenie",
+    title: "Dane salonu i umowa powierzenia",
+    content: (
+      <>
+        <p>
+          Salon zachowuje kontrolę nad dokumentacją swoich klientek i jest jej
+          administratorem. BeautyDocs przetwarza te dane jako podmiot przetwarzający w
+          zakresie opisanym w umowie powierzenia zawartej z salonem.
+        </p>
+        <p>
+          Dane kont użytkowników, rozliczeń, bezpieczeństwa platformy i kontaktu z
+          operatorem przetwarzamy jako odrębny administrator. Szczegóły opisuje {" "}
+          <a href="/polityka-prywatnosci">Polityka prywatności</a>.
+        </p>
+        <p>
+          Salon nie może umieszczać w platformie danych, których nie ma prawa
+          przetwarzać, ani wykorzystywać BeautyDocs do celów niezgodnych z prawem.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: "dostepnosc",
+    title: "Dostępność i rozwój platformy",
+    content: (
+      <>
+        <p>
+          Rozwijamy platformę i stosujemy środki służące utrzymaniu jej dostępności,
+          ale nie gwarantujemy działania bez każdej przerwy. Możemy wykonywać prace
+          techniczne, instalować aktualizacje lub czasowo ograniczać funkcję ze
+          względów bezpieczeństwa.
+        </p>
+        <p>
+          Istotne planowane przerwy komunikujemy z wyprzedzeniem, o ile jest to
+          możliwe. Funkcje mogą się zmieniać, jeżeli nie pozbawia to użytkownika
+          uzgodnionych głównych cech usługi w trwającym opłaconym okresie albo zmiana
+          jest konieczna ze względów prawnych lub bezpieczeństwa.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: "odpowiedzialnosc",
+    title: "Odpowiedzialność",
+    content: (
+      <>
+        <p>
+          Odpowiadamy za zgodne z umową udostępnienie platformy w granicach
+          obowiązującego prawa. Nie odpowiadamy za przebieg lub rezultat zabiegu,
+          decyzje personelu, treści wprowadzone przez salon ani brak kontaktu ze strony
+          salonu.
+        </p>
+        <p>
+          Użytkownik odpowiada za skutki podania nieprawdziwych danych, naruszenia
+          praw osób trzecich, udostępnienia konta lub korzystania z platformy niezgodnie
+          z regulaminem. Żadne postanowienie nie ogranicza praw konsumenta ani
+          odpowiedzialności, której nie można wyłączyć na mocy prawa.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: "reklamacje",
+    title: "Wsparcie i reklamacje dotyczące platformy",
+    content: (
+      <>
+        <p>
+          Problem techniczny lub reklamację dotyczącą BeautyDocs można zgłosić na {" "}
+          <a href={`mailto:${SALON_CONFIG.email}`}>{SALON_CONFIG.email}</a>. Zgłoszenie
+          powinno zawierać dane pozwalające zidentyfikować konto, opis problemu i — o
+          ile to bezpieczne — kroki prowadzące do jego wystąpienia. Nie należy wysyłać
+          hasła ani pełnego kodu jednorazowego.
+        </p>
+        <p>
+          Odpowiadamy bez zbędnej zwłoki, nie później niż w terminie wymaganym przez
+          obowiązujące przepisy. Reklamacje dotyczące zabiegu, płatności za zabieg lub
+          zachowania personelu należy kierować do właściwego salonu.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: "zakonczenie-umowy",
+    title: "Rezygnacja, usunięcie konta i dane po zakończeniu",
+    content: (
+      <>
+        <p>
+          Użytkownik konta klientki może zrezygnować z usługi i złożyć dyspozycję
+          usunięcia konta w ustawieniach. Usunięcie konta platformy nie zawsze oznacza
+          usunięcie dokumentacji przechowywanej przez salon na odrębnej podstawie
+          prawnej.
+        </p>
+        <p>
+          Właściciel może zamknąć wybrany salon bez usuwania własnego konta. Zamknięcie
+          salonu wyłącza dostęp do jego panelu i formularzy publicznych, lecz nie usuwa
+          dostępu użytkownika do innych salonów. Usunięcie całego konta jest osobną
+          operacją i wymaga wcześniejszego zamknięcia albo przekazania wszystkich
+          aktywnych salonów, których użytkownik jest właścicielem.
+        </p>
+        <p>
+          Salon może zakończyć płatny plan zgodnie z warunkami wybranego okresu
+          rozliczeniowego. Przed trwałym usunięciem danych udostępnimy rozsądny sposób
+          eksportu, o ile nie sprzeciwia się temu prawo, bezpieczeństwo lub prawa osób
+          trzecich.
+        </p>
+        <p>
+          Możemy rozwiązać umowę z powodu istotnego lub powtarzającego się naruszenia
+          regulaminu, po uprzednim wezwaniu do zaprzestania naruszeń, chyba że
+          natychmiastowe działanie jest konieczne z powodów prawnych lub bezpieczeństwa.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: "postanowienia-koncowe",
+    title: "Zmiany regulaminu i postanowienia końcowe",
+    content: (
+      <>
+        <p>
+          Regulamin może zostać zmieniony z ważnej przyczyny, takiej jak rozwój
+          funkcji, zmiana modelu rozliczeń, wymogów bezpieczeństwa lub przepisów. O
+          zmianach wpływających na trwającą umowę poinformujemy w aplikacji lub
+          wiadomości e-mail i wskażemy datę wejścia w życie.
+        </p>
+        <p>
+          Do umowy stosuje się prawo polskie, z zachowaniem bezwzględnie obowiązujących
+          praw konsumenta. Ewentualne spory strony w pierwszej kolejności starają się
+          rozwiązać polubownie, a właściwość sądu określają obowiązujące przepisy.
+        </p>
+        <p>Regulamin obowiązuje od 15 sierpnia 2026 r.</p>
+      </>
+    ),
+  },
+] as const;
 
 export default function RegulaminPage() {
-  const router = useRouter();
   return (
-    <div className="min-h-screen">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-emerald backdrop-blur-sm border-b border-brand/20 shadow-marble">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-24">
-            <Link href="/" className="flex items-center">
-              <h1 className="text-2xl md:text-3xl font-serif font-light text-marble-text tracking-widest">
-                {SALON_CONFIG.name}
-              </h1>
-            </Link>
-            <BackButton onClick={() => router.push("/")} />
-          </div>
-        </div>
-      </nav>
-
-      {/* Header */}
-      <section className="pt-40 pb-12 px-4 border-b border-marble-border">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-serif font-light text-marble-text mb-2 tracking-wider uppercase">
-            REGULAMIN
-          </h1>
-          <p className="text-lg text-brand font-light tracking-wide uppercase">
-            Świadczenia Usług
-          </p>
-          <p className="text-sm text-marble-textSecondary font-light mt-2 italic">
-            {SALON_CONFIG.name} – {SALON_CONFIG.owner}
-          </p>
-        </div>
-      </section>
-
-      {/* Content */}
-      <section className="py-16 px-4">
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-gradient-emerald backdrop-blur-sm p-8 md:p-12 space-y-10 rounded-2xl shadow-marble-lg border border-brand/20">
-            {/* §1 */}
-            <div>
-              <h2 className="text-xl font-serif font-light text-brand mb-4 tracking-wider uppercase">
-                §1. Postanowienia ogólne
-              </h2>
-              <div className="text-ui-textSecondary font-light leading-relaxed space-y-3">
-                <p>
-                  Niniejszy Regulamin określa zasady korzystania z usług
-                  kosmetycznych i makijażu permanentnego świadczonych przez
-                  firmę
-                  {SALON_CONFIG.name} – {SALON_CONFIG.owner}, z siedzibą przy{" "}
-                  {SALON_CONFIG.address}, NIP: {SALON_CONFIG.nip} (zwaną dalej
-                  „Salonem").
-                </p>
-                <p>
-                  Klientem Salonu może być każda osoba pełnoletnia. Osoby
-                  niepełnoletnie mogą korzystać z usług wyłącznie za pisemną
-                  zgodą rodzica lub opiekuna prawnego.
-                </p>
-                <p>
-                  Przystąpienie do zabiegu jest równoznaczne z akceptacją
-                  postanowień niniejszego Regulaminu.
-                </p>
-                <p>
-                  Ceny usług podane w cenniku (na stronie internetowej lub w
-                  Salonie) są cenami brutto i wyrażone są w polskich złotych.
-                </p>
-              </div>
-            </div>
-
-            {/* §2 */}
-            <div>
-              <h2 className="text-xl font-serif font-light text-brand mb-4 tracking-wider uppercase">
-                §2. Rezerwacja wizyt i płatności
-              </h2>
-              <div className="text-ui-textSecondary font-light leading-relaxed space-y-3">
-                <p>Rezerwacji wizyty można dokonać:</p>
-                <ul className="list-disc list-inside space-y-1 ml-4">
-                  <li>telefonicznie,</li>
-                  <li>poprzez media społecznościowe (Facebook/Instagram),</li>
-                  <li>osobiście w Salonie.</li>
-                </ul>
-                <p>
-                  Rezerwacja terminu na zabieg makijażu permanentnego wymaga
-                  wpłaty zadatku w wysokości{" "}
-                  <strong>50% wartości zabiegu</strong>.
-                </p>
-                <p>
-                  Zadatek należy wpłacić w terminie <strong>3 dni</strong> od
-                  momentu wstępnej rezerwacji. Brak wpłaty w tym terminie
-                  skutkuje automatycznym anulowaniem rezerwacji.
-                </p>
-                <p>Wpłaty można dokonać przelewem na konto bankowe:</p>
-                <div className="bg-marble-border/20 p-4 rounded-xl border border-brand/20 my-2 shadow-inner">
-                  <p className="font-medium text-marble-text">
-                    {SALON_CONFIG.accountNumber}
-                  </p>
-                  <p className="text-sm mt-1">
-                    Tytuł przelewu: Data zabiegu oraz Imię i Nazwisko Klientki.
-                  </p>
-                </div>
-                <p>
-                  W dniu zabiegu cena usługi pomniejszana jest o kwotę
-                  wpłaconego zadatku. Pozostałą część kwoty Klient uiszcza na
-                  miejscu gotówką lub kartą płatniczą.
-                </p>
-              </div>
-            </div>
-
-            {/* §3 */}
-            <div>
-              <h2 className="text-xl font-serif font-light text-brand mb-4 tracking-wider uppercase">
-                §3. Odwoływanie i zmiana terminu wizyty
-              </h2>
-              <div className="text-ui-textSecondary font-light leading-relaxed space-y-3">
-                <p>
-                  Klient ma prawo do bezkosztowej zmiany terminu wizyty
-                  najpóźniej na <strong>3 dni</strong> przed planowanym
-                  zabiegiem. W takim przypadku zadatek przechodzi na nowy
-                  termin.
-                </p>
-                <p>
-                  W przypadku odwołania wizyty lub chęci zmiany terminu na mniej
-                  niż 3 dni przed zabiegiem, wpłacony zadatek przepada (zgodnie
-                  z art. 394 Kodeksu Cywilnego jako rekompensata za utracony
-                  czas pracy).
-                </p>
-                <p>
-                  Wyjątek stanowią zdarzenia losowe i nagłe choroby,
-                  potwierdzone odpowiednim dokumentem (np. zwolnieniem
-                  lekarskim), które należy zgłosić niezwłocznie. W takich
-                  sytuacjach Salon może wyrazić zgodę na przeniesienie zadatku
-                  na inny termin.
-                </p>
-                <p>
-                  W przypadku niestawienia się na wizytę bez wcześniejszego
-                  powiadomienia, zadatek przepada w całości. Salon zastrzega
-                  sobie również prawo do odmowy przyjęcia kolejnych rezerwacji
-                  od takiej osoby lub wymagania przedpłaty 100% wartości usługi.
-                </p>
-                <p>
-                  Spóźnienie Klienta powyżej 15 minut może skutkować skróceniem
-                  czasu zabiegu lub koniecznością przełożenia go na inny termin
-                  (co może wiązać się z przepadkiem zadatku, jeśli czas nie
-                  pozwoli na wykonanie pełnej usługi).
-                </p>
-              </div>
-            </div>
-
-            {/* §4 */}
-            <div>
-              <h2 className="text-xl font-serif font-light text-brand mb-4 tracking-wider uppercase">
-                §4. Przeciwwskazania i kwalifikacja do zabiegu
-              </h2>
-              <div className="text-ui-textSecondary font-light leading-relaxed space-y-3">
-                <p>
-                  Przed przystąpieniem do zabiegu Klient zobowiązany jest do
-                  wypełnienia Karty Klienta oraz ankiety zdrowotnej. Zatajenie
-                  informacji o stanie zdrowia (przeciwwskazaniach) zwalnia Salon
-                  z odpowiedzialności za ewentualne powikłania.
-                </p>
-                <p>Bezwzględnymi przeciwwskazaniami do zabiegu są m.in.:</p>
-                <ul className="list-disc list-inside space-y-1 ml-4">
-                  <li>ciąża, karmienie piersią,</li>
-                  <li>aktywna opryszczka,</li>
-                  <li>choroby nowotworowe (bez zgody lekarza),</li>
-                  <li>nieustabilizowana cukrzyca,</li>
-                  <li>łuszczyca w miejscu zabiegu,</li>
-                  <li>przyjmowanie leków rozrzedzających krew.</li>
-                </ul>
-                <p>
-                  Klientki posiadające „stary" makijaż permanentny (wykonany w
-                  innym salonie) są zobowiązane poinformować o tym fakcie przy
-                  zapisie. Salon zastrzega sobie prawo do odmowy wykonania
-                  pigmentacji naprawczej lub skierowania Klientki na zabieg
-                  laserowego usuwania (dodatkowo płatny).
-                </p>
-                <p>
-                  Korekty makijażu po innych salonach są traktowane jako nowy
-                  zabieg i podlegają indywidualnej wycenie.
-                </p>
-              </div>
-            </div>
-
-            {/* §5 */}
-            <div>
-              <h2 className="text-xl font-serif font-light text-brand mb-4 tracking-wider uppercase">
-                §5. Przebieg zabiegu i efekty (gwarancja)
-              </h2>
-              <div className="text-ui-textSecondary font-light leading-relaxed space-y-3">
-                <p>
-                  Każdy zabieg poprzedzony jest bezpłatną konsultacją, podczas
-                  której dobierana jest metoda, kolor oraz wykonywany jest
-                  rysunek wstępny (wizualizacja).
-                </p>
-                <p>
-                  Linergistka ma prawo odmówić wykonania zabiegu, jeśli
-                  oczekiwania Klientki co do kształtu lub koloru są niezgodne z
-                  estetyką, anatomią twarzy lub zasadami sztuki PMU.
-                </p>
-                <p>
-                  W przypadku braku akceptacji przez Klientkę proponowanego
-                  kształtu i rezygnacji z zabiegu w dniu wizyty, wpłacony
-                  zadatek pokrywa koszt konsultacji i czasu zarezerwowanego dla
-                  pracownika i nie podlega zwrotowi.
-                </p>
-                <p>
-                  Efekt zabiegu jest kwestią indywidualną i zależy od rodzaju
-                  skóry, wieku oraz przestrzegania zaleceń pozabiegowych. Salon
-                  nie udziela gwarancji na trwałość makijażu (nie jest możliwe
-                  przewidzenie dokładnego czasu utrzymywania się pigmentu w
-                  skórze).
-                </p>
-              </div>
-            </div>
-
-            {/* §6 */}
-            <div>
-              <h2 className="text-xl font-serif font-light text-brand mb-4 tracking-wider uppercase">
-                §6. Korekta (dopigmentowanie)
-              </h2>
-              <div className="text-ui-textSecondary font-light leading-relaxed space-y-3">
-                <p>
-                  Pierwsza korekta (uzupełniająca) jest wliczona w cenę
-                  podstawowego zabiegu (chyba że cennik stanowi inaczej) i
-                  powinna zostać wykonana w terminie od{" "}
-                  <strong>4 do 8 tygodni</strong> od pierwszego zabiegu.
-                </p>
-                <p>
-                  Jeżeli Klientka nie stawi się na korektę w wyznaczonym
-                  terminie (do 8 tygodni) lub odwoła ją później niż 24h przed
-                  wizytą, korekta przepada. Wykonanie dopigmentowania w
-                  późniejszym terminie jest płatne dodatkowo (każdy miesiąc
-                  zwłoki to dopłata 100 zł lub wg aktualnej wyceny).
-                </p>
-                <p>
-                  Dla Klientek mieszkających na stałe za granicą, termin
-                  bezpłatnej korekty może zostać wydłużony do 3 miesięcy, pod
-                  warunkiem zgłoszenia tego faktu podczas pierwszego zabiegu.
-                </p>
-                <div className="bg-marble-border/20 p-4 rounded-xl border border-brand/20 my-2 shadow-inner">
-                  <p className="font-medium text-marble-text mb-2">
-                    Odświeżenie makijażu po roku (tzw. „Refresh"):
-                  </p>
-                  <ul className="list-disc list-inside space-y-1 ml-2">
-                    <li>
-                      Do 1,5 roku od zabiegu: 50% aktualnej ceny z cennika.
-                    </li>
-                    <li>
-                      Powyżej 2 lat: 100% ceny (traktowane jako nowy zabieg).
-                    </li>
-                  </ul>
-                </div>
-                <p>
-                  W przypadku ciąży wykrytej po pierwszym zabiegu, Klientka może
-                  wykonać korektę po porodzie/karmieniu (np. po roku) za 50%
-                  ceny aktualnej.
-                </p>
-              </div>
-            </div>
-
-            {/* §7 */}
-            <div>
-              <h2 className="text-xl font-serif font-light text-brand mb-4 tracking-wider uppercase">
-                §7. Reklamacje
-              </h2>
-              <div className="text-ui-textSecondary font-light leading-relaxed space-y-3">
-                <p>
-                  Klient ma prawo do złożenia reklamacji w przypadku
-                  niezadowolenia z usługi.
-                </p>
-                <p>
-                  Reklamacje należy składać pisemnie na adres e-mail:{" "}
-                  <strong>{SALON_CONFIG.email}</strong> w terminie do{" "}
-                  <strong>14 dni</strong> od wykonania usługi. Zgłoszenie
-                  powinno zawierać opis problemu oraz dokumentację
-                  fotograficzną.
-                </p>
-                <p>
-                  Ewentualne poprawki w ramach reklamacji (jeśli są uzasadnione
-                  błędami technicznymi) wykonywane są bezpłatnie w terminie do 2
-                  miesięcy od zabiegu. Wszelkie uwagi zgłaszane po upływie 2
-                  miesięcy będą traktowane jako nowe zlecenia płatne.
-                </p>
-              </div>
-            </div>
-
-            {/* §8 */}
-            <div>
-              <h2 className="text-xl font-serif font-light text-brand mb-4 tracking-wider uppercase">
-                §8. Postanowienia końcowe
-              </h2>
-              <div className="text-ui-textSecondary font-light leading-relaxed space-y-3">
-                <p>
-                  Salon zastrzega sobie prawo do zmiany cennika oraz godzin
-                  otwarcia. Zmiany nie dotyczą rezerwacji, na które został już
-                  wpłacony zadatek (obowiązuje cena z dnia rezerwacji, chyba że
-                  upłynęło ponad 6 miesięcy).
-                </p>
-                <p>
-                  W sprawach nieuregulowanych niniejszym Regulaminem
-                  zastosowanie mają przepisy Kodeksu Cywilnego.
-                </p>
-                <p>Regulamin wchodzi w życie z dniem publikacji.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-gradient-emerald text-marble-text py-16 border-t border-brand/20 shadow-marble">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="mb-6 md:mb-0 text-center md:text-left">
-              <span className="text-xl font-serif font-light tracking-widest uppercase">
-                {SALON_CONFIG.name}
-              </span>
-              <p className="text-xs text-ui-textSecondary mt-3 font-light tracking-wider uppercase">
-                Profesjonalny makijaż permanentny
-              </p>
-            </div>
-            <div className="text-center md:text-right">
-              <p className="text-xs text-ui-textSecondary font-light tracking-wider italic">
-                © {new Date().getFullYear()} {SALON_CONFIG.name}. Wszystkie
-                prawa zastrzeżone.
-              </p>
-            </div>
-          </div>
-        </div>
-      </footer>
-    </div>
+    <BeautyDocsLegalPage
+      activeDocument="terms"
+      description="Zasady korzystania z platformy BeautyDocs przez salony, ich zespoły oraz klientki — od założenia konta po formularze, wizyty i komunikację."
+      lastUpdated="15 sierpnia 2026 r."
+      notice={
+        <p>
+          <strong>Ten regulamin dotyczy platformy BeautyDocs.</strong> Nie zastępuje
+          regulaminu konkretnego salonu ani warunków wykonania zabiegu, płatności,
+          odwołania wizyty lub reklamacji usługi salonu.
+        </p>
+      }
+      sections={termsSections}
+      title="Regulamin platformy"
+    />
   );
 }

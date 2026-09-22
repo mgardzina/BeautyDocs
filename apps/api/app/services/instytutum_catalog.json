@@ -1,0 +1,3887 @@
+{
+  "source": "https://instytutum.com/en/category/",
+  "officialApi": "https://instytutum.com/api/",
+  "reviewedAt": "2026-08-24",
+  "count": 52,
+  "priceSources": [
+    "https://www.aiyabeauty.pl/collections/instytutum/products.json?limit=250",
+    "https://luxdermastore.pl/collections/all/products.json?limit=250"
+  ],
+  "products": [
+    {
+      "id": "359",
+      "slug": "c-illuminating-3d-moisturizer-next-gen-refill-pod",
+      "name": "C-Illuminating 3D Moisturizer POD",
+      "summary": "Nawilżający krem z efektem blasku",
+      "presentation": "50 ML",
+      "productCategory": "Kosmetyk do pielęgnacji twarzy",
+      "productFamily": "Wkład uzupełniający",
+      "manufacturerUses": [
+        "Nawilżający krem z efektem blasku"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Witamina C"
+      ],
+      "skinTypes": [
+        "Dobierz do potrzeb skóry"
+      ],
+      "aliases": [
+        "C-Illuminating 3D Moisturizer POD",
+        "INSTYTUTUM",
+        "{'index': None, 'value': 'Refills', 'slug': 'refills'}",
+        "Kosmetyki do pielęgnacji skóry Longevity Next-Gen"
+      ],
+      "sourceUrl": "https://instytutum.com/en/product/c-illuminating-3d-moisturizer-next-gen-refill-pod/",
+      "imagePath": "/beautydocs/catalog/instytutum/359-1.webp",
+      "imageAlt": "C-Illuminating 3D Moisturizer POD",
+      "productImages": [
+        {
+          "path": "/beautydocs/catalog/instytutum/359-1.webp",
+          "alt": "C-Illuminating 3D Moisturizer POD",
+          "label": "Oficjalne zdjęcie produktu",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/359-2.webp",
+          "alt": "C-Illuminating 3D Moisturizer POD",
+          "label": "Zdjęcie 2",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/359-3.webp",
+          "alt": "C-Illuminating 3D Moisturizer texture Photo 3",
+          "label": "Zdjęcie 3",
+          "scale": 1.0,
+          "fit": "cover"
+        }
+      ],
+      "offers": [
+        {
+          "seller": "Aiya Beauty Care",
+          "pricePln": 308.0,
+          "shippingPricePln": null,
+          "availability": "IN_STOCK",
+          "url": "https://www.aiyabeauty.pl/products/instytutum-c-illuminating-3d-moisturizer-pod",
+          "sourceType": "STORE",
+          "updatedAt": "2026-08-24"
+        }
+      ],
+      "officialReferencePrice": {
+        "amount": 60.0,
+        "originalAmount": 70.0,
+        "currency": "EUR",
+        "seller": "INSTYTUTUM",
+        "availability": "AVAILABLE",
+        "url": "https://instytutum.com/en/product/c-illuminating-3d-moisturizer-next-gen-refill-pod/",
+        "updatedAt": "2026-08-24"
+      }
+    },
+    {
+      "id": "273",
+      "slug": "triple-action-facial-peel-next-gen",
+      "name": "Triple Action Resurfacing Peel Next-Gen",
+      "summary": "Peeling do twarzy o potrójnym działaniu",
+      "presentation": "60 ML",
+      "productCategory": "Kosmetyk do pielęgnacji twarzy",
+      "productFamily": "Peeling lub płatki złuszczające",
+      "manufacturerUses": [
+        "Peeling do twarzy o potrójnym działaniu"
+      ],
+      "treatmentCategories": [
+        "Złuszczanie",
+        "Pielęgnacja twarzy"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwasy złuszczające"
+      ],
+      "skinTypes": [
+        "Dobierz do potrzeb skóry"
+      ],
+      "aliases": [
+        "Triple Action Resurfacing Peel Next-Gen",
+        "INSTYTUTUM",
+        "{'index': 9, 'value': 'Peeling', 'slug': 'peeling'}",
+        "Kosmetyki do pielęgnacji skóry twarzy",
+        "Nowości i bestsellery",
+        "Kosmetyki do pielęgnacji skóry Longevity Next-Gen"
+      ],
+      "sourceUrl": "https://instytutum.com/en/product/triple-action-facial-peel-next-gen/",
+      "imagePath": "/beautydocs/catalog/instytutum/273-1.webp",
+      "imageAlt": "Triple Action Resurfacing Peel Next Gen Photo 1",
+      "productImages": [
+        {
+          "path": "/beautydocs/catalog/instytutum/273-1.webp",
+          "alt": "Triple Action Resurfacing Peel Next Gen Photo 1",
+          "label": "Oficjalne zdjęcie produktu",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/273-2.webp",
+          "alt": "Triple Action Resurfacing Peel Next-Gen",
+          "label": "Zdjęcie 2",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/273-3.webp",
+          "alt": "Triple Action Resurfacing Peel Photo 3",
+          "label": "Zdjęcie 3",
+          "scale": 1.0,
+          "fit": "cover"
+        }
+      ],
+      "offers": [
+        {
+          "seller": "Aiya Beauty Care",
+          "pricePln": 374.0,
+          "shippingPricePln": null,
+          "availability": "IN_STOCK",
+          "url": "https://www.aiyabeauty.pl/products/instytutum-triple-action-resurfacing-peel-1",
+          "sourceType": "STORE",
+          "updatedAt": "2026-08-24"
+        },
+        {
+          "seller": "LuxDermaStore",
+          "pricePln": 315.0,
+          "shippingPricePln": null,
+          "availability": "OUT_OF_STOCK",
+          "url": "https://luxdermastore.pl/products/triple-action-resurfacing-peel",
+          "sourceType": "STORE",
+          "updatedAt": "2026-08-24"
+        }
+      ],
+      "officialReferencePrice": {
+        "amount": 72.0,
+        "originalAmount": 85.0,
+        "currency": "EUR",
+        "seller": "INSTYTUTUM",
+        "availability": "AVAILABLE",
+        "url": "https://instytutum.com/en/product/triple-action-facial-peel-next-gen/",
+        "updatedAt": "2026-08-24"
+      }
+    },
+    {
+      "id": "346",
+      "slug": "advanced-retinol-toner-deluxe-size",
+      "name": "Advanced Retinol Toner Deluxe Size",
+      "summary": "Intensywny tonik regenerujący z retinolem",
+      "presentation": "50 ML",
+      "productCategory": "Kosmetyk do pielęgnacji twarzy",
+      "productFamily": "Miniatura kosmetyku",
+      "manufacturerUses": [
+        "Intensywny tonik regenerujący z retinolem"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Retinoidy"
+      ],
+      "skinTypes": [
+        "Dobierz do potrzeb skóry"
+      ],
+      "aliases": [
+        "Advanced Retinol Toner Deluxe Size",
+        "INSTYTUTUM",
+        "{'index': None, 'value': 'Deluxe size', 'slug': 'deluxe-size'}",
+        "Kosmetyki do pielęgnacji skóry twarzy"
+      ],
+      "sourceUrl": "https://instytutum.com/en/product/advanced-retinol-toner-deluxe-size/",
+      "imagePath": "/beautydocs/catalog/instytutum/346-1.webp",
+      "imageAlt": "deluxe size Advanced Retinol Toner 50 ml",
+      "productImages": [
+        {
+          "path": "/beautydocs/catalog/instytutum/346-1.webp",
+          "alt": "deluxe size Advanced Retinol Toner 50 ml",
+          "label": "Oficjalne zdjęcie produktu",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/346-2.webp",
+          "alt": "Advanced Retinol Toner Photo 3",
+          "label": "Zdjęcie 2",
+          "scale": 1.0,
+          "fit": "cover"
+        }
+      ],
+      "offers": [],
+      "officialReferencePrice": {
+        "amount": 26.0,
+        "originalAmount": 30.0,
+        "currency": "EUR",
+        "seller": "INSTYTUTUM",
+        "availability": "AVAILABLE",
+        "url": "https://instytutum.com/en/product/advanced-retinol-toner-deluxe-size/",
+        "updatedAt": "2026-08-24"
+      }
+    },
+    {
+      "id": "349",
+      "slug": "a-superpacked-x-strength-retinol-serum-deluxe-size",
+      "name": "A-Superpacked X-strength Retinol Serum Deluxe Size",
+      "summary": "Skoncentrowane serum przeciwstarzeniowe z retinoidem",
+      "presentation": "10 ML",
+      "productCategory": "Kosmetyk do pielęgnacji twarzy",
+      "productFamily": "Miniatura kosmetyku",
+      "manufacturerUses": [
+        "Skoncentrowane serum przeciwstarzeniowe z retinoidem"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Retinoidy"
+      ],
+      "skinTypes": [
+        "Dobierz do potrzeb skóry"
+      ],
+      "aliases": [
+        "A-Superpacked X-strength Retinol Serum Deluxe Size",
+        "INSTYTUTUM",
+        "{'index': None, 'value': 'Deluxe size', 'slug': 'deluxe-size'}",
+        "Kosmetyki do pielęgnacji skóry twarzy"
+      ],
+      "sourceUrl": "https://instytutum.com/en/product/a-superpacked-x-strength-retinol-serum-deluxe-size/",
+      "imagePath": "/beautydocs/catalog/instytutum/349-1.webp",
+      "imageAlt": "X-Strength Retinol Serum deluxe size",
+      "productImages": [
+        {
+          "path": "/beautydocs/catalog/instytutum/349-1.webp",
+          "alt": "X-Strength Retinol Serum deluxe size",
+          "label": "Oficjalne zdjęcie produktu",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/349-2.webp",
+          "alt": "X-strength Retinol Serum Photo 3",
+          "label": "Zdjęcie 2",
+          "scale": 1.0,
+          "fit": "cover"
+        }
+      ],
+      "offers": [],
+      "officialReferencePrice": {
+        "amount": 47.0,
+        "originalAmount": 55.0,
+        "currency": "EUR",
+        "seller": "INSTYTUTUM",
+        "availability": "AVAILABLE",
+        "url": "https://instytutum.com/en/product/a-superpacked-x-strength-retinol-serum-deluxe-size/",
+        "updatedAt": "2026-08-24"
+      }
+    },
+    {
+      "id": "275",
+      "slug": "fancy-match-lip-gloss-classic",
+      "name": "Fancy Match Lip Gloss Classic",
+      "summary": "Idealne połączenie makijażu i pielęgnacji",
+      "presentation": "3,5 ML",
+      "productCategory": "Kosmetyk do pielęgnacji twarzy",
+      "productFamily": "Pielęgnacja ust",
+      "manufacturerUses": [
+        "Idealne połączenie makijażu i pielęgnacji"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja ust",
+        "Pielęgnacja twarzy"
+      ],
+      "applicationAreas": [
+        {
+          "code": "LIPS",
+          "label": "Usta"
+        }
+      ],
+      "keyIngredients": [],
+      "skinTypes": [
+        "Dobierz do potrzeb skóry"
+      ],
+      "aliases": [
+        "Fancy Match Lip Gloss Classic",
+        "INSTYTUTUM",
+        "{'index': 7, 'value': 'Lip care', 'slug': 'lip-care'}",
+        "Kosmetyki do pielęgnacji skóry twarzy"
+      ],
+      "sourceUrl": "https://instytutum.com/en/product/fancy-match-lip-gloss-classic/",
+      "imagePath": "/beautydocs/catalog/instytutum/275-1.png",
+      "imageAlt": "Fancy Match Lip Gloss Classic",
+      "productImages": [
+        {
+          "path": "/beautydocs/catalog/instytutum/275-1.png",
+          "alt": "Fancy Match Lip Gloss Classic",
+          "label": "Oficjalne zdjęcie produktu",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/275-2.webp",
+          "alt": "Fancy Match Lip Gloss Classic",
+          "label": "Zdjęcie 2",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/275-3.webp",
+          "alt": "Fancy Match Lip Gloss Photo 3",
+          "label": "Zdjęcie 3",
+          "scale": 1.0,
+          "fit": "cover"
+        }
+      ],
+      "offers": [
+        {
+          "seller": "Aiya Beauty Care",
+          "pricePln": 124.0,
+          "shippingPricePln": null,
+          "availability": "IN_STOCK",
+          "url": "https://www.aiyabeauty.pl/products/instytutum-match-lip-gloss",
+          "sourceType": "STORE",
+          "updatedAt": "2026-08-24"
+        }
+      ],
+      "officialReferencePrice": {
+        "amount": 25.0,
+        "originalAmount": null,
+        "currency": "EUR",
+        "seller": "INSTYTUTUM",
+        "availability": "AVAILABLE",
+        "url": "https://instytutum.com/en/product/fancy-match-lip-gloss-classic/",
+        "updatedAt": "2026-08-24"
+      }
+    },
+    {
+      "id": "356",
+      "slug": "hydrafusion-hydrating-gel-cream-next-gen-refill-pod",
+      "name": "HydraFusion Hydrating Gel Cream POD",
+      "summary": "Nawilżający żel-krem z 4 rodzajami kwasu hialuronowego",
+      "presentation": "50 ML",
+      "productCategory": "Kosmetyk do pielęgnacji twarzy",
+      "productFamily": "Wkład uzupełniający",
+      "manufacturerUses": [
+        "Nawilżający żel-krem z 4 rodzajami kwasu hialuronowego"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwas hialuronowy"
+      ],
+      "skinTypes": [
+        "Dobierz do potrzeb skóry"
+      ],
+      "aliases": [
+        "HydraFusion Hydrating Gel Cream POD",
+        "INSTYTUTUM",
+        "{'index': None, 'value': 'Refills', 'slug': 'refills'}",
+        "Nowości i bestsellery",
+        "Kosmetyki do pielęgnacji skóry Longevity Next-Gen"
+      ],
+      "sourceUrl": "https://instytutum.com/en/product/hydrafusion-hydrating-gel-cream-next-gen-refill-pod/",
+      "imagePath": "/beautydocs/catalog/instytutum/356-1.webp",
+      "imageAlt": "HydraFusion Hydrating Gel Cream POD",
+      "productImages": [
+        {
+          "path": "/beautydocs/catalog/instytutum/356-1.webp",
+          "alt": "HydraFusion Hydrating Gel Cream POD",
+          "label": "Oficjalne zdjęcie produktu",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/356-2.webp",
+          "alt": "HydraFusion Hydrating Gel Cream Next-Gen peptide gel cream refillavideoble skincare hydrating gel cream 4D hyaluronic acid Swiss skincare refill",
+          "label": "Zdjęcie 2",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/356-3.webp",
+          "alt": "HydraFusion Hydrating Gel Cream POD",
+          "label": "Zdjęcie 3",
+          "scale": 1.0,
+          "fit": "cover"
+        }
+      ],
+      "offers": [
+        {
+          "seller": "Aiya Beauty Care",
+          "pricePln": 308.0,
+          "shippingPricePln": null,
+          "availability": "IN_STOCK",
+          "url": "https://www.aiyabeauty.pl/products/instytutum-hydrafusion-hydrating-gel-cream-pod",
+          "sourceType": "STORE",
+          "updatedAt": "2026-08-24"
+        }
+      ],
+      "officialReferencePrice": {
+        "amount": 60.0,
+        "originalAmount": 70.0,
+        "currency": "EUR",
+        "seller": "INSTYTUTUM",
+        "availability": "AVAILABLE",
+        "url": "https://instytutum.com/en/product/hydrafusion-hydrating-gel-cream-next-gen-refill-pod/",
+        "updatedAt": "2026-08-24"
+      }
+    },
+    {
+      "id": "216",
+      "slug": "renewal-melting-cleanser-next-gen",
+      "name": "Renewal Melting Cleanser Next-Gen",
+      "summary": "Olejek hydrofilowy",
+      "presentation": "120 ML",
+      "productCategory": "Kosmetyk do pielęgnacji twarzy",
+      "productFamily": "Produkt do oczyszczania",
+      "manufacturerUses": [
+        "Olejek hydrofilowy"
+      ],
+      "treatmentCategories": [
+        "Oczyszczanie skóry",
+        "Pielęgnacja twarzy"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "skinTypes": [
+        "Dobierz do potrzeb skóry"
+      ],
+      "aliases": [
+        "Renewal Melting Cleanser Next-Gen",
+        "INSTYTUTUM",
+        "{'index': 1, 'value': 'Cleansing', 'slug': 'cleansing'}",
+        "Kosmetyki do pielęgnacji skóry twarzy",
+        "Kosmetyki do pielęgnacji skóry Longevity Next-Gen"
+      ],
+      "sourceUrl": "https://instytutum.com/en/product/renewal-melting-cleanser-next-gen/",
+      "imagePath": "/beautydocs/catalog/instytutum/216-1.webp",
+      "imageAlt": "Renewal Melting Cleanser Next Gen Photo 1",
+      "productImages": [
+        {
+          "path": "/beautydocs/catalog/instytutum/216-1.webp",
+          "alt": "Renewal Melting Cleanser Next Gen Photo 1",
+          "label": "Oficjalne zdjęcie produktu",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/216-2.webp",
+          "alt": "Renewal Melting Cleanser Next-Gen",
+          "label": "Zdjęcie 2",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/216-3.webp",
+          "alt": "Renewal Melting Cleanser Photo 3",
+          "label": "Zdjęcie 3",
+          "scale": 1.0,
+          "fit": "cover"
+        }
+      ],
+      "offers": [
+        {
+          "seller": "Aiya Beauty Care",
+          "pricePln": 198.0,
+          "shippingPricePln": null,
+          "availability": "IN_STOCK",
+          "url": "https://www.aiyabeauty.pl/products/instytutum-renewal-melting-cleanser",
+          "sourceType": "STORE",
+          "updatedAt": "2026-08-24"
+        }
+      ],
+      "officialReferencePrice": {
+        "amount": 38.0,
+        "originalAmount": 45.0,
+        "currency": "EUR",
+        "seller": "INSTYTUTUM",
+        "availability": "AVAILABLE",
+        "url": "https://instytutum.com/en/product/renewal-melting-cleanser-next-gen/",
+        "updatedAt": "2026-08-24"
+      }
+    },
+    {
+      "id": "267",
+      "slug": "c-illuminating-3d-moisturizer-next-gen",
+      "name": "C-Illuminating 3D Moisturizer Next-Gen",
+      "summary": "Nawilżający krem z efektem blasku",
+      "presentation": "50 ML",
+      "productCategory": "Kosmetyk do pielęgnacji twarzy",
+      "productFamily": "Krem do twarzy",
+      "manufacturerUses": [
+        "Nawilżający krem z efektem blasku"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Witamina C"
+      ],
+      "skinTypes": [
+        "Dobierz do potrzeb skóry"
+      ],
+      "aliases": [
+        "C-Illuminating 3D Moisturizer Next-Gen",
+        "INSTYTUTUM",
+        "{'index': 4, 'value': 'Cream', 'slug': 'cream'}",
+        "Kosmetyki do pielęgnacji skóry twarzy",
+        "Kosmetyki do pielęgnacji skóry Longevity Next-Gen"
+      ],
+      "sourceUrl": "https://instytutum.com/en/product/c-illuminating-3d-moisturizer-next-gen/",
+      "imagePath": "/beautydocs/catalog/instytutum/267-1.webp",
+      "imageAlt": "C-Illuminating 3D Moisturizer Next Gen Photo 1",
+      "productImages": [
+        {
+          "path": "/beautydocs/catalog/instytutum/267-1.webp",
+          "alt": "C-Illuminating 3D Moisturizer Next Gen Photo 1",
+          "label": "Oficjalne zdjęcie produktu",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/267-2.webp",
+          "alt": "C-Illuminating 3D Moisturizer Next-Gen",
+          "label": "Zdjęcie 2",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/267-3.webp",
+          "alt": "C-Illuminating 3D Moisturizer texture Photo 3",
+          "label": "Zdjęcie 3",
+          "scale": 1.0,
+          "fit": "cover"
+        }
+      ],
+      "offers": [
+        {
+          "seller": "Aiya Beauty Care",
+          "pricePln": 374.0,
+          "shippingPricePln": null,
+          "availability": "IN_STOCK",
+          "url": "https://www.aiyabeauty.pl/products/instytutum-c-illuminating-3d-moisturizer",
+          "sourceType": "STORE",
+          "updatedAt": "2026-08-24"
+        },
+        {
+          "seller": "LuxDermaStore",
+          "pricePln": 360.0,
+          "shippingPricePln": null,
+          "availability": "OUT_OF_STOCK",
+          "url": "https://luxdermastore.pl/products/c-illuminating-3d-moisturizer",
+          "sourceType": "STORE",
+          "updatedAt": "2026-08-24"
+        }
+      ],
+      "officialReferencePrice": {
+        "amount": 72.0,
+        "originalAmount": 85.0,
+        "currency": "EUR",
+        "seller": "INSTYTUTUM",
+        "availability": "AVAILABLE",
+        "url": "https://instytutum.com/en/product/c-illuminating-3d-moisturizer-next-gen/",
+        "updatedAt": "2026-08-24"
+      }
+    },
+    {
+      "id": "229",
+      "slug": "cryoshot-hydrating-serum-classic",
+      "name": "CRYOshot Hydrating Serum Classic",
+      "summary": "Serum neurokosmetyczne z NAD + Supporting System",
+      "presentation": "30 ML",
+      "productCategory": "Kosmetyk do pielęgnacji twarzy",
+      "productFamily": "Serum lub olejek",
+      "manufacturerUses": [
+        "Serum neurokosmetyczne z NAD + Supporting System"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "skinTypes": [
+        "Dobierz do potrzeb skóry"
+      ],
+      "aliases": [
+        "CRYOshot Hydrating Serum Classic",
+        "INSTYTUTUM",
+        "{'index': 3, 'value': 'Serum or oil', 'slug': 'serum-or-oil'}",
+        "Kosmetyki do pielęgnacji skóry twarzy"
+      ],
+      "sourceUrl": "https://instytutum.com/en/product/cryoshot-hydrating-serum-classic/",
+      "imagePath": "/beautydocs/catalog/instytutum/229-1.png",
+      "imageAlt": "CRYOshot Hydrating Serum Classic",
+      "productImages": [
+        {
+          "path": "/beautydocs/catalog/instytutum/229-1.png",
+          "alt": "CRYOshot Hydrating Serum Classic",
+          "label": "Oficjalne zdjęcie produktu",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/229-2.webp",
+          "alt": "CRYOshot Hydrating Serum Classic",
+          "label": "Zdjęcie 2",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/229-3.webp",
+          "alt": "Cryoshot Hydrating Serum texture Photo 3",
+          "label": "Zdjęcie 3",
+          "scale": 1.0,
+          "fit": "cover"
+        }
+      ],
+      "offers": [
+        {
+          "seller": "Aiya Beauty Care",
+          "pricePln": 449.0,
+          "shippingPricePln": null,
+          "availability": "IN_STOCK",
+          "url": "https://www.aiyabeauty.pl/products/instytutum-cryoshot-hydrating-serum",
+          "sourceType": "STORE",
+          "updatedAt": "2026-08-24"
+        }
+      ],
+      "officialReferencePrice": {
+        "amount": 106.0,
+        "originalAmount": 125.0,
+        "currency": "EUR",
+        "seller": "INSTYTUTUM",
+        "availability": "AVAILABLE",
+        "url": "https://instytutum.com/en/product/cryoshot-hydrating-serum-classic/",
+        "updatedAt": "2026-08-24"
+      }
+    },
+    {
+      "id": "358",
+      "slug": "hydrafusion-4d-hydrating-water-burst-cream-deluxe-size",
+      "name": "HydraFusion 4D Hydrating Water Burst Cream Deluxe Size",
+      "summary": "Nawilżający żel-krem z 4 rodzajami kwasu hialuronowego",
+      "presentation": "15 ML",
+      "productCategory": "Kosmetyk do pielęgnacji twarzy",
+      "productFamily": "Miniatura kosmetyku",
+      "manufacturerUses": [
+        "Nawilżający żel-krem z 4 rodzajami kwasu hialuronowego"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwas hialuronowy"
+      ],
+      "skinTypes": [
+        "Dobierz do potrzeb skóry"
+      ],
+      "aliases": [
+        "HydraFusion 4D Hydrating Water Burst Cream Deluxe Size",
+        "INSTYTUTUM",
+        "{'index': None, 'value': 'Deluxe size', 'slug': 'deluxe-size'}",
+        "Kosmetyki do pielęgnacji skóry twarzy"
+      ],
+      "sourceUrl": "https://instytutum.com/en/product/hydrafusion-4d-hydrating-water-burst-cream-deluxe-size/",
+      "imagePath": "/beautydocs/catalog/instytutum/358-1.webp",
+      "imageAlt": "HydraFusion Hydrating Gel Cream deluxe size",
+      "productImages": [
+        {
+          "path": "/beautydocs/catalog/instytutum/358-1.webp",
+          "alt": "HydraFusion Hydrating Gel Cream deluxe size",
+          "label": "Oficjalne zdjęcie produktu",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/358-2.webp",
+          "alt": "HydraFusion Hydrating Gel Cream Next-Gen peptide gel cream refillable skincare hydrating gel cream 4D hyaluronic acid Swiss skincare texture",
+          "label": "Zdjęcie 2",
+          "scale": 1.0,
+          "fit": "cover"
+        }
+      ],
+      "offers": [],
+      "officialReferencePrice": {
+        "amount": 34.0,
+        "originalAmount": 40.0,
+        "currency": "EUR",
+        "seller": "INSTYTUTUM",
+        "availability": "AVAILABLE",
+        "url": "https://instytutum.com/en/product/hydrafusion-4d-hydrating-water-burst-cream-deluxe-size/",
+        "updatedAt": "2026-08-24"
+      }
+    },
+    {
+      "id": "355",
+      "slug": "superbiotic-plant-based-ceramide-cream-deluxe-size",
+      "name": "SuperBiotic Plant-Based Ceramide Cream Deluxe Size",
+      "summary": "Regenerujący krem z ceramidami i kompleksem pre- i probiotyków",
+      "presentation": "15 ML",
+      "productCategory": "Kosmetyk do pielęgnacji twarzy",
+      "productFamily": "Miniatura kosmetyku",
+      "manufacturerUses": [
+        "Regenerujący krem z ceramidami i kompleksem pre- i probiotyków"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Ceramidy"
+      ],
+      "skinTypes": [
+        "Dobierz do potrzeb skóry"
+      ],
+      "aliases": [
+        "SuperBiotic Plant-Based Ceramide Cream Deluxe Size",
+        "INSTYTUTUM",
+        "{'index': None, 'value': 'Deluxe size', 'slug': 'deluxe-size'}",
+        "Kosmetyki do pielęgnacji skóry twarzy"
+      ],
+      "sourceUrl": "https://instytutum.com/en/product/superbiotic-plant-based-ceramide-cream-deluxe-size/",
+      "imagePath": "/beautydocs/catalog/instytutum/355-1.webp",
+      "imageAlt": "SuperBiotic Regenerating Cream deluxe size",
+      "productImages": [
+        {
+          "path": "/beautydocs/catalog/instytutum/355-1.webp",
+          "alt": "SuperBiotic Regenerating Cream deluxe size",
+          "label": "Oficjalne zdjęcie produktu",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/355-2.webp",
+          "alt": "SuperBiotic Regenerating Cream Photo 3",
+          "label": "Zdjęcie 2",
+          "scale": 1.0,
+          "fit": "cover"
+        }
+      ],
+      "offers": [],
+      "officialReferencePrice": {
+        "amount": 34.0,
+        "originalAmount": 40.0,
+        "currency": "EUR",
+        "seller": "INSTYTUTUM",
+        "availability": "AVAILABLE",
+        "url": "https://instytutum.com/en/product/superbiotic-plant-based-ceramide-cream-deluxe-size/",
+        "updatedAt": "2026-08-24"
+      }
+    },
+    {
+      "id": "215",
+      "slug": "adaptogel-cleanser-next-gen",
+      "name": "Adaptogel Cleanser Next-Gen",
+      "summary": "Zrównoważone oczyszczanie, ochrona i regeneracja",
+      "presentation": "100 ML",
+      "productCategory": "Kosmetyk do pielęgnacji twarzy",
+      "productFamily": "Produkt do oczyszczania",
+      "manufacturerUses": [
+        "Zrównoważone oczyszczanie, ochrona i regeneracja"
+      ],
+      "treatmentCategories": [
+        "Oczyszczanie skóry",
+        "Pielęgnacja twarzy"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "skinTypes": [
+        "Dobierz do potrzeb skóry"
+      ],
+      "aliases": [
+        "Adaptogel Cleanser Next-Gen",
+        "INSTYTUTUM",
+        "{'index': 1, 'value': 'Cleansing', 'slug': 'cleansing'}",
+        "Kosmetyki do pielęgnacji skóry twarzy",
+        "Kosmetyki do pielęgnacji skóry Longevity Next-Gen"
+      ],
+      "sourceUrl": "https://instytutum.com/en/product/adaptogel-cleanser-next-gen/",
+      "imagePath": "/beautydocs/catalog/instytutum/215-1.webp",
+      "imageAlt": "Adaptogel Cleanser Next Gen Photo 1",
+      "productImages": [
+        {
+          "path": "/beautydocs/catalog/instytutum/215-1.webp",
+          "alt": "Adaptogel Cleanser Next Gen Photo 1",
+          "label": "Oficjalne zdjęcie produktu",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/215-2.webp",
+          "alt": "Adaptogel Cleanser Next-Gen",
+          "label": "Zdjęcie 2",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/215-3.webp",
+          "alt": "Adaptogel Cleanser Photo 3",
+          "label": "Zdjęcie 3",
+          "scale": 1.0,
+          "fit": "cover"
+        }
+      ],
+      "offers": [
+        {
+          "seller": "Aiya Beauty Care",
+          "pricePln": 198.0,
+          "shippingPricePln": null,
+          "availability": "IN_STOCK",
+          "url": "https://www.aiyabeauty.pl/products/instytutum-adaptogel-cleanser",
+          "sourceType": "STORE",
+          "updatedAt": "2026-08-24"
+        }
+      ],
+      "officialReferencePrice": {
+        "amount": 38.0,
+        "originalAmount": 45.0,
+        "currency": "EUR",
+        "seller": "INSTYTUTUM",
+        "availability": "AVAILABLE",
+        "url": "https://instytutum.com/en/product/adaptogel-cleanser-next-gen/",
+        "updatedAt": "2026-08-24"
+      }
+    },
+    {
+      "id": "228",
+      "slug": "advanced-retinol-toner-next-gen",
+      "name": "Advanced Retinol Toner",
+      "summary": "Intensywny tonik regenerujący z retinolem",
+      "presentation": "100 ML",
+      "productCategory": "Kosmetyk do pielęgnacji twarzy",
+      "productFamily": "Tonik lub mgiełka",
+      "manufacturerUses": [
+        "Intensywny tonik regenerujący z retinolem"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Retinoidy"
+      ],
+      "skinTypes": [
+        "Dobierz do potrzeb skóry"
+      ],
+      "aliases": [
+        "Advanced Retinol Toner Next-Gen",
+        "INSTYTUTUM",
+        "{'index': 2, 'value': 'Toning', 'slug': 'toning'}",
+        "Kosmetyki do pielęgnacji skóry twarzy",
+        "Kosmetyki do pielęgnacji skóry Longevity Next-Gen"
+      ],
+      "sourceUrl": "https://instytutum.com/en/product/advanced-retinol-toner-next-gen/",
+      "imagePath": "/beautydocs/catalog/instytutum/228-1.webp",
+      "imageAlt": "Advanced Retinol Toner Next Gen Photo 2",
+      "productImages": [
+        {
+          "path": "/beautydocs/catalog/instytutum/228-1.webp",
+          "alt": "Advanced Retinol Toner Next Gen Photo 2",
+          "label": "Oficjalne zdjęcie produktu",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/228-2.webp",
+          "alt": "Advanced Retinol Toner Next-Gen",
+          "label": "Zdjęcie 2",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/228-3.webp",
+          "alt": "Advanced Retinol Toner Photo 3",
+          "label": "Zdjęcie 3",
+          "scale": 1.0,
+          "fit": "cover"
+        }
+      ],
+      "offers": [
+        {
+          "seller": "Aiya Beauty Care",
+          "pricePln": 264.0,
+          "shippingPricePln": null,
+          "availability": "IN_STOCK",
+          "url": "https://www.aiyabeauty.pl/products/instytutum-advanced-retinol-toner",
+          "sourceType": "STORE",
+          "updatedAt": "2026-08-24"
+        },
+        {
+          "seller": "LuxDermaStore",
+          "pricePln": 270.0,
+          "shippingPricePln": null,
+          "availability": "OUT_OF_STOCK",
+          "url": "https://luxdermastore.pl/products/advanced-retinol-toner",
+          "sourceType": "STORE",
+          "updatedAt": "2026-08-24"
+        }
+      ],
+      "officialReferencePrice": {
+        "amount": 51.0,
+        "originalAmount": 60.0,
+        "currency": "EUR",
+        "seller": "INSTYTUTUM",
+        "availability": "AVAILABLE",
+        "url": "https://instytutum.com/en/product/advanced-retinol-toner-next-gen/",
+        "updatedAt": "2026-08-24"
+      }
+    },
+    {
+      "id": "270",
+      "slug": "eyemultitasker-retinol-serum-classic",
+      "name": "Eyemultitasker Retinol Serum Classic",
+      "summary": "Silny kompleks age-disrupting do pielęgnacji okolic oczu",
+      "presentation": "15 ML",
+      "productCategory": "Kosmetyk do pielęgnacji twarzy",
+      "productFamily": "Pielęgnacja okolicy oczu",
+      "manufacturerUses": [
+        "Silny kompleks age-disrupting do pielęgnacji okolic oczu"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja okolicy oczu",
+        "Pielęgnacja twarzy"
+      ],
+      "applicationAreas": [
+        {
+          "code": "EYES",
+          "label": "Okolica oczu"
+        }
+      ],
+      "keyIngredients": [
+        "Retinoidy"
+      ],
+      "skinTypes": [
+        "Dobierz do potrzeb skóry"
+      ],
+      "aliases": [
+        "Eyemultitasker Retinol Serum Classic",
+        "INSTYTUTUM",
+        "{'index': 5, 'value': 'Eye care', 'slug': 'eye-care'}",
+        "Kosmetyki do pielęgnacji skóry twarzy"
+      ],
+      "sourceUrl": "https://instytutum.com/en/product/eyemultitasker-retinol-serum-classic/",
+      "imagePath": "/beautydocs/catalog/instytutum/270-1.png",
+      "imageAlt": "Eyemultitasker Retinol Serum Classic",
+      "productImages": [
+        {
+          "path": "/beautydocs/catalog/instytutum/270-1.png",
+          "alt": "Eyemultitasker Retinol Serum Classic",
+          "label": "Oficjalne zdjęcie produktu",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/270-2.webp",
+          "alt": "Eyemultitasker Retinol Serum Classic",
+          "label": "Zdjęcie 2",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/270-3.webp",
+          "alt": "Eyemultitasker Retinol Serum Photo 3",
+          "label": "Zdjęcie 3",
+          "scale": 1.0,
+          "fit": "cover"
+        }
+      ],
+      "offers": [
+        {
+          "seller": "Aiya Beauty Care",
+          "pricePln": 281.0,
+          "shippingPricePln": null,
+          "availability": "IN_STOCK",
+          "url": "https://www.aiyabeauty.pl/products/instytutum-eyemultitasker-retinol-serum-15ml",
+          "sourceType": "STORE",
+          "updatedAt": "2026-08-24"
+        },
+        {
+          "seller": "LuxDermaStore",
+          "pricePln": 270.0,
+          "shippingPricePln": null,
+          "availability": "OUT_OF_STOCK",
+          "url": "https://luxdermastore.pl/products/eyemultitasker-retinol-serum",
+          "sourceType": "STORE",
+          "updatedAt": "2026-08-24"
+        }
+      ],
+      "officialReferencePrice": {
+        "amount": 106.0,
+        "originalAmount": 125.0,
+        "currency": "EUR",
+        "seller": "INSTYTUTUM",
+        "availability": "AVAILABLE",
+        "url": "https://instytutum.com/en/product/eyemultitasker-retinol-serum-classic/",
+        "updatedAt": "2026-08-24"
+      }
+    },
+    {
+      "id": "269",
+      "slug": "transforming-brightening-eye-cream-next-gen",
+      "name": "Transforming Brightening Eye Cream Next-Gen",
+      "summary": "Krem-lifting do strefy wokół oczu z efektem rozjaśnienia",
+      "presentation": "15 ML",
+      "productCategory": "Kosmetyk do pielęgnacji twarzy",
+      "productFamily": "Pielęgnacja okolicy oczu",
+      "manufacturerUses": [
+        "Krem-lifting do strefy wokół oczu z efektem rozjaśnienia"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja okolicy oczu",
+        "Pielęgnacja twarzy"
+      ],
+      "applicationAreas": [
+        {
+          "code": "EYES",
+          "label": "Okolica oczu"
+        }
+      ],
+      "keyIngredients": [],
+      "skinTypes": [
+        "Dobierz do potrzeb skóry"
+      ],
+      "aliases": [
+        "Transforming Brightening Eye Cream Next-Gen",
+        "INSTYTUTUM",
+        "{'index': 5, 'value': 'Eye care', 'slug': 'eye-care'}",
+        "Kosmetyki do pielęgnacji skóry twarzy",
+        "Nowości i bestsellery",
+        "Kosmetyki do pielęgnacji skóry Longevity Next-Gen"
+      ],
+      "sourceUrl": "https://instytutum.com/en/product/transforming-brightening-eye-cream-next-gen/",
+      "imagePath": "/beautydocs/catalog/instytutum/269-1.webp",
+      "imageAlt": "Transforming Brightening Eye Cream Next Gen Photo 1",
+      "productImages": [
+        {
+          "path": "/beautydocs/catalog/instytutum/269-1.webp",
+          "alt": "Transforming Brightening Eye Cream Next Gen Photo 1",
+          "label": "Oficjalne zdjęcie produktu",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/269-2.webp",
+          "alt": "Transforming Brightening Eye Cream Next-Gen",
+          "label": "Zdjęcie 2",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/269-3.webp",
+          "alt": "Transforming Brightening Eye Cream Photo 3",
+          "label": "Zdjęcie 3",
+          "scale": 1.0,
+          "fit": "cover"
+        }
+      ],
+      "offers": [
+        {
+          "seller": "Aiya Beauty Care",
+          "pricePln": 528.0,
+          "shippingPricePln": null,
+          "availability": "IN_STOCK",
+          "url": "https://www.aiyabeauty.pl/products/instytutum-transforming-brightening-eye-cream",
+          "sourceType": "STORE",
+          "updatedAt": "2026-08-24"
+        },
+        {
+          "seller": "LuxDermaStore",
+          "pricePln": 360.0,
+          "shippingPricePln": null,
+          "availability": "OUT_OF_STOCK",
+          "url": "https://luxdermastore.pl/products/truly-transforming-brightening-eye-cream-15-ml",
+          "sourceType": "STORE",
+          "updatedAt": "2026-08-24"
+        }
+      ],
+      "officialReferencePrice": {
+        "amount": 81.0,
+        "originalAmount": 95.0,
+        "currency": "EUR",
+        "seller": "INSTYTUTUM",
+        "availability": "AVAILABLE",
+        "url": "https://instytutum.com/en/product/transforming-brightening-eye-cream-next-gen/",
+        "updatedAt": "2026-08-24"
+      }
+    },
+    {
+      "id": "336",
+      "slug": "transforming-melting-cleanser-deluxe-size",
+      "name": "Transforming Melting Cleanser Deluxe Size",
+      "summary": "Olejek hydrofilowy",
+      "presentation": "20 ML",
+      "productCategory": "Kosmetyk do pielęgnacji twarzy",
+      "productFamily": "Miniatura kosmetyku",
+      "manufacturerUses": [
+        "Olejek hydrofilowy"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "skinTypes": [
+        "Dobierz do potrzeb skóry"
+      ],
+      "aliases": [
+        "Transforming Melting Cleanser Deluxe Size",
+        "INSTYTUTUM",
+        "{'index': None, 'value': 'Deluxe size', 'slug': 'deluxe-size'}",
+        "Kosmetyki do pielęgnacji skóry twarzy"
+      ],
+      "sourceUrl": "https://instytutum.com/en/product/transforming-melting-cleanser-deluxe-size/",
+      "imagePath": "/beautydocs/catalog/instytutum/336-1.webp",
+      "imageAlt": "Renewal Melting Cleanser deluxe size",
+      "productImages": [
+        {
+          "path": "/beautydocs/catalog/instytutum/336-1.webp",
+          "alt": "Renewal Melting Cleanser deluxe size",
+          "label": "Oficjalne zdjęcie produktu",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/336-2.webp",
+          "alt": "Renewal Melting Cleanser Photo 3",
+          "label": "Zdjęcie 2",
+          "scale": 1.0,
+          "fit": "cover"
+        }
+      ],
+      "offers": [],
+      "officialReferencePrice": {
+        "amount": 13.0,
+        "originalAmount": 15.0,
+        "currency": "EUR",
+        "seller": "INSTYTUTUM",
+        "availability": "AVAILABLE",
+        "url": "https://instytutum.com/en/product/transforming-melting-cleanser-deluxe-size/",
+        "updatedAt": "2026-08-24"
+      }
+    },
+    {
+      "id": "232",
+      "slug": "powerful-retinoil-next-gen",
+      "name": "Powerful RetinOil Next-Gen",
+      "summary": "Skoncentrowany olejek z retinoidem do twarzy i ciała",
+      "presentation": "30 ML",
+      "productCategory": "Kosmetyk do pielęgnacji twarzy",
+      "productFamily": "Serum lub olejek",
+      "manufacturerUses": [
+        "Skoncentrowany olejek z retinoidem do twarzy i ciała"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Retinoidy"
+      ],
+      "skinTypes": [
+        "Dobierz do potrzeb skóry"
+      ],
+      "aliases": [
+        "Powerful RetinOil Next-Gen",
+        "INSTYTUTUM",
+        "{'index': 3, 'value': 'Serum or oil', 'slug': 'serum-or-oil'}",
+        "Kosmetyki do pielęgnacji skóry twarzy",
+        "Kosmetyki do pielęgnacji skóry Longevity Next-Gen"
+      ],
+      "sourceUrl": "https://instytutum.com/en/product/powerful-retinoil-next-gen/",
+      "imagePath": "/beautydocs/catalog/instytutum/232-1.webp",
+      "imageAlt": "Powerful Retinoil Next Gen Photo 1",
+      "productImages": [
+        {
+          "path": "/beautydocs/catalog/instytutum/232-1.webp",
+          "alt": "Powerful Retinoil Next Gen Photo 1",
+          "label": "Oficjalne zdjęcie produktu",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/232-2.webp",
+          "alt": "Powerful RetinOil Next-Gen",
+          "label": "Zdjęcie 2",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/232-3.webp",
+          "alt": "Powerful RetinOil Photo 3",
+          "label": "Zdjęcie 3",
+          "scale": 1.0,
+          "fit": "cover"
+        }
+      ],
+      "offers": [
+        {
+          "seller": "Aiya Beauty Care",
+          "pricePln": 418.0,
+          "shippingPricePln": null,
+          "availability": "IN_STOCK",
+          "url": "https://www.aiyabeauty.pl/products/instytutum-powerful-retinoil",
+          "sourceType": "STORE",
+          "updatedAt": "2026-08-24"
+        },
+        {
+          "seller": "LuxDermaStore",
+          "pricePln": 383.0,
+          "shippingPricePln": null,
+          "availability": "OUT_OF_STOCK",
+          "url": "https://luxdermastore.pl/products/powerful-retinoil",
+          "sourceType": "STORE",
+          "updatedAt": "2026-08-24"
+        }
+      ],
+      "officialReferencePrice": {
+        "amount": 81.0,
+        "originalAmount": 95.0,
+        "currency": "EUR",
+        "seller": "INSTYTUTUM",
+        "availability": "AVAILABLE",
+        "url": "https://instytutum.com/en/product/powerful-retinoil-next-gen/",
+        "updatedAt": "2026-08-24"
+      }
+    },
+    {
+      "id": "227",
+      "slug": "flawless-hydra-mist-classic",
+      "name": "Flawless Hydra Mist Classic",
+      "summary": "Nawilżający tonik-mist",
+      "presentation": "100 ML",
+      "productCategory": "Kosmetyk do pielęgnacji twarzy",
+      "productFamily": "Tonik lub mgiełka",
+      "manufacturerUses": [
+        "Nawilżający tonik-mist"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "skinTypes": [
+        "Dobierz do potrzeb skóry"
+      ],
+      "aliases": [
+        "Flawless Hydra Mist Classic",
+        "INSTYTUTUM",
+        "{'index': 2, 'value': 'Toning', 'slug': 'toning'}",
+        "Kosmetyki do pielęgnacji skóry twarzy"
+      ],
+      "sourceUrl": "https://instytutum.com/en/product/flawless-hydra-mist-classic/",
+      "imagePath": "/beautydocs/catalog/instytutum/227-1.png",
+      "imageAlt": "Flawless Hydra Mist Classic",
+      "productImages": [
+        {
+          "path": "/beautydocs/catalog/instytutum/227-1.png",
+          "alt": "Flawless Hydra Mist Classic",
+          "label": "Oficjalne zdjęcie produktu",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/227-2.webp",
+          "alt": "Flawless Hydra Mist Classic",
+          "label": "Zdjęcie 2",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/227-3.webp",
+          "alt": " Flawless Hydra Mist Photo 3",
+          "label": "Zdjęcie 3",
+          "scale": 1.0,
+          "fit": "cover"
+        }
+      ],
+      "offers": [
+        {
+          "seller": "Aiya Beauty Care",
+          "pricePln": 187.0,
+          "shippingPricePln": null,
+          "availability": "IN_STOCK",
+          "url": "https://www.aiyabeauty.pl/products/instytutum-flawless-hydra-mist-100-ml",
+          "sourceType": "STORE",
+          "updatedAt": "2026-08-24"
+        },
+        {
+          "seller": "LuxDermaStore",
+          "pricePln": 225.0,
+          "shippingPricePln": null,
+          "availability": "OUT_OF_STOCK",
+          "url": "https://luxdermastore.pl/products/flawless-hydra-mist",
+          "sourceType": "STORE",
+          "updatedAt": "2026-08-24"
+        }
+      ],
+      "officialReferencePrice": {
+        "amount": 43.0,
+        "originalAmount": 50.0,
+        "currency": "EUR",
+        "seller": "INSTYTUTUM",
+        "availability": "AVAILABLE",
+        "url": "https://instytutum.com/en/product/flawless-hydra-mist-classic/",
+        "updatedAt": "2026-08-24"
+      }
+    },
+    {
+      "id": "265",
+      "slug": "superbiotic-regenerating-cream-next-gen",
+      "name": "SuperBiotic Regenerating Cream Next-Gen",
+      "summary": "Regenerujący krem z ceramidami i kompleksem pre- i probiotyków",
+      "presentation": "50 ML",
+      "productCategory": "Kosmetyk do pielęgnacji twarzy",
+      "productFamily": "Krem do twarzy",
+      "manufacturerUses": [
+        "Regenerujący krem z ceramidami i kompleksem pre- i probiotyków"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Ceramidy"
+      ],
+      "skinTypes": [
+        "Dobierz do potrzeb skóry"
+      ],
+      "aliases": [
+        "SuperBiotic Regenerating Cream Next-Gen",
+        "INSTYTUTUM",
+        "{'index': 4, 'value': 'Cream', 'slug': 'cream'}",
+        "Kosmetyki do pielęgnacji skóry twarzy",
+        "Kosmetyki do pielęgnacji skóry Longevity Next-Gen"
+      ],
+      "sourceUrl": "https://instytutum.com/en/product/superbiotic-regenerating-cream-next-gen/",
+      "imagePath": "/beautydocs/catalog/instytutum/265-1.webp",
+      "imageAlt": "SuperBiotic Regenerating Cream Next Gen Photo 1",
+      "productImages": [
+        {
+          "path": "/beautydocs/catalog/instytutum/265-1.webp",
+          "alt": "SuperBiotic Regenerating Cream Next Gen Photo 1",
+          "label": "Oficjalne zdjęcie produktu",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/265-2.webp",
+          "alt": "SuperBiotic Regenerating Cream Next-Gen",
+          "label": "Zdjęcie 2",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/265-3.webp",
+          "alt": "SuperBiotic Regenerating Cream Photo 3",
+          "label": "Zdjęcie 3",
+          "scale": 1.0,
+          "fit": "cover"
+        }
+      ],
+      "offers": [
+        {
+          "seller": "Aiya Beauty Care",
+          "pricePln": 374.0,
+          "shippingPricePln": null,
+          "availability": "IN_STOCK",
+          "url": "https://www.aiyabeauty.pl/products/instytutum-superbiotic-regenerating-cream",
+          "sourceType": "STORE",
+          "updatedAt": "2026-08-24"
+        },
+        {
+          "seller": "LuxDermaStore",
+          "pricePln": 360.0,
+          "shippingPricePln": null,
+          "availability": "OUT_OF_STOCK",
+          "url": "https://luxdermastore.pl/products/instytutum-superbiotic-regenerating-cream",
+          "sourceType": "STORE",
+          "updatedAt": "2026-08-24"
+        }
+      ],
+      "officialReferencePrice": {
+        "amount": 72.0,
+        "originalAmount": 85.0,
+        "currency": "EUR",
+        "seller": "INSTYTUTUM",
+        "availability": "AVAILABLE",
+        "url": "https://instytutum.com/en/product/superbiotic-regenerating-cream-next-gen/",
+        "updatedAt": "2026-08-24"
+      }
+    },
+    {
+      "id": "224",
+      "slug": "resurfacing-glow-toner-next-gen",
+      "name": "Resurfacing Glow Toner Next-Gen",
+      "summary": "Toner z kwasami AHA & PHA",
+      "presentation": "100 ML",
+      "productCategory": "Kosmetyk do pielęgnacji twarzy",
+      "productFamily": "Tonik lub mgiełka",
+      "manufacturerUses": [
+        "Toner z kwasami AHA & PHA"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwasy złuszczające"
+      ],
+      "skinTypes": [
+        "Dobierz do potrzeb skóry"
+      ],
+      "aliases": [
+        "Resurfacing Glow Toner Next-Gen",
+        "INSTYTUTUM",
+        "{'index': 2, 'value': 'Toning', 'slug': 'toning'}",
+        "Kosmetyki do pielęgnacji skóry twarzy",
+        "Nowości i bestsellery",
+        "Kosmetyki do pielęgnacji skóry Longevity Next-Gen"
+      ],
+      "sourceUrl": "https://instytutum.com/en/product/resurfacing-glow-toner-next-gen/",
+      "imagePath": "/beautydocs/catalog/instytutum/224-1.webp",
+      "imageAlt": "Resurfacing Glow Toner Next Gen Photo 1",
+      "productImages": [
+        {
+          "path": "/beautydocs/catalog/instytutum/224-1.webp",
+          "alt": "Resurfacing Glow Toner Next Gen Photo 1",
+          "label": "Oficjalne zdjęcie produktu",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/224-2.webp",
+          "alt": "Resurfacing Glow Toner Next-Gen",
+          "label": "Zdjęcie 2",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/224-3.webp",
+          "alt": "Resurfacing Glow Toner Photo 3",
+          "label": "Zdjęcie 3",
+          "scale": 1.0,
+          "fit": "cover"
+        }
+      ],
+      "offers": [
+        {
+          "seller": "Aiya Beauty Care",
+          "pricePln": 264.0,
+          "shippingPricePln": null,
+          "availability": "IN_STOCK",
+          "url": "https://www.aiyabeauty.pl/products/instytutum-resurfacing-glow-toner",
+          "sourceType": "STORE",
+          "updatedAt": "2026-08-24"
+        },
+        {
+          "seller": "LuxDermaStore",
+          "pricePln": 270.0,
+          "shippingPricePln": null,
+          "availability": "OUT_OF_STOCK",
+          "url": "https://luxdermastore.pl/products/resurfacing-glow-toner",
+          "sourceType": "STORE",
+          "updatedAt": "2026-08-24"
+        }
+      ],
+      "officialReferencePrice": {
+        "amount": 51.0,
+        "originalAmount": 60.0,
+        "currency": "EUR",
+        "seller": "INSTYTUTUM",
+        "availability": "AVAILABLE",
+        "url": "https://instytutum.com/en/product/resurfacing-glow-toner-next-gen/",
+        "updatedAt": "2026-08-24"
+      }
+    },
+    {
+      "id": "231",
+      "slug": "x-strength-retinol-serum-next-gen",
+      "name": "X-strength Retinol Serum Next-Gen",
+      "summary": "Skoncentrowane serum age-disrupting z retinoidem",
+      "presentation": "30 ML",
+      "productCategory": "Kosmetyk do pielęgnacji twarzy",
+      "productFamily": "Serum lub olejek",
+      "manufacturerUses": [
+        "Skoncentrowane serum age-disrupting z retinoidem"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Retinoidy"
+      ],
+      "skinTypes": [
+        "Dobierz do potrzeb skóry"
+      ],
+      "aliases": [
+        "X-Strength Retinol Serum Next-Gen",
+        "INSTYTUTUM",
+        "{'index': 3, 'value': 'Serum or oil', 'slug': 'serum-or-oil'}",
+        "Kosmetyki do pielęgnacji skóry twarzy",
+        "Kosmetyki do pielęgnacji skóry Longevity Next-Gen"
+      ],
+      "sourceUrl": "https://instytutum.com/en/product/x-strength-retinol-serum-next-gen/",
+      "imagePath": "/beautydocs/catalog/instytutum/231-1.webp",
+      "imageAlt": "X Strength Retinol Serum Next Gen Photo 1",
+      "productImages": [
+        {
+          "path": "/beautydocs/catalog/instytutum/231-1.webp",
+          "alt": "X Strength Retinol Serum Next Gen Photo 1",
+          "label": "Oficjalne zdjęcie produktu",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/231-2.webp",
+          "alt": "X-Strength Retinol Serum Next-Gen",
+          "label": "Zdjęcie 2",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/231-3.webp",
+          "alt": "X-strength Retinol Serum Photo 3",
+          "label": "Zdjęcie 3",
+          "scale": 1.0,
+          "fit": "cover"
+        }
+      ],
+      "offers": [
+        {
+          "seller": "Aiya Beauty Care",
+          "pricePln": 550.0,
+          "shippingPricePln": null,
+          "availability": "IN_STOCK",
+          "url": "https://www.aiyabeauty.pl/products/instytutum-x-strength-retinol-serum-1",
+          "sourceType": "STORE",
+          "updatedAt": "2026-08-24"
+        }
+      ],
+      "officialReferencePrice": {
+        "amount": 106.0,
+        "originalAmount": 125.0,
+        "currency": "EUR",
+        "seller": "INSTYTUTUM",
+        "availability": "AVAILABLE",
+        "url": "https://instytutum.com/en/product/x-strength-retinol-serum-next-gen/",
+        "updatedAt": "2026-08-24"
+      }
+    },
+    {
+      "id": "351",
+      "slug": "superbiotic-regenerating-cream-next-gen-refill-pod",
+      "name": "SuperBiotic Regenerating Cream POD",
+      "summary": "Regenerujący krem z ceramidami i kompleksem pre- i probiotyków",
+      "presentation": "50 ML",
+      "productCategory": "Kosmetyk do pielęgnacji twarzy",
+      "productFamily": "Wkład uzupełniający",
+      "manufacturerUses": [
+        "Regenerujący krem z ceramidami i kompleksem pre- i probiotyków"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Ceramidy"
+      ],
+      "skinTypes": [
+        "Dobierz do potrzeb skóry"
+      ],
+      "aliases": [
+        "SuperBiotic Regenerating Cream POD",
+        "INSTYTUTUM",
+        "{'index': None, 'value': 'Refills', 'slug': 'refills'}",
+        "Kosmetyki do pielęgnacji skóry twarzy",
+        "Kosmetyki do pielęgnacji skóry Longevity Next-Gen"
+      ],
+      "sourceUrl": "https://instytutum.com/en/product/superbiotic-regenerating-cream-next-gen-refill-pod/",
+      "imagePath": "/beautydocs/catalog/instytutum/351-1.webp",
+      "imageAlt": "SuperBiotic Regenerating Cream POD",
+      "productImages": [
+        {
+          "path": "/beautydocs/catalog/instytutum/351-1.webp",
+          "alt": "SuperBiotic Regenerating Cream POD",
+          "label": "Oficjalne zdjęcie produktu",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/351-2.webp",
+          "alt": "SuperBiotic Regenerating Cream POD",
+          "label": "Zdjęcie 2",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/351-3.webp",
+          "alt": "SuperBiotic Regenerating Cream Photo 3",
+          "label": "Zdjęcie 3",
+          "scale": 1.0,
+          "fit": "cover"
+        }
+      ],
+      "offers": [
+        {
+          "seller": "Aiya Beauty Care",
+          "pricePln": 308.0,
+          "shippingPricePln": null,
+          "availability": "IN_STOCK",
+          "url": "https://www.aiyabeauty.pl/products/instytutum-superbiotic-regenerating-cream-pod",
+          "sourceType": "STORE",
+          "updatedAt": "2026-08-24"
+        }
+      ],
+      "officialReferencePrice": {
+        "amount": 60.0,
+        "originalAmount": 70.0,
+        "currency": "EUR",
+        "seller": "INSTYTUTUM",
+        "availability": "AVAILABLE",
+        "url": "https://instytutum.com/en/product/superbiotic-regenerating-cream-next-gen-refill-pod/",
+        "updatedAt": "2026-08-24"
+      }
+    },
+    {
+      "id": "271",
+      "slug": "sunscription-dark-spot-defence-spf50-next-gen",
+      "name": "Sunscription Dark Spot Defence SPF50 Next-Gen",
+      "summary": "3 w 1 — ochrona UV, rozjaśnienie i pielęgnacja skóry",
+      "presentation": "50 ML",
+      "productCategory": "Kosmetyk do pielęgnacji twarzy",
+      "productFamily": "Ochrona przeciwsłoneczna",
+      "manufacturerUses": [
+        "3 w 1 — ochrona UV, rozjaśnienie i pielęgnacja skóry"
+      ],
+      "treatmentCategories": [
+        "Ochrona przeciwsłoneczna",
+        "Pielęgnacja twarzy"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Filtry UV"
+      ],
+      "skinTypes": [
+        "Dobierz do potrzeb skóry"
+      ],
+      "aliases": [
+        "Sunscription Dark Spot Defence SPF50 Next-Gen",
+        "INSTYTUTUM",
+        "{'index': 6, 'value': 'SPF', 'slug': 'spf'}",
+        "Kosmetyki do pielęgnacji skóry twarzy",
+        "Nowości i bestsellery",
+        "Kosmetyki do pielęgnacji skóry Longevity Next-Gen"
+      ],
+      "sourceUrl": "https://instytutum.com/en/product/sunscription-dark-spot-defence-spf50-next-gen/",
+      "imagePath": "/beautydocs/catalog/instytutum/271-1.webp",
+      "imageAlt": "Sunscription Dark Spot Defence SPF50 Next-Gen",
+      "productImages": [
+        {
+          "path": "/beautydocs/catalog/instytutum/271-1.webp",
+          "alt": "Sunscription Dark Spot Defence SPF50 Next-Gen",
+          "label": "Oficjalne zdjęcie produktu",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/271-2.webp",
+          "alt": "Sunscription Dark Spot Defence SPF50 Next-Gen",
+          "label": "Zdjęcie 2",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/271-3.webp",
+          "alt": "Sunscription SPF50 Photo 3",
+          "label": "Zdjęcie 3",
+          "scale": 1.0,
+          "fit": "cover"
+        }
+      ],
+      "offers": [
+        {
+          "seller": "Aiya Beauty Care",
+          "pricePln": 260.0,
+          "shippingPricePln": null,
+          "availability": "IN_STOCK",
+          "url": "https://www.aiyabeauty.pl/products/instytutum-sunscription-dark-spot-defence-spf50-1",
+          "sourceType": "STORE",
+          "updatedAt": "2026-08-24"
+        },
+        {
+          "seller": "LuxDermaStore",
+          "pricePln": 216.0,
+          "shippingPricePln": null,
+          "availability": "OUT_OF_STOCK",
+          "url": "https://luxdermastore.pl/products/sunscription-dark-spot-defence",
+          "sourceType": "STORE",
+          "updatedAt": "2026-08-24"
+        }
+      ],
+      "officialReferencePrice": {
+        "amount": 59.0,
+        "originalAmount": null,
+        "currency": "EUR",
+        "seller": "INSTYTUTUM",
+        "availability": "AVAILABLE",
+        "url": "https://instytutum.com/en/product/sunscription-dark-spot-defence-spf50-next-gen/",
+        "updatedAt": "2026-08-24"
+      }
+    },
+    {
+      "id": "274",
+      "slug": "resurfacing-multi-acids-pads-next-gen",
+      "name": "Resurfacing Multi-Acids Pads Next-Gen",
+      "summary": "Peelingujące pady z kwasami do głębokiej regeneracji skóry",
+      "presentation": "1 szt.",
+      "productCategory": "Kosmetyk do pielęgnacji twarzy",
+      "productFamily": "Peeling lub płatki złuszczające",
+      "manufacturerUses": [
+        "Peelingujące pady z kwasami do głębokiej regeneracji skóry"
+      ],
+      "treatmentCategories": [
+        "Złuszczanie",
+        "Pielęgnacja twarzy"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwasy złuszczające"
+      ],
+      "skinTypes": [
+        "Dobierz do potrzeb skóry"
+      ],
+      "aliases": [
+        "Resurfacing Multi-Acids Pads Next-Gen",
+        "INSTYTUTUM",
+        "{'index': 9, 'value': 'Peeling', 'slug': 'peeling'}",
+        "Kosmetyki do pielęgnacji skóry twarzy",
+        "Kosmetyki do pielęgnacji skóry Longevity Next-Gen"
+      ],
+      "sourceUrl": "https://instytutum.com/en/product/resurfacing-multi-acids-pads-next-gen/",
+      "imagePath": "/beautydocs/catalog/instytutum/274-1.webp",
+      "imageAlt": "Resurfacing Multi Acids Pads Next Gen Photo 1",
+      "productImages": [
+        {
+          "path": "/beautydocs/catalog/instytutum/274-1.webp",
+          "alt": "Resurfacing Multi Acids Pads Next Gen Photo 1",
+          "label": "Oficjalne zdjęcie produktu",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/274-2.webp",
+          "alt": "Resurfacing Multi-Acids Pads Next-Gen",
+          "label": "Zdjęcie 2",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/274-3.webp",
+          "alt": "Resurfacing Multu-Acids Pads Photo 3",
+          "label": "Zdjęcie 3",
+          "scale": 1.0,
+          "fit": "cover"
+        }
+      ],
+      "offers": [
+        {
+          "seller": "Aiya Beauty Care",
+          "pricePln": 396.0,
+          "shippingPricePln": null,
+          "availability": "IN_STOCK",
+          "url": "https://www.aiyabeauty.pl/products/instytutum-resurfacing-multi-acids-pads",
+          "sourceType": "STORE",
+          "updatedAt": "2026-08-24"
+        }
+      ],
+      "officialReferencePrice": {
+        "amount": 77.0,
+        "originalAmount": 90.0,
+        "currency": "EUR",
+        "seller": "INSTYTUTUM",
+        "availability": "AVAILABLE",
+        "url": "https://instytutum.com/en/product/resurfacing-multi-acids-pads-next-gen/",
+        "updatedAt": "2026-08-24"
+      }
+    },
+    {
+      "id": "268",
+      "slug": "xceptional-flawless-cream-next-gen",
+      "name": "Xceptional Flawless Cream Next-Gen",
+      "summary": "Age-disrupting krem liftingujący",
+      "presentation": "50 ML",
+      "productCategory": "Kosmetyk do pielęgnacji twarzy",
+      "productFamily": "Krem do twarzy",
+      "manufacturerUses": [
+        "Age-disrupting krem liftingujący"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "skinTypes": [
+        "Dobierz do potrzeb skóry"
+      ],
+      "aliases": [
+        "Xceptional Flawless Cream Next-Gen",
+        "INSTYTUTUM",
+        "{'index': 4, 'value': 'Cream', 'slug': 'cream'}",
+        "Kosmetyki do pielęgnacji skóry twarzy",
+        "Kosmetyki do pielęgnacji skóry Longevity Next-Gen"
+      ],
+      "sourceUrl": "https://instytutum.com/en/product/xceptional-flawless-cream-next-gen/",
+      "imagePath": "/beautydocs/catalog/instytutum/268-1.webp",
+      "imageAlt": "Xceptional Flawless Cream Next-Gen",
+      "productImages": [
+        {
+          "path": "/beautydocs/catalog/instytutum/268-1.webp",
+          "alt": "Xceptional Flawless Cream Next-Gen",
+          "label": "Oficjalne zdjęcie produktu",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/268-2.webp",
+          "alt": "Xceptional Flawless Cream Next-Gen",
+          "label": "Zdjęcie 2",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/268-3.webp",
+          "alt": "Xceptional Flawless Cream Photo 3",
+          "label": "Zdjęcie 3",
+          "scale": 1.0,
+          "fit": "cover"
+        }
+      ],
+      "offers": [
+        {
+          "seller": "Aiya Beauty Care",
+          "pricePln": 528.0,
+          "shippingPricePln": null,
+          "availability": "IN_STOCK",
+          "url": "https://www.aiyabeauty.pl/products/instytutum-xceptional-flawless-cream",
+          "sourceType": "STORE",
+          "updatedAt": "2026-08-24"
+        },
+        {
+          "seller": "LuxDermaStore",
+          "pricePln": 695.0,
+          "shippingPricePln": null,
+          "availability": "OUT_OF_STOCK",
+          "url": "https://luxdermastore.pl/products/xceptional-flawless-cream",
+          "sourceType": "STORE",
+          "updatedAt": "2026-08-24"
+        }
+      ],
+      "officialReferencePrice": {
+        "amount": 102.0,
+        "originalAmount": 120.0,
+        "currency": "EUR",
+        "seller": "INSTYTUTUM",
+        "availability": "AVAILABLE",
+        "url": "https://instytutum.com/en/product/xceptional-flawless-cream-next-gen/",
+        "updatedAt": "2026-08-24"
+      }
+    },
+    {
+      "id": "266",
+      "slug": "hydrafusion-hydrating-gel-cream-next-gen",
+      "name": "HydraFusion Hydrating Gel Cream Next-Gen",
+      "summary": "Nawilżający żel-krem z 4 rodzajami kwasu hialuronowego",
+      "presentation": "50 ML",
+      "productCategory": "Kosmetyk do pielęgnacji twarzy",
+      "productFamily": "Krem do twarzy",
+      "manufacturerUses": [
+        "Nawilżający żel-krem z 4 rodzajami kwasu hialuronowego"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwas hialuronowy"
+      ],
+      "skinTypes": [
+        "Dobierz do potrzeb skóry"
+      ],
+      "aliases": [
+        "HydraFusion Hydrating Gel Cream Next-Gen",
+        "INSTYTUTUM",
+        "{'index': 4, 'value': 'Cream', 'slug': 'cream'}",
+        "Kosmetyki do pielęgnacji skóry twarzy",
+        "Nowości i bestsellery",
+        "Kosmetyki do pielęgnacji skóry Longevity Next-Gen"
+      ],
+      "sourceUrl": "https://instytutum.com/en/product/hydrafusion-hydrating-gel-cream-next-gen/",
+      "imagePath": "/beautydocs/catalog/instytutum/266-1.webp",
+      "imageAlt": "Hydrafusion Hydrating Gel Cream Next Gen peptide gel cream refillable skincare hydrating gel cream 4D hyaluronic acid Swiss skincare",
+      "productImages": [
+        {
+          "path": "/beautydocs/catalog/instytutum/266-1.webp",
+          "alt": "Hydrafusion Hydrating Gel Cream Next Gen peptide gel cream refillable skincare hydrating gel cream 4D hyaluronic acid Swiss skincare",
+          "label": "Oficjalne zdjęcie produktu",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/266-2.webp",
+          "alt": "HydraFusion Hydrating Gel Cream Next-Gen",
+          "label": "Zdjęcie 2",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/266-3.webp",
+          "alt": "HydraFusion Hydrating Gel Cream Next-Gen",
+          "label": "Zdjęcie 3",
+          "scale": 1.0,
+          "fit": "cover"
+        }
+      ],
+      "offers": [
+        {
+          "seller": "Aiya Beauty Care",
+          "pricePln": 374.0,
+          "shippingPricePln": null,
+          "availability": "IN_STOCK",
+          "url": "https://www.aiyabeauty.pl/products/instytutum-hydrafusion-hydrating-gel-cream",
+          "sourceType": "STORE",
+          "updatedAt": "2026-08-24"
+        },
+        {
+          "seller": "LuxDermaStore",
+          "pricePln": 360.0,
+          "shippingPricePln": null,
+          "availability": "OUT_OF_STOCK",
+          "url": "https://luxdermastore.pl/products/hydrafusion-4d-hydrating-water-burst-cream",
+          "sourceType": "STORE",
+          "updatedAt": "2026-08-24"
+        }
+      ],
+      "officialReferencePrice": {
+        "amount": 72.0,
+        "originalAmount": 85.0,
+        "currency": "EUR",
+        "seller": "INSTYTUTUM",
+        "availability": "AVAILABLE",
+        "url": "https://instytutum.com/en/product/hydrafusion-hydrating-gel-cream-next-gen/",
+        "updatedAt": "2026-08-24"
+      }
+    },
+    {
+      "id": "230",
+      "slug": "brightening-vitamin-c-serum-next-gen",
+      "name": "Brightening Vitamin C Serum Next-Gen",
+      "summary": "Super skoncentrowane serum z witaminą C",
+      "presentation": "30 ML",
+      "productCategory": "Kosmetyk do pielęgnacji twarzy",
+      "productFamily": "Serum lub olejek",
+      "manufacturerUses": [
+        "Super skoncentrowane serum z witaminą C"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Witamina C"
+      ],
+      "skinTypes": [
+        "Dobierz do potrzeb skóry"
+      ],
+      "aliases": [
+        "Brightening Vitamin C Serum Next-Gen",
+        "INSTYTUTUM",
+        "{'index': 3, 'value': 'Serum or oil', 'slug': 'serum-or-oil'}",
+        "Kosmetyki do pielęgnacji skóry twarzy",
+        "Nowości i bestsellery",
+        "Kosmetyki do pielęgnacji skóry Longevity Next-Gen"
+      ],
+      "sourceUrl": "https://instytutum.com/en/product/brightening-vitamin-c-serum-next-gen/",
+      "imagePath": "/beautydocs/catalog/instytutum/230-1.webp",
+      "imageAlt": "Brightening Vitamin C Serum Next-Gen",
+      "productImages": [
+        {
+          "path": "/beautydocs/catalog/instytutum/230-1.webp",
+          "alt": "Brightening Vitamin C Serum Next-Gen",
+          "label": "Oficjalne zdjęcie produktu",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/230-2.webp",
+          "alt": "Brightening Vitamin C Serum Next-Gen",
+          "label": "Zdjęcie 2",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/230-3.webp",
+          "alt": "Brightening Vitamin C Serum Photo 3",
+          "label": "Zdjęcie 3",
+          "scale": 1.0,
+          "fit": "cover"
+        }
+      ],
+      "offers": [
+        {
+          "seller": "Aiya Beauty Care",
+          "pricePln": 550.0,
+          "shippingPricePln": null,
+          "availability": "IN_STOCK",
+          "url": "https://www.aiyabeauty.pl/products/instytutum-brightening-vitamin-c-serum",
+          "sourceType": "STORE",
+          "updatedAt": "2026-08-24"
+        }
+      ],
+      "officialReferencePrice": {
+        "amount": 106.0,
+        "originalAmount": 125.0,
+        "currency": "EUR",
+        "seller": "INSTYTUTUM",
+        "availability": "AVAILABLE",
+        "url": "https://instytutum.com/en/product/brightening-vitamin-c-serum-next-gen/",
+        "updatedAt": "2026-08-24"
+      }
+    },
+    {
+      "id": "364",
+      "slug": "sunscription-dark-spot-defence-spf50-deluxe-size",
+      "name": "Sunscription Dark Spot Defence SPF50 Deluxe Size",
+      "summary": "3 w 1 — ochrona UV, rozjaśnienie i pielęgnacja skóry",
+      "presentation": "10 ML",
+      "productCategory": "Kosmetyk do pielęgnacji twarzy",
+      "productFamily": "Miniatura kosmetyku",
+      "manufacturerUses": [
+        "3 w 1 — ochrona UV, rozjaśnienie i pielęgnacja skóry"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Filtry UV"
+      ],
+      "skinTypes": [
+        "Dobierz do potrzeb skóry"
+      ],
+      "aliases": [
+        "Sunscription Dark Spot Defence SPF50 Deluxe Size",
+        "INSTYTUTUM",
+        "{'index': None, 'value': 'Deluxe size', 'slug': 'deluxe-size'}",
+        "Kosmetyki do pielęgnacji skóry twarzy"
+      ],
+      "sourceUrl": "https://instytutum.com/en/product/sunscription-dark-spot-defence-spf50-deluxe-size/",
+      "imagePath": "/beautydocs/catalog/instytutum/364-1.webp",
+      "imageAlt": "Sunscription Dark Spot Defence SPF50 deluxe size",
+      "productImages": [
+        {
+          "path": "/beautydocs/catalog/instytutum/364-1.webp",
+          "alt": "Sunscription Dark Spot Defence SPF50 deluxe size",
+          "label": "Oficjalne zdjęcie produktu",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/364-2.webp",
+          "alt": "Sunscription SPF50 Photo 3",
+          "label": "Zdjęcie 2",
+          "scale": 1.0,
+          "fit": "cover"
+        }
+      ],
+      "offers": [],
+      "officialReferencePrice": {
+        "amount": 25.0,
+        "originalAmount": null,
+        "currency": "EUR",
+        "seller": "INSTYTUTUM",
+        "availability": "AVAILABLE",
+        "url": "https://instytutum.com/en/product/sunscription-dark-spot-defence-spf50-deluxe-size/",
+        "updatedAt": "2026-08-24"
+      }
+    },
+    {
+      "id": "272",
+      "slug": "firmagic-everynight-firming-mask-classic",
+      "name": "Firmagic Everynight Firming Mask Classic",
+      "summary": "Codzienna nocna maska liftingująca",
+      "presentation": "50 ML",
+      "productCategory": "Kosmetyk do pielęgnacji twarzy",
+      "productFamily": "Maska do twarzy",
+      "manufacturerUses": [
+        "Codzienna nocna maska liftingująca"
+      ],
+      "treatmentCategories": [
+        "Maski",
+        "Pielęgnacja twarzy"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "skinTypes": [
+        "Dobierz do potrzeb skóry"
+      ],
+      "aliases": [
+        "Firmagic Everynight Firming Mask Classic",
+        "INSTYTUTUM",
+        "{'index': 8, 'value': 'Masks', 'slug': 'masks'}",
+        "Kosmetyki do pielęgnacji skóry twarzy"
+      ],
+      "sourceUrl": "https://instytutum.com/en/product/firmagic-everynight-firming-mask-classic/",
+      "imagePath": "/beautydocs/catalog/instytutum/272-1.webp",
+      "imageAlt": "Firmagic Everynight Firming Mask Classic",
+      "productImages": [
+        {
+          "path": "/beautydocs/catalog/instytutum/272-1.webp",
+          "alt": "Firmagic Everynight Firming Mask Classic",
+          "label": "Oficjalne zdjęcie produktu",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/272-2.webp",
+          "alt": "Firmagic Everynight Firming Mask Classic",
+          "label": "Zdjęcie 2",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/272-3.webp",
+          "alt": "Firmagic Firming Mask Photo 3",
+          "label": "Zdjęcie 3",
+          "scale": 1.0,
+          "fit": "cover"
+        }
+      ],
+      "offers": [
+        {
+          "seller": "Aiya Beauty Care",
+          "pricePln": 393.0,
+          "shippingPricePln": null,
+          "availability": "IN_STOCK",
+          "url": "https://www.aiyabeauty.pl/products/instytutum-firmagic-everynight-firming-mask",
+          "sourceType": "STORE",
+          "updatedAt": "2026-08-24"
+        },
+        {
+          "seller": "LuxDermaStore",
+          "pricePln": 473.0,
+          "shippingPricePln": null,
+          "availability": "OUT_OF_STOCK",
+          "url": "https://luxdermastore.pl/products/lifting-firmagic-everynight-firming-mask",
+          "sourceType": "STORE",
+          "updatedAt": "2026-08-24"
+        }
+      ],
+      "officialReferencePrice": {
+        "amount": 89.0,
+        "originalAmount": 105.0,
+        "currency": "EUR",
+        "seller": "INSTYTUTUM",
+        "availability": "AVAILABLE",
+        "url": "https://instytutum.com/en/product/firmagic-everynight-firming-mask-classic/",
+        "updatedAt": "2026-08-24"
+      }
+    },
+    {
+      "id": "361",
+      "slug": "c-illuminating-3d-moisturizer-deluxe-size",
+      "name": "C-Illuminating 3D Moisturizer Deluxe Size",
+      "summary": "Nawilżający krem z efektem blasku",
+      "presentation": "15 ML",
+      "productCategory": "Kosmetyk do pielęgnacji twarzy",
+      "productFamily": "Miniatura kosmetyku",
+      "manufacturerUses": [
+        "Nawilżający krem z efektem blasku"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Witamina C"
+      ],
+      "skinTypes": [
+        "Dobierz do potrzeb skóry"
+      ],
+      "aliases": [
+        "C-Illuminating 3D Moisturizer Deluxe Size",
+        "INSTYTUTUM",
+        "{'index': None, 'value': 'Deluxe size', 'slug': 'deluxe-size'}",
+        "Kosmetyki do pielęgnacji skóry twarzy"
+      ],
+      "sourceUrl": "https://instytutum.com/en/product/c-illuminating-3d-moisturizer-deluxe-size/",
+      "imagePath": "/beautydocs/catalog/instytutum/361-1.webp",
+      "imageAlt": "C-Illuminating 3D Moisturizer deluxe size",
+      "productImages": [
+        {
+          "path": "/beautydocs/catalog/instytutum/361-1.webp",
+          "alt": "C-Illuminating 3D Moisturizer deluxe size",
+          "label": "Oficjalne zdjęcie produktu",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/361-2.webp",
+          "alt": "C-Illuminating 3D Moisturizer texture Photo 3",
+          "label": "Zdjęcie 2",
+          "scale": 1.0,
+          "fit": "cover"
+        }
+      ],
+      "offers": [],
+      "officialReferencePrice": {
+        "amount": 34.0,
+        "originalAmount": 40.0,
+        "currency": "EUR",
+        "seller": "INSTYTUTUM",
+        "availability": "AVAILABLE",
+        "url": "https://instytutum.com/en/product/c-illuminating-3d-moisturizer-deluxe-size/",
+        "updatedAt": "2026-08-24"
+      }
+    },
+    {
+      "id": "987",
+      "slug": "solutions-for-skin-with-age-related-changes-next-gen-set",
+      "name": "Next-Gen set Solution for skin with age-related changes",
+      "summary": "Pielęgnacja przyszłości, opracowana w celu zmniejszenia biologicznego wieku skóry*",
+      "presentation": "Zestaw",
+      "productCategory": "Zestaw kosmetyków",
+      "productFamily": "Zestaw pielęgnacyjny",
+      "manufacturerUses": [
+        "Pielęgnacja przyszłości, opracowana w celu zmniejszenia biologicznego wieku skóry*"
+      ],
+      "treatmentCategories": [
+        "Zestawy pielęgnacyjne",
+        "Pielęgnacja twarzy"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "skinTypes": [
+        "Dobierz do potrzeb skóry"
+      ],
+      "aliases": [
+        "Next-Gen set Solution for skin with age-related changes",
+        "INSTYTUTUM",
+        "",
+        "Zestawy kosmetyków i prezenty"
+      ],
+      "sourceUrl": "https://instytutum.com/en/product/solutions-for-skin-with-age-related-changes-next-gen-set/",
+      "imagePath": "/beautydocs/catalog/instytutum/987-1.webp",
+      "imageAlt": "Next-Gen set Solution for skin with age-related changes",
+      "productImages": [
+        {
+          "path": "/beautydocs/catalog/instytutum/987-1.webp",
+          "alt": "Next-Gen set Solution for skin with age-related changes",
+          "label": "Oficjalne zdjęcie produktu",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/987-2.webp",
+          "alt": "X Strength Retinol Serum Next Gen Photo 1",
+          "label": "Zdjęcie 2",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/987-3.png",
+          "alt": "Next-Gen set Solution for skin with age-related changes",
+          "label": "Zdjęcie 3",
+          "scale": 1.0,
+          "fit": "cover"
+        }
+      ],
+      "offers": [],
+      "officialReferencePrice": {
+        "amount": 206.0,
+        "originalAmount": 245.0,
+        "currency": "EUR",
+        "seller": "INSTYTUTUM",
+        "availability": "AVAILABLE",
+        "url": "https://instytutum.com/en/product/solutions-for-skin-with-age-related-changes-next-gen-set/",
+        "updatedAt": "2026-08-24"
+      }
+    },
+    {
+      "id": "1020",
+      "slug": "superbiotic-refill-set",
+      "name": "Superbiotic Refill Set",
+      "summary": "Intensywna regeneracja bariery ochronnej i mikrobiomu skóry",
+      "presentation": "Zestaw",
+      "productCategory": "Zestaw kosmetyków",
+      "productFamily": "Zestaw pielęgnacyjny",
+      "manufacturerUses": [
+        "Intensywna regeneracja bariery ochronnej i mikrobiomu skóry"
+      ],
+      "treatmentCategories": [
+        "Zestawy pielęgnacyjne",
+        "Pielęgnacja twarzy"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Ceramidy"
+      ],
+      "skinTypes": [
+        "Dobierz do potrzeb skóry"
+      ],
+      "aliases": [
+        "Superbiotic Refill Set",
+        "INSTYTUTUM",
+        "",
+        "Nowości i bestsellery",
+        "Zestawy kosmetyków i prezenty"
+      ],
+      "sourceUrl": "https://instytutum.com/en/product/superbiotic-refill-set/",
+      "imagePath": "/beautydocs/catalog/instytutum/1020-1.webp",
+      "imageAlt": "Superbiotic Refill Set",
+      "productImages": [
+        {
+          "path": "/beautydocs/catalog/instytutum/1020-1.webp",
+          "alt": "Superbiotic Refill Set",
+          "label": "Oficjalne zdjęcie produktu",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/1020-2.webp",
+          "alt": "Superbiotic Refill Set",
+          "label": "Zdjęcie 2",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/1020-3.webp",
+          "alt": "SuperBiotic Regenerating Cream Photo 3",
+          "label": "Zdjęcie 3",
+          "scale": 1.0,
+          "fit": "cover"
+        }
+      ],
+      "offers": [],
+      "officialReferencePrice": {
+        "amount": 132.0,
+        "originalAmount": null,
+        "currency": "EUR",
+        "seller": "INSTYTUTUM",
+        "availability": "AVAILABLE",
+        "url": "https://instytutum.com/en/product/superbiotic-refill-set/",
+        "updatedAt": "2026-08-24"
+      }
+    },
+    {
+      "id": "978",
+      "slug": "solutions-for-skin-with-pigmentation-classic-set",
+      "name": "Classic set Solution for skin with pigmentation",
+      "summary": "Działa przeciw przebarwieniom i śladom potrądzikowym",
+      "presentation": "Zestaw",
+      "productCategory": "Zestaw kosmetyków",
+      "productFamily": "Zestaw pielęgnacyjny",
+      "manufacturerUses": [
+        "Działa przeciw przebarwieniom i śladom potrądzikowym"
+      ],
+      "treatmentCategories": [
+        "Zestawy pielęgnacyjne",
+        "Pielęgnacja twarzy"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "skinTypes": [
+        "Dobierz do potrzeb skóry"
+      ],
+      "aliases": [
+        "Classic set Solution for skin with pigmentation",
+        "INSTYTUTUM",
+        "",
+        "Zestawy kosmetyków i prezenty"
+      ],
+      "sourceUrl": "https://instytutum.com/en/product/solutions-for-skin-with-pigmentation-classic-set/",
+      "imagePath": "/beautydocs/catalog/instytutum/978-1.webp",
+      "imageAlt": "Classic set Solution for skin with pigmentation",
+      "productImages": [
+        {
+          "path": "/beautydocs/catalog/instytutum/978-1.webp",
+          "alt": "Classic set Solution for skin with pigmentation",
+          "label": "Oficjalne zdjęcie produktu",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/978-2.webp",
+          "alt": "Brightening Vitamin C Serum Next Gen Photo 1",
+          "label": "Zdjęcie 2",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/978-3.webp",
+          "alt": "Classic set Solution for skin with pigmentation",
+          "label": "Zdjęcie 3",
+          "scale": 1.0,
+          "fit": "cover"
+        }
+      ],
+      "offers": [],
+      "officialReferencePrice": {
+        "amount": 170.0,
+        "originalAmount": 200.0,
+        "currency": "EUR",
+        "seller": "INSTYTUTUM",
+        "availability": "AVAILABLE",
+        "url": "https://instytutum.com/en/product/solutions-for-skin-with-pigmentation-classic-set/",
+        "updatedAt": "2026-08-24"
+      }
+    },
+    {
+      "id": "984",
+      "slug": "solutions-for-sensitive-skin-next-gen-set",
+      "name": "Next-Gen set Solution for sensitive skin",
+      "summary": "Pielęgnacja przyszłości, opracowana w celu zmniejszenia biologicznego wieku skóry*",
+      "presentation": "Zestaw",
+      "productCategory": "Zestaw kosmetyków",
+      "productFamily": "Zestaw pielęgnacyjny",
+      "manufacturerUses": [
+        "Pielęgnacja przyszłości, opracowana w celu zmniejszenia biologicznego wieku skóry*"
+      ],
+      "treatmentCategories": [
+        "Zestawy pielęgnacyjne",
+        "Pielęgnacja twarzy"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "skinTypes": [
+        "Dobierz do potrzeb skóry"
+      ],
+      "aliases": [
+        "Next-Gen set Solution for sensitive skin",
+        "INSTYTUTUM",
+        "",
+        "Zestawy kosmetyków i prezenty"
+      ],
+      "sourceUrl": "https://instytutum.com/en/product/solutions-for-sensitive-skin-next-gen-set/",
+      "imagePath": "/beautydocs/catalog/instytutum/984-1.webp",
+      "imageAlt": "Next-Gen set Solution for sensitive skin",
+      "productImages": [
+        {
+          "path": "/beautydocs/catalog/instytutum/984-1.webp",
+          "alt": "Next-Gen set Solution for sensitive skin",
+          "label": "Oficjalne zdjęcie produktu",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/984-2.png",
+          "alt": "Next-Gen set Solution for sensitive skin",
+          "label": "Zdjęcie 2",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/984-3.webp",
+          "alt": "SuperBiotic Regenerating Cream Next Gen Photo 1",
+          "label": "Zdjęcie 3",
+          "scale": 1.0,
+          "fit": "cover"
+        }
+      ],
+      "offers": [],
+      "officialReferencePrice": {
+        "amount": 178.0,
+        "originalAmount": 210.0,
+        "currency": "EUR",
+        "seller": "INSTYTUTUM",
+        "availability": "AVAILABLE",
+        "url": "https://instytutum.com/en/product/solutions-for-sensitive-skin-next-gen-set/",
+        "updatedAt": "2026-08-24"
+      }
+    },
+    {
+      "id": "878",
+      "slug": "next-gen-hollywood-glow-set",
+      "name": "Next-Gen Hollywood Glow Set",
+      "summary": "Pielęgnacja przyszłości, opracowana w celu zmniejszenia biologicznego wieku skóry*",
+      "presentation": "Zestaw",
+      "productCategory": "Zestaw kosmetyków",
+      "productFamily": "Zestaw pielęgnacyjny",
+      "manufacturerUses": [
+        "Pielęgnacja przyszłości, opracowana w celu zmniejszenia biologicznego wieku skóry*"
+      ],
+      "treatmentCategories": [
+        "Zestawy pielęgnacyjne",
+        "Pielęgnacja twarzy"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "skinTypes": [
+        "Dobierz do potrzeb skóry"
+      ],
+      "aliases": [
+        "Next-Gen Hollywood Glow Set",
+        "INSTYTUTUM",
+        "",
+        "Zestawy kosmetyków i prezenty"
+      ],
+      "sourceUrl": "https://instytutum.com/en/product/next-gen-hollywood-glow-set/",
+      "imagePath": "/beautydocs/catalog/instytutum/878-1.webp",
+      "imageAlt": "Next-Gen Hollywood Glow Set",
+      "productImages": [
+        {
+          "path": "/beautydocs/catalog/instytutum/878-1.webp",
+          "alt": "Next-Gen Hollywood Glow Set",
+          "label": "Oficjalne zdjęcie produktu",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/878-2.webp",
+          "alt": "Triple Action Resurfacing Peel Next Gen Photo 1",
+          "label": "Zdjęcie 2",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/878-3.webp",
+          "alt": "Brightening Vitamin C Serum Next Gen Photo 1",
+          "label": "Zdjęcie 3",
+          "scale": 1.0,
+          "fit": "cover"
+        }
+      ],
+      "offers": [],
+      "officialReferencePrice": {
+        "amount": 261.0,
+        "originalAmount": null,
+        "currency": "EUR",
+        "seller": "INSTYTUTUM",
+        "availability": "AVAILABLE",
+        "url": "https://instytutum.com/en/product/next-gen-hollywood-glow-set/",
+        "updatedAt": "2026-08-24"
+      }
+    },
+    {
+      "id": "1107",
+      "slug": "calming-and-anti-inflammatory-protocol",
+      "name": "Protocol \"Calming & Anti-Inflammatory\"",
+      "summary": "Do korekcji procesów zapalnych, trądziku i zmian pozapalnych skóry",
+      "presentation": "Zestaw",
+      "productCategory": "Zestaw kosmetyków",
+      "productFamily": "Zestaw pielęgnacyjny",
+      "manufacturerUses": [
+        "Do korekcji procesów zapalnych, trądziku i zmian pozapalnych skóry"
+      ],
+      "treatmentCategories": [
+        "Zestawy pielęgnacyjne",
+        "Pielęgnacja twarzy"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "skinTypes": [
+        "Dobierz do potrzeb skóry"
+      ],
+      "aliases": [
+        "Protocol \"Calming & Anti-Inflammatory\"",
+        "INSTYTUTUM",
+        "",
+        "Protokoły pielęgnacji skóry"
+      ],
+      "sourceUrl": "https://instytutum.com/en/product/calming-and-anti-inflammatory-protocol/",
+      "imagePath": "/beautydocs/catalog/instytutum/1107-1.webp",
+      "imageAlt": "Protocol \"Calming & Anti-Inflammatory\"",
+      "productImages": [
+        {
+          "path": "/beautydocs/catalog/instytutum/1107-1.webp",
+          "alt": "Protocol \"Calming & Anti-Inflammatory\"",
+          "label": "Oficjalne zdjęcie produktu",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/1107-2.webp",
+          "alt": "Resurfacing Multi Acids Pads Next Gen Photo 1",
+          "label": "Zdjęcie 2",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/1107-3.webp",
+          "alt": "Advanced Retinol Toner Next Gen Photo 2",
+          "label": "Zdjęcie 3",
+          "scale": 1.0,
+          "fit": "cover"
+        }
+      ],
+      "offers": [],
+      "officialReferencePrice": {
+        "amount": 333.0,
+        "originalAmount": null,
+        "currency": "EUR",
+        "seller": "INSTYTUTUM",
+        "availability": "AVAILABLE",
+        "url": "https://instytutum.com/en/product/calming-and-anti-inflammatory-protocol/",
+        "updatedAt": "2026-08-24"
+      }
+    },
+    {
+      "id": "992",
+      "slug": "your-perfect-daily-routine-next-gen-set",
+      "name": "Next-Gen set Your Perfect Daily Routine",
+      "summary": "Pielęgnacja przyszłości, opracowana w celu zmniejszenia biologicznego wieku skóry*",
+      "presentation": "Zestaw",
+      "productCategory": "Zestaw kosmetyków",
+      "productFamily": "Zestaw pielęgnacyjny",
+      "manufacturerUses": [
+        "Pielęgnacja przyszłości, opracowana w celu zmniejszenia biologicznego wieku skóry*"
+      ],
+      "treatmentCategories": [
+        "Zestawy pielęgnacyjne",
+        "Pielęgnacja twarzy"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "skinTypes": [
+        "Dobierz do potrzeb skóry"
+      ],
+      "aliases": [
+        "Next-Gen set Your Perfect Daily Routine",
+        "INSTYTUTUM",
+        "",
+        "Nowości i bestsellery",
+        "Zestawy kosmetyków i prezenty"
+      ],
+      "sourceUrl": "https://instytutum.com/en/product/your-perfect-daily-routine-next-gen-set/",
+      "imagePath": "/beautydocs/catalog/instytutum/992-1.webp",
+      "imageAlt": "Next-Gen set Your Perfect Daily Routine",
+      "productImages": [
+        {
+          "path": "/beautydocs/catalog/instytutum/992-1.webp",
+          "alt": "Next-Gen set Your Perfect Daily Routine",
+          "label": "Oficjalne zdjęcie produktu",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/992-2.webp",
+          "alt": "Hydrafusion Hydrating Gel Cream Next Gen peptide gel cream refillable skincare hydrating gel cream 4D hyaluronic acid Swiss skincare",
+          "label": "Zdjęcie 2",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/992-3.webp",
+          "alt": "Sunscription Spf50 Next Gen Photo 1",
+          "label": "Zdjęcie 3",
+          "scale": 1.0,
+          "fit": "cover"
+        }
+      ],
+      "offers": [],
+      "officialReferencePrice": {
+        "amount": 132.0,
+        "originalAmount": 144.0,
+        "currency": "EUR",
+        "seller": "INSTYTUTUM",
+        "availability": "AVAILABLE",
+        "url": "https://instytutum.com/en/product/your-perfect-daily-routine-next-gen-set/",
+        "updatedAt": "2026-08-24"
+      }
+    },
+    {
+      "id": "996",
+      "slug": "your-perfect-daily-routine-classic-set",
+      "name": "Classic set Your Perfect Daily Routine",
+      "summary": "Jak najmniej kroków — jak najlepsze efekty każdego dnia",
+      "presentation": "Zestaw",
+      "productCategory": "Zestaw kosmetyków",
+      "productFamily": "Zestaw pielęgnacyjny",
+      "manufacturerUses": [
+        "Jak najmniej kroków — jak najlepsze efekty każdego dnia"
+      ],
+      "treatmentCategories": [
+        "Zestawy pielęgnacyjne",
+        "Pielęgnacja twarzy"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "skinTypes": [
+        "Dobierz do potrzeb skóry"
+      ],
+      "aliases": [
+        "Classic set Your Perfect Daily Routine",
+        "INSTYTUTUM",
+        "",
+        "Zestawy kosmetyków i prezenty"
+      ],
+      "sourceUrl": "https://instytutum.com/en/product/your-perfect-daily-routine-classic-set/",
+      "imagePath": "/beautydocs/catalog/instytutum/996-1.webp",
+      "imageAlt": "Classic set Your Perfect Daily Routine",
+      "productImages": [
+        {
+          "path": "/beautydocs/catalog/instytutum/996-1.webp",
+          "alt": "Classic set Your Perfect Daily Routine",
+          "label": "Oficjalne zdjęcie produktu",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/996-2.webp",
+          "alt": "Classic set Your Perfect Daily Routine",
+          "label": "Zdjęcie 2",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/996-3.webp",
+          "alt": "Classic set Your Perfect Daily Routine",
+          "label": "Zdjęcie 3",
+          "scale": 1.0,
+          "fit": "cover"
+        }
+      ],
+      "offers": [],
+      "officialReferencePrice": {
+        "amount": 125.0,
+        "originalAmount": 128.0,
+        "currency": "EUR",
+        "seller": "INSTYTUTUM",
+        "availability": "AVAILABLE",
+        "url": "https://instytutum.com/en/product/your-perfect-daily-routine-classic-set/",
+        "updatedAt": "2026-08-24"
+      }
+    },
+    {
+      "id": "1018",
+      "slug": "hydrafusion-refill-set",
+      "name": "HydraFusion Refill Set",
+      "summary": "Codzienne intensywne nawilżenie i jędrność skóry",
+      "presentation": "Zestaw",
+      "productCategory": "Zestaw kosmetyków",
+      "productFamily": "Zestaw pielęgnacyjny",
+      "manufacturerUses": [
+        "Codzienne intensywne nawilżenie i jędrność skóry"
+      ],
+      "treatmentCategories": [
+        "Zestawy pielęgnacyjne",
+        "Pielęgnacja twarzy"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwas hialuronowy"
+      ],
+      "skinTypes": [
+        "Dobierz do potrzeb skóry"
+      ],
+      "aliases": [
+        "HydraFusion Refill Set",
+        "INSTYTUTUM",
+        "",
+        "Nowości i bestsellery",
+        "Zestawy kosmetyków i prezenty"
+      ],
+      "sourceUrl": "https://instytutum.com/en/product/hydrafusion-refill-set/",
+      "imagePath": "/beautydocs/catalog/instytutum/1018-1.webp",
+      "imageAlt": "HydraFusion Refill Set",
+      "productImages": [
+        {
+          "path": "/beautydocs/catalog/instytutum/1018-1.webp",
+          "alt": "HydraFusion Refill Set",
+          "label": "Oficjalne zdjęcie produktu",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/1018-2.webp",
+          "alt": "HydraFusion Refill Set",
+          "label": "Zdjęcie 2",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/1018-3.webp",
+          "alt": "HydraFusion Hydrating Gel Cream Next-Gen peptide gel cream refillable skincare hydrating gel cream 4D hyaluronic acid Swiss skincare texture",
+          "label": "Zdjęcie 3",
+          "scale": 1.0,
+          "fit": "cover"
+        }
+      ],
+      "offers": [],
+      "officialReferencePrice": {
+        "amount": 132.0,
+        "originalAmount": null,
+        "currency": "EUR",
+        "seller": "INSTYTUTUM",
+        "availability": "AVAILABLE",
+        "url": "https://instytutum.com/en/product/hydrafusion-refill-set/",
+        "updatedAt": "2026-08-24"
+      }
+    },
+    {
+      "id": "988",
+      "slug": "solutions-for-skin-with-age-related-changes-classic-set",
+      "name": "Classic set Solution for skin with age-related changes",
+      "summary": "Zaawansowana pielęgnacja zapewniająca widoczną przemianę skóry",
+      "presentation": "Zestaw",
+      "productCategory": "Zestaw kosmetyków",
+      "productFamily": "Zestaw pielęgnacyjny",
+      "manufacturerUses": [
+        "Zaawansowana pielęgnacja zapewniająca widoczną przemianę skóry"
+      ],
+      "treatmentCategories": [
+        "Zestawy pielęgnacyjne",
+        "Pielęgnacja twarzy"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "skinTypes": [
+        "Dobierz do potrzeb skóry"
+      ],
+      "aliases": [
+        "Classic set Solution for skin with age-related changes",
+        "INSTYTUTUM",
+        "",
+        "Zestawy kosmetyków i prezenty"
+      ],
+      "sourceUrl": "https://instytutum.com/en/product/solutions-for-skin-with-age-related-changes-classic-set/",
+      "imagePath": "/beautydocs/catalog/instytutum/988-1.webp",
+      "imageAlt": "Classic set Solution for skin with age-related changes",
+      "productImages": [
+        {
+          "path": "/beautydocs/catalog/instytutum/988-1.webp",
+          "alt": "Classic set Solution for skin with age-related changes",
+          "label": "Oficjalne zdjęcie produktu",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/988-2.webp",
+          "alt": "Classic set Solution for skin with age-related changes",
+          "label": "Zdjęcie 2",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/988-3.png",
+          "alt": "Classic set Solution for skin with age-related changes",
+          "label": "Zdjęcie 3",
+          "scale": 1.0,
+          "fit": "cover"
+        }
+      ],
+      "offers": [],
+      "officialReferencePrice": {
+        "amount": 198.0,
+        "originalAmount": 235.0,
+        "currency": "EUR",
+        "seller": "INSTYTUTUM",
+        "availability": "AVAILABLE",
+        "url": "https://instytutum.com/en/product/solutions-for-skin-with-age-related-changes-classic-set/",
+        "updatedAt": "2026-08-24"
+      }
+    },
+    {
+      "id": "1009",
+      "slug": "starterpack-retinoid-ultra-hydration",
+      "name": "Choose your retinoid with ultra-hydration Starter Set",
+      "summary": "Retinoidy nowej generacji od INSTYTUTUM – przemiana skóry bez podrażnień",
+      "presentation": "Zestaw",
+      "productCategory": "Zestaw kosmetyków",
+      "productFamily": "Zestaw pielęgnacyjny",
+      "manufacturerUses": [
+        "Retinoidy nowej generacji od INSTYTUTUM – przemiana skóry bez podrażnień"
+      ],
+      "treatmentCategories": [
+        "Zestawy pielęgnacyjne",
+        "Pielęgnacja twarzy"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "skinTypes": [
+        "Dobierz do potrzeb skóry"
+      ],
+      "aliases": [
+        "Choose your retinoid with ultra-hydration Starter Set",
+        "INSTYTUTUM",
+        ""
+      ],
+      "sourceUrl": "https://instytutum.com/en/product/starterpack-retinoid-ultra-hydration/",
+      "imagePath": "/beautydocs/catalog/instytutum/1009-1.webp",
+      "imageAlt": "Choose your retinoid with ultra-hydration Starter Set",
+      "productImages": [
+        {
+          "path": "/beautydocs/catalog/instytutum/1009-1.webp",
+          "alt": "Choose your retinoid with ultra-hydration Starter Set",
+          "label": "Oficjalne zdjęcie produktu",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/1009-2.webp",
+          "alt": "Choose your retinoid with ultra-hydration Starter Set",
+          "label": "Zdjęcie 2",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/1009-3.webp",
+          "alt": "Retinol Serum sample Photo 1",
+          "label": "Zdjęcie 3",
+          "scale": 1.0,
+          "fit": "cover"
+        }
+      ],
+      "offers": [],
+      "officialReferencePrice": {
+        "amount": 5.0,
+        "originalAmount": null,
+        "currency": "EUR",
+        "seller": "INSTYTUTUM",
+        "availability": "AVAILABLE",
+        "url": "https://instytutum.com/en/product/starterpack-retinoid-ultra-hydration/",
+        "updatedAt": "2026-08-24"
+      }
+    },
+    {
+      "id": "1101",
+      "slug": "essential-care-protocol",
+      "name": "Protocol \"Essential Care\"",
+      "summary": "Aby zachować młodość skóry i zapobiegać wczesnym oznakom starzenia się",
+      "presentation": "Zestaw",
+      "productCategory": "Zestaw kosmetyków",
+      "productFamily": "Zestaw pielęgnacyjny",
+      "manufacturerUses": [
+        "Aby zachować młodość skóry i zapobiegać wczesnym oznakom starzenia się"
+      ],
+      "treatmentCategories": [
+        "Zestawy pielęgnacyjne",
+        "Pielęgnacja twarzy"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "skinTypes": [
+        "Dobierz do potrzeb skóry"
+      ],
+      "aliases": [
+        "Protocol \"Essential Care\"",
+        "INSTYTUTUM",
+        "",
+        "Protokoły pielęgnacji skóry"
+      ],
+      "sourceUrl": "https://instytutum.com/en/product/essential-care-protocol/",
+      "imagePath": "/beautydocs/catalog/instytutum/1101-1.webp",
+      "imageAlt": "Protocol \"Essential Care\"",
+      "productImages": [
+        {
+          "path": "/beautydocs/catalog/instytutum/1101-1.webp",
+          "alt": "Protocol \"Essential Care\"",
+          "label": "Oficjalne zdjęcie produktu",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/1101-2.webp",
+          "alt": "Triple Action Resurfacing Peel Next Gen Photo 1",
+          "label": "Zdjęcie 2",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/1101-3.webp",
+          "alt": "Resurfacing Glow Toner Next Gen Photo 1",
+          "label": "Zdjęcie 3",
+          "scale": 1.0,
+          "fit": "cover"
+        }
+      ],
+      "offers": [],
+      "officialReferencePrice": {
+        "amount": 329.0,
+        "originalAmount": null,
+        "currency": "EUR",
+        "seller": "INSTYTUTUM",
+        "availability": "AVAILABLE",
+        "url": "https://instytutum.com/en/product/essential-care-protocol/",
+        "updatedAt": "2026-08-24"
+      }
+    },
+    {
+      "id": "1109",
+      "slug": "sensitive-skin-support-protocol",
+      "name": "Protocol \"Sensitive Skin Support\"",
+      "summary": "Dla skóry wrażliwej",
+      "presentation": "Zestaw",
+      "productCategory": "Zestaw kosmetyków",
+      "productFamily": "Zestaw pielęgnacyjny",
+      "manufacturerUses": [
+        "Dla skóry wrażliwej"
+      ],
+      "treatmentCategories": [
+        "Zestawy pielęgnacyjne",
+        "Pielęgnacja twarzy"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "skinTypes": [
+        "Dobierz do potrzeb skóry"
+      ],
+      "aliases": [
+        "Protocol \"Sensitive Skin Support\"",
+        "INSTYTUTUM",
+        "",
+        "Protokoły pielęgnacji skóry",
+        "Nowości i bestsellery"
+      ],
+      "sourceUrl": "https://instytutum.com/en/product/sensitive-skin-support-protocol/",
+      "imagePath": "/beautydocs/catalog/instytutum/1109-1.webp",
+      "imageAlt": "Protocol \"Sensitive Skin Support\"",
+      "productImages": [
+        {
+          "path": "/beautydocs/catalog/instytutum/1109-1.webp",
+          "alt": "Protocol \"Sensitive Skin Support\"",
+          "label": "Oficjalne zdjęcie produktu",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/1109-2.png",
+          "alt": "Protocol \"Sensitive Skin Support\"",
+          "label": "Zdjęcie 2",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/1109-3.png",
+          "alt": "Protocol \"Sensitive Skin Support\"",
+          "label": "Zdjęcie 3",
+          "scale": 1.0,
+          "fit": "cover"
+        }
+      ],
+      "offers": [],
+      "officialReferencePrice": {
+        "amount": 337.0,
+        "originalAmount": null,
+        "currency": "EUR",
+        "seller": "INSTYTUTUM",
+        "availability": "AVAILABLE",
+        "url": "https://instytutum.com/en/product/sensitive-skin-support-protocol/",
+        "updatedAt": "2026-08-24"
+      }
+    },
+    {
+      "id": "1022",
+      "slug": "c-illuminating-refill-set",
+      "name": "3D-Illuminating Refill Set",
+      "summary": "Dwukrotnie większy blask i młodość skóry",
+      "presentation": "Zestaw",
+      "productCategory": "Zestaw kosmetyków",
+      "productFamily": "Zestaw pielęgnacyjny",
+      "manufacturerUses": [
+        "Dwukrotnie większy blask i młodość skóry"
+      ],
+      "treatmentCategories": [
+        "Zestawy pielęgnacyjne",
+        "Pielęgnacja twarzy"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "skinTypes": [
+        "Dobierz do potrzeb skóry"
+      ],
+      "aliases": [
+        "3D-Illuminating Refill Set",
+        "INSTYTUTUM",
+        "",
+        "Nowości i bestsellery",
+        "Zestawy kosmetyków i prezenty"
+      ],
+      "sourceUrl": "https://instytutum.com/en/product/c-illuminating-refill-set/",
+      "imagePath": "/beautydocs/catalog/instytutum/1022-1.webp",
+      "imageAlt": "3D-Illuminating Refill Set",
+      "productImages": [
+        {
+          "path": "/beautydocs/catalog/instytutum/1022-1.webp",
+          "alt": "3D-Illuminating Refill Set",
+          "label": "Oficjalne zdjęcie produktu",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/1022-2.webp",
+          "alt": "3D-Illuminating Refill Set",
+          "label": "Zdjęcie 2",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/1022-3.webp",
+          "alt": "3D-Illuminating Refill Set",
+          "label": "Zdjęcie 3",
+          "scale": 1.0,
+          "fit": "cover"
+        }
+      ],
+      "offers": [],
+      "officialReferencePrice": {
+        "amount": 132.0,
+        "originalAmount": null,
+        "currency": "EUR",
+        "seller": "INSTYTUTUM",
+        "availability": "AVAILABLE",
+        "url": "https://instytutum.com/en/product/c-illuminating-refill-set/",
+        "updatedAt": "2026-08-24"
+      }
+    },
+    {
+      "id": "860",
+      "slug": "everyday-ritual-set",
+      "name": "Everyday Ritual Set",
+      "summary": "5 Niezbędnych produktów do domowej transformacji skóry",
+      "presentation": "Zestaw",
+      "productCategory": "Zestaw kosmetyków",
+      "productFamily": "Zestaw pielęgnacyjny",
+      "manufacturerUses": [
+        "5 Niezbędnych produktów do domowej transformacji skóry"
+      ],
+      "treatmentCategories": [
+        "Zestawy pielęgnacyjne",
+        "Pielęgnacja twarzy"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "skinTypes": [
+        "Dobierz do potrzeb skóry"
+      ],
+      "aliases": [
+        "Everyday Ritual Set",
+        "INSTYTUTUM",
+        "",
+        "Zestawy kosmetyków i prezenty"
+      ],
+      "sourceUrl": "https://instytutum.com/en/product/everyday-ritual-set/",
+      "imagePath": "/beautydocs/catalog/instytutum/860-1.webp",
+      "imageAlt": "Everyday Ritual Set",
+      "productImages": [
+        {
+          "path": "/beautydocs/catalog/instytutum/860-1.webp",
+          "alt": "Everyday Ritual Set",
+          "label": "Oficjalne zdjęcie produktu",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/860-2.webp",
+          "alt": "Triple Action Resurfacing Peel deluxe size",
+          "label": "Zdjęcie 2",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/860-3.webp",
+          "alt": "Renewal Melting Cleanser deluxe size",
+          "label": "Zdjęcie 3",
+          "scale": 1.0,
+          "fit": "cover"
+        }
+      ],
+      "offers": [
+        {
+          "seller": "Aiya Beauty Care",
+          "pricePln": 475.0,
+          "shippingPricePln": null,
+          "availability": "OUT_OF_STOCK",
+          "url": "https://www.aiyabeauty.pl/products/instytutum-everyday-ritual-set",
+          "sourceType": "STORE",
+          "updatedAt": "2026-08-24"
+        }
+      ],
+      "officialReferencePrice": {
+        "amount": 127.0,
+        "originalAmount": null,
+        "currency": "EUR",
+        "seller": "INSTYTUTUM",
+        "availability": "AVAILABLE",
+        "url": "https://instytutum.com/en/product/everyday-ritual-set/",
+        "updatedAt": "2026-08-24"
+      }
+    },
+    {
+      "id": "550",
+      "slug": "skin-test",
+      "name": "Skin diagnostic test",
+      "summary": "Po raz pierwszy — przenośny zestaw diagnostyczny do oceny stanu skóry",
+      "presentation": "1 usługa",
+      "productCategory": "Usługa kosmetologiczna",
+      "productFamily": "Diagnostyka skóry",
+      "manufacturerUses": [
+        "Po raz pierwszy — przenośny zestaw diagnostyczny do oceny stanu skóry"
+      ],
+      "treatmentCategories": [
+        "Diagnostyka skóry"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "skinTypes": [
+        "Dobierz do potrzeb skóry"
+      ],
+      "aliases": [
+        "Skin diagnostic test",
+        "INSTYTUTUM",
+        ""
+      ],
+      "sourceUrl": "https://instytutum.com/en/product/skin-test/",
+      "imagePath": "/beautydocs/catalog/instytutum/550-1.webp",
+      "imageAlt": "Skin diagnostic test",
+      "productImages": [
+        {
+          "path": "/beautydocs/catalog/instytutum/550-1.webp",
+          "alt": "Skin diagnostic test",
+          "label": "Oficjalne zdjęcie produktu",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/550-2.webp",
+          "alt": "Skin diagnostic test",
+          "label": "Zdjęcie 2",
+          "scale": 1.0,
+          "fit": "cover"
+        }
+      ],
+      "offers": [],
+      "officialReferencePrice": {
+        "amount": 1.0,
+        "originalAmount": null,
+        "currency": "EUR",
+        "seller": "INSTYTUTUM",
+        "availability": "AVAILABLE",
+        "url": "https://instytutum.com/en/product/skin-test/",
+        "updatedAt": "2026-08-24"
+      }
+    },
+    {
+      "id": "858",
+      "slug": "next-gen-two-step-cleansing-protocol",
+      "name": "Next-Gen Two-Step Cleansing Protocol",
+      "summary": "Głębokie oczyszczenie skóry",
+      "presentation": "Zestaw",
+      "productCategory": "Zestaw kosmetyków",
+      "productFamily": "Zestaw pielęgnacyjny",
+      "manufacturerUses": [
+        "Głębokie oczyszczenie skóry"
+      ],
+      "treatmentCategories": [
+        "Zestawy pielęgnacyjne",
+        "Pielęgnacja twarzy"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "skinTypes": [
+        "Dobierz do potrzeb skóry"
+      ],
+      "aliases": [
+        "Next-Gen Two-Step Cleansing Protocol",
+        "INSTYTUTUM",
+        "",
+        "Protokoły pielęgnacji skóry"
+      ],
+      "sourceUrl": "https://instytutum.com/en/product/next-gen-two-step-cleansing-protocol/",
+      "imagePath": "/beautydocs/catalog/instytutum/858-1.webp",
+      "imageAlt": "Next-Gen Two-Step Cleansing Protocol",
+      "productImages": [
+        {
+          "path": "/beautydocs/catalog/instytutum/858-1.webp",
+          "alt": "Next-Gen Two-Step Cleansing Protocol",
+          "label": "Oficjalne zdjęcie produktu",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/858-2.webp",
+          "alt": "Renewal Melting Cleanser Next Gen Photo 1",
+          "label": "Zdjęcie 2",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/858-3.webp",
+          "alt": "Adaptogel Cleanser Next Gen Photo 1",
+          "label": "Zdjęcie 3",
+          "scale": 1.0,
+          "fit": "cover"
+        }
+      ],
+      "offers": [],
+      "officialReferencePrice": {
+        "amount": 81.0,
+        "originalAmount": null,
+        "currency": "EUR",
+        "seller": "INSTYTUTUM",
+        "availability": "AVAILABLE",
+        "url": "https://instytutum.com/en/product/next-gen-two-step-cleansing-protocol/",
+        "updatedAt": "2026-08-24"
+      }
+    },
+    {
+      "id": "1104",
+      "slug": "anti-aging-and-pigmentation-protocol",
+      "name": "Protocol \"Anti-Aging & Pigmentation\"",
+      "summary": "Dla skóry z oznakami starzenia i przebarwieniami",
+      "presentation": "Zestaw",
+      "productCategory": "Zestaw kosmetyków",
+      "productFamily": "Zestaw pielęgnacyjny",
+      "manufacturerUses": [
+        "Dla skóry z oznakami starzenia i przebarwieniami"
+      ],
+      "treatmentCategories": [
+        "Zestawy pielęgnacyjne",
+        "Pielęgnacja twarzy"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "skinTypes": [
+        "Dobierz do potrzeb skóry"
+      ],
+      "aliases": [
+        "Protocol \"Anti-Aging & Pigmentation\"",
+        "INSTYTUTUM",
+        "",
+        "Protokoły pielęgnacji skóry"
+      ],
+      "sourceUrl": "https://instytutum.com/en/product/anti-aging-and-pigmentation-protocol/",
+      "imagePath": "/beautydocs/catalog/instytutum/1104-1.webp",
+      "imageAlt": "Protocol \"Anti-Aging & Pigmentation\"",
+      "productImages": [
+        {
+          "path": "/beautydocs/catalog/instytutum/1104-1.webp",
+          "alt": "Protocol \"Anti-Aging & Pigmentation\"",
+          "label": "Oficjalne zdjęcie produktu",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/1104-2.webp",
+          "alt": "Resurfacing Multi Acids Pads Next Gen Photo 1",
+          "label": "Zdjęcie 2",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/1104-3.webp",
+          "alt": "Resurfacing Glow Toner Next Gen Photo 1",
+          "label": "Zdjęcie 3",
+          "scale": 1.0,
+          "fit": "cover"
+        }
+      ],
+      "offers": [],
+      "officialReferencePrice": {
+        "amount": 477.0,
+        "originalAmount": null,
+        "currency": "EUR",
+        "seller": "INSTYTUTUM",
+        "availability": "AVAILABLE",
+        "url": "https://instytutum.com/en/product/anti-aging-and-pigmentation-protocol/",
+        "updatedAt": "2026-08-24"
+      }
+    },
+    {
+      "id": "976",
+      "slug": "solutions-for-skin-with-pigmentation-next-gen-set",
+      "name": "Next-Gen set Solution for skin with pigmentation",
+      "summary": "Pielęgnacja przyszłości, opracowana w celu zmniejszenia biologicznego wieku skóry*",
+      "presentation": "Zestaw",
+      "productCategory": "Zestaw kosmetyków",
+      "productFamily": "Zestaw pielęgnacyjny",
+      "manufacturerUses": [
+        "Pielęgnacja przyszłości, opracowana w celu zmniejszenia biologicznego wieku skóry*"
+      ],
+      "treatmentCategories": [
+        "Zestawy pielęgnacyjne",
+        "Pielęgnacja twarzy"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "skinTypes": [
+        "Dobierz do potrzeb skóry"
+      ],
+      "aliases": [
+        "Next-Gen set Solution for skin with pigmentation",
+        "INSTYTUTUM",
+        "",
+        "Zestawy kosmetyków i prezenty"
+      ],
+      "sourceUrl": "https://instytutum.com/en/product/solutions-for-skin-with-pigmentation-next-gen-set/",
+      "imagePath": "/beautydocs/catalog/instytutum/976-1.webp",
+      "imageAlt": "Next-Gen set Solution for skin with pigmentation",
+      "productImages": [
+        {
+          "path": "/beautydocs/catalog/instytutum/976-1.webp",
+          "alt": "Next-Gen set Solution for skin with pigmentation",
+          "label": "Oficjalne zdjęcie produktu",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/976-2.webp",
+          "alt": "Brightening Vitamin C Serum Next Gen Photo 1",
+          "label": "Zdjęcie 2",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/976-3.webp",
+          "alt": "Triple Action Resurfacing Peel Next Gen Photo 1",
+          "label": "Zdjęcie 3",
+          "scale": 1.0,
+          "fit": "cover"
+        }
+      ],
+      "offers": [],
+      "officialReferencePrice": {
+        "amount": 178.0,
+        "originalAmount": 210.0,
+        "currency": "EUR",
+        "seller": "INSTYTUTUM",
+        "availability": "AVAILABLE",
+        "url": "https://instytutum.com/en/product/solutions-for-skin-with-pigmentation-next-gen-set/",
+        "updatedAt": "2026-08-24"
+      }
+    },
+    {
+      "id": "366",
+      "slug": "triple-action-facial-peel-deluxe-size",
+      "name": "Triple Action Resurfacing Peel Deluxe Size",
+      "summary": "Peeling do twarzy o potrójnym działaniu",
+      "presentation": "20 ML",
+      "productCategory": "Kosmetyk do pielęgnacji twarzy",
+      "productFamily": "Miniatura kosmetyku",
+      "manufacturerUses": [
+        "Peeling do twarzy o potrójnym działaniu"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwasy złuszczające"
+      ],
+      "skinTypes": [
+        "Dobierz do potrzeb skóry"
+      ],
+      "aliases": [
+        "Triple Action Resurfacing Peel Deluxe Size",
+        "INSTYTUTUM",
+        "{'index': None, 'value': 'Deluxe size', 'slug': 'deluxe-size'}",
+        "Kosmetyki do pielęgnacji skóry twarzy"
+      ],
+      "sourceUrl": "https://instytutum.com/en/product/triple-action-facial-peel-deluxe-size/",
+      "imagePath": "/beautydocs/catalog/instytutum/366-1.webp",
+      "imageAlt": "Triple Action Resurfacing Peel deluxe size",
+      "productImages": [
+        {
+          "path": "/beautydocs/catalog/instytutum/366-1.webp",
+          "alt": "Triple Action Resurfacing Peel deluxe size",
+          "label": "Oficjalne zdjęcie produktu",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/366-2.webp",
+          "alt": "Triple Action Resurfacing Peel Photo 3",
+          "label": "Zdjęcie 2",
+          "scale": 1.0,
+          "fit": "cover"
+        }
+      ],
+      "offers": [],
+      "officialReferencePrice": {
+        "amount": 32.0,
+        "originalAmount": 38.0,
+        "currency": "EUR",
+        "seller": "INSTYTUTUM",
+        "availability": "AVAILABLE",
+        "url": "https://instytutum.com/en/product/triple-action-facial-peel-deluxe-size/",
+        "updatedAt": "2026-08-24"
+      }
+    },
+    {
+      "id": "980",
+      "slug": "solutions-for-inflammation-prone-skin-next-gen-set",
+      "name": "Next-Gen set Solution for inflammation-prone skin",
+      "summary": "Pielęgnacja przyszłości, opracowana w celu zmniejszenia biologicznego wieku skóry*",
+      "presentation": "Zestaw",
+      "productCategory": "Zestaw kosmetyków",
+      "productFamily": "Zestaw pielęgnacyjny",
+      "manufacturerUses": [
+        "Pielęgnacja przyszłości, opracowana w celu zmniejszenia biologicznego wieku skóry*"
+      ],
+      "treatmentCategories": [
+        "Zestawy pielęgnacyjne",
+        "Pielęgnacja twarzy"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "skinTypes": [
+        "Dobierz do potrzeb skóry"
+      ],
+      "aliases": [
+        "Next-Gen set Solution for inflammation-prone skin",
+        "INSTYTUTUM",
+        "",
+        "Zestawy kosmetyków i prezenty"
+      ],
+      "sourceUrl": "https://instytutum.com/en/product/solutions-for-inflammation-prone-skin-next-gen-set/",
+      "imagePath": "/beautydocs/catalog/instytutum/980-1.webp",
+      "imageAlt": "Next-Gen set Solution for inflammation-prone skin",
+      "productImages": [
+        {
+          "path": "/beautydocs/catalog/instytutum/980-1.webp",
+          "alt": "Next-Gen set Solution for inflammation-prone skin",
+          "label": "Oficjalne zdjęcie produktu",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/980-2.webp",
+          "alt": "Resurfacing Glow Toner Next Gen Photo 1",
+          "label": "Zdjęcie 2",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/980-3.webp",
+          "alt": "SuperBiotic Regenerating Cream Next Gen Photo 1",
+          "label": "Zdjęcie 3",
+          "scale": 1.0,
+          "fit": "cover"
+        }
+      ],
+      "offers": [],
+      "officialReferencePrice": {
+        "amount": 126.0,
+        "originalAmount": 145.0,
+        "currency": "EUR",
+        "seller": "INSTYTUTUM",
+        "availability": "AVAILABLE",
+        "url": "https://instytutum.com/en/product/solutions-for-inflammation-prone-skin-next-gen-set/",
+        "updatedAt": "2026-08-24"
+      }
+    },
+    {
+      "id": "549",
+      "slug": "beauty-fridge",
+      "name": "Beauty fridge",
+      "summary": "Nowoczesne urządzenie kosmetyczne, które stanie się stylowym akcentem na Twojej półce z kosmetykami i zapewni Twoim ulubionym produktom idealną temperaturę",
+      "presentation": "1 urządzenie",
+      "productCategory": "Akcesorium kosmetyczne",
+      "productFamily": "Lodówka kosmetyczna",
+      "manufacturerUses": [
+        "Nowoczesne urządzenie kosmetyczne, które stanie się stylowym akcentem na Twojej półce z kosmetykami i zapewni Twoim ulubionym produktom idealną temperaturę"
+      ],
+      "treatmentCategories": [
+        "Akcesoria kosmetyczne"
+      ],
+      "applicationAreas": [],
+      "keyIngredients": [],
+      "skinTypes": [
+        "Dobierz do potrzeb skóry"
+      ],
+      "aliases": [
+        "Beauty fridge",
+        "INSTYTUTUM",
+        "",
+        "Zestawy kosmetyków i prezenty"
+      ],
+      "sourceUrl": "https://instytutum.com/en/product/beauty-fridge/",
+      "imagePath": "/beautydocs/catalog/instytutum/549-1.webp",
+      "imageAlt": "Beauty fridge",
+      "productImages": [
+        {
+          "path": "/beautydocs/catalog/instytutum/549-1.webp",
+          "alt": "Beauty fridge",
+          "label": "Oficjalne zdjęcie produktu",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/549-2.webp",
+          "alt": "Beauty fridge",
+          "label": "Zdjęcie 2",
+          "scale": 1.0,
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/instytutum/549-3.webp",
+          "alt": "Beauty fridge",
+          "label": "Zdjęcie 3",
+          "scale": 1.0,
+          "fit": "cover"
+        }
+      ],
+      "offers": [],
+      "officialReferencePrice": {
+        "amount": 149.0,
+        "originalAmount": null,
+        "currency": "EUR",
+        "seller": "INSTYTUTUM",
+        "availability": "SOLD_OUT",
+        "url": "https://instytutum.com/en/product/beauty-fridge/",
+        "updatedAt": "2026-08-24"
+      }
+    }
+  ]
+}

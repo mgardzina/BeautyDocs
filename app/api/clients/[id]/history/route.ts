@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { prisma } from "@/lib/prisma";
+import { legacyDatabase } from "@/lib/legacy-database";
 import { auth } from "@/lib/auth";
 
 export async function GET(
@@ -15,7 +15,7 @@ export async function GET(
 
   try {
     // 1. Find all forms for this Client
-    const forms = await prisma.consentForm.findMany({
+    const forms = await legacyDatabase.consentForm.findMany({
       where: { clientId: id },
       select: { id: true }
     });
@@ -27,7 +27,7 @@ export async function GET(
     }
 
     // 2. Fetch history for all these forms
-    const history = await prisma.treatmentHistory.findMany({
+    const history = await legacyDatabase.treatmentHistory.findMany({
       where: { formId: { in: formIds } },
       orderBy: { date: "desc" },
     });
@@ -95,7 +95,7 @@ export async function POST(
     // 1. Find the MOST RECENT form for this client to attach history to
     let latestForm;
     try {
-      latestForm = await prisma.consentForm.findFirst({
+      latestForm = await legacyDatabase.consentForm.findFirst({
         where: { clientId: id },
         orderBy: { createdAt: "desc" }
       });
@@ -126,7 +126,7 @@ export async function POST(
     // 2. Create history entry attached to the latest form
     let newEntry;
     try {
-      newEntry = await prisma.treatmentHistory.create({
+      newEntry = await legacyDatabase.treatmentHistory.create({
         data: {
           formId: latestForm.id,
           date: parsedDate,

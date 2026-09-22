@@ -1,0 +1,23 @@
+# Isolated local tests: use with docker-compose.yml and project beautydocs-test.
+# Do not inherit host API provider credentials or external delivery settings.
+services:
+  api:
+    env_file: !reset []
+  app:
+    env_file: !reset []
+  nginx:
+    image: nginx:stable-alpine
+    profiles: ["edge-test"]
+    entrypoint: ["/bin/sh", "/etc/beautydocs-nginx/start.sh"]
+    ports:
+      - "127.0.0.1:8082:80"
+      - "127.0.0.1:8443:443"
+    volumes:
+      - ./docker/nginx:/etc/beautydocs-nginx:ro
+      - ${BEAUTYDOCS_TEST_EDGE_DIR:-/tmp/beautydocs-nginx-test}/certificates:/etc/letsencrypt:ro
+      - ${BEAUTYDOCS_TEST_EDGE_DIR:-/tmp/beautydocs-nginx-test}/acme:/var/www/certbot:ro
+    healthcheck:
+      test: ["CMD", "nginx", "-t"]
+      interval: 10s
+      timeout: 5s
+      retries: 5

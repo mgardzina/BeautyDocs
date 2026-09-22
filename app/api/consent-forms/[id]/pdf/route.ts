@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { prisma } from "@/lib/prisma";
+import { legacyDatabase } from "@/lib/legacy-database";
 import { auth } from "@/lib/auth";
 import { generateConsentFormPdf } from "@/lib/pdfGenerator";
 
@@ -22,7 +22,7 @@ export async function GET(
     const { id } = await params;
 
     // Pobierz formularz z bazy (pełne dane)
-    const form = await prisma.consentForm.findUnique({
+    const form = await legacyDatabase.consentForm.findUnique({
       where: { id },
     });
 

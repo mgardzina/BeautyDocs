@@ -8,8 +8,7 @@ import { Clock } from "lucide-react";
 export default function SessionTimeout() {
   const { data: session, status } = useSession();
   const pathname = usePathname();
-  const [timeLeft, setTimeLeft] = useState<string>("");
-  const [isCritical, setIsCritical] = useState(false);
+  const [minutesLeft, setMinutesLeft] = useState<number | null>(null);
 
   useEffect(() => {
     if (
@@ -20,48 +19,45 @@ export default function SessionTimeout() {
       return;
     }
 
-    const intervalId = setInterval(() => {
+    let expired = false;
+    const refresh = () => {
       const now = Date.now();
       const expires = new Date(session.expires).getTime();
       const diff = expires - now;
+      if (!Number.isFinite(diff)) return;
 
       if (diff <= 0) {
-        clearInterval(intervalId);
-        signOut({ callbackUrl: "/admin/login" });
+        if (!expired) {
+          expired = true;
+          void signOut({ callbackUrl: "/admin/login" });
+        }
         return;
       }
 
-      // Format HH:MM:SS
-      const hours = Math.floor(diff / (1000 * 60 * 60));
-      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-      const formatted = `${hours}:${minutes.toString().padStart(2, "0")}:${seconds
-        .toString()
-        .padStart(2, "0")}`;
-
-      setTimeLeft(formatted);
-      setIsCritical(diff < 5 * 60 * 1000); // Red color if less than 5 min
-    }, 1000);
+      setMinutesLeft(Math.ceil(diff / 60_000));
+    };
+    refresh();
+    const intervalId = setInterval(refresh, 1000);
 
     return () => clearInterval(intervalId);
   }, [session, status, pathname]);
 
-  if (status !== "authenticated" || pathname === "/admin/login" || !timeLeft) {
+  if (status !== "authenticated" || pathname === "/admin/login") {
     return null;
   }
 
   return (
     <div
-      className={`fixed top-4 right-4 z-[9999] px-4 py-2 rounded-full shadow-lg border backdrop-blur-md flex items-center gap-2 font-mono text-sm transition-colors ${
-        isCritical
-          ? "bg-red-500/90 border-red-600 text-white animate-pulse"
-          : "bg-white/80 border-[#d4cec4] text-[#4a4540]"
-      }`}
-      title="Czas do automatycznego wylogowania"
+      role="status"
+      aria-live="polite"
+      aria-atomic="true"
     >
-      <Clock className="w-4 h-4" />
-      <span>{timeLeft}</span>
+      {minutesLeft !== null && minutesLeft <= 5 ? (
+        <div className="flex items-center justify-center gap-2 border-b border-amber-300 bg-amber-50 px-4 py-3 text-sm text-amber-950">
+          <Clock aria-hidden="true" className="size-5 shrink-0" />
+          <span>Sesja wygaśnie za {minutesLeft} min. Zapisz rozpoczęte zmiany przed wylogowaniem.</span>
+        </div>
+      ) : null}
     </div>
   );
 }

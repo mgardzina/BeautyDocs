@@ -4,33 +4,88 @@
 
 @layer base {
   :root {
-    --background: 30 15% 93%; /* #F2EDE7 warm marble */
-    --foreground: 25 15% 15%; /* #2D2520 dark brown */
+    /* --- BeautyDocs cherry & cream (see docs/beautydocs-design-tokens.md) --- */
+    --background: 30 33% 98%; /* #f7f8f4 cream page */
+    --foreground: 326 11% 13%; /* #173d35 ink */
 
-    --card: 30 20% 97%; /* #FAF8F5 light card */
-    --card-foreground: 25 15% 15%; /* #2D2520 */
+    --card: 20 40% 99%; /* #fcfaf8 card surface */
+    --card-foreground: 326 11% 13%; /* #173d35 */
 
-    --popover: 30 20% 97%; /* #FAF8F5 */
-    --popover-foreground: 25 15% 15%; /* #2D2520 */
+    --popover: 20 40% 99%; /* #fcfaf8 */
+    --popover-foreground: 326 11% 13%; /* #173d35 */
 
-    --primary: 46 65% 52%; /* #D4AF37 Gold */
+    --primary: 343 27% 44%; /* #245c4d cherry */
     --primary-foreground: 0 0% 100%; /* #ffffff */
 
-    --secondary: 30 10% 90%; /* #E8E2DA light stone */
-    --secondary-foreground: 25 15% 15%; /* #2D2520 */
+    --secondary: 345 38% 91%; /* #eef3e7 cherry tint */
+    --secondary-foreground: 326 11% 13%; /* #173d35 */
 
-    --muted: 30 10% 90%; /* #E8E2DA */
-    --muted-foreground: 25 10% 45%; /* #7A6E62 warm muted */
+    --muted: 20 24% 95%; /* #f7f8f4 cream shell */
+    --muted-foreground: 338 8% 41%; /* #5a6b5a warm muted */
 
-    --accent: 46 65% 52%; /* #D4AF37 Gold */
-    --accent-foreground: 0 0% 100%; /* #ffffff */
+    --accent: 345 40% 94%; /* #f1f6e9 cherry tint */
+    --accent-foreground: 343 27% 44%; /* #245c4d cherry */
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 30 12% 80%; /* #D1C9BF marble border */
-    --input: 30 12% 80%; /* #D1C9BF */
-    --ring: 46 65% 52%; /* #D4AF37 Gold */
+    --border: 344 25% 79%; /* #cdd7c6 cherry border */
+    --input: 344 25% 79%; /* #cdd7c6 */
+    --ring: 343 27% 44%; /* #245c4d cherry */
+    --chart-1: 343 27% 44%;
+    --chart-2: 345 38% 68%;
+    --chart-3: 20 24% 70%;
+    --chart-4: 25 16% 46%;
+    --chart-5: 326 11% 20%;
+    --radius: 0.625rem;
+    --sidebar: 20 40% 99%;
+    --sidebar-foreground: 326 11% 13%;
+    --sidebar-primary: 343 27% 44%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 345 40% 94%;
+    --sidebar-accent-foreground: 343 27% 44%;
+    --sidebar-border: 344 25% 79%;
+    --sidebar-ring: 343 27% 44%;
+  }
+  .dark {
+    --background: 326 11% 13%;
+    --foreground: 30 33% 98%;
+    --card: 326 10% 17%;
+    --card-foreground: 30 33% 98%;
+    --popover: 326 10% 17%;
+    --popover-foreground: 30 33% 98%;
+    --primary: 345 38% 78%;
+    --primary-foreground: 326 11% 13%;
+    --secondary: 326 8% 24%;
+    --secondary-foreground: 30 33% 98%;
+    --muted: 326 8% 24%;
+    --muted-foreground: 20 12% 72%;
+    --accent: 343 18% 28%;
+    --accent-foreground: 30 33% 98%;
+    --destructive: 0 62.8% 45%;
+    --border: 326 8% 30%;
+    --input: 326 8% 30%;
+    --ring: 345 38% 78%;
+    --sidebar: 326 10% 17%;
+    --sidebar-foreground: 30 33% 98%;
+    --sidebar-primary: 345 38% 78%;
+    --sidebar-primary-foreground: 326 11% 13%;
+    --sidebar-accent: 343 18% 28%;
+    --sidebar-accent-foreground: 30 33% 98%;
+    --sidebar-border: 326 8% 30%;
+    --sidebar-ring: 345 38% 78%;
+  }
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  button:not(:disabled), [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+  html {
+    @apply font-sans;
   }
 }
 
@@ -38,42 +93,23 @@
   * {
     border-color: hsl(var(--border));
   }
-  body {
-    color: #2D2520;
+  html {
     font-family: theme('fontFamily.sans');
+  }
+  body {
+    color: #173d35; /* BeautyDocs ink */
+    font-family: inherit;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
-    /* Marble texture background */
-    background-color: #F2EDE7;
-    background-image:
-      /* Primary diagonal veins - warm cream */
-      linear-gradient(137deg,
-        transparent 0%, transparent 38%,
-        rgba(212, 200, 184, 0.4) 40%, rgba(225, 215, 200, 0.6) 42%,
-        rgba(212, 200, 184, 0.3) 44%, transparent 46%, transparent 100%),
-      /* Gold-tinted accent vein */
-      linear-gradient(295deg,
-        transparent 0%, transparent 52%,
-        rgba(212, 175, 55, 0.06) 54%, rgba(212, 175, 55, 0.1) 55%,
-        rgba(212, 175, 55, 0.06) 56%, transparent 58%, transparent 100%),
-      /* Secondary thin veins */
-      linear-gradient(82deg,
-        transparent 0%, transparent 28%,
-        rgba(200, 190, 175, 0.25) 29.5%, rgba(210, 200, 185, 0.35) 30.5%,
-        rgba(200, 190, 175, 0.2) 31.5%, transparent 33%, transparent 100%),
-      linear-gradient(205deg,
-        transparent 0%, transparent 63%,
-        rgba(195, 185, 170, 0.2) 64%, rgba(205, 195, 180, 0.3) 65%,
-        rgba(195, 185, 170, 0.15) 66%, transparent 67.5%, transparent 100%),
-      /* Subtle warm cloud texture */
-      radial-gradient(ellipse at 25% 35%, rgba(235, 225, 210, 0.5), transparent 55%),
-      radial-gradient(ellipse at 75% 65%, rgba(230, 220, 205, 0.4), transparent 50%),
-      radial-gradient(ellipse at 50% 50%, rgba(240, 232, 220, 0.3), transparent 70%);
-    background-attachment: fixed;
+    /* BeautyDocs cream page background */
+    background-color: #f7f8f4;
   }
   h1, h2, h3, h4, h5, h6 {
-    font-family: theme('fontFamily.serif');
+    font-family: inherit;
+  }
+  button, input, optgroup, select, textarea {
+    font-family: inherit;
   }
 }
 
@@ -83,21 +119,21 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #E8E2DA;
+  background: #f7f8f4;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #C4BAA8;
+  background: #cdd7c6;
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #D4AF37;
+  background: #245c4d;
 }
 
 /* Gold Text Gradient Utility */
 .text-gold-gradient {
-  background: linear-gradient(to right, #D4AF37, #F3E5AB, #D4AF37);
+  background: linear-gradient(to right, #d4af37, #f3e5ab, #d4af37);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -113,9 +149,233 @@
 
 /* Gold Glow Effect → refined shadow for light marble theme */
 .gold-glow {
-  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.15), 0 2px 8px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 20px rgba(212,175,55, 0.15), 0 2px 8px rgba(0,0,0, 0.06);
 }
 
 .gold-glow-sm {
-  box-shadow: 0 2px 12px rgba(212, 175, 55, 0.12), 0 1px 4px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 2px 12px rgba(212,175,55, 0.12), 0 1px 4px rgba(0,0,0, 0.04);
+}
+
+/* ============================================================
+   BeautyDocs marketing animations (scoped, bd- prefixed)
+   ============================================================ */
+
+/* Scroll reveal — element starts hidden/offset, .is-visible reveals it */
+.bd-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--bd-reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+.bd-reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Gentle floating for the hero product teaser */
+@keyframes bd-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+.bd-float {
+  animation: bd-float 6s ease-in-out infinite;
+}
+
+/* Soft pulsing glow behind the teaser */
+@keyframes bd-breathe {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1) rotate(2deg);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.04) rotate(2deg);
+  }
+}
+.bd-breathe {
+  animation: bd-breathe 8s ease-in-out infinite;
+}
+
+/* Slow drifting blobs in the hero background */
+@keyframes bd-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(20px, -18px, 0);
+  }
+}
+.bd-drift {
+  animation: bd-drift 14s ease-in-out infinite;
+}
+.bd-drift-slow {
+  animation: bd-drift 20s ease-in-out infinite reverse;
+}
+
+/* Sheen sweep across the wordmark on hover */
+@keyframes bd-shimmer {
+  to {
+    background-position: 200% center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bd-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .bd-float,
+  .bd-breathe,
+  .bd-drift,
+  .bd-drift-slow {
+    animation: none;
+  }
+}
+
+/* Successful-login celebration (checkmark pop + pulsing ring) */
+@keyframes bd-pop {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  55% {
+    transform: scale(1.18);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.bd-pop {
+  animation: bd-pop 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes bd-ring {
+  0% {
+    transform: scale(0.7);
+    opacity: 0.65;
+  }
+  100% {
+    transform: scale(2.1);
+    opacity: 0;
+  }
+}
+.bd-ring {
+  animation: bd-ring 1.2s ease-out infinite;
+}
+
+/* Light success mark used after account setup — no filled badge. */
+@keyframes bd-success-mark {
+  0% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.72) rotate(-7deg);
+  }
+  62% {
+    opacity: 1;
+    transform: translateY(-2px) scale(1.08) rotate(2deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotate(0deg);
+  }
+}
+
+@keyframes bd-success-check {
+  0%,
+  34% {
+    opacity: 0;
+    transform: scale(0.65);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes bd-success-sparkle {
+  0%,
+  100% {
+    opacity: 0.42;
+    transform: scale(0.82) rotate(-8deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.14) rotate(7deg);
+  }
+}
+
+.bd-success-mark {
+  animation: bd-success-mark 0.72s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.bd-success-check {
+  animation: bd-success-check 0.58s 0.12s cubic-bezier(0.16, 1, 0.3, 1) both;
+  filter: drop-shadow(0 8px 14px rgb(82 122 52 / 18%));
+}
+
+.bd-success-sparkle {
+  animation: bd-success-sparkle 1.8s 0.35s ease-in-out infinite;
+}
+
+.bd-success-sparkle-delay {
+  animation-delay: 0.9s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bd-pop {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  .bd-ring {
+    animation: none;
+    opacity: 0;
+  }
+  .bd-success-mark,
+  .bd-success-check,
+  .bd-success-sparkle {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Immediate press feedback shared by custom controls as well as UI primitives. */
+@layer base {
+  button:not(:disabled):active, [role="button"]:not([aria-disabled="true"]):active {
+    filter: brightness(0.92);
+  }
+}
+
+@media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
+  .bd-dialog-overlay { backdrop-filter: none; background: rgb(36 29 33 / 80%); }
+  header[class*="backdrop-blur"] { backdrop-filter: none; background: #fcfaf8; }
+}
+@media (prefers-contrast: more) {
+  .bd-dialog-content { outline: 2px solid #173d35; }
+}
+@media (pointer: coarse) {
+  .bd-calendar-day { min-width: 2.75rem; min-height: 2.75rem; }
+  .bd-calendar-months { grid-template-columns: repeat(auto-fit, minmax(min(100%, 21rem), 1fr)); }
+}
+
+/* Keep keyboard focus visible even on custom controls with outline-none. */
+button:focus-visible, summary:focus-visible, a:focus-visible {
+  outline: 2px solid #245c4d;
+  outline-offset: 3px;
+}
+
+@media (pointer: coarse) {
+  [data-slot="button"], [data-slot="input"] { min-height: 2.75rem; }
+  [data-slot="button"][data-size^="icon"] { min-width: 2.75rem; }
 }

@@ -1,15 +1,22 @@
 import { NextResponse } from "next/server";
-import { prisma } from "@/lib/prisma";
+import { legacyDatabase } from "@/lib/legacy-database";
+import { auth } from "@/lib/auth";
 
 // GET - Lista notatek klientki
 export async function GET(
   request: Request,
   { params }: { params: Promise<{ id: string }> }
 ) {
+  const session = await auth();
+
+  if (!session) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
   try {
     const { id } = await params;
 
-    const notes = await prisma.clientNote.findMany({
+    const notes = await legacyDatabase.clientNote.findMany({
       where: { clientId: id },
       orderBy: { createdAt: "desc" },
     });
@@ -29,6 +36,12 @@ export async function POST(
   request: Request,
   { params }: { params: Promise<{ id: string }> }
 ) {
+  const session = await auth();
+
+  if (!session) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
   try {
     const { id } = await params;
     const body = await request.json();
@@ -46,7 +59,7 @@ export async function POST(
       ? body.category
       : "NOTATKA";
 
-    const note = await prisma.clientNote.create({
+    const note = await legacyDatabase.clientNote.create({
       data: {
         content: body.content.trim(),
         category,

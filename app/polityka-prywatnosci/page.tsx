@@ -1,204 +1,293 @@
-"use client";
-
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
 import { SALON_CONFIG } from "@/app/config/salon";
-import BackButton from "@/app/components/BackButton";
-import { useRouter } from "next/navigation";
+import {
+  BeautyDocsLegalPage,
+  type BeautyDocsLegalSection,
+} from "@/components/beautydocs/legal/BeautyDocsLegalPage";
+
+const privacySections: readonly BeautyDocsLegalSection[] = [
+  {
+    id: "administrator-i-role",
+    title: "Administrator danych i role BeautyDocs",
+    content: (
+      <>
+        <p>
+          Operatorem platformy BeautyDocs i administratorem danych związanych z
+          kontem użytkownika, bezpieczeństwem serwisu, rozliczeniami oraz kontaktem
+          dotyczącym platformy jest <strong>{SALON_CONFIG.fullName}</strong>, adres: {" "}
+          {SALON_CONFIG.address}, {SALON_CONFIG.zipCode} {SALON_CONFIG.city}, NIP: {" "}
+          {SALON_CONFIG.nip}.
+        </p>
+        <p>
+          W odniesieniu do dokumentacji klientek salonu — w szczególności wywiadów,
+          informacji o zdrowiu, zgód, zdjęć i historii zabiegów — administratorem
+          danych jest wybrany salon. BeautyDocs udostępnia mu narzędzie i przetwarza
+          te dane na jego udokumentowane polecenie, zgodnie z umową powierzenia.
+        </p>
+        <p>
+          Pytania dotyczące samego zabiegu, podstawy przechowywania dokumentacji lub
+          decyzji personelu należy kierować bezpośrednio do salonu. Pytania dotyczące
+          konta BeautyDocs można wysłać na {" "}
+          <a href={`mailto:${SALON_CONFIG.email}`}>{SALON_CONFIG.email}</a>.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: "zakres-danych",
+    title: "Jakie dane przetwarzamy",
+    content: (
+      <>
+        <p>Zakres danych zależy od sposobu korzystania z BeautyDocs i może obejmować:</p>
+        <ul>
+          <li>dane konta: imię, nazwisko, adres e-mail, numer telefonu i data urodzenia;</li>
+          <li>
+            dane salonu i zespołu: firma, NIP, REGON, KRS, adres, stanowisko, role i
+            uprawnienia;
+          </li>
+          <li>
+            dane wizyt i komunikacji: terminy, wybrany zabieg, wiadomości oraz
+            powiadomienia;
+          </li>
+          <li>
+            dokumentację przekazaną salonowi: odpowiedzi w formularzach, dane o
+            zdrowiu, zgody, podpisy, zdjęcia i informacje pozabiegowe;
+          </li>
+          <li>
+            dane techniczne i bezpieczeństwa: adres IP, identyfikatory sesji,
+            informacje o urządzeniu, logi dostępu oraz rejestr istotnych operacji.
+          </li>
+        </ul>
+        <p>
+          Nie wymagamy podawania danych, które nie są potrzebne do utworzenia konta,
+          realizacji wybranej funkcji lub spełnienia obowiązku prawnego.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: "cele-i-podstawy",
+    title: "Cele i podstawy przetwarzania",
+    content: (
+      <>
+        <p>Dane przetwarzamy, gdy jest to potrzebne do:</p>
+        <ul>
+          <li>
+            utworzenia i obsługi konta, udostępnienia kalendarza, formularzy, czatu i
+            innych funkcji — w celu wykonania umowy lub podjęcia działań przed jej
+            zawarciem;
+          </li>
+          <li>
+            uwierzytelnienia użytkownika, ochrony kont, zapobiegania nadużyciom,
+            obsługi błędów i dochodzenia roszczeń — na podstawie prawnie uzasadnionego
+            interesu;
+          </li>
+          <li>
+            realizacji obowiązków podatkowych, księgowych lub wynikających z żądania
+            uprawnionego organu — na podstawie obowiązku prawnego;
+          </li>
+          <li>
+            wysyłania dobrowolnej komunikacji marketingowej lub korzystania z
+            opcjonalnych technologii — na podstawie zgody, którą można wycofać.
+          </li>
+        </ul>
+        <p>
+          Podstawę przetwarzania danych szczególnej kategorii zawartych w dokumentacji
+          zabiegowej określa salon jako administrator. BeautyDocs nie wykorzystuje
+          tych informacji do reklamy ani do samodzielnego profilowania klientek.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: "zrodla-danych",
+    title: "Skąd otrzymujemy dane",
+    content: (
+      <>
+        <p>
+          Dane otrzymujemy bezpośrednio od użytkownika, od salonu, z którym użytkownik
+          jest powiązany, albo automatycznie podczas korzystania z platformy. Dane
+          firmy mogą zostać uzupełnione na podstawie publicznych rejestrów, jeśli
+          użytkownik skorzysta z funkcji pobrania danych po numerze NIP.
+        </p>
+        <p>
+          Salon może udostępnić klientce formularz lub powiązać istniejącą kartotekę z
+          jej kontem. Przed pokazaniem dokumentów stosujemy mechanizmy weryfikacji
+          przewidziane w aplikacji.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: "odbiorcy",
+    title: "Odbiorcy i dostawcy usług",
+    content: (
+      <>
+        <p>
+          Dostęp do danych otrzymują wyłącznie osoby i podmioty, które potrzebują go
+          do świadczenia usługi. Mogą to być upoważnieni członkowie zespołu salonu,
+          dostawcy infrastruktury chmurowej i kopii zapasowych, komunikacji e-mail i
+          SMS, uwierzytelniania, obsługi technicznej oraz doradcy związani obowiązkiem
+          poufności.
+        </p>
+        <p>
+          Dostawcy działają na podstawie odpowiednich umów. Nie sprzedajemy danych
+          osobowych ani dokumentacji zabiegowej. Informacje mogą zostać udostępnione
+          organom publicznym wyłącznie, gdy wynika to z prawa.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: "transfery",
+    title: "Przekazywanie danych poza EOG",
+    content: (
+      <>
+        <p>
+          W pierwszej kolejności wybieramy przetwarzanie danych w Europejskim Obszarze
+          Gospodarczym. Jeżeli dostawca techniczny wymaga przekazania danych poza EOG,
+          stosujemy mechanizm dopuszczony przez RODO, taki jak decyzja stwierdzająca
+          odpowiedni stopień ochrony lub standardowe klauzule umowne, a także
+          oceniamy potrzebę dodatkowych zabezpieczeń.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: "retencja",
+    title: "Jak długo przechowujemy dane",
+    content: (
+      <>
+        <p>
+          Samo zamknięcie salonu nie usuwa konta jego właściciela. Dostęp do salonu
+          i jego formularzy publicznych wyłączamy niezwłocznie, a dane operacyjne,
+          które nie są potrzebne do rozliczeń, obowiązków prawnych ani ochrony przed
+          roszczeniami, usuwamy lub anonimizujemy bez zbędnej zwłoki. Usunięcie konta
+          użytkownika jest osobną dyspozycją.
+        </p>
+        <p>
+          Okres przechowywania dokumentacji klientki określa salon zgodnie z rodzajem
+          świadczonych usług, podstawą prawną i własnymi obowiązkami. Po zakończeniu
+          współpracy z salonem dane są zwracane lub usuwane zgodnie z umową powierzenia,
+          z uwzględnieniem kopii zapasowych, terminów przedawnienia roszczeń i
+          obowiązującego prawa. Okres 28 dni ani 2 miesięcy nie jest ogólnym minimalnym
+          terminem wynikającym z RODO.
+        </p>
+        <p>
+          Jeżeli salon jest podmiotem udzielającym świadczeń zdrowotnych, dokumentacja
+          medyczna może podlegać szczególnym terminom ustawowym, co do zasady 20 lat od
+          końca roku ostatniego wpisu. Zwykły formularz zabiegu kosmetycznego nie staje
+          się jednak automatycznie dokumentacją medyczną tylko dlatego, że zawiera dane
+          o zdrowiu.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: "prawa",
+    title: "Twoje prawa",
+    content: (
+      <>
+        <p>
+          W zależności od podstawy i okoliczności przysługuje Ci prawo dostępu do
+          danych, sprostowania, usunięcia, ograniczenia przetwarzania, przenoszenia
+          danych, wniesienia sprzeciwu oraz wycofania zgody bez wpływu na zgodność z
+          prawem wcześniejszego przetwarzania.
+        </p>
+        <p>
+          Żądanie dotyczące konta BeautyDocs wyślij na {" "}
+          <a href={`mailto:${SALON_CONFIG.email}`}>{SALON_CONFIG.email}</a>. Jeżeli
+          żądanie dotyczy dokumentacji zabiegowej, możesz zwrócić się do salonu,
+          który jest jej administratorem. Pomożemy salonowi w technicznej realizacji
+          praw osoby, której dane dotyczą.
+        </p>
+        <p>
+          Masz również prawo złożyć skargę do Prezesa Urzędu Ochrony Danych Osobowych.
+          Aktualne informacje znajdziesz na {" "}
+          <Link href="https://uodo.gov.pl/" rel="noreferrer" target="_blank">
+            stronie UODO
+          </Link>.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: "bezpieczenstwo",
+    title: "Bezpieczeństwo i integralność dokumentów",
+    content: (
+      <>
+        <p>
+          Stosujemy środki adekwatne do ryzyka, w tym kontrolę dostępu według ról,
+          izolację danych salonów, bezpieczne sesje, możliwość włączenia weryfikacji
+          dwuetapowej, rejestrowanie istotnych operacji oraz zabezpieczenia kopii
+          zapasowych i transmisji danych.
+        </p>
+        <p>
+          Dla podpisanych dokumentów platforma utrwala wersję formularza, czas
+          operacji i mechanizmy potwierdzające integralność. Żaden system nie usuwa
+          jednak całkowicie ryzyka, dlatego monitorujemy zdarzenia i aktualizujemy
+          zabezpieczenia.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: "cookies",
+    title: "Pliki cookies i technologie lokalne",
+    content: (
+      <>
+        <p>
+          Niezbędne pliki cookies służą utrzymaniu sesji, zapamiętaniu ustawień
+          bezpieczeństwa i prawidłowemu działaniu platformy. Opcjonalne technologie
+          analityczne lub marketingowe mogą być uruchamiane dopiero na podstawie
+          właściwej zgody, jeśli zostaną wdrożone.
+        </p>
+        <p>
+          Ustawieniami można zarządzać w banerze cookies oraz w przeglądarce.
+          Wyłączenie niezbędnych plików może uniemożliwić logowanie lub korzystanie z
+          części funkcji.
+        </p>
+      </>
+    ),
+  },
+  {
+    id: "zmiany-i-kontakt",
+    title: "Zmiany polityki i kontakt",
+    content: (
+      <>
+        <p>
+          Polityka może być aktualizowana wraz z rozwojem platformy, zmianą dostawców
+          lub przepisów. O istotnych zmianach poinformujemy w aplikacji albo na adres
+          e-mail przypisany do konta, z odpowiednim wyprzedzeniem, gdy będzie to
+          wymagane.
+        </p>
+        <p>
+          Kontakt w sprawach prywatności: {" "}
+          <a href={`mailto:${SALON_CONFIG.email}`}>{SALON_CONFIG.email}</a>, tel. {" "}
+          <a href={`tel:+48${SALON_CONFIG.phone.replace(/\s/g, "")}`}>
+            +48 {SALON_CONFIG.phone}
+          </a>.
+        </p>
+      </>
+    ),
+  },
+] as const;
 
 export default function PolitykaPrywatnosciPage() {
-  const router = useRouter();
   return (
-    <div className="min-h-screen">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-emerald backdrop-blur-sm border-b border-brand/20 shadow-marble">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-24">
-            <Link href="/" className="flex items-center">
-              <h1 className="text-xl md:text-3xl font-serif font-light text-marble-text tracking-widest uppercase">
-                {SALON_CONFIG.name}
-              </h1>
-            </Link>
-            <BackButton onClick={() => router.push("/")} />
-          </div>
-        </div>
-      </nav>
-
-      {/* Header */}
-      <section className="pt-40 pb-12 px-4 border-b border-marble-border">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-serif font-light text-marble-text mb-4 tracking-wider uppercase">
-            POLITYKA PRYWATNOŚCI
-          </h1>
-          <p className="text-sm text-marble-textSecondary font-light italic">
-            Ostatnia aktualizacja: Styczeń 2026
-          </p>
-        </div>
-      </section>
-
-      {/* Content */}
-      <section className="py-16 px-4">
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-gradient-emerald backdrop-blur-sm p-8 md:p-12 space-y-8 rounded-2xl shadow-marble-lg border border-brand/20">
-            <div>
-              <h2 className="text-xl font-serif font-light text-brand mb-4 tracking-wider uppercase">
-                §1. Administrator danych
-              </h2>
-              <p className="text-ui-textSecondary font-light leading-relaxed">
-                Administratorem Twoich danych osobowych jest {SALON_CONFIG.name}{" "}
-                - {SALON_CONFIG.owner}, z siedzibą przy {SALON_CONFIG.address},
-                NIP:{SALON_CONFIG.nip}. Kontakt z administratorem możliwy jest
-                pod adresem email: {SALON_CONFIG.email} lub telefonicznie:{" "}
-                {SALON_CONFIG.phone}.
-              </p>
-            </div>
-
-            <div>
-              <h2 className="text-xl font-serif font-light text-brand mb-4 tracking-wider uppercase">
-                §2. Cele przetwarzania danych
-              </h2>
-              <p className="text-ui-textSecondary font-light leading-relaxed mb-4">
-                Twoje dane osobowe przetwarzamy w następujących celach:
-              </p>
-              <ul className="list-disc list-inside text-ui-textSecondary font-light space-y-2 ml-4">
-                <li>Realizacja rezerwacji i umówienie wizyty</li>
-                <li>Kontakt w sprawie potwierdzenia terminu</li>
-                <li>Przeprowadzenie wywiadu zdrowotnego przed zabiegiem</li>
-                <li>Wysyłanie informacji marketingowych (za zgodą)</li>
-                <li>Prowadzenie dokumentacji zabiegów</li>
-              </ul>
-            </div>
-
-            <div>
-              <h2 className="text-xl font-serif font-light text-brand mb-4 tracking-wider uppercase">
-                §3. Zakres przetwarzanych danych
-              </h2>
-              <p className="text-ui-textSecondary font-light leading-relaxed mb-4">
-                W celu realizacji usług przetwarzamy następujące kategorie
-                danych:
-              </p>
-              <ul className="list-disc list-inside text-ui-textSecondary font-light space-y-2 ml-4">
-                <li>Dane identyfikacyjne (imię, nazwisko, data urodzenia)</li>
-                <li>
-                  Dane kontaktowe (adres zamieszkania, numer telefonu, adres
-                  e-mail)
-                </li>
-                <li>
-                  Dane o stanie zdrowia (informacje o alergiach, chorobach,
-                  przyjmowanych lekach, przebytych zabiegach - tzw. dane
-                  szczególnej kategorii, niezbędne do bezpiecznego wykonania
-                  usługi)
-                </li>
-                <li>Wizerunek (zdjęcia dokumentujące efekty zabiegu)</li>
-                <li>Dane transakcyjne (historia płatności)</li>
-              </ul>
-            </div>
-
-            <div>
-              <h2 className="text-xl font-serif font-light text-brand mb-4 tracking-wider uppercase">
-                §4. Podstawa prawna
-              </h2>
-              <p className="text-ui-textSecondary font-light leading-relaxed">
-                Przetwarzanie danych odbywa się na podstawie: Twojej zgody (art.
-                6 ust. 1 lit. a RODO), wykonania umowy (art. 6 ust. 1 lit. b
-                RODO), wypełnienia obowiązku prawnego (art. 6 ust. 1 lit. c
-                RODO) oraz prawnie uzasadnionego interesu administratora (art. 6
-                ust. 1 lit. f RODO).
-              </p>
-            </div>
-
-            <div>
-              <h2 className="text-xl font-serif font-light text-brand mb-4 tracking-wider uppercase">
-                §5. Okres przechowywania
-              </h2>
-              <p className="text-ui-textSecondary font-light leading-relaxed">
-                Dane osobowe przechowujemy przez okres niezbędny do realizacji
-                celów, dla których zostały zebrane, a następnie przez okres
-                wymagany przepisami prawa (dokumentacja medyczna - 20 lat,
-                dokumentacja księgowa - 5 lat).
-              </p>
-            </div>
-
-            <div>
-              <h2 className="text-xl font-serif font-light text-brand mb-4 tracking-wider uppercase">
-                §6. Twoje prawa
-              </h2>
-              <p className="text-ui-textSecondary font-light leading-relaxed mb-4">
-                Przysługują Ci następujące prawa:
-              </p>
-              <ul className="list-disc list-inside text-ui-textSecondary font-light space-y-2 ml-4">
-                <li>Prawo dostępu do swoich danych</li>
-                <li>Prawo do sprostowania danych</li>
-                <li>
-                  Prawo do usunięcia danych ("prawo do bycia zapomnianym")
-                </li>
-                <li>Prawo do ograniczenia przetwarzania</li>
-                <li>Prawo do przenoszenia danych</li>
-                <li>Prawo do wniesienia sprzeciwu</li>
-                <li>Prawo do cofnięcia zgody w dowolnym momencie</li>
-                <li>Prawo do wniesienia skargi do organu nadzorczego (UODO)</li>
-              </ul>
-            </div>
-
-            <div>
-              <h2 className="text-xl font-serif font-light text-brand mb-4 tracking-wider uppercase">
-                §7. Odbiorcy danych
-              </h2>
-              <p className="text-ui-textSecondary font-light leading-relaxed">
-                Twoje dane mogą być przekazywane podmiotom świadczącym usługi na
-                rzecz administratora: hostingodawcy, dostawcy systemu
-                rezerwacji, dostawcy usług email. Dane nie są przekazywane do
-                państw trzecich.
-              </p>
-            </div>
-
-            <div>
-              <h2 className="text-xl font-serif font-light text-brand mb-4 tracking-wider uppercase">
-                §8. Pliki cookies
-              </h2>
-              <p className="text-ui-textSecondary font-light leading-relaxed">
-                Strona wykorzystuje pliki cookies w celu zapewnienia
-                prawidłowego działania, analizy ruchu oraz personalizacji
-                treści. Możesz zarządzać ustawieniami cookies w swojej
-                przeglądarce.
-              </p>
-            </div>
-
-            <div>
-              <h2 className="text-xl font-serif font-light text-brand mb-4 tracking-wider uppercase">
-                §9. Kontakt
-              </h2>
-              <p className="text-ui-textSecondary font-light leading-relaxed">
-                W sprawach związanych z ochroną danych osobowych możesz
-                skontaktować się z nami pod adresem: {SALON_CONFIG.email} lub
-                telefonicznie: {SALON_CONFIG.phone}.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-gradient-emerald text-marble-text py-16 border-t border-brand/20 shadow-marble">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="mb-6 md:mb-0 text-center md:text-left">
-              <span className="text-xl font-serif font-light tracking-widest uppercase">
-                {SALON_CONFIG.name}
-              </span>
-              <p className="text-xs text-ui-textSecondary mt-3 font-light tracking-wider uppercase">
-                Profesjonalny makijaż permanentny
-              </p>
-            </div>
-            <div className="text-center md:text-right">
-              <p className="text-xs text-ui-textSecondary font-light tracking-wider italic">
-                © {new Date().getFullYear()} {SALON_CONFIG.name}. Wszystkie
-                prawa zastrzeżone.
-              </p>
-            </div>
-          </div>
-        </div>
-      </footer>
-    </div>
+    <BeautyDocsLegalPage
+      activeDocument="privacy"
+      description="Wyjaśniamy, jakie dane przetwarza platforma BeautyDocs, kiedy administratorem jest salon oraz jak możesz korzystać ze swoich praw."
+      lastUpdated="15 sierpnia 2026 r."
+      notice={
+        <p>
+          <strong>Najważniejsze rozróżnienie:</strong> BeautyDocs odpowiada za dane
+          Twojego konta i działanie platformy. W zakresie dokumentacji zabiegowej
+          administratorem danych pozostaje salon, któremu ją przekazujesz.
+        </p>
+      }
+      sections={privacySections}
+      title="Polityka prywatności"
+    />
   );
 }

@@ -1,0 +1,1358 @@
+{
+  "source": "https://makeup.pl/categorys/20273/",
+  "reviewedAt": "2026-08-23",
+  "count": 20,
+  "scope": "Wybrana seria popularnych kosmetyków do pielęgnacji twarzy",
+  "products": [
+    {
+      "id": "584938",
+      "slug": "584938-nivea-cellular-luminous630",
+      "name": "NIVEA Cellular Luminous630®",
+      "brand": "NIVEA",
+      "summary": "Zaawansowane serum – kuracja na przebarwienia",
+      "presentation": "30 ml",
+      "productCategory": "Kosmetyk pielęgnacyjny",
+      "productFamily": "Serum do twarzy",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Odbudowa",
+        "Wyrównywanie kolorytu"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Pielęgnacja domowa",
+        "Nawilżanie",
+        "Przebarwienia i koloryt"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Alkohol",
+        "Gliceryna",
+        "Kwas hialuronowy",
+        "Witamina C",
+        "Witamina E"
+      ],
+      "skinTypes": [
+        "Każdy rodzaj"
+      ],
+      "aliases": [
+        "NIVEA",
+        "Zaawansowane serum – kuracja na przebarwienia",
+        "NIVEA Cellular Luminous630"
+      ],
+      "sourceUrl": "https://makeup.pl/product/584938/",
+      "imagePath": "/beautydocs/catalog/makeup/584938-1.png",
+      "imageAlt": "NIVEA Cellular Luminous630® — zdjęcie 1 z oferty MAKEUP",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/makeup/584938-2.png",
+          "alt": "NIVEA Cellular Luminous630® — zdjęcie 2 z oferty MAKEUP",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/makeup/584938-3.png",
+          "alt": "NIVEA Cellular Luminous630® — zdjęcie 3 z oferty MAKEUP",
+          "label": "Zdjęcie 3",
+          "fit": "cover"
+        }
+      ],
+      "offer": {
+        "seller": "MAKEUP — 30 ml",
+        "pricePln": 48.39,
+        "shippingPricePln": null,
+        "availability": "IN_STOCK",
+        "url": "https://makeup.pl/product/584938/",
+        "sourceType": "MARKETPLACE",
+        "updatedAt": "2026-08-23"
+      }
+    },
+    {
+      "id": "936689",
+      "slug": "936689-nivea-cellular-luminous630-zestaw",
+      "name": "NIVEA Cellular Luminous630 – zestaw",
+      "brand": "NIVEA",
+      "summary": "Zestaw do pielęgnacji twarzy",
+      "presentation": "fluid 40 ml + serum 30 ml",
+      "productCategory": "Kosmetyk pielęgnacyjny",
+      "productFamily": "Zestaw do pielęgnacji twarzy",
+      "manufacturerUses": [
+        "Odbudowa",
+        "Rozjaśnianie",
+        "Wyrównywanie kolorytu"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Pielęgnacja domowa",
+        "Przebarwienia i koloryt"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Gliceryna",
+        "Kwas hialuronowy",
+        "Witamina C",
+        "Witamina E"
+      ],
+      "skinTypes": [
+        "Każdy rodzaj"
+      ],
+      "aliases": [
+        "NIVEA",
+        "Zestaw do pielęgnacji twarzy",
+        "NIVEA Cellular Luminous630 – zestaw"
+      ],
+      "sourceUrl": "https://makeup.pl/product/936689/",
+      "imagePath": "/beautydocs/catalog/makeup/936689-1.png",
+      "imageAlt": "NIVEA Cellular Luminous630 – zestaw — zdjęcie 1 z oferty MAKEUP",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/makeup/936689-2.png",
+          "alt": "NIVEA Cellular Luminous630 – zestaw — zdjęcie 2 z oferty MAKEUP",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/makeup/936689-3.png",
+          "alt": "NIVEA Cellular Luminous630 – zestaw — zdjęcie 3 z oferty MAKEUP",
+          "label": "Zdjęcie 3",
+          "fit": "cover"
+        }
+      ],
+      "offer": {
+        "seller": "MAKEUP — fluid 40 ml + serum 30 ml",
+        "pricePln": 92.39,
+        "shippingPricePln": null,
+        "availability": "IN_STOCK",
+        "url": "https://makeup.pl/product/936689/",
+        "sourceType": "MARKETPLACE",
+        "updatedAt": "2026-08-23"
+      }
+    },
+    {
+      "id": "341003",
+      "slug": "341003-mixa-hyalurogel-moisturizing-face-cream",
+      "name": "Mixa Hyalurogel Moisturizing Face Cream",
+      "brand": "Mixa",
+      "summary": "Nawilżający krem do twarzy",
+      "presentation": "50 ml",
+      "productCategory": "Kosmetyk pielęgnacyjny",
+      "productFamily": "Krem do twarzy",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Ukojenie"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Pielęgnacja domowa",
+        "Nawilżanie",
+        "Skóra wrażliwa i reaktywna"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Gliceryna",
+        "Kwas hialuronowy",
+        "Masło Shea"
+      ],
+      "skinTypes": [
+        "Sucha",
+        "Wrażliwa"
+      ],
+      "aliases": [
+        "Mixa",
+        "Nawilżający krem do twarzy",
+        "Mixa Hyalurogel Moisturizing Face Cream"
+      ],
+      "sourceUrl": "https://makeup.pl/product/341003/",
+      "imagePath": "/beautydocs/catalog/makeup/341003-1.png",
+      "imageAlt": "Mixa Hyalurogel Moisturizing Face Cream — zdjęcie 1 z oferty MAKEUP",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/makeup/341003-2.png",
+          "alt": "Mixa Hyalurogel Moisturizing Face Cream — zdjęcie 2 z oferty MAKEUP",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/makeup/341003-3.png",
+          "alt": "Mixa Hyalurogel Moisturizing Face Cream — zdjęcie 3 z oferty MAKEUP",
+          "label": "Zdjęcie 3",
+          "fit": "cover"
+        }
+      ],
+      "offer": {
+        "seller": "MAKEUP — 50 ml",
+        "pricePln": 30.52,
+        "shippingPricePln": null,
+        "availability": "IN_STOCK",
+        "url": "https://makeup.pl/product/341003/",
+        "sourceType": "MARKETPLACE",
+        "updatedAt": "2026-08-23"
+      }
+    },
+    {
+      "id": "684600",
+      "slug": "684600-lancome-renergie-h-c-f-triple-serum",
+      "name": "Lancôme Rénergie H.C.F. Triple Serum",
+      "brand": "Lancôme",
+      "summary": "Przeciwstarzeniowe serum do twarzy o potrójnym działaniu",
+      "presentation": "20 ml / 50 ml",
+      "productCategory": "Kosmetyk pielęgnacyjny",
+      "productFamily": "Serum do twarzy",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Odbudowa",
+        "Przeciw starzeniu",
+        "Wyrównywanie kolorytu"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Pielęgnacja domowa",
+        "Nawilżanie",
+        "Przebarwienia i koloryt",
+        "Pielęgnacja pro-aging"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwas ferulowy",
+        "Kwas salicylowy",
+        "Niacynamid",
+        "Witamina C",
+        "Witamina E"
+      ],
+      "skinTypes": [
+        "Każdy rodzaj"
+      ],
+      "aliases": [
+        "Lancôme",
+        "Przeciwstarzeniowe serum do twarzy o potrójnym działaniu",
+        "Lancôme Rénergie H.C.F. Triple Serum"
+      ],
+      "sourceUrl": "https://makeup.pl/product/684600/",
+      "imagePath": "/beautydocs/catalog/makeup/684600-1.jpg",
+      "imageAlt": "Lancôme Rénergie H.C.F. Triple Serum — zdjęcie 1 z oferty MAKEUP",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/makeup/684600-2.jpg",
+          "alt": "Lancôme Rénergie H.C.F. Triple Serum — zdjęcie 2 z oferty MAKEUP",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/makeup/684600-3.png",
+          "alt": "Lancôme Rénergie H.C.F. Triple Serum — zdjęcie 3 z oferty MAKEUP",
+          "label": "Zdjęcie 3",
+          "fit": "cover"
+        }
+      ],
+      "offer": {
+        "seller": "MAKEUP — 20 ml / 50 ml",
+        "pricePln": 243.0,
+        "shippingPricePln": null,
+        "availability": "IN_STOCK",
+        "url": "https://makeup.pl/product/684600/",
+        "sourceType": "MARKETPLACE",
+        "updatedAt": "2026-08-23"
+      }
+    },
+    {
+      "id": "93649",
+      "slug": "93649-la-roche-posay-effaclar-duo-m",
+      "name": "La Roche-Posay Effaclar Duo+M",
+      "brand": "La Roche-Posay",
+      "summary": "Krem przeciw niedoskonałościom, przebarwieniom potrądzikowym i nawrotom",
+      "presentation": "40 ml",
+      "productCategory": "Kosmetyk pielęgnacyjny",
+      "productFamily": "Krem do twarzy",
+      "manufacturerUses": [
+        "Przeciw trądzikowi",
+        "Przeciw wągrom",
+        "Przeciw zapaleniom"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Pielęgnacja domowa",
+        "Przebarwienia i koloryt",
+        "Skóra trądzikowa i niedoskonałości"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Ceramidy",
+        "Cynk PCA",
+        "Kwas salicylowy",
+        "Niacynamid"
+      ],
+      "skinTypes": [
+        "Problematyczna",
+        "Tłusta",
+        "Wrażliwa"
+      ],
+      "aliases": [
+        "La Roche-Posay",
+        "Krem przeciw niedoskonałościom, przebarwieniom potrądzikowym i nawrotom",
+        "La Roche-Posay Effaclar Duo+M"
+      ],
+      "sourceUrl": "https://makeup.pl/product/93649/",
+      "imagePath": "/beautydocs/catalog/makeup/93649-1.jpg",
+      "imageAlt": "La Roche-Posay Effaclar Duo+M — zdjęcie 1 z oferty MAKEUP",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/makeup/93649-2.jpg",
+          "alt": "La Roche-Posay Effaclar Duo+M — zdjęcie 2 z oferty MAKEUP",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/makeup/93649-3.jpg",
+          "alt": "La Roche-Posay Effaclar Duo+M — zdjęcie 3 z oferty MAKEUP",
+          "label": "Zdjęcie 3",
+          "fit": "cover"
+        }
+      ],
+      "offer": {
+        "seller": "MAKEUP — 40 ml",
+        "pricePln": 44.27,
+        "shippingPricePln": null,
+        "availability": "IN_STOCK",
+        "url": "https://makeup.pl/product/93649/",
+        "sourceType": "MARKETPLACE",
+        "updatedAt": "2026-08-23"
+      }
+    },
+    {
+      "id": "225407",
+      "slug": "225407-l-oreal-paris-revitalift-filler-night-cream",
+      "name": "L'Oréal Paris Revitalift Filler Night Cream",
+      "brand": "L'Oréal Paris",
+      "summary": "Przeciwstarzeniowy krem na noc z kwasem hialuronowym",
+      "presentation": "50 ml",
+      "productCategory": "Kosmetyk pielęgnacyjny",
+      "productFamily": "Krem do twarzy",
+      "manufacturerUses": [
+        "Odżywianie",
+        "Przeciw starzeniu"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Pielęgnacja domowa",
+        "Pielęgnacja pro-aging"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Gliceryna",
+        "Kofeina",
+        "Kwas hialuronowy",
+        "Witamina E"
+      ],
+      "skinTypes": [
+        "Każdy rodzaj"
+      ],
+      "aliases": [
+        "L'Oréal Paris",
+        "Przeciwstarzeniowy krem na noc z kwasem hialuronowym",
+        "L'Oréal Paris Revitalift Filler Night Cream"
+      ],
+      "sourceUrl": "https://makeup.pl/product/225407/",
+      "imagePath": "/beautydocs/catalog/makeup/225407-1.png",
+      "imageAlt": "L'Oréal Paris Revitalift Filler Night Cream — zdjęcie 1 z oferty MAKEUP",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/makeup/225407-2.png",
+          "alt": "L'Oréal Paris Revitalift Filler Night Cream — zdjęcie 2 z oferty MAKEUP",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/makeup/225407-3.jpg",
+          "alt": "L'Oréal Paris Revitalift Filler Night Cream — zdjęcie 3 z oferty MAKEUP",
+          "label": "Zdjęcie 3",
+          "fit": "cover"
+        }
+      ],
+      "offer": {
+        "seller": "MAKEUP — 50 ml",
+        "pricePln": 42.76,
+        "shippingPricePln": null,
+        "availability": "IN_STOCK",
+        "url": "https://makeup.pl/product/225407/",
+        "sourceType": "MARKETPLACE",
+        "updatedAt": "2026-08-23"
+      }
+    },
+    {
+      "id": "543151",
+      "slug": "543151-l-oreal-paris-revitalift-filler-ha-serum",
+      "name": "L'Oréal Paris Revitalift Filler HA Serum",
+      "brand": "L'Oréal Paris",
+      "summary": "Przeciwzmarszczkowe serum z kwasem hialuronowym",
+      "presentation": "30 ml",
+      "productCategory": "Kosmetyk pielęgnacyjny",
+      "productFamily": "Serum do twarzy",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Przeciw starzeniu",
+        "Przeciw zmarszczkom"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Pielęgnacja domowa",
+        "Nawilżanie",
+        "Pielęgnacja pro-aging"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwas hialuronowy",
+        "Kwas salicylowy",
+        "Peptydy",
+        "Witamina C"
+      ],
+      "skinTypes": [
+        "Każdy rodzaj"
+      ],
+      "aliases": [
+        "L'Oréal Paris",
+        "Przeciwzmarszczkowe serum z kwasem hialuronowym",
+        "L'Oréal Paris Revitalift Filler HA Serum"
+      ],
+      "sourceUrl": "https://makeup.pl/product/543151/",
+      "imagePath": "/beautydocs/catalog/makeup/543151-1.jpg",
+      "imageAlt": "L'Oréal Paris Revitalift Filler HA Serum — zdjęcie 1 z oferty MAKEUP",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/makeup/543151-2.jpg",
+          "alt": "L'Oréal Paris Revitalift Filler HA Serum — zdjęcie 2 z oferty MAKEUP",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/makeup/543151-3.jpg",
+          "alt": "L'Oréal Paris Revitalift Filler HA Serum — zdjęcie 3 z oferty MAKEUP",
+          "label": "Zdjęcie 3",
+          "fit": "cover"
+        }
+      ],
+      "offer": {
+        "seller": "MAKEUP — 30 ml",
+        "pricePln": 38.23,
+        "shippingPricePln": null,
+        "availability": "IN_STOCK",
+        "url": "https://makeup.pl/product/543151/",
+        "sourceType": "MARKETPLACE",
+        "updatedAt": "2026-08-23"
+      }
+    },
+    {
+      "id": "689058",
+      "slug": "689058-mixa-hydrating-hyalurogel-intensive-hydration",
+      "name": "Mixa Hydrating Hyalurogel Intensive Hydration",
+      "brand": "Mixa",
+      "summary": "Nawilżający krem-żel do skóry normalnej i wrażliwej",
+      "presentation": "50 ml",
+      "productCategory": "Kosmetyk pielęgnacyjny",
+      "productFamily": "Krem do twarzy",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Ukojenie"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Pielęgnacja domowa",
+        "Nawilżanie",
+        "Skóra wrażliwa i reaktywna"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Cynk",
+        "Gliceryna",
+        "Kwas hialuronowy",
+        "Skwalan"
+      ],
+      "skinTypes": [
+        "Normalna",
+        "Sucha",
+        "Wrażliwa"
+      ],
+      "aliases": [
+        "Mixa",
+        "Nawilżający krem-żel do skóry normalnej i wrażliwej",
+        "Mixa Hydrating Hyalurogel Intensive Hydration"
+      ],
+      "sourceUrl": "https://makeup.pl/product/689058/",
+      "imagePath": "/beautydocs/catalog/makeup/689058-1.jpg",
+      "imageAlt": "Mixa Hydrating Hyalurogel Intensive Hydration — zdjęcie 1 z oferty MAKEUP",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/makeup/689058-2.jpg",
+          "alt": "Mixa Hydrating Hyalurogel Intensive Hydration — zdjęcie 2 z oferty MAKEUP",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/makeup/689058-3.jpg",
+          "alt": "Mixa Hydrating Hyalurogel Intensive Hydration — zdjęcie 3 z oferty MAKEUP",
+          "label": "Zdjęcie 3",
+          "fit": "cover"
+        }
+      ],
+      "offer": {
+        "seller": "MAKEUP — 50 ml",
+        "pricePln": 25.34,
+        "shippingPricePln": null,
+        "availability": "IN_STOCK",
+        "url": "https://makeup.pl/product/689058/",
+        "sourceType": "MARKETPLACE",
+        "updatedAt": "2026-08-23"
+      }
+    },
+    {
+      "id": "856193",
+      "slug": "856193-garnier-hyaluronic-cryo-jelly-sheet-mask",
+      "name": "Garnier Hyaluronic Cryo Jelly Sheet Mask",
+      "brand": "Garnier",
+      "summary": "Hialuronowa maska w płachcie",
+      "presentation": "27 g",
+      "productCategory": "Kosmetyk pielęgnacyjny",
+      "productFamily": "Maska do twarzy",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Ochłodzenie",
+        "Odbudowa",
+        "Ukojenie"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Pielęgnacja domowa",
+        "Nawilżanie",
+        "Maski i terapie gabinetowe",
+        "Skóra wrażliwa i reaktywna"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Gliceryna",
+        "Kwas hialuronowy",
+        "Mentol",
+        "Ogórek"
+      ],
+      "skinTypes": [
+        "Sucha",
+        "Wrażliwa"
+      ],
+      "aliases": [
+        "Garnier",
+        "Hialuronowa maska w płachcie",
+        "Garnier Hyaluronic Cryo Jelly Sheet Mask"
+      ],
+      "sourceUrl": "https://makeup.pl/product/856193/",
+      "imagePath": "/beautydocs/catalog/makeup/856193-1.jpg",
+      "imageAlt": "Garnier Hyaluronic Cryo Jelly Sheet Mask — zdjęcie 1 z oferty MAKEUP",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/makeup/856193-2.jpg",
+          "alt": "Garnier Hyaluronic Cryo Jelly Sheet Mask — zdjęcie 2 z oferty MAKEUP",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        }
+      ],
+      "offer": {
+        "seller": "MAKEUP — 27 g",
+        "pricePln": 8.23,
+        "shippingPricePln": null,
+        "availability": "IN_STOCK",
+        "url": "https://makeup.pl/product/856193/",
+        "sourceType": "MARKETPLACE",
+        "updatedAt": "2026-08-23"
+      }
+    },
+    {
+      "id": "78919",
+      "slug": "78919-l-oreal-paris-revitalift-laser-x3-night-cream-mask",
+      "name": "L'Oréal Paris Revitalift Laser X3 Night Cream-Mask",
+      "brand": "L'Oréal Paris",
+      "summary": "Regenerujący krem-maska anti-age na noc",
+      "presentation": "50 ml",
+      "productCategory": "Kosmetyk pielęgnacyjny",
+      "productFamily": "Maska do twarzy",
+      "manufacturerUses": [
+        "Odbudowa",
+        "Przeciw starzeniu",
+        "Wyrównywanie kolorytu"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Pielęgnacja domowa",
+        "Przebarwienia i koloryt",
+        "Pielęgnacja pro-aging",
+        "Maski i terapie gabinetowe"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Centella Asiatica",
+        "Kwas hialuronowy",
+        "Peptydy",
+        "Witamina A",
+        "Witamina C"
+      ],
+      "skinTypes": [
+        "Każdy rodzaj"
+      ],
+      "aliases": [
+        "L'Oréal Paris",
+        "Regenerujący krem-maska anti-age na noc",
+        "L'Oréal Paris Revitalift Laser X3 Night Cream-Mask"
+      ],
+      "sourceUrl": "https://makeup.pl/product/78919/",
+      "imagePath": "/beautydocs/catalog/makeup/78919-1.jpg",
+      "imageAlt": "L'Oréal Paris Revitalift Laser X3 Night Cream-Mask — zdjęcie 1 z oferty MAKEUP",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/makeup/78919-2.png",
+          "alt": "L'Oréal Paris Revitalift Laser X3 Night Cream-Mask — zdjęcie 2 z oferty MAKEUP",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/makeup/78919-3.png",
+          "alt": "L'Oréal Paris Revitalift Laser X3 Night Cream-Mask — zdjęcie 3 z oferty MAKEUP",
+          "label": "Zdjęcie 3",
+          "fit": "cover"
+        }
+      ],
+      "offer": {
+        "seller": "MAKEUP — 50 ml",
+        "pricePln": 42.37,
+        "shippingPricePln": null,
+        "availability": "IN_STOCK",
+        "url": "https://makeup.pl/product/78919/",
+        "sourceType": "MARKETPLACE",
+        "updatedAt": "2026-08-23"
+      }
+    },
+    {
+      "id": "742401",
+      "slug": "742401-nivea-q10-power-mask",
+      "name": "NIVEA Q10 Power Mask",
+      "brand": "NIVEA",
+      "summary": "Maseczka w płachcie z serum przeciwzmarszczkowym",
+      "presentation": "1 szt. / 28 g",
+      "productCategory": "Kosmetyk pielęgnacyjny",
+      "productFamily": "Maska do twarzy",
+      "manufacturerUses": [
+        "Lifting",
+        "Odżywianie",
+        "Przeciw zmarszczkom",
+        "Wygładzanie"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Pielęgnacja domowa",
+        "Pielęgnacja pro-aging",
+        "Maski i terapie gabinetowe"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Gliceryna",
+        "Ubichinon"
+      ],
+      "skinTypes": [
+        "Każdy rodzaj"
+      ],
+      "aliases": [
+        "NIVEA",
+        "Maseczka w płachcie z serum przeciwzmarszczkowym",
+        "NIVEA Q10 Power Mask"
+      ],
+      "sourceUrl": "https://makeup.pl/product/742401/",
+      "imagePath": "/beautydocs/catalog/makeup/742401-1.jpg",
+      "imageAlt": "NIVEA Q10 Power Mask — zdjęcie 1 z oferty MAKEUP",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/makeup/742401-2.jpg",
+          "alt": "NIVEA Q10 Power Mask — zdjęcie 2 z oferty MAKEUP",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/makeup/742401-3.png",
+          "alt": "NIVEA Q10 Power Mask — zdjęcie 3 z oferty MAKEUP",
+          "label": "Zdjęcie 3",
+          "fit": "cover"
+        }
+      ],
+      "offer": {
+        "seller": "MAKEUP — 1 szt. / 28 g",
+        "pricePln": 8.11,
+        "shippingPricePln": null,
+        "availability": "IN_STOCK",
+        "url": "https://makeup.pl/product/742401/",
+        "sourceType": "MARKETPLACE",
+        "updatedAt": "2026-08-23"
+      }
+    },
+    {
+      "id": "862473",
+      "slug": "862473-lancome-renergie-h-p-n-300-peptide-cream",
+      "name": "Lancôme Rénergie H.P.N. 300-Peptide Cream",
+      "brand": "Lancôme",
+      "summary": "Krem z peptydami, kwasem hialuronowym i niacynamidem",
+      "presentation": "30 ml / 50 ml",
+      "productCategory": "Kosmetyk pielęgnacyjny",
+      "productFamily": "Krem do twarzy",
+      "manufacturerUses": [
+        "Lifting",
+        "Przeciw starzeniu",
+        "Wyrównywanie kolorytu"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Pielęgnacja domowa",
+        "Przebarwienia i koloryt",
+        "Pielęgnacja pro-aging"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwas hialuronowy",
+        "Niacynamid",
+        "Proteiny",
+        "Witamina E"
+      ],
+      "skinTypes": [
+        "Każdy rodzaj"
+      ],
+      "aliases": [
+        "Lancôme",
+        "Krem z peptydami, kwasem hialuronowym i niacynamidem",
+        "Lancôme Rénergie H.P.N. 300-Peptide Cream"
+      ],
+      "sourceUrl": "https://makeup.pl/product/862473/",
+      "imagePath": "/beautydocs/catalog/makeup/862473-1.png",
+      "imageAlt": "Lancôme Rénergie H.P.N. 300-Peptide Cream — zdjęcie 1 z oferty MAKEUP",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/makeup/862473-2.jpg",
+          "alt": "Lancôme Rénergie H.P.N. 300-Peptide Cream — zdjęcie 2 z oferty MAKEUP",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/makeup/862473-3.png",
+          "alt": "Lancôme Rénergie H.P.N. 300-Peptide Cream — zdjęcie 3 z oferty MAKEUP",
+          "label": "Zdjęcie 3",
+          "fit": "cover"
+        }
+      ],
+      "offer": {
+        "seller": "MAKEUP — 30 ml / 50 ml",
+        "pricePln": 222.0,
+        "shippingPricePln": null,
+        "availability": "IN_STOCK",
+        "url": "https://makeup.pl/product/862473/",
+        "sourceType": "MARKETPLACE",
+        "updatedAt": "2026-08-23"
+      }
+    },
+    {
+      "id": "631145",
+      "slug": "631145-mixa-hyalurogel-serum",
+      "name": "Mixa Hyalurogel Serum",
+      "brand": "Mixa",
+      "summary": "Nawilżające serum do skóry wrażliwej, normalnej i suchej",
+      "presentation": "30 ml",
+      "productCategory": "Kosmetyk pielęgnacyjny",
+      "productFamily": "Serum do twarzy",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Odżywianie",
+        "Zmiękczanie"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Pielęgnacja domowa",
+        "Nawilżanie",
+        "Skóra wrażliwa i reaktywna"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Gliceryna",
+        "Kwas hialuronowy",
+        "Niacynamid",
+        "Pantenol"
+      ],
+      "skinTypes": [
+        "Normalna",
+        "Sucha",
+        "Wrażliwa"
+      ],
+      "aliases": [
+        "Mixa",
+        "Nawilżające serum do skóry wrażliwej, normalnej i suchej",
+        "Mixa Hyalurogel Serum"
+      ],
+      "sourceUrl": "https://makeup.pl/product/631145/",
+      "imagePath": "/beautydocs/catalog/makeup/631145-1.webp",
+      "imageAlt": "Mixa Hyalurogel Serum — zdjęcie 1 z oferty MAKEUP",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/makeup/631145-2.webp",
+          "alt": "Mixa Hyalurogel Serum — zdjęcie 2 z oferty MAKEUP",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/makeup/631145-3.webp",
+          "alt": "Mixa Hyalurogel Serum — zdjęcie 3 z oferty MAKEUP",
+          "label": "Zdjęcie 3",
+          "fit": "cover"
+        }
+      ],
+      "offer": {
+        "seller": "MAKEUP — 30 ml",
+        "pricePln": 55.41,
+        "shippingPricePln": null,
+        "availability": "IN_STOCK",
+        "url": "https://makeup.pl/product/631145/",
+        "sourceType": "MARKETPLACE",
+        "updatedAt": "2026-08-23"
+      }
+    },
+    {
+      "id": "741365",
+      "slug": "741365-garnier-skin-naturals-super-serum",
+      "name": "Garnier Skin Naturals Super Serum",
+      "brand": "Garnier",
+      "summary": "Serum na przebarwienia z witaminą C",
+      "presentation": "30 ml",
+      "productCategory": "Kosmetyk pielęgnacyjny",
+      "productFamily": "Serum do twarzy",
+      "manufacturerUses": [
+        "Rozjaśnianie",
+        "Wyrównywanie kolorytu",
+        "Zmiękczanie"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Pielęgnacja domowa",
+        "Przebarwienia i koloryt"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwas hialuronowy",
+        "Kwas salicylowy",
+        "Niacynamid",
+        "Witamina C"
+      ],
+      "skinTypes": [
+        "Każdy rodzaj"
+      ],
+      "aliases": [
+        "Garnier",
+        "Serum na przebarwienia z witaminą C",
+        "Garnier Skin Naturals Super Serum"
+      ],
+      "sourceUrl": "https://makeup.pl/product/741365/",
+      "imagePath": "/beautydocs/catalog/makeup/741365-1.jpg",
+      "imageAlt": "Garnier Skin Naturals Super Serum — zdjęcie 1 z oferty MAKEUP",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/makeup/741365-2.jpg",
+          "alt": "Garnier Skin Naturals Super Serum — zdjęcie 2 z oferty MAKEUP",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/makeup/741365-3.jpg",
+          "alt": "Garnier Skin Naturals Super Serum — zdjęcie 3 z oferty MAKEUP",
+          "label": "Zdjęcie 3",
+          "fit": "cover"
+        }
+      ],
+      "offer": {
+        "seller": "MAKEUP — 30 ml",
+        "pricePln": 31.99,
+        "shippingPricePln": null,
+        "availability": "IN_STOCK",
+        "url": "https://makeup.pl/product/741365/",
+        "sourceType": "MARKETPLACE",
+        "updatedAt": "2026-08-23"
+      }
+    },
+    {
+      "id": "526751",
+      "slug": "526751-lancome-hydra-zen-glow-liquid-moisturizer",
+      "name": "Lancôme Hydra Zen Glow Liquid Moisturizer",
+      "brand": "Lancôme",
+      "summary": "Lekki krem nawilżający i kojący, dodający skórze blasku",
+      "presentation": "50 ml",
+      "productCategory": "Kosmetyk pielęgnacyjny",
+      "productFamily": "Krem do twarzy",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Odżywianie",
+        "Rozświetlanie",
+        "Ukojenie"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Pielęgnacja domowa",
+        "Nawilżanie",
+        "Skóra wrażliwa i reaktywna"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Aloes",
+        "Arginina",
+        "Jojoba",
+        "Masło Shea",
+        "Skwalan",
+        "Witamina E"
+      ],
+      "skinTypes": [
+        "Każdy rodzaj"
+      ],
+      "aliases": [
+        "Lancôme",
+        "Lekki krem nawilżający i kojący, dodający skórze blasku",
+        "Lancôme Hydra Zen Glow Liquid Moisturizer"
+      ],
+      "sourceUrl": "https://makeup.pl/product/526751/",
+      "imagePath": "/beautydocs/catalog/makeup/526751-1.jpg",
+      "imageAlt": "Lancôme Hydra Zen Glow Liquid Moisturizer — zdjęcie 1 z oferty MAKEUP",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/makeup/526751-2.png",
+          "alt": "Lancôme Hydra Zen Glow Liquid Moisturizer — zdjęcie 2 z oferty MAKEUP",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/makeup/526751-3.jpg",
+          "alt": "Lancôme Hydra Zen Glow Liquid Moisturizer — zdjęcie 3 z oferty MAKEUP",
+          "label": "Zdjęcie 3",
+          "fit": "cover"
+        }
+      ],
+      "offer": {
+        "seller": "MAKEUP — 50 ml",
+        "pricePln": 208.0,
+        "shippingPricePln": null,
+        "availability": "IN_STOCK",
+        "url": "https://makeup.pl/product/526751/",
+        "sourceType": "MARKETPLACE",
+        "updatedAt": "2026-08-23"
+      }
+    },
+    {
+      "id": "944239",
+      "slug": "944239-mixa-panthenol-comfort-anti-scratching-cream",
+      "name": "Mixa Panthenol Comfort Anti-Scratching Cream",
+      "brand": "Mixa",
+      "summary": "Krem do twarzy, ciała i rąk",
+      "presentation": "150 ml / 400 ml",
+      "productCategory": "Kosmetyk pielęgnacyjny",
+      "productFamily": "Krem do twarzy",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Ukojenie"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Pielęgnacja domowa",
+        "Nawilżanie",
+        "Skóra wrażliwa i reaktywna"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        },
+        {
+          "code": "BODY",
+          "label": "Skóra ciała"
+        },
+        {
+          "code": "HANDS",
+          "label": "Dłonie"
+        }
+      ],
+      "keyIngredients": [
+        "Omega",
+        "Pantenol"
+      ],
+      "skinTypes": [
+        "Sucha",
+        "Wrażliwa"
+      ],
+      "aliases": [
+        "Mixa",
+        "Krem do twarzy, ciała i rąk",
+        "Mixa Panthenol Comfort Anti-Scratching Cream"
+      ],
+      "sourceUrl": "https://makeup.pl/product/944239/",
+      "imagePath": "/beautydocs/catalog/makeup/944239-1.png",
+      "imageAlt": "Mixa Panthenol Comfort Anti-Scratching Cream — zdjęcie 1 z oferty MAKEUP",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/makeup/944239-2.webp",
+          "alt": "Mixa Panthenol Comfort Anti-Scratching Cream — zdjęcie 2 z oferty MAKEUP",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/makeup/944239-3.webp",
+          "alt": "Mixa Panthenol Comfort Anti-Scratching Cream — zdjęcie 3 z oferty MAKEUP",
+          "label": "Zdjęcie 3",
+          "fit": "cover"
+        }
+      ],
+      "offer": {
+        "seller": "MAKEUP — 150 ml / 400 ml",
+        "pricePln": 31.89,
+        "shippingPricePln": null,
+        "availability": "IN_STOCK",
+        "url": "https://makeup.pl/product/944239/",
+        "sourceType": "MARKETPLACE",
+        "updatedAt": "2026-08-23"
+      }
+    },
+    {
+      "id": "621672",
+      "slug": "621672-biotherm-aquasource-cica-nutri-cream",
+      "name": "Biotherm Aquasource Cica Nutri Cream",
+      "brand": "Biotherm",
+      "summary": "Nawilżający krem do cery suchej",
+      "presentation": "50 ml",
+      "productCategory": "Kosmetyk pielęgnacyjny",
+      "productFamily": "Krem do twarzy",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Ukojenie"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Pielęgnacja domowa",
+        "Nawilżanie",
+        "Skóra wrażliwa i reaktywna"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Ceramidy",
+        "Cynk",
+        "Gliceryna",
+        "Masło Shea",
+        "Witamina E"
+      ],
+      "skinTypes": [
+        "Sucha"
+      ],
+      "aliases": [
+        "Biotherm",
+        "Nawilżający krem do cery suchej",
+        "Biotherm Aquasource Cica Nutri Cream"
+      ],
+      "sourceUrl": "https://makeup.pl/product/621672/",
+      "imagePath": "/beautydocs/catalog/makeup/621672-1.jpg",
+      "imageAlt": "Biotherm Aquasource Cica Nutri Cream — zdjęcie 1 z oferty MAKEUP",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/makeup/621672-2.jpg",
+          "alt": "Biotherm Aquasource Cica Nutri Cream — zdjęcie 2 z oferty MAKEUP",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/makeup/621672-3.jpg",
+          "alt": "Biotherm Aquasource Cica Nutri Cream — zdjęcie 3 z oferty MAKEUP",
+          "label": "Zdjęcie 3",
+          "fit": "cover"
+        }
+      ],
+      "offer": {
+        "seller": "MAKEUP — 50 ml",
+        "pricePln": 134.0,
+        "shippingPricePln": null,
+        "availability": "IN_STOCK",
+        "url": "https://makeup.pl/product/621672/",
+        "sourceType": "MARKETPLACE",
+        "updatedAt": "2026-08-23"
+      }
+    },
+    {
+      "id": "1143385",
+      "slug": "1143385-l-oreal-paris-revitalift-glass-skin-hydrogel-glow-mask",
+      "name": "L'Oréal Paris Revitalift Glass Skin Hydrogel Glow Mask",
+      "brand": "L'Oréal Paris",
+      "summary": "Hydrożelowa maska rozświetlająca do twarzy",
+      "presentation": "25 g",
+      "productCategory": "Kosmetyk pielęgnacyjny",
+      "productFamily": "Maska do twarzy",
+      "manufacturerUses": [
+        "Nawilżanie",
+        "Rozświetlanie",
+        "Wygładzanie"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Pielęgnacja domowa",
+        "Nawilżanie",
+        "Maski i terapie gabinetowe"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Alantoina",
+        "Centella Asiatica",
+        "Kwas hialuronowy",
+        "Pantenol",
+        "Trehaloza"
+      ],
+      "skinTypes": [
+        "Każdy rodzaj"
+      ],
+      "aliases": [
+        "L'Oréal Paris",
+        "Hydrożelowa maska rozświetlająca do twarzy",
+        "L'Oréal Paris Revitalift Glass Skin Hydrogel Glow Mask"
+      ],
+      "sourceUrl": "https://makeup.pl/product/1143385/",
+      "imagePath": "/beautydocs/catalog/makeup/1143385-1.jpg",
+      "imageAlt": "L'Oréal Paris Revitalift Glass Skin Hydrogel Glow Mask — zdjęcie 1 z oferty MAKEUP",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/makeup/1143385-2.jpg",
+          "alt": "L'Oréal Paris Revitalift Glass Skin Hydrogel Glow Mask — zdjęcie 2 z oferty MAKEUP",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/makeup/1143385-3.jpg",
+          "alt": "L'Oréal Paris Revitalift Glass Skin Hydrogel Glow Mask — zdjęcie 3 z oferty MAKEUP",
+          "label": "Zdjęcie 3",
+          "fit": "cover"
+        }
+      ],
+      "offer": {
+        "seller": "MAKEUP — 25 g",
+        "pricePln": 23.58,
+        "shippingPricePln": null,
+        "availability": "IN_STOCK",
+        "url": "https://makeup.pl/product/1143385/",
+        "sourceType": "MARKETPLACE",
+        "updatedAt": "2026-08-23"
+      }
+    },
+    {
+      "id": "420302",
+      "slug": "420302-vichy-liftactiv-collagen-specialist-16",
+      "name": "Vichy Liftactiv Collagen Specialist 16",
+      "brand": "Vichy",
+      "summary": "Krem na dzień na drobne linie i zmarszczki",
+      "presentation": "50 ml",
+      "productCategory": "Kosmetyk pielęgnacyjny",
+      "productFamily": "Krem do twarzy",
+      "manufacturerUses": [
+        "Lifting",
+        "Odbudowa",
+        "Przeciw starzeniu",
+        "Przeciw zmarszczkom"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Pielęgnacja domowa",
+        "Pielęgnacja pro-aging"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwas fitynowy",
+        "Kwasy AHA",
+        "Niacynamid",
+        "Peptydy",
+        "Witamina C"
+      ],
+      "skinTypes": [
+        "Każdy rodzaj"
+      ],
+      "aliases": [
+        "Vichy",
+        "Krem na dzień na drobne linie i zmarszczki",
+        "Vichy Liftactiv Collagen Specialist 16"
+      ],
+      "sourceUrl": "https://makeup.pl/product/420302/",
+      "imagePath": "/beautydocs/catalog/makeup/420302-1.png",
+      "imageAlt": "Vichy Liftactiv Collagen Specialist 16 — zdjęcie 1 z oferty MAKEUP",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/makeup/420302-2.png",
+          "alt": "Vichy Liftactiv Collagen Specialist 16 — zdjęcie 2 z oferty MAKEUP",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/makeup/420302-3.png",
+          "alt": "Vichy Liftactiv Collagen Specialist 16 — zdjęcie 3 z oferty MAKEUP",
+          "label": "Zdjęcie 3",
+          "fit": "cover"
+        }
+      ],
+      "offer": {
+        "seller": "MAKEUP — 50 ml",
+        "pricePln": 141.0,
+        "shippingPricePln": null,
+        "availability": "IN_STOCK",
+        "url": "https://makeup.pl/product/420302/",
+        "sourceType": "MARKETPLACE",
+        "updatedAt": "2026-08-23"
+      }
+    },
+    {
+      "id": "890702",
+      "slug": "890702-nivea-cellular-luminous630-anti-age-serum-2w1",
+      "name": "NIVEA Cellular Luminous630 Anti-Age Serum 2w1",
+      "brand": "NIVEA",
+      "summary": "Serum 2w1 na przebarwienia i zmarszczki",
+      "presentation": "30 ml",
+      "productCategory": "Kosmetyk pielęgnacyjny",
+      "productFamily": "Serum do twarzy",
+      "manufacturerUses": [
+        "Przeciw zmarszczkom",
+        "Wygładzanie",
+        "Wyrównywanie kolorytu"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Pielęgnacja domowa",
+        "Przebarwienia i koloryt",
+        "Pielęgnacja pro-aging"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Luminous630"
+      ],
+      "skinTypes": [
+        "Każdy rodzaj"
+      ],
+      "aliases": [
+        "NIVEA",
+        "Serum 2w1 na przebarwienia i zmarszczki",
+        "NIVEA Cellular Luminous630 Anti-Age Serum 2w1"
+      ],
+      "sourceUrl": "https://makeup.pl/product/890702/",
+      "imagePath": "/beautydocs/catalog/makeup/890702-1.png",
+      "imageAlt": "NIVEA Cellular Luminous630 Anti-Age Serum 2w1 — zdjęcie 1 z oferty MAKEUP",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/makeup/890702-2.png",
+          "alt": "NIVEA Cellular Luminous630 Anti-Age Serum 2w1 — zdjęcie 2 z oferty MAKEUP",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/makeup/890702-3.jpg",
+          "alt": "NIVEA Cellular Luminous630 Anti-Age Serum 2w1 — zdjęcie 3 z oferty MAKEUP",
+          "label": "Zdjęcie 3",
+          "fit": "cover"
+        }
+      ],
+      "offer": {
+        "seller": "MAKEUP — 30 ml",
+        "pricePln": 48.1,
+        "shippingPricePln": null,
+        "availability": "IN_STOCK",
+        "url": "https://makeup.pl/product/890702/",
+        "sourceType": "MARKETPLACE",
+        "updatedAt": "2026-08-23"
+      }
+    }
+  ]
+}

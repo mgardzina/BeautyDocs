@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import BackButton from "@/app/components/BackButton";
 import ConfirmModal from "@/app/components/ConfirmModal";
 import {
@@ -53,12 +54,6 @@ const cleanNazwaProduktu = (nazwa: string | null): string | null => {
     .trim();
   return cleaned || null;
 };
-
-interface TreatmentHistory {
-  id: string;
-  date: string;
-  description: string;
-}
 
 interface ConsentFormFull {
   id: string;
@@ -118,9 +113,6 @@ export default function FormDetailsPage() {
   const params = useParams();
   const router = useRouter();
   const [form, setForm] = useState<ConsentFormFull | null>(null);
-  const [history, setHistory] = useState<TreatmentHistory[]>([]);
-  const [newHistory, setNewHistory] = useState({ date: "", description: "" });
-  const [isAddingHistory, setIsAddingHistory] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [isDeleting, setIsDeleting] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
@@ -150,12 +142,7 @@ export default function FormDetailsPage() {
     setModal({ isOpen: true, title, message, variant, alertOnly: true });
   };
 
-  useEffect(() => {
-    fetchForm();
-    fetchHistory();
-  }, [params.id]);
-
-  const fetchForm = async () => {
+  const fetchForm = useCallback(async () => {
     try {
       const response = await fetch(`/api/consent-forms/${params.id}`);
       const data = await response.json();
@@ -172,41 +159,23 @@ export default function FormDetailsPage() {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [params.id]);
 
-  const fetchHistory = async () => {
+  const fetchHistory = useCallback(async () => {
     try {
       const response = await fetch(`/api/consent-forms/${params.id}/history`);
       if (response.ok) {
-        const data = await response.json();
-        setHistory(data);
+        await response.json();
       }
     } catch (error) {
       console.error("Błąd pobierania historii:", error);
     }
-  };
+  }, [params.id]);
 
-  const handleAddHistory = async () => {
-    if (!newHistory.date || !newHistory.description) return;
-
-    setIsAddingHistory(true);
-    try {
-      const response = await fetch(`/api/consent-forms/${params.id}/history`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(newHistory),
-      });
-
-      if (response.ok) {
-        await fetchHistory();
-        setNewHistory({ date: "", description: "" });
-      }
-    } catch (error) {
-      console.error("Błąd dodawania historii:", error);
-    } finally {
-      setIsAddingHistory(false);
-    }
-  };
+  useEffect(() => {
+    fetchForm();
+    fetchHistory();
+  }, [fetchForm, fetchHistory]);
 
   const handleDelete = () => {
     showConfirm(
@@ -330,10 +299,6 @@ export default function FormDetailsPage() {
       </div>
     );
   }
-
-  // Renaming 'form' to 'formData' to match the diff's new structure, if that's the intent.
-  // However, the rest of the code uses 'form', so I'll keep 'form' and adjust the diff's class names.
-  const formData = form; // Alias for consistency with the diff's new structure
 
   return (
     <div className="min-h-screen">
@@ -1078,7 +1043,7 @@ export default function FormDetailsPage() {
                               TAK
                             </span>
                             <span className="text-xs text-brand font-medium italic">
-                              "{value}"
+                              &quot;{value}&quot;
                             </span>
                           </div>
                         ) : value === true ? (
@@ -1136,9 +1101,11 @@ export default function FormDetailsPage() {
                   <p className="text-xs text-ui-textSecondary uppercase tracking-wider mb-2 font-medium">
                     Podpis RODO
                   </p>
-                  <img
+                  <Image
                     src={form.podpisRodo}
                     alt="Podpis RODO"
+                    width={600}
+                    height={160}
                     className="h-40 max-w-full object-contain mx-auto md:mx-0 "
                   />
                   {form.miejscowoscData && (
@@ -1163,12 +1130,12 @@ export default function FormDetailsPage() {
                 Klauzula Informacyjna RODO
                 <span
                   className={`px-3 py-1 rounded-full text-[10px] font-bold tracking-wider ${
-                    (form as any).podpisRodo2
+                    form.podpisRodo2
                       ? "bg-green-500/20 text-green-400 border border-green-500/30"
                       : "bg-red-500/20 text-red-400 border border-red-500/30"
                   }`}
                 >
-                  {(form as any).podpisRodo2
+                  {form.podpisRodo2
                     ? "WYRAŻONO ZGODĘ"
                     : "BRAK PODPISU"}
                 </span>
@@ -1176,15 +1143,17 @@ export default function FormDetailsPage() {
               <p className="text-sm text-ui-textSecondary mb-4">
                 Potwierdzenie: Zapoznanie się z klauzulą informacyjną RODO.
               </p>
-              {(form as any).podpisRodo2 ? (
+              {form.podpisRodo2 ? (
                 <div className="p-4 rounded-xl bg-marble-border/30 border border-brand/10">
                   <p className="text-xs text-ui-textSecondary uppercase tracking-wider mb-2 font-medium">
                     Podpis RODO (Klauzula)
                   </p>
-                  <img
-                    src={(form as any).podpisRodo2}
+                  <Image
+                    src={form.podpisRodo2}
                     alt="Podpis RODO 2"
-                    className="h-40 max-w-full object-contain mx-auto md:mx-0 "
+                    width={800}
+                    height={160}
+                    className="h-40 w-auto max-w-full object-contain mx-auto md:mx-0"
                   />
                   {form.miejscowoscData && (
                     <p className="text-xs text-ui-textSecondary mt-2 text-center md:text-left">
@@ -1223,9 +1192,11 @@ export default function FormDetailsPage() {
                   <p className="text-xs text-ui-textSecondary uppercase tracking-wider mb-2 font-medium">
                     Podpis Marketingowy
                   </p>
-                  <img
+                  <Image
                     src={form.podpisMarketing}
                     alt="Podpis Marketing"
+                    width={600}
+                    height={160}
                     className="h-40 max-w-full object-contain mx-auto md:mx-0 "
                   />
                   {form.miejscowoscData && (
@@ -1272,10 +1243,12 @@ export default function FormDetailsPage() {
                   <p className="text-xs text-ui-textSecondary uppercase tracking-wider mb-2 font-medium">
                     Podpis Wizerunek
                   </p>
-                  <img
+                  <Image
                     src={form.podpisFotografie}
                     alt="Podpis Foto"
-                    className="h-40 max-w-full object-contain mx-auto md:mx-0 "
+                    width={600}
+                    height={160}
+                    className="h-40 w-auto max-w-full object-contain mx-auto md:mx-0"
                   />
                   {form.miejscowoscData && (
                     <p className="text-xs text-ui-textSecondary mt-2 text-center md:text-left">
@@ -1314,10 +1287,12 @@ export default function FormDetailsPage() {
                   <p className="text-xs text-ui-textSecondary uppercase tracking-wider mb-2 font-medium">
                     Podpis Klienta
                   </p>
-                  <img
+                  <Image
                     src={form.podpisDane}
                     alt="Podpis Zabieg"
-                    className="h-40 max-w-full object-contain mx-auto md:mx-0 "
+                    width={600}
+                    height={160}
+                    className="h-40 w-auto max-w-full object-contain mx-auto md:mx-0"
                   />
                   {form.miejscowoscData && (
                     <p className="text-xs text-ui-textSecondary mt-2 text-center md:text-left">

@@ -1,0 +1,91 @@
+{
+  "source": "https://luvee.pl/collections/all",
+  "reviewedAt": "2026-08-23",
+  "count": 1,
+  "scope": "Pełna publiczna oferta sklepu LUVEE w dniu weryfikacji",
+  "products": [
+    {
+      "id": "9777244340560",
+      "slug": "pure-mist",
+      "name": "Luvée Pure Mist",
+      "brand": "Luvée",
+      "summary": "Delikatna mgiełka do twarzy z kwasem podchlorawym (HOCl), przeznaczona do codziennego odświeżania i pielęgnacji skóry.",
+      "presentation": "100 ml • butelka z atomizerem",
+      "productCategory": "Kosmetyk pielęgnacyjny",
+      "productFamily": "Mgiełka do twarzy z HOCl",
+      "manufacturerUses": [
+        "Ograniczanie powstawania niedoskonałości",
+        "Łagodzenie uczucia podrażnień i zaczerwienień",
+        "Oczyszczanie i odświeżanie skóry",
+        "Pielęgnacja po goleniu lub depilacji",
+        "Wsparcie regeneracji skóry"
+      ],
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Pielęgnacja domowa",
+        "Skóra wrażliwa i reaktywna",
+        "Skóra trądzikowa i niedoskonałości",
+        "Pielęgnacja pozabiegowa",
+        "Pielęgnacja ciała"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        },
+        {
+          "code": "BODY",
+          "label": "Skóra ciała po goleniu lub depilacji"
+        }
+      ],
+      "keyIngredients": [
+        "Woda",
+        "Kwas podchlorawy (HOCl)"
+      ],
+      "skinTypes": [
+        "Każdy rodzaj",
+        "Wrażliwa",
+        "Problematyczna",
+        "Skłonna do niedoskonałości"
+      ],
+      "aliases": [
+        "Luvee",
+        "Pure Mist",
+        "mgiełka HOCl",
+        "kwas podchlorawy"
+      ],
+      "sourceUrl": "https://luvee.pl/products/luvee",
+      "imagePath": "/beautydocs/catalog/luvee/pure-mist-1.jpg",
+      "imageAlt": "Luvée Pure Mist — oficjalne zdjęcie produktu 1",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/luvee/pure-mist-2.jpg",
+          "alt": "Luvée Pure Mist — oficjalne zdjęcie produktu 2",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/luvee/pure-mist-3.jpg",
+          "alt": "Luvée Pure Mist — oficjalne zdjęcie produktu 3",
+          "label": "Zdjęcie 3",
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/luvee/pure-mist-4.jpg",
+          "alt": "Luvée Pure Mist — oficjalne zdjęcie produktu 4",
+          "label": "Zdjęcie 4",
+          "fit": "cover"
+        }
+      ],
+      "offer": {
+        "seller": "LUVEE",
+        "pricePln": 99.0,
+        "shippingPricePln": null,
+        "availability": "IN_STOCK",
+        "url": "https://luvee.pl/products/luvee",
+        "sourceType": "STORE",
+        "updatedAt": "2026-08-23"
+      }
+    }
+  ]
+}

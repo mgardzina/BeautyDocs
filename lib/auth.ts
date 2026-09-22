@@ -1,7 +1,7 @@
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import { compare } from "bcryptjs";
-import { prisma } from "./prisma";
+import { legacyDatabase } from "@/lib/legacy-database";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   trustHost: true,
@@ -21,7 +21,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           return null;
         }
 
-        const user = await prisma.adminUser.findUnique({
+        const user = await legacyDatabase.adminUser.findUnique({
           where: { email: credentials.email as string },
         });
 
@@ -47,7 +47,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           }
 
           // Weryfikacja kodu OTP
-          const verification = await prisma.otpVerification.findFirst({
+          const verification = await legacyDatabase.otpVerification.findFirst({
             where: {
               phoneNumber: user.phoneNumber,
               code: code,
@@ -63,7 +63,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           }
 
           // Oznacz kod jako zweryfikowany (opcjonalnie usuń)
-          await prisma.otpVerification.update({
+          await legacyDatabase.otpVerification.update({
             where: { id: verification.id },
             data: { verified: true },
           });

@@ -1,72 +1,27 @@
-import { config } from 'dotenv';
-config();
-
-import { prisma } from './lib/prisma';
-import { generateConsentFormPdf } from './lib/pdfGenerator';
-import fs from 'fs';
+/** Standalone PDF smoke check using synthetic input; no database access. */
+import assert from "node:assert/strict";
+import { generateConsentFormPdf } from "./lib/pdfGenerator";
 
 async function main() {
-  const form = await prisma.consentForm.findFirst({
-    orderBy: { createdAt: 'desc' },
-    // Only get forms that have areas selected which might trigger the bug
-    where: {
-      obszarZabiegu: {
-        not: undefined
-      }
-    }
+  const pdf = await generateConsentFormPdf({
+    id: "synthetic-pdf-check",
+    type: "LIP_AUGMENTATION",
+    createdAt: "2026-09-12T10:00:00.000Z",
+    imieNazwisko: "Testowa Klientka",
+    telefon: "000000000",
+    miejscowoscData: "Test, 12.09.2026",
+    obszarZabiegu: "usta",
+    przeciwwskazania: {},
+    zgodaPrzetwarzanieDanych: true,
+    zgodaMarketing: false,
+    zgodaFotografie: false,
+    zgodaPomocPrawna: false,
   });
-
-  if (!form) {
-    console.log("No form found");
-    return;
-  }
-
-  try {
-    console.log("Testing PDF generation for form ID:", form.id);
-    const pdfBuffer = await generateConsentFormPdf({
-      id: form.id,
-      type: form.type,
-      createdAt: form.createdAt.toISOString(),
-      imieNazwisko: form.imieNazwisko,
-      email: form.email,
-      ulica: form.ulica,
-      kodPocztowy: form.kodPocztowy,
-      miasto: form.miasto,
-      dataUrodzenia: form.dataUrodzenia,
-      telefon: form.telefon,
-      miejscowoscData: form.miejscowoscData,
-      nazwaProduktu: form.nazwaProduktu,
-      obszarZabiegu: form.obszarZabiegu as any,
-      celEfektu: form.celEfektu,
-      przeciwwskazania: (form.przeciwwskazania as any) || {},
-      zgodaPrzetwarzanieDanych: form.zgodaPrzetwarzanieDanych,
-      zgodaMarketing: form.zgodaMarketing,
-      zgodaFotografie: form.zgodaFotografie,
-      zgodaPomocPrawna: form.zgodaPomocPrawna,
-      miejscaPublikacjiFotografii: form.miejscaPublikacjiFotografii,
-      podpisDane: form.podpisDane,
-      podpisMarketing: form.podpisMarketing,
-      podpisFotografie: form.podpisFotografie,
-      podpisRodo: form.podpisRodo,
-      podpisRodo2: form.podpisRodo2,
-      informacjaDodatkowa: form.informacjaDodatkowa,
-      zastrzeniaKlienta: form.zastrzeniaKlienta,
-      numerZabiegu: form.numerZabiegu,
-      osobaPrzeprowadzajacaZabieg: form.osobaPrzeprowadzajacaZabieg,
-      planowanaIloscZabiegow: form.planowanaIloscZabiegow,
-      odstepMiedzyZabiegami: form.odstepMiedzyZabiegami,
-      kolejneZabiegiOdstepy: form.kolejneZabiegiOdstepy,
-      iloscProduktu: form.iloscProduktu,
-      signatureStatus: form.signatureStatus,
-      signatureVerifiedAt: form.signatureVerifiedAt?.toISOString() ?? null,
-    });
-    console.log("Success! PDF Buffer size:", pdfBuffer.byteLength);
-  } catch (err) {
-    console.error("Error generating PDF:", err);
-  } finally {
-    await prisma.$disconnect();
-    process.exit(0);
-  }
+  assert.equal(pdf.subarray(0, 5).toString(), "%PDF-");
+  console.log(`PDF generated successfully (${pdf.byteLength} bytes).`);
 }
 
-main();
+main().catch((error: unknown) => {
+  console.error(error);
+  process.exitCode = 1;
+});

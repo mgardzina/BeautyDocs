@@ -1,68 +1,59 @@
-"use client";
+import type { Metadata } from "next";
+import {
+  BeautyDocsFeatureGrid,
+  BeautyDocsFinalCta,
+  BeautyDocsHero,
+  BeautyDocsMarketingFooter,
+  BeautyDocsMarketingHeader,
+  BeautyDocsOnboarding,
+  BeautyDocsPricing,
+  BeautyDocsReveal,
+  BeautyDocsStats,
+  type BeautyDocsStatsData,
+} from "../components/beautydocs/marketing";
+import { fetchPlatformStats } from "../lib/beautydocs-api";
 
-import { useState } from "react";
-import SelectionScreen from "./components/SelectionScreen";
-import FacialVolumetryForm from "./components/forms/FacialVolumetryForm";
-import LaserRemovalForm from "./components/forms/LaserRemovalForm";
-import LaserTattoRemovalForm from "./components/forms/LaserTattoRemovalForm";
-import NeedleMesotherapyForm from "./components/forms/NeedleMesotherapyForm";
-import LipModelingForm from "./components/forms/LipModelingForm";
-import WrinkleLevelingForm from "./components/forms/WrinkleLevelingForm";
-import { FormType } from "../types/booking";
-import PermamentMakeupForm from "./components/forms/PermamentMakeupForm";
-import InjectionLipolysisForm from "./components/forms/InjectionLipolysisForm";
-import EyelidLiftForm from "./components/forms/EyelidLiftForm";
-import TissueStimulationForm from "./components/forms/TissueStimulationForm";
-import EyebrowTintingForm from "./components/forms/EyebrowTintingForm";
-import EyebrowLaminationForm from "./components/forms/EyebrowLaminationForm";
-import EyelashExtensionForm from "./components/forms/EyelashExtensionForm";
-import FacialCleansingForm from "./components/forms/FacialCleansingForm";
+// Render with current API availability; aggregate data is cached for one minute.
+export const dynamic = "force-dynamic";
 
-export default function HomePage() {
-  const [selectedForm, setSelectedForm] = useState<FormType | null>(null);
+export const metadata: Metadata = {
+  title: { absolute: "BeautyDocs — dokumentacja dla salonów beauty" },
+  description:
+    "Wspólny system formularzy, wywiadów i dokumentacji klientek dla salonów beauty.",
+  robots: { index: true, follow: true },
+};
 
-  if (!selectedForm) {
-    return (
-      <SelectionScreen
-        onSelect={(type) => {
-          setSelectedForm(type);
-          window.scrollTo(0, 0);
-        }}
-      />
-    );
-  }
+export default async function BeautyDocsHomePreviewPage() {
+  const statsResult = await fetchPlatformStats();
+  // Only show real numbers — if the API is unavailable, the section is skipped
+  // rather than rendering misleading zeros.
+  const stats: BeautyDocsStatsData | null =
+    statsResult.status === "ok" ? statsResult.stats : null;
 
-  // Renderowanie odpowiedniego formularza
-  switch (selectedForm) {
-    case "LIP_AUGMENTATION":
-      return <LipModelingForm onBack={() => setSelectedForm(null)} />;
-    case "FACIAL_VOLUMETRY":
-      return <FacialVolumetryForm onBack={() => setSelectedForm(null)} />;
-    case "WRINKLE_REDUCTION":
-      return <WrinkleLevelingForm onBack={() => setSelectedForm(null)} />;
-    case "LASER_HAIR_REMOVAL":
-      return <LaserRemovalForm onBack={() => setSelectedForm(null)} />;
-    case "LASER_TATTOO_REMOVAL":
-      return <LaserTattoRemovalForm onBack={() => setSelectedForm(null)} />;
-    case "PERMANENT_MAKEUP":
-      return <PermamentMakeupForm onBack={() => setSelectedForm(null)} />;
-    case "INJECTION_LIPOLYSIS":
-      return <InjectionLipolysisForm onBack={() => setSelectedForm(null)} />;
-    case "NEEDLE_MESOTHERAPY":
-      return <NeedleMesotherapyForm onBack={() => setSelectedForm(null)} />;
-    case "EYELID_LIFT":
-      return <EyelidLiftForm onBack={() => setSelectedForm(null)} />;
-    case "TISSUE_STIMULATION":
-      return <TissueStimulationForm onBack={() => setSelectedForm(null)} />;
-    case "EYEBROW_TINTING":
-      return <EyebrowTintingForm onBack={() => setSelectedForm(null)} />;
-    case "EYEBROW_LAMINATION":
-      return <EyebrowLaminationForm onBack={() => setSelectedForm(null)} />;
-    case "EYELASH_EXTENSION":
-      return <EyelashExtensionForm onBack={() => setSelectedForm(null)} />;
-    case "FACIAL_CLEANSING":
-      return <FacialCleansingForm onBack={() => setSelectedForm(null)} />;
-    default:
-      return <div>Formularz nieznany</div>;
-  }
+  return (
+    <div className="min-h-screen bg-[#f7f8f4] text-[#173d35]">
+      <a
+        className="sr-only z-50 rounded-lg bg-white px-4 py-2 font-bold text-[#173d35] focus:not-sr-only focus:fixed focus:left-4 focus:top-4"
+        href="#glowna-tresc"
+      >
+        Przejdź do treści
+      </a>
+      <BeautyDocsMarketingHeader />
+      <main id="glowna-tresc">
+        <BeautyDocsHero />
+        <BeautyDocsStats data={stats} />
+        <BeautyDocsReveal>
+          <BeautyDocsFeatureGrid />
+        </BeautyDocsReveal>
+        <BeautyDocsReveal>
+          <BeautyDocsOnboarding />
+        </BeautyDocsReveal>
+        <BeautyDocsPricing />
+        <BeautyDocsReveal>
+          <BeautyDocsFinalCta />
+        </BeautyDocsReveal>
+      </main>
+      <BeautyDocsMarketingFooter />
+    </div>
+  );
 }

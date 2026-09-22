@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { prisma } from "@/lib/prisma";
+import { legacyDatabase } from "@/lib/legacy-database";
 import { auth } from "@/lib/auth";
 
 export async function GET(
@@ -15,7 +15,7 @@ export async function GET(
   try {
     const { id } = await params;
 
-    const form = await prisma.consentForm.findUnique({
+    const form = await legacyDatabase.consentForm.findUnique({
       where: { id },
     });
 
@@ -80,7 +80,7 @@ export async function PATCH(
       }
     }
 
-    const form = await prisma.consentForm.update({
+    const form = await legacyDatabase.consentForm.update({
       where: { id },
       data: updateData,
     });
@@ -108,7 +108,7 @@ export async function DELETE(
   try {
     const { id } = await params;
 
-    await prisma.consentForm.delete({
+    await legacyDatabase.consentForm.delete({
       where: { id },
     });
 

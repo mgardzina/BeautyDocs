@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { prisma } from "../../../../lib/prisma";
+import { legacyDatabase } from "@/lib/legacy-database";
 import { compare } from "bcryptjs";
 import { generateOTPCode, sendSMS, createOTPMessage, maskPhoneNumber } from "../../../../lib/smsapi";
 
@@ -11,7 +11,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Email i hasło są wymagane" }, { status: 400 });
     }
 
-    const user = await prisma.adminUser.findUnique({
+    const user = await legacyDatabase.adminUser.findUnique({
       where: { email },
     });
 
@@ -40,7 +40,7 @@ export async function POST(request: NextRequest) {
     const expiresAt = new Date(Date.now() + 5 * 60 * 1000); // 5 minut
 
     // Zapisz kod w bazie
-    await prisma.otpVerification.create({
+    await legacyDatabase.otpVerification.create({
       data: {
         phoneNumber: user.phoneNumber,
         code,

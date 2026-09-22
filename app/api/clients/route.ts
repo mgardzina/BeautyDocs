@@ -1,10 +1,17 @@
 import { NextResponse } from "next/server";
-import { prisma } from "@/lib/prisma";
+import { legacyDatabase } from "@/lib/legacy-database";
+import { auth } from "@/lib/auth";
 
 // GET - Lista wszystkich klientek
 export async function GET() {
+  const session = await auth();
+
+  if (!session) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
   try {
-    const clients = await prisma.client.findMany({
+    const clients = await legacyDatabase.client.findMany({
       where: {
         forms: {
           some: {},

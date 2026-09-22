@@ -1,0 +1,3091 @@
+{
+  "source": "https://us.dmcell.com/80",
+  "polishDistributor": "https://dmcell.pl/",
+  "reviewedAt": "2026-08-23",
+  "count": 63,
+  "products": [
+    {
+      "slug": "btx-glow-balm-refill",
+      "name": "BTX Glow Balm Refill",
+      "summary": "Kosmetyk DM.Cell do pielęgnacji i wsparcia komfortu skóry.",
+      "presentation": "Sprawdź wariant",
+      "sourceLine": "DM.Cell",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=337",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/btx-glow-balm-refill-1.png",
+      "imageAlt": "BTX Glow Balm Refill — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "btx glow balm refill",
+        "btx glow balm refill"
+      ],
+      "officialReferencePrice": {
+        "amount": 50.0,
+        "currency": "USD",
+        "availability": "InStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=337",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Krem, balsam lub lotion",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Kosmetyka profesjonalna",
+        "Pielęgnacja pro-aging"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "professionalOnly": true
+    },
+    {
+      "slug": "btx-glow-balm",
+      "name": "BTX Glow Balm",
+      "summary": "Kosmetyk DM.Cell do pielęgnacji i wsparcia komfortu skóry.",
+      "presentation": "Sprawdź wariant",
+      "sourceLine": "DM.Cell",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=336",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/btx-glow-balm-1.jpg",
+      "imageAlt": "BTX Glow Balm — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/dmcell/btx-glow-balm-2.jpg",
+          "alt": "BTX Glow Balm — oficjalne zdjęcie 2",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        }
+      ],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "btx glow balm",
+        "btx glow balm"
+      ],
+      "officialReferencePrice": {
+        "amount": 65.0,
+        "currency": "USD",
+        "availability": "InStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=336",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Krem, balsam lub lotion",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Kosmetyka profesjonalna",
+        "Pielęgnacja pro-aging"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "professionalOnly": true
+    },
+    {
+      "slug": "for-me-cell-nmn-aqua-rich-cream",
+      "name": "FOR ME CELL NMN AQUA RICH CREAM",
+      "summary": "Kosmetyk DM.Cell do pielęgnacji i wsparcia komfortu skóry.",
+      "presentation": "Sprawdź wariant",
+      "sourceLine": "DM.Cell",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=335",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/for-me-cell-nmn-aqua-rich-cream-1.jpg",
+      "imageAlt": "FOR ME CELL NMN AQUA RICH CREAM — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/dmcell/for-me-cell-nmn-aqua-rich-cream-2.jpg",
+          "alt": "FOR ME CELL NMN AQUA RICH CREAM — oficjalne zdjęcie 2",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/dmcell/for-me-cell-nmn-aqua-rich-cream-3.jpg",
+          "alt": "FOR ME CELL NMN AQUA RICH CREAM — oficjalne zdjęcie 3",
+          "label": "Zdjęcie 3",
+          "fit": "cover"
+        }
+      ],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "for me cell nmn aqua rich cream",
+        "for me cell nmn aqua rich cream"
+      ],
+      "officialReferencePrice": null,
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Krem, balsam lub lotion",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Kosmetyka profesjonalna",
+        "Nawilżanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "professionalOnly": true
+    },
+    {
+      "slug": "midnight-retinal-glow-serum",
+      "name": "Midnight Retinal Glow Serum",
+      "summary": "Skoncentrowany kosmetyk DM.Cell do ukierunkowanej pielęgnacji skóry.",
+      "presentation": "30ml",
+      "sourceLine": "NUACELL",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=334",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/midnight-retinal-glow-serum-1.png",
+      "imageAlt": "Midnight Retinal Glow Serum — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/dmcell/midnight-retinal-glow-serum-2.jpg",
+          "alt": "Midnight Retinal Glow Serum — oficjalne zdjęcie 2",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/dmcell/midnight-retinal-glow-serum-3.jpg",
+          "alt": "Midnight Retinal Glow Serum — oficjalne zdjęcie 3",
+          "label": "Zdjęcie 3",
+          "fit": "cover"
+        }
+      ],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "midnight retinal glow serum",
+        "midnight retinal glow serum"
+      ],
+      "officialReferencePrice": {
+        "amount": 52.0,
+        "currency": "USD",
+        "availability": "InStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=334",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk domowej pielęgnacji",
+      "productFamily": "Ampułka, serum lub esencja",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Pielęgnacja pro-aging"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Retinal"
+      ],
+      "professionalOnly": false
+    },
+    {
+      "slug": "btx-peptide-gel-cleanser",
+      "name": "BTX PEPTIDE GEL CLEANSER",
+      "summary": "Kosmetyk DM.Cell przeznaczony do etapu oczyszczania skóry.",
+      "presentation": "Sprawdź wariant",
+      "sourceLine": "DM.Cell",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=333",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/btx-peptide-gel-cleanser-1.png",
+      "imageAlt": "BTX PEPTIDE GEL CLEANSER — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "btx peptide gel cleanser",
+        "btx peptide gel cleanser"
+      ],
+      "officialReferencePrice": {
+        "amount": 48.0,
+        "currency": "USD",
+        "availability": "InStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=333",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Oczyszczanie profesjonalne",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Kosmetyka profesjonalna",
+        "Oczyszczanie",
+        "Pielęgnacja pro-aging"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "professionalOnly": true
+    },
+    {
+      "slug": "lami-peel",
+      "name": "Lami Peel",
+      "summary": "Kosmetyk z oficjalnego katalogu DM.Cell.",
+      "presentation": "Sprawdź wariant",
+      "sourceLine": "DM.Cell",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=332",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/lami-peel-1.jpg",
+      "imageAlt": "Lami Peel — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/dmcell/lami-peel-2.jpg",
+          "alt": "Lami Peel — oficjalne zdjęcie 2",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        }
+      ],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "lami peel",
+        "lami peel"
+      ],
+      "officialReferencePrice": {
+        "amount": 320.0,
+        "currency": "USD",
+        "availability": "InStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=332",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Kosmetyk profesjonalny",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Kosmetyka profesjonalna"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "professionalOnly": true
+    },
+    {
+      "slug": "re-inforce-synergy-exosome",
+      "name": "Re-inforce synergy Exosome",
+      "summary": "Kosmetyk z oficjalnego katalogu DM.Cell.",
+      "presentation": "Sprawdź wariant",
+      "sourceLine": "DM.Cell",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=331",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/re-inforce-synergy-exosome-1.jpg",
+      "imageAlt": "Re-inforce synergy Exosome — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "re-inforce synergy exosome",
+        "re inforce synergy exosome"
+      ],
+      "officialReferencePrice": {
+        "amount": 280.0,
+        "currency": "USD",
+        "availability": "InStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=331",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Kosmetyk profesjonalny",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Kosmetyka profesjonalna"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "professionalOnly": true
+    },
+    {
+      "slug": "365-lpha-rejuvenating-boost-essence",
+      "name": "365 LPHA Rejuvenating Boost Essence",
+      "summary": "Skoncentrowany kosmetyk DM.Cell do ukierunkowanej pielęgnacji skóry.",
+      "presentation": "Sprawdź wariant",
+      "sourceLine": "DM.Cell",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=330",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/365-lpha-rejuvenating-boost-essence-1.jpg",
+      "imageAlt": "365 LPHA Rejuvenating Boost Essence — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/dmcell/365-lpha-rejuvenating-boost-essence-2.jpg",
+          "alt": "365 LPHA Rejuvenating Boost Essence — oficjalne zdjęcie 2",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/dmcell/365-lpha-rejuvenating-boost-essence-3.jpg",
+          "alt": "365 LPHA Rejuvenating Boost Essence — oficjalne zdjęcie 3",
+          "label": "Zdjęcie 3",
+          "fit": "cover"
+        }
+      ],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "365 lpha rejuvenating boost essence",
+        "365 lpha rejuvenating boost essence"
+      ],
+      "officialReferencePrice": {
+        "amount": 38.0,
+        "currency": "USD",
+        "availability": "InStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=330",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Ampułka, serum lub esencja",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Kosmetyka profesjonalna"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwasy LHA / PHA"
+      ],
+      "professionalOnly": true
+    },
+    {
+      "slug": "o2-bubble-peptide-essence",
+      "name": "O2 Bubble Peptide Essence",
+      "summary": "Skoncentrowany kosmetyk DM.Cell do ukierunkowanej pielęgnacji skóry.",
+      "presentation": "Sprawdź wariant",
+      "sourceLine": "DM.Cell",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=329",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/o2-bubble-peptide-essence-1.png",
+      "imageAlt": "O2 Bubble Peptide Essence — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/dmcell/o2-bubble-peptide-essence-2.png",
+          "alt": "O2 Bubble Peptide Essence — oficjalne zdjęcie 2",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        }
+      ],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "o2 bubble peptide essence",
+        "o2 bubble peptide essence"
+      ],
+      "officialReferencePrice": {
+        "amount": 80.0,
+        "currency": "USD",
+        "availability": "InStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=329",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Ampułka, serum lub esencja",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Kosmetyka profesjonalna"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "professionalOnly": true
+    },
+    {
+      "slug": "azulene-centella-cream",
+      "name": "Azulene + Centella Cream",
+      "summary": "Kosmetyk DM.Cell do pielęgnacji i wsparcia komfortu skóry.",
+      "presentation": "Sprawdź wariant",
+      "sourceLine": "NUACELL",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=328",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/azulene-centella-cream-1.png",
+      "imageAlt": "Azulene + Centella Cream — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/dmcell/azulene-centella-cream-2.png",
+          "alt": "Azulene + Centella Cream — oficjalne zdjęcie 2",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        }
+      ],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "azulene + centella cream",
+        "azulene centella cream"
+      ],
+      "officialReferencePrice": {
+        "amount": 26.99,
+        "currency": "USD",
+        "availability": "OutOfStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=328",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk domowej pielęgnacji",
+      "productFamily": "Krem, balsam lub lotion",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Azulen",
+        "Wąkrota azjatycka"
+      ],
+      "professionalOnly": false
+    },
+    {
+      "slug": "azulene-cica-ampoule",
+      "name": "Azulene Cica Ampoule",
+      "summary": "Skoncentrowany kosmetyk DM.Cell do ukierunkowanej pielęgnacji skóry.",
+      "presentation": "Sprawdź wariant",
+      "sourceLine": "NUACELL",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=327",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/azulene-cica-ampoule-1.jpg",
+      "imageAlt": "Azulene Cica Ampoule — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/dmcell/azulene-cica-ampoule-2.jpg",
+          "alt": "Azulene Cica Ampoule — oficjalne zdjęcie 2",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/dmcell/azulene-cica-ampoule-3.jpg",
+          "alt": "Azulene Cica Ampoule — oficjalne zdjęcie 3",
+          "label": "Zdjęcie 3",
+          "fit": "cover"
+        }
+      ],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "azulene cica ampoule",
+        "azulene cica ampoule"
+      ],
+      "officialReferencePrice": {
+        "amount": 42.0,
+        "currency": "USD",
+        "availability": "InStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=327",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk domowej pielęgnacji",
+      "productFamily": "Ampułka, serum lub esencja",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Azulen",
+        "Wąkrota azjatycka"
+      ],
+      "professionalOnly": false
+    },
+    {
+      "slug": "intensive-5gf-complex-ampoule",
+      "name": "Intensive 5GF Complex Ampoule",
+      "summary": "Skoncentrowany kosmetyk DM.Cell do ukierunkowanej pielęgnacji skóry.",
+      "presentation": "Sprawdź wariant",
+      "sourceLine": "NUACELL",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=326",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/intensive-5gf-complex-ampoule-1.png",
+      "imageAlt": "Intensive 5GF Complex Ampoule — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "intensive 5gf complex ampoule",
+        "intensive 5gf complex ampoule"
+      ],
+      "officialReferencePrice": {
+        "amount": 42.0,
+        "currency": "USD",
+        "availability": "InStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=326",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk domowej pielęgnacji",
+      "productFamily": "Ampułka, serum lub esencja",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Pielęgnacja pro-aging"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Peptydy / czynniki wzrostu"
+      ],
+      "professionalOnly": false
+    },
+    {
+      "slug": "egf-marine-collagen-ampoule",
+      "name": "EGF + Marine Collagen Ampoule",
+      "summary": "Skoncentrowany kosmetyk DM.Cell do ukierunkowanej pielęgnacji skóry.",
+      "presentation": "Sprawdź wariant",
+      "sourceLine": "NUACELL",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=325",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/egf-marine-collagen-ampoule-1.png",
+      "imageAlt": "EGF + Marine Collagen Ampoule — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "egf + marine collagen ampoule",
+        "egf marine collagen ampoule"
+      ],
+      "officialReferencePrice": {
+        "amount": 32.0,
+        "currency": "USD",
+        "availability": "InStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=325",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk domowej pielęgnacji",
+      "productFamily": "Ampułka, serum lub esencja",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Pielęgnacja pro-aging"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Peptydy / czynniki wzrostu"
+      ],
+      "professionalOnly": false
+    },
+    {
+      "slug": "hyaluronic-5-panthenol-b5-ampoule",
+      "name": "Hyaluronic 5 + Panthenol B5 Ampoule",
+      "summary": "Skoncentrowany kosmetyk DM.Cell do ukierunkowanej pielęgnacji skóry.",
+      "presentation": "Sprawdź wariant",
+      "sourceLine": "NUACELL",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=324",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/hyaluronic-5-panthenol-b5-ampoule-1.png",
+      "imageAlt": "Hyaluronic 5 + Panthenol B5 Ampoule — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "hyaluronic 5 + panthenol b5 ampoule",
+        "hyaluronic 5 panthenol b5 ampoule"
+      ],
+      "officialReferencePrice": {
+        "amount": 32.0,
+        "currency": "USD",
+        "availability": "InStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=324",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk domowej pielęgnacji",
+      "productFamily": "Ampułka, serum lub esencja",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Nawilżanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwas hialuronowy",
+        "Pantenol"
+      ],
+      "professionalOnly": false
+    },
+    {
+      "slug": "blemish-aid-propolis-cream",
+      "name": "Blemish Aid Propolis Cream",
+      "summary": "Kosmetyk DM.Cell do pielęgnacji i wsparcia komfortu skóry.",
+      "presentation": "Sprawdź wariant",
+      "sourceLine": "DM.Cell",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=322",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/blemish-aid-propolis-cream-1.png",
+      "imageAlt": "Blemish Aid Propolis Cream — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/dmcell/blemish-aid-propolis-cream-2.png",
+          "alt": "Blemish Aid Propolis Cream — oficjalne zdjęcie 2",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/dmcell/blemish-aid-propolis-cream-3.png",
+          "alt": "Blemish Aid Propolis Cream — oficjalne zdjęcie 3",
+          "label": "Zdjęcie 3",
+          "fit": "cover"
+        }
+      ],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "blemish aid propolis cream",
+        "blemish aid propolis cream"
+      ],
+      "officialReferencePrice": {
+        "amount": 59.0,
+        "currency": "USD",
+        "availability": "InStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=322",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Krem, balsam lub lotion",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Kosmetyka profesjonalna",
+        "Przebarwienia i koloryt"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Propolis"
+      ],
+      "professionalOnly": true
+    },
+    {
+      "slug": "derma-brightening-complex-starter-kit",
+      "name": "Derma Brightening Complex Starter Kit",
+      "summary": "Zestaw DM.Cell przeznaczony do kompletnego etapu pielęgnacji lub zabiegu.",
+      "presentation": "Sprawdź wariant",
+      "sourceLine": "DM.Cell",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=317",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/derma-brightening-complex-starter-kit-1.jpg",
+      "imageAlt": "Derma Brightening Complex Starter Kit — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/dmcell/derma-brightening-complex-starter-kit-2.jpg",
+          "alt": "Derma Brightening Complex Starter Kit — oficjalne zdjęcie 2",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/dmcell/derma-brightening-complex-starter-kit-3.jpg",
+          "alt": "Derma Brightening Complex Starter Kit — oficjalne zdjęcie 3",
+          "label": "Zdjęcie 3",
+          "fit": "cover"
+        }
+      ],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "derma brightening complex starter kit",
+        "derma brightening complex starter kit"
+      ],
+      "officialReferencePrice": {
+        "amount": 100.0,
+        "currency": "USD",
+        "availability": "InStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=317",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Zestaw zabiegowy",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Kosmetyka profesjonalna",
+        "Przebarwienia i koloryt"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "professionalOnly": true
+    },
+    {
+      "slug": "anti-bac-ac-control-spot-gel",
+      "name": "Anti Bac AC Control Spot Gel",
+      "summary": "Kosmetyk z oficjalnego katalogu DM.Cell.",
+      "presentation": "Sprawdź wariant",
+      "sourceLine": "DM.Cell",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=321",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/anti-bac-ac-control-spot-gel-1.png",
+      "imageAlt": "Anti Bac AC Control Spot Gel — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/dmcell/anti-bac-ac-control-spot-gel-2.png",
+          "alt": "Anti Bac AC Control Spot Gel — oficjalne zdjęcie 2",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        }
+      ],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "anti bac ac control spot gel",
+        "anti bac ac control spot gel"
+      ],
+      "officialReferencePrice": {
+        "amount": 28.0,
+        "currency": "USD",
+        "availability": "InStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=321",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Kosmetyk profesjonalny",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Kosmetyka profesjonalna",
+        "Skóra trądzikowa i niedoskonałości"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "professionalOnly": true
+    },
+    {
+      "slug": "3-egf-skin-renewal-serum",
+      "name": "3% EGF Skin Renewal Serum",
+      "summary": "Skoncentrowany kosmetyk DM.Cell do ukierunkowanej pielęgnacji skóry.",
+      "presentation": "5ml*6pcs &amp; 60ml",
+      "sourceLine": "DM.Cell",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=319",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/3-egf-skin-renewal-serum-1.jpg",
+      "imageAlt": "3% EGF Skin Renewal Serum — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/dmcell/3-egf-skin-renewal-serum-2.jpg",
+          "alt": "3% EGF Skin Renewal Serum — oficjalne zdjęcie 2",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/dmcell/3-egf-skin-renewal-serum-3.jpg",
+          "alt": "3% EGF Skin Renewal Serum — oficjalne zdjęcie 3",
+          "label": "Zdjęcie 3",
+          "fit": "cover"
+        }
+      ],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "3% egf skin renewal serum",
+        "3 egf skin renewal serum"
+      ],
+      "officialReferencePrice": {
+        "amount": 60.0,
+        "currency": "USD",
+        "availability": "InStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=319",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Ampułka, serum lub esencja",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Kosmetyka profesjonalna",
+        "Pielęgnacja pro-aging"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Peptydy / czynniki wzrostu"
+      ],
+      "professionalOnly": true
+    },
+    {
+      "slug": "saccharomyces-essence",
+      "name": "Saccharomyces Essence",
+      "summary": "Skoncentrowany kosmetyk DM.Cell do ukierunkowanej pielęgnacji skóry.",
+      "presentation": "사카로미스세스 맥주 효모성분과 알로에 수액이 재생력이 떨어지고 지친 피부에 진정과 재생효과를 줍니다. 80ml & 750ml",
+      "sourceLine": "DM.Cell",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=316",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/saccharomyces-essence-1.jpg",
+      "imageAlt": "Saccharomyces Essence — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/dmcell/saccharomyces-essence-2.jpg",
+          "alt": "Saccharomyces Essence — oficjalne zdjęcie 2",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        }
+      ],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "saccharomyces essence",
+        "saccharomyces essence"
+      ],
+      "officialReferencePrice": {
+        "amount": 20.0,
+        "currency": "USD",
+        "availability": "InStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=316",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Ampułka, serum lub esencja",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Kosmetyka profesjonalna"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "professionalOnly": true
+    },
+    {
+      "slug": "derma-brightening-complex",
+      "name": "Derma Brightening Complex",
+      "summary": "Zestaw DM.Cell przeznaczony do kompletnego etapu pielęgnacji lub zabiegu.",
+      "presentation": "5ml * 10 PcsBB Glow ampoule",
+      "sourceLine": "DM.Cell",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=313",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/derma-brightening-complex-1.jpg",
+      "imageAlt": "Derma Brightening Complex — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/dmcell/derma-brightening-complex-2.jpg",
+          "alt": "Derma Brightening Complex — oficjalne zdjęcie 2",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/dmcell/derma-brightening-complex-3.jpg",
+          "alt": "Derma Brightening Complex — oficjalne zdjęcie 3",
+          "label": "Zdjęcie 3",
+          "fit": "cover"
+        }
+      ],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "derma brightening complex",
+        "derma brightening complex"
+      ],
+      "officialReferencePrice": {
+        "amount": 100.0,
+        "currency": "USD",
+        "availability": "InStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=313",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Zestaw zabiegowy",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Kosmetyka profesjonalna",
+        "Przebarwienia i koloryt"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "professionalOnly": true
+    },
+    {
+      "slug": "derma-aid-post-balm",
+      "name": "Derma Aid Post Balm",
+      "summary": "Kosmetyk DM.Cell do pielęgnacji i wsparcia komfortu skóry.",
+      "presentation": "1.5ml * 100 Pcs 1BOX",
+      "sourceLine": "DM.Cell",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=312",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/derma-aid-post-balm-1.jpg",
+      "imageAlt": "Derma Aid Post Balm — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/dmcell/derma-aid-post-balm-2.jpg",
+          "alt": "Derma Aid Post Balm — oficjalne zdjęcie 2",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/dmcell/derma-aid-post-balm-3.jpg",
+          "alt": "Derma Aid Post Balm — oficjalne zdjęcie 3",
+          "label": "Zdjęcie 3",
+          "fit": "cover"
+        }
+      ],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "derma aid post balm",
+        "derma aid post balm"
+      ],
+      "officialReferencePrice": {
+        "amount": 50.0,
+        "currency": "USD",
+        "availability": "InStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=312",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Krem, balsam lub lotion",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Kosmetyka profesjonalna"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "professionalOnly": true
+    },
+    {
+      "slug": "post-resurfacing-aid-cream",
+      "name": "Post Resurfacing Aid Cream",
+      "summary": "Kosmetyk DM.Cell do pielęgnacji i wsparcia komfortu skóry.",
+      "presentation": "15 ml",
+      "sourceLine": "DM.Cell",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=310",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/post-resurfacing-aid-cream-1.jpg",
+      "imageAlt": "Post Resurfacing Aid Cream — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "post resurfacing aid cream",
+        "post resurfacing aid cream"
+      ],
+      "officialReferencePrice": {
+        "amount": 15.0,
+        "currency": "USD",
+        "availability": "InStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=310",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Krem, balsam lub lotion",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Kosmetyka profesjonalna"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "professionalOnly": true
+    },
+    {
+      "slug": "atosove-herbal-jawoon-lotion",
+      "name": "Atosove Herbal Jawoon Lotion",
+      "summary": "Kosmetyk DM.Cell do pielęgnacji i wsparcia komfortu skóry.",
+      "presentation": "220ml",
+      "sourceLine": "DM.Cell",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=309",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/atosove-herbal-jawoon-lotion-1.jpg",
+      "imageAlt": "Atosove Herbal Jawoon Lotion — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "atosove herbal jawoon lotion",
+        "atosove herbal jawoon lotion"
+      ],
+      "officialReferencePrice": {
+        "amount": 47.0,
+        "currency": "USD",
+        "availability": "InStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=309",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Krem, balsam lub lotion",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Kosmetyka profesjonalna"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "professionalOnly": true
+    },
+    {
+      "slug": "aloe-skin-enhancer",
+      "name": "Aloe Skin Enhancer",
+      "summary": "Kosmetyk z oficjalnego katalogu DM.Cell.",
+      "presentation": "Main IngredientsAloe Skin Soothing EnhancerUsed 99.9% Pure Aloe Vera juiceFull of hydration and skin soothing ...",
+      "sourceLine": "DM.Cell",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=308",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/aloe-skin-enhancer-1.jpg",
+      "imageAlt": "Aloe Skin Enhancer — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/dmcell/aloe-skin-enhancer-2.jpg",
+          "alt": "Aloe Skin Enhancer — oficjalne zdjęcie 2",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        }
+      ],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "aloe skin enhancer",
+        "aloe skin enhancer"
+      ],
+      "officialReferencePrice": {
+        "amount": 29.0,
+        "currency": "USD",
+        "availability": "InStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=308",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Kosmetyk profesjonalny",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Kosmetyka profesjonalna",
+        "Nawilżanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "professionalOnly": true
+    },
+    {
+      "slug": "facial-protection-ab30-cream",
+      "name": "Facial Protection AB30 Cream",
+      "summary": "Kosmetyk DM.Cell do pielęgnacji i wsparcia komfortu skóry.",
+      "presentation": "천연허브오일의 수용성 베이스로 모공을 막지 않는 데일리 프로텍션 크림 50 ml",
+      "sourceLine": "DM.Cell",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=307",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/facial-protection-ab30-cream-1.jpg",
+      "imageAlt": "Facial Protection AB30 Cream — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/dmcell/facial-protection-ab30-cream-2.jpg",
+          "alt": "Facial Protection AB30 Cream — oficjalne zdjęcie 2",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        }
+      ],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "facial protection ab30 cream",
+        "facial protection ab30 cream"
+      ],
+      "officialReferencePrice": {
+        "amount": 42.0,
+        "currency": "USD",
+        "availability": "InStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=307",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Krem, balsam lub lotion",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Kosmetyka profesjonalna",
+        "Ochrona przeciwsłoneczna"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "professionalOnly": true
+    },
+    {
+      "slug": "rejuv-t-x-thioctic-cream",
+      "name": "Rejuv T.X Thioctic Cream",
+      "summary": "Kosmetyk DM.Cell do pielęgnacji i wsparcia komfortu skóry.",
+      "presentation": "50ml",
+      "sourceLine": "DM.Cell",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=306",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/rejuv-t-x-thioctic-cream-1.jpg",
+      "imageAlt": "Rejuv T.X Thioctic Cream — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/dmcell/rejuv-t-x-thioctic-cream-2.jpg",
+          "alt": "Rejuv T.X Thioctic Cream — oficjalne zdjęcie 2",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        }
+      ],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "rejuv t.x thioctic cream",
+        "rejuv t x thioctic cream"
+      ],
+      "officialReferencePrice": {
+        "amount": 55.0,
+        "currency": "USD",
+        "availability": "InStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=306",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Krem, balsam lub lotion",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Kosmetyka profesjonalna"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "professionalOnly": true
+    },
+    {
+      "slug": "matrixl-eye-wrinkle-gel",
+      "name": "Matrixl Eye Wrinkle Gel",
+      "summary": "Kosmetyk z oficjalnego katalogu DM.Cell.",
+      "presentation": "30 ml",
+      "sourceLine": "DM.Cell",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=305",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/matrixl-eye-wrinkle-gel-1.jpg",
+      "imageAlt": "Matrixl Eye Wrinkle Gel — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/dmcell/matrixl-eye-wrinkle-gel-2.jpg",
+          "alt": "Matrixl Eye Wrinkle Gel — oficjalne zdjęcie 2",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        }
+      ],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "matrixl eye wrinkle gel",
+        "matrixl eye wrinkle gel"
+      ],
+      "officialReferencePrice": {
+        "amount": 60.0,
+        "currency": "USD",
+        "availability": "InStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=305",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Kosmetyk profesjonalny",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Kosmetyka profesjonalna",
+        "Pielęgnacja okolicy oczu",
+        "Pielęgnacja pro-aging"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        },
+        {
+          "code": "EYES",
+          "label": "Okolica oczu"
+        }
+      ],
+      "keyIngredients": [],
+      "professionalOnly": true
+    },
+    {
+      "slug": "matrixl-facial-wrinkle-gel",
+      "name": "Matrixl Facial Wrinkle Gel",
+      "summary": "Kosmetyk z oficjalnego katalogu DM.Cell.",
+      "presentation": "50 ml",
+      "sourceLine": "DM.Cell",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=304",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/matrixl-facial-wrinkle-gel-1.png",
+      "imageAlt": "Matrixl Facial Wrinkle Gel — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/dmcell/matrixl-facial-wrinkle-gel-2.jpg",
+          "alt": "Matrixl Facial Wrinkle Gel — oficjalne zdjęcie 2",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        }
+      ],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "matrixl facial wrinkle gel",
+        "matrixl facial wrinkle gel"
+      ],
+      "officialReferencePrice": {
+        "amount": 68.0,
+        "currency": "USD",
+        "availability": "InStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=304",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Kosmetyk profesjonalny",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Kosmetyka profesjonalna",
+        "Pielęgnacja pro-aging"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "professionalOnly": true
+    },
+    {
+      "slug": "maximizing-hydro-vita-cream",
+      "name": "Maximizing Hydro Vita Cream",
+      "summary": "Kosmetyk DM.Cell do pielęgnacji i wsparcia komfortu skóry.",
+      "presentation": "100ml &amp; 300ml",
+      "sourceLine": "DM.Cell",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=303",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/maximizing-hydro-vita-cream-1.png",
+      "imageAlt": "Maximizing Hydro Vita Cream — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/dmcell/maximizing-hydro-vita-cream-2.png",
+          "alt": "Maximizing Hydro Vita Cream — oficjalne zdjęcie 2",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/dmcell/maximizing-hydro-vita-cream-3.png",
+          "alt": "Maximizing Hydro Vita Cream — oficjalne zdjęcie 3",
+          "label": "Zdjęcie 3",
+          "fit": "cover"
+        }
+      ],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "maximizing hydro vita cream",
+        "maximizing hydro vita cream"
+      ],
+      "officialReferencePrice": {
+        "amount": 38.0,
+        "currency": "USD",
+        "availability": "InStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=303",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Krem, balsam lub lotion",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Kosmetyka profesjonalna",
+        "Nawilżanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "professionalOnly": true
+    },
+    {
+      "slug": "miracle-skin-perfection-cream",
+      "name": "Miracle Skin Perfection Cream",
+      "summary": "Kosmetyk DM.Cell do pielęgnacji i wsparcia komfortu skóry.",
+      "presentation": "50 ml",
+      "sourceLine": "DM.Cell",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=302",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/miracle-skin-perfection-cream-1.jpg",
+      "imageAlt": "Miracle Skin Perfection Cream — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "miracle skin perfection cream",
+        "miracle skin perfection cream"
+      ],
+      "officialReferencePrice": {
+        "amount": 78.0,
+        "currency": "USD",
+        "availability": "InStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=302",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Krem, balsam lub lotion",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Kosmetyka profesjonalna",
+        "Przebarwienia i koloryt"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "professionalOnly": true
+    },
+    {
+      "slug": "egf-skin-renewal-cream",
+      "name": "EGF Skin Renewal Cream",
+      "summary": "Kosmetyk DM.Cell do pielęgnacji i wsparcia komfortu skóry.",
+      "presentation": "50 ml &amp; 300mlULTIMATE REPAIRING EGF SYSTEM FROM NO.1 KOREAN SKIN CARE: Dm.cell Awards Korea Quality Satisf...",
+      "sourceLine": "DM.Cell",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=300",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/egf-skin-renewal-cream-1.png",
+      "imageAlt": "EGF Skin Renewal Cream — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/dmcell/egf-skin-renewal-cream-2.png",
+          "alt": "EGF Skin Renewal Cream — oficjalne zdjęcie 2",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/dmcell/egf-skin-renewal-cream-3.png",
+          "alt": "EGF Skin Renewal Cream — oficjalne zdjęcie 3",
+          "label": "Zdjęcie 3",
+          "fit": "cover"
+        }
+      ],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "egf skin renewal cream",
+        "egf skin renewal cream"
+      ],
+      "officialReferencePrice": {
+        "amount": 50.0,
+        "currency": "USD",
+        "availability": "InStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=300",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Krem, balsam lub lotion",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Kosmetyka profesjonalna",
+        "Pielęgnacja pro-aging"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Peptydy / czynniki wzrostu"
+      ],
+      "professionalOnly": true
+    },
+    {
+      "slug": "hydro-eye-cream",
+      "name": "Hydro Eye Cream",
+      "summary": "Kosmetyk DM.Cell do pielęgnacji i wsparcia komfortu skóry.",
+      "presentation": "15 ml",
+      "sourceLine": "DM.Cell",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=299",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/hydro-eye-cream-1.png",
+      "imageAlt": "Hydro Eye Cream — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/dmcell/hydro-eye-cream-2.png",
+          "alt": "Hydro Eye Cream — oficjalne zdjęcie 2",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/dmcell/hydro-eye-cream-3.png",
+          "alt": "Hydro Eye Cream — oficjalne zdjęcie 3",
+          "label": "Zdjęcie 3",
+          "fit": "cover"
+        }
+      ],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "hydro eye cream",
+        "hydro eye cream"
+      ],
+      "officialReferencePrice": {
+        "amount": 50.0,
+        "currency": "USD",
+        "availability": "InStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=299",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Krem, balsam lub lotion",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Kosmetyka profesjonalna",
+        "Pielęgnacja okolicy oczu",
+        "Nawilżanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        },
+        {
+          "code": "EYES",
+          "label": "Okolica oczu"
+        }
+      ],
+      "keyIngredients": [],
+      "professionalOnly": true
+    },
+    {
+      "slug": "intensive-5gf-btx-essensit-5",
+      "name": "Intensive 5GF BTX Essensit 5%",
+      "summary": "Kosmetyk z oficjalnego katalogu DM.Cell.",
+      "presentation": "100ml",
+      "sourceLine": "DM.Cell",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=297",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/intensive-5gf-btx-essensit-5-1.png",
+      "imageAlt": "Intensive 5GF BTX Essensit 5% — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/dmcell/intensive-5gf-btx-essensit-5-2.png",
+          "alt": "Intensive 5GF BTX Essensit 5% — oficjalne zdjęcie 2",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        }
+      ],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "intensive 5gf btx essensit 5%",
+        "intensive 5gf btx essensit 5"
+      ],
+      "officialReferencePrice": {
+        "amount": 84.0,
+        "currency": "USD",
+        "availability": "InStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=297",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Kosmetyk profesjonalny",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Kosmetyka profesjonalna",
+        "Pielęgnacja pro-aging"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Peptydy / czynniki wzrostu"
+      ],
+      "professionalOnly": true
+    },
+    {
+      "slug": "9gf-btx-complex-essensit-18-ampoule",
+      "name": "9GF BTX Complex Essensit 18% Ampoule",
+      "summary": "Skoncentrowany kosmetyk DM.Cell do ukierunkowanej pielęgnacji skóry.",
+      "presentation": "10ml *10 pcsAntiaging, Natural Botox, lifting effect with EGF, Peptide. Powerful anti wrinkle ampoule Made in...",
+      "sourceLine": "DM.Cell",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=295",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/9gf-btx-complex-essensit-18-ampoule-1.png",
+      "imageAlt": "9GF BTX Complex Essensit 18% Ampoule — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/dmcell/9gf-btx-complex-essensit-18-ampoule-2.jpg",
+          "alt": "9GF BTX Complex Essensit 18% Ampoule — oficjalne zdjęcie 2",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        }
+      ],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "9gf btx complex essensit 18% ampoule",
+        "9gf btx complex essensit 18 ampoule"
+      ],
+      "officialReferencePrice": {
+        "amount": 200.0,
+        "currency": "USD",
+        "availability": "InStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=295",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Ampułka, serum lub esencja",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Kosmetyka profesjonalna",
+        "Pielęgnacja pro-aging"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Peptydy / czynniki wzrostu"
+      ],
+      "professionalOnly": true
+    },
+    {
+      "slug": "hyaluronical-silky-treatment-essence",
+      "name": "Hyaluronical Silky Treatment Essence",
+      "summary": "Skoncentrowany kosmetyk DM.Cell do ukierunkowanej pielęgnacji skóry.",
+      "presentation": "50ml &amp; 200ml",
+      "sourceLine": "DM.Cell",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=294",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/hyaluronical-silky-treatment-essence-1.png",
+      "imageAlt": "Hyaluronical Silky Treatment Essence — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/dmcell/hyaluronical-silky-treatment-essence-2.png",
+          "alt": "Hyaluronical Silky Treatment Essence — oficjalne zdjęcie 2",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        }
+      ],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "hyaluronical silky treatment essence",
+        "hyaluronical silky treatment essence"
+      ],
+      "officialReferencePrice": {
+        "amount": 38.0,
+        "currency": "USD",
+        "availability": "InStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=294",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Ampułka, serum lub esencja",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Kosmetyka profesjonalna",
+        "Nawilżanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwas hialuronowy"
+      ],
+      "professionalOnly": true
+    },
+    {
+      "slug": "gold-biosill-complex",
+      "name": "Gold Biosill Complex",
+      "summary": "Zestaw DM.Cell przeznaczony do kompletnego etapu pielęgnacji lub zabiegu.",
+      "presentation": "10ml",
+      "sourceLine": "DM.Cell",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=293",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/gold-biosill-complex-1.jpg",
+      "imageAlt": "Gold Biosill Complex — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/dmcell/gold-biosill-complex-2.jpg",
+          "alt": "Gold Biosill Complex — oficjalne zdjęcie 2",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        }
+      ],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "gold biosill complex",
+        "gold biosill complex"
+      ],
+      "officialReferencePrice": {
+        "amount": 109.0,
+        "currency": "USD",
+        "availability": "InStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=293",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Zestaw zabiegowy",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Kosmetyka profesjonalna"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "professionalOnly": true
+    },
+    {
+      "slug": "rejuv-t-x-thioctic-serum",
+      "name": "Rejuv T.X Thioctic Serum",
+      "summary": "Skoncentrowany kosmetyk DM.Cell do ukierunkowanej pielęgnacji skóry.",
+      "presentation": "50ml",
+      "sourceLine": "DM.Cell",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=292",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/rejuv-t-x-thioctic-serum-1.png",
+      "imageAlt": "Rejuv T.X Thioctic Serum — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/dmcell/rejuv-t-x-thioctic-serum-2.jpg",
+          "alt": "Rejuv T.X Thioctic Serum — oficjalne zdjęcie 2",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        }
+      ],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "rejuv t.x thioctic serum",
+        "rejuv t x thioctic serum"
+      ],
+      "officialReferencePrice": {
+        "amount": 56.0,
+        "currency": "USD",
+        "availability": "InStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=292",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Ampułka, serum lub esencja",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Kosmetyka profesjonalna"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "professionalOnly": true
+    },
+    {
+      "slug": "hyaluronic-therapeutic-skin-renewal-serum",
+      "name": "Hyaluronic Therapeutic Skin Renewal Serum",
+      "summary": "Skoncentrowany kosmetyk DM.Cell do ukierunkowanej pielęgnacji skóry.",
+      "presentation": "Sprawdź wariant",
+      "sourceLine": "DM.Cell",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=289",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/hyaluronic-therapeutic-skin-renewal-serum-1.png",
+      "imageAlt": "Hyaluronic Therapeutic Skin Renewal Serum — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/dmcell/hyaluronic-therapeutic-skin-renewal-serum-2.jpg",
+          "alt": "Hyaluronic Therapeutic Skin Renewal Serum — oficjalne zdjęcie 2",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/dmcell/hyaluronic-therapeutic-skin-renewal-serum-3.jpg",
+          "alt": "Hyaluronic Therapeutic Skin Renewal Serum — oficjalne zdjęcie 3",
+          "label": "Zdjęcie 3",
+          "fit": "cover"
+        }
+      ],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "hyaluronic therapeutic skin renewal serum",
+        "hyaluronic therapeutic skin renewal serum"
+      ],
+      "officialReferencePrice": {
+        "amount": 60.0,
+        "currency": "USD",
+        "availability": "InStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=289",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Ampułka, serum lub esencja",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Kosmetyka profesjonalna",
+        "Nawilżanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwas hialuronowy"
+      ],
+      "professionalOnly": true
+    },
+    {
+      "slug": "superior-vitamin-c-20-kit",
+      "name": "Superior Vitamin C 20% Kit",
+      "summary": "Zestaw DM.Cell przeznaczony do kompletnego etapu pielęgnacji lub zabiegu.",
+      "presentation": "Powder 10pcs + Solution 50ml*2",
+      "sourceLine": "DM.Cell",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=291",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/superior-vitamin-c-20-kit-1.jpg",
+      "imageAlt": "Superior Vitamin C 20% Kit — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/dmcell/superior-vitamin-c-20-kit-2.jpg",
+          "alt": "Superior Vitamin C 20% Kit — oficjalne zdjęcie 2",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/dmcell/superior-vitamin-c-20-kit-3.jpg",
+          "alt": "Superior Vitamin C 20% Kit — oficjalne zdjęcie 3",
+          "label": "Zdjęcie 3",
+          "fit": "cover"
+        }
+      ],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "superior vitamin c 20% kit",
+        "superior vitamin c 20 kit"
+      ],
+      "officialReferencePrice": {
+        "amount": 155.0,
+        "currency": "USD",
+        "availability": "InStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=291",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Zestaw zabiegowy",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Kosmetyka profesjonalna",
+        "Przebarwienia i koloryt"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Witamina C"
+      ],
+      "professionalOnly": true
+    },
+    {
+      "slug": "co2-carboxy-double-enzyme-pore-treatment",
+      "name": "CO2 Carboxy Double Enzyme Pore Treatment",
+      "summary": "Zestaw DM.Cell przeznaczony do kompletnego etapu pielęgnacji lub zabiegu.",
+      "presentation": "180ml",
+      "sourceLine": "DM.Cell",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=288",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/co2-carboxy-double-enzyme-pore-treatment-1.jpg",
+      "imageAlt": "CO2 Carboxy Double Enzyme Pore Treatment — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/dmcell/co2-carboxy-double-enzyme-pore-treatment-2.jpg",
+          "alt": "CO2 Carboxy Double Enzyme Pore Treatment — oficjalne zdjęcie 2",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/dmcell/co2-carboxy-double-enzyme-pore-treatment-3.jpg",
+          "alt": "CO2 Carboxy Double Enzyme Pore Treatment — oficjalne zdjęcie 3",
+          "label": "Zdjęcie 3",
+          "fit": "cover"
+        }
+      ],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "co2 carboxy double enzyme pore treatment",
+        "co2 carboxy double enzyme pore treatment"
+      ],
+      "officialReferencePrice": {
+        "amount": 49.0,
+        "currency": "USD",
+        "availability": "InStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=288",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Zestaw zabiegowy",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Kosmetyka profesjonalna"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "professionalOnly": true
+    },
+    {
+      "slug": "re-inforce-collagen-mask",
+      "name": "Re-inforce Collagen Mask",
+      "summary": "Maska DM.Cell do profesjonalnego lub domowego etapu pielęgnacji skóry.",
+      "presentation": "180ml",
+      "sourceLine": "DM.Cell",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=287",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/re-inforce-collagen-mask-1.jpg",
+      "imageAlt": "Re-inforce Collagen Mask — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/dmcell/re-inforce-collagen-mask-2.jpg",
+          "alt": "Re-inforce Collagen Mask — oficjalne zdjęcie 2",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        }
+      ],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "re-inforce collagen mask",
+        "re inforce collagen mask"
+      ],
+      "officialReferencePrice": {
+        "amount": 42.0,
+        "currency": "USD",
+        "availability": "InStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=287",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Maska profesjonalna",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Kosmetyka profesjonalna",
+        "Maski i terapie gabinetowe"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "professionalOnly": true
+    },
+    {
+      "slug": "matrixl-anti-wrinkle-powder-kit",
+      "name": "Matrixl Anti-Wrinkle Powder Kit",
+      "summary": "Zestaw DM.Cell przeznaczony do kompletnego etapu pielęgnacji lub zabiegu.",
+      "presentation": "Powder 12pcs + Solution 100ml",
+      "sourceLine": "DM.Cell",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=286",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/matrixl-anti-wrinkle-powder-kit-1.jpg",
+      "imageAlt": "Matrixl Anti-Wrinkle Powder Kit — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/dmcell/matrixl-anti-wrinkle-powder-kit-2.jpg",
+          "alt": "Matrixl Anti-Wrinkle Powder Kit — oficjalne zdjęcie 2",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/dmcell/matrixl-anti-wrinkle-powder-kit-3.jpg",
+          "alt": "Matrixl Anti-Wrinkle Powder Kit — oficjalne zdjęcie 3",
+          "label": "Zdjęcie 3",
+          "fit": "cover"
+        }
+      ],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "matrixl anti-wrinkle powder kit",
+        "matrixl anti wrinkle powder kit"
+      ],
+      "officialReferencePrice": {
+        "amount": 230.0,
+        "currency": "USD",
+        "availability": "InStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=286",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Zestaw zabiegowy",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Kosmetyka profesjonalna",
+        "Pielęgnacja pro-aging"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "professionalOnly": true
+    },
+    {
+      "slug": "bioactive-algin-mask",
+      "name": "Bioactive Algin Mask",
+      "summary": "Maska DM.Cell do profesjonalnego lub domowego etapu pielęgnacji skóry.",
+      "presentation": "1500ml",
+      "sourceLine": "DM.Cell",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=285",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/bioactive-algin-mask-1.jpg",
+      "imageAlt": "Bioactive Algin Mask — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "bioactive algin mask",
+        "bioactive algin mask"
+      ],
+      "officialReferencePrice": {
+        "amount": 110.0,
+        "currency": "USD",
+        "availability": "InStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=285",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Maska profesjonalna",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Kosmetyka profesjonalna",
+        "Maski i terapie gabinetowe"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "professionalOnly": true
+    },
+    {
+      "slug": "vital-c-enzyme-all-in-one-mask",
+      "name": "Vital C Enzyme All-in-one Mask",
+      "summary": "Maska DM.Cell do profesjonalnego lub domowego etapu pielęgnacji skóry.",
+      "presentation": "180ml",
+      "sourceLine": "DM.Cell",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=284",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/vital-c-enzyme-all-in-one-mask-1.jpg",
+      "imageAlt": "Vital C Enzyme All-in-one Mask — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/dmcell/vital-c-enzyme-all-in-one-mask-2.jpg",
+          "alt": "Vital C Enzyme All-in-one Mask — oficjalne zdjęcie 2",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        }
+      ],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "vital c enzyme all-in-one mask",
+        "vital c enzyme all in one mask"
+      ],
+      "officialReferencePrice": {
+        "amount": 49.0,
+        "currency": "USD",
+        "availability": "InStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=284",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Maska profesjonalna",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Kosmetyka profesjonalna",
+        "Maski i terapie gabinetowe"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "professionalOnly": true
+    },
+    {
+      "slug": "bnp-3-step-bio-nano-protein-aqua-mask",
+      "name": "BNP 3-Step Bio-Nano Protein Aqua Mask",
+      "summary": "Maska DM.Cell do profesjonalnego lub domowego etapu pielęgnacji skóry.",
+      "presentation": "5pcs / 1 Box",
+      "sourceLine": "DM.Cell",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=283",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/bnp-3-step-bio-nano-protein-aqua-mask-1.jpg",
+      "imageAlt": "BNP 3-Step Bio-Nano Protein Aqua Mask — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/dmcell/bnp-3-step-bio-nano-protein-aqua-mask-2.jpg",
+          "alt": "BNP 3-Step Bio-Nano Protein Aqua Mask — oficjalne zdjęcie 2",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/dmcell/bnp-3-step-bio-nano-protein-aqua-mask-3.jpg",
+          "alt": "BNP 3-Step Bio-Nano Protein Aqua Mask — oficjalne zdjęcie 3",
+          "label": "Zdjęcie 3",
+          "fit": "cover"
+        }
+      ],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "bnp 3-step bio-nano protein aqua mask",
+        "bnp 3 step bio nano protein aqua mask"
+      ],
+      "officialReferencePrice": {
+        "amount": 35.0,
+        "currency": "USD",
+        "availability": "InStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=283",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Maska profesjonalna",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Kosmetyka profesjonalna",
+        "Maski i terapie gabinetowe",
+        "Nawilżanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "professionalOnly": true
+    },
+    {
+      "slug": "o2-bubble-purifying-cleanser",
+      "name": "O2 Bubble Purifying Cleanser",
+      "summary": "Kosmetyk DM.Cell przeznaczony do etapu oczyszczania skóry.",
+      "presentation": "100ml Detox, natural Oxygen cleanser",
+      "sourceLine": "DM.Cell",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=282",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/o2-bubble-purifying-cleanser-1.jpg",
+      "imageAlt": "O2 Bubble Purifying Cleanser — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/dmcell/o2-bubble-purifying-cleanser-2.jpg",
+          "alt": "O2 Bubble Purifying Cleanser — oficjalne zdjęcie 2",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        }
+      ],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "o2 bubble purifying cleanser",
+        "o2 bubble purifying cleanser"
+      ],
+      "officialReferencePrice": {
+        "amount": 35.0,
+        "currency": "USD",
+        "availability": "InStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=282",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Oczyszczanie profesjonalne",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Kosmetyka profesjonalna",
+        "Oczyszczanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "professionalOnly": true
+    },
+    {
+      "slug": "vital-massage-lotion",
+      "name": "Vital Massage Lotion",
+      "summary": "Kosmetyk DM.Cell do pielęgnacji i wsparcia komfortu skóry.",
+      "presentation": "1,000ml",
+      "sourceLine": "DM.Cell",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=281",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/vital-massage-lotion-1.jpg",
+      "imageAlt": "Vital Massage Lotion — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "vital massage lotion",
+        "vital massage lotion"
+      ],
+      "officialReferencePrice": {
+        "amount": 110.0,
+        "currency": "USD",
+        "availability": "InStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=281",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Krem, balsam lub lotion",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Kosmetyka profesjonalna"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        },
+        {
+          "code": "BODY",
+          "label": "Skóra ciała"
+        }
+      ],
+      "keyIngredients": [],
+      "professionalOnly": true
+    },
+    {
+      "slug": "c-q10-massage-cream",
+      "name": "C-Q10 Massage Cream",
+      "summary": "Kosmetyk DM.Cell do pielęgnacji i wsparcia komfortu skóry.",
+      "presentation": "500ml",
+      "sourceLine": "DM.Cell",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=280",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/c-q10-massage-cream-1.jpg",
+      "imageAlt": "C-Q10 Massage Cream — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "c-q10 massage cream",
+        "c q10 massage cream"
+      ],
+      "officialReferencePrice": {
+        "amount": 85.0,
+        "currency": "USD",
+        "availability": "InStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=280",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Krem, balsam lub lotion",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Kosmetyka profesjonalna"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        },
+        {
+          "code": "BODY",
+          "label": "Skóra ciała"
+        }
+      ],
+      "keyIngredients": [],
+      "professionalOnly": true
+    },
+    {
+      "slug": "aroma-therapeutic-massage-oil",
+      "name": "Aroma Therapeutic Massage Oil",
+      "summary": "Olejek DM.Cell do pielęgnacji lub masażu skóry.",
+      "presentation": "500ml",
+      "sourceLine": "DM.Cell",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=279",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/aroma-therapeutic-massage-oil-1.jpg",
+      "imageAlt": "Aroma Therapeutic Massage Oil — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "aroma therapeutic massage oil",
+        "aroma therapeutic massage oil"
+      ],
+      "officialReferencePrice": {
+        "amount": 95.0,
+        "currency": "USD",
+        "availability": "InStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=279",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Olejek pielęgnacyjny",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Kosmetyka profesjonalna"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        },
+        {
+          "code": "BODY",
+          "label": "Skóra ciała"
+        }
+      ],
+      "keyIngredients": [],
+      "professionalOnly": true
+    },
+    {
+      "slug": "jojoba-oil",
+      "name": "Jojoba Oil",
+      "summary": "Olejek DM.Cell do pielęgnacji lub masażu skóry.",
+      "presentation": "30 ml",
+      "sourceLine": "DM.Cell",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=278",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/jojoba-oil-1.png",
+      "imageAlt": "Jojoba Oil — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/dmcell/jojoba-oil-2.png",
+          "alt": "Jojoba Oil — oficjalne zdjęcie 2",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/dmcell/jojoba-oil-3.png",
+          "alt": "Jojoba Oil — oficjalne zdjęcie 3",
+          "label": "Zdjęcie 3",
+          "fit": "cover"
+        }
+      ],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "jojoba oil",
+        "jojoba oil"
+      ],
+      "officialReferencePrice": {
+        "amount": 45.0,
+        "currency": "USD",
+        "availability": "InStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=278",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Olejek pielęgnacyjny",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Kosmetyka profesjonalna"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        },
+        {
+          "code": "BODY",
+          "label": "Skóra ciała"
+        }
+      ],
+      "keyIngredients": [
+        "Olej jojoba"
+      ],
+      "professionalOnly": true
+    },
+    {
+      "slug": "msm-rose-water-mist",
+      "name": "MSM Rose Water Mist",
+      "summary": "Kosmetyk z oficjalnego katalogu DM.Cell.",
+      "presentation": "250ml &amp; 500ml",
+      "sourceLine": "DM.Cell",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=277",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/msm-rose-water-mist-1.jpg",
+      "imageAlt": "MSM Rose Water Mist — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/dmcell/msm-rose-water-mist-2.jpg",
+          "alt": "MSM Rose Water Mist — oficjalne zdjęcie 2",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/dmcell/msm-rose-water-mist-3.jpg",
+          "alt": "MSM Rose Water Mist — oficjalne zdjęcie 3",
+          "label": "Zdjęcie 3",
+          "fit": "cover"
+        }
+      ],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "msm rose water mist",
+        "msm rose water mist"
+      ],
+      "officialReferencePrice": {
+        "amount": 43.0,
+        "currency": "USD",
+        "availability": "InStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=277",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Kosmetyk profesjonalny",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Kosmetyka profesjonalna"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "professionalOnly": true
+    },
+    {
+      "slug": "teatree-soothing-solution",
+      "name": "Teatree Soothing Solution",
+      "summary": "Skoncentrowany kosmetyk DM.Cell do ukierunkowanej pielęgnacji skóry.",
+      "presentation": "Sprawdź wariant",
+      "sourceLine": "DM.Cell",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=276",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/teatree-soothing-solution-1.jpg",
+      "imageAlt": "Teatree Soothing Solution — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/dmcell/teatree-soothing-solution-2.png",
+          "alt": "Teatree Soothing Solution — oficjalne zdjęcie 2",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        }
+      ],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "teatree soothing solution",
+        "teatree soothing solution"
+      ],
+      "officialReferencePrice": {
+        "amount": 38.0,
+        "currency": "USD",
+        "availability": "InStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=276",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Ampułka, serum lub esencja",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Kosmetyka profesjonalna"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "professionalOnly": true
+    },
+    {
+      "slug": "pls-treatment-solution",
+      "name": "PLS Treatment Solution",
+      "summary": "Skoncentrowany kosmetyk DM.Cell do ukierunkowanej pielęgnacji skóry.",
+      "presentation": "100ml &amp; 220ml &amp; 1,000ml",
+      "sourceLine": "DM.Cell",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=275",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/pls-treatment-solution-1.png",
+      "imageAlt": "PLS Treatment Solution — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/dmcell/pls-treatment-solution-2.png",
+          "alt": "PLS Treatment Solution — oficjalne zdjęcie 2",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        }
+      ],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "pls treatment solution",
+        "pls treatment solution"
+      ],
+      "officialReferencePrice": {
+        "amount": 23.0,
+        "currency": "USD",
+        "availability": "InStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=275",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Ampułka, serum lub esencja",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Kosmetyka profesjonalna"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "professionalOnly": true
+    },
+    {
+      "slug": "aha-exfoliating-glycolic-cleanser",
+      "name": "AHA Exfoliating Glycolic Cleanser",
+      "summary": "Kosmetyk DM.Cell przeznaczony do etapu oczyszczania skóry.",
+      "presentation": "250ml",
+      "sourceLine": "DM.Cell",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=274",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/aha-exfoliating-glycolic-cleanser-1.png",
+      "imageAlt": "AHA Exfoliating Glycolic Cleanser — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/dmcell/aha-exfoliating-glycolic-cleanser-2.png",
+          "alt": "AHA Exfoliating Glycolic Cleanser — oficjalne zdjęcie 2",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        }
+      ],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "aha exfoliating glycolic cleanser",
+        "aha exfoliating glycolic cleanser"
+      ],
+      "officialReferencePrice": {
+        "amount": 42.0,
+        "currency": "USD",
+        "availability": "InStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=274",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Oczyszczanie profesjonalne",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Kosmetyka profesjonalna",
+        "Oczyszczanie",
+        "Skóra trądzikowa i niedoskonałości"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwasy AHA"
+      ],
+      "professionalOnly": true
+    },
+    {
+      "slug": "double-enzyme-cleansing-powder",
+      "name": "Double Enzyme Cleansing Powder",
+      "summary": "Kosmetyk DM.Cell przeznaczony do etapu oczyszczania skóry.",
+      "presentation": "60g",
+      "sourceLine": "DM.Cell",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=273",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/double-enzyme-cleansing-powder-1.png",
+      "imageAlt": "Double Enzyme Cleansing Powder — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/dmcell/double-enzyme-cleansing-powder-2.png",
+          "alt": "Double Enzyme Cleansing Powder — oficjalne zdjęcie 2",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        }
+      ],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "double enzyme cleansing powder",
+        "double enzyme cleansing powder"
+      ],
+      "officialReferencePrice": {
+        "amount": 54.0,
+        "currency": "USD",
+        "availability": "InStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=273",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Oczyszczanie profesjonalne",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Kosmetyka profesjonalna",
+        "Oczyszczanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "professionalOnly": true
+    },
+    {
+      "slug": "rejuv-t-x-foam-cleansing-cream",
+      "name": "Rejuv T.X Foam Cleansing Cream",
+      "summary": "Kosmetyk DM.Cell przeznaczony do etapu oczyszczania skóry.",
+      "presentation": "180ml",
+      "sourceLine": "DM.Cell",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=272",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/rejuv-t-x-foam-cleansing-cream-1.jpg",
+      "imageAlt": "Rejuv T.X Foam Cleansing Cream — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/dmcell/rejuv-t-x-foam-cleansing-cream-2.jpg",
+          "alt": "Rejuv T.X Foam Cleansing Cream — oficjalne zdjęcie 2",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        }
+      ],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "rejuv t.x foam cleansing cream",
+        "rejuv t x foam cleansing cream"
+      ],
+      "officialReferencePrice": {
+        "amount": 45.0,
+        "currency": "USD",
+        "availability": "InStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=272",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Oczyszczanie profesjonalne",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Kosmetyka profesjonalna",
+        "Oczyszczanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "professionalOnly": true
+    },
+    {
+      "slug": "vital-cleansing-milk-lotion",
+      "name": "Vital Cleansing Milk Lotion",
+      "summary": "Kosmetyk DM.Cell przeznaczony do etapu oczyszczania skóry.",
+      "presentation": "250ml &amp; 1,000ml",
+      "sourceLine": "DM.Cell",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=271",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/vital-cleansing-milk-lotion-1.jpg",
+      "imageAlt": "Vital Cleansing Milk Lotion — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/dmcell/vital-cleansing-milk-lotion-2.jpg",
+          "alt": "Vital Cleansing Milk Lotion — oficjalne zdjęcie 2",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/dmcell/vital-cleansing-milk-lotion-3.jpg",
+          "alt": "Vital Cleansing Milk Lotion — oficjalne zdjęcie 3",
+          "label": "Zdjęcie 3",
+          "fit": "cover"
+        }
+      ],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "vital cleansing milk lotion",
+        "vital cleansing milk lotion"
+      ],
+      "officialReferencePrice": {
+        "amount": 35.0,
+        "currency": "USD",
+        "availability": "InStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=271",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Oczyszczanie profesjonalne",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Kosmetyka profesjonalna",
+        "Oczyszczanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "professionalOnly": true
+    },
+    {
+      "slug": "sensitive-enzyme-cleanser",
+      "name": "Sensitive Enzyme Cleanser",
+      "summary": "Kosmetyk DM.Cell przeznaczony do etapu oczyszczania skóry.",
+      "presentation": "250ml",
+      "sourceLine": "DM.Cell",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=269",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/sensitive-enzyme-cleanser-1.png",
+      "imageAlt": "Sensitive Enzyme Cleanser — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "sensitive enzyme cleanser",
+        "sensitive enzyme cleanser"
+      ],
+      "officialReferencePrice": {
+        "amount": 42.0,
+        "currency": "USD",
+        "availability": "InStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=269",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Oczyszczanie profesjonalne",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Kosmetyka profesjonalna",
+        "Oczyszczanie"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "professionalOnly": true
+    },
+    {
+      "slug": "bio-seacil-expola-powder-kit",
+      "name": "Bio Seacil Expola Powder Kit",
+      "summary": "Zestaw DM.Cell przeznaczony do kompletnego etapu pielęgnacji lub zabiegu.",
+      "presentation": "Powder 8 pcs + Activator 100ml",
+      "sourceLine": "DM.Cell",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=264",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/bio-seacil-expola-powder-kit-1.jpg",
+      "imageAlt": "Bio Seacil Expola Powder Kit — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/dmcell/bio-seacil-expola-powder-kit-2.jpg",
+          "alt": "Bio Seacil Expola Powder Kit — oficjalne zdjęcie 2",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        }
+      ],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "bio seacil expola powder kit",
+        "bio seacil expola powder kit"
+      ],
+      "officialReferencePrice": {
+        "amount": 240.0,
+        "currency": "USD",
+        "availability": "InStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=264",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Zestaw zabiegowy",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Kosmetyka profesjonalna"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "professionalOnly": true
+    },
+    {
+      "slug": "anti-bac-control-foam-cleanser",
+      "name": "Anti-Bac Control Foam Cleanser",
+      "summary": "Kosmetyk DM.Cell przeznaczony do etapu oczyszczania skóry.",
+      "presentation": "250ml",
+      "sourceLine": "DM.Cell",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=268",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/anti-bac-control-foam-cleanser-1.png",
+      "imageAlt": "Anti-Bac Control Foam Cleanser — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/dmcell/anti-bac-control-foam-cleanser-2.jpg",
+          "alt": "Anti-Bac Control Foam Cleanser — oficjalne zdjęcie 2",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        }
+      ],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "anti-bac control foam cleanser",
+        "anti bac control foam cleanser"
+      ],
+      "officialReferencePrice": {
+        "amount": 48.0,
+        "currency": "USD",
+        "availability": "InStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=268",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Oczyszczanie profesjonalne",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Kosmetyka profesjonalna",
+        "Oczyszczanie",
+        "Skóra trądzikowa i niedoskonałości"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "professionalOnly": true
+    },
+    {
+      "slug": "aha-peel-lotion",
+      "name": "AHA Peel Lotion",
+      "summary": "Kosmetyk DM.Cell do pielęgnacji i wsparcia komfortu skóry.",
+      "presentation": "15ml &amp; 50ml",
+      "sourceLine": "DM.Cell",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=266",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/aha-peel-lotion-1.png",
+      "imageAlt": "AHA Peel Lotion — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/dmcell/aha-peel-lotion-2.png",
+          "alt": "AHA Peel Lotion — oficjalne zdjęcie 2",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        },
+        {
+          "path": "/beautydocs/catalog/dmcell/aha-peel-lotion-3.jpg",
+          "alt": "AHA Peel Lotion — oficjalne zdjęcie 3",
+          "label": "Zdjęcie 3",
+          "fit": "cover"
+        }
+      ],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "aha peel lotion",
+        "aha peel lotion"
+      ],
+      "officialReferencePrice": {
+        "amount": 30.0,
+        "currency": "USD",
+        "availability": "InStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=266",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Krem, balsam lub lotion",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Kosmetyka profesjonalna",
+        "Skóra trądzikowa i niedoskonałości"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwasy AHA"
+      ],
+      "professionalOnly": true
+    },
+    {
+      "slug": "glycolic-30-stem-cell-kit",
+      "name": "Glycolic 30% Stem Cell Kit",
+      "summary": "Zestaw DM.Cell przeznaczony do kompletnego etapu pielęgnacji lub zabiegu.",
+      "presentation": "5ml*12pcsBest treatment for acne , Dry skin",
+      "sourceLine": "DM.Cell",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=265",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/glycolic-30-stem-cell-kit-1.jpg",
+      "imageAlt": "Glycolic 30% Stem Cell Kit — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [
+        {
+          "path": "/beautydocs/catalog/dmcell/glycolic-30-stem-cell-kit-2.jpg",
+          "alt": "Glycolic 30% Stem Cell Kit — oficjalne zdjęcie 2",
+          "label": "Zdjęcie 2",
+          "fit": "cover"
+        }
+      ],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "glycolic 30% stem cell kit",
+        "glycolic 30 stem cell kit"
+      ],
+      "officialReferencePrice": {
+        "amount": 170.0,
+        "currency": "USD",
+        "availability": "InStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=265",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Zestaw zabiegowy",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Kosmetyka profesjonalna",
+        "Skóra trądzikowa i niedoskonałości"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [
+        "Kwasy AHA"
+      ],
+      "professionalOnly": true
+    },
+    {
+      "slug": "bnp-exfoliating-gel",
+      "name": "BNP Exfoliating Gel",
+      "summary": "Kosmetyk DM.Cell przeznaczony do etapu oczyszczania skóry.",
+      "presentation": "Dermatology highly praised item and moist peelingBNP Exfoliating Gel#pH-Balanced (pH6) Cleanser#Contains Paten...",
+      "sourceLine": "DM.Cell",
+      "sourceUrl": "https://us.dmcell.com/80/?idx=263",
+      "quoteUrl": "https://dmcell.pl/#kontakt",
+      "imagePath": "/beautydocs/catalog/dmcell/bnp-exfoliating-gel-1.jpg",
+      "imageAlt": "BNP Exfoliating Gel — oficjalne zdjęcie produktu DM.Cell",
+      "additionalImages": [],
+      "manufacturerUses": [
+        "Zastosowanie zgodne z aktualną etykietą i protokołem producenta DM.Cell."
+      ],
+      "aliases": [
+        "bnp exfoliating gel",
+        "bnp exfoliating gel"
+      ],
+      "officialReferencePrice": {
+        "amount": 29.0,
+        "currency": "USD",
+        "availability": "InStock",
+        "sourceUrl": "https://us.dmcell.com/80/?idx=263",
+        "updatedAt": "2026-08-23"
+      },
+      "productCategory": "Kosmetyk profesjonalny",
+      "productFamily": "Oczyszczanie profesjonalne",
+      "treatmentCategories": [
+        "Pielęgnacja twarzy",
+        "Kosmetyka profesjonalna",
+        "Oczyszczanie",
+        "Skóra trądzikowa i niedoskonałości"
+      ],
+      "applicationAreas": [
+        {
+          "code": "FACE",
+          "label": "Skóra twarzy"
+        }
+      ],
+      "keyIngredients": [],
+      "professionalOnly": true
+    }
+  ]
+}

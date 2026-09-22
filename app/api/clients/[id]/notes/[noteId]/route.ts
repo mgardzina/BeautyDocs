@@ -1,15 +1,22 @@
 import { NextResponse } from "next/server";
-import { prisma } from "@/lib/prisma";
+import { legacyDatabase } from "@/lib/legacy-database";
+import { auth } from "@/lib/auth";
 
 // DELETE - Usunięcie notatki
 export async function DELETE(
   request: Request,
   { params }: { params: Promise<{ id: string; noteId: string }> }
 ) {
+  const session = await auth();
+
+  if (!session) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
   try {
     const { noteId } = await params;
 
-    await prisma.clientNote.delete({
+    await legacyDatabase.clientNote.delete({
       where: { id: noteId },
     });
 
