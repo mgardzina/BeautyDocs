@@ -1,5 +1,6 @@
 "use client";
 
+import { useT } from "../i18n";
 import {
   useEffect,
   useMemo,
@@ -150,6 +151,7 @@ export function BeautyDocsFormFlow({
   fromAdmin = false,
   tenant,
 }: BeautyDocsFormFlowProps) {
+  const t = useT();
   const catalogueHref = `/f/${encodeURIComponent(tenant.slug)}${
     fromAdmin ? "?from=admin" : fromConsumer ? "?from=consumer" : ""
   }`;
@@ -267,7 +269,7 @@ export function BeautyDocsFormFlow({
       handleSignatureChange(key, signature);
     } catch {
       setErrorMessage(
-        "Nie udało się użyć zapisanego podpisu. Możesz podpisać dokument ręcznie.",
+        t("Nie udało się użyć zapisanego podpisu. Możesz podpisać dokument ręcznie."),
       );
     } finally {
       setSavedSignatureImportingKey(null);
@@ -326,7 +328,7 @@ export function BeautyDocsFormFlow({
 
   const validate = (requireSignatures: boolean): string | null => {
     if (medicalProfileApplied && !medicalProfileConfirmed) {
-      return "Przejrzyj zapisany wywiad medyczny i potwierdź aktualność odpowiedzi.";
+      return t("Przejrzyj zapisany wywiad medyczny i potwierdź aktualność odpowiedzi.");
     }
     const firstFieldError = Object.values(fieldErrors)[0];
     if (firstFieldError) return firstFieldError;
@@ -340,14 +342,14 @@ export function BeautyDocsFormFlow({
           );
           const choice = consentValues[field.key];
           if (choice !== true && choice !== false) {
-            return `Wybierz „Wyrażam zgodę” albo „Nie wyrażam zgody” dla pozycji „${consent?.title ?? field.label}”.`;
+            return t("Wybierz „Wyrażam zgodę” albo „Nie wyrażam zgody” dla pozycji „{value1}”.", { value1: consent?.title ?? field.label });
           }
           if ((field.required || consent?.required) && choice !== true) {
-            return `Zgoda „${consent?.title ?? field.label}” jest wymagana.`;
+            return t("Zgoda „{value1}” jest wymagana.", { value1: consent?.title ?? field.label });
           }
           const consentSignatureKey = CONSENT_SIGNATURE_KEYS[field.key];
           if (consentSignatureKey && !signatureValues[consentSignatureKey]) {
-            return `Podpisz swoją decyzję dla pozycji „${consent?.title ?? field.label}”.`;
+            return t("Podpisz swoją decyzję dla pozycji „{value1}”.", { value1: consent?.title ?? field.label });
           }
           continue;
         }
@@ -356,7 +358,7 @@ export function BeautyDocsFormFlow({
 
         if (field.type === "signature") {
           if (requireSignatures && !signatureValues[field.key]) {
-            return "Złóż wszystkie wymagane podpisy.";
+            return t("Złóż wszystkie wymagane podpisy.");
           }
           continue;
         }
@@ -367,18 +369,18 @@ export function BeautyDocsFormFlow({
       requireSignatures &&
       !consentValues[DATA_PROCESSING_CONSENT_KEY]
     ) {
-      return "Zgoda na przetwarzanie danych osobowych jest wymagana.";
+      return t("Zgoda na przetwarzanie danych osobowych jest wymagana.");
     }
 
     if (
       requireSignatures &&
       consentValues[TREATMENT_CONSENT_KEY] !== true
     ) {
-      return "Zgoda na wykonanie zabiegu jest wymagana.";
+      return t("Zgoda na wykonanie zabiegu jest wymagana.");
     }
 
     if (requireSignatures && !signatureValues[MAIN_SIGNATURE_KEY]) {
-      return "Podpis jest wymagany, aby wysłać formularz.";
+      return t("Podpis jest wymagany, aby wysłać formularz.");
     }
 
     return null;
@@ -409,6 +411,8 @@ export function BeautyDocsFormFlow({
         fieldValues[PRACTITIONER_FIELD_KEY] || null,
       appointmentId: appointmentId ?? null,
       bookingToken: bookingToken ?? null,
+      // Recorded in the signed snapshot: the language the client actually read.
+      locale: form.contentLocale,
     };
   };
 
@@ -474,7 +478,7 @@ export function BeautyDocsFormFlow({
       setDocumentClaim(signed);
       setStatus("success");
     } catch {
-      setErrorMessage("Nie udało się podpisać formularza. Spróbuj ponownie.");
+      setErrorMessage(t("Nie udało się podpisać formularza. Spróbuj ponownie."));
       setStatus("signing");
     }
   };
@@ -514,7 +518,7 @@ export function BeautyDocsFormFlow({
       setStatus("otp");
     } catch {
       setErrorMessage(
-        "Nie udało się wysłać kodu SMS. Sprawdź numer telefonu i wykonawcę.",
+        t("Nie udało się wysłać kodu SMS. Sprawdź numer telefonu i wykonawcę."),
       );
       setStatus("phone-confirmation");
     }
@@ -547,7 +551,7 @@ export function BeautyDocsFormFlow({
       setOtpCode("");
     } catch {
       setErrorMessage(
-        "Nie można jeszcze wysłać kolejnego kodu. Odczekaj chwilę i spróbuj ponownie.",
+        t("Nie można jeszcze wysłać kolejnego kodu. Odczekaj chwilę i spróbuj ponownie."),
       );
     } finally {
       setResendingCode(false);
@@ -571,7 +575,7 @@ export function BeautyDocsFormFlow({
 
   const handleVerifyCode = async () => {
     if (verification === null || !/^\d{6}$/.test(otpCode)) {
-      setErrorMessage("Wpisz pełny, 6-cyfrowy kod SMS.");
+      setErrorMessage(t("Wpisz pełny, 6-cyfrowy kod SMS."));
       return;
     }
     setStatus("verifying");
@@ -595,7 +599,7 @@ export function BeautyDocsFormFlow({
       setVerificationModalOpen(false);
       setStatus("signing");
     } catch {
-      setErrorMessage("Kod jest nieprawidłowy lub wygasł. Sprawdź SMS i spróbuj ponownie.");
+      setErrorMessage(t("Kod jest nieprawidłowy lub wygasł. Sprawdź SMS i spróbuj ponownie."));
       setStatus("otp");
     }
   };
@@ -611,7 +615,7 @@ export function BeautyDocsFormFlow({
         catalogueHref={catalogueHref}
         destinationMasked={verification?.destinationMasked ?? ""}
         consentValues={consentValues}
-        errorMessage={errorMessage}
+        errorMessage={t(errorMessage)}
         form={form}
         onConsentChange={handleConsentChange}
         onSignatureChange={handleSignatureChange}
@@ -632,7 +636,7 @@ export function BeautyDocsFormFlow({
         className="inline-flex rounded-lg text-sm font-semibold text-stone-600 underline decoration-slate-300 underline-offset-4 hover:text-[#173d35] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#245c4d] focus-visible:ring-offset-2"
         href={catalogueHref}
       >
-        ← Wróć do formularzy
+        {t("← Wróć do formularzy")}
       </Link>
 
       {consumerProfile ? (
@@ -640,11 +644,11 @@ export function BeautyDocsFormFlow({
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <p className="text-sm font-black text-[#345f54]">
-                Zalogowano jako {consumerProfile.fullName}
+                {t("Zalogowano jako")}{" "}{consumerProfile.fullName}
               </p>
               <p className="mt-1 max-w-xl text-sm leading-6 text-stone-600">
-                Możesz uzupełnić dane z profilu. Nic nie trafi do salonu
-                {" "}{tenant.displayName}, dopóki nie podpiszesz i nie wyślesz formularza.
+                {t("Możesz uzupełnić dane z profilu. Nic nie trafi do salonu")}
+                {" "}{tenant.displayName}{t(", dopóki nie podpiszesz i nie wyślesz formularza.")}
               </p>
             </div>
             <button
@@ -652,7 +656,7 @@ export function BeautyDocsFormFlow({
               onClick={applyConsumerProfile}
               type="button"
             >
-              Użyj moich danych
+              {t("Użyj moich danych")}
             </button>
           </div>
         </section>
@@ -667,9 +671,7 @@ export function BeautyDocsFormFlow({
             type="checkbox"
           />
           <span>
-            <strong>Wymagane ponowne potwierdzenie:</strong> przejrzałam
-            wszystkie podpowiedziane odpowiedzi medyczne, poprawiłam zmiany i
-            potwierdzam ich aktualność dla tego zabiegu.
+            <strong>{t("Wymagane ponowne potwierdzenie:")}</strong>{" "}{t("przejrzałam wszystkie podpowiedziane odpowiedzi medyczne, poprawiłam zmiany i potwierdzam ich aktualność dla tego zabiegu.")}
           </span>
         </label>
       ) : null}
@@ -680,17 +682,17 @@ export function BeautyDocsFormFlow({
             <div className="flex flex-wrap items-center justify-between gap-3">
               <span className="inline-flex items-center gap-2 rounded-full bg-[#245c4d] px-3 py-1.5 text-xs font-bold text-white">
                 <FileText aria-hidden="true" className="size-3.5" />
-                Formularz online
+                {t("Formularz online")}
               </span>
               <span className="inline-flex items-center rounded-full bg-[#eef3e7] px-3 py-1 text-xs font-bold text-[#245c4d]">
-                Wersja {form.version}
+                {t("Wersja")}{" "}{form.version}
               </span>
             </div>
             <h1 className="mt-5 text-3xl font-bold tracking-tight text-[#173d35] sm:text-4xl">
               {form.displayName}
             </h1>
             <p className="mt-3 text-base leading-7 text-stone-600">
-              Dokumentacja zabiegowa dla salonu {tenant.displayName}.
+              {t("Dokumentacja zabiegowa dla salonu")}{" "}{tenant.displayName}.
             </p>
           </div>
 
@@ -726,14 +728,14 @@ export function BeautyDocsFormFlow({
                 className="block text-xs font-semibold tracking-[0.02em] text-[#5a6b5a]"
                 htmlFor="place-and-date"
               >
-                Miejscowość i data
+                {t("Miejscowość i data")}
               </label>
               <input
                 className="mt-2 w-full max-w-sm rounded-xl border border-stone-200 bg-white px-4 py-3 text-[#173d35] outline-none transition placeholder:text-[#aeb3a7] focus:border-[#245c4d] focus:ring-2 focus:ring-[#245c4d]/15 focus-visible:ring-2 focus-visible:ring-[#245c4d]"
                 id="place-and-date"
                 name="placeAndDate"
                 onChange={(event) => setPlaceAndDate(event.target.value)}
-                placeholder="np. Warszawa, 19.07.2026"
+                placeholder={t("np. Warszawa, 19.07.2026")}
                 type="text"
                 value={placeAndDate}
               />
@@ -746,7 +748,7 @@ export function BeautyDocsFormFlow({
                 className="mb-4 rounded-xl border border-[#d4decc] bg-[#f1f6e9] px-4 py-3 text-sm font-semibold text-[#245c4d]"
                 role="alert"
               >
-                {errorMessage}
+                {t(errorMessage)}
               </p>
             ) : null}
             {status === "otp" ? (
@@ -755,7 +757,7 @@ export function BeautyDocsFormFlow({
                 onClick={() => setVerificationModalOpen(true)}
                 type="button"
               >
-                Wpisz kod SMS
+                {t("Wpisz kod SMS")}
               </button>
             ) : (
               <button
@@ -766,13 +768,12 @@ export function BeautyDocsFormFlow({
                 type="submit"
               >
                 {status === "sending-code"
-                  ? "Wysyłanie kodu SMS…"
-                  : "Przejdź do weryfikacji SMS"}
+                  ? t("Wysyłanie kodu SMS…")
+                  : t("Przejdź do weryfikacji SMS")}
               </button>
             )}
             <p className="mt-3 text-center text-xs leading-5 text-stone-500">
-              Najpierw potwierdzisz numer kodem SMS, następnie zaakceptujesz
-              zgody i złożysz podpis.
+              {t("Najpierw potwierdzisz numer kodem SMS, następnie zaakceptujesz zgody i złożysz podpis.")}
             </p>
           </div>
         </section>
@@ -783,7 +784,7 @@ export function BeautyDocsFormFlow({
           code={otpCode}
           destinationMasked={verification?.destinationMasked ?? ""}
           devCode={verification?.devCode ?? null}
-          errorMessage={errorMessage}
+          errorMessage={t(errorMessage)}
           expiresInSeconds={verification?.expiresInSeconds ?? 300}
           onChange={setOtpCode}
           onClose={handleCloseVerificationModal}
@@ -839,6 +840,7 @@ function ClientSignatureStep({
   readonly savedSignatureAvailable: boolean;
   readonly savedSignatureImportingKey: string | null;
 }) {
+  const t = useT();
   const consentSignatureKeys = new Set(Object.values(CONSENT_SIGNATURE_KEYS));
   const schemaSignatureFields = form.definition.sections.flatMap((section) =>
     section.kind === "fields"
@@ -870,14 +872,14 @@ function ClientSignatureStep({
     null;
   const treatmentConsent: FormConsent = {
     key: TREATMENT_CONSENT_KEY,
-    title: treatmentDocument?.title ?? "Zgoda na wykonanie zabiegu",
+    title: treatmentDocument?.title ?? t("Zgoda na wykonanie zabiegu"),
     required: true,
     text:
-      "Potwierdzam, że zapoznałam/em się z informacjami o zabiegu i świadomie oraz dobrowolnie wyrażam zgodę na jego wykonanie.",
+      t("Potwierdzam, że zapoznałam/em się z informacjami o zabiegu i świadomie oraz dobrowolnie wyrażam zgodę na jego wykonanie."),
   };
   const treatmentConsentField: FormField = {
     key: TREATMENT_CONSENT_KEY,
-    label: "Zgoda na wykonanie zabiegu",
+    label: t("Zgoda na wykonanie zabiegu"),
     type: "consent",
     required: true,
   };
@@ -922,7 +924,7 @@ function ClientSignatureStep({
         className="inline-flex rounded-lg text-sm font-semibold text-stone-600 underline decoration-slate-300 underline-offset-4 hover:text-[#173d35] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#245c4d] focus-visible:ring-offset-2"
         href={catalogueHref}
       >
-        ← Wróć do formularzy
+        {t("← Wróć do formularzy")}
       </Link>
 
       <form noValidate onSubmit={onSubmit}>
@@ -933,21 +935,18 @@ function ClientSignatureStep({
                 <ShieldCheck aria-hidden="true" className="size-5" />
               </span>
               <span className="rounded-full bg-[#eef3e7] px-3 py-1.5 text-xs font-black uppercase tracking-[0.12em] text-[#245c4d]">
-                Krok 2 z 2
+                {t("Krok 2 z 2")}
               </span>
             </div>
             <h1 className="mt-5 text-3xl font-bold tracking-tight text-[#173d35] sm:text-4xl">
-              Zgody i podpisy
+              {t("Zgody i podpisy")}
             </h1>
             <p className="mt-3 max-w-2xl text-base leading-7 text-stone-600">
-              Numer {destinationMasked} został potwierdzony kodem SMS. Zaakceptuj
-              każdą zgodę lub ją odrzuć. Każdą decyzję potwierdzisz podpisem,
-              również wtedy, gdy nie wyrażasz zgody.
+              {t("Numer")}{" "}{destinationMasked}{" "}{t("został potwierdzony kodem SMS. Zaakceptuj każdą zgodę lub ją odrzuć. Każdą decyzję potwierdzisz podpisem, również wtedy, gdy nie wyrażasz zgody.")}
             </p>
             <div className="mt-5 flex items-center gap-2 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-bold text-emerald-800">
               <CheckCircle2 aria-hidden="true" className="size-4.5 shrink-0" />
-              Dane i odpowiedzi formularza zostały zabezpieczone i nie mogą już
-              zostać zmienione.
+              {t("Dane i odpowiedzi formularza zostały zabezpieczone i nie mogą już zostać zmienione.")}
             </div>
           </header>
 
@@ -955,10 +954,10 @@ function ClientSignatureStep({
             <div className="space-y-4">
                 <div>
                   <h2 className="text-lg font-bold text-[#173d35]">
-                    Wymagane zgody i dokumenty
+                    {t("Wymagane zgody i dokumenty")}
                   </h2>
                   <p className="mt-1 text-sm leading-6 text-stone-600">
-                    Przeczytaj dokumenty i złóż wymagane podpisy.
+                    {t("Przeczytaj dokumenty i złóż wymagane podpisy.")}
                   </p>
                 </div>
                 <ConsentCard
@@ -1018,10 +1017,10 @@ function ClientSignatureStep({
               <div className="space-y-4 pt-3">
                 <div>
                   <h2 className="text-lg font-bold text-[#173d35]">
-                    Zgody dodatkowe
+                    {t("Zgody dodatkowe")}
                   </h2>
                   <p className="mt-1 text-sm leading-6 text-stone-600">
-                    Możesz wyrazić zgodę albo świadomie jej odmówić.
+                    {t("Możesz wyrazić zgodę albo świadomie jej odmówić.")}
                   </p>
                 </div>
                 {optionalConsentFields.map(renderConsentCard)}
@@ -1035,7 +1034,7 @@ function ClientSignatureStep({
                 className="mb-4 rounded-xl border border-[#d4decc] bg-[#f1f6e9] px-4 py-3 text-sm font-semibold text-[#245c4d]"
                 role="alert"
               >
-                {errorMessage}
+                {t(errorMessage)}
               </p>
             ) : null}
             <button
@@ -1043,7 +1042,7 @@ function ClientSignatureStep({
               disabled={submitting}
               type="submit"
             >
-              {submitting ? "Zapisywanie podpisów…" : "Podpisz i wyślij formularz"}
+              {submitting ? t("Zapisywanie podpisów…") : t("Podpisz i wyślij formularz")}
             </button>
           </footer>
         </section>
@@ -1087,6 +1086,7 @@ function ClientVerificationModal({
   readonly onEditPhone: () => void;
   readonly onResend: () => void;
 }) {
+  const t = useT();
   const digitRefs = useRef<Array<HTMLInputElement | null>>([]);
   const busy = submitting || verifying || resending;
   const digits = Array.from({ length: 6 }, (_, index) => code[index] ?? "");
@@ -1173,15 +1173,15 @@ function ClientVerificationModal({
               </span>
               <div>
                 <h2 className="text-xl font-bold text-[#173d35]" id="verification-title">
-                  Weryfikacja tożsamości
+                  {t("Weryfikacja tożsamości")}
                 </h2>
                 <p className="mt-1 text-sm text-stone-500" id="verification-description">
-                  Wymagana przed przejściem do podpisów
+                  {t("Wymagana przed przejściem do podpisów")}
                 </p>
               </div>
             </div>
             <button
-              aria-label="Zamknij weryfikację"
+              aria-label={t("Zamknij weryfikację")}
               className="flex size-9 items-center justify-center rounded-full text-stone-500 transition hover:bg-[#f1f6e9] hover:text-[#245c4d] disabled:opacity-40"
               disabled={busy}
               onClick={onClose}
@@ -1209,9 +1209,9 @@ function ClientVerificationModal({
         <div className="px-6 py-7 sm:px-8 sm:py-8">
           {step === "phone" ? (
             <div className="text-center">
-              <h3 className="text-2xl font-bold text-[#173d35]">Sprawdź numer telefonu</h3>
+              <h3 className="text-2xl font-bold text-[#173d35]">{t("Sprawdź numer telefonu")}</h3>
               <p className="mt-2 text-sm leading-6 text-stone-600">
-                Wyślemy sześciocyfrowy kod weryfikacyjny na podany numer.
+                {t("Wyślemy sześciocyfrowy kod weryfikacyjny na podany numer.")}
               </p>
               <div className="mt-6 flex items-center gap-3 rounded-2xl border border-[#d4decc] bg-white px-4 py-4 text-left shadow-sm">
                 <span className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-[#f1f6e9] text-[#245c4d]">
@@ -1219,19 +1219,19 @@ function ClientVerificationModal({
                 </span>
                 <div>
                   <p className="text-[11px] font-black uppercase tracking-[0.12em] text-stone-500">
-                    Numer telefonu
+                    {t("Numer telefonu")}
                   </p>
                   <p className="mt-1 font-bold text-[#173d35]">{phone}</p>
                 </div>
               </div>
-              {errorMessage ? <ModalError message={errorMessage} /> : null}
+              {errorMessage ? <ModalError message={t(errorMessage)} /> : null}
               <button
                 className="mt-6 w-full rounded-xl bg-[#245c4d] px-5 py-3.5 font-bold text-white shadow-[0_12px_30px_rgba(36,92,77,0.22)] transition hover:bg-[#173d35] disabled:cursor-not-allowed disabled:opacity-50"
                 disabled={submitting}
                 onClick={onSend}
                 type="button"
               >
-                {submitting ? "Wysyłanie kodu…" : "Wyślij kod SMS"}
+                {submitting ? t("Wysyłanie kodu…") : t("Wyślij kod SMS")}
               </button>
               <button
                 className="mt-4 text-sm font-semibold text-[#245c4d] underline decoration-[#cdd7c6] underline-offset-4"
@@ -1239,7 +1239,7 @@ function ClientVerificationModal({
                 onClick={onEditPhone}
                 type="button"
               >
-                Zmień numer telefonu
+                {t("Zmień numer telefonu")}
               </button>
             </div>
           ) : (
@@ -1247,15 +1247,15 @@ function ClientVerificationModal({
               <span className="mx-auto flex size-12 items-center justify-center rounded-2xl bg-[#f1f6e9] text-[#245c4d]">
                 <MessageSquareText aria-hidden="true" className="size-5" />
               </span>
-              <h3 className="mt-4 text-2xl font-bold text-[#173d35]">Wprowadź kod SMS</h3>
+              <h3 className="mt-4 text-2xl font-bold text-[#173d35]">{t("Wprowadź kod SMS")}</h3>
               <p className="mt-2 text-sm leading-6 text-stone-600">
-                Wpisz sześciocyfrowy kod wysłany na {destinationMasked}.
+                {t("Wpisz sześciocyfrowy kod wysłany na")}{" "}{destinationMasked}.
               </p>
 
               <div className="mt-7 flex justify-center gap-2 sm:gap-3">
                 {digits.map((digit, index) => (
                   <input
-                    aria-label={`Cyfra ${index + 1} kodu SMS`}
+                    aria-label={t("Cyfra {value1} kodu SMS", { value1: index + 1 })}
                     autoComplete={index === 0 ? "one-time-code" : "off"}
                     className="h-14 w-11 rounded-xl border-2 border-[#d4decc] bg-white text-center text-2xl font-black text-[#173d35] outline-none transition focus:border-[#245c4d] focus:ring-4 focus:ring-[#245c4d]/10 sm:h-16 sm:w-14"
                     inputMode="numeric"
@@ -1274,14 +1274,14 @@ function ClientVerificationModal({
               </div>
 
               <p className="mt-5 text-xs font-semibold text-stone-500">
-                Kod jest ważny przez {Math.max(1, Math.ceil(expiresInSeconds / 60))} minuty.
+                {t("Kod jest ważny przez")}{" "}{Math.max(1, Math.ceil(expiresInSeconds / 60))}{" "}{t("minuty.")}
               </p>
               {devCode ? (
                 <p className="mt-3 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900">
-                  Tryb lokalny — kod testowy: <strong>{devCode}</strong>
+                  {t("Tryb lokalny — kod testowy:")}{" "}<strong>{devCode}</strong>
                 </p>
               ) : null}
-              {errorMessage ? <ModalError message={errorMessage} /> : null}
+              {errorMessage ? <ModalError message={t(errorMessage)} /> : null}
 
               <button
                 className="mt-6 w-full rounded-xl bg-[#245c4d] px-5 py-3.5 font-bold text-white shadow-[0_12px_30px_rgba(36,92,77,0.22)] transition hover:bg-[#173d35] disabled:cursor-not-allowed disabled:opacity-45"
@@ -1289,7 +1289,7 @@ function ClientVerificationModal({
                 onClick={onConfirm}
                 type="button"
               >
-                {verifying ? "Sprawdzanie kodu…" : "Potwierdź i przejdź do podpisów"}
+                {verifying ? t("Sprawdzanie kodu…") : t("Potwierdź i przejdź do podpisów")}
               </button>
               <div className="mt-4 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm">
                 <button
@@ -1298,7 +1298,7 @@ function ClientVerificationModal({
                   onClick={onEditPhone}
                   type="button"
                 >
-                  Zmień numer
+                  {t("Zmień numer")}
                 </button>
                 <button
                   className="inline-flex items-center gap-1.5 font-bold text-[#245c4d] disabled:opacity-45"
@@ -1310,7 +1310,7 @@ function ClientVerificationModal({
                     aria-hidden="true"
                     className={`size-3.5 ${resending ? "animate-spin" : ""}`}
                   />
-                  {resending ? "Wysyłanie…" : "Wyślij kod ponownie"}
+                  {resending ? t("Wysyłanie…") : t("Wyślij kod ponownie")}
                 </button>
               </div>
             </div>
@@ -1318,7 +1318,7 @@ function ClientVerificationModal({
         </div>
 
         <footer className="border-t border-[#e5eadd] bg-white px-6 py-4 text-center text-xs font-semibold text-stone-500">
-          Weryfikacja SMS chroni dane i wiąże podpis z właścicielem numeru.
+          {t("Weryfikacja SMS chroni dane i wiąże podpis z właścicielem numeru.")}
         </footer>
       </section>
     </div>
@@ -1326,12 +1326,13 @@ function ClientVerificationModal({
 }
 
 function ModalError({ message }: { readonly message: string }) {
+  const t = useT();
   return (
     <p
       className="mt-4 rounded-xl border border-[#d4decc] bg-[#f1f6e9] px-4 py-3 text-left text-sm font-semibold text-[#245c4d]"
       role="alert"
     >
-      {message}
+      {t(message)}
     </p>
   );
 }
@@ -1411,6 +1412,7 @@ function FieldsSectionBlock({
   bodyAreaSet,
   practitioners,
 }: FieldsSectionBlockProps) {
+  const t = useT();
   const orderedFields =
     section.key === "dane_osobowe"
       ? reorderClientFields(section.fields)
@@ -1422,7 +1424,7 @@ function FieldsSectionBlock({
 
   return (
     <div className="px-6 py-7 sm:px-8 sm:py-8">
-      <h2 className="text-lg font-bold text-[#173d35]">{section.title}</h2>
+      <h2 className="text-lg font-bold text-[#173d35]">{t(section.title)}</h2>
       <div className="mt-5 grid gap-5 sm:grid-cols-2">
         {fields.map((field) => {
           if (
@@ -1441,12 +1443,12 @@ function FieldsSectionBlock({
                 )
               : [];
             return (
-              <BeautyDocsValidatedField className="sm:col-span-2" key={field.key} fieldKey={field.key} label={field.label} error={errors[field.key]} onTouched={onTouched}>
+              <BeautyDocsValidatedField className="sm:col-span-2" key={field.key} fieldKey={field.key} label={t(field.label)} error={errors[field.key]} onTouched={onTouched}>
                 <span
                   className="block text-xs font-semibold tracking-[0.02em] text-[#5a6b5a]"
                   id={fieldId}
                 >
-                  {field.label}
+                  {t(field.label)}
                   {field.required ? <span className="text-[#245c4d]"> *</span> : null}
                 </span>
                 <div
@@ -1480,7 +1482,7 @@ function FieldsSectionBlock({
 
           if (field.key === "dataUrodzenia") {
             return (
-              <BeautyDocsValidatedField key={field.key} fieldKey={field.key} label={field.label} error={errors[field.key]} onTouched={onTouched}>
+              <BeautyDocsValidatedField key={field.key} fieldKey={field.key} label={t(field.label)} error={errors[field.key]} onTouched={onTouched}>
                 <BirthDatePicker
                   field={field}
                   onChange={(value) => onFieldChange(field.key, value)}
@@ -1492,7 +1494,7 @@ function FieldsSectionBlock({
 
           if (field.key === "telefon") {
             return (
-              <BeautyDocsValidatedField key={field.key} fieldKey={field.key} label={field.label} error={errors[field.key]} onTouched={onTouched}>
+              <BeautyDocsValidatedField key={field.key} fieldKey={field.key} label={t(field.label)} error={errors[field.key]} onTouched={onTouched}>
                 <PhoneField
                   field={field}
                   onChange={(value) => onFieldChange(field.key, value)}
@@ -1504,7 +1506,7 @@ function FieldsSectionBlock({
 
           if (field.key === PRACTITIONER_FIELD_KEY) {
             return (
-              <BeautyDocsValidatedField className="sm:col-span-2" key={field.key} fieldKey={field.key} label={field.label} error={errors[field.key]} onTouched={onTouched}>
+              <BeautyDocsValidatedField className="sm:col-span-2" key={field.key} fieldKey={field.key} label={t(field.label)} error={errors[field.key]} onTouched={onTouched}>
                 <PractitionerField
                   field={field}
                   onChange={(value) => onFieldChange(field.key, value)}
@@ -1517,7 +1519,7 @@ function FieldsSectionBlock({
 
           if (field.key === "celEfektu") {
             return (
-              <BeautyDocsValidatedField className="sm:col-span-2" key={field.key} fieldKey={field.key} label={field.label} error={errors[field.key]} onTouched={onTouched}>
+              <BeautyDocsValidatedField className="sm:col-span-2" key={field.key} fieldKey={field.key} label={t(field.label)} error={errors[field.key]} onTouched={onTouched}>
                 <GoalAutocompleteField
                   field={field}
                   onChange={(value) => onFieldChange(field.key, value)}
@@ -1529,7 +1531,7 @@ function FieldsSectionBlock({
           }
 
           return (
-            <BeautyDocsValidatedField key={field.key} fieldKey={field.key} label={field.label} error={errors[field.key]} onTouched={onTouched}>
+            <BeautyDocsValidatedField key={field.key} fieldKey={field.key} label={t(field.label)} error={errors[field.key]} onTouched={onTouched}>
               <TextField
                 field={field}
                 onChange={(value) => onFieldChange(field.key, value)}
@@ -1554,6 +1556,7 @@ function PractitionerField({
   readonly value: string;
   readonly onChange: (value: string) => void;
 }) {
+  const t = useT();
   const inputId = `field-${field.key}`;
   const configuredCount = practitioners.filter(
     (practitioner) => practitioner.smsSigningReady,
@@ -1562,7 +1565,7 @@ function PractitionerField({
   return (
     <fieldset>
       <legend className="block text-xs font-semibold tracking-[0.02em] text-[#5a6b5a]">
-        {field.label}
+        {t(field.label)}
         {field.required ? <span className="text-[#245c4d]"> *</span> : null}
       </legend>
       {configuredCount > 0 ? (
@@ -1607,7 +1610,7 @@ function PractitionerField({
                   {practitioner.displayName}
                 </span>
                 <span className="mt-1 line-clamp-1 text-xs text-stone-500">
-                  {practitioner.jobTitle ?? "Osoba wykonująca zabieg"}
+                  {t(practitioner.jobTitle) ?? t("Osoba wykonująca zabieg")}
                 </span>
               </button>
             );
@@ -1615,13 +1618,12 @@ function PractitionerField({
         </div>
       ) : (
         <p className="mt-3 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm font-semibold text-amber-900">
-          Do tego zabiegu nie przypisano jeszcze wykonawcy gotowego do podpisu SMS.
+          {t("Do tego zabiegu nie przypisano jeszcze wykonawcy gotowego do podpisu SMS.")}
         </p>
       )}
       <input id={inputId} name={field.key} type="hidden" value={value} />
       <p className="mt-2 text-xs leading-5 text-stone-500">
-        Po podpisie klientki formularz trafi do tej osoby. Wykonawca potwierdzi
-        go własnym kodem SMS i złoży podpis.
+        {t("Po podpisie klientki formularz trafi do tej osoby. Wykonawca potwierdzi go własnym kodem SMS i złoży podpis.")}
       </p>
     </fieldset>
   );
@@ -1645,6 +1647,7 @@ function TextField({
   readonly value: string;
   readonly onChange: (value: string) => void;
 }) {
+  const t = useT();
   const validation = useFieldValidation();
   const inputType = TEXT_INPUT_TYPES.has(field.type) ? field.type : "text";
   const inputId = `field-${field.key}`;
@@ -1652,7 +1655,7 @@ function TextField({
   return (
     <>
       <label className="block text-xs font-semibold tracking-[0.02em] text-[#5a6b5a]" htmlFor={inputId}>
-        {field.label}
+        {t(field.label)}
         {field.required ? <span className="text-[#245c4d]"> *</span> : null}
       </label>
       <input
@@ -1661,7 +1664,7 @@ function TextField({
         id={inputId}
         name={field.key}
         onChange={(event) => onChange(event.target.value)}
-        placeholder={FIELD_PLACEHOLDERS[field.key]}
+        placeholder={t(FIELD_PLACEHOLDERS[field.key])}
         required={field.required}
         type={inputType}
         value={value}
@@ -1681,6 +1684,7 @@ function GoalAutocompleteField({
   readonly suggestions: readonly string[];
   readonly value: string;
 }) {
+  const t = useT();
   const validation = useFieldValidation();
   const [open, setOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(-1);
@@ -1743,7 +1747,7 @@ function GoalAutocompleteField({
         className="block text-xs font-semibold tracking-[0.02em] text-[#5a6b5a]"
         htmlFor={inputId}
       >
-        {field.label}
+        {t(field.label)}
         {field.required ? <span className="text-[#245c4d]"> *</span> : null}
       </label>
       <div className="relative mt-2">
@@ -1769,7 +1773,7 @@ function GoalAutocompleteField({
           }}
           onFocus={() => setOpen(value.trim().length > 0)}
           onKeyDown={handleKeyDown}
-          placeholder={FIELD_PLACEHOLDERS[field.key]}
+          placeholder={t(FIELD_PLACEHOLDERS[field.key])}
           required={field.required}
           role="combobox"
           type="text"
@@ -1814,7 +1818,7 @@ function GoalAutocompleteField({
             </ul>
           ) : (
             <p className="px-4 py-3 text-sm text-stone-500">
-              Brak gotowej podpowiedzi — możesz wpisać własny cel zabiegu.
+              {t("Brak gotowej podpowiedzi — możesz wpisać własny cel zabiegu.")}
             </p>
           )}
         </div>
@@ -1822,7 +1826,7 @@ function GoalAutocompleteField({
       {suggestions.length > 0 ? (
         <p className="mt-2 flex items-center gap-1.5 text-xs text-stone-500">
           <Sparkles aria-hidden="true" className="size-3.5 text-[#66a394]" />
-          Zacznij pisać, aby zobaczyć podpowiedzi dla tego zabiegu.
+          {t("Zacznij pisać, aby zobaczyć podpowiedzi dla tego zabiegu.")}
         </p>
       ) : null}
     </div>
@@ -1842,6 +1846,7 @@ function PhonePrefixDropdown({
   readonly selectedUid: string;
   readonly onSelect: (uid: string) => void;
 }) {
+  const t = useT();
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
   const rootRef = useRef<HTMLDivElement>(null);
@@ -1878,7 +1883,7 @@ function PhonePrefixDropdown({
       <button
         aria-expanded={open}
         aria-haspopup="listbox"
-        aria-label="Przedrostek numeru telefonu"
+        aria-label={t("Przedrostek numeru telefonu")}
         className="flex h-full items-center gap-1.5 rounded-l-xl border-0 border-r border-stone-200 bg-white px-3 py-2.5 text-xs font-semibold text-[#245c4d] outline-none transition hover:bg-[#f8faf5] focus-visible:ring-0"
         type="button"
         onClick={() => {
@@ -1900,7 +1905,7 @@ function PhonePrefixDropdown({
             <input
               autoFocus
               className="w-full border-0 bg-transparent text-sm text-[#173d35] outline-none placeholder:text-[#aeb3a7]"
-              placeholder="Szukaj kraju…"
+              placeholder={t("Szukaj kraju…")}
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
@@ -1908,7 +1913,7 @@ function PhonePrefixDropdown({
           </div>
           <ul className="max-h-60 overflow-y-auto py-1" role="listbox">
             {filtered.length === 0 ? (
-              <li className="px-3 py-2.5 text-sm text-[#aeb3a7]">Brak wyników</li>
+              <li className="px-3 py-2.5 text-sm text-[#aeb3a7]">{t("Brak wyników")}</li>
             ) : (
               filtered.map((c) => {
                 const uid = makeUid(c);
@@ -1928,7 +1933,7 @@ function PhonePrefixDropdown({
                       }}
                     >
                       <span className="text-base leading-none">{c.flag}</span>
-                      <span className="flex-1 truncate">{c.label}</span>
+                      <span className="flex-1 truncate">{t(c.label)}</span>
                       <span className="text-xs font-semibold text-[#8ea591]">{c.code}</span>
                       {isSelected ? (
                         <Check className="h-4 w-4 shrink-0 text-[#245c4d]" />
@@ -1954,6 +1959,7 @@ function PhoneField({
   readonly value: string;
   readonly onChange: (value: string) => void;
 }) {
+  const t = useT();
   const validation = useFieldValidation();
   // Unique key per country entry, shared with the marketing contact form.
   const makeUid = makeCountryUid;
@@ -2004,7 +2010,7 @@ function PhoneField({
         className="block text-xs font-semibold tracking-[0.02em] text-[#5a6b5a]"
         htmlFor={inputId}
       >
-        {field.label}
+        {t(field.label)}
         {field.required ? <span className="text-[#245c4d]"> *</span> : null}
       </label>
       <div className="mt-2 flex max-w-sm rounded-xl border border-stone-200 bg-white shadow-[inset_0_1px_0_rgba(255,255,255,0.65)] transition">
@@ -2057,6 +2063,7 @@ function AppSelect({
   readonly align?: "left" | "center";
   readonly className?: string;
 }) {
+  const t = useT();
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
   const rootRef = useRef<HTMLDivElement>(null);
@@ -2117,7 +2124,7 @@ function AppSelect({
               <input
                 autoFocus
                 className="w-full border-0 bg-transparent text-sm text-[#173d35] outline-none placeholder:text-[#aeb3a7]"
-                placeholder="Szukaj…"
+                placeholder={t("Szukaj…")}
                 type="text"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
@@ -2126,7 +2133,7 @@ function AppSelect({
           ) : null}
           <ul className="max-h-60 overflow-y-auto py-1" role="listbox">
             {filtered.length === 0 ? (
-              <li className="px-3 py-2.5 text-sm text-[#aeb3a7]">Brak wyników</li>
+              <li className="px-3 py-2.5 text-sm text-[#aeb3a7]">{t("Brak wyników")}</li>
             ) : (
               filtered.map((o) => {
                 const isSelected = o.value === value;
@@ -2144,7 +2151,7 @@ function AppSelect({
                         setOpen(false);
                       }}
                     >
-                      <span className="flex-1 truncate">{o.label}</span>
+                      <span className="flex-1 truncate">{t(o.label)}</span>
                       {isSelected ? (
                         <Check className="h-4 w-4 shrink-0 text-[#245c4d]" />
                       ) : null}
@@ -2169,6 +2176,7 @@ function BirthDatePicker({
   readonly value: string;
   readonly onChange: (value: string) => void;
 }) {
+  const t = useT();
   const [yearStr, monthStr, dayStr] = value && value.includes("-") ? value.split("-") : ["", "", ""];
 
   const getDaysInMonth = (m: number, y: number): number => {
@@ -2192,18 +2200,18 @@ function BirthDatePicker({
   }, []);
 
   const months = [
-    { value: "01", label: "Styczeń" },
-    { value: "02", label: "Luty" },
-    { value: "03", label: "Marzec" },
-    { value: "04", label: "Kwiecień" },
-    { value: "05", label: "Maj" },
-    { value: "06", label: "Czerwiec" },
-    { value: "07", label: "Lipiec" },
-    { value: "08", label: "Sierpień" },
-    { value: "09", label: "Wrzesień" },
-    { value: "10", label: "Październik" },
-    { value: "11", label: "Listopad" },
-    { value: "12", label: "Grudzień" },
+    { value: "01", label: t("Styczeń") },
+    { value: "02", label: t("Luty") },
+    { value: "03", label: t("Marzec") },
+    { value: "04", label: t("Kwiecień") },
+    { value: "05", label: t("Maj") },
+    { value: "06", label: t("Czerwiec") },
+    { value: "07", label: t("Lipiec") },
+    { value: "08", label: t("Sierpień") },
+    { value: "09", label: t("Wrzesień") },
+    { value: "10", label: t("Październik") },
+    { value: "11", label: t("Listopad") },
+    { value: "12", label: t("Grudzień") },
   ];
 
   const maxDays = getDaysInMonth(Number(monthStr), Number(yearStr));
@@ -2259,33 +2267,33 @@ function BirthDatePicker({
   return (
     <>
       <label className="block text-xs font-semibold tracking-[0.02em] text-[#5a6b5a]">
-        {field.label}
+        {t(field.label)}
         {field.required ? <span className="text-[#245c4d]"> *</span> : null}
       </label>
       <div className="mt-2 grid grid-cols-12 gap-3">
         <AppSelect
           align="center"
-          ariaLabel="Dzień urodzenia"
+          ariaLabel={t("Dzień urodzenia")}
           className="col-span-3"
           options={days.map((d) => ({ value: d, label: d }))}
-          placeholder="Dzień"
+          placeholder={t("Dzień")}
           value={dayStr}
           onChange={handleDayChange}
         />
         <AppSelect
-          ariaLabel="Miesiąc urodzenia"
+          ariaLabel={t("Miesiąc urodzenia")}
           className="col-span-5"
           options={months}
-          placeholder="Miesiąc"
+          placeholder={t("Miesiąc")}
           value={monthStr}
           onChange={handleMonthChange}
         />
         <AppSelect
           align="center"
-          ariaLabel="Rok urodzenia"
+          ariaLabel={t("Rok urodzenia")}
           className="col-span-4"
           options={years.map((y) => ({ value: String(y), label: String(y) }))}
-          placeholder="Rok"
+          placeholder={t("Rok")}
           searchable
           value={yearStr}
           onChange={handleYearChange}
@@ -2293,7 +2301,7 @@ function BirthDatePicker({
       </div>
       {isInvalidAge && (
         <p className="mt-2 text-xs font-semibold text-[#245c4d]" role="alert">
-          Musisz mieć ukończone 18 lat.
+          {t("Musisz mieć ukończone 18 lat.")}
         </p>
       )}
     </>
@@ -2327,6 +2335,7 @@ function ConsentCard({
   readonly onSignatureChange: (value: string) => void;
   readonly onUseSavedSignature?: () => void;
 }) {
+  const t = useT();
   const [previewOpen, setPreviewOpen] = useState(false);
   const [signaturePreviewOpen, setSignaturePreviewOpen] = useState(false);
   const text = consent.text.split("{{salonName}}").join(salonName);
@@ -2339,9 +2348,9 @@ function ConsentCard({
     isTreatmentConsent && signatureDocumentText ? signatureDocumentText : text;
 
   const error = !validationAttempted ? null
-    : choice === null ? "Wybierz, czy wyrażasz zgodę."
-    : isRequired && !choice ? "Ta zgoda jest wymagana do wysłania formularza."
-    : CONSENT_SIGNATURE_KEYS[field.key] && !signatureValue ? "Podpisz swoją decyzję poniżej."
+    : choice === null ? t("Wybierz, czy wyrażasz zgodę.")
+    : isRequired && !choice ? t("Ta zgoda jest wymagana do wysłania formularza.")
+    : CONSENT_SIGNATURE_KEYS[field.key] && !signatureValue ? t("Podpisz swoją decyzję poniżej.")
     : null;
 
   return (
@@ -2363,7 +2372,7 @@ function ConsentCard({
       <div className="flex items-start justify-between gap-3">
         {consent.title ? (
           <h3 className="text-sm font-bold text-[#173d35]">
-            {consent.title}
+            {t(consent.title)}
             {isRequired ? <span className="text-[#245c4d]"> *</span> : null}
           </h3>
         ) : (
@@ -2375,10 +2384,10 @@ function ConsentCard({
           type="button"
         >
           <ScrollText aria-hidden="true" className="size-3.5" />
-          Zobacz pełną treść
+          {t("Zobacz pełną treść")}
         </button>
       </div>
-      <p className="mt-2 text-sm leading-6 text-stone-600">{text}</p>
+      <p className="mt-2 text-sm leading-6 text-stone-600">{t(text)}</p>
 
       <div className="mt-4 grid gap-3 sm:grid-cols-2" role="group" aria-label={consent.title ?? field.label}>
         <button
@@ -2393,7 +2402,7 @@ function ConsentCard({
           type="button"
         >
           <Check aria-hidden="true" className="size-4 stroke-[2.5]" />
-          Wyrażam zgodę
+          {t("Wyrażam zgodę")}
         </button>
         <button
           aria-pressed={choice === false}
@@ -2407,7 +2416,7 @@ function ConsentCard({
           type="button"
         >
           <X aria-hidden="true" className="size-4 stroke-[2.5]" />
-          Nie wyrażam zgody
+          {t("Nie wyrażam zgody")}
         </button>
       </div>
 
@@ -2426,10 +2435,10 @@ function ConsentCard({
                 <div className="mb-4 flex flex-wrap items-start justify-between gap-3 border-b border-stone-100 pb-4">
                   <div>
                     <h4 className="text-sm font-bold text-[#173d35]">
-                      {signatureDocument.title}
+                      {t(signatureDocument.title)}
                     </h4>
                     <p className="mt-1 text-xs leading-5 text-stone-500">
-                      Podpis potwierdza zapoznanie się z pełną treścią dokumentu.
+                      {t("Podpis potwierdza zapoznanie się z pełną treścią dokumentu.")}
                     </p>
                   </div>
                   <button
@@ -2438,15 +2447,15 @@ function ConsentCard({
                     type="button"
                   >
                     <ScrollText aria-hidden="true" className="size-3.5" />
-                    Zobacz dokument
+                    {t("Zobacz dokument")}
                   </button>
                 </div>
               ) : null}
               <BeautyDocsSignaturePad
                 label={
                   signatureDocument
-                    ? `Podpis decyzji — ${signatureDocument.title}`
-                    : "Podpis pod decyzją"
+                    ? t("Podpis decyzji — {title}", { title: signatureDocument.title })
+                    : t("Podpis pod decyzją")
                 }
                 onChange={onSignatureChange}
                 onUseSavedSignature={onUseSavedSignature}
@@ -2462,8 +2471,8 @@ function ConsentCard({
       {choice === false ? (
         <p className="mt-3 text-xs font-semibold text-stone-500">
           {isRequired
-            ? "Ta zgoda jest wymagana do wysłania formularza."
-            : "Odmowa wraz z podpisem zostanie zapisana w dokumentacji formularza."}
+            ? t("Ta zgoda jest wymagana do wysłania formularza.")
+            : t("Odmowa wraz z podpisem zostanie zapisana w dokumentacji formularza.")}
         </p>
       ) : null}
 
@@ -2474,7 +2483,7 @@ function ConsentCard({
         onClose={() => setPreviewOpen(false)}
         open={previewOpen}
         salonName={salonName}
-        title={consent.title ?? "Zgoda"}
+        title={consent.title ?? t("Zgoda")}
       />
       {!isTreatmentConsent && signatureDocument && signatureDocumentText ? (
         <BeautyDocsDocumentModal
@@ -2483,7 +2492,7 @@ function ConsentCard({
           onClose={() => setSignaturePreviewOpen(false)}
           open={signaturePreviewOpen}
           salonName={salonName}
-          title={signatureDocument.title}
+          title={t(signatureDocument.title)}
         />
       ) : null}
     </div>
@@ -2511,6 +2520,7 @@ function SignatureFieldCard({
   readonly onSignatureChange: (value: string) => void;
   readonly onUseSavedSignature?: () => void;
 }) {
+  const t = useT();
   const [previewOpen, setPreviewOpen] = useState(false);
   const error = validationAttempted && field.required && !signatureValue;
   const text = document ? document.text.split("{{salonName}}").join(salonName) : null;
@@ -2532,19 +2542,19 @@ function SignatureFieldCard({
             type="button"
           >
             <ScrollText aria-hidden="true" className="size-3.5" />
-            Zobacz pełną treść
+            {t("Zobacz pełną treść")}
           </button>
         ) : null}
       </div>
       {document ? (
         <p className="mt-2 text-sm leading-6 text-stone-600">
-          Podpisując, potwierdzasz treść dokumentu „{document.title}”.
+          {t("Podpisując, potwierdzasz treść dokumentu „")}{t(document.title)}”.
         </p>
       ) : null}
 
       <div className="mt-4">
         <BeautyDocsSignaturePad
-          label="Podpis"
+          label={t("Podpis")}
           onChange={onSignatureChange}
           onUseSavedSignature={onUseSavedSignature}
           required={field.required}
@@ -2553,7 +2563,7 @@ function SignatureFieldCard({
         />
       </div>
 
-      {error ? <p id={`signature-error-${field.key}`} className="mt-3 text-sm font-medium text-red-800" aria-live="polite">Złóż wymagany podpis.</p> : null}
+      {error ? <p id={`signature-error-${field.key}`} className="mt-3 text-sm font-medium text-red-800" aria-live="polite">{t("Złóż wymagany podpis.")}</p> : null}
       {document && text ? (
         <BeautyDocsDocumentModal
           content={text}
@@ -2561,7 +2571,7 @@ function SignatureFieldCard({
           onClose={() => setPreviewOpen(false)}
           open={previewOpen}
           salonName={salonName}
-          title={document.title}
+          title={t(document.title)}
         />
       ) : null}
     </div>
@@ -2597,6 +2607,7 @@ function ContraindicationsSectionBlock({
   readonly answers: Record<string, AnswerState>;
   readonly onAnswerChange: (key: string, patch: Partial<AnswerState>) => void;
 }) {
+  const t = useT();
   if (section.items.length === 0) {
     return null;
   }
@@ -2606,9 +2617,9 @@ function ContraindicationsSectionBlock({
   return (
     <div className="px-6 py-7 sm:px-8 sm:py-8">
       <div className="flex flex-wrap items-baseline justify-between gap-2">
-        <h2 className="text-lg font-bold text-[#173d35]">{section.title}</h2>
+        <h2 className="text-lg font-bold text-[#173d35]">{t(section.title)}</h2>
         <span className="text-xs font-semibold text-stone-500">
-          Pytań: {section.items.length}
+          {t("Pytań:")}{" "}{section.items.length}
         </span>
       </div>
 
@@ -2646,11 +2657,12 @@ function YesNoChoice({
   readonly value: "yes" | "no" | null;
   readonly onChange: (answer: "yes" | "no") => void;
 }) {
+  const t = useT();
   const baseBtn =
     "inline-flex items-center gap-1.5 rounded-full border px-3.5 py-2 text-xs font-bold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#245c4d] focus-visible:ring-offset-2";
 
   return (
-    <div aria-label="Odpowiedź" className="flex shrink-0 items-center gap-2" role="radiogroup">
+    <div aria-label={t("Odpowiedź")} className="flex shrink-0 items-center gap-2" role="radiogroup">
       <button
         aria-checked={value === "yes"}
         className={[
@@ -2672,7 +2684,7 @@ function YesNoChoice({
         >
           <Check className="size-3 stroke-[3]" />
         </span>
-        Tak
+        {t("Tak")}
       </button>
       <button
         aria-checked={value === "no"}
@@ -2695,7 +2707,7 @@ function YesNoChoice({
         >
           <X className="size-3 stroke-[3]" />
         </span>
-        Nie
+        {t("Nie")}
       </button>
       <input name={groupName} type="hidden" value={value ?? ""} />
     </div>
@@ -2711,11 +2723,12 @@ function ContraindicationRow({
   readonly value: AnswerState;
   readonly onChange: (patch: Partial<AnswerState>) => void;
 }) {
+  const t = useT();
   return (
     <div className="py-4 first:pt-0 last:pb-0">
       <fieldset className="m-0 flex flex-col gap-3 border-0 p-0 sm:flex-row sm:items-center sm:justify-between">
         <legend className="w-full p-0 text-sm font-semibold leading-6 text-[#173d35] sm:w-auto sm:max-w-md">
-          {item.question}
+          {t(item.question)}
         </legend>
         <YesNoChoice
           groupName={`q-${item.key}`}
@@ -2730,7 +2743,7 @@ function ContraindicationRow({
           className="mt-3 w-full rounded-xl border border-stone-200 bg-white px-4 py-2.5 text-sm text-[#173d35] outline-none transition placeholder:text-[#aeb3a7] focus:border-[#245c4d] focus:ring-2 focus:ring-[#245c4d]/15 focus-visible:ring-2 focus-visible:ring-[#245c4d]"
           name={`${item.key}-followup`}
           onChange={(event) => onChange({ followUp: event.target.value })}
-          placeholder={item.followUpPlaceholder ?? "Jeżeli tak, opisz…"}
+          placeholder={item.followUpPlaceholder ?? t("Jeżeli tak, opisz…")}
           type="text"
           value={value.followUp}
         />
@@ -2748,6 +2761,7 @@ function SuccessPanel({
   readonly claim: ConsumerDocumentClaim | null;
   readonly tenant: TenantPublicConfig;
 }) {
+  const t = useT();
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
   const [saveError, setSaveError] = useState<string | null>(null);
@@ -2771,7 +2785,7 @@ function SuccessPanel({
       setSaved(true);
     } catch {
       setSaveError(
-        "Nie udało się zapisać dokumentu. Link jest ważny przez ograniczony czas — spróbuj ponownie.",
+        t("Nie udało się zapisać dokumentu. Link jest ważny przez ograniczony czas — spróbuj ponownie."),
       );
     } finally {
       setSaving(false);
@@ -2784,7 +2798,7 @@ function SuccessPanel({
         className="inline-flex rounded-lg text-sm font-semibold text-stone-600 underline decoration-slate-300 underline-offset-4 hover:text-[#173d35] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#245c4d] focus-visible:ring-offset-2"
         href={catalogueHref}
       >
-        ← Wróć do formularzy
+        {t("← Wróć do formularzy")}
       </Link>
 
       <section className="mt-6 flex flex-col items-center gap-4 overflow-hidden rounded-3xl border border-stone-200 bg-white px-6 py-16 text-center shadow-sm sm:px-8">
@@ -2792,34 +2806,31 @@ function SuccessPanel({
           <CheckCircle2 aria-hidden="true" className="size-7 text-[#245c4d]" />
         </span>
         <h1 className="text-2xl font-bold tracking-tight text-[#173d35] sm:text-3xl">
-          Dziękujemy — formularz został zapisany i podpisany.
+          {t("Dziękujemy — formularz został zapisany i podpisany.")}
         </h1>
         <p className="max-w-md text-sm leading-6 text-stone-600">
-          Salon {tenant.displayName} otrzymał komplet dokumentacji. Możesz
-          teraz zamknąć tę stronę albo zapisać dokument w swoim profilu.
+          {t("Salon")}{" "}{tenant.displayName}{" "}{t("otrzymał komplet dokumentacji. Możesz teraz zamknąć tę stronę albo zapisać dokument w swoim profilu.")}
         </p>
         {saved ? (
           <div className="mt-2 w-full max-w-lg rounded-2xl border border-emerald-200 bg-emerald-50 px-5 py-4 text-emerald-950">
-            <p className="font-black">Dokument został zapisany.</p>
+            <p className="font-black">{t("Dokument został zapisany.")}</p>
             <p className="mt-1 text-sm">
-              Dane i wywiad będą podpowiedzią przy następnym formularzu, ale
-              odpowiedzi medyczne zawsze potwierdzisz ponownie.
+              {t("Dane i wywiad będą podpowiedzią przy następnym formularzu, ale odpowiedzi medyczne zawsze potwierdzisz ponownie.")}
             </p>
             <Link
               className="mt-4 inline-flex rounded-xl bg-[#245c4d] px-5 py-3 text-sm font-black text-white"
               href="/klient"
             >
-              Przejdź do Moje BeautyDocs
+              {t("Przejdź do Moje BeautyDocs")}
             </Link>
           </div>
         ) : claim ? (
           <div className="mt-2 w-full max-w-lg rounded-2xl border border-[#d7dfcb] bg-[#f9fbf6] px-5 py-5">
             <h2 className="font-black text-[#345f54]">
-              Skróć kolejne wypełnianie formularzy
+              {t("Skróć kolejne wypełnianie formularzy")}
             </h2>
             <p className="mt-2 text-sm leading-6 text-stone-600">
-              Zapisz dane, wywiad i ten dokument w bezpłatnym profilu klientki.
-              Konto zostanie powiązane wyłącznie z potwierdzonym numerem telefonu.
+              {t("Zapisz dane, wywiad i ten dokument w bezpłatnym profilu klientki. Konto zostanie powiązane wyłącznie z potwierdzonym numerem telefonu.")}
             </p>
             <button
               className="mt-4 w-full rounded-xl bg-[#245c4d] px-5 py-3 font-black text-white transition hover:bg-[#173d35] disabled:opacity-60"
@@ -2827,10 +2838,10 @@ function SuccessPanel({
               onClick={saveInConsumerAccount}
               type="button"
             >
-              {saving ? "Zapisywanie…" : "Zapisz w Moim BeautyDocs"}
+              {saving ? t("Zapisywanie…") : t("Zapisz w Moim BeautyDocs")}
             </button>
             <p className="mt-3 text-xs leading-5 text-stone-500">
-              To opcjonalne. Formularze nadal możesz wypełniać bez konta.
+              {t("To opcjonalne. Formularze nadal możesz wypełniać bez konta.")}
             </p>
           </div>
         ) : null}

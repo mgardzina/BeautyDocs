@@ -1,4 +1,6 @@
 "use client";
+import { activeIntlLocale } from "../../../lib/i18n/active";
+import { BeautyDocsLanguageList, BeautyDocsLanguageMenu, useT } from "../i18n";
 import { SalonLogo } from "../salons/SalonLogo";
 
 import Link from "next/link";
@@ -43,6 +45,7 @@ import {
   Mail,
   MailOpen,
   MapPin,
+  Languages,
   Menu,
   MessageCircle,
   PenLine,
@@ -73,6 +76,8 @@ import {
 } from "../BeautyDocsSidebar";
 import { BeautyDocsSignupForm } from "../auth/BeautyDocsSignupForm";
 import { BeautyDocsConsumerFinalizeForm } from "../auth/BeautyDocsConsumerFinalizeForm";
+import { canDownloadFormPdf } from "@/lib/beautydocs-pdf-eligibility";
+import { BeautyDocsPdfDownload } from "../forms/BeautyDocsPdfDownload";
 import { BeautyDocsSignaturePad } from "../forms/BeautyDocsSignaturePad";
 import {
   BeautyDocsTreatmentAreaVisualization,
@@ -124,6 +129,7 @@ export function BeautyDocsConsumerPortal({
   readonly initialBookSlug?: string | null;
   readonly initialSection?: "home" | "salons";
 }) {
+  const t = useT();
   const [screen, setScreen] = useState<Screen>("loading");
   const [state, setState] = useState<BeautyDocsConsumerState | null>(null);
   const [documents, setDocuments] = useState<BeautyDocsConsumerDocument[]>([]);
@@ -172,7 +178,7 @@ export function BeautyDocsConsumerPortal({
         );
         if (newlySigned) {
           setDocumentUpdateNotice(
-            `Salon podpisał formularz „${newlySigned.formName}”. Dokument jest już kompletny.`,
+            t("Salon podpisał formularz „{formName}”. Dokument jest już kompletny.", { formName: newlySigned.formName }),
           );
         }
       } else {
@@ -181,7 +187,7 @@ export function BeautyDocsConsumerPortal({
       documentsRef.current = nextDocuments;
       setDocuments(nextDocuments);
     }
-  }, []);
+  }, [t]);
 
   useEffect(() => {
     void (async () => {
@@ -287,8 +293,8 @@ export function BeautyDocsConsumerPortal({
       if (!response.ok) {
         setError(
           response.status === 409
-            ? "To konto Google jest już połączone z innym profilem BeautyDocs. Zaloguj się adresem e-mail i hasłem."
-            : "Nie udało się zalogować przez Google. Spróbuj ponownie.",
+            ? t("To konto Google jest już połączone z innym profilem BeautyDocs. Zaloguj się adresem e-mail i hasłem.")
+            : t("Nie udało się zalogować przez Google. Spróbuj ponownie."),
         );
         return;
       }
@@ -296,7 +302,7 @@ export function BeautyDocsConsumerPortal({
       setScreen("account");
       await loadDocuments();
     },
-    [loadDocuments],
+    [loadDocuments, t],
   );
 
   useEffect(() => {
@@ -308,18 +314,18 @@ export function BeautyDocsConsumerPortal({
       scope: "openid email profile",
       callback: (response) => {
         if (!response.access_token) {
-          setError("Nie udało się połączyć z Google. Spróbuj ponownie.");
+          setError(t("Nie udało się połączyć z Google. Spróbuj ponownie."));
           return;
         }
         void loginWithGoogle(response.access_token);
       },
     });
-  }, [googleConfig, googleReady, loginWithGoogle]);
+  }, [googleConfig, googleReady, loginWithGoogle, t]);
 
   const requestGoogle = () => {
     const client = googleTokenClientRef.current;
     if (!client) {
-      setError("Google jeszcze się ładuje. Spróbuj za chwilę.");
+      setError(t("Google jeszcze się ładuje. Spróbuj za chwilę."));
       return;
     }
     setError(null);
@@ -346,8 +352,8 @@ export function BeautyDocsConsumerPortal({
     if (!response.ok) {
       setError(
         response.status === 409
-          ? "Ten adres e-mail jest już używany. Zaloguj się lub użyj innego adresu."
-          : "Nie udało się wysłać kodu. Sprawdź adres e-mail i spróbuj ponownie.",
+          ? t("Ten adres e-mail jest już używany. Zaloguj się lub użyj innego adresu.")
+          : t("Nie udało się wysłać kodu. Sprawdź adres e-mail i spróbuj ponownie."),
       );
       return;
     }
@@ -391,7 +397,7 @@ export function BeautyDocsConsumerPortal({
     );
     setPending(false);
     if (!response.ok) {
-      setError("Nie udało się wysłać kodu. Spróbuj ponownie za chwilę.");
+      setError(t("Nie udało się wysłać kodu. Spróbuj ponownie za chwilę."));
       return;
     }
     const body = (await response.json()) as { devCode: string | null };
@@ -406,7 +412,7 @@ export function BeautyDocsConsumerPortal({
   const verifyEmailRegistration = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!/^\d{6}$/.test(code)) {
-      setError("Wpisz pełny 6-cyfrowy kod.");
+      setError(t("Wpisz pełny 6-cyfrowy kod."));
       return;
     }
     setPending(true);
@@ -422,7 +428,7 @@ export function BeautyDocsConsumerPortal({
     );
     setPending(false);
     if (!response.ok) {
-      setError("Kod jest nieprawidłowy lub wygasł.");
+      setError(t("Kod jest nieprawidłowy lub wygasł."));
       return;
     }
     const body = (await response.json()) as { registrationToken?: string };
@@ -441,15 +447,15 @@ export function BeautyDocsConsumerPortal({
     const password = String(form.get("password") ?? "");
     const repeatedPassword = String(form.get("confirmPassword") ?? "");
     if (password !== repeatedPassword) {
-      setError("Hasła nie są takie same.");
+      setError(t("Hasła nie są takie same."));
       return;
     }
     if (password.length < 8) {
-      setError("Hasło musi mieć co najmniej 8 znaków.");
+      setError(t("Hasło musi mieć co najmniej 8 znaków."));
       return;
     }
     if (registrationToken === null) {
-      setError("Sesja rejestracji wygasła. Zacznij zakładanie konta od nowa.");
+      setError(t("Sesja rejestracji wygasła. Zacznij zakładanie konta od nowa."));
       setScreen("login");
       return;
     }
@@ -475,10 +481,10 @@ export function BeautyDocsConsumerPortal({
         .catch(() => null);
       setError(
         code === "email_taken"
-          ? "Ten adres e-mail jest już używany. Zaloguj się zamiast zakładać nowe konto."
+          ? t("Ten adres e-mail jest już używany. Zaloguj się zamiast zakładać nowe konto.")
           : code === "invalid_registration"
-            ? "Sesja rejestracji wygasła. Zacznij zakładanie konta od nowa."
-            : "Nie udało się założyć konta. Spróbuj ponownie.",
+            ? t("Sesja rejestracji wygasła. Zacznij zakładanie konta od nowa.")
+            : t("Nie udało się założyć konta. Spróbuj ponownie."),
       );
       return;
     }
@@ -508,10 +514,10 @@ export function BeautyDocsConsumerPortal({
     if (!response.ok) {
       setError(
         response.status === 401
-          ? "Nieprawidłowy adres e-mail lub hasło."
+          ? t("Nieprawidłowy adres e-mail lub hasło.")
           : response.status === 403
-            ? "Najpierw potwierdź adres e-mail kodem wysłanym podczas rejestracji."
-          : "Logowanie jest chwilowo niedostępne. Spróbuj ponownie.",
+            ? t("Najpierw potwierdź adres e-mail kodem wysłanym podczas rejestracji.")
+          : t("Logowanie jest chwilowo niedostępne. Spróbuj ponownie."),
       );
       return;
     }
@@ -532,7 +538,7 @@ export function BeautyDocsConsumerPortal({
   const confirmMfaLogin = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!mfaLoginChallenge || !/^\d{6}$/.test(mfaLoginCode)) {
-      setError("Wpisz pełny 6-cyfrowy kod.");
+      setError(t("Wpisz pełny 6-cyfrowy kod."));
       return;
     }
     setPending(true);
@@ -551,7 +557,7 @@ export function BeautyDocsConsumerPortal({
     );
     setPending(false);
     if (!response.ok) {
-      setError("Kod jest nieprawidłowy lub wygasł.");
+      setError(t("Kod jest nieprawidłowy lub wygasł."));
       return;
     }
     setState((await response.json()) as BeautyDocsConsumerState);
@@ -601,7 +607,7 @@ export function BeautyDocsConsumerPortal({
     <main className="min-h-screen bg-[#f7f8f4] text-[#173d35]">
       {googleConfig?.enabled ? (
         <Script
-          onError={() => setError("Nie udało się załadować logowania Google.")}
+          onError={() => setError(t("Nie udało się załadować logowania Google."))}
           onLoad={() => setGoogleReady(true)}
           onReady={() => setGoogleReady(true)}
           src="https://accounts.google.com/gsi/client"
@@ -693,7 +699,7 @@ export function BeautyDocsConsumerPortal({
               {documentUpdateNotice}
             </span>
             <button
-              aria-label="Zamknij powiadomienie"
+              aria-label={t("Zamknij powiadomienie")}
               className="rounded-lg p-1 text-stone-400 hover:bg-stone-100 hover:text-stone-700"
               onClick={() => setDocumentUpdateNotice(null)}
               type="button"
@@ -749,9 +755,10 @@ function LoginCard({
   readonly onStartRegistration: (event: FormEvent<HTMLFormElement>) => void;
   readonly pending: boolean;
 }) {
+  const t = useT();
   const heading = {
-    eyebrow: "Konto osobiste",
-    title: authMode === "register" ? "Utwórz swój profil" : "Zaloguj się",
+    eyebrow: t("Konto osobiste"),
+    title: authMode === "register" ? t("Utwórz swój profil") : t("Zaloguj się"),
   };
   const reduceMotion = useReducedMotion();
   const stepTransition = reduceMotion
@@ -771,7 +778,7 @@ function LoginCard({
     <BeautyDocsClientAuthShell>
       <div className="bd-auth-card">
           <Link
-            aria-label="BeautyDocs — strona główna"
+            aria-label={t("BeautyDocs — strona główna")}
             className="bd-auth-card-brand"
             href="/"
           >
@@ -786,16 +793,16 @@ function LoginCard({
               transition={stepTransition.transition}
             >
           <p className="text-center text-xs font-black uppercase tracking-[0.18em] text-[#426447]">
-            {heading.eyebrow}
+            {t(heading.eyebrow)}
           </p>
           <h1 className="mt-2 text-center font-serif text-3xl font-medium tracking-tight text-[#173d35] sm:text-4xl">
-            {heading.title}
+            {t(heading.title)}
           </h1>
 
           <div className="mt-8">
               {authMode === "register" ? (
                 <BeautyDocsSignupForm
-                  backLabel="Zmień typ konta"
+                  backLabel={t("Zmień typ konta")}
                   error={error}
                   googleEnabled={googleEnabled}
                   onBack={() => {
@@ -819,11 +826,11 @@ function LoginCard({
                         whileTap={reduceMotion || pending ? undefined : { scale: 0.97 }}
                       >
                         <ConsumerGoogleGlyph className="size-5 shrink-0" />
-                        Zaloguj się przez Google
+                        {t("Zaloguj się przez Google")}
                       </motion.button>
                       <div className="my-5 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.14em] text-stone-400">
                         <span className="h-px flex-1 bg-stone-200" />
-                        lub zaloguj się e-mailem
+                        {t("lub zaloguj się e-mailem")}
                         <span className="h-px flex-1 bg-stone-200" />
                       </div>
                     </>
@@ -834,32 +841,32 @@ function LoginCard({
                   <form className="space-y-5" onSubmit={onLoginWithPassword}>
                     <AuthTextField
                       autoComplete="email"
-                      label="Adres e-mail"
+                      label={t("Adres e-mail")}
                       name="email"
                       placeholder="twoj@email.pl"
                       type="email"
                     />
                     <label className="block text-xs font-black uppercase tracking-[0.14em] text-[#5a6b5a]">
-                      Hasło
+                      {t("Hasło")}
                       <AuthPasswordField
                         autoComplete="current-password"
                         minLength={1}
                         name="password"
-                        placeholder="Twoje hasło"
+                        placeholder={t("Twoje hasło")}
                       />
                     </label>
                     <ErrorMessage message={error} />
-                    <PrimaryButton pending={pending}>Zaloguj się</PrimaryButton>
+                    <PrimaryButton pending={pending}>{t("Zaloguj się")}</PrimaryButton>
                   </form>
 
                   <p className="mt-5 text-center text-sm text-stone-600">
-                    Nie masz konta?{" "}
+                    {t("Nie masz konta?")}{" "}
                     <button
                       className="font-bold text-[#245c4d] underline-offset-4 transition hover:text-[#173d35] hover:underline"
                       onClick={() => onAuthModeChange("register")}
                       type="button"
                     >
-                      Załóż konto
+                      {t("Załóż konto")}
                     </button>
                   </p>
                 </>
@@ -887,23 +894,24 @@ function FinalizeCard({
   readonly onSubmit: (event: FormEvent<HTMLFormElement>) => void;
   readonly pending: boolean;
 }) {
+  const t = useT();
   return (
     <BeautyDocsClientAuthShell>
       <div className="bd-auth-card">
         <Link
-          aria-label="BeautyDocs — strona główna"
+          aria-label={t("BeautyDocs — strona główna")}
           className="bd-auth-card-brand"
           href="/"
         >
           <BeautyDocsWordmark className="text-xl text-[#173d35]" />
         </Link>
         <p className="text-center text-xs font-black uppercase tracking-[0.18em] text-[#426447]">
-          Krok 2 z 2
+          {t("Krok 2 z 2")}
         </p>
         <h1 className="mb-8 mt-2 text-center font-serif text-3xl font-medium tracking-tight text-[#173d35] sm:text-4xl">
-          Dokończ zakładanie konta
+          {t("Dokończ zakładanie konta")}
         </h1>
-        <p className="bd-auth-verified" role="status"><Check size={17} aria-hidden="true" /> Adres e-mail potwierdzony</p>
+        <p className="bd-auth-verified" role="status"><Check size={17} aria-hidden="true" />{" "}{t("Adres e-mail potwierdzony")}</p>
         <BeautyDocsConsumerFinalizeForm
           email={email}
           error={error}
@@ -934,21 +942,22 @@ function MfaLoginChallengeCard({
   readonly onSubmit: (event: FormEvent<HTMLFormElement>) => void;
   readonly pending: boolean;
 }) {
+  const t = useT();
   return (
     <BeautyDocsClientAuthShell>
       <div className="bd-auth-card">
         <Link
-          aria-label="BeautyDocs — strona główna"
+          aria-label={t("BeautyDocs — strona główna")}
           className="bd-auth-card-brand"
           href="/"
         >
           <BeautyDocsWordmark className="text-xl text-[#173d35]" />
         </Link>
         <p className="text-center text-xs font-black uppercase tracking-[0.18em] text-[#426447]">
-          Weryfikacja dwuetapowa
+          {t("Weryfikacja dwuetapowa")}
         </p>
         <h1 className="mb-8 mt-2 text-center font-serif text-3xl font-medium tracking-tight text-[#173d35] sm:text-4xl">
-          Potwierdź logowanie
+          {t("Potwierdź logowanie")}
         </h1>
         <form className="space-y-6" onSubmit={onSubmit}>
           <div className="rounded-2xl border border-[#dce3d5] bg-[#f0f4e9] p-4">
@@ -959,20 +968,20 @@ function MfaLoginChallengeCard({
               <div>
                 <p className="font-black text-[#173d35]">
                   {challenge.method === "SMS"
-                    ? "Kod został wysłany SMS-em"
-                    : "Otwórz aplikację uwierzytelniającą"}
+                    ? t("Kod został wysłany SMS-em")
+                    : t("Otwórz aplikację uwierzytelniającą")}
                 </p>
                 <p className="mt-1 text-sm leading-6 text-stone-500">
                   {challenge.method === "SMS"
-                    ? `Wpisz kod wysłany na ${challenge.destinationMasked ?? "zweryfikowany numer telefonu"}.`
-                    : "Wpisz aktualny kod z Google Authenticator lub innej połączonej aplikacji."}
+                    ? t("Wpisz kod wysłany na {value1}.", { value1: challenge.destinationMasked ?? "zweryfikowany numer telefonu" })
+                    : t("Wpisz aktualny kod z Google Authenticator lub innej połączonej aplikacji.")}
                 </p>
               </div>
             </div>
           </div>
 
           <label className="block text-xs font-black uppercase tracking-[0.14em] text-[#5a6b5a]">
-            Kod 6-cyfrowy
+            {t("Kod 6-cyfrowy")}
             <input
               autoComplete="one-time-code"
               className={`${inputClass} mt-2 text-center text-lg tracking-[0.35em]`}
@@ -989,19 +998,19 @@ function MfaLoginChallengeCard({
 
           {challenge.devCode ? (
             <p className="rounded-xl bg-[#eaf0e2] px-3 py-2 text-center text-xs text-[#426447]">
-              Tryb lokalny — kod:{" "}
+              {t("Tryb lokalny — kod:")}{" "}
               <span className="font-black tracking-widest">{challenge.devCode}</span>
             </p>
           ) : null}
 
           <ErrorMessage message={error} />
-          <PrimaryButton pending={pending}>Potwierdź logowanie</PrimaryButton>
+          <PrimaryButton pending={pending}>{t("Potwierdź logowanie")}</PrimaryButton>
           <button
             className="mx-auto block text-sm font-bold text-[#245c4d]"
             onClick={onCancel}
             type="button"
           >
-            Wróć do logowania
+            {t("Wróć do logowania")}
           </button>
         </form>
       </div>
@@ -1026,16 +1035,17 @@ function AuthTextField({
   readonly type: "email" | "tel" | "text";
   readonly value?: string;
 }) {
+  const t = useT();
   return (
     <label className="block text-xs font-black uppercase tracking-[0.14em] text-[#5a6b5a]">
-      {label}
+      {t(label)}
       <span className="mt-2 block">
         <input
           autoComplete={autoComplete}
           className={inputClass}
           name={name}
           onChange={onChange ? (event) => onChange(event.target.value) : undefined}
-          placeholder={placeholder}
+          placeholder={t(placeholder)}
           required
           type={type}
           value={value}
@@ -1058,6 +1068,7 @@ function AuthPasswordField({
   readonly onValueChange?: (value: string) => void;
   readonly placeholder: string;
 }) {
+  const t = useT();
   const [show, setShow] = useState(false);
   return (
     <span className="relative mt-2 block">
@@ -1068,12 +1079,12 @@ function AuthPasswordField({
         minLength={minLength}
         name={name}
         onChange={(event) => onValueChange?.(event.target.value)}
-        placeholder={placeholder}
+        placeholder={t(placeholder)}
         required
         type={show ? "text" : "password"}
       />
       <button
-        aria-label={show ? "Ukryj hasło" : "Pokaż hasło"}
+        aria-label={show ? t("Ukryj hasło") : t("Pokaż hasło")}
         className="absolute right-3 top-1/2 -translate-y-1/2 rounded-lg p-1.5 text-[#6a7a62] transition hover:text-[#245c4d]"
         onClick={() => setShow((current) => !current)}
         type="button"
@@ -1170,6 +1181,7 @@ function AccountView({
   readonly pending: boolean;
   readonly state: BeautyDocsConsumerState;
 }) {
+  const t = useT();
   const [activeSection, setActiveSection] =
     useState<ConsumerPortalSection>(initialSection);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -1207,7 +1219,7 @@ function AccountView({
   ].filter(Boolean).length;
   const progress = Math.round((completedSteps / 3) * 100);
   const activeLabel =
-    portalNavigation.find((item) => item.id === activeSection)?.label ?? "Start";
+    portalNavigation.find((item) => item.id === activeSection)?.label ?? t("Start");
 
   useEffect(() => {
     try {
@@ -1274,8 +1286,8 @@ function AccountView({
   );
 
   return (
-    <div className="min-h-screen bg-[#f4f7f1] lg:grid lg:grid-cols-[280px_minmax(0,1fr)]">
-      <aside className="hidden min-h-screen border-r border-[#e7ecdf] bg-[#f8fbf5] lg:sticky lg:top-0 lg:flex lg:h-screen lg:flex-col">
+    <div className={`min-h-screen bg-[#f4f7f1] ${activeSection === "catalog" ? "" : "lg:grid lg:grid-cols-[280px_minmax(0,1fr)]"}`}>
+      {activeSection !== "catalog" && <aside className="hidden min-h-screen border-r border-[#e7ecdf] bg-[#f8fbf5] lg:sticky lg:top-0 lg:flex lg:h-screen lg:flex-col">
         <BeautyDocsSidebar
           context={<ConsumerSidebarCard profile={profile} progress={progress} />}
           footer={
@@ -1284,39 +1296,46 @@ function AccountView({
               onClick={onLogout}
               type="button"
             >
-              <LogOut className="size-[18px]" /> Wyloguj się
+              <LogOut className="size-[18px]" />{" "}{t("Wyloguj się")}
             </button>
           }
           groups={consumerGroups}
           logoOnClick={() => selectSection("home")}
-          subtitle="Strefa klientki"
+          subtitle={t("Twoja strefa")}
         />
-      </aside>
+      </aside>}
 
       <div className="min-w-0">
-        <header className="sticky top-0 z-30 border-b border-[#e1e6da] bg-[#fdfffb]/90 px-4 py-3 backdrop-blur-xl sm:px-7 lg:hidden">
+        <header className={`sticky top-0 z-30 border-b border-[#e1e6da] bg-[#fdfffb]/90 px-4 py-3 backdrop-blur-xl sm:px-7 ${activeSection === "catalog" ? "" : "lg:hidden"}`}>
           <div className="flex items-center justify-between gap-3">
             <button
-              aria-label="Wróć do strony głównej panelu"
-              className="flex items-center"
+              aria-label={t("Wróć do strony głównej panelu")}
+              className="flex items-center gap-2.5"
               onClick={() => selectSection("home")}
               type="button"
             >
+              <span aria-hidden="true" className="text-[30px] leading-none text-[#66845b]">✳</span>
               <BeautyDocsWordmark className="text-lg text-[#173d35]" />
             </button>
+            <div className="flex items-center gap-2">
+            <BeautyDocsLanguageMenu account="consumer" />
             <button
-              aria-label="Otwórz menu"
-              className="rounded-xl border border-[#dee4d6] bg-white p-2.5 text-[#173d35]"
+              aria-label={mobileMenuOpen ? t("Zamknij menu") : t("Otwórz menu")}
+              aria-expanded={mobileMenuOpen}
+              aria-controls="consumer-navigation-menu"
+              className="grid min-h-11 min-w-11 place-items-center rounded-xl border border-[#dee4d6] bg-white p-2.5 text-[#173d35] active:bg-[#e8eedf] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#245c4d]"
               onClick={() => setMobileMenuOpen((value) => !value)}
               type="button"
             >
               {mobileMenuOpen ? <X className="size-5" /> : <Menu className="size-5" />}
             </button>
+            </div>
           </div>
           <AnimatePresence>
             {mobileMenuOpen ? (
               <motion.div
                 animate={{ height: "auto", opacity: 1 }}
+                id="consumer-navigation-menu"
                 className="overflow-hidden pt-3"
                 exit={{ height: 0, opacity: 0 }}
                 initial={{ height: 0, opacity: 0 }}
@@ -1331,15 +1350,15 @@ function AccountView({
           </AnimatePresence>
         </header>
 
-        <main className="mx-auto w-full max-w-[1280px] px-4 py-7 sm:px-7 sm:py-10 xl:px-12">
+        <main className={`mx-auto w-full ${activeSection === "catalog" ? "" : "max-w-[1280px]"} px-4 py-7 sm:px-7 sm:py-10 xl:px-12`}>
           <div className="mb-7 flex flex-wrap items-end justify-between gap-4">
             <div>
               <p className="text-[11px] font-black uppercase tracking-[0.2em] text-[#599687]">
-                Strefa klientki
+                {t("Twoja strefa")}
               </p>
               <h1 className="mt-2 text-3xl font-black tracking-[-0.035em] text-[#173d35] sm:text-4xl">
                 {activeSection === "home"
-                  ? `Dzień dobry, ${profile.fullName.split(" ")[0]}`
+                  ? t("Dzień dobry, {value1}", { value1: profile.fullName.split(" ")[0] })
                   : activeLabel}
               </h1>
             </div>
@@ -1348,7 +1367,7 @@ function AccountView({
               onClick={() => setSetupOpen(true)}
               type="button"
             >
-              <Sparkles className="size-4" /> Uzupełnij profil
+              <Sparkles className="size-4" />{" "}{t("Uzupełnij profil")}
             </button>
           </div>
 
@@ -1484,6 +1503,7 @@ function ConsumerSidebarCard({
   readonly profile: BeautyDocsConsumerProfile;
   readonly progress: number;
 }) {
+  const t = useT();
   return (
     <div className="rounded-2xl border border-[#e4ecd9] bg-[#f1f6eb] p-3.5">
       <div className="flex items-center gap-2.5">
@@ -1493,12 +1513,12 @@ function ConsumerSidebarCard({
         <div className="min-w-0">
           <p className="truncate text-[13px] font-black text-[#173d35]">{profile.fullName}</p>
           <p className="truncate text-[11px] text-[#5a6b5a]">
-            {profile.email ?? profile.phone ?? "Konto klientki"}
+            {profile.email ?? profile.phone ?? t("Konto klientki")}
           </p>
         </div>
       </div>
       <div className="mt-3 flex items-center justify-between text-[11px] font-bold text-[#5a6b5a]">
-        <span>Kompletność profilu</span>
+        <span>{t("Kompletność profilu")}</span>
         <span>{progress}%</span>
       </div>
       <div className="mt-1.5 h-1.5 overflow-hidden rounded-full bg-[#e5eadf]">
@@ -1533,6 +1553,7 @@ function ConsumerDashboard({
   readonly progress: number;
   readonly questionCount: number;
 }) {
+  const t = useT();
   const signedDocumentsCount = documents.filter(
     (document) => document.status === "SIGNED",
   ).length;
@@ -1540,9 +1561,9 @@ function ConsumerDashboard({
     (document) => document.status === "SUBMITTED",
   ).length;
   const tasks = [
-    { complete: personalComplete, label: "Dane osobowe", section: "personal" as const, icon: UserRound },
-    { complete: medicalComplete, label: "Wywiad medyczny", section: "medical" as const, icon: HeartPulse },
-    { complete: profile.signatureConfigured, label: "Własny podpis", section: "signature" as const, icon: PenLine },
+    { complete: personalComplete, label: t("Dane osobowe"), section: "personal" as const, icon: UserRound },
+    { complete: medicalComplete, label: t("Wywiad medyczny"), section: "medical" as const, icon: HeartPulse },
+    { complete: profile.signatureConfigured, label: t("Własny podpis"), section: "signature" as const, icon: PenLine },
   ];
   return (
     <div className="space-y-6">
@@ -1552,13 +1573,13 @@ function ConsumerDashboard({
         <div className="relative grid gap-8 lg:grid-cols-[1fr_240px] lg:items-end">
           <div>
             <span className="inline-flex items-center gap-2 rounded-full bg-white/12 px-3 py-1.5 text-xs font-black uppercase tracking-[0.14em]">
-              <ShieldCheck className="size-4" /> Twój bezpieczny profil
+              <ShieldCheck className="size-4" />{" "}{t("Twój bezpieczny profil")}
             </span>
             <h2 className="mt-5 max-w-2xl text-3xl font-black tracking-[-0.04em] sm:text-4xl">
-              Uzupełnij dane raz, a kolejne wizyty zaczniesz szybciej.
+              {t("Uzupełnij dane raz, a kolejne wizyty zaczniesz szybciej.")}
             </h2>
             <p className="mt-4 max-w-2xl text-sm leading-6 text-white/75 sm:text-base">
-              Dane, wywiad i podpis masz w jednym miejscu. Przed każdym zabiegiem nadal świadomie potwierdzisz aktualność informacji.
+              {t("Dane, wywiad i podpis masz w jednym miejscu. Przed każdym zabiegiem nadal świadomie potwierdzisz aktualność informacji.")}
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <button
@@ -1566,7 +1587,7 @@ function ConsumerDashboard({
                 onClick={() => onSelect("salons")}
                 type="button"
               >
-                Znajdź salon <Search className="size-4" />
+                {t("Znajdź salon")}{" "}<Search className="size-4" />
               </button>
               {progress < 100 ? (
                 <button
@@ -1574,20 +1595,20 @@ function ConsumerDashboard({
                   onClick={onOpenSetup}
                   type="button"
                 >
-                  Dokończ profil <ChevronRight className="size-4" />
+                  {t("Dokończ profil")}{" "}<ChevronRight className="size-4" />
                 </button>
               ) : null}
             </div>
           </div>
           <div className="rounded-3xl border border-white/15 bg-white/10 p-5 backdrop-blur">
             <div className="flex items-end justify-between">
-              <span className="text-sm font-bold text-white/70">Gotowość profilu</span>
+              <span className="text-sm font-bold text-white/70">{t("Gotowość profilu")}</span>
               <strong className="text-4xl font-black">{progress}%</strong>
             </div>
             <div className="mt-4 h-2 overflow-hidden rounded-full bg-white/15">
               <motion.div animate={{ width: `${progress}%` }} className="h-full bg-white" initial={false} />
             </div>
-            <p className="mt-3 text-xs leading-5 text-white/60">Im pełniejszy profil, tym mniej pól przy formularzu w salonie.</p>
+            <p className="mt-3 text-xs leading-5 text-white/60">{t("Im pełniejszy profil, tym mniej pól przy formularzu w salonie.")}</p>
           </div>
         </div>
       </section>
@@ -1596,19 +1617,19 @@ function ConsumerDashboard({
         <DashboardStat
           description="kompletne dokumenty"
           icon={CheckCircle2}
-          label="Podpisane formularze"
+          label={t("Podpisane formularze")}
           value={signedDocumentsCount}
         />
         <DashboardStat
-          description="czekają na podpis salonu"
+          description={t("czekają na podpis salonu")}
           icon={Clock3}
-          label="Oczekujące"
+          label={t("Oczekujące")}
           value={waitingDocumentsCount}
         />
         <DashboardStat
           description="wszystkie w historii"
           icon={FileText}
-          label="Wszystkie formularze"
+          label={t("Wszystkie formularze")}
           value={documents.length}
         />
       </dl>
@@ -1629,8 +1650,8 @@ function ConsumerDashboard({
                   {task.complete ? <Check className="size-4" /> : <ChevronRight className="size-4" />}
                 </span>
               </div>
-              <h3 className="mt-5 font-black text-[#173d35]">{task.label}</h3>
-              <p className="mt-1 text-sm text-stone-500">{task.complete ? "Uzupełnione" : "Wymaga uzupełnienia"}</p>
+              <h3 className="mt-5 font-black text-[#173d35]">{t(task.label)}</h3>
+              <p className="mt-1 text-sm text-stone-500">{task.complete ? t("Uzupełnione") : t("Wymaga uzupełnienia")}</p>
             </button>
           );
         })}
@@ -1640,10 +1661,10 @@ function ConsumerDashboard({
         <section className="rounded-[28px] border border-[#e3e8dd] bg-white p-6 shadow-sm">
           <div className="flex items-center justify-between gap-4">
             <div>
-              <p className="text-xs font-black uppercase tracking-[0.15em] text-[#599687]">Ostatnie dokumenty</p>
-              <h2 className="mt-1 text-xl font-black">Twoja historia</h2>
+              <p className="text-xs font-black uppercase tracking-[0.15em] text-[#599687]">{t("Ostatnie dokumenty")}</p>
+              <h2 className="mt-1 text-xl font-black">{t("Twoja historia")}</h2>
             </div>
-            <button className="text-sm font-black text-[#245c4d]" onClick={() => onSelect("documents")} type="button">Zobacz wszystkie</button>
+            <button className="text-sm font-black text-[#245c4d]" onClick={() => onSelect("documents")} type="button">{t("Zobacz wszystkie")}</button>
           </div>
           <div className="mt-5 space-y-3">
             {documents.slice(0, 3).map((document) => (
@@ -1653,7 +1674,7 @@ function ConsumerDashboard({
                 <span className="text-xs font-bold text-stone-400">{formatShortDate(document.signedAt ?? document.sharedAt)}</span>
               </div>
             ))}
-            {documents.length === 0 ? <p className="rounded-2xl border border-dashed border-[#d7ddce] px-4 py-8 text-center text-sm text-stone-500">Pierwszy podpisany formularz pojawi się tutaj.</p> : null}
+            {documents.length === 0 ? <p className="rounded-2xl border border-dashed border-[#d7ddce] px-4 py-8 text-center text-sm text-stone-500">{t("Pierwszy podpisany formularz pojawi się tutaj.")}</p> : null}
           </div>
         </section>
         <section className="rounded-[28px] border border-[#e3e8dd] bg-white p-6 shadow-sm">
@@ -1661,9 +1682,9 @@ function ConsumerDashboard({
             <span className="grid size-11 place-items-center rounded-2xl bg-[#edf2e6] text-[#245c4d]"><Activity className="size-5" /></span>
             <span className="rounded-full bg-[#f4f7f1] px-3 py-1 text-xs font-black text-[#508074]">{answeredQuestions}/{questionCount || "…"}</span>
           </div>
-          <h2 className="mt-5 font-sans text-xl font-black">Wywiad medyczny</h2>
-          <p className="mt-2 text-sm leading-6 text-stone-500">Odpowiedzi zapisujesz raz i aktualizujesz wtedy, gdy coś się zmieni.</p>
-          <button className="mt-6 inline-flex items-center gap-2 text-sm font-black text-[#245c4d]" onClick={() => onSelect("medical")} type="button">Przejdź do wywiadu <ChevronRight className="size-4" /></button>
+          <h2 className="mt-5 font-sans text-xl font-black">{t("Wywiad medyczny")}</h2>
+          <p className="mt-2 text-sm leading-6 text-stone-500">{t("Odpowiedzi zapisujesz raz i aktualizujesz wtedy, gdy coś się zmieni.")}</p>
+          <button className="mt-6 inline-flex items-center gap-2 text-sm font-black text-[#245c4d]" onClick={() => onSelect("medical")} type="button">{t("Przejdź do wywiadu")}{" "}<ChevronRight className="size-4" /></button>
         </section>
       </div>
     </div>
@@ -1681,18 +1702,19 @@ function DashboardStat({
   readonly label: string;
   readonly value: number;
 }) {
+  const t = useT();
   return (
     <div className="rounded-3xl border border-[#e3e8dd] bg-white p-5 shadow-sm">
       <div className="flex items-center justify-between gap-4">
-        <dt className="text-sm font-black text-[#566858]">{label}</dt>
+        <dt className="text-sm font-black text-[#566858]">{t(label)}</dt>
         <span className="grid size-10 place-items-center rounded-2xl bg-[#eef3e6] text-[#245c4d]">
           <Icon className="size-4.5" />
         </span>
       </div>
       <dd className="mt-4 text-4xl font-black tracking-[-0.04em] text-[#173d35]">
-        {value.toLocaleString("pl-PL")}
+        {value.toLocaleString(activeIntlLocale())}
       </dd>
-      <p className="mt-1 text-xs text-stone-500">{description}</p>
+      <p className="mt-1 text-xs text-stone-500">{t(description)}</p>
     </div>
   );
 }
@@ -1714,6 +1736,7 @@ function ConsumerSalonDirectory({
   readonly phoneReady: boolean;
   readonly profile: BeautyDocsConsumerProfile;
 }) {
+  const t = useT();
   const [query, setQuery] = useState("");
   const [salons, setSalons] = useState<readonly BeautyDocsConsumerSalon[]>([]);
   const [loading, setLoading] = useState(true);
@@ -1744,7 +1767,7 @@ function ConsumerSalonDirectory({
         const salon = body.items[0];
         if (!salon) {
           setBookSlugError(
-            "Nie znaleźliśmy tego salonu albo nie udostępnia teraz rezerwacji online.",
+            t("Nie znaleźliśmy tego salonu albo nie udostępnia teraz rezerwacji online."),
           );
           return;
         }
@@ -1761,13 +1784,13 @@ function ConsumerSalonDirectory({
         if (requestError instanceof DOMException && requestError.name === "AbortError") {
           return;
         }
-        setBookSlugError("Nie udało się otworzyć rezerwacji. Spróbuj ponownie.");
+        setBookSlugError(t("Nie udało się otworzyć rezerwacji. Spróbuj ponownie."));
       } finally {
         if (!controller.signal.aborted) setResolvingBookSlug(false);
       }
     })();
     return () => controller.abort();
-  }, [initialBookFormCode, initialBookSlug]);
+  }, [initialBookFormCode, initialBookSlug, t]);
   const recentSalons = useMemo(() => {
     const unique = new Map<string, string>();
     for (const document of documents) {
@@ -1803,7 +1826,7 @@ function ConsumerSalonDirectory({
           if (requestError instanceof DOMException && requestError.name === "AbortError") {
             return;
           }
-          setError("Nie udało się pobrać salonów. Spróbuj ponownie za chwilę.");
+          setError(t("Nie udało się pobrać salonów. Spróbuj ponownie za chwilę."));
           setSalons([]);
         } finally {
           if (!controller.signal.aborted) setLoading(false);
@@ -1814,13 +1837,13 @@ function ConsumerSalonDirectory({
       window.clearTimeout(timer);
       controller.abort();
     };
-  }, [query]);
+  }, [query, t]);
 
   return (
     <div className="mx-auto max-w-5xl space-y-5">
       {resolvingBookSlug ? (
         <div className="flex items-center gap-2.5 rounded-2xl border border-[#d7dfcc] bg-white/95 px-4 py-3 text-sm font-bold text-[#45766a]">
-          <LoaderCircle className="size-4 animate-spin" /> Otwieramy rezerwację dla Ciebie…
+          <LoaderCircle className="size-4 animate-spin" />{" "}{t("Otwieramy rezerwację dla Ciebie…")}
         </div>
       ) : null}
       {bookSlugError ? (
@@ -1834,23 +1857,23 @@ function ConsumerSalonDirectory({
           <span className="grid size-11 place-items-center rounded-2xl bg-white text-[#245c4d] shadow-sm">
             <Search className="size-5" />
           </span>
-          <p className="mt-5 text-[10px] font-black uppercase tracking-[0.18em] text-[#629488]">Katalog BeautyDocs</p>
-          <h2 className="mt-1 font-sans text-2xl font-black tracking-[-0.03em] text-[#173d35] sm:text-3xl">Znajdź miejsce dla siebie.</h2>
-          <p className="mt-2 max-w-2xl text-sm leading-6 text-[#5d7260]">Poznaj salony, zobacz zdjęcia i odkryj ich ofertę. Szukaj po nazwie, mieście albo zabiegu.</p>
+          <p className="mt-5 text-[10px] font-black uppercase tracking-[0.18em] text-[#629488]">{t("Katalog BeautyDocs")}</p>
+          <h2 className="mt-1 font-sans text-2xl font-black tracking-[-0.03em] text-[#173d35] sm:text-3xl">{t("Znajdź miejsce dla siebie.")}</h2>
+          <p className="mt-2 max-w-2xl text-sm leading-6 text-[#5d7260]">{t("Poznaj salony, zobacz zdjęcia i odkryj ich ofertę. Szukaj po nazwie, mieście albo zabiegu.")}</p>
           <label className="relative mt-6 block max-w-2xl">
-            <span className="sr-only">Szukaj salonu, miasta lub zabiegu</span>
+            <span className="sr-only">{t("Szukaj salonu, miasta lub zabiegu")}</span>
             <Search className="absolute left-4 top-1/2 size-5 -translate-y-1/2 text-[#7a9c7f]" />
             <input
               autoComplete="off"
               className="min-h-14 w-full rounded-2xl border border-white/80 bg-white/90 py-3 pl-12 pr-11 text-sm font-semibold text-[#173d35] shadow-[0_8px_24px_rgba(52,84,76,0.08)] outline-none transition placeholder:text-stone-400 focus:border-[#aabc92] focus:bg-white focus:ring-4 focus:ring-white/50"
               maxLength={100}
               onChange={(event) => setQuery(event.target.value)}
-              placeholder="Np. Warszawa, laminacja brwi…"
+              placeholder={t("Np. Warszawa, laminacja brwi…")}
               value={query}
             />
             {query ? (
               <button
-                aria-label="Wyczyść wyszukiwanie"
+                aria-label={t("Wyczyść wyszukiwanie")}
                 className="absolute right-3 top-1/2 grid size-8 -translate-y-1/2 place-items-center rounded-lg text-stone-400 transition hover:bg-[#eff4e9] hover:text-[#173d35]"
                 onClick={() => setQuery("")}
                 type="button"
@@ -1865,8 +1888,8 @@ function ConsumerSalonDirectory({
       {recentSalons.length > 0 && !query.trim() ? (
         <section className="rounded-[24px] border border-[#e3e8dd] bg-white/95 p-5 shadow-sm sm:p-6">
           <div>
-            <p className="font-sans text-sm font-black text-[#173d35]">Moje salony</p>
-            <p className="mt-1 text-xs text-stone-500">Salony powiązane z Twoją historią dokumentów.</p>
+            <p className="font-sans text-sm font-black text-[#173d35]">{t("Moje salony")}</p>
+            <p className="mt-1 text-xs text-stone-500">{t("Salony powiązane z Twoją historią dokumentów.")}</p>
           </div>
           <div className="mt-4 grid gap-2 sm:grid-cols-2">
             {recentSalons.map((salon) => (
@@ -1880,7 +1903,7 @@ function ConsumerSalonDirectory({
                   <ChevronRight className="size-4 text-stone-300 transition group-hover:translate-x-0.5 group-hover:text-[#245c4d]" />
                 </Link>
                 <button
-                  aria-label={`Napisz do ${salon.displayName}`}
+                  aria-label={t("Napisz do {displayName}", { displayName: salon.displayName })}
                   className="grid size-10 shrink-0 place-items-center rounded-xl text-[#245c4d] transition hover:bg-[#ebf1e3]"
                   onClick={() => onStartChat(salon)}
                   type="button"
@@ -1896,21 +1919,21 @@ function ConsumerSalonDirectory({
       <section aria-live="polite" className="rounded-[26px] border border-[#e3e8dd] bg-white/95 p-4 shadow-sm sm:p-6">
         <div className="flex items-center justify-between gap-4 border-b border-[#ebeee6] pb-4">
           <div>
-            <h3 className="font-sans text-sm font-black text-[#173d35]">{query.trim() ? "Wyniki wyszukiwania" : "Dostępne salony"}</h3>
-            <p className="mt-1 text-xs text-stone-500">Pokazujemy tylko salony z aktywnymi formularzami online.</p>
+            <h3 className="font-sans text-sm font-black text-[#173d35]">{query.trim() ? t("Wyniki wyszukiwania") : t("Dostępne salony")}</h3>
+            <p className="mt-1 text-xs text-stone-500">{t("Pokazujemy tylko salony z aktywnymi formularzami online.")}</p>
           </div>
           {!loading && !error ? <span className="rounded-full bg-[#f3f6ef] px-3 py-1.5 text-xs font-black text-[#508074]">{salons.length}</span> : null}
         </div>
 
         {loading ? (
-          <div className="grid min-h-52 place-items-center text-sm font-semibold text-stone-500"><span className="flex items-center gap-2"><LoaderCircle className="size-4 animate-spin text-[#245c4d]" /> Szukamy salonów…</span></div>
+          <div className="grid min-h-52 place-items-center text-sm font-semibold text-stone-500"><span className="flex items-center gap-2"><LoaderCircle className="size-4 animate-spin text-[#245c4d]" />{" "}{t("Szukamy salonów…")}</span></div>
         ) : error ? (
           <div className="mt-5 rounded-2xl border border-red-100 bg-red-50 px-5 py-8 text-center text-sm font-semibold text-red-800">{error}</div>
         ) : salons.length === 0 ? (
           <div className="mt-5 rounded-2xl border border-dashed border-[#d9ded1] bg-[#fafbf8] px-5 py-10 text-center">
             <Building2 className="mx-auto size-6 text-[#8ab5aa]" />
-            <p className="mt-3 text-sm font-black text-[#2a382c]">Nie znaleźliśmy pasującego salonu</p>
-            <p className="mx-auto mt-1 max-w-md text-xs leading-5 text-stone-500">Spróbuj wpisać samo miasto, nazwę zabiegu albo krótszą nazwę salonu.</p>
+            <p className="mt-3 text-sm font-black text-[#2a382c]">{t("Nie znaleźliśmy pasującego salonu")}</p>
+            <p className="mx-auto mt-1 max-w-md text-xs leading-5 text-stone-500">{t("Spróbuj wpisać samo miasto, nazwę zabiegu albo krótszą nazwę salonu.")}</p>
           </div>
         ) : (
           <div className="mt-5 space-y-3">
@@ -1956,10 +1979,11 @@ function SalonDirectoryCard({
   readonly onChat: () => void;
   readonly salon: BeautyDocsConsumerSalon;
 }) {
+  const t = useT();
   const location = [salon.postalCode, salon.city].filter(Boolean).join(" ");
   return (
     <article className="rounded-[20px] border border-[#e7ebe2] bg-[#f9faf8] p-4 transition hover:border-[#ccd6bf] hover:bg-white sm:p-5">
-      <Link className="bd-consumer-salon-cover" href={`/salony/${salon.slug}`} aria-label={`Poznaj salon ${salon.displayName}`}>{salon.coverUrl ? <>
+      <Link className="bd-consumer-salon-cover" href={`/salony/${salon.slug}`} aria-label={t("Poznaj salon {displayName}", { displayName: salon.displayName })}>{salon.coverUrl ? <>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={salon.coverUrl} alt={salon.displayName} loading="lazy" />
       </> : <span>{salon.displayName.slice(0, 1)}</span>}</Link>
@@ -1969,7 +1993,7 @@ function SalonDirectoryCard({
           <div className="min-w-0">
             <h4 className="font-sans text-lg font-semibold tracking-tight text-[#173d35]"><Link href={`/salony/${salon.slug}`}>{salon.displayName} ↗</Link></h4>
             {salon.introduction && <p className="mt-2 text-sm leading-6 text-[#637163]">{salon.introduction}</p>}
-            {salon.startingPrice != null && <p className="mt-2 text-sm font-semibold text-[#173d35]">Usługi od {(salon.startingPrice / 100).toLocaleString("pl-PL")} zł</p>}
+            {salon.startingPrice != null && <p className="mt-2 text-sm font-semibold text-[#173d35]">{t("Usługi od")}{" "}{(salon.startingPrice / 100).toLocaleString(activeIntlLocale())}{" "}{t("zł")}</p>}
             {location || salon.addressLine1 ? (
               <p className="mt-1 flex items-start gap-1.5 text-xs leading-5 text-stone-500"><MapPin className="mt-0.5 size-3.5 shrink-0" /> {[salon.addressLine1, location].filter(Boolean).join(", ")}</p>
             ) : null}
@@ -1982,14 +2006,14 @@ function SalonDirectoryCard({
             onClick={onChat}
             type="button"
           >
-            Napisz <MessageCircle className="size-3.5" />
+            {t("Napisz")}{" "}<MessageCircle className="size-3.5" />
           </button>
           <button
             className="inline-flex min-h-10 items-center justify-center gap-1.5 rounded-xl bg-[#245c4d] px-4 text-xs font-black text-white transition hover:bg-[#173d35]"
             onClick={() => onBook(null)}
             type="button"
           >
-            Umów wizytę <CalendarDays className="size-3.5" />
+            {t("Umów wizytę")}{" "}<CalendarDays className="size-3.5" />
           </button>
         </div>
       </div>
@@ -2004,7 +2028,7 @@ function SalonDirectoryCard({
             {form.displayName}
           </button>
         ))}
-        {salon.activeForms.length > 5 ? <span className="self-center px-2 text-xs font-bold text-stone-400">+{salon.activeForms.length - 5} więcej</span> : null}
+        {salon.activeForms.length > 5 ? <span className="self-center px-2 text-xs font-bold text-stone-400">+{salon.activeForms.length - 5}{" "}{t("więcej")}</span> : null}
       </div>
     </article>
   );
@@ -2025,6 +2049,7 @@ function AppointmentBookingDialog({
   readonly profile: BeautyDocsConsumerProfile;
   readonly salon: BeautyDocsConsumerSalon;
 }) {
+  const t = useT();
   const [today] = useState(() => bookingToday());
   const [formCode, setFormCode] = useState(
     initialFormCode ?? salon.activeForms[0]?.code ?? "",
@@ -2107,13 +2132,13 @@ function AppointmentBookingDialog({
           return;
         }
         setMonthAvailability(null);
-        setError("Nie udało się pobrać kalendarza salonu. Spróbuj ponownie.");
+        setError(t("Nie udało się pobrać kalendarza salonu. Spróbuj ponownie."));
       })
       .finally(() => {
         if (!controller.signal.aborted) setCalendarLoading(false);
       });
     return () => controller.abort();
-  }, [calendarMonth, created, formCode, phoneReady, salon.slug]);
+  }, [calendarMonth, created, formCode, phoneReady, salon.slug, t]);
 
   useEffect(() => {
     if (!phoneReady || !formCode || !selectedDate || created) return;
@@ -2142,13 +2167,13 @@ function AppointmentBookingDialog({
           return;
         }
         setAvailability(null);
-        setError("Nie udało się pobrać wolnych godzin. Spróbuj ponownie.");
+        setError(t("Nie udało się pobrać wolnych godzin. Spróbuj ponownie."));
       })
       .finally(() => {
         if (!controller.signal.aborted) setLoading(false);
       });
     return () => controller.abort();
-  }, [created, formCode, phoneReady, salon.slug, selectedDate]);
+  }, [created, formCode, phoneReady, salon.slug, selectedDate, t]);
 
   const book = async () => {
     if (!selectedSlot || booking) return;
@@ -2168,7 +2193,7 @@ function AppointmentBookingDialog({
       if (!response.ok) {
         if (response.status === 409) {
           setError(
-            "Ta godzina została właśnie zajęta albo profil nie ma potwierdzonego numeru telefonu.",
+            t("Ta godzina została właśnie zajęta albo profil nie ma potwierdzonego numeru telefonu."),
           );
           return;
         }
@@ -2176,7 +2201,7 @@ function AppointmentBookingDialog({
       }
       setCreated((await response.json()) as BeautyDocsConsumerAppointmentCreated);
     } catch {
-      setError("Nie udało się zapisać wizyty. Spróbuj ponownie.");
+      setError(t("Nie udało się zapisać wizyty. Spróbuj ponownie."));
     } finally {
       setBooking(false);
     }
@@ -2205,7 +2230,7 @@ function AppointmentBookingDialog({
         <div className="flex items-start justify-between gap-4">
           <div>
             <p className="text-[10px] font-black uppercase tracking-[0.18em] text-[#599687]">
-              Rezerwacja online
+              {t("Rezerwacja online")}
             </p>
             <h2
               className="mt-1 text-2xl font-black tracking-[-0.03em] text-[#173d35]"
@@ -2215,7 +2240,7 @@ function AppointmentBookingDialog({
             </h2>
           </div>
           <button
-            aria-label="Zamknij rezerwację"
+            aria-label={t("Zamknij rezerwację")}
             className="grid size-10 shrink-0 place-items-center rounded-xl border border-[#e2e7da] text-stone-500 transition hover:bg-[#f2f6ed]"
             onClick={onClose}
             type="button"
@@ -2228,11 +2253,10 @@ function AppointmentBookingDialog({
           <div className="mt-6 rounded-3xl border border-amber-200 bg-amber-50 p-5">
             <Smartphone className="size-6 text-amber-700" />
             <h3 className="mt-4 font-black text-amber-950">
-              Potwierdź numer telefonu przed rezerwacją
+              {t("Potwierdź numer telefonu przed rezerwacją")}
             </h3>
             <p className="mt-2 text-sm leading-6 text-amber-900/75">
-              Salon użyje numeru do identyfikacji wizyty, a formularz do
-              bezpiecznego potwierdzenia podpisu kodem SMS.
+              {t("Salon użyje numeru do identyfikacji wizyty, a formularz do bezpiecznego potwierdzenia podpisu kodem SMS.")}
             </p>
             <button
               className="mt-5 rounded-2xl bg-amber-800 px-5 py-3 text-sm font-black text-white"
@@ -2242,7 +2266,7 @@ function AppointmentBookingDialog({
               }}
               type="button"
             >
-              Uzupełnij numer telefonu
+              {t("Uzupełnij numer telefonu")}
             </button>
           </div>
         ) : created ? (
@@ -2251,26 +2275,25 @@ function AppointmentBookingDialog({
               <Check className="size-7" />
             </span>
             <h3 className="mt-5 text-xl font-black text-emerald-950">
-              Wizyta została zarezerwowana
+              {t("Wizyta została zarezerwowana")}
             </h3>
             <p className="mt-2 text-sm leading-6 text-emerald-900/75">
               {formatAppointmentDate(created.startsAt)} · {created.formName}
             </p>
             <p className="mx-auto mt-4 max-w-xl text-sm leading-6 text-stone-600">
-              Teraz wypełnij formularz przypisany do wizyty. Po jego podpisaniu
-              salon zobaczy komplet dokumentów przy tym terminie.
+              {t("Teraz wypełnij formularz przypisany do wizyty. Po jego podpisaniu salon zobaczy komplet dokumentów przy tym terminie.")}
             </p>
             <Link
               className="mt-6 inline-flex items-center gap-2 rounded-2xl bg-[#245c4d] px-5 py-3 text-sm font-black text-white transition hover:bg-[#173d35]"
               href={appointmentFormHref(created)}
             >
-              Przejdź do formularza <ArrowRight className="size-4" />
+              {t("Przejdź do formularza")}{" "}<ArrowRight className="size-4" />
             </Link>
           </div>
         ) : (
           <div className="mt-6 space-y-6">
             <div>
-              <BookingStepLabel number="1" title="Wybierz rodzaj formularza" />
+              <BookingStepLabel number="1" title={t("Wybierz rodzaj formularza")} />
               <div className="mt-3 grid gap-2 sm:grid-cols-2">
                 {salon.activeForms.map((item) => (
                   <button
@@ -2291,7 +2314,7 @@ function AppointmentBookingDialog({
 
             <div className="grid gap-5 lg:grid-cols-[minmax(0,1.15fr)_minmax(300px,0.85fr)]">
               <div>
-                <BookingStepLabel number="2" title="Wybierz dzień w kalendarzu" />
+                <BookingStepLabel number="2" title={t("Wybierz dzień w kalendarzu")} />
                 <div className="mt-3 overflow-hidden rounded-3xl border border-[#e2e7da] bg-white shadow-sm">
                   <div className="flex items-center justify-between gap-3 border-b border-[#eaeee5] bg-[#fafcf8] px-4 py-3.5">
                     <div className="flex items-center gap-2.5">
@@ -2303,7 +2326,7 @@ function AppointmentBookingDialog({
                           {formatBookingMonth(calendarMonth)}
                         </p>
                         <p className="text-[10px] font-bold text-stone-400">
-                          Zielona kropka oznacza wolne godziny
+                          {t("Zielona kropka oznacza wolne godziny")}
                         </p>
                       </div>
                     </div>
@@ -2317,10 +2340,10 @@ function AppointmentBookingDialog({
                         }}
                         type="button"
                       >
-                        Dzisiaj
+                        {t("Dzisiaj")}
                       </button>
                       <button
-                        aria-label="Poprzedni miesiąc"
+                        aria-label={t("Poprzedni miesiąc")}
                         className="grid size-9 place-items-center rounded-xl border border-[#e2e7da] bg-white text-[#173d35] transition hover:border-[#bdcbaa] disabled:cursor-not-allowed disabled:opacity-35"
                         disabled={!canShowPreviousBookingMonth(calendarMonth, today)}
                         onClick={() => {
@@ -2337,7 +2360,7 @@ function AppointmentBookingDialog({
                         <ChevronLeft className="size-4" />
                       </button>
                       <button
-                        aria-label="Następny miesiąc"
+                        aria-label={t("Następny miesiąc")}
                         className="grid size-9 place-items-center rounded-xl border border-[#e2e7da] bg-white text-[#173d35] transition hover:border-[#bdcbaa] disabled:cursor-not-allowed disabled:opacity-35"
                         disabled={!canShowNextBookingMonth(calendarMonth, maxBookingDate)}
                         onClick={() => {
@@ -2368,7 +2391,7 @@ function AppointmentBookingDialog({
                       <div className="absolute inset-0 z-10 grid place-items-center bg-white/75 backdrop-blur-[1px]">
                         <span className="flex items-center gap-2 rounded-full bg-white px-4 py-2 text-xs font-bold text-stone-500 shadow-lg">
                           <LoaderCircle className="size-3.5 animate-spin text-[#245c4d]" />
-                          Sprawdzamy terminy…
+                          {t("Sprawdzamy terminy…")}
                         </span>
                       </div>
                     ) : null}
@@ -2415,29 +2438,29 @@ function AppointmentBookingDialog({
                   monthAvailability &&
                   monthAvailability.days.every((day) => day.availableSlots === 0) ? (
                     <p className="border-t border-[#eaeee5] bg-amber-50 px-4 py-3 text-center text-xs font-bold text-amber-900">
-                      W tym miesiącu nie ma wolnych terminów. Przejdź do następnego miesiąca.
+                      {t("W tym miesiącu nie ma wolnych terminów. Przejdź do następnego miesiąca.")}
                     </p>
                   ) : null}
                 </div>
               </div>
 
               <div>
-                <BookingStepLabel number="3" title="Wybierz godzinę" />
+                <BookingStepLabel number="3" title={t("Wybierz godzinę")} />
                 <div className="mt-3 rounded-3xl border border-[#e2e7da] bg-[#fafcf8] p-4 sm:p-5">
                   <p className="font-black capitalize text-[#2a382c]">
-                    {selectedDateLabel}
+                    {t(selectedDateLabel)}
                   </p>
                   {availability ? (
                     <p className="mt-1.5 flex items-center gap-1.5 text-xs font-bold text-stone-500">
                       <Clock3 className="size-3.5 text-[#245c4d]" />
-                      Czas zabiegu: {formatAppointmentDuration(availability.slotMinutes)}
+                      {t("Czas zabiegu:")}{" "}{formatAppointmentDuration(availability.slotMinutes)}
                     </p>
                   ) : null}
                   <div className="mt-4 min-h-32">
                     {loading ? (
                       <p className="flex items-center gap-2 rounded-2xl bg-white px-4 py-6 text-sm font-semibold text-stone-500">
                         <LoaderCircle className="size-4 animate-spin text-[#245c4d]" />
-                        Sprawdzamy godziny…
+                        {t("Sprawdzamy godziny…")}
                       </p>
                     ) : availability?.slots.length ? (
                       <div className="grid grid-cols-3 gap-2 lg:grid-cols-2 xl:grid-cols-3">
@@ -2458,7 +2481,7 @@ function AppointmentBookingDialog({
                       </div>
                     ) : (
                       <p className="rounded-2xl border border-dashed border-[#d9dfd1] bg-white px-4 py-6 text-center text-sm leading-6 text-stone-500">
-                        Wybierz w kalendarzu dzień oznaczony zieloną kropką.
+                        {t("Wybierz w kalendarzu dzień oznaczony zieloną kropką.")}
                       </p>
                     )}
                   </div>
@@ -2478,11 +2501,11 @@ function AppointmentBookingDialog({
                   <>
                     <span className="font-black text-[#2a382c]">{form?.displayName}</span>
                     <span className="block text-xs">
-                      {selectedDateLabel}, {formatAppointmentTime(selectedSlot)} · {profile.fullName}
+                      {t(selectedDateLabel)}, {formatAppointmentTime(selectedSlot)} · {profile.fullName}
                     </span>
                   </>
                 ) : (
-                  "Wybierz formularz, dzień i godzinę."
+                  t("Wybierz formularz, dzień i godzinę.")
                 )}
               </div>
               <button
@@ -2492,7 +2515,7 @@ function AppointmentBookingDialog({
                 type="button"
               >
                 {booking ? <LoaderCircle className="size-4 animate-spin" /> : <CalendarDays className="size-4" />}
-                {booking ? "Rezerwujemy…" : "Zarezerwuj wizytę"}
+                {booking ? t("Rezerwujemy…") : t("Zarezerwuj wizytę")}
               </button>
             </div>
           </div>
@@ -2503,12 +2526,13 @@ function AppointmentBookingDialog({
 }
 
 function BookingStepLabel({ number, title }: { readonly number: string; readonly title: string }) {
+  const t = useT();
   return (
     <div className="flex items-center gap-2.5">
       <span className="grid size-7 place-items-center rounded-full bg-[#eef3e7] text-xs font-black text-[#245c4d]">
         {number}
       </span>
-      <h3 className="text-sm font-black text-[#173d35]">{title}</h3>
+      <h3 className="text-sm font-black text-[#173d35]">{t(title)}</h3>
     </div>
   );
 }
@@ -2596,7 +2620,7 @@ function parseBookingDateKey(value: string): Date | null {
 }
 
 function formatBookingMonth(value: Date): string {
-  return new Intl.DateTimeFormat("pl-PL", {
+  return new Intl.DateTimeFormat(activeIntlLocale(), {
     month: "long",
     year: "numeric",
   }).format(value);
@@ -2605,7 +2629,7 @@ function formatBookingMonth(value: Date): string {
 function formatBookingSelectedDate(value: string): string {
   const date = parseBookingDateKey(value);
   if (!date) return "Wybierz dzień";
-  return new Intl.DateTimeFormat("pl-PL", {
+  return new Intl.DateTimeFormat(activeIntlLocale(), {
     day: "numeric",
     month: "long",
     weekday: "long",
@@ -2621,7 +2645,7 @@ function localDateKey(value: Date): string {
 }
 
 function formatAppointmentTime(value: string): string {
-  return new Intl.DateTimeFormat("pl-PL", {
+  return new Intl.DateTimeFormat(activeIntlLocale(), {
     hour: "2-digit",
     minute: "2-digit",
     timeZone: "Europe/Warsaw",
@@ -2637,7 +2661,7 @@ function formatAppointmentDuration(minutes: number): string {
 }
 
 function formatAppointmentDate(value: string): string {
-  return new Intl.DateTimeFormat("pl-PL", {
+  return new Intl.DateTimeFormat(activeIntlLocale(), {
     weekday: "long",
     day: "numeric",
     month: "long",
@@ -2663,6 +2687,7 @@ function ConsumerAppointmentsPanel({
   readonly onSelect: (section: ConsumerPortalSection) => void;
   readonly onStartChat: (salon: { slug: string; displayName: string }) => void;
 }) {
+  const t = useT();
   const [appointments, setAppointments] =
     useState<readonly BeautyDocsConsumerAppointment[]>([]);
   const [loading, setLoading] = useState(true);
@@ -2683,11 +2708,11 @@ function ConsumerAppointmentsPanel({
       };
       setAppointments(Array.isArray(body.items) ? body.items : []);
     } catch {
-      setError("Nie udało się pobrać Twoich wizyt.");
+      setError(t("Nie udało się pobrać Twoich wizyt."));
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [t]);
 
   useEffect(() => {
     void load();
@@ -2704,7 +2729,7 @@ function ConsumerAppointmentsPanel({
       if (!response.ok) throw new Error(String(response.status));
       await load();
     } catch {
-      setError("Nie udało się anulować wizyty. Skontaktuj się z salonem.");
+      setError(t("Nie udało się anulować wizyty. Skontaktuj się z salonem."));
     } finally {
       setPendingId(null);
     }
@@ -2723,7 +2748,7 @@ function ConsumerAppointmentsPanel({
         (await response.json()) as BeautyDocsConsumerAppointmentFormAccess;
       window.location.assign(appointmentAccessHref(access));
     } catch {
-      setError("Formularz tej wizyty nie jest teraz dostępny.");
+      setError(t("Formularz tej wizyty nie jest teraz dostępny."));
       setPendingId(null);
     }
   };
@@ -2760,10 +2785,10 @@ function ConsumerAppointmentsPanel({
               <CalendarDays className="size-5" />
             </span>
             <h2 className="mt-5 text-2xl font-black tracking-[-0.03em] text-[#173d35]">
-              Terminy i formularze w jednym miejscu
+              {t("Terminy i formularze w jednym miejscu")}
             </h2>
             <p className="mt-2 max-w-2xl text-sm leading-6 text-[#5d7260]">
-              Zarezerwuj wizytę, a następnie wypełnij przypisany do niej formularz.
+              {t("Zarezerwuj wizytę, a następnie wypełnij przypisany do niej formularz.")}
             </p>
           </div>
           <button
@@ -2771,7 +2796,7 @@ function ConsumerAppointmentsPanel({
             onClick={() => onSelect("salons")}
             type="button"
           >
-            <Search className="size-4" /> Znajdź salon
+            <Search className="size-4" />{" "}{t("Znajdź salon")}
           </button>
         </div>
       </section>
@@ -2785,7 +2810,7 @@ function ConsumerAppointmentsPanel({
       {loading ? (
         <div className="grid min-h-52 place-items-center rounded-[28px] border border-[#e3e8dd] bg-white text-sm font-semibold text-stone-500">
           <span className="flex items-center gap-2">
-            <LoaderCircle className="size-4 animate-spin text-[#245c4d]" /> Ładujemy wizyty…
+            <LoaderCircle className="size-4 animate-spin text-[#245c4d]" />{" "}{t("Ładujemy wizyty…")}
           </span>
         </div>
       ) : (
@@ -2794,8 +2819,8 @@ function ConsumerAppointmentsPanel({
             accent="amber"
             appointments={awaitingForm}
             delay={0}
-            description="Termin jest zarezerwowany — brakuje jeszcze podpisanego formularza zabiegowego."
-            empty="Świetnie, żadna wizyta nie czeka na formularz."
+            description={t("Termin jest zarezerwowany — brakuje jeszcze podpisanego formularza zabiegowego.")}
+            empty={t("Świetnie, żadna wizyta nie czeka na formularz.")}
             icon={Hourglass}
             onCancel={cancel}
             onChat={(appointment) =>
@@ -2804,14 +2829,14 @@ function ConsumerAppointmentsPanel({
             now={now}
             onOpenForm={openForm}
             pendingId={pendingId}
-            title="Oczekujące na potwierdzenie"
+            title={t("Oczekujące na potwierdzenie")}
           />
           <AppointmentCollection
             accent="green"
             appointments={confirmed}
             delay={0.06}
-            description="Formularz podpisany — zostało tylko przyjść na wizytę."
-            empty="Nie masz jeszcze potwierdzonych wizyt."
+            description={t("Formularz podpisany — zostało tylko przyjść na wizytę.")}
+            empty={t("Nie masz jeszcze potwierdzonych wizyt.")}
             icon={CheckCircle2}
             onCancel={cancel}
             onChat={(appointment) =>
@@ -2820,7 +2845,7 @@ function ConsumerAppointmentsPanel({
             now={now}
             onOpenForm={openForm}
             pendingId={pendingId}
-            title="Gotowe (potwierdzone)"
+            title={t("Gotowe (potwierdzone)")}
           />
           {completed.length ? (
             <AppointmentCollection
@@ -2836,7 +2861,7 @@ function ConsumerAppointmentsPanel({
               now={now}
               onOpenForm={openForm}
               pendingId={pendingId}
-              title="Zakończone"
+              title={t("Zakończone")}
             />
           ) : null}
         </>
@@ -2878,6 +2903,7 @@ function AppointmentCollection({
   readonly pendingId: string | null;
   readonly title: string;
 }) {
+  const t = useT();
   const reduceMotion = useReducedMotion();
   const styles = appointmentAccentStyles[accent];
   return (
@@ -2897,12 +2923,12 @@ function AppointmentCollection({
         </span>
         <div className="min-w-0 flex-1">
           <div className="flex flex-wrap items-center gap-2">
-            <h3 className="font-black text-[#173d35]">{title}</h3>
+            <h3 className="font-black text-[#173d35]">{t(title)}</h3>
             <span className={`rounded-full px-2.5 py-0.5 text-xs font-black ${styles.count}`}>
               {appointments.length}
             </span>
           </div>
-          {description ? <p className="mt-0.5 text-xs text-stone-500">{description}</p> : null}
+          {description ? <p className="mt-0.5 text-xs text-stone-500">{t(description)}</p> : null}
         </div>
       </div>
       {appointments.length ? (
@@ -2926,7 +2952,7 @@ function AppointmentCollection({
                   </p>
                   <p className="mt-1 text-xs text-stone-500">{appointment.formName}</p>
                   <p className="mt-1 text-[11px] leading-4 text-stone-400">
-                    Czat prowadzi zespół salonu; przy odpowiedzi zobaczysz imię rozmówcy.
+                    {t("Czat prowadzi zespół salonu; przy odpowiedzi zobaczysz imię rozmówcy.")}
                   </p>
                 </div>
                 <div className="flex flex-wrap gap-2 sm:justify-end">
@@ -2935,11 +2961,11 @@ function AppointmentCollection({
                     onClick={() => onChat(appointment)}
                     type="button"
                   >
-                    <MessageCircle className="size-3.5" /> Napisz do salonu
+                    <MessageCircle className="size-3.5" />{" "}{t("Napisz do salonu")}
                   </button>
                   {appointment.formSubmitted ? (
                     <span className="inline-flex items-center gap-1.5 rounded-xl bg-emerald-100 px-3 py-2 text-xs font-black text-emerald-700">
-                      <Check className="size-3.5" /> Formularz gotowy
+                      <Check className="size-3.5" />{" "}{t("Formularz gotowy")}
                     </span>
                   ) : upcoming ? (
                     <button
@@ -2948,7 +2974,7 @@ function AppointmentCollection({
                       onClick={() => onOpenForm(appointment.id)}
                       type="button"
                     >
-                      Wypełnij formularz
+                      {t("Wypełnij formularz")}
                     </button>
                   ) : null}
                   {upcoming ? (
@@ -2958,11 +2984,11 @@ function AppointmentCollection({
                       onClick={() => onCancel(appointment.id)}
                       type="button"
                     >
-                      Anuluj
+                      {t("Anuluj")}
                     </button>
                   ) : (
                     <span className="rounded-xl bg-stone-100 px-3 py-2 text-xs font-black text-stone-500">
-                      {appointment.status === "CANCELLED" ? "Anulowana" : "Zakończona"}
+                      {appointment.status === "CANCELLED" ? t("Anulowana") : t("Zakończona")}
                     </span>
                   )}
                 </div>
@@ -2997,6 +3023,7 @@ function PersonalDataPanel({
   readonly onSaved?: () => void;
   readonly profile: BeautyDocsConsumerProfile;
 }) {
+  const t = useT();
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
   const [birthDate, setBirthDate] = useState(profile.birthDate ?? "");
@@ -3025,24 +3052,24 @@ function PersonalDataPanel({
     });
     setSaving(false);
     if (!response.ok) {
-      setMessage("Nie udało się zapisać danych. Sprawdź pola i spróbuj ponownie.");
+      setMessage(t("Nie udało się zapisać danych. Sprawdź pola i spróbuj ponownie."));
       return;
     }
     onProfileChange((await response.json()) as BeautyDocsConsumerState);
-    setMessage("Dane osobowe zostały zapisane.");
+    setMessage(t("Dane osobowe zostały zapisane."));
     onSaved?.();
   };
   return (
     <section className="overflow-hidden rounded-[30px] border border-[#e3e8dd] bg-white shadow-sm">
       <div className="border-b border-[#eaeee4] bg-gradient-to-r from-[#fcfff8] to-[#f2f7ec] p-6 sm:p-8">
-        <div className="flex items-start gap-4"><span className="grid size-12 shrink-0 place-items-center rounded-2xl bg-[#e3ead9] text-[#245c4d]"><UserRound className="size-6" /></span><div><h2 className="text-2xl font-black tracking-tight">Dane osobowe</h2><p className="mt-1 text-sm leading-6 text-stone-500">Te informacje możemy podpowiedzieć w kolejnych formularzach. Zawsze sprawdzisz je przed wysłaniem.</p></div></div>
+        <div className="flex items-start gap-4"><span className="grid size-12 shrink-0 place-items-center rounded-2xl bg-[#e3ead9] text-[#245c4d]"><UserRound className="size-6" /></span><div><h2 className="text-2xl font-black tracking-tight">{t("Dane osobowe")}</h2><p className="mt-1 text-sm leading-6 text-stone-500">{t("Te informacje możemy podpowiedzieć w kolejnych formularzach. Zawsze sprawdzisz je przed wysłaniem.")}</p></div></div>
       </div>
       <form className="p-6 sm:p-8" onSubmit={save}>
         <div className="grid gap-5 sm:grid-cols-2">
-          <ProfileInput defaultValue={profile.fullName} label="Imię i nazwisko" name="fullName" required />
-          <ProfileInput defaultValue={profile.email ?? ""} label="Adres e-mail" name="email" required type="email" />
+          <ProfileInput defaultValue={profile.fullName} label={t("Imię i nazwisko")} name="fullName" required />
+          <ProfileInput defaultValue={profile.email ?? ""} label={t("Adres e-mail")} name="email" required type="email" />
           <label className="block text-xs font-black uppercase tracking-[0.12em] text-stone-500 sm:col-span-2">
-            Data urodzenia
+            {t("Data urodzenia")}
             <span className="mt-2 block">
               <BeautyDocsBirthDateField
                 onChange={(value) => {
@@ -3054,11 +3081,11 @@ function PersonalDataPanel({
             </span>
             <input name="birthDate" type="hidden" value={birthDate} />
           </label>
-          <ProfileInput className="sm:col-span-2" defaultValue={profile.street ?? ""} label="Ulica" name="street" required />
-          <ProfileInput defaultValue={profile.houseNumber ?? ""} label="Numer domu (opcjonalne)" name="houseNumber" />
-          <ProfileInput defaultValue={profile.apartmentNumber ?? ""} label="Numer mieszkania (opcjonalne)" name="apartmentNumber" />
-          <ProfileInput defaultValue={profile.postalCode ?? ""} label="Kod pocztowy" name="postalCode" required />
-          <ProfileInput defaultValue={profile.city ?? ""} label="Miejscowość" name="city" required />
+          <ProfileInput className="sm:col-span-2" defaultValue={profile.street ?? ""} label={t("Ulica")} name="street" required />
+          <ProfileInput defaultValue={profile.houseNumber ?? ""} label={t("Numer domu (opcjonalne)")} name="houseNumber" />
+          <ProfileInput defaultValue={profile.apartmentNumber ?? ""} label={t("Numer mieszkania (opcjonalne)")} name="apartmentNumber" />
+          <ProfileInput defaultValue={profile.postalCode ?? ""} label={t("Kod pocztowy")} name="postalCode" required />
+          <ProfileInput defaultValue={profile.city ?? ""} label={t("Miejscowość")} name="city" required />
         </div>
         {birthWarning ? (
           <p className="mt-5 flex items-start gap-2 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm font-semibold text-amber-800" role="status">
@@ -3066,8 +3093,8 @@ function PersonalDataPanel({
             {birthWarning}
           </p>
         ) : null}
-        {message ? <p className={`mt-5 rounded-2xl px-4 py-3 text-sm font-semibold ${message.startsWith("Nie") ? "bg-red-50 text-red-800" : "bg-emerald-50 text-emerald-800"}`} role="status">{message}</p> : null}
-        <div className="mt-6 flex justify-end"><button className="inline-flex min-w-48 items-center justify-center gap-2 rounded-2xl bg-[#245c4d] px-6 py-3.5 text-sm font-black text-white transition hover:bg-[#477d6f] disabled:opacity-60" disabled={saving} type="submit">{saving ? <LoaderCircle className="size-4 animate-spin" /> : <Check className="size-4" />} Zapisz dane</button></div>
+        {message ? <p className={`mt-5 rounded-2xl px-4 py-3 text-sm font-semibold ${message.startsWith("Nie") ? "bg-red-50 text-red-800" : "bg-emerald-50 text-emerald-800"}`} role="status">{t(message)}</p> : null}
+        <div className="mt-6 flex justify-end"><button className="inline-flex min-w-48 items-center justify-center gap-2 rounded-2xl bg-[#245c4d] px-6 py-3.5 text-sm font-black text-white transition hover:bg-[#477d6f] disabled:opacity-60" disabled={saving} type="submit">{saving ? <LoaderCircle className="size-4 animate-spin" /> : <Check className="size-4" />}{" "}{t("Zapisz dane")}</button></div>
       </form>
       <div className="border-t border-[#eaeee4] p-6 sm:p-8">
         <PhoneVerificationField onProfileChange={onProfileChange} phone={profile.phone} />
@@ -3077,7 +3104,8 @@ function PersonalDataPanel({
 }
 
 function ProfileInput({ className = "", defaultValue, label, name, onChange, required = false, type = "text" }: { readonly className?: string; readonly defaultValue: string; readonly label: string; readonly name: string; readonly onChange?: (value: string) => void; readonly required?: boolean; readonly type?: "date" | "email" | "text" }) {
-  return <label className={`block text-xs font-black uppercase tracking-[0.12em] text-stone-500 ${className}`}>{label}<input className={`${inputClass} mt-2 min-h-[50px] text-sm`} defaultValue={defaultValue} name={name} onChange={onChange ? (event) => onChange(event.target.value) : undefined} required={required} type={type} /></label>;
+  const t = useT();
+  return <label className={`block text-xs font-black uppercase tracking-[0.12em] text-stone-500 ${className}`}>{t(label)}<input className={`${inputClass} mt-2 min-h-[50px] text-sm`} defaultValue={defaultValue} name={name} onChange={onChange ? (event) => onChange(event.target.value) : undefined} required={required} type={type} /></label>;
 }
 
 type PhoneFeedback = { readonly tone: "error" | "info" | "success"; readonly text: string };
@@ -3089,6 +3117,7 @@ function PhoneVerificationField({
   readonly onProfileChange: (state: BeautyDocsConsumerState) => void;
   readonly phone: string | null;
 }) {
+  const t = useT();
   const [mode, setMode] = useState<"editing" | "otp" | "view">(phone ? "view" : "editing");
   const [phoneInput, setPhoneInput] = useState(phone ?? "");
   const [code, setCode] = useState("");
@@ -3099,7 +3128,7 @@ function PhoneVerificationField({
   const sendCode = async () => {
     const trimmed = phoneInput.trim();
     if (trimmed.length < 8) {
-      setFeedback({ tone: "error", text: "Podaj prawidłowy numer telefonu." });
+      setFeedback({ tone: "error", text: t("Podaj prawidłowy numer telefonu.") });
       return;
     }
     setPending(true);
@@ -3114,7 +3143,7 @@ function PhoneVerificationField({
       });
     } catch {
       setPending(false);
-      setFeedback({ tone: "error", text: "Nie udało się wysłać kodu. Spróbuj ponownie." });
+      setFeedback({ tone: "error", text: t("Nie udało się wysłać kodu. Spróbuj ponownie.") });
       return;
     }
     setPending(false);
@@ -3123,7 +3152,7 @@ function PhoneVerificationField({
       setChallenge(data);
       setCode("");
       setMode("otp");
-      setFeedback({ tone: "info", text: `Kod SMS wysłaliśmy na ${data.destinationMasked}.` });
+      setFeedback({ tone: "info", text: t("Kod SMS wysłaliśmy na {destinationMasked}.", { destinationMasked: data.destinationMasked }) });
       return;
     }
     setFeedback({ tone: "error", text: phoneCodeError(response.status) });
@@ -3131,7 +3160,7 @@ function PhoneVerificationField({
 
   const verify = async () => {
     if (challenge === null || !/^\d{6}$/.test(code)) {
-      setFeedback({ tone: "error", text: "Wpisz pełny, 6-cyfrowy kod SMS." });
+      setFeedback({ tone: "error", text: t("Wpisz pełny, 6-cyfrowy kod SMS.") });
       return;
     }
     setPending(true);
@@ -3150,7 +3179,7 @@ function PhoneVerificationField({
       });
     } catch {
       setPending(false);
-      setFeedback({ tone: "error", text: "Nie udało się potwierdzić kodu. Spróbuj ponownie." });
+      setFeedback({ tone: "error", text: t("Nie udało się potwierdzić kodu. Spróbuj ponownie.") });
       return;
     }
     setPending(false);
@@ -3159,7 +3188,7 @@ function PhoneVerificationField({
       setChallenge(null);
       setCode("");
       setMode("view");
-      setFeedback({ tone: "success", text: "Numer telefonu został zweryfikowany." });
+      setFeedback({ tone: "success", text: t("Numer telefonu został zweryfikowany.") });
       return;
     }
     setFeedback({ tone: "error", text: phoneVerifyError(response.status) });
@@ -3172,9 +3201,9 @@ function PhoneVerificationField({
           <Smartphone className="size-5" />
         </span>
         <div>
-          <h3 className="text-lg font-black tracking-tight">Numer telefonu</h3>
+          <h3 className="text-lg font-black tracking-tight">{t("Numer telefonu")}</h3>
           <p className="mt-1 text-sm leading-6 text-stone-500">
-            Potwierdzimy go kodem SMS. Zapiszemy go na Twoim koncie i podpowiemy w kolejnych formularzach.
+            {t("Potwierdzimy go kodem SMS. Zapiszemy go na Twoim koncie i podpowiemy w kolejnych formularzach.")}
           </p>
         </div>
       </div>
@@ -3193,7 +3222,7 @@ function PhoneVerificationField({
             }}
             type="button"
           >
-            Zmień numer
+            {t("Zmień numer")}
           </button>
         </div>
       ) : null}
@@ -3201,7 +3230,7 @@ function PhoneVerificationField({
       {mode === "editing" ? (
         <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-end">
           <label className="block flex-1 text-xs font-black uppercase tracking-[0.12em] text-stone-500">
-            Numer telefonu
+            {t("Numer telefonu")}
             <span className="mt-2 block">
               <BeautyDocsPhoneNumberField
                 disabled={pending}
@@ -3221,7 +3250,7 @@ function PhoneVerificationField({
                 }}
                 type="button"
               >
-                Anuluj
+                {t("Anuluj")}
               </button>
             ) : null}
             <button
@@ -3231,7 +3260,7 @@ function PhoneVerificationField({
               type="button"
             >
               {pending ? <LoaderCircle className="size-4 animate-spin" /> : <Smartphone className="size-4" />}
-              Wyślij kod SMS
+              {t("Wyślij kod SMS")}
             </button>
           </div>
         </div>
@@ -3248,7 +3277,7 @@ function PhoneVerificationField({
             }}
             type="button"
           >
-            <ArrowLeft className="size-4" /> Zmień numer
+            <ArrowLeft className="size-4" />{" "}{t("Zmień numer")}
           </button>
           <div className="mt-3 flex flex-col gap-3 sm:flex-row sm:items-center">
             <input
@@ -3267,11 +3296,11 @@ function PhoneVerificationField({
               type="button"
             >
               {pending ? <LoaderCircle className="size-4 animate-spin" /> : <Check className="size-4" />}
-              Potwierdź
+              {t("Potwierdź")}
             </button>
           </div>
           {challenge?.devCode ? (
-            <p className="mt-2 text-xs text-stone-500">Kod testowy: {challenge.devCode}</p>
+            <p className="mt-2 text-xs text-stone-500">{t("Kod testowy:")}{" "}{challenge.devCode}</p>
           ) : null}
         </div>
       ) : null}
@@ -3287,7 +3316,7 @@ function PhoneVerificationField({
           }`}
           role="status"
         >
-          {feedback.text}
+          {t(feedback.text)}
         </p>
       ) : null}
     </div>
@@ -3320,19 +3349,24 @@ function MedicalInterviewPanel({
   readonly onSaved?: () => void;
   readonly profile: BeautyDocsConsumerProfile;
 }) {
+  const t = useT();
   const [answers, setAnswers] = useState<
     Record<string, { answer: "yes" | "no"; followUp: string }>
   >(() => sanitizeMedicalAnswers(profile.medicalAnswers));
   const [search, setSearch] = useState("");
+  const [selectedForms, setSelectedForms] = useState<string[]>([]);
+  const formOptions = useMemo(() => Array.from(new Set(catalog.questions.flatMap(question => question.sourceForms))).sort((a, b) => a.localeCompare(b, "pl")), [catalog.questions]);
+  const scopedQuestions = useMemo(() => selectedForms.length === 0 ? catalog.questions : catalog.questions.filter(question => question.sourceForms.some(form => selectedForms.includes(form))), [catalog.questions, selectedForms]);
+  const changeForms = (forms: string[]) => { setSelectedForms(forms); setVisibleCount(18); setMessage(null); };
   const [visibleCount, setVisibleCount] = useState(18);
   const [saving, setSaving] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
   const filteredQuestions = useMemo(() => {
     const phrase = search.trim().toLocaleLowerCase("pl");
-    if (!phrase) return catalog.questions;
-    return catalog.questions.filter((question) => `${question.question} ${question.category ?? ""} ${question.sourceForms.join(" ")}`.toLocaleLowerCase("pl").includes(phrase));
-  }, [catalog.questions, search]);
-  const answeredCount = catalog.questions.filter((question) => answers[question.key]?.answer).length;
+    if (!phrase) return scopedQuestions;
+    return scopedQuestions.filter((question) => `${question.question} ${question.category ?? ""} ${question.sourceForms.join(" ")}`.toLocaleLowerCase("pl").includes(phrase));
+  }, [scopedQuestions, search]);
+  const answeredCount = scopedQuestions.filter((question) => answers[question.key]?.answer).length;
   const blockingQuestions = useMemo(
     () =>
       catalog.questions.filter(
@@ -3349,7 +3383,7 @@ function MedicalInterviewPanel({
       ).sort((left, right) => left.localeCompare(right, "pl")),
     [blockingQuestions],
   );
-  const missingFollowUps = catalog.questions.filter(
+  const missingFollowUps = scopedQuestions.filter(
     (question) =>
       question.hasFollowUp &&
       answers[question.key]?.answer === "yes" &&
@@ -3358,26 +3392,33 @@ function MedicalInterviewPanel({
   const save = async () => {
     if (missingFollowUps.length > 0) {
       setMessage(
-        `Nie można zapisać wywiadu — uzupełnij szczegóły przy ${missingFollowUps.length} odpowiedzi${missingFollowUps.length === 1 ? "" : "ach"} „Tak”.`,
+        t("Nie można zapisać wywiadu — uzupełnij szczegóły przy {length} odpowiedzi{value2} „Tak”.", { length: missingFollowUps.length, value2: missingFollowUps.length === 1 ? "" : "ach" }),
       );
       return;
     }
     setSaving(true);
     setMessage(null);
-    const response = await fetch("/api/beautydocs-preview/consumer/profile/medical", {
-      method: "PUT",
-      credentials: "same-origin",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify({ answers }),
-    });
-    setSaving(false);
-    if (!response.ok) {
-      setMessage("Nie udało się zapisać wywiadu. Spróbuj ponownie.");
-      return;
+    try {
+      // The API merges supplied answers, preserving saved answers for other forms.
+      const scopedKeys = new Set(scopedQuestions.map(question => question.key));
+      const response = await fetch("/api/beautydocs-preview/consumer/profile/medical", {
+        method: "PUT",
+        credentials: "same-origin",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ answers: Object.fromEntries(Object.entries(answers).filter(([key]) => scopedKeys.has(key))) }),
+      });
+      if (!response.ok) {
+        setMessage(t("Nie udało się zapisać wywiadu. Spróbuj ponownie."));
+        return;
+      }
+      onProfileChange((await response.json()) as BeautyDocsConsumerState);
+      setMessage(selectedForms.length ? t("Odpowiedzi dla wybranych formularzy zostały zapisane.") : t("Wywiad został bezpiecznie zapisany."));
+      onSaved?.();
+    } catch {
+      setMessage(t("Nie udało się zapisać wywiadu. Sprawdź połączenie i spróbuj ponownie."));
+    } finally {
+      setSaving(false);
     }
-    onProfileChange((await response.json()) as BeautyDocsConsumerState);
-    setMessage("Wywiad został bezpiecznie zapisany.");
-    onSaved?.();
   };
   return (
     <section className="mx-auto max-w-5xl space-y-4">
@@ -3388,9 +3429,9 @@ function MedicalInterviewPanel({
               <HeartPulse className="size-5" />
             </span>
             <div>
-              <p className="text-[10px] font-black uppercase tracking-[0.18em] text-[#6a9b8f]">Profil zdrowotny</p>
-              <h2 className="mt-1 font-sans text-xl font-black tracking-[-0.02em] text-[#173d35] sm:text-2xl">Kompletny wywiad medyczny</h2>
-              <p className="mt-1.5 max-w-2xl text-sm leading-6 text-stone-500">Odpowiedzi zapisujesz na swoim profilu. Przed każdym zabiegiem możesz je spokojnie przejrzeć i zaktualizować.</p>
+              <p className="text-[10px] font-black uppercase tracking-[0.18em] text-[#6a9b8f]">{t("Profil zdrowotny")}</p>
+              <h2 className="mt-1 font-sans text-xl font-black tracking-[-0.02em] text-[#173d35] sm:text-2xl">{t("Wywiad medyczny")}</h2>
+              <p className="mt-1.5 max-w-2xl text-sm leading-6 text-stone-500">{t("Odpowiedzi zapisujesz na swoim profilu. Przed każdym zabiegiem możesz je spokojnie przejrzeć i zaktualizować.")}</p>
             </div>
           </div>
           <div className="flex shrink-0 items-center gap-3 rounded-2xl bg-[#f6f8f3] px-4 py-3 sm:min-w-44">
@@ -3398,18 +3439,36 @@ function MedicalInterviewPanel({
               <Check className="size-4" />
             </span>
             <span>
-              <strong className="block text-sm font-black text-[#173d35]">{answeredCount} z {catalog.questions.length}</strong>
-              <span className="block text-[11px] font-semibold text-stone-500">udzielonych odpowiedzi</span>
+              <strong className="block text-sm font-black text-[#173d35]">{answeredCount}{" "}{t("z")}{" "}{scopedQuestions.length}</strong>
+              <span className="block text-[11px] font-semibold text-stone-500">{t("udzielonych odpowiedzi")}</span>
             </span>
           </div>
         </div>
         <div className="mt-5 flex items-center gap-3">
           <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-[#eaeee5]">
-            <motion.div animate={{ width: `${catalog.questions.length ? (answeredCount / catalog.questions.length) * 100 : 0}%` }} className="h-full rounded-full bg-[#245c4d]" initial={false} />
+            <motion.div animate={{ width: `${scopedQuestions.length ? (answeredCount / scopedQuestions.length) * 100 : 0}%` }} className="h-full rounded-full bg-[#245c4d]" initial={false} />
           </div>
-          <span className="text-xs font-black tabular-nums text-[#245c4d]">{catalog.questions.length ? Math.round((answeredCount / catalog.questions.length) * 100) : 0}%</span>
+          <span className="text-xs font-black tabular-nums text-[#245c4d]">{scopedQuestions.length ? Math.round((answeredCount / scopedQuestions.length) * 100) : 0}%</span>
         </div>
       </div>
+
+      {formOptions.length > 0 && (
+        <fieldset className="rounded-[26px] border border-[#e3e8dd] bg-white p-5 sm:p-6" disabled={saving}>
+          <legend className="sr-only">{t("Wybierz formularze do wywiadu")}</legend>
+          <h3 className="text-sm font-semibold text-[#173d35]">{t("Do jakiego zabiegu się przygotowujesz?")}</h3>
+          <p className="mt-2 text-sm leading-6 text-[#637163]">{t("Wybierz jeden lub kilka formularzy. Wspólne pytania wypełnisz tylko raz. Zmiana filtra zachowuje wpisane odpowiedzi.")}</p>
+          <div className="mt-4 flex flex-wrap gap-2" aria-label={t("Filtry formularzy")} role="group">
+            {[{ label: t("Wszystkie formularze"), value: null }, ...formOptions.map(form => ({ label: form, value: form }))].map(option => {
+              const active = option.value === null ? selectedForms.length === 0 : selectedForms.includes(option.value);
+              return <button key={option.value ?? "all"} type="button" aria-pressed={active} onClick={() => changeForms(option.value === null ? [] : active ? selectedForms.filter(form => form !== option.value) : [...selectedForms, option.value])}
+                className={`inline-flex min-h-11 items-center gap-2 rounded-xl border px-3.5 py-2.5 text-left text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#245c4d] focus-visible:ring-offset-2 active:opacity-80 disabled:opacity-60 ${active ? "border-[#245c4d] bg-[#245c4d] text-white" : "border-[#dce3d5] bg-[#f7f8f4] text-[#173d35] hover:bg-[#e8eedf]"}`}>
+                <span aria-hidden="true" className={`grid size-4 shrink-0 place-items-center rounded border ${active ? "border-white/60" : "border-[#a5b299]"}`}>{active && <Check className="size-3" />}</span>{t(option.label)}
+              </button>;
+            })}
+          </div>
+          <p role="status" className="mt-4 text-xs leading-5 text-[#637163]">{selectedForms.length ? t("Wybrane formularze: {length}.", { length: selectedForms.length }) : t("Wszystkie formularze.")}{" "}{t("Liczba pytań:")}{" "}{scopedQuestions.length}{t(". Zapis dotyczy tego wyboru.")}</p>
+        </fieldset>
+      )}
 
       <AnimatePresence>
         {blockingQuestions.length > 0 ? (
@@ -3425,10 +3484,9 @@ function MedicalInterviewPanel({
                 <AlertTriangle className="size-[18px]" />
               </span>
               <div>
-                <h3 className="font-sans text-sm font-black">Wymagana konsultacja z salonem</h3>
+                <h3 className="font-sans text-sm font-black">{t("Wymagana konsultacja z salonem")}</h3>
                 <p className="mt-1 text-sm leading-6 text-[#427468]">
-                  Zaznaczono {formatContraindicationCount(blockingQuestions.length)}. Dotyczy to: {blockedForms.join(", ")}.
-                  Ostateczną kwalifikację przeprowadza osoba wykonująca zabieg.
+                  {t("Zaznaczono")}{" "}{formatContraindicationCount(blockingQuestions.length)}{t(". Dotyczy to:")}{" "}{blockedForms.join(", ")}{t(". Ostateczną kwalifikację przeprowadza osoba wykonująca zabieg.")}
                 </p>
               </div>
             </div>
@@ -3439,27 +3497,27 @@ function MedicalInterviewPanel({
       <div className="rounded-[26px] border border-[#e3e8dd] bg-white/95 p-4 shadow-[0_12px_36px_rgba(48,72,66,0.05)] sm:p-6">
         <div className="flex flex-col gap-3 border-b border-[#ebeee6] pb-5 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <h3 className="font-sans text-sm font-black text-[#173d35]">Pytania medyczne</h3>
-            <p className="mt-1 text-xs leading-5 text-stone-500">Wybierz „Tak” lub „Nie”. Jeśli potrzebujemy szczegółów, pokażemy dodatkowe pole.</p>
+            <h3 className="font-sans text-sm font-black text-[#173d35]">{t("Pytania medyczne")}</h3>
+            <p className="mt-1 text-xs leading-5 text-stone-500">{t("Wybierz „Tak” lub „Nie”. Jeśli potrzebujemy szczegółów, pokażemy dodatkowe pole.")}</p>
           </div>
           <label className="relative block sm:w-80">
-            <span className="sr-only">Szukaj w pytaniach medycznych</span>
+            <span className="sr-only">{t("Szukaj w pytaniach medycznych")}</span>
             <Search className="absolute left-3.5 top-1/2 size-4 -translate-y-1/2 text-stone-400" />
-            <input className="w-full rounded-xl border border-[#dfe4d8] bg-[#f9faf7] py-3 pl-10 pr-4 text-sm font-semibold outline-none transition focus:border-[#6ba798] focus:bg-white focus:ring-4 focus:ring-[#245c4d]/10" onChange={(event) => { setSearch(event.target.value); setVisibleCount(18); }} placeholder="Szukaj pytania…" value={search} />
+            <input className="w-full rounded-xl border border-[#dfe4d8] bg-[#f9faf7] py-3 pl-10 pr-4 text-sm font-semibold outline-none transition focus:border-[#6ba798] focus:bg-white focus:ring-4 focus:ring-[#245c4d]/10" onChange={(event) => { setSearch(event.target.value); setVisibleCount(18); }} placeholder={t("Szukaj pytania…")} value={search} />
           </label>
         </div>
 
         {missingFollowUps.length > 0 ? (
           <p className="mt-4 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm font-bold text-amber-900" role="status">
-            Uzupełnij szczegóły przy odpowiedziach „Tak”: {missingFollowUps.length} {missingFollowUps.length === 1 ? "pole" : "pola"}.
+            {t("Uzupełnij szczegóły przy odpowiedziach „Tak”:")}{" "}{missingFollowUps.length} {missingFollowUps.length === 1 ? "pole" : "pola"}.
           </p>
         ) : null}
-        {catalog.questions.length === 0 ? <div className="mt-5 rounded-2xl border border-dashed border-[#d6dccd] p-8 text-center text-sm text-stone-500"><LoaderCircle className="mx-auto mb-3 size-5 animate-spin text-[#245c4d]" />Pobieramy aktualne pytania z bazy formularzy.</div> : null}
+        {catalog.questions.length === 0 ? <div className="mt-5 rounded-2xl border border-dashed border-[#d6dccd] p-8 text-center text-sm text-stone-500"><LoaderCircle className="mx-auto mb-3 size-5 animate-spin text-[#245c4d]" />{t("Pobieramy aktualne pytania z bazy formularzy.")}</div> : null}
         <div className="mt-5 space-y-2.5">
           {filteredQuestions.slice(0, visibleCount).map((question, index) => (
             <MedicalQuestionCard
               answer={answers[question.key]}
-              index={catalog.questions.indexOf(question) + 1 || index + 1}
+              index={index + 1}
               key={question.key}
               isBlocking={
                 isAbsoluteContraindication(question) &&
@@ -3470,23 +3528,24 @@ function MedicalInterviewPanel({
             />
           ))}
         </div>
-        {visibleCount < filteredQuestions.length ? <button className="mt-4 w-full rounded-xl border border-[#d9ded1] bg-white px-5 py-3 text-sm font-black text-[#508074] transition hover:bg-[#f8faf5]" onClick={() => setVisibleCount((value) => value + 18)} type="button">Pokaż kolejne pytania ({filteredQuestions.length - visibleCount})</button> : null}
-        {filteredQuestions.length === 0 && catalog.questions.length ? <p className="mt-5 rounded-2xl bg-stone-50 p-6 text-center text-sm text-stone-500">Nie znaleziono pasującego pytania.</p> : null}
+        {visibleCount < filteredQuestions.length ? <button className="mt-4 w-full rounded-xl border border-[#d9ded1] bg-white px-5 py-3 text-sm font-black text-[#508074] transition hover:bg-[#f8faf5]" onClick={() => setVisibleCount((value) => value + 18)} type="button">{t("Pokaż kolejne pytania (")}{filteredQuestions.length - visibleCount})</button> : null}
+        {filteredQuestions.length === 0 && catalog.questions.length ? <p className="mt-5 rounded-2xl bg-stone-50 p-6 text-center text-sm text-stone-500">{t("Nie znaleziono pasującego pytania.")}</p> : null}
       </div>
 
-      {message ? <p className={`rounded-2xl px-4 py-3 text-sm font-semibold ${message.startsWith("Nie") ? "bg-red-50 text-red-800" : "bg-emerald-50 text-emerald-800"}`} role="status">{message}</p> : null}
+      {message ? <p className={`rounded-2xl px-4 py-3 text-sm font-semibold ${message.startsWith("Nie") ? "bg-red-50 text-red-800" : "bg-emerald-50 text-emerald-800"}`} role="status">{t(message)}</p> : null}
       <div className="sticky bottom-3 z-10 flex flex-col gap-3 rounded-2xl border border-[#d9ded1] bg-white/90 p-3 shadow-[0_18px_50px_rgba(43,66,60,0.14)] backdrop-blur-xl sm:flex-row sm:items-center sm:justify-between">
         <div className="px-1">
-          <p className="text-xs font-black text-[#173d35]">Twoje odpowiedzi są prywatne</p>
-          <p className="mt-0.5 text-[11px] text-stone-500">Zapisz zmiany, aby były dostępne przy kolejnej wizycie.</p>
+          <p className="text-xs font-black text-[#173d35]">{t("Twoje odpowiedzi są prywatne")}</p>
+          <p className="mt-0.5 text-[11px] text-stone-500">{t("Zapisz zmiany, aby były dostępne przy kolejnej wizycie.")}</p>
         </div>
-        <button className="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-xl bg-[#245c4d] px-5 text-sm font-black text-white shadow-[0_8px_20px_rgba(36,92,77,0.22)] transition hover:bg-[#477d6f] disabled:cursor-not-allowed disabled:opacity-50" disabled={saving || answeredCount === 0 || missingFollowUps.length > 0} onClick={() => void save()} type="button">{saving ? <LoaderCircle className="size-4 animate-spin" /> : <ShieldCheck className="size-4" />} Zapisz wywiad</button>
+        <button className="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-xl bg-[#245c4d] px-5 text-sm font-black text-white shadow-[0_8px_20px_rgba(36,92,77,0.22)] transition hover:bg-[#477d6f] disabled:cursor-not-allowed disabled:opacity-50" disabled={saving || answeredCount === 0 || missingFollowUps.length > 0} onClick={() => void save()} type="button">{saving ? <LoaderCircle className="size-4 animate-spin" /> : <ShieldCheck className="size-4" />}{" "}{t("Zapisz wywiad")}</button>
       </div>
     </section>
   );
 }
 
 function MedicalQuestionCard({ answer, index, isBlocking, onChange, question }: { readonly answer: { answer: "yes" | "no"; followUp: string } | undefined; readonly index: number; readonly isBlocking: boolean; readonly onChange: (answer: { answer: "yes" | "no"; followUp: string }) => void; readonly question: BeautyDocsConsumerMedicalQuestion }) {
+  const t = useT();
   return (
     <article className={`rounded-[18px] border p-3.5 transition sm:p-4 ${isBlocking ? "border-[#adc788] bg-[#fbfff5] shadow-[0_8px_22px_rgba(36,92,77,0.08)]" : answer?.answer ? "border-[#d8dfcd] bg-[#fcfdfa]" : "border-[#ebeee7] bg-[#f9faf8] hover:border-[#d6ddcd]"}`}>
       <div className="flex gap-3">
@@ -3494,19 +3553,19 @@ function MedicalQuestionCard({ answer, index, isBlocking, onChange, question }: 
         <div className="min-w-0 flex-1">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
             <div className="min-w-0">
-              <p className="text-sm font-bold leading-6 text-[#2a382c]">{question.question}</p>
+              <p className="text-sm font-bold leading-6 text-[#2a382c]">{t(question.question)}</p>
               <div className="mt-2 flex flex-wrap gap-1.5">
                 {question.category ? <span className={`rounded-full px-2 py-1 text-[9px] font-bold uppercase tracking-wide ${isAbsoluteContraindication(question) ? "bg-[#eaf1df] text-[#407b6c]" : "bg-stone-100 text-stone-500"}`}>{question.category}</span> : null}
                 <span className="rounded-full bg-white px-2 py-1 text-[9px] font-bold text-[#245c4d] shadow-sm">{question.sourceForms.slice(0, 2).join(" · ")}</span>
               </div>
             </div>
-            <div aria-label="Odpowiedź" className="grid shrink-0 grid-cols-2 gap-1.5 sm:w-44" role="radiogroup">
-              <MedicalChoice active={answer?.answer === "yes"} kind="yes" label="Tak" onClick={() => onChange({ answer: "yes", followUp: answer?.followUp ?? "" })} />
-              <MedicalChoice active={answer?.answer === "no"} kind="no" label="Nie" onClick={() => onChange({ answer: "no", followUp: "" })} />
+            <div aria-label={t("Odpowiedź")} className="grid shrink-0 grid-cols-2 gap-1.5 sm:w-44" role="radiogroup">
+              <MedicalChoice active={answer?.answer === "yes"} kind="yes" label={t("Tak")} onClick={() => onChange({ answer: "yes", followUp: answer?.followUp ?? "" })} />
+              <MedicalChoice active={answer?.answer === "no"} kind="no" label={t("Nie")} onClick={() => onChange({ answer: "no", followUp: "" })} />
             </div>
           </div>
-          {isBlocking ? <motion.p animate={{ opacity: 1, y: 0 }} className="mt-3 flex items-start gap-2 rounded-xl border border-[#dbe7cb] bg-white/70 px-3.5 py-3 text-xs font-bold leading-5 text-[#3c7265]" initial={{ opacity: 0, y: -5 }} role="alert"><AlertTriangle className="mt-0.5 size-4 shrink-0" />To bezwzględne przeciwwskazanie. Zabieg wymaga ponownej kwalifikacji przez specjalistę.</motion.p> : null}
-          {answer?.answer === "yes" && question.hasFollowUp ? <motion.label animate={{ opacity: 1, y: 0 }} className="mt-3 block text-[10px] font-black uppercase tracking-[0.12em] text-[#173d35]" initial={{ opacity: 0, y: -6 }}>Doprecyzuj odpowiedź <span className="text-[#245c4d]">*</span><input aria-required="true" className="mt-2 w-full rounded-xl border border-[#cdd9bc] bg-white px-4 py-3 text-sm font-semibold normal-case tracking-normal text-[#173d35] outline-none transition focus:border-[#245c4d] focus:ring-4 focus:ring-[#245c4d]/10" onChange={(event) => onChange({ answer: "yes", followUp: event.target.value })} placeholder={question.followUpPlaceholder ?? "Jeżeli tak, opisz…"} value={answer.followUp ?? ""} />{!answer.followUp.trim() ? <span className="mt-1.5 block text-[11px] font-bold normal-case tracking-normal text-[#4d9b87]">Podaj szczegóły, aby można było zapisać wywiad.</span> : null}</motion.label> : null}
+          {isBlocking ? <motion.p animate={{ opacity: 1, y: 0 }} className="mt-3 flex items-start gap-2 rounded-xl border border-[#dbe7cb] bg-white/70 px-3.5 py-3 text-xs font-bold leading-5 text-[#3c7265]" initial={{ opacity: 0, y: -5 }} role="alert"><AlertTriangle className="mt-0.5 size-4 shrink-0" />{t("To bezwzględne przeciwwskazanie. Zabieg wymaga ponownej kwalifikacji przez specjalistę.")}</motion.p> : null}
+          {answer?.answer === "yes" && question.hasFollowUp ? <motion.label animate={{ opacity: 1, y: 0 }} className="mt-3 block text-[10px] font-black uppercase tracking-[0.12em] text-[#173d35]" initial={{ opacity: 0, y: -6 }}>{t("Doprecyzuj odpowiedź")}{" "}<span className="text-[#245c4d]">*</span><input aria-required="true" className="mt-2 w-full rounded-xl border border-[#cdd9bc] bg-white px-4 py-3 text-sm font-semibold normal-case tracking-normal text-[#173d35] outline-none transition focus:border-[#245c4d] focus:ring-4 focus:ring-[#245c4d]/10" onChange={(event) => onChange({ answer: "yes", followUp: event.target.value })} placeholder={question.followUpPlaceholder ?? t("Jeżeli tak, opisz…")} value={answer.followUp ?? ""} />{!answer.followUp.trim() ? <span className="mt-1.5 block text-[11px] font-bold normal-case tracking-normal text-[#4d9b87]">{t("Podaj szczegóły, aby można było zapisać wywiad.")}</span> : null}</motion.label> : null}
         </div>
       </div>
     </article>
@@ -3514,12 +3573,14 @@ function MedicalQuestionCard({ answer, index, isBlocking, onChange, question }: 
 }
 
 function MedicalChoice({ active, kind, label, onClick }: { readonly active: boolean; readonly kind: "yes" | "no"; readonly label: string; readonly onClick: () => void }) {
+  const t = useT();
   const Icon = kind === "yes" ? Check : X;
-  return <button aria-checked={active} className={`inline-flex min-h-10 items-center justify-center gap-1.5 rounded-xl border px-3 text-xs font-black transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#245c4d] focus-visible:ring-offset-2 ${active ? kind === "yes" ? "border-[#245c4d] bg-[#245c4d] text-white shadow-[0_5px_14px_rgba(36,92,77,0.18)]" : "border-[#b7cfc0] bg-[#edf7f0] text-[#28613d]" : "border-[#dfe3d9] bg-white text-stone-500 hover:border-[#c6d0b9] hover:text-[#173d35]"}`} onClick={onClick} role="radio" type="button"><Icon className="size-3.5 stroke-[2.5]" />{label}</button>;
+  return <button aria-checked={active} className={`inline-flex min-h-10 items-center justify-center gap-1.5 rounded-xl border px-3 text-xs font-black transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#245c4d] focus-visible:ring-offset-2 ${active ? kind === "yes" ? "border-[#245c4d] bg-[#245c4d] text-white shadow-[0_5px_14px_rgba(36,92,77,0.18)]" : "border-[#b7cfc0] bg-[#edf7f0] text-[#28613d]" : "border-[#dfe3d9] bg-white text-stone-500 hover:border-[#c6d0b9] hover:text-[#173d35]"}`} onClick={onClick} role="radio" type="button"><Icon className="size-3.5 stroke-[2.5]" />{t(label)}</button>;
 }
 
 /* eslint-disable @next/next/no-img-element -- private image requires the browser session cookie. */
 function ConsumerSignaturePanel({ onProfileChange, onSaved, profile }: { readonly onProfileChange: (state: BeautyDocsConsumerState) => void; readonly onSaved?: () => void; readonly profile: BeautyDocsConsumerProfile }) {
+  const t = useT();
   const [editing, setEditing] = useState(!profile.signatureConfigured);
   const [signature, setSignature] = useState("");
   const [saving, setSaving] = useState(false);
@@ -3533,14 +3594,14 @@ function ConsumerSignaturePanel({ onProfileChange, onSaved, profile }: { readonl
     setSaving(true); setError(null);
     const response = await fetch("/api/beautydocs-preview/consumer/profile/signature", { method: "PUT", credentials: "same-origin", headers: { "content-type": "application/json" }, body: JSON.stringify({ signature }) });
     setSaving(false);
-    if (!response.ok) { setError("Nie udało się zapisać podpisu. Narysuj go ponownie."); return; }
+    if (!response.ok) { setError(t("Nie udało się zapisać podpisu. Narysuj go ponownie.")); return; }
     await refreshState(); setEditing(false); setSignature(""); onSaved?.();
   };
   const remove = async () => {
     setSaving(true); setError(null);
     const response = await fetch("/api/beautydocs-preview/consumer/profile/signature", { method: "DELETE", credentials: "same-origin" });
     setSaving(false);
-    if (!response.ok) { setError("Nie udało się usunąć podpisu."); return; }
+    if (!response.ok) { setError(t("Nie udało się usunąć podpisu.")); return; }
     await refreshState(); setEditing(true); setSignature("");
   };
   return (
@@ -3552,14 +3613,14 @@ function ConsumerSignaturePanel({ onProfileChange, onSaved, profile }: { readonl
               <PenLine className="size-5" />
             </span>
             <div>
-              <p className="text-[10px] font-black uppercase tracking-[0.18em] text-[#6a9b8f]">Podpis elektroniczny</p>
-              <h2 className="mt-1 font-sans text-xl font-black tracking-[-0.02em] text-[#173d35] sm:text-2xl">Twój zapisany podpis</h2>
-              <p className="mt-1.5 max-w-2xl text-sm leading-6 text-stone-500">Możesz użyć go przy kolejnych formularzach, ale za każdym razem samodzielnie zdecydujesz o jego dołączeniu.</p>
+              <p className="text-[10px] font-black uppercase tracking-[0.18em] text-[#6a9b8f]">{t("Podpis elektroniczny")}</p>
+              <h2 className="mt-1 font-sans text-xl font-black tracking-[-0.02em] text-[#173d35] sm:text-2xl">{t("Twój zapisany podpis")}</h2>
+              <p className="mt-1.5 max-w-2xl text-sm leading-6 text-stone-500">{t("Możesz użyć go przy kolejnych formularzach, ale za każdym razem samodzielnie zdecydujesz o jego dołączeniu.")}</p>
             </div>
           </div>
           <span className={`inline-flex w-fit shrink-0 items-center gap-2 rounded-full px-3 py-2 text-xs font-black ${profile.signatureConfigured ? "bg-emerald-50 text-emerald-700" : "bg-[#f4f7f1] text-[#508074]"}`}>
             <span className={`size-2 rounded-full ${profile.signatureConfigured ? "bg-emerald-500" : "bg-[#8bb9ae]"}`} />
-            {profile.signatureConfigured ? "Podpis zapisany" : "Do uzupełnienia"}
+            {profile.signatureConfigured ? t("Podpis zapisany") : t("Do uzupełnienia")}
           </span>
         </div>
       </div>
@@ -3570,31 +3631,31 @@ function ConsumerSignaturePanel({ onProfileChange, onSaved, profile }: { readonl
             <div>
               <div className="flex items-center justify-between gap-3">
                 <div>
-                  <p className="font-sans text-sm font-black text-[#173d35]">Aktualny podpis</p>
-                  <p className="mt-1 text-xs text-stone-500">Ostatnia aktualizacja: {profile.signatureUpdatedAt ? formatDate(profile.signatureUpdatedAt) : "brak daty"}</p>
+                  <p className="font-sans text-sm font-black text-[#173d35]">{t("Aktualny podpis")}</p>
+                  <p className="mt-1 text-xs text-stone-500">{t("Ostatnia aktualizacja:")}{" "}{profile.signatureUpdatedAt ? formatDate(profile.signatureUpdatedAt) : "brak daty"}</p>
                 </div>
                 <span className="grid size-9 place-items-center rounded-xl bg-emerald-50 text-emerald-700"><Check className="size-[18px]" /></span>
               </div>
               <div className="relative mt-5 grid min-h-60 place-items-center overflow-hidden rounded-[22px] border border-[#e1e6da] bg-[#fafbf9] p-6">
                 <div className="pointer-events-none absolute inset-x-6 bottom-12 border-t border-dashed border-[#d8decf]" />
                 {/* Private authenticated image; the Next image optimizer cannot forward this session. */}
-                <img alt="Twój zapisany podpis" className="relative z-10 max-h-40 max-w-full object-contain" src={`/api/beautydocs-preview/consumer/profile/signature?v=${encodeURIComponent(profile.signatureUpdatedAt ?? "1")}`} />
+                <img alt={t("Twój zapisany podpis")} className="relative z-10 max-h-40 max-w-full object-contain" src={`/api/beautydocs-preview/consumer/profile/signature?v=${encodeURIComponent(profile.signatureUpdatedAt ?? "1")}`} />
               </div>
               <div className="mt-4 flex flex-col-reverse gap-2 sm:flex-row sm:items-center sm:justify-between">
-                <button className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl px-4 text-sm font-bold text-red-700 transition hover:bg-red-50 disabled:opacity-50" disabled={saving} onClick={() => void remove()} type="button"><Trash2 className="size-4" /> Usuń podpis</button>
-                <button className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-[#245c4d] px-5 text-sm font-black text-white shadow-[0_8px_20px_rgba(36,92,77,0.2)] transition hover:bg-[#477d6f]" onClick={() => setEditing(true)} type="button"><PenLine className="size-4" /> Zmień podpis</button>
+                <button className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl px-4 text-sm font-bold text-red-700 transition hover:bg-red-50 disabled:opacity-50" disabled={saving} onClick={() => void remove()} type="button"><Trash2 className="size-4" />{" "}{t("Usuń podpis")}</button>
+                <button className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-[#245c4d] px-5 text-sm font-black text-white shadow-[0_8px_20px_rgba(36,92,77,0.2)] transition hover:bg-[#477d6f]" onClick={() => setEditing(true)} type="button"><PenLine className="size-4" />{" "}{t("Zmień podpis")}</button>
               </div>
             </div>
           ) : (
             <div>
               <div className="mb-5">
-                <p className="font-sans text-sm font-black text-[#173d35]">{profile.signatureConfigured ? "Zaktualizuj podpis" : "Dodaj swój podpis"}</p>
-                <p className="mt-1 text-xs leading-5 text-stone-500">Podpisz się palcem na telefonie albo kursorem na komputerze.</p>
+                <p className="font-sans text-sm font-black text-[#173d35]">{profile.signatureConfigured ? t("Zaktualizuj podpis") : t("Dodaj swój podpis")}</p>
+                <p className="mt-1 text-xs leading-5 text-stone-500">{t("Podpisz się palcem na telefonie albo kursorem na komputerze.")}</p>
               </div>
-              <BeautyDocsSignaturePad label="Pole podpisu" onChange={setSignature} required value={signature} />
+              <BeautyDocsSignaturePad label={t("Pole podpisu")} onChange={setSignature} required value={signature} />
               <div className="mt-5 flex flex-col-reverse gap-2 sm:flex-row sm:justify-end">
-                {profile.signatureConfigured ? <button className="min-h-11 rounded-xl border border-[#d9ded1] bg-white px-5 text-sm font-black text-[#508074] transition hover:bg-[#f8faf5]" onClick={() => { setEditing(false); setSignature(""); }} type="button">Anuluj</button> : null}
-                <button className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-[#245c4d] px-5 text-sm font-black text-white shadow-[0_8px_20px_rgba(36,92,77,0.2)] transition hover:bg-[#477d6f] disabled:cursor-not-allowed disabled:opacity-40" disabled={!signature || saving} onClick={() => void save()} type="button">{saving ? <LoaderCircle className="size-4 animate-spin" /> : <Check className="size-4" />} Zapisz podpis</button>
+                {profile.signatureConfigured ? <button className="min-h-11 rounded-xl border border-[#d9ded1] bg-white px-5 text-sm font-black text-[#508074] transition hover:bg-[#f8faf5]" onClick={() => { setEditing(false); setSignature(""); }} type="button">{t("Anuluj")}</button> : null}
+                <button className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-[#245c4d] px-5 text-sm font-black text-white shadow-[0_8px_20px_rgba(36,92,77,0.2)] transition hover:bg-[#477d6f] disabled:cursor-not-allowed disabled:opacity-40" disabled={!signature || saving} onClick={() => void save()} type="button">{saving ? <LoaderCircle className="size-4 animate-spin" /> : <Check className="size-4" />}{" "}{t("Zapisz podpis")}</button>
               </div>
             </div>
           )}
@@ -3603,10 +3664,10 @@ function ConsumerSignaturePanel({ onProfileChange, onSaved, profile }: { readonl
 
         <aside className="rounded-[26px] border border-[#dde3d4] bg-[#f1f5ec] p-5 sm:p-6">
           <span className="grid size-10 place-items-center rounded-2xl bg-white text-[#245c4d] shadow-sm"><ShieldCheck className="size-5" /></span>
-          <h3 className="mt-5 font-sans text-base font-black text-[#173d35]">Masz pełną kontrolę</h3>
-          <p className="mt-2 text-sm leading-6 text-[#5f7662]">Podpis jest widoczny tylko po zalogowaniu i nie trafia do publicznego profilu.</p>
+          <h3 className="mt-5 font-sans text-base font-black text-[#173d35]">{t("Masz pełną kontrolę")}</h3>
+          <p className="mt-2 text-sm leading-6 text-[#5f7662]">{t("Podpis jest widoczny tylko po zalogowaniu i nie trafia do publicznego profilu.")}</p>
           <div className="mt-5 space-y-3 border-t border-[#d7dfcc] pt-5">
-            {["Nie dołączamy go automatycznie", "Każde użycie wymaga potwierdzenia", "Możesz go zmienić lub usunąć"].map((item) => (
+            {[t("Nie dołączamy go automatycznie"), t("Każde użycie wymaga potwierdzenia"), t("Możesz go zmienić lub usunąć")].map((item) => (
               <div className="flex items-start gap-2.5" key={item}>
                 <span className="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-white text-[#245c4d]"><Check className="size-3" /></span>
                 <p className="text-xs font-semibold leading-5 text-[#4f6852]">{item}</p>
@@ -3621,10 +3682,11 @@ function ConsumerSignaturePanel({ onProfileChange, onSaved, profile }: { readonl
 /* eslint-enable @next/next/no-img-element */
 
 function ConsumerDocumentsPanel({ documents, onOpenDocument }: { readonly documents: readonly BeautyDocsConsumerDocument[]; readonly onOpenDocument: (id: string) => void }) {
+  const t = useT();
   return (
     <section className="rounded-[30px] border border-[#e3e8dd] bg-white p-6 shadow-sm sm:p-8">
-      <div className="flex items-start gap-4"><span className="grid size-12 shrink-0 place-items-center rounded-2xl bg-[#e3ead9] text-[#245c4d]"><ClipboardCheck className="size-6" /></span><div><h2 className="text-2xl font-black">Historia dokumentów</h2><p className="mt-1 text-sm text-stone-500">Formularze powiązane z Twoim zweryfikowanym kontem.</p></div></div>
-      <div className="mt-7 space-y-3">{documents.length === 0 ? <div className="rounded-2xl border border-dashed border-[#d3dbc9] bg-[#fafbf8] px-5 py-12 text-center text-sm text-stone-500">Nie masz jeszcze zapisanych dokumentów.</div> : documents.map((document) => <button className="flex w-full flex-col gap-3 rounded-2xl border border-[#e5eadf] p-5 text-left transition hover:border-[#88b8ac] hover:bg-[#fafcf8] sm:flex-row sm:items-center sm:justify-between" key={document.submissionId} onClick={() => onOpenDocument(document.submissionId)} type="button"><span className="flex items-center gap-4"><span className="grid size-11 shrink-0 place-items-center rounded-xl bg-[#eef3e7] text-[#245c4d]"><FileText className="size-5" /></span><span><span className="block font-black">{document.formName}</span><span className="mt-1 block text-sm text-stone-500">{document.salonName} · {formatDate(document.signedAt ?? document.sharedAt)}</span></span></span><span className={`self-start rounded-full px-3 py-1 text-xs font-black sm:self-auto ${document.status === "SIGNED" ? "bg-emerald-100 text-emerald-800" : "bg-amber-100 text-amber-900"}`}>{consumerDocumentStatusLabel(document.status)}</span></button>)}</div>
+      <div className="flex items-start gap-4"><span className="grid size-12 shrink-0 place-items-center rounded-2xl bg-[#e3ead9] text-[#245c4d]"><ClipboardCheck className="size-6" /></span><div><h2 className="text-2xl font-black">{t("Historia dokumentów")}</h2><p className="mt-1 text-sm text-stone-500">{t("Formularze powiązane z Twoim zweryfikowanym kontem.")}</p></div></div>
+      <div className="mt-7 space-y-3">{documents.length === 0 ? <div className="rounded-2xl border border-dashed border-[#d3dbc9] bg-[#fafbf8] px-5 py-12 text-center text-sm text-stone-500">{t("Nie masz jeszcze zapisanych dokumentów.")}</div> : documents.map((document) => <button className="flex w-full flex-col gap-3 rounded-2xl border border-[#e5eadf] p-5 text-left transition hover:border-[#88b8ac] hover:bg-[#fafcf8] sm:flex-row sm:items-center sm:justify-between" key={document.submissionId} onClick={() => onOpenDocument(document.submissionId)} type="button"><span className="flex items-center gap-4"><span className="grid size-11 shrink-0 place-items-center rounded-xl bg-[#eef3e7] text-[#245c4d]"><FileText className="size-5" /></span><span><span className="block font-black">{document.formName}</span><span className="mt-1 block text-sm text-stone-500">{document.salonName} · {formatDate(document.signedAt ?? document.sharedAt)}</span></span></span><span className={`self-start rounded-full px-3 py-1 text-xs font-black sm:self-auto ${document.status === "SIGNED" ? "bg-emerald-100 text-emerald-800" : "bg-amber-100 text-amber-900"}`}>{t(consumerDocumentStatusLabel(document.status))}</span></button>)}</div>
     </section>
   );
 }
@@ -3655,6 +3717,7 @@ function ConsumerInboxPanel({
   readonly onRefresh: () => Promise<void>;
   readonly readMessageIds: ReadonlySet<string>;
 }) {
+  const t = useT();
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [filter, setFilter] = useState<ConsumerInboxFilter>("all");
   const [query, setQuery] = useState("");
@@ -3700,17 +3763,17 @@ function ConsumerInboxPanel({
     readonly icon: LucideIcon;
     readonly count?: number;
   }[] = [
-    { id: "all", label: "Odebrane", icon: Inbox, count: messages.length },
-    { id: "unread", label: "Nieprzeczytane", icon: Mail, count: unreadCount },
+    { id: "all", label: t("Odebrane"), icon: Inbox, count: messages.length },
+    { id: "unread", label: t("Nieprzeczytane"), icon: Mail, count: unreadCount },
     {
       id: "pending",
-      label: "Oczekujące",
+      label: t("Oczekujące"),
       icon: Clock3,
       count: messages.filter((message) => !message.completed).length,
     },
     {
       id: "completed",
-      label: "Zakończone",
+      label: t("Zakończone"),
       icon: CheckCircle2,
       count: messages.filter((message) => message.completed).length,
     },
@@ -3721,20 +3784,20 @@ function ConsumerInboxPanel({
       <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <p className="text-[11px] font-black uppercase tracking-[0.16em] text-[#245c4d]">
-            Centrum powiadomień
+            {t("Centrum powiadomień")}
           </p>
           <h2
             className="mt-2 text-3xl font-black tracking-[-0.04em] text-[#173d35]"
             id="consumer-inbox-heading"
           >
-            Skrzynka
+            {t("Skrzynka")}
           </h2>
           <p className="mt-2 text-sm leading-6 text-stone-500">
-            Informacje o podpisach salonu i zmianach statusu Twoich formularzy.
+            {t("Informacje o podpisach salonu i zmianach statusu Twoich formularzy.")}
           </p>
         </div>
         <span className="inline-flex w-fit items-center gap-2 rounded-full bg-[#e3ead9] px-3.5 py-2 text-xs font-black text-[#245c4d]">
-          <Mail className="size-3.5" /> {unreadCount} nieprzeczytanych
+          <Mail className="size-3.5" /> {unreadCount}{" "}{t("nieprzeczytanych")}
         </span>
       </div>
 
@@ -3751,9 +3814,9 @@ function ConsumerInboxPanel({
             ) : (
               <RefreshCw className="size-4" />
             )}
-            Odśwież
+            {t("Odśwież")}
           </button>
-          <nav aria-label="Foldery skrzynki" className="flex gap-2 overflow-x-auto lg:block lg:space-y-1">
+          <nav aria-label={t("Foldery skrzynki")} className="flex gap-2 overflow-x-auto lg:block lg:space-y-1">
             {folders.map((folder) => {
               const Icon = folder.icon;
               return (
@@ -3769,7 +3832,7 @@ function ConsumerInboxPanel({
                   type="button"
                 >
                   <Icon className="size-4" />
-                  <span className="flex-1">{folder.label}</span>
+                  <span className="flex-1">{t(folder.label)}</span>
                   {folder.count ? (
                     <span className="rounded-full bg-white px-2 py-0.5 text-[10px] text-[#245c4d]">
                       {folder.count}
@@ -3785,11 +3848,11 @@ function ConsumerInboxPanel({
           <div className="border-b border-[#eaeee4] p-4">
             <label className="relative block">
               <Search className="pointer-events-none absolute left-3.5 top-1/2 size-4 -translate-y-1/2 text-stone-400" />
-              <span className="sr-only">Szukaj w skrzynce</span>
+              <span className="sr-only">{t("Szukaj w skrzynce")}</span>
               <input
                 className="w-full rounded-2xl border border-[#e1e6da] bg-[#f9fbf7] py-3 pl-10 pr-4 text-sm outline-none transition focus:border-[#87b9ac] focus:bg-white focus:ring-2 focus:ring-[#e2ead6]"
                 onChange={(event) => setQuery(event.target.value)}
-                placeholder="Szukaj salonu lub formularza"
+                placeholder={t("Szukaj salonu lub formularza")}
                 type="search"
                 value={query}
               />
@@ -3828,7 +3891,7 @@ function ConsumerInboxPanel({
                   <span className="min-w-0 flex-1">
                     <span className="flex items-start justify-between gap-2">
                       <span className={`truncate text-sm text-[#173d35] ${unread ? "font-black" : "font-bold"}`}>
-                        {message.title}
+                        {t(message.title)}
                       </span>
                       <span className="shrink-0 text-[10px] font-bold text-stone-400">
                         {formatShortDate(message.createdAt)}
@@ -3838,7 +3901,7 @@ function ConsumerInboxPanel({
                       {message.formName}
                     </span>
                     <span className="mt-1 line-clamp-2 block text-[11px] leading-4 text-stone-500">
-                      {message.body}
+                      {t(message.body)}
                     </span>
                   </span>
                   {unread ? (
@@ -3864,8 +3927,8 @@ function ConsumerInboxPanel({
                     <Clock3 className="size-3.5" />
                   )}
                   {selectedMessage.completed
-                    ? "Dokument kompletny"
-                    : "Oczekuje na salon"}
+                    ? t("Dokument kompletny")
+                    : t("Oczekuje na salon")}
                 </span>
                 {readMessageIds.has(selectedMessage.id) ? (
                   <MailOpen className="size-4 text-stone-400" />
@@ -3878,18 +3941,18 @@ function ConsumerInboxPanel({
                   {formatDate(selectedMessage.createdAt)}
                 </p>
                 <h3 className="mt-3 text-2xl font-black tracking-[-0.035em] text-[#173d35]">
-                  {selectedMessage.title}
+                  {t(selectedMessage.title)}
                 </h3>
                 <p className="mt-4 text-sm leading-7 text-stone-600">
-                  {selectedMessage.body}
+                  {t(selectedMessage.body)}
                 </p>
                 <dl className="mt-6 divide-y divide-[#eaeee5] rounded-2xl border border-[#e5eadd] bg-[#fcfdfa] px-4">
                   <div className="grid gap-1 py-3.5 sm:grid-cols-[120px_1fr]">
-                    <dt className="text-[11px] font-black uppercase tracking-[0.08em] text-stone-400">Salon</dt>
+                    <dt className="text-[11px] font-black uppercase tracking-[0.08em] text-stone-400">{t("Salon")}</dt>
                     <dd className="text-sm font-bold text-[#344937]">{selectedMessage.salonName}</dd>
                   </div>
                   <div className="grid gap-1 py-3.5 sm:grid-cols-[120px_1fr]">
-                    <dt className="text-[11px] font-black uppercase tracking-[0.08em] text-stone-400">Formularz</dt>
+                    <dt className="text-[11px] font-black uppercase tracking-[0.08em] text-stone-400">{t("Formularz")}</dt>
                     <dd className="text-sm font-bold text-[#344937]">{selectedMessage.formName}</dd>
                   </div>
                 </dl>
@@ -3901,7 +3964,7 @@ function ConsumerInboxPanel({
                   }}
                   type="button"
                 >
-                  <FileText className="size-4" /> Zobacz formularz
+                  <FileText className="size-4" />{" "}{t("Zobacz formularz")}
                 </button>
               </div>
             </article>
@@ -3915,6 +3978,7 @@ function ConsumerInboxPanel({
 }
 
 function ConsumerInboxEmpty({ detail = false }: { readonly detail?: boolean }) {
+  const t = useT();
   return (
     <div className="grid min-h-[360px] place-items-center px-6 py-14 text-center">
       <div>
@@ -3922,10 +3986,10 @@ function ConsumerInboxEmpty({ detail = false }: { readonly detail?: boolean }) {
           {detail ? <MailOpen className="size-5" /> : <Inbox className="size-5" />}
         </span>
         <p className="mt-4 text-sm font-black text-[#344937]">
-          {detail ? "Wybierz wiadomość" : "Skrzynka jest pusta"}
+          {detail ? t("Wybierz wiadomość") : t("Skrzynka jest pusta")}
         </p>
         <p className="mt-1 text-xs leading-5 text-stone-500">
-          Powiadomienia o formularzach pojawią się tutaj automatycznie.
+          {t("Powiadomienia o formularzach pojawią się tutaj automatycznie.")}
         </p>
       </div>
     </div>
@@ -4019,8 +4083,9 @@ function consumerDocumentStatusLabel(status: string): string {
 }
 
 function ConsumerSetupDialog({ catalog, onClose, onProfileChange, profile }: { readonly catalog: BeautyDocsConsumerMedicalCatalog; readonly onClose: () => void; readonly onProfileChange: (state: BeautyDocsConsumerState) => void; readonly profile: BeautyDocsConsumerProfile }) {
+  const t = useT();
   const [step, setStep] = useState(0);
-  const steps = ["Start", "Dane", "Wywiad", "Podpis", "Gotowe"];
+  const steps = [t("Start"), t("Dane"), t("Wywiad"), t("Podpis"), t("Gotowe")];
 
   // Lock background scroll while the wizard is open — without this the page
   // behind the dialog stays scrollable and keeps its scrollbar visible.
@@ -4033,15 +4098,15 @@ function ConsumerSetupDialog({ catalog, onClose, onProfileChange, profile }: { r
   }, []);
 
   return (
-    <motion.div animate={{ opacity: 1 }} className="fixed inset-0 z-[70] grid place-items-center bg-[#182119]/65 p-3 backdrop-blur-md sm:p-6" exit={{ opacity: 0 }} initial={{ opacity: 0 }} role="dialog" aria-modal="true" aria-label="Konfiguracja profilu klientki">
+    <motion.div animate={{ opacity: 1 }} className="fixed inset-0 z-[70] grid place-items-center bg-[#182119]/65 p-3 backdrop-blur-md sm:p-6" exit={{ opacity: 0 }} initial={{ opacity: 0 }} role="dialog" aria-modal="true" aria-label={t("Konfiguracja profilu klientki")}>
       <motion.div animate={{ opacity: 1, scale: 1, y: 0 }} className="max-h-[85vh] w-full max-w-4xl overflow-y-auto rounded-[32px] bg-[#f5f8f2] shadow-2xl" exit={{ opacity: 0, scale: 0.97, y: 14 }} initial={{ opacity: 0, scale: 0.96, y: 24 }} transition={{ duration: 0.28 }}>
-        <div className="sticky top-0 z-20 border-b border-[#e2e7db] bg-[#fdfffb]/95 px-5 py-3 backdrop-blur sm:px-7"><div className="flex items-center justify-between gap-4"><div className="flex items-center gap-3"><span className="grid size-9 place-items-center rounded-2xl bg-[#e3ead9] text-[#245c4d]"><Sparkles className="size-4" /></span><div><h2 className="font-black">Konfiguracja profilu</h2><p className="text-xs text-stone-500">Krok {Math.min(step + 1, steps.length)} z {steps.length}</p></div></div><button aria-label="Zamknij konfigurację" className="rounded-full border border-stone-200 bg-white p-2" onClick={onClose} type="button"><X className="size-5" /></button></div><div className="mt-3 grid grid-cols-5 gap-2">{steps.map((label, index) => <div key={label}><div className={`h-1.5 rounded-full transition ${index <= step ? "bg-[#245c4d]" : "bg-[#e5eadf]"}`} /><span className="mt-1 hidden text-[9px] font-bold uppercase tracking-wide text-stone-400 sm:block">{label}</span></div>)}</div></div>
+        <div className="sticky top-0 z-20 border-b border-[#e2e7db] bg-[#fdfffb]/95 px-5 py-3 backdrop-blur sm:px-7"><div className="flex items-center justify-between gap-4"><div className="flex items-center gap-3"><span className="grid size-9 place-items-center rounded-2xl bg-[#e3ead9] text-[#245c4d]"><Sparkles className="size-4" /></span><div><h2 className="font-black">{t("Konfiguracja profilu")}</h2><p className="text-xs text-stone-500">{t("Krok")}{" "}{Math.min(step + 1, steps.length)}{" "}{t("z")}{" "}{steps.length}</p></div></div><button aria-label={t("Zamknij konfigurację")} className="rounded-full border border-stone-200 bg-white p-2" onClick={onClose} type="button"><X className="size-5" /></button></div><div className="mt-3 grid grid-cols-5 gap-2">{steps.map((label, index) => <div key={label}><div className={`h-1.5 rounded-full transition ${index <= step ? "bg-[#245c4d]" : "bg-[#e5eadf]"}`} /><span className="mt-1 hidden text-[9px] font-bold uppercase tracking-wide text-stone-400 sm:block">{t(label)}</span></div>)}</div></div>
         <div className="p-4 sm:p-6"><AnimatePresence mode="wait"><motion.div animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -18 }} initial={{ opacity: 0, x: 18 }} key={step} transition={{ duration: 0.22 }}>
-          {step === 0 ? <div className="mx-auto max-w-2xl px-3 py-4 text-center sm:py-8"><span className="mx-auto grid size-14 place-items-center rounded-2xl bg-[#e3ead9] text-[#245c4d]"><Sparkles className="size-6" /></span><p className="mt-4 text-xs font-black uppercase tracking-[0.18em] text-[#599687]">Twój profil BeautyDocs</p><h3 className="mt-2 text-2xl font-black tracking-[-0.03em] sm:text-3xl">Mniej wpisywania.<br />Więcej spokoju przed wizytą.</h3><p className="mx-auto mt-3 max-w-xl text-sm leading-6 text-stone-600">Uzupełnimy dane osobowe, pełny wywiad medyczny i Twój podpis. Każdy formularz nadal zobaczysz i zatwierdzisz samodzielnie.</p><button className="mt-5 inline-flex items-center gap-2 rounded-2xl bg-[#245c4d] px-7 py-3 text-sm font-black text-white shadow-xl" onClick={() => setStep(1)} type="button">Zaczynamy <ChevronRight className="size-4" /></button><button className="mt-3 block w-full text-sm font-bold text-stone-400" onClick={onClose} type="button">Dokończę później</button></div> : null}
+          {step === 0 ? <div className="mx-auto max-w-2xl px-3 py-4 text-center sm:py-8"><span className="mx-auto grid size-14 place-items-center rounded-2xl bg-[#e3ead9] text-[#245c4d]"><Sparkles className="size-6" /></span><p className="mt-4 text-xs font-black uppercase tracking-[0.18em] text-[#599687]">{t("Twój profil BeautyDocs")}</p><h3 className="mt-2 text-2xl font-black tracking-[-0.03em] sm:text-3xl">{t("Mniej wpisywania.")}<br />{t("Więcej spokoju przed wizytą.")}</h3><p className="mx-auto mt-3 max-w-xl text-sm leading-6 text-stone-600">{t("Uzupełnimy dane osobowe, pełny wywiad medyczny i Twój podpis. Każdy formularz nadal zobaczysz i zatwierdzisz samodzielnie.")}</p><button className="mt-5 inline-flex items-center gap-2 rounded-2xl bg-[#245c4d] px-7 py-3 text-sm font-black text-white shadow-xl" onClick={() => setStep(1)} type="button">{t("Zaczynamy")}{" "}<ChevronRight className="size-4" /></button><button className="mt-3 block w-full text-sm font-bold text-stone-400" onClick={onClose} type="button">{t("Dokończę później")}</button></div> : null}
           {step === 1 ? <div><PersonalDataPanel onProfileChange={onProfileChange} profile={profile} /><ConsumerSetupWizardNav onBack={() => setStep((current) => Math.max(0, current - 1))} onNext={() => setStep(2)} /></div> : null}
           {step === 2 ? <div><MedicalInterviewPanel catalog={catalog} onProfileChange={onProfileChange} onSaved={() => setStep(3)} profile={profile} /><ConsumerSetupWizardNav onBack={() => setStep((current) => Math.max(0, current - 1))} onNext={() => setStep(3)} /></div> : null}
           {step === 3 ? <div><ConsumerSignaturePanel onProfileChange={onProfileChange} onSaved={() => setStep(4)} profile={profile} /><ConsumerSetupWizardNav onBack={() => setStep((current) => Math.max(0, current - 1))} onNext={() => setStep(4)} /></div> : null}
-          {step === 4 ? <div className="mx-auto max-w-2xl px-3 py-6 text-center sm:py-10"><motion.span animate={{ scale: 1 }} className="mx-auto grid size-16 place-items-center rounded-full bg-emerald-100 text-emerald-700" initial={{ scale: 0.65 }}><Check className="size-7" /></motion.span><h3 className="mt-5 text-2xl font-black tracking-tight sm:text-3xl">Profil jest gotowy do użycia</h3><p className="mx-auto mt-3 max-w-lg text-sm leading-6 text-stone-600">Możesz wracać do każdej sekcji i aktualizować informacje, kiedy tylko coś się zmieni.</p><button className="mt-6 rounded-2xl bg-[#245c4d] px-7 py-3 text-sm font-black text-white" onClick={onClose} type="button">Przejdź do panelu</button></div> : null}
+          {step === 4 ? <div className="mx-auto max-w-2xl px-3 py-6 text-center sm:py-10"><motion.span animate={{ scale: 1 }} className="mx-auto grid size-16 place-items-center rounded-full bg-emerald-100 text-emerald-700" initial={{ scale: 0.65 }}><Check className="size-7" /></motion.span><h3 className="mt-5 text-2xl font-black tracking-tight sm:text-3xl">{t("Profil jest gotowy do użycia")}</h3><p className="mx-auto mt-3 max-w-lg text-sm leading-6 text-stone-600">{t("Możesz wracać do każdej sekcji i aktualizować informacje, kiedy tylko coś się zmieni.")}</p><button className="mt-6 rounded-2xl bg-[#245c4d] px-7 py-3 text-sm font-black text-white" onClick={onClose} type="button">{t("Przejdź do panelu")}</button></div> : null}
         </motion.div></AnimatePresence></div>
       </motion.div>
     </motion.div>
@@ -4055,6 +4120,7 @@ function ConsumerSetupWizardNav({
   readonly onBack: () => void;
   readonly onNext: () => void;
 }) {
+  const t = useT();
   return (
     <div className="mt-6 flex items-center justify-between gap-3 border-t border-[#e2e7db] pt-5">
       <button
@@ -4062,14 +4128,14 @@ function ConsumerSetupWizardNav({
         onClick={onBack}
         type="button"
       >
-        <ArrowLeft className="size-4" /> Wstecz
+        <ArrowLeft className="size-4" />{" "}{t("Wstecz")}
       </button>
       <button
         className="inline-flex items-center gap-1.5 rounded-2xl bg-[#245c4d] px-6 py-3 text-sm font-black text-white transition hover:bg-[#477d6f]"
         onClick={onNext}
         type="button"
       >
-        Dalej <ChevronRight className="size-4" />
+        {t("Dalej")}{" "}<ChevronRight className="size-4" />
       </button>
     </div>
   );
@@ -4098,6 +4164,7 @@ function mfaEnrollmentErrorMessage(status: number, method: "SMS" | "TOTP"): stri
  * server-rendered initial MFA prop to receive.
  */
 function ConsumerMfaSettings() {
+  const t = useT();
   const [mfa, setMfa] = useState<BeautyDocsMfaState | null>(null);
   const [mfaChallenge, setMfaChallenge] = useState<BeautyDocsMfaChallenge | null>(null);
   const [mfaPhone, setMfaPhone] = useState("");
@@ -4125,7 +4192,7 @@ function ConsumerMfaSettings() {
 
   const startEnrollment = async (method: "SMS" | "TOTP") => {
     if (method === "SMS" && mfaPhone.replace(/\D/g, "").length < 8) {
-      setError("Podaj prawidłowy numer telefonu.");
+      setError(t("Podaj prawidłowy numer telefonu."));
       return;
     }
     setPending(true);
@@ -4149,7 +4216,7 @@ function ConsumerMfaSettings() {
       setMfaChallenge((await response.json()) as BeautyDocsMfaChallenge);
       setMfaCode("");
     } catch {
-      setError("Nie udało się połączyć z usługą 2FA. Spróbuj ponownie.");
+      setError(t("Nie udało się połączyć z usługą 2FA. Spróbuj ponownie."));
     } finally {
       setPending(false);
     }
@@ -4157,7 +4224,7 @@ function ConsumerMfaSettings() {
 
   const confirmEnrollment = async () => {
     if (!mfaChallenge || !/^\d{6}$/.test(mfaCode)) {
-      setError("Wpisz pełny 6-cyfrowy kod.");
+      setError(t("Wpisz pełny 6-cyfrowy kod."));
       return;
     }
     setPending(true);
@@ -4175,8 +4242,8 @@ function ConsumerMfaSettings() {
       if (!response.ok) {
         setError(
           response.status === 400
-            ? "Kod jest nieprawidłowy lub wygasł."
-            : "Nie udało się włączyć 2FA.",
+            ? t("Kod jest nieprawidłowy lub wygasł.")
+            : t("Nie udało się włączyć 2FA."),
         );
         return;
       }
@@ -4188,11 +4255,11 @@ function ConsumerMfaSettings() {
       setMfaPhone("");
       setMessage(
         changedExistingMethod
-          ? "Metoda weryfikacji 2FA została zmieniona."
-          : "Dodatkowe zabezpieczenie 2FA zostało włączone.",
+          ? t("Metoda weryfikacji 2FA została zmieniona.")
+          : t("Dodatkowe zabezpieczenie 2FA zostało włączone."),
       );
     } catch {
-      setError("Nie udało się potwierdzić konfiguracji 2FA.");
+      setError(t("Nie udało się potwierdzić konfiguracji 2FA."));
     } finally {
       setPending(false);
     }
@@ -4211,7 +4278,7 @@ function ConsumerMfaSettings() {
       setMfaChallenge((await response.json()) as BeautyDocsMfaChallenge);
       setMfaCode("");
     } catch {
-      setError("Nie udało się rozpocząć wyłączania 2FA.");
+      setError(t("Nie udało się rozpocząć wyłączania 2FA."));
     } finally {
       setPending(false);
     }
@@ -4230,7 +4297,7 @@ function ConsumerMfaSettings() {
       setMfaChallenge((await response.json()) as BeautyDocsMfaChallenge);
       setMfaCode("");
     } catch {
-      setError("Nie udało się rozpocząć zmiany 2FA.");
+      setError(t("Nie udało się rozpocząć zmiany 2FA."));
     } finally {
       setPending(false);
     }
@@ -4238,7 +4305,7 @@ function ConsumerMfaSettings() {
 
   const confirmChange = async () => {
     if (!mfaChallenge || !/^\d{6}$/.test(mfaCode)) {
-      setError("Wpisz pełny 6-cyfrowy kod.");
+      setError(t("Wpisz pełny 6-cyfrowy kod."));
       return;
     }
     setPending(true);
@@ -4253,8 +4320,8 @@ function ConsumerMfaSettings() {
       if (!response.ok) {
         setError(
           response.status === 400
-            ? "Kod jest nieprawidłowy lub wygasł."
-            : "Nie udało się potwierdzić zmiany 2FA.",
+            ? t("Kod jest nieprawidłowy lub wygasł.")
+            : t("Nie udało się potwierdzić zmiany 2FA."),
         );
         return;
       }
@@ -4263,9 +4330,9 @@ function ConsumerMfaSettings() {
       setMfaChallenge(null);
       setMfaCode("");
       setMfaPhone("");
-      setMessage("Tożsamość potwierdzona. Wybierz nową metodę 2FA.");
+      setMessage(t("Tożsamość potwierdzona. Wybierz nową metodę 2FA."));
     } catch {
-      setError("Nie udało się potwierdzić zmiany 2FA.");
+      setError(t("Nie udało się potwierdzić zmiany 2FA."));
     } finally {
       setPending(false);
     }
@@ -4273,7 +4340,7 @@ function ConsumerMfaSettings() {
 
   const confirmDisable = async () => {
     if (!mfaChallenge || !/^\d{6}$/.test(mfaCode)) {
-      setError("Wpisz pełny 6-cyfrowy kod.");
+      setError(t("Wpisz pełny 6-cyfrowy kod."));
       return;
     }
     setPending(true);
@@ -4288,17 +4355,17 @@ function ConsumerMfaSettings() {
       if (!response.ok) {
         setError(
           response.status === 400
-            ? "Kod jest nieprawidłowy lub wygasł."
-            : "Nie udało się wyłączyć 2FA.",
+            ? t("Kod jest nieprawidłowy lub wygasł.")
+            : t("Nie udało się wyłączyć 2FA."),
         );
         return;
       }
       setMfa({ enabled: false, method: null, destinationMasked: null, enabledAt: null });
       setMfaChallenge(null);
       setMfaCode("");
-      setMessage("Dodatkowe zabezpieczenie 2FA zostało wyłączone.");
+      setMessage(t("Dodatkowe zabezpieczenie 2FA zostało wyłączone."));
     } catch {
-      setError("Nie udało się wyłączyć 2FA.");
+      setError(t("Nie udało się wyłączyć 2FA."));
     } finally {
       setPending(false);
     }
@@ -4319,16 +4386,16 @@ function ConsumerMfaSettings() {
           <ShieldCheck className="size-5" />
         </span>
         <div>
-          <h2 className="text-xl font-black">Weryfikacja dwuetapowa (2FA)</h2>
+          <h2 className="text-xl font-black">{t("Weryfikacja dwuetapowa (2FA)")}</h2>
           <p className="mt-1 text-sm text-stone-500">
-            Dodatkowe zabezpieczenie logowania kodem SMS lub aplikacją uwierzytelniającą.
+            {t("Dodatkowe zabezpieczenie logowania kodem SMS lub aplikacją uwierzytelniającą.")}
           </p>
         </div>
       </div>
 
       {message ? (
         <p className="mt-5 rounded-2xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-semibold text-emerald-800">
-          {message}
+          {t(message)}
         </p>
       ) : null}
       {error ? (
@@ -4363,16 +4430,16 @@ function ConsumerMfaSettings() {
                 <ShieldCheck className="size-5" />
               </span>
               <div>
-                <h3 className="font-black text-emerald-950">2FA jest włączone</h3>
+                <h3 className="font-black text-emerald-950">{t("2FA jest włączone")}</h3>
                 <p className="mt-1 text-sm leading-6 text-emerald-900/70">
                   {mfa.method === "SMS"
-                    ? `Kody logowania będą wysyłane na ${mfa.destinationMasked ?? "zweryfikowany numer"}.`
-                    : "Przy logowaniu podasz kod z aplikacji uwierzytelniającej."}
+                    ? t("Kody logowania będą wysyłane na {value1}.", { value1: mfa.destinationMasked ?? "zweryfikowany numer" })
+                    : t("Przy logowaniu podasz kod z aplikacji uwierzytelniającej.")}
                 </p>
               </div>
             </div>
             <span className="rounded-full bg-white px-3 py-1.5 text-xs font-black text-emerald-700">
-              {mfa.method === "SMS" ? "Kod SMS" : "Aplikacja TOTP"}
+              {mfa.method === "SMS" ? t("Kod SMS") : t("Aplikacja TOTP")}
             </span>
           </div>
           <div className="mt-5 flex flex-wrap gap-3">
@@ -4382,7 +4449,7 @@ function ConsumerMfaSettings() {
               onClick={() => void startChange()}
               type="button"
             >
-              Zmień metodę lub numer
+              {t("Zmień metodę lub numer")}
             </button>
             <button
               className="rounded-2xl border border-emerald-300 bg-white px-4 py-2.5 text-sm font-black text-emerald-800 transition hover:bg-emerald-100 disabled:opacity-50"
@@ -4390,7 +4457,7 @@ function ConsumerMfaSettings() {
               onClick={() => void startDisable()}
               type="button"
             >
-              Wyłącz 2FA
+              {t("Wyłącz 2FA")}
             </button>
           </div>
         </div>
@@ -4398,17 +4465,16 @@ function ConsumerMfaSettings() {
         <div className="mt-6 grid gap-4 lg:grid-cols-2">
           {mfaChangeChallengeId ? (
             <div className="rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm leading-6 text-amber-900 lg:col-span-2">
-              Obecne zabezpieczenie nadal działa. Zostanie zastąpione dopiero po
-              potwierdzeniu nowego numeru lub nowej aplikacji.
+              {t("Obecne zabezpieczenie nadal działa. Zostanie zastąpione dopiero po potwierdzeniu nowego numeru lub nowej aplikacji.")}
             </div>
           ) : null}
           <div className="rounded-3xl border border-[#e3e8dd] bg-[#f7f8f4] p-5">
             <span className="grid size-10 place-items-center rounded-2xl bg-[#eef3e7] text-[#245c4d]">
               <Smartphone className="size-5" />
             </span>
-            <h3 className="mt-4 font-black">Kod SMS</h3>
+            <h3 className="mt-4 font-black">{t("Kod SMS")}</h3>
             <p className="mt-2 text-sm leading-6 text-stone-500">
-              Po podaniu hasła otrzymasz jednorazowy kod na wybrany numer telefonu.
+              {t("Po podaniu hasła otrzymasz jednorazowy kod na wybrany numer telefonu.")}
             </p>
             <div className="mt-4">
               <BeautyDocsPhoneNumberField
@@ -4424,7 +4490,7 @@ function ConsumerMfaSettings() {
               onClick={() => void startEnrollment("SMS")}
               type="button"
             >
-              {mfaChangeChallengeId ? "Ustaw nowy numer SMS" : "Skonfiguruj SMS"}
+              {mfaChangeChallengeId ? t("Ustaw nowy numer SMS") : t("Skonfiguruj SMS")}
             </button>
           </div>
 
@@ -4432,9 +4498,9 @@ function ConsumerMfaSettings() {
             <span className="grid size-10 place-items-center rounded-2xl bg-[#eef3e7] text-[#245c4d]">
               <KeyRound className="size-5" />
             </span>
-            <h3 className="mt-4 font-black">Aplikacja uwierzytelniająca</h3>
+            <h3 className="mt-4 font-black">{t("Aplikacja uwierzytelniająca")}</h3>
             <p className="mt-2 text-sm leading-6 text-stone-500">
-              Działa z Google Authenticator, Microsoft Authenticator i innymi aplikacjami obsługującymi TOTP.
+              {t("Działa z Google Authenticator, Microsoft Authenticator i innymi aplikacjami obsługującymi TOTP.")}
             </p>
             <button
               className="mt-4 flex w-full items-center justify-center gap-2 rounded-2xl bg-[#245c4d] px-4 py-3.5 font-black text-white shadow-[0_12px_30px_rgba(36,92,77,0.18)] transition hover:bg-[#173d35] disabled:cursor-not-allowed disabled:opacity-50"
@@ -4442,7 +4508,7 @@ function ConsumerMfaSettings() {
               onClick={() => void startEnrollment("TOTP")}
               type="button"
             >
-              {mfaChangeChallengeId ? "Przejdź na aplikację" : "Skonfiguruj aplikację"}
+              {mfaChangeChallengeId ? t("Przejdź na aplikację") : t("Skonfiguruj aplikację")}
             </button>
           </div>
           {mfaChangeChallengeId ? (
@@ -4452,11 +4518,11 @@ function ConsumerMfaSettings() {
               onClick={cancelMfaFlow}
               type="button"
             >
-              Anuluj zmianę
+              {t("Anuluj zmianę")}
             </button>
           ) : null}
           <p className="text-xs leading-5 text-stone-500 lg:col-span-2">
-            To zabezpieczenie jest dobrowolne. Jeśli go nie włączysz, sposób logowania pozostanie bez zmian.
+            {t("To zabezpieczenie jest dobrowolne. Jeśli go nie włączysz, sposób logowania pozostanie bez zmian.")}
           </p>
         </div>
       )}
@@ -4483,6 +4549,7 @@ function MfaChallengeCard({
   readonly onConfirmEnrollment: () => void;
   readonly pending: boolean;
 }) {
+  const t = useT();
   const disabling = challenge.purpose === "DISABLE";
   const changing = challenge.purpose === "CHANGE";
   return (
@@ -4498,19 +4565,19 @@ function MfaChallengeCard({
         <div>
           <h3 className="font-black text-[#173d35]">
             {disabling
-              ? "Potwierdź wyłączenie 2FA"
+              ? t("Potwierdź wyłączenie 2FA")
               : changing
-                ? "Potwierdź zmianę zabezpieczenia"
+                ? t("Potwierdź zmianę zabezpieczenia")
                 : challenge.method === "SMS"
-                  ? "Potwierdź numer telefonu"
-                  : "Połącz aplikację uwierzytelniającą"}
+                  ? t("Potwierdź numer telefonu")
+                  : t("Połącz aplikację uwierzytelniającą")}
           </h3>
           <p className="mt-1 text-sm leading-6 text-stone-500">
             {challenge.method === "SMS"
-              ? `Wpisz kod wysłany na ${challenge.destinationMasked ?? "Twój telefon"}.`
+              ? t("Wpisz kod wysłany na {value1}.", { value1: challenge.destinationMasked ?? t("Twój telefon") })
               : disabling || changing
-                ? "Wpisz aktualny kod z aplikacji uwierzytelniającej."
-                : "Zeskanuj kod QR w Google Authenticator, Microsoft Authenticator lub innej aplikacji TOTP, a następnie wpisz wygenerowany kod."}
+                ? t("Wpisz aktualny kod z aplikacji uwierzytelniającej.")
+                : t("Zeskanuj kod QR w Google Authenticator, Microsoft Authenticator lub innej aplikacji TOTP, a następnie wpisz wygenerowany kod.")}
           </p>
         </div>
       </div>
@@ -4519,7 +4586,7 @@ function MfaChallengeCard({
         <div className="mt-5 grid gap-5 sm:grid-cols-[190px_1fr] sm:items-center">
           <div className="rounded-2xl border border-[#e3e8dd] bg-white p-3">
             <Image
-              alt="Kod QR do połączenia aplikacji uwierzytelniającej"
+              alt={t("Kod QR do połączenia aplikacji uwierzytelniającej")}
               className="h-auto w-full"
               height={180}
               src={challenge.qrCodeDataUrl}
@@ -4529,13 +4596,13 @@ function MfaChallengeCard({
           </div>
           <div>
             <p className="text-xs font-black uppercase tracking-[0.12em] text-stone-500">
-              Klucz do ręcznego wpisania
+              {t("Klucz do ręcznego wpisania")}
             </p>
             <code className="mt-2 block break-all rounded-xl bg-white px-3 py-3 text-sm font-black tracking-[0.12em] text-[#173d35]">
               {challenge.secret}
             </code>
             <p className="mt-2 text-xs leading-5 text-stone-500">
-              Klucz jest widoczny tylko podczas tej konfiguracji. Nie udostępniaj go innym osobom.
+              {t("Klucz jest widoczny tylko podczas tej konfiguracji. Nie udostępniaj go innym osobom.")}
             </p>
           </div>
         </div>
@@ -4543,12 +4610,12 @@ function MfaChallengeCard({
 
       {challenge.devCode ? (
         <p className="mt-5 rounded-xl bg-[#eef3e7] px-3 py-2 text-center text-xs font-bold text-[#245c4d]">
-          Tryb testowy — kod: <span className="font-black tracking-widest">{challenge.devCode}</span>
+          {t("Tryb testowy — kod:")}{" "}<span className="font-black tracking-widest">{challenge.devCode}</span>
         </p>
       ) : null}
 
       <label className="mt-5 block max-w-sm text-xs font-black uppercase tracking-[0.12em] text-stone-500">
-        Kod 6-cyfrowy
+        {t("Kod 6-cyfrowy")}
         <input
           autoComplete="one-time-code"
           className={`${inputClass} mt-2 text-center text-lg tracking-[0.35em]`}
@@ -4567,7 +4634,7 @@ function MfaChallengeCard({
           onClick={disabling ? onConfirmDisable : changing ? onConfirmChange : onConfirmEnrollment}
           type="button"
         >
-          {disabling ? "Wyłącz 2FA" : changing ? "Potwierdź i wybierz nową metodę" : "Potwierdź i włącz 2FA"}
+          {disabling ? t("Wyłącz 2FA") : changing ? t("Potwierdź i wybierz nową metodę") : t("Potwierdź i włącz 2FA")}
         </button>
         <button
           className="rounded-2xl border border-[#d4decc] px-5 py-3 text-sm font-black text-stone-600"
@@ -4575,7 +4642,7 @@ function MfaChallengeCard({
           onClick={onCancel}
           type="button"
         >
-          Anuluj
+          {t("Anuluj")}
         </button>
       </div>
     </div>
@@ -4583,6 +4650,7 @@ function MfaChallengeCard({
 }
 
 function ConsumerAccountSettings() {
+  const t = useT();
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
   const [deleting, setDeleting] = useState(false);
   const [deleteError, setDeleteError] = useState<string | null>(null);
@@ -4601,22 +4669,36 @@ function ConsumerAccountSettings() {
       return;
     }
     setDeleting(false);
-    setDeleteError("Nie udało się usunąć konta. Spróbuj ponownie.");
+    setDeleteError(t("Nie udało się usunąć konta. Spróbuj ponownie."));
   };
 
   return (
     <div className="space-y-6">
       <div>
         <p className="text-[11px] font-black uppercase tracking-[0.16em] text-[#245c4d]">
-          Twoje konto
+          {t("Twoje konto")}
         </p>
         <h2 className="mt-2 text-3xl font-black tracking-[-0.04em] text-[#173d35]">
-          Ustawienia
+          {t("Ustawienia")}
         </h2>
         <p className="mt-2 text-sm leading-6 text-stone-500">
-          Bezpieczeństwo logowania i zarządzanie kontem klientki.
+          {t("Bezpieczeństwo logowania i zarządzanie Twoim kontem.")}
         </p>
       </div>
+      <section className="rounded-[30px] border border-[#e3e8dd] bg-white p-6 shadow-sm sm:p-8">
+        <div className="flex items-start gap-3">
+          <span className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-[#eef3e8] text-[#245c4d]">
+            <Languages className="size-5" />
+          </span>
+          <div>
+            <h2 className="text-xl font-black">{t("Język aplikacji")}</h2>
+            <p className="mt-1 text-sm text-stone-500">
+              {t("Wybierz język menu, formularzy i dokumentów. Zmiana dotyczy tylko Twojego konta.")}
+            </p>
+          </div>
+        </div>
+        <BeautyDocsLanguageList account="consumer" className="mt-6 max-w-xl" />
+      </section>
       <ConsumerMfaSettings />
       <section className="rounded-[30px] border border-[#e3e8dd] bg-white p-6 shadow-sm sm:p-8">
       <div className="flex items-start gap-3">
@@ -4624,17 +4706,17 @@ function ConsumerAccountSettings() {
           <Settings className="size-5" />
         </span>
         <div>
-          <h2 className="text-xl font-black">Zarządzanie kontem</h2>
+          <h2 className="text-xl font-black">{t("Zarządzanie kontem")}</h2>
           <p className="mt-1 text-sm text-stone-500">
-            Zarządzaj dostępem do swojego profilu klientki.
+            {t("Zarządzaj dostępem do swojego profilu klientki.")}
           </p>
         </div>
       </div>
       <div className="mt-6 flex flex-wrap items-center justify-between gap-4 rounded-2xl bg-red-50 p-5">
         <div>
-          <p className="font-black text-red-950">Chcesz usunąć konto?</p>
+          <p className="font-black text-red-950">{t("Chcesz usunąć konto?")}</p>
           <p className="mt-1 text-sm leading-6 text-red-900/75">
-            Usunięcie konta jest nieodwracalne i wymaga potwierdzenia kilku informacji.
+            {t("Usunięcie konta jest nieodwracalne i wymaga potwierdzenia kilku informacji.")}
           </p>
         </div>
         <button
@@ -4642,21 +4724,21 @@ function ConsumerAccountSettings() {
           onClick={() => setDeleteDialogOpen(true)}
           type="button"
         >
-          <Trash2 className="size-4" /> Usuń konto
+          <Trash2 className="size-4" />{" "}{t("Usuń konto")}
         </button>
       </div>
       <BeautyDocsDeleteAccountDialog
         consequences={[
-          "Rozumiem, że moje konto logowania, zapisany profil i wywiad medyczny zostaną usunięte.",
-          "Rozumiem, że oryginały podpisanych formularzy pozostają pod kontrolą salonów i mogą być przechowywane, gdy wymaga tego prawo lub obrona roszczeń.",
-          "Rozumiem, że tej operacji nie można cofnąć.",
+          t("Rozumiem, że moje konto logowania, zapisany profil i wywiad medyczny zostaną usunięte."),
+          t("Rozumiem, że oryginały podpisanych formularzy pozostają pod kontrolą salonów i mogą być przechowywane, gdy wymaga tego prawo lub obrona roszczeń."),
+          t("Rozumiem, że tej operacji nie można cofnąć."),
         ]}
         error={deleteError}
         onClose={() => setDeleteDialogOpen(false)}
         onConfirm={() => void removeAccount()}
         open={deleteDialogOpen}
         pending={deleting}
-        title="Czy na pewno chcesz usunąć konto klientki?"
+        title={t("Czy na pewno chcesz usunąć konto klientki?")}
       />
       </section>
     </div>
@@ -4677,6 +4759,7 @@ function DocumentDialog({
   readonly detail: BeautyDocsConsumerDocumentDetail;
   readonly onClose: () => void;
 }) {
+  const t = useT();
   const practitionerSignedAt =
     detail.practitionerSignedAt ??
     (typeof detail.practitioner?.signedAt === "string"
@@ -4697,7 +4780,7 @@ function DocumentDialog({
   const treatmentAreaDisplayValue =
     treatmentAreaLabels.join(", ") ||
     treatmentArea?.value?.trim() ||
-    "Nie wskazano obszaru";
+    t("Nie wskazano obszaru");
   const consents = documentAnswers.filter(
     (answer) => answer.kind === "consent",
   );
@@ -4726,28 +4809,32 @@ function DocumentDialog({
             <div className="mt-2 flex flex-wrap items-center gap-2">
               <p className="text-sm text-stone-500">{formatDate(detail.signedAt ?? detail.sharedAt)}</p>
               <span className={`rounded-full px-2.5 py-1 text-[10px] font-black ${detail.status === "SIGNED" ? "bg-emerald-100 text-emerald-800" : "bg-amber-100 text-amber-900"}`}>
-                {consumerDocumentStatusLabel(detail.status)}
+                {t(consumerDocumentStatusLabel(detail.status))}
               </span>
             </div>
           </div>
-          <button className="rounded-full border border-stone-200 p-2" onClick={onClose} type="button" aria-label="Zamknij">
+          <button className="rounded-full border border-stone-200 p-2" onClick={onClose} type="button" aria-label={t("Zamknij")}>
             <X className="size-5" />
           </button>
         </div>
         <div className="space-y-6 px-6 py-6 sm:px-8">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <p className="text-sm text-stone-500">{t("Zapisz kopię formularza lub wydrukuj ją na A4.")}</p>
+            <BeautyDocsPdfDownload eligible={canDownloadFormPdf(detail.status, detail.clientSignedAt, detail.practitionerSignedAt, detail.signatureKeys)} documentId={detail.submissionId} href={`/api/beautydocs-preview/consumer/documents/${encodeURIComponent(detail.submissionId)}/pdf`} />
+          </div>
           <section aria-labelledby="document-highlights-heading">
             <h3 className="font-black" id="document-highlights-heading">
-              Najważniejsze informacje
+              {t("Najważniejsze informacje")}
             </h3>
             <dl className="mt-3 grid gap-3 sm:grid-cols-3">
               <ConsumerDocumentHighlight
                 icon={MapPin}
-                label="Obszar zabiegu"
+                label={t("Obszar zabiegu")}
                 value={treatmentAreaDisplayValue}
               />
               <ConsumerDocumentHighlight
                 icon={ClipboardCheck}
-                label="Zgody"
+                label={t("Zgody")}
                 value={
                   consents.length > 0
                     ? `${acceptedConsents} z ${consents.length} zaakceptowane`
@@ -4756,7 +4843,7 @@ function DocumentDialog({
               />
               <ConsumerDocumentHighlight
                 icon={PenLine}
-                label="Podpisy klientki"
+                label={t("Podpisy klientki")}
                 value={
                   signatures.length > 0
                     ? `${completedSignatures} z ${signatures.length} złożone`
@@ -4768,10 +4855,10 @@ function DocumentDialog({
           {detail.treatmentAreaIds.length > 0 ? (
             <section className="rounded-2xl border border-[#d4decc] bg-[#f7f8f4] p-4 sm:p-5">
               <p className="text-[10px] font-black uppercase tracking-[0.14em] text-[#245c4d]">
-                Wizualizacja obszaru zabiegu
+                {t("Wizualizacja obszaru zabiegu")}
               </p>
               <h3 className="mt-1 font-black text-[#173d35]">
-                Zaznaczone miejsca
+                {t("Zaznaczone miejsca")}
               </h3>
               <div className="mt-4">
                 <BeautyDocsTreatmentAreaVisualization
@@ -4782,23 +4869,23 @@ function DocumentDialog({
             </section>
           ) : null}
           <div className="rounded-2xl bg-[#f6f8f3] p-5">
-            <h3 className="font-black">Potwierdzenie podpisów</h3>
+            <h3 className="font-black">{t("Potwierdzenie podpisów")}</h3>
             <p className="mt-2 text-sm leading-6 text-stone-600">
-              Podpis klientki: {detail.clientSignedAt ? formatDate(detail.clientSignedAt) : "zarejestrowany"}. Dokument zawiera {detail.signatureKeys.length} osobne podpisy.
+              {t("Podpis klientki:")}{" "}{detail.clientSignedAt ? formatDate(detail.clientSignedAt) : "zarejestrowany"}{t(". Dokument zawiera")}{" "}{detail.signatureKeys.length}{" "}{t("osobne podpisy.")}
             </p>
             <p className="mt-1 text-sm leading-6 text-stone-600">
               {practitionerSignedAt
-                ? `Osoba wykonująca zabieg podpisała dokument ${formatDate(practitionerSignedAt)}.`
-                : "Podpis klientki jest zapisany. Dokument oczekuje jeszcze na osobny podpis osoby wykonującej zabieg."}
+                ? t("Osoba wykonująca zabieg podpisała dokument {value1}.", { value1: formatDate(practitionerSignedAt) })
+                : t("Podpis klientki jest zapisany. Dokument oczekuje jeszcze na osobny podpis osoby wykonującej zabieg.")}
             </p>
             {practitionerSignedAt && practitionerDisplayName ? (
               <figure className="mt-4 rounded-xl border border-stone-200 bg-white p-3">
                 <figcaption className="mb-2 text-xs font-semibold text-stone-500">
-                  Podpis osoby wykonującej zabieg — {practitionerDisplayName}
+                  {t("Podpis osoby wykonującej zabieg —")}{" "}{practitionerDisplayName}
                 </figcaption>
                 <div className="overflow-hidden rounded-lg border border-stone-200 bg-[#f7f8f4]">
                   <Image
-                    alt={`Podpis wykonawcy — ${practitionerDisplayName}`}
+                    alt={t("Podpis wykonawcy — {practitionerDisplayName}", { practitionerDisplayName: practitionerDisplayName })}
                     className="h-auto max-h-40 w-full object-contain"
                     height={220}
                     src={buildConsumerPractitionerSignatureUrl(detail.submissionId)}
@@ -4825,9 +4912,9 @@ function DocumentDialog({
               >
                 <header className="border-b border-stone-200 bg-[#f7f8f4] px-5 py-4">
                   <p className="text-[10px] font-black uppercase tracking-[0.14em] text-[#245c4d]">
-                    Sekcja {sectionIndex + 1}
+                    {t("Sekcja")}{" "}{sectionIndex + 1}
                   </p>
-                  <h3 className="mt-1 font-black">{section.title}</h3>
+                  <h3 className="mt-1 font-black">{t(section.title)}</h3>
                 </header>
                 <dl className="divide-y divide-stone-100">
                   {section.items
@@ -4868,7 +4955,7 @@ function DocumentDialog({
               ))
           ) : (
             <p className="rounded-2xl border border-stone-200 px-5 py-6 text-sm text-stone-500">
-              Brak zapisanych odpowiedzi.
+              {t("Brak zapisanych odpowiedzi.")}
             </p>
           )}
           {detail.status === "SIGNED" ? (
@@ -4878,7 +4965,7 @@ function DocumentDialog({
             />
           ) : null}
           <p className="text-xs leading-5 text-stone-500">
-            Widok pokazuje kopię pełnego formularza powiązanego z Twoim zweryfikowanym kontem. Salon przechowuje oryginał dokumentacji zabiegowej.
+            {t("Widok pokazuje kopię pełnego formularza powiązanego z Twoim zweryfikowanym kontem. Salon przechowuje oryginał dokumentacji zabiegowej.")}
           </p>
         </div>
       </div>
@@ -4895,11 +4982,12 @@ function ConsumerDocumentHighlight({
   readonly label: string;
   readonly value: string;
 }) {
+  const t = useT();
   return (
     <div className="rounded-2xl border border-[#d4decc] bg-[#f7f8f4] p-4">
       <dt className="flex items-center gap-2 text-xs font-black uppercase tracking-[0.1em] text-[#245c4d]">
         <Icon aria-hidden="true" className="size-4" />
-        {label}
+        {t(label)}
       </dt>
       <dd className="mt-2 whitespace-pre-wrap break-words text-sm font-black leading-6 text-[#173d35]">
         {value}
@@ -4917,6 +5005,7 @@ function ConsumerDocumentAnswer({
   readonly displayValueOverride: string | null;
   readonly signatureImageUrl: string | null;
 }) {
+  const t = useT();
   const value = answer.value?.trim() ?? "";
   const isAccepted = isAcceptedDocumentValue(value);
   const isBoolean = ["true", "false", "yes", "no", "tak", "nie", "1", "0"].includes(
@@ -4924,15 +5013,15 @@ function ConsumerDocumentAnswer({
   );
   let displayedValue: string;
   if (!value) {
-    displayedValue = "Nie udzielono odpowiedzi";
+    displayedValue = t("Nie udzielono odpowiedzi");
   } else if (answer.kind === "signature") {
-    displayedValue = "Podpis złożony";
+    displayedValue = t("Podpis złożony");
   } else if (answer.kind === "consent") {
-    displayedValue = isAccepted ? "Wyrażono zgodę" : "Nie wyrażono zgody";
+    displayedValue = isAccepted ? t("Wyrażono zgodę") : t("Nie wyrażono zgody");
   } else if (answer.kind === "contraindication" && isBoolean) {
-    displayedValue = isAccepted ? "Tak" : "Nie";
+    displayedValue = isAccepted ? t("Tak") : t("Nie");
   } else if (value === "true" || value === "false") {
-    displayedValue = value === "true" ? "Tak" : "Nie";
+    displayedValue = value === "true" ? t("Tak") : t("Nie");
   } else {
     displayedValue = value;
   }
@@ -4940,17 +5029,17 @@ function ConsumerDocumentAnswer({
 
   const detailTitle =
     answer.kind === "consent"
-      ? "Treść udzielonej zgody"
+      ? t("Treść udzielonej zgody")
       : answer.kind === "signature"
-        ? "Treść podpisanego dokumentu"
+        ? t("Treść podpisanego dokumentu")
         : answer.kind === "contraindication"
-          ? "Doprecyzowanie odpowiedzi"
-          : "Szczegóły";
+          ? t("Doprecyzowanie odpowiedzi")
+          : t("Szczegóły");
 
   return (
     <div className="grid gap-2 px-5 py-4 sm:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] sm:gap-6">
       <dt className="text-sm font-semibold leading-6 text-stone-600">
-        {answer.label}
+        {t(answer.label)}
       </dt>
       <dd className="min-w-0">
         <p
@@ -4967,11 +5056,11 @@ function ConsumerDocumentAnswer({
         {signatureImageUrl ? (
           <figure className="mt-3 rounded-xl border border-stone-200 bg-[#f7f8f4] p-3">
             <figcaption className="mb-2 text-xs font-semibold text-stone-500">
-              Zapisany podpis
+              {t("Zapisany podpis")}
             </figcaption>
             <div className="overflow-hidden rounded-lg border border-stone-200 bg-white">
               <Image
-                alt={`Podpis — ${answer.label}`}
+                alt={t("Podpis — {label}", { label: answer.label })}
                 className="h-auto max-h-40 w-full object-contain"
                 height={220}
                 src={signatureImageUrl}
@@ -4983,9 +5072,9 @@ function ConsumerDocumentAnswer({
         ) : null}
         {answer.detail ? (
           <div className="mt-3 rounded-xl border border-[#d4decc] bg-[#fafcf8] px-4 py-3">
-            <p className="text-xs font-black text-[#245c4d]">{detailTitle}</p>
+            <p className="text-xs font-black text-[#245c4d]">{t(detailTitle)}</p>
             <p className="mt-2 whitespace-pre-wrap break-words text-sm leading-6 text-[#173d35]">
-              {answer.detail}
+              {t(answer.detail)}
             </p>
           </div>
         ) : null}
@@ -5071,14 +5160,14 @@ function formatDate(value: string): string {
   const date = new Date(value);
   return Number.isNaN(date.getTime())
     ? value
-    : new Intl.DateTimeFormat("pl-PL", { dateStyle: "long", timeStyle: "short" }).format(date);
+    : new Intl.DateTimeFormat(activeIntlLocale(), { dateStyle: "long", timeStyle: "short" }).format(date);
 }
 
 function formatShortDate(value: string): string {
   const date = new Date(value);
   return Number.isNaN(date.getTime())
     ? value
-    : new Intl.DateTimeFormat("pl-PL", {
+    : new Intl.DateTimeFormat(activeIntlLocale(), {
         day: "2-digit",
         month: "short",
         year: "numeric",
@@ -5111,9 +5200,10 @@ function checkAdultBirthDate(value: string | null | undefined): string | null {
 }
 
 function ErrorMessage({ message }: { readonly message: string | null }) {
+  const t = useT();
   return message ? (
     <p className="rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800" role="alert">
-      {message}
+      {t(message)}
     </p>
   ) : null;
 }

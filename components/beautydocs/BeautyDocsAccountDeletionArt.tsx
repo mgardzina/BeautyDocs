@@ -1,3 +1,5 @@
+"use client";
+
 /**
  * Small hand-drawn-style illustration for the account-deletion confirmation:
  * a person setting down a box, looking back once before leaving. Built from

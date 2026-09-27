@@ -1,5 +1,6 @@
 "use client";
 
+import { useT } from "../i18n";
 import { ChevronLeft, ChevronRight, ImageIcon } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
@@ -20,6 +21,7 @@ export function ProductMediaGallery({
   readonly images: readonly ProductGalleryImage[];
   readonly name: string;
 }) {
+  const t = useT();
   const [activeIndex, setActiveIndex] = useState(0);
   const [failedPaths, setFailedPaths] = useState<readonly string[]>([]);
   const availableImages = images.filter((image) => !failedPaths.includes(image.path));
@@ -74,7 +76,7 @@ export function ProductMediaGallery({
             <div>
               <ImageIcon aria-hidden="true" className="mx-auto size-9 text-stone-400" />
               <p className="mt-3 text-sm font-bold text-stone-500">
-                Zdjęcie produktu jest w przygotowaniu
+                {t("Zdjęcie produktu jest w przygotowaniu")}
               </p>
             </div>
           </div>
@@ -83,7 +85,7 @@ export function ProductMediaGallery({
         {availableImages.length > 1 ? (
           <>
             <button
-              aria-label="Poprzednie zdjęcie"
+              aria-label={t("Poprzednie zdjęcie")}
               className="absolute left-4 top-1/2 grid size-11 -translate-y-1/2 place-items-center rounded-full bg-white/90 text-[#252c26] shadow-sm backdrop-blur transition hover:bg-white sm:left-6"
               onClick={() => selectRelative(-1)}
               type="button"
@@ -91,7 +93,7 @@ export function ProductMediaGallery({
               <ChevronLeft aria-hidden="true" className="size-5" />
             </button>
             <button
-              aria-label="Następne zdjęcie"
+              aria-label={t("Następne zdjęcie")}
               className="absolute right-4 top-1/2 grid size-11 -translate-y-1/2 place-items-center rounded-full bg-white/90 text-[#252c26] shadow-sm backdrop-blur transition hover:bg-white sm:right-6"
               onClick={() => selectRelative(1)}
               type="button"
@@ -107,13 +109,13 @@ export function ProductMediaGallery({
 
       {availableImages.length > 1 ? (
         <div
-          aria-label={`Galeria produktu ${name}`}
+          aria-label={t("Galeria produktu {name}", { name: name })}
           className="mt-4 flex w-full min-w-0 gap-3 overflow-x-auto pb-1"
           role="group"
         >
           {availableImages.map((image, index) => (
             <button
-              aria-label={`Pokaż zdjęcie: ${image.label}`}
+              aria-label={t("Pokaż zdjęcie: {label}", { label: image.label })}
               aria-pressed={safeIndex === index}
               className={`relative size-20 shrink-0 overflow-hidden rounded-2xl bg-[#eef1e7] transition sm:size-24 ${
                 safeIndex === index
@@ -142,7 +144,7 @@ export function ProductMediaGallery({
 
       {activeImage?.note ? (
         <p aria-live="polite" className="mt-3 text-xs leading-5 text-stone-500">
-          {activeImage.note}
+          {t(activeImage.note)}
         </p>
       ) : null}
     </div>

@@ -1,20 +1,25 @@
+"use client";
+
+import { useT } from "./i18n";
 import { BeautyDocsHeader } from "./BeautyDocsHeader";
 
 export function PublicTenantNotFound() {
+  const t = useT();
   return (
     <StatusPage
       code="404"
-      description="Sprawdź adres strony lub skontaktuj się bezpośrednio z salonem."
-      title="Nie znaleziono salonu"
+      description={t("Sprawdź adres strony lub skontaktuj się bezpośrednio z salonem.")}
+      title={t("Nie znaleziono salonu")}
     />
   );
 }
 
 export function PublicTenantUnavailable() {
+  const t = useT();
   return (
     <StatusPage
-      description="Spróbuj ponownie za kilka minut. Jeśli problem nie ustąpi, skontaktuj się z salonem."
-      title="Strona salonu jest chwilowo niedostępna"
+      description={t("Spróbuj ponownie za kilka minut. Jeśli problem nie ustąpi, skontaktuj się z salonem.")}
+      title={t("Strona salonu jest chwilowo niedostępna")}
     />
   );
 }
@@ -26,6 +31,7 @@ interface StatusPageProps {
 }
 
 function StatusPage({ code, title, description }: StatusPageProps) {
+  const t = useT();
   return (
     <div className="min-h-screen bg-[#f7f8f4] text-[#173d35]">
       <BeautyDocsHeader />
@@ -34,9 +40,9 @@ function StatusPage({ code, title, description }: StatusPageProps) {
           <p className="text-sm font-bold tracking-widest text-stone-500">{code}</p>
         ) : null}
         <h1 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
-          {title}
+          {t(title)}
         </h1>
-        <p className="mt-4 max-w-xl leading-7 text-stone-600">{description}</p>
+        <p className="mt-4 max-w-xl leading-7 text-stone-600">{t(description)}</p>
       </main>
     </div>
   );

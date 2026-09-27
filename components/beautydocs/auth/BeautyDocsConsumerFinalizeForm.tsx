@@ -1,5 +1,6 @@
 "use client";
 
+import { useT } from "../i18n";
 import { useState, type FormEvent } from "react";
 import { ArrowRight, Eye, EyeOff } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -23,6 +24,7 @@ function PasswordField({
   readonly disabled?: boolean;
   readonly onValueChange?: (value: string) => void;
 }) {
+  const t = useT();
   const [show, setShow] = useState(false);
   return (
     <div className="relative">
@@ -35,12 +37,12 @@ function PasswordField({
         minLength={8}
         name={name}
         onChange={(event) => onValueChange?.(event.target.value)}
-        placeholder={placeholder}
+        placeholder={t(placeholder)}
         required
         type={show ? "text" : "password"}
       />
       <button
-        aria-label={show ? "Ukryj hasło" : "Pokaż hasło"}
+        aria-label={show ? t("Ukryj hasło") : t("Pokaż hasło")}
         className="absolute right-3 top-1/2 -translate-y-1/2 rounded-lg p-1 text-muted-foreground transition hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         disabled={disabled}
         onClick={() => setShow((value) => !value)}
@@ -72,15 +74,16 @@ export function BeautyDocsConsumerFinalizeForm({
   readonly onPasswordChange: (value: string) => void;
   readonly onSubmit: (event: FormEvent<HTMLFormElement>) => void;
 }) {
+  const t = useT();
   return (
     <form onSubmit={onSubmit}>
       <FieldGroup>
         <p className="rounded-xl bg-secondary/60 px-4 py-2.5 text-center text-sm font-medium text-primary">
-          Potwierdzono: {email}
+          {t("Potwierdzono:")}{" "}{email}
         </p>
 
         <Field>
-          <FieldLabel htmlFor="cfin-name">Imię i nazwisko</FieldLabel>
+          <FieldLabel htmlFor="cfin-name">{t("Imię i nazwisko")}</FieldLabel>
           <Input
             autoComplete="name"
             autoFocus
@@ -88,31 +91,31 @@ export function BeautyDocsConsumerFinalizeForm({
             disabled={pending}
             id="cfin-name"
             name="fullName"
-            placeholder="np. Anna Kowalska"
+            placeholder={t("np. Anna Kowalska")}
             required
             type="text"
           />
         </Field>
 
         <Field>
-          <FieldLabel htmlFor="cfin-password">Hasło</FieldLabel>
+          <FieldLabel htmlFor="cfin-password">{t("Hasło")}</FieldLabel>
           <PasswordField
             disabled={pending}
             id="cfin-password"
             name="password"
             onValueChange={onPasswordChange}
-            placeholder="Minimum 8 znaków"
+            placeholder={t("Minimum 8 znaków")}
           />
           <PasswordStrength password={password} />
         </Field>
 
         <Field>
-          <FieldLabel htmlFor="cfin-confirm-password">Powtórz hasło</FieldLabel>
+          <FieldLabel htmlFor="cfin-confirm-password">{t("Powtórz hasło")}</FieldLabel>
           <PasswordField
             disabled={pending}
             id="cfin-confirm-password"
             name="confirmPassword"
-            placeholder="Wpisz hasło ponownie"
+            placeholder={t("Wpisz hasło ponownie")}
           />
         </Field>
 
@@ -132,10 +135,10 @@ export function BeautyDocsConsumerFinalizeForm({
             type="submit"
           >
             {pending ? (
-              "Tworzenie konta…"
+              t("Tworzenie konta…")
             ) : (
               <>
-                Załóż konto
+                {t("Załóż konto")}
                 <ArrowRight aria-hidden="true" className="size-4" />
               </>
             )}

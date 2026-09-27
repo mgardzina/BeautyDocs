@@ -355,6 +355,25 @@ export async function updateConsumerProfile(
   });
 }
 
+export async function fetchConsumerLanguage(
+  cookie: string | null,
+): Promise<ConsumerApiResult<{ readonly language: string }>> {
+  return consumerJsonRequest("/api/v1/consumer/language", { method: "GET", cookie });
+}
+
+export async function updateConsumerLanguage(
+  language: string,
+  cookie: string | null,
+  origin: string,
+): Promise<ConsumerApiResult<{ readonly language: string }>> {
+  return consumerJsonRequest("/api/v1/consumer/language", {
+    method: "PUT",
+    cookie,
+    origin,
+    body: JSON.stringify({ language }),
+  });
+}
+
 export async function fetchConsumerMedicalCatalog(
   cookie: string | null,
 ): Promise<ConsumerApiResult<BeautyDocsConsumerMedicalCatalog>> {

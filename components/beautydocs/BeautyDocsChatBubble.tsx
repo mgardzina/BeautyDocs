@@ -1,5 +1,6 @@
 "use client";
 
+import { useT } from "./i18n";
 import { MessageCircle, X } from "lucide-react";
 import { useState } from "react";
 import { BeautyDocsChat } from "./BeautyDocsChat";
@@ -19,13 +20,14 @@ type BeautyDocsChatBubbleProps =
     };
 
 export function BeautyDocsChatBubble(props: BeautyDocsChatBubbleProps) {
+  const t = useT();
   const [open, setOpen] = useState(false);
 
   return (
     <>
       {open ? (
         <div
-          aria-label="Szybki czat BeautyDocs"
+          aria-label={t("Szybki czat BeautyDocs")}
           className="fixed bottom-24 right-3 z-[70] h-[min(680px,calc(100dvh-7rem))] w-[min(410px,calc(100vw-1.5rem))] sm:right-6"
           role="dialog"
         >
@@ -54,10 +56,10 @@ export function BeautyDocsChatBubble(props: BeautyDocsChatBubbleProps) {
 
       <button
         aria-expanded={open}
-        aria-label={open ? "Zamknij szybki czat" : "Otwórz szybki czat"}
+        aria-label={open ? t("Zamknij szybki czat") : t("Otwórz szybki czat")}
         className="fixed bottom-5 right-4 z-[71] grid size-14 place-items-center rounded-full bg-[#245c4d] text-white shadow-[0_12px_35px_rgba(32,70,61,0.34)] ring-4 ring-white/80 transition hover:scale-105 hover:bg-[#173d35] focus-visible:outline-none focus-visible:ring-[#c3d5aa] sm:right-7 sm:size-16"
         onClick={() => setOpen((current) => !current)}
-        title="Szybki czat"
+        title={t("Szybki czat")}
         type="button"
       >
         {open ? <X className="size-5" /> : <MessageCircle className="size-6 fill-current" />}

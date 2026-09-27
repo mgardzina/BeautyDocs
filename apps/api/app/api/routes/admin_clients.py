@@ -40,10 +40,13 @@ from app.models.domain import (
     SubmissionStatus,
     TeamMember,
     TenantMembership,
+    User,
     VerificationStatus,
     Visit,
     VisitStatus,
 )
+from app.services.form_i18n import localize_form_content
+from app.services.form_print import FormPrintMetadata, form_print_metadata
 from app.services.salon_notifications import resolve_practitioner_signature_notification
 from app.services.signature_sms import normalize_phone
 from app.services.signature_verification import (
@@ -264,6 +267,7 @@ class ClientFormPractitionerResponse(AdminClientResponseModel):
 
 
 class ClientFormDetailResponse(AdminClientResponseModel):
+    print_metadata: FormPrintMetadata | None = None
     client: ClientFormDetailClientResponse
     submission: ClientFormDetailSubmissionResponse
     sections: list[ClientFormAnswerSectionResponse] = Field(max_length=100)
@@ -1225,9 +1229,16 @@ async def tenant_client_form_detail(
     document_snapshot = _record(submission.document_snapshot)
     template_schema = _record(row.template_schema)
     stored_answers = _record(submission.answers)
+    # Staff read documents in their own interface language; answers are keyed, not worded.
+    viewer_language = await session.scalar(
+        select(User.interface_language).where(User.id == access.principal.user_id)
+    )
+    shown_schema, shown_legal, _ = localize_form_content(
+        template_schema, _record(row.template_legal_content), viewer_language if isinstance(viewer_language, str) else "pl"
+    )
     sections, signature_keys = _build_form_answer_sections(
-        definition=template_schema,
-        legal_content=_record(row.template_legal_content),
+        definition=shown_schema,
+        legal_content=shown_legal,
         stored_answers=stored_answers,
         document_snapshot=document_snapshot,
         salon_name=access.tenant.display_name,
@@ -1312,6 +1323,10 @@ async def tenant_client_form_detail(
             submitted_at=submission.submitted_at,
             signed_at=submission.signed_at,
             created_at=submission.created_at,
+        ),
+        print_metadata=form_print_metadata(
+            document_snapshot, access.tenant.display_name, submission.document_hash,
+            form_name=row.template_name, template_version=row.template_version,
         ),
         sections=sections,
         anatomy=_form_anatomy(template_schema),

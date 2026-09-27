@@ -1,3 +1,6 @@
+"use client";
+
+import { useT } from "../i18n";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { BeautyDocsWordmark } from "../BeautyDocsWordmark";
@@ -33,40 +36,41 @@ const columns = [
 ];
 
 export function BeautyDocsMarketingFooter() {
+  const t = useT();
   return (
     <footer className="bd-footer bd-footer-editorial">
       <div className="bd-container">
         <div className="bd-footer-editorial-top">
-          <nav className="bd-footer-columns" aria-label="Nawigacja w stopce">
+          <nav className="bd-footer-columns" aria-label={t("Nawigacja w stopce")}>
             {columns.map(column => (
               <div key={column.title}>
-                <h2>{column.title}</h2>
+                <h2>{t(column.title)}</h2>
                 <ul>{column.links.map(link => (
-                  <li key={link.href}><Link href={link.href}>{link.label}</Link></li>
+                  <li key={link.href}><Link href={link.href}>{t(link.label)}</Link></li>
                 ))}</ul>
               </div>
             ))}
           </nav>
           <div className="bd-footer-invitation">
-            <p className="bd-footer-label">Przestrzeń dla Twojego salonu</p>
-            <p className="bd-footer-message">Dobry porządek.<br /><span className="bd-serif">Jeszcze lepszy dzień.</span></p>
+            <p className="bd-footer-label">{t("Przestrzeń dla Twojego salonu")}</p>
+            <p className="bd-footer-message">{t("Dobry porządek.")}<br /><span className="bd-serif">{t("Jeszcze lepszy dzień.")}</span></p>
             <Link className="bd-footer-contact" href="/kontakt">
-              Porozmawiajmy o Twoim salonie
+              {t("Porozmawiajmy o Twoim salonie")}
               <span><ArrowUpRight size={22} aria-hidden="true" /></span>
             </Link>
           </div>
         </div>
         <div className="bd-footer-signature">
-          <Link href="/" aria-label="BeautyDocs — strona główna" className="bd-footer-brand">
+          <Link href="/" aria-label={t("BeautyDocs — strona główna")} className="bd-footer-brand">
             <span aria-hidden="true">✳</span><BeautyDocsWordmark className="text-white" />
           </Link>
-          <p>Z troską o ludzi.<br />Z myślą o Twoim salonie.</p>
+          <p>{t("Z troską o ludzi.")}<br />{t("Z myślą o Twoim salonie.")}</p>
         </div>
         <div className="bd-footer-bottom">
-          <span>© {new Date().getFullYear()} BeautyDocs</span>
-          <nav aria-label="Dokumenty prawne">
-            <Link href="/polityka-prywatnosci">Polityka prywatności</Link>
-            <Link href="/regulamin">Regulamin platformy</Link>
+          <span>© {new Date().getFullYear()}{" "}{t("BeautyDocs")}</span>
+          <nav aria-label={t("Dokumenty prawne")}>
+            <Link href="/polityka-prywatnosci">{t("Polityka prywatności")}</Link>
+            <Link href="/regulamin">{t("Regulamin platformy")}</Link>
           </nav>
         </div>
       </div>

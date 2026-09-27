@@ -1,4 +1,5 @@
 import { isValidTenantSlug } from "./tenant-host";
+import { isBeautyDocsLocale, type BeautyDocsLocale } from "./i18n/config";
 import { isValidFormSlug } from "./beautydocs-form-path";
 import type {
   FormConsent,
@@ -44,12 +45,16 @@ export class BeautyDocsApiContractError extends Error {
   }
 }
 
-export function publicTenantConfigEndpointPath(tenantSlug: string): string {
+export function publicTenantConfigEndpointPath(
+  tenantSlug: string,
+  locale?: BeautyDocsLocale,
+): string {
   if (!isValidTenantSlug(tenantSlug)) {
     throw contractError("tenant slug is invalid");
   }
 
-  return `/api/v1/public/tenants/${encodeURIComponent(tenantSlug)}`;
+  const path = `/api/v1/public/tenants/${encodeURIComponent(tenantSlug)}`;
+  return locale && locale !== "pl" ? `${path}?lang=${locale}` : path;
 }
 
 /**
@@ -395,6 +400,7 @@ export type PublicFormContentLoadResult =
 export function publicTenantFormEndpointPath(
   tenantSlug: string,
   formCode: string,
+  locale?: BeautyDocsLocale,
 ): string {
   if (!isValidTenantSlug(tenantSlug)) {
     throw contractError("tenant slug is invalid");
@@ -403,7 +409,8 @@ export function publicTenantFormEndpointPath(
     throw contractError("form code is invalid");
   }
 
-  return `/api/v1/public/tenants/${encodeURIComponent(tenantSlug)}/forms/${encodeURIComponent(formCode)}`;
+  const path = `/api/v1/public/tenants/${encodeURIComponent(tenantSlug)}/forms/${encodeURIComponent(formCode)}`;
+  return locale && locale !== "pl" ? `${path}?lang=${locale}` : path;
 }
 
 const FORM_CONTENT_KEYS = [
@@ -413,6 +420,7 @@ const FORM_CONTENT_KEYS = [
   "version",
   "definition",
   "legal",
+  "contentLocale",
   "practitioners",
 ] as const;
 const PUBLIC_PRACTITIONER_KEYS = [
@@ -480,6 +488,11 @@ export function parsePublicFormContent(value: unknown): PublicFormContent {
       consents: rawConsents.map(parseFormConsent),
       documents: parseLegalDocuments(legal.documents),
     },
+    contentLocale: isBeautyDocsLocale(content.contentLocale)
+      ? content.contentLocale
+      : (() => {
+          throw contractError("form.contentLocale is not a supported language");
+        })(),
     practitioners: content.practitioners.map((value, index) => {
       const path = `form.practitioners[${index}]`;
       const practitioner = expectRecord(value, path);

@@ -1,3 +1,5 @@
+import type { BeautyDocsLocale } from "../lib/i18n/config";
+
 /**
  * Public, read-only salon data that may be exposed to an unauthenticated page.
  *
@@ -53,6 +55,8 @@ export interface PublicFormContent {
   readonly version: number;
   readonly definition: FormDefinition;
   readonly legal: FormLegalContent;
+  /** Language the questionnaire and consents were served in (recorded on signing). */
+  readonly contentLocale: BeautyDocsLocale;
   readonly practitioners: readonly PublicPractitioner[];
 }
 

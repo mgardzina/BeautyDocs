@@ -1,3 +1,4 @@
+import { getServerTranslator } from "../../../lib/i18n/server";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -21,7 +22,7 @@ import {
 import { catalogPriceOffers } from "@/lib/beautydocs-catalog-offers";
 import type { BeautyDocsCatalogItem } from "@/types/beautydocs-catalog";
 
-const SITE_URL = "https://powderbrowsacademy.com.pl";
+const SITE_URL = "https://beautydocs.pl";
 
 interface ProductPageProps {
   readonly params: Promise<{ readonly slug: string }>;
@@ -65,6 +66,7 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
 }
 
 export default async function CatalogProductPage({ params }: ProductPageProps) {
+  const { t } = await getServerTranslator();
   const { slug } = await params;
   if (!isCatalogProductSlug(slug)) notFound();
   const [productResult, listResult] = await Promise.all([
@@ -108,15 +110,15 @@ export default async function CatalogProductPage({ params }: ProductPageProps) {
 
         <div className="mx-auto max-w-[1440px] px-4 pb-24 pt-8 sm:px-6 lg:px-10">
           <nav
-            aria-label="Okruszki"
+            aria-label={t("Okruszki")}
             className="flex flex-wrap items-center gap-2 text-xs font-bold text-stone-500"
           >
             <Link className="transition hover:text-[#245c4d]" href="/">
-              BeautyDocs
+              {t("BeautyDocs")}
             </Link>
             <span aria-hidden="true">/</span>
             <Link className="transition hover:text-[#245c4d]" href="/katalog">
-              Katalog
+              {t("Katalog")}
             </Link>
             <span aria-hidden="true">/</span>
             <span aria-current="page" className="text-stone-700">
@@ -130,7 +132,7 @@ export default async function CatalogProductPage({ params }: ProductPageProps) {
             className="mt-12 inline-flex min-h-11 items-center gap-2 border-b border-[#bda5ad] pb-1 text-sm font-black text-[#245c4d] transition hover:text-[#173d35]"
             href="/katalog"
           >
-            <ArrowLeft aria-hidden="true" className="size-4" /> Wróć do katalogu
+            <ArrowLeft aria-hidden="true" className="size-4" />{" "}{t("Wróć do katalogu")}
           </Link>
         </div>
       </main>

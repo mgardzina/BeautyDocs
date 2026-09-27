@@ -79,6 +79,8 @@ from app.services.chat_automation import append_visit_chat_event
 from app.services.check_in_token import issue_check_in_token
 from app.services.consumer_documents import consumer_claim_token_digest
 from app.services.consumer_mfa import consumer_mfa_enabled, issue_consumer_mfa_challenge
+from app.services.form_i18n import localize_form_content
+from app.services.form_print import FormPrintMetadata, form_print_metadata
 from app.services.google_identity import (
     GoogleIdentityVerificationError,
     VerifiedGoogleIdentity,
@@ -298,6 +300,7 @@ class ConsumerDocumentAnatomy(ConsumerModel):
 
 
 class ConsumerDocumentDetail(ConsumerDocumentSummary):
+    print_metadata: FormPrintMetadata | None = None
     client: dict[str, Any]
     answers: dict[str, Any]
     sections: list[ClientFormAnswerSectionResponse]
@@ -2539,9 +2542,19 @@ async def get_consumer_document(
             "jobTitle": practitioner.get("jobTitle"),
             "signedAt": practitioner.get("signedAt"),
         }
+    viewer_language = await session.scalar(
+        select(ConsumerAccount.interface_language).where(
+            ConsumerAccount.id == principal.consumer_account_id
+        )
+    )
+    shown_schema, shown_legal, _ = localize_form_content(
+        template_schema if isinstance(template_schema, dict) else {},
+        legal_content if isinstance(legal_content, dict) else {},
+        viewer_language if isinstance(viewer_language, str) else "pl",
+    )
     sections, signature_keys = _build_form_answer_sections(
-        definition=template_schema if isinstance(template_schema, dict) else {},
-        legal_content=legal_content if isinstance(legal_content, dict) else {},
+        definition=shown_schema,
+        legal_content=shown_legal,
         stored_answers=(submission.answers if isinstance(submission.answers, dict) else {}),
         document_snapshot=snapshot,
         salon_name=salon_name,
@@ -2584,6 +2597,7 @@ async def get_consumer_document(
         shared_at=link.shared_at,
         client=snapshot.get("client") if isinstance(snapshot.get("client"), dict) else {},
         answers=snapshot.get("answers") if isinstance(snapshot.get("answers"), dict) else {},
+        print_metadata=form_print_metadata(snapshot, salon_name, submission.document_hash),
         sections=sections,
         anatomy=anatomy,
         treatment_area_ids=treatment_area_ids,
@@ -2654,21 +2668,35 @@ async def get_consumer_document_practitioner_signature(
     if link is None:
         raise _document_not_found()
     await set_tenant_context(session, link.tenant_id)
-    document_snapshot = await session.scalar(
-        select(FormSubmission.document_snapshot).where(
-            FormSubmission.tenant_id == link.tenant_id,
-            FormSubmission.id == submission_id,
+    row = (
+        await session.execute(
+            select(
+                FormSubmission.document_snapshot,
+                FormSubmission.practitioner_signature_data_url,
+            ).where(
+                FormSubmission.tenant_id == link.tenant_id,
+                FormSubmission.id == submission_id,
+            )
         )
-    )
-    snapshot = document_snapshot if isinstance(document_snapshot, dict) else {}
-    practitioner = snapshot.get("practitioner")
-    signature = practitioner.get("signature") if isinstance(practitioner, dict) else None
-    if not isinstance(signature, str):
+    ).first()
+    if row is None:
         raise _document_not_found()
-    try:
-        signature_bytes = decode_signature_png_data_url(signature)
-    except InvalidSignatureImageError:
-        raise _document_not_found() from None
+    snapshot = row.document_snapshot if isinstance(row.document_snapshot, dict) else {}
+    practitioner = snapshot.get("practitioner")
+    legacy_signature = practitioner.get("signature") if isinstance(practitioner, dict) else None
+    # Match the owner endpoint: prefer the dedicated column, retaining support
+    # for older documents with a signature embedded in the snapshot.
+    signature_bytes = None
+    for signature in (row.practitioner_signature_data_url, legacy_signature):
+        if not isinstance(signature, str):
+            continue
+        try:
+            signature_bytes = decode_signature_png_data_url(signature)
+            break
+        except InvalidSignatureImageError:
+            continue
+    if signature_bytes is None:
+        raise _document_not_found()
     return Response(
         content=signature_bytes,
         media_type="image/png",

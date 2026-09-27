@@ -2,18 +2,18 @@
  * Wysyłka emaila z kartą zgody jako załącznikiem PDF
  * Używa Resend (https://resend.com)
  *
- * Od: noreply@powderbrowsacademy.com.pl (lub sandbox jeśli domena niezweryfikowana)
+ * Od: noreply@beautydocs.pl (lub sandbox jeśli domena niezweryfikowana)
  * Do: klient (jeśli podał email) + admins
  */
 import { Resend } from "resend";
 
 // Adres admina / salonu — zawsze dostaje kopię
-const SALON_EMAIL = process.env.SALON_EMAIL || "kontakt@powderbrowsacademy.com.pl";
-const SALON_NAME = "Powder Brows Academy";
+const SALON_EMAIL = process.env.SALON_EMAIL || "kontakt@beautydocs.pl";
+const SALON_NAME = "BeautyDocs";
 
 // Adres nadawcy — musi być zweryfikowaną domeną w Resend
 // Na start użyj onboarding@resend.dev jeśli domena nie jest zweryfikowana
-const FROM_EMAIL = "formularz@powderbrowsacademy.com.pl";
+const FROM_EMAIL = process.env.FROM_EMAIL || "formularz@beautydocs.pl";
 const FROM_DISPLAY = `${SALON_NAME} <${FROM_EMAIL}>`;
 
 interface SendConsentEmailOptions {

@@ -1,3 +1,6 @@
+"use client";
+
+import { useT } from "../i18n";
 import { ExternalLink, Info, ShieldAlert, Truck } from "lucide-react";
 import Image from "next/image";
 import {
@@ -20,6 +23,7 @@ export function ProductPriceComparison({
   readonly details: Readonly<Record<string, unknown>>;
   readonly productName: string;
 }) {
+  const t = useT();
   const offers = catalogPriceOffers(details);
   const meta = catalogPriceComparisonMeta(details);
   const officialReferencePrice = catalogOfficialReferencePrice(details);
@@ -40,25 +44,24 @@ export function ProductPriceComparison({
       <div className="grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:gap-16">
         <div>
           <p className="text-[11px] font-black uppercase tracking-[0.17em] text-[#245c4d]">
-            Porównywarka BeautyDocs
+            {t("Porównywarka BeautyDocs")}
           </p>
           <h2
             className="mt-2 font-serif text-3xl font-medium text-[#173d35] sm:text-4xl"
             id="porownanie-cen-tytul"
           >
-            Porównaj ceny
+            {t("Porównaj ceny")}
           </h2>
           {lowest !== null ? (
             <div className="mt-7 border-y border-[#dce3d5] py-5">
               <p className="text-[10px] font-black uppercase tracking-[0.14em] text-stone-400">
-                Cena produktu od
+                {t("Cena produktu od")}
               </p>
               <p className="mt-1 font-serif text-4xl text-[#173d35]">
                 {formatPricePln(lowest)}
               </p>
               <p className="mt-2 text-xs leading-5 text-stone-500">
-                {availableOffers.length} {offerCountLabel(availableOffers.length)} • najniższa
-                cena samego produktu
+                {availableOffers.length} {t(offerCountLabel(availableOffers.length))}{" "}{t("• najniższa cena samego produktu")}
               </p>
             </div>
           ) : null}
@@ -72,7 +75,7 @@ export function ProductPriceComparison({
               <span className="flex items-center justify-between gap-3">
                 <span>
                   <span className="block text-[10px] font-black uppercase tracking-[0.14em] text-stone-400">
-                    Cena w sklepie producenta
+                    {t("Cena w sklepie producenta")}
                   </span>
                   <span className="mt-1 block font-serif text-3xl text-[#173d35]">
                     {formatCatalogMoney(
@@ -84,8 +87,7 @@ export function ProductPriceComparison({
                 <ExternalLink aria-hidden="true" className="size-4 text-[#245c4d]" />
               </span>
               <span className="mt-2 block text-[11px] font-bold leading-5 text-stone-500">
-                {officialReferencePrice.seller} • cena w {officialReferencePrice.currency},
-                bez przeliczenia na PLN
+                {officialReferencePrice.seller}{" "}{t("• cena w")}{" "}{officialReferencePrice.currency}{t(", bez przeliczenia na PLN")}
               </span>
             </a>
           ) : null}
@@ -95,21 +97,20 @@ export function ProductPriceComparison({
           {meta?.status === "INFORMATION_ONLY" ? (
             <div className="rounded-[26px] border border-amber-200 bg-amber-50 px-5 py-6 text-amber-950">
               <p className="flex items-center gap-2 text-sm font-black">
-                <ShieldAlert aria-hidden="true" className="size-5" /> Pozycja wyłącznie
-                informacyjna
+                <ShieldAlert aria-hidden="true" className="size-5" />{" "}{t("Pozycja wyłącznie informacyjna")}
               </p>
               <p className="mt-3 text-sm leading-7 text-amber-900/80">{meta.notice}</p>
               <p className="mt-3 text-[11px] font-bold text-amber-900/60">
-                Aktualizacja informacji: {formatDate(meta.updatedAt)}
+                {t("Aktualizacja informacji:")}{" "}{formatDate(meta.updatedAt)}
               </p>
             </div>
           ) : meta?.status === "REQUEST_QUOTE" ? (
             <div className="rounded-[26px] border border-[#d1d8c8] bg-[#eef3e8] px-5 py-7 sm:px-7">
               <p className="text-[10px] font-black uppercase tracking-[0.14em] text-[#245c4d]">
-                Sprzedaż B2B
+                {t("Sprzedaż B2B")}
               </p>
               <h3 className="mt-2 font-serif text-3xl text-[#173d35]">
-                Cena ustalana indywidualnie
+                {t("Cena ustalana indywidualnie")}
               </h3>
               <p className="mt-4 max-w-xl text-sm leading-7 text-stone-600">
                 {meta.notice}
@@ -120,11 +121,11 @@ export function ProductPriceComparison({
                 rel="nofollow noreferrer"
                 target="_blank"
               >
-                Zapytaj producenta o wycenę
+                {t("Zapytaj producenta o wycenę")}
                 <ExternalLink aria-hidden="true" className="size-4" />
               </a>
               <p className="mt-4 text-[11px] font-bold text-stone-400">
-                Weryfikacja informacji: {formatDate(meta.updatedAt)}
+                {t("Weryfikacja informacji:")}{" "}{formatDate(meta.updatedAt)}
               </p>
             </div>
           ) : (
@@ -133,20 +134,18 @@ export function ProductPriceComparison({
                 <div className="mb-4 flex gap-3 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-xs leading-6 text-amber-950">
                   <ShieldAlert aria-hidden="true" className="mt-0.5 size-4 shrink-0" />
                   <span>
-                    Przed zamówieniem zweryfikuj status produktu, pełny skład,
-                    instrukcję oraz uprawnienia sprzedawcy. Widoczna cena nie jest
-                    rekomendacją użycia.
+                    {t("Przed zamówieniem zweryfikuj status produktu, pełny skład, instrukcję oraz uprawnienia sprzedawcy. Widoczna cena nie jest rekomendacją użycia.")}
                   </span>
                 </div>
               ) : null}
 
               <div className="overflow-hidden rounded-[26px] border border-[#dce3d5] bg-white">
                 <div className="hidden grid-cols-[minmax(138px,1.1fr)_0.58fr_0.62fr_0.68fr_180px] gap-4 border-b border-[#e8e1dd] bg-[#f4f7ef] px-5 py-3 text-[9px] font-black uppercase tracking-[0.12em] text-stone-400 sm:grid">
-                  <span>Sklep</span>
-                  <span>Cena</span>
-                  <span>Dostawa</span>
-                  <span>Razem</span>
-                  <span className="sr-only">Przejdź do oferty</span>
+                  <span>{t("Sklep")}</span>
+                  <span>{t("Cena")}</span>
+                  <span>{t("Dostawa")}</span>
+                  <span>{t("Razem")}</span>
+                  <span className="sr-only">{t("Przejdź do oferty")}</span>
                 </div>
                 <div className="divide-y divide-[#e8e1dd]">
                   {offers.map((offer) => {
@@ -174,50 +173,50 @@ export function ProductPriceComparison({
                                   : "bg-emerald-50 text-emerald-700"
                               }`}
                             >
-                              {availabilityLabel(offer.availability)}
+                              {t(availabilityLabel(offer.availability))}
                             </span>
                             {isLowest ? (
                               <span className="text-[9px] font-black uppercase tracking-[0.08em] text-[#245c4d]">
-                                Najniższa cena
+                                {t("Najniższa cena")}
                               </span>
                             ) : null}
                           </div>
                         </div>
                         <div>
                           <p className="text-[9px] font-black uppercase tracking-[0.11em] text-stone-400 sm:hidden">
-                            Cena
+                            {t("Cena")}
                           </p>
                           <p className="mt-1 text-base font-black text-[#173d35] sm:mt-0">
                             {formatPricePln(offer.pricePln)}
                           </p>
                           <p className="mt-1 text-[10px] text-stone-400">
-                            cena produktu
+                            {t("cena produktu")}
                           </p>
                         </div>
                         <div>
                           <p className="text-[9px] font-black uppercase tracking-[0.11em] text-stone-400 sm:hidden">
-                            Dostawa
+                            {t("Dostawa")}
                           </p>
                           <p className="mt-1 flex items-center gap-1.5 text-sm font-black text-[#173d35] sm:mt-0">
                             <Truck aria-hidden="true" className="size-3.5 text-[#61978a]" />
-                            {shippingLabel(offer.shippingPricePln)}
+                            {t(shippingLabel(offer.shippingPricePln))}
                           </p>
                           <p className="mt-1 text-[10px] text-stone-400">
                             {offer.shippingPricePln === null
                               ? "koszt w sklepie"
-                              : "koszt wysyłki"}
+                              : t("koszt wysyłki")}
                           </p>
                         </div>
                         <div
                           className="rounded-xl bg-[#f4f7f1] px-3 py-2.5 sm:bg-transparent sm:px-0 sm:py-0"
                           title={
                             total === null
-                              ? "Suma będzie znana po sprawdzeniu kosztu dostawy w sklepie."
+                              ? t("Suma będzie znana po sprawdzeniu kosztu dostawy w sklepie.")
                               : undefined
                           }
                         >
                           <p className="text-[9px] font-black uppercase tracking-[0.11em] text-stone-400 sm:hidden">
-                            Razem
+                            {t("Razem")}
                           </p>
                           <p className="mt-1 font-serif text-xl font-medium text-[#173d35] sm:mt-0">
                             {total === null ? "—" : formatPricePln(total)}
@@ -227,7 +226,7 @@ export function ProductPriceComparison({
                           </p>
                         </div>
                         <a
-                          aria-label={`Sprawdź ofertę ${productName} w ${offer.seller}`}
+                          aria-label={t("Sprawdź ofertę {productName} w {seller}", { productName: productName, seller: offer.seller })}
                           className={`inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full px-4 text-xs font-black transition sm:w-auto ${
                             unavailable
                               ? "border border-stone-300 text-stone-500 hover:bg-stone-100"
@@ -237,7 +236,7 @@ export function ProductPriceComparison({
                           rel="nofollow noreferrer"
                           target="_blank"
                         >
-                          {unavailable ? "Zobacz źródło" : "Sprawdź ofertę"}
+                          {unavailable ? t("Zobacz źródło") : t("Sprawdź ofertę")}
                           <ExternalLink aria-hidden="true" className="size-3.5" />
                         </a>
                       </article>
@@ -245,8 +244,7 @@ export function ProductPriceComparison({
                   })}
                   {offers.length === 0 ? (
                     <p className="px-5 py-8 text-sm leading-7 text-stone-500">
-                      Nie mamy jeszcze aktywnej, zweryfikowanej oferty dla tego
-                      produktu.
+                      {t("Nie mamy jeszcze aktywnej, zweryfikowanej oferty dla tego produktu.")}
                     </p>
                   ) : null}
                 </div>
@@ -260,7 +258,7 @@ export function ProductPriceComparison({
             <div className="mt-4 flex gap-2.5 text-[11px] leading-5 text-stone-500">
               <Info aria-hidden="true" className="mt-0.5 size-4 shrink-0" />
               <p>
-                {meta.notice} Aktualizacja: {formatDate(meta.updatedAt)}.
+                {meta.notice}{" "}{t("Aktualizacja:")}{" "}{formatDate(meta.updatedAt)}.
               </p>
             </div>
           ) : null}

@@ -1,5 +1,6 @@
 "use client";
 
+import { useT } from "./i18n";
 import { Dialog } from "radix-ui";
 import { useRef, type ReactNode } from "react";
 
@@ -17,6 +18,7 @@ export function BeautyDocsDialog({
   readonly children: ReactNode;
   readonly className?: string;
 }) {
+  const t = useT();
   const opener = useRef<HTMLElement | null>(null);
 
   return (
@@ -37,7 +39,7 @@ export function BeautyDocsDialog({
                 }
               }}
             >
-              <Dialog.Title className="sr-only">{title}</Dialog.Title>
+              <Dialog.Title className="sr-only">{t(title)}</Dialog.Title>
               {children}
             </Dialog.Content>
           </div>

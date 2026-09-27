@@ -50,7 +50,7 @@ export function LoginForm({
               <Field>
                 <Button type="submit">Login</Button>
               </Field>
-              <FieldSeparator className="*:data-[slot=field-separator-content]:bg-card">
+              <FieldSeparator className="[&>[data-slot=field-separator-content]]:bg-card">
                 Or continue with
               </FieldSeparator>
               <Field className="grid grid-cols-3 gap-4">

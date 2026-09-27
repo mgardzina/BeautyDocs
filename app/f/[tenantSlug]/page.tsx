@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getRequestLocale } from "../../../lib/i18n/server";
 import { notFound } from "next/navigation";
 import { PublicTenantShell, PublicTenantUnavailable, TenantActiveForms } from "../../../components/beautydocs";
 import { fetchPublicTenantConfig } from "../../../lib/beautydocs-api";
@@ -27,7 +28,7 @@ export default async function PublicFormsCataloguePage({
 
   const { from } = await searchParams;
 
-  const result = await fetchPublicTenantConfig(tenantSlug);
+  const result = await fetchPublicTenantConfig(tenantSlug, await getRequestLocale());
   if (result.status === "not-found") {
     notFound();
   }

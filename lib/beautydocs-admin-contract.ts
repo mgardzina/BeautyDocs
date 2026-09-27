@@ -1064,7 +1064,20 @@ export function parseBeautyDocsAdminClientFormDetail(
   value: unknown,
 ): BeautyDocsAdminClientFormDetail {
   const detail = expectRecord(value, "clientForm");
-  expectExactKeys(detail, CLIENT_FORM_DETAIL_KEYS, "clientForm");
+  expectExactKeys(detail, Object.hasOwn(detail, "printMetadata") ? [...CLIENT_FORM_DETAIL_KEYS, "printMetadata"] : CLIENT_FORM_DETAIL_KEYS, "clientForm");
+  let printMetadata = null;
+  if (detail.printMetadata != null) {
+    const meta = expectRecord(detail.printMetadata, "clientForm.printMetadata");
+    expectExactKeys(meta, ["salonName", "formName", "templateVersion", "clientSignedAt", "documentHash"], "clientForm.printMetadata");
+    if (meta.templateVersion !== null && (typeof meta.templateVersion !== "number" || !Number.isInteger(meta.templateVersion) || meta.templateVersion < 1)) throw contractError("Invalid template version");
+    printMetadata = {
+      salonName: expectString(meta.salonName, "printMetadata.salonName", 250),
+      formName: expectString(meta.formName, "printMetadata.formName", 250),
+      templateVersion: meta.templateVersion as number | null,
+      clientSignedAt: expectNullableDateTime(meta.clientSignedAt, "printMetadata.clientSignedAt"),
+      documentHash: expectNullableString(meta.documentHash, "printMetadata.documentHash", 64),
+    };
+  }
 
   const client = expectRecord(detail.client, "clientForm.client");
   expectExactKeys(
@@ -1179,6 +1192,7 @@ export function parseBeautyDocsAdminClientFormDetail(
         "clientForm.submission.createdAt",
       ),
     },
+    ...(Object.hasOwn(detail, "printMetadata") ? { printMetadata } : {}),
     sections: detail.sections.map(parseClientFormDetailSection),
     anatomy,
     treatmentAreaIds,

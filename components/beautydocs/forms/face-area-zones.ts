@@ -18,7 +18,7 @@ const BODY_CHART = "/women-body-chart.JPG";
  * Named treatment-area zone sets keyed by the `anatomy.faceZoneSet` /
  * `anatomy.bodyZoneSet` ids carried in a form template's schema. Reuses the
  * legacy zone geometry so the interactive chart stays identical to the original
- * PowderBrows forms.
+ * BeautyDocs forms.
  */
 const FACE_AREA_SETS: Record<string, FaceAreaSet> = {
   pmu: { chartImage: FACE_CHART, zones: PMU_ZONES, viewBoxWidth: 980, viewBoxHeight: 980 },

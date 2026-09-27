@@ -1,3 +1,7 @@
+"use client";
+import { activeIntlLocale } from "../../../lib/i18n/active";
+
+import { useT } from "../i18n";
 import {
   Archive,
   ArrowLeft,
@@ -32,6 +36,7 @@ export function BeautyDocsClientProfile({
   profile,
   tenantSlug,
 }: BeautyDocsClientProfileProps) {
+  const t = useT();
   const { client } = profile;
   const clientsPath = `/panel/${encodeURIComponent(tenantSlug)}/clients`;
 
@@ -42,7 +47,7 @@ export function BeautyDocsClientProfile({
         href={clientsPath}
       >
         <ArrowLeft aria-hidden="true" className="size-4" />
-        Wróć do klientek
+        {t("Wróć do klientek")}
       </Link>
 
       <header className="mt-6 rounded-2xl border border-stone-200 bg-white p-5 shadow-sm sm:p-7">
@@ -52,7 +57,7 @@ export function BeautyDocsClientProfile({
               {initials(client.firstName, client.lastName)}
             </span>
             <div className="min-w-0">
-              <p className="text-sm font-semibold text-stone-500">Profil klientki</p>
+              <p className="text-sm font-semibold text-stone-500">{t("Profil klientki")}</p>
               <h1 className="mt-1 truncate text-2xl font-bold tracking-tight sm:text-3xl" id="client-profile-heading">
                 {client.firstName} {client.lastName}
               </h1>
@@ -66,30 +71,30 @@ export function BeautyDocsClientProfile({
             }`}
           >
             {client.archivedAt ? <Archive aria-hidden="true" className="size-3.5" /> : null}
-            {client.archivedAt ? "Archiwalna" : "Aktywna"}
+            {client.archivedAt ? t("Archiwalna") : t("Aktywna")}
           </span>
         </div>
 
         <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          <ContactItem icon={Phone} label="Telefon" value={client.phone} type="phone" />
-          <ContactItem icon={Mail} label="E-mail" value={client.email} type="email" />
+          <ContactItem icon={Phone} label={t("Telefon")} value={client.phone} type="phone" />
+          <ContactItem icon={Mail} label={t("E-mail")} value={client.email} type="email" />
           <ProfileValue
             icon={CalendarDays}
-            label="Data urodzenia"
+            label={t("Data urodzenia")}
             value={client.birthDate ? formatBirthDate(client.birthDate) : "Nie podano"}
           />
           <ProfileValue
             icon={UserRound}
-            label="Klientka od"
+            label={t("Klientka od")}
             value={formatDate(client.createdAt)}
           />
         </div>
       </header>
 
       <dl className="mt-5 grid grid-cols-3 gap-3">
-        <ProfileCount label="Wizyty" value={profile.visits.total} />
-        <ProfileCount label="Formularze" value={profile.forms.total} />
-        <ProfileCount label="Notatki" value={profile.notes.total} />
+        <ProfileCount label={t("Wizyty")} value={profile.visits.total} />
+        <ProfileCount label={t("Formularze")} value={profile.forms.total} />
+        <ProfileCount label={t("Notatki")} value={profile.notes.total} />
       </dl>
 
       <div className="mt-6 space-y-6">
@@ -114,10 +119,11 @@ function ProfileValue({
   readonly label: string;
   readonly value: string;
 }) {
+  const t = useT();
   return (
     <div className="rounded-xl bg-[#f7f8f4] p-4">
       <div className="flex items-center gap-2 text-xs font-semibold text-stone-500">
-        <Icon aria-hidden="true" className="size-3.5" /> {label}
+        <Icon aria-hidden="true" className="size-3.5" /> {t(label)}
       </div>
       <p className="mt-2 break-words text-sm font-bold text-[#222a23]">{value}</p>
     </div>
@@ -135,8 +141,9 @@ function ContactItem({
   readonly value: string | null;
   readonly type: "phone" | "email";
 }) {
+  const t = useT();
   if (!value) {
-    return <ProfileValue icon={icon} label={label} value="Nie podano" />;
+    return <ProfileValue icon={icon} label={t(label)} value="Nie podano" />;
   }
 
   const Icon = icon;
@@ -144,7 +151,7 @@ function ContactItem({
   return (
     <div className="rounded-xl bg-[#f7f8f4] p-4">
       <div className="flex items-center gap-2 text-xs font-semibold text-stone-500">
-        <Icon aria-hidden="true" className="size-3.5" /> {label}
+        <Icon aria-hidden="true" className="size-3.5" /> {t(label)}
       </div>
       <a className="mt-2 block break-words text-sm font-bold text-[#222a23] hover:underline" href={href}>
         {value}
@@ -154,10 +161,11 @@ function ContactItem({
 }
 
 function ProfileCount({ label, value }: { readonly label: string; readonly value: number }) {
+  const t = useT();
   return (
     <div className="rounded-2xl border border-stone-200 bg-white p-4 text-center shadow-sm">
-      <dt className="text-xs font-semibold text-stone-500">{label}</dt>
-      <dd className="mt-1 text-2xl font-bold">{value.toLocaleString("pl-PL")}</dd>
+      <dt className="text-xs font-semibold text-stone-500">{t(label)}</dt>
+      <dd className="mt-1 text-2xl font-bold">{value.toLocaleString(activeIntlLocale())}</dd>
     </div>
   );
 }
@@ -167,11 +175,12 @@ function VisitsSection({
 }: {
   readonly collection: BeautyDocsAdminClientCollection<BeautyDocsAdminClientVisit>;
 }) {
+  const t = useT();
   return (
     <ProfileSection
-      description="Historia zaplanowanych i wykonanych zabiegów."
+      description={t("Historia zaplanowanych i wykonanych zabiegów.")}
       icon={CalendarDays}
-      title="Wizyty"
+      title={t("Wizyty")}
       truncated={collection.truncated}
     >
       {collection.items.length > 0 ? (
@@ -190,7 +199,7 @@ function VisitsSection({
               </div>
               {visit.anaesthesia ? (
                 <p className="mt-3 text-sm text-stone-600">
-                  <span className="font-semibold">Znieczulenie:</span> {visit.anaesthesia}
+                  <span className="font-semibold">{t("Znieczulenie:")}</span> {visit.anaesthesia}
                 </p>
               ) : null}
               {visit.notes ? (
@@ -202,7 +211,7 @@ function VisitsSection({
           ))}
         </ul>
       ) : (
-        <SectionEmpty text="Brak wizyt w historii klientki." />
+        <SectionEmpty text={t("Brak wizyt w historii klientki.")} />
       )}
     </ProfileSection>
   );
@@ -217,11 +226,12 @@ function FormsSection({
   readonly collection: BeautyDocsAdminClientCollection<BeautyDocsAdminClientForm>;
   readonly tenantSlug: string;
 }) {
+  const t = useT();
   return (
     <ProfileSection
-      description="Dokumentacja przypisana do tej klientki."
+      description={t("Dokumentacja przypisana do tej klientki.")}
       icon={ClipboardList}
-      title="Formularze"
+      title={t("Formularze")}
       truncated={collection.truncated}
     >
       {collection.items.length > 0 ? (
@@ -229,7 +239,7 @@ function FormsSection({
           {collection.items.map((form) => (
             <li key={form.id}>
               <Link
-                aria-label={`Zobacz odpowiedzi formularza ${form.templateName}`}
+                aria-label={t("Zobacz odpowiedzi formularza {templateName}", { templateName: form.templateName })}
                 className="group flex flex-col gap-3 px-5 py-4 transition-colors hover:bg-[#f7f8f4] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#245c4d] sm:flex-row sm:items-center sm:justify-between sm:px-6"
                 href={`/panel/${encodeURIComponent(tenantSlug)}/clients/${encodeURIComponent(clientId)}/forms/${encodeURIComponent(form.id)}`}
               >
@@ -243,8 +253,8 @@ function FormsSection({
                     </p>
                     <p className="mt-1 text-xs text-stone-500">
                       {form.submittedAt
-                        ? `Wysłano ${formatDateTime(form.submittedAt)}`
-                        : `Utworzono ${formatDateTime(form.createdAt)}`}
+                        ? t("Wysłano {value1}", { value1: formatDateTime(form.submittedAt) })
+                        : t("Utworzono {value1}", { value1: formatDateTime(form.createdAt) })}
                     </p>
                   </div>
                 </div>
@@ -254,7 +264,7 @@ function FormsSection({
                     tone={submissionStatusTone(form.status)}
                   />
                   <span className="inline-flex items-center gap-1 text-xs font-bold text-[#245c4d]">
-                    Zobacz odpowiedzi
+                    {t("Zobacz odpowiedzi")}
                     <ArrowRight
                       aria-hidden="true"
                       className="size-3.5 transition-transform group-hover:translate-x-0.5"
@@ -266,7 +276,7 @@ function FormsSection({
           ))}
         </ul>
       ) : (
-        <SectionEmpty text="Brak formularzy przypisanych do klientki." />
+        <SectionEmpty text={t("Brak formularzy przypisanych do klientki.")} />
       )}
     </ProfileSection>
   );
@@ -277,11 +287,12 @@ function NotesSection({
 }: {
   readonly collection: BeautyDocsAdminClientCollection<BeautyDocsAdminClientNote>;
 }) {
+  const t = useT();
   return (
     <ProfileSection
-      description="Wewnętrzne informacje zapisane przez zespół salonu."
+      description={t("Wewnętrzne informacje zapisane przez zespół salonu.")}
       icon={FileText}
-      title="Notatki"
+      title={t("Notatki")}
       truncated={collection.truncated}
     >
       {collection.items.length > 0 ? (
@@ -295,13 +306,13 @@ function NotesSection({
                 </p>
               </div>
               <p className="mt-3 whitespace-pre-wrap break-words text-sm leading-6 text-[#173d35]">
-                {note.body}
+                {t(note.body)}
               </p>
             </li>
           ))}
         </ul>
       ) : (
-        <SectionEmpty text="Brak notatek o klientce." />
+        <SectionEmpty text={t("Brak notatek o klientce.")} />
       )}
     </ProfileSection>
   );
@@ -320,6 +331,7 @@ function ProfileSection({
   readonly truncated: boolean;
   readonly children: ReactNode;
 }) {
+  const t = useT();
   return (
     <section className="overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-sm">
       <header className="flex items-start gap-3 border-b border-stone-200 px-5 py-4 sm:px-6">
@@ -327,14 +339,14 @@ function ProfileSection({
           <Icon aria-hidden="true" className="size-4" />
         </span>
         <div>
-          <h2 className="font-bold text-[#173d35]">{title}</h2>
-          <p className="mt-0.5 text-sm text-stone-500">{description}</p>
+          <h2 className="font-bold text-[#173d35]">{t(title)}</h2>
+          <p className="mt-0.5 text-sm text-stone-500">{t(description)}</p>
         </div>
       </header>
       {children}
       {truncated ? (
         <p className="border-t border-stone-100 bg-[#f7f8f4] px-5 py-3 text-xs text-stone-500 sm:px-6">
-          Pokazano 100 najnowszych pozycji.
+          {t("Pokazano 100 najnowszych pozycji.")}
         </p>
       ) : null}
     </section>
@@ -342,7 +354,8 @@ function ProfileSection({
 }
 
 function SectionEmpty({ text }: { readonly text: string }) {
-  return <p className="px-5 py-8 text-center text-sm text-stone-500 sm:px-6">{text}</p>;
+  const t = useT();
+  return <p className="px-5 py-8 text-center text-sm text-stone-500 sm:px-6">{t(text)}</p>;
 }
 
 function StatusBadge({
@@ -352,6 +365,7 @@ function StatusBadge({
   readonly label: string;
   readonly tone: "green" | "amber" | "red" | "slate" | "blue";
 }) {
+  const t = useT();
   const classes = {
     green: "bg-emerald-50 text-emerald-700",
     amber: "bg-amber-50 text-amber-800",
@@ -361,7 +375,7 @@ function StatusBadge({
   } as const;
   return (
     <span className={`inline-flex self-start rounded-full px-2.5 py-1 text-xs font-bold ${classes[tone]}`}>
-      {label}
+      {t(label)}
     </span>
   );
 }
@@ -416,7 +430,7 @@ function initials(firstName: string, lastName: string): string {
 }
 
 function formatBirthDate(value: string): string {
-  return new Intl.DateTimeFormat("pl-PL", {
+  return new Intl.DateTimeFormat(activeIntlLocale(), {
     day: "2-digit",
     month: "long",
     year: "numeric",
@@ -425,7 +439,7 @@ function formatBirthDate(value: string): string {
 }
 
 function formatDate(value: string): string {
-  return new Intl.DateTimeFormat("pl-PL", {
+  return new Intl.DateTimeFormat(activeIntlLocale(), {
     day: "2-digit",
     month: "long",
     year: "numeric",
@@ -434,7 +448,7 @@ function formatDate(value: string): string {
 }
 
 function formatDateTime(value: string): string {
-  return new Intl.DateTimeFormat("pl-PL", {
+  return new Intl.DateTimeFormat(activeIntlLocale(), {
     day: "2-digit",
     month: "short",
     year: "numeric",
@@ -445,7 +459,7 @@ function formatDateTime(value: string): string {
 }
 
 function formatTime(value: string): string {
-  return new Intl.DateTimeFormat("pl-PL", {
+  return new Intl.DateTimeFormat(activeIntlLocale(), {
     hour: "2-digit",
     minute: "2-digit",
     timeZone: "Europe/Warsaw",

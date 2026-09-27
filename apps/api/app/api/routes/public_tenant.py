@@ -4,7 +4,7 @@ import re
 from typing import Any
 from uuid import UUID
 
-from fastapi import APIRouter
+from fastapi import APIRouter, Query
 from pydantic import BaseModel, ConfigDict, Field
 from pydantic.alias_generators import to_camel
 from sqlalchemy import func, select
@@ -29,6 +29,7 @@ from app.models.domain import (
     TenantFormTemplate,
     TenantStatus,
 )
+from app.services.form_i18n import InterfaceLanguage, localize_form_content, translate_text
 from app.services.team_assignments import can_perform_treatment
 
 _FORM_CODE_PATTERN = re.compile(r"^[a-z0-9](?:[a-z0-9-]{0,98}[a-z0-9])?$")
@@ -92,6 +93,7 @@ def _public_address(tenant: Tenant) -> TenantPostalAddressResponse | None:
 async def _public_tenant_config_for_slug(
     session: AsyncSession,
     slug: str,
+    language: str = "pl",
 ) -> TenantPublicConfigResponse:
     tenant = await session.scalar(
         select(Tenant).where(
@@ -147,7 +149,7 @@ async def _public_tenant_config_for_slug(
         active_forms=[
             TenantActiveFormResponse(
                 code=code,
-                display_name=name,
+                display_name=translate_text(name, language) or name,
                 display_order=display_order,
             )
             for code, name, display_order in form_rows
@@ -169,6 +171,7 @@ class PublicFormContentResponse(PublicResponseModel):
     version: int
     definition: dict[str, Any]
     legal: dict[str, Any]
+    content_locale: InterfaceLanguage = "pl"
     practitioners: list[PublicPractitionerResponse] = Field(max_length=250)
 
 
@@ -176,6 +179,7 @@ async def _public_form_content(
     session: AsyncSession,
     slug: str,
     code: str,
+    language: str = "pl",
 ) -> PublicFormContentResponse:
     """Serve the latest published content of a form the salon has enabled.
 
@@ -259,13 +263,17 @@ async def _public_form_content(
         )
     ).all()
 
+    definition, legal, content_locale = localize_form_content(
+        row.schema_definition, row.legal_content, language
+    )
     return PublicFormContentResponse(
         code=row.code,
-        display_name=row.name,
-        description=row.description,
+        display_name=translate_text(row.name, language) or row.name,
+        description=translate_text(row.description, language),
         version=row.version_number,
-        definition=row.schema_definition,
-        legal=row.legal_content,
+        definition=definition,
+        legal=legal,
+        content_locale=content_locale,
         practitioners=[
             PublicPractitionerResponse(
                 id=practitioner.id,
@@ -288,12 +296,13 @@ async def public_tenant_form(
     code: str,
     settings: SettingsDep,
     session: DbSessionDep,
+    lang: InterfaceLanguage = Query(default="pl"),
 ) -> PublicFormContentResponse:
-    """Return the published content of one enabled form for a salon."""
+    """Return the published content of one enabled form, translated to `lang` where available."""
 
     if slug in settings.reserved_subdomains:
         raise AppError(status_code=404, code="form_not_found", message="Form was not found")
-    return await _public_form_content(session, slug, code)
+    return await _public_form_content(session, slug, code, lang)
 
 
 @router.get("/tenant", response_model=TenantPublicConfigResponse)
@@ -311,6 +320,7 @@ async def public_tenant_config_by_slug(
     slug: TenantSlugPath,
     settings: SettingsDep,
     session: DbSessionDep,
+    lang: InterfaceLanguage = Query(default="pl"),
 ) -> TenantPublicConfigResponse:
     """Resolve a salon by path on the shared forms.beautydocs.pl surface."""
 
@@ -320,7 +330,7 @@ async def public_tenant_config_by_slug(
             code="tenant_not_found",
             message="Tenant was not found",
         )
-    return await _public_tenant_config_for_slug(session, slug)
+    return await _public_tenant_config_for_slug(session, slug, lang)
 
 
 class PlatformStatsResponse(PublicResponseModel):

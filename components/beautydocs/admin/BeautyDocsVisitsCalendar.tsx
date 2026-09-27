@@ -1,5 +1,7 @@
 "use client";
+import { activeIntlLocale } from "../../../lib/i18n/active";
 
+import { useT } from "../i18n";
 import { BeautyDocsDialog } from "../BeautyDocsDialog";
 
 import Link from "next/link";
@@ -72,6 +74,7 @@ export function BeautyDocsVisitsCalendar({
 }: {
   readonly tenantSlug: string;
 }) {
+  const t = useT();
   const [today, setToday] = useState(() => new Date());
   const [selectedDate, setSelectedDate] = useState(() => new Date());
   const [weekAnchor, setWeekAnchor] = useState(() => startOfWeek(new Date()));
@@ -128,12 +131,12 @@ export function BeautyDocsVisitsCalendar({
       setVisits(Array.isArray(body.items) ? body.items : []);
       setBookingSchedule(body.bookingSchedule ?? DEFAULT_BOOKING_SCHEDULE);
     } catch {
-      setError("Nie udało się pobrać kalendarza wizyt.");
+      setError(t("Nie udało się pobrać kalendarza wizyt."));
       setVisits([]);
     } finally {
       setLoading(false);
     }
-  }, [tenantSlug, visibleRange]);
+  }, [tenantSlug, visibleRange, t]);
 
   useEffect(() => {
     void load();
@@ -251,11 +254,11 @@ export function BeautyDocsVisitsCalendar({
         visitDurationMinutes(visit),
       )
     ) {
-      setError("Ten termin wypada poza godzinami przyjęć salonu.");
+      setError(t("Ten termin wypada poza godzinami przyjęć salonu."));
       return;
     }
     if (start <= new Date()) {
-      setError("Nie można przenieść wizyty na termin, który już minął.");
+      setError(t("Nie można przenieść wizyty na termin, który już minął."));
       return;
     }
     setMovingVisitId(visitId);
@@ -273,8 +276,8 @@ export function BeautyDocsVisitsCalendar({
       if (!response.ok) {
         setError(
           response.status === 409
-            ? "Nie można przenieść wizyty — ten termin jest zajęty albo już minął."
-            : "Nie udało się przenieść wizyty.",
+            ? t("Nie można przenieść wizyty — ten termin jest zajęty albo już minął.")
+            : t("Nie udało się przenieść wizyty."),
         );
         return;
       }
@@ -285,7 +288,7 @@ export function BeautyDocsVisitsCalendar({
       setSelectedDate(calendarDateFromVisit(updated.startsAt));
       setSelectedVisitId(updated.id);
     } catch {
-      setError("Nie udało się przenieść wizyty.");
+      setError(t("Nie udało się przenieść wizyty."));
     } finally {
       setMovingVisitId(null);
     }
@@ -332,11 +335,11 @@ export function BeautyDocsVisitsCalendar({
       <div>
         <div>
           <p className="text-xs font-black uppercase tracking-[0.16em] text-[#245c4d]">
-            Kalendarz salonu
+            {t("Kalendarz salonu")}
           </p>
-          <h1 className="mt-2 text-3xl font-black tracking-tight">Kalendarz</h1>
+          <h1 className="mt-2 text-3xl font-black tracking-tight">{t("Kalendarz")}</h1>
           <p className="mt-2 max-w-2xl text-sm leading-6 text-stone-600">
-            Rezerwacje klientek połączone z właściwymi formularzami zabiegowymi.
+            {t("Rezerwacje klientek połączone z właściwymi formularzami zabiegowymi.")}
           </p>
         </div>
       </div>
@@ -344,17 +347,17 @@ export function BeautyDocsVisitsCalendar({
       <div className="grid gap-3 sm:grid-cols-3">
         <CalendarStat
           icon={<CalendarDays className="size-5" />}
-          label="W tym okresie"
+          label={t("W tym okresie")}
           value={visits.length}
         />
         <CalendarStat
           icon={<Clock3 className="size-5" />}
-          label="Zaplanowane"
+          label={t("Zaplanowane")}
           value={planned}
         />
         <CalendarStat
           icon={<ClipboardCheck className="size-5" />}
-          label="Z formularzem"
+          label={t("Z formularzem")}
           value={withForms}
         />
       </div>
@@ -367,7 +370,7 @@ export function BeautyDocsVisitsCalendar({
 
       {calendarExpanded ? (
         <button
-          aria-label="Zamknij rozszerzony kalendarz"
+          aria-label={t("Zamknij rozszerzony kalendarz")}
           className="fixed inset-0 z-[60] cursor-default bg-[#173d35]/45 backdrop-blur-sm"
           onClick={() => setCalendarExpanded(false)}
           type="button"
@@ -397,7 +400,7 @@ export function BeautyDocsVisitsCalendar({
               </p>
               <p className="mt-0.5 text-xs text-stone-500">
                 {formatCalendarRange(calendarView, visibleRange.first, visibleRange.last)}
-                {calendarView === "week" ? " · przeciągnij siatkę w bok" : ""}
+                {calendarView === "week" ? t(" · przeciągnij siatkę w bok") : ""}
               </p>
             </div>
           </div>
@@ -409,14 +412,14 @@ export function BeautyDocsVisitsCalendar({
               type="button"
             >
               <Plus className="size-4" />
-              Dodaj wizytę
+              {t("Dodaj wizytę")}
             </button>
             <label className="relative inline-flex items-center gap-2 rounded-xl border border-[#dde2d5] bg-white px-3 py-2 shadow-sm">
               <span className="text-[10px] font-black uppercase tracking-[0.08em] text-stone-400">
-                Widok
+                {t("Widok")}
               </span>
               <select
-                aria-label="Widok kalendarza"
+                aria-label={t("Widok kalendarza")}
                 className="cursor-pointer appearance-none bg-transparent py-0.5 pr-5 text-xs font-black text-[#173d35] outline-none"
                 onChange={(event) =>
                   changeCalendarView(event.target.value as CalendarView)
@@ -425,7 +428,7 @@ export function BeautyDocsVisitsCalendar({
               >
                 {CALENDAR_VIEW_OPTIONS.map((option) => (
                   <option key={option.value} value={option.value}>
-                    {option.label}
+                    {t(option.label)}
                   </option>
                 ))}
               </select>
@@ -433,7 +436,7 @@ export function BeautyDocsVisitsCalendar({
             </label>
             <div className="flex items-center rounded-2xl border border-[#dde2d5] bg-white p-1 shadow-sm">
             <button
-              aria-label="Poprzedni dzień"
+              aria-label={t("Poprzedni dzień")}
               className="grid size-10 place-items-center rounded-xl text-stone-500 transition hover:bg-[#f0f5ea] hover:text-[#245c4d]"
               onClick={() => moveSelectedDay(-1)}
               type="button"
@@ -445,10 +448,10 @@ export function BeautyDocsVisitsCalendar({
               onClick={goToToday}
               type="button"
             >
-              Dzisiaj
+              {t("Dzisiaj")}
             </button>
             <button
-              aria-label="Następny dzień"
+              aria-label={t("Następny dzień")}
               className="grid size-10 place-items-center rounded-xl text-stone-500 transition hover:bg-[#f0f5ea] hover:text-[#245c4d]"
               onClick={() => moveSelectedDay(1)}
               type="button"
@@ -467,7 +470,7 @@ export function BeautyDocsVisitsCalendar({
               ) : (
                 <Maximize2 className="size-4" />
               )}
-              {calendarExpanded ? "Zwiń" : "Rozszerz"}
+              {calendarExpanded ? t("Zwiń") : t("Rozszerz")}
             </button>
           </div>
         </div>
@@ -505,7 +508,7 @@ export function BeautyDocsVisitsCalendar({
             {calendarView === "week" ? (
               <>
             <div
-              aria-label="Tygodniowy kalendarz. Przeciągnij w bok, aby zobaczyć kolejne dni."
+              aria-label={t("Tygodniowy kalendarz. Przeciągnij w bok, aby zobaczyć kolejne dni.")}
               className={`hidden touch-pan-x overflow-x-auto overscroll-x-contain lg:block ${
                 calendarPanning ? "cursor-grabbing select-none" : "cursor-grab"
               }`}
@@ -536,10 +539,10 @@ export function BeautyDocsVisitsCalendar({
               <div className="min-w-[940px]">
                 <div className="grid grid-cols-[64px_repeat(7,minmax(116px,1fr))_64px] border-b border-[#e5e9df] bg-white">
                   <button
-                    aria-label="Poprzedni tydzień"
+                    aria-label={t("Poprzedni tydzień")}
                     className="sticky left-0 z-30 grid min-h-[70px] place-items-center border-r border-[#e5e9df] bg-[#fcfdfb] text-[#6ba697] transition hover:bg-[#f0f5e9] hover:text-[#43776a]"
                     onClick={() => moveWeek(-1)}
-                    title="Poprzedni tydzień"
+                    title={t("Poprzedni tydzień")}
                     type="button"
                   >
                     <ChevronLeft className="size-5" />
@@ -572,10 +575,10 @@ export function BeautyDocsVisitsCalendar({
                     );
                   })}
                   <button
-                    aria-label="Następny tydzień"
+                    aria-label={t("Następny tydzień")}
                     className="grid min-h-[70px] place-items-center border-l border-[#e5e9df] bg-[#fcfdfb] text-[#6ba697] transition hover:bg-[#f0f5e9] hover:text-[#43776a]"
                     onClick={() => moveWeek(1)}
-                    title="Następny tydzień"
+                    title={t("Następny tydzień")}
                     type="button"
                   >
                     <ChevronRight className="size-5" />
@@ -612,7 +615,7 @@ export function BeautyDocsVisitsCalendar({
                     <div className="absolute inset-y-0 left-[64px] right-[64px] z-20 grid place-items-center bg-white/70 backdrop-blur-[1px]">
                       <span className="inline-flex items-center gap-2 rounded-full border border-[#e5eadd] bg-white px-4 py-2 text-xs font-bold text-stone-600 shadow-sm">
                         <LoaderCircle className="size-4 animate-spin text-[#245c4d]" />
-                        Aktualizujemy kalendarz
+                        {t("Aktualizujemy kalendarz")}
                       </span>
                     </div>
                   ) : null}
@@ -698,6 +701,7 @@ function CreateVisitDialog({
   readonly onCreated: (visit: BeautyDocsAdminVisit) => void;
   readonly tenantSlug: string;
 }) {
+  const t = useT();
   const [clientSearch, setClientSearch] = useState("");
   const [today] = useState(() => new Date());
   const [clients, setClients] = useState<BeautyDocsAdminClientList["items"]>([]);
@@ -775,7 +779,7 @@ function CreateVisitDialog({
         setError(null);
       } catch (loadError) {
         if ((loadError as Error).name !== "AbortError") {
-          setError("Nie udało się pobrać klientek i formularzy.");
+          setError(t("Nie udało się pobrać klientek i formularzy."));
         }
       } finally {
         if (!controller.signal.aborted) setLoadingOptions(false);
@@ -785,7 +789,7 @@ function CreateVisitDialog({
       window.clearTimeout(timeout);
       controller.abort();
     };
-  }, [clientSearch, tenantSlug]);
+  }, [clientSearch, tenantSlug, t]);
 
   async function submitVisit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -799,7 +803,7 @@ function CreateVisitDialog({
       newClientPhone.trim() &&
       newClientPhone.replace(/\D/g, "").length < 8
     ) {
-      setError("Wpisz pełny numer telefonu albo pozostaw to pole puste.");
+      setError(t("Wpisz pełny numer telefonu albo pozostaw to pole puste."));
       return;
     }
     setSaving(true);
@@ -808,7 +812,7 @@ function CreateVisitDialog({
       const localStart = new Date(`${visitDate}T${visitTime}:00`);
       if (!Number.isFinite(localStart.getTime())) throw new Error("invalid date");
       if (localStart <= new Date()) {
-        setError("Wybierz datę i godzinę, które jeszcze nie minęły.");
+        setError(t("Wybierz datę i godzinę, które jeszcze nie minęły."));
         return;
       }
       const response = await fetch(
@@ -835,39 +839,39 @@ function CreateVisitDialog({
       if (!response.ok) {
         setError(
           response.status === 409
-            ? "Ta godzina jest już zajęta. Wybierz inny termin."
+            ? t("Ta godzina jest już zajęta. Wybierz inny termin.")
             : response.status === 422
-              ? "Cały zabieg musi mieścić się w godzinach przyjęć salonu."
-              : "Nie udało się dodać wizyty. Spróbuj ponownie.",
+              ? t("Cały zabieg musi mieścić się w godzinach przyjęć salonu.")
+              : t("Nie udało się dodać wizyty. Spróbuj ponownie."),
         );
         return;
       }
       onCreated((await response.json()) as BeautyDocsAdminVisit);
     } catch {
-      setError("Nie udało się dodać wizyty.");
+      setError(t("Nie udało się dodać wizyty."));
     } finally {
       setSaving(false);
     }
   }
 
   return (
-    <BeautyDocsDialog open onClose={onClose} title="Dodaj wizytę" className="max-w-xl">
+    <BeautyDocsDialog open onClose={onClose} title={t("Dodaj wizytę")} className="max-w-xl">
       <div className="my-auto w-full max-w-xl overflow-hidden rounded-[28px] border border-white/70 bg-white shadow-2xl">
         <div className="flex items-start justify-between gap-4 border-b border-[#eaeee5] px-6 py-5">
           <div>
             <p className="text-[10px] font-black uppercase tracking-[0.14em] text-[#547b59]">
-              Kalendarz salonu
+              {t("Kalendarz salonu")}
             </p>
-            <h2 className="mt-1 text-2xl font-black text-[#173d35]">Dodaj wizytę</h2>
+            <h2 className="mt-1 text-2xl font-black text-[#173d35]">{t("Dodaj wizytę")}</h2>
             <p className="mt-1 text-xs leading-5 text-stone-500">
-              Wybierz istniejącą klientkę albo dodaj nową bez zakładania jej konta.
+              {t("Wybierz istniejącą klientkę albo dodaj nową bez zakładania jej konta.")}
               {selectedForm
-                ? ` Ten zabieg potrwa ${formatVisitDuration(durationMinutes)}.`
-                : " Czas wizyty zostanie pobrany z wybranego formularza."}
+                ? t(" Ten zabieg potrwa {value1}.", { value1: formatVisitDuration(durationMinutes) })
+                : t(" Czas wizyty zostanie pobrany z wybranego formularza.")}
             </p>
           </div>
           <button
-            aria-label="Zamknij"
+            aria-label={t("Zamknij")}
             className="grid size-10 shrink-0 place-items-center rounded-xl bg-stone-100 text-stone-500 transition hover:bg-[#eef3e7] hover:text-[#245c4d]"
             onClick={onClose}
             type="button"
@@ -887,7 +891,7 @@ function CreateVisitDialog({
               onClick={() => setClientMode("existing")}
               type="button"
             >
-              Z listy klientek
+              {t("Z listy klientek")}
             </button>
             <button
               className={`rounded-xl px-3 py-2.5 text-xs font-black transition ${
@@ -898,25 +902,25 @@ function CreateVisitDialog({
               onClick={() => setClientMode("new")}
               type="button"
             >
-              Nowa klientka
+              {t("Nowa klientka")}
             </button>
           </div>
 
           {clientMode === "existing" ? (
             <>
               <label className="block">
-                <span className="text-xs font-black text-[#173d35]">Znajdź klientkę</span>
+                <span className="text-xs font-black text-[#173d35]">{t("Znajdź klientkę")}</span>
                 <input
                   className="mt-2 w-full rounded-xl border border-[#d9ded2] bg-white px-4 py-3 text-sm outline-none transition focus:border-[#547b59] focus:ring-2 focus:ring-[#e6eedc]"
                   onChange={(event) => setClientSearch(event.target.value)}
-                  placeholder="Imię, nazwisko, telefon lub e-mail"
+                  placeholder={t("Imię, nazwisko, telefon lub e-mail")}
                   type="search"
                   value={clientSearch}
                 />
               </label>
 
               <label className="block">
-                <span className="text-xs font-black text-[#173d35]">Klientka</span>
+                <span className="text-xs font-black text-[#173d35]">{t("Klientka")}</span>
                 <select
                   className="mt-2 w-full rounded-xl border border-[#d9ded2] bg-white px-4 py-3 text-sm outline-none focus:border-[#547b59] focus:ring-2 focus:ring-[#e6eedc]"
                   disabled={loadingOptions || clients.length === 0}
@@ -924,7 +928,7 @@ function CreateVisitDialog({
                   required
                   value={clientId}
                 >
-                  {clients.length === 0 ? <option value="">Brak klientek</option> : null}
+                  {clients.length === 0 ? <option value="">{t("Brak klientek")}</option> : null}
                   {clients.map((client) => (
                     <option key={client.id} value={client.id}>
                       {client.firstName} {client.lastName}
@@ -939,27 +943,27 @@ function CreateVisitDialog({
                   onClick={() => setClientMode("new")}
                   type="button"
                 >
-                  Brak klientek — dodaj nową bez konta
+                  {t("Brak klientek — dodaj nową bez konta")}
                 </button>
               ) : null}
             </>
           ) : (
             <div className="space-y-4 rounded-2xl border border-[#e5eadd] bg-[#fcfdfa] p-4">
               <label className="block">
-                <span className="text-xs font-black text-[#173d35]">Imię i nazwisko *</span>
+                <span className="text-xs font-black text-[#173d35]">{t("Imię i nazwisko *")}</span>
                 <input
                   autoFocus
                   className="mt-2 w-full rounded-xl border border-[#d9ded2] bg-white px-4 py-3 text-sm outline-none transition focus:border-[#547b59] focus:ring-2 focus:ring-[#e6eedc]"
                   maxLength={281}
                   onChange={(event) => setNewClientName(event.target.value)}
-                  placeholder="np. Anna Kowalska"
+                  placeholder={t("np. Anna Kowalska")}
                   required
                   value={newClientName}
                 />
               </label>
               <div className="grid gap-3 sm:grid-cols-2">
                 <label className="block">
-                  <span className="text-xs font-black text-[#173d35]">Telefon</span>
+                  <span className="text-xs font-black text-[#173d35]">{t("Telefon")}</span>
                   <div className="mt-2">
                     <BeautyDocsPhoneNumberField
                       id="manual-visit-client-phone"
@@ -968,11 +972,11 @@ function CreateVisitDialog({
                     />
                   </div>
                   <span className="mt-1.5 block text-[10px] text-stone-400">
-                    Opcjonalnie
+                    {t("Opcjonalnie")}
                   </span>
                 </label>
                 <label className="block">
-                  <span className="text-xs font-black text-[#173d35]">E-mail</span>
+                  <span className="text-xs font-black text-[#173d35]">{t("E-mail")}</span>
                   <input
                     className="mt-2 w-full rounded-xl border border-[#d9ded2] bg-white px-4 py-3 text-sm outline-none transition focus:border-[#547b59] focus:ring-2 focus:ring-[#e6eedc]"
                     maxLength={320}
@@ -984,13 +988,13 @@ function CreateVisitDialog({
                 </label>
               </div>
               <p className="text-[11px] leading-5 text-stone-500">
-                Zapiszemy ją w kartotece salonu. Nie musi mieć konta w aplikacji.
+                {t("Zapiszemy ją w kartotece salonu. Nie musi mieć konta w aplikacji.")}
               </p>
             </div>
           )}
 
           <label className="block">
-            <span className="text-xs font-black text-[#173d35]">Rodzaj formularza</span>
+            <span className="text-xs font-black text-[#173d35]">{t("Rodzaj formularza")}</span>
             <select
               className="mt-2 w-full rounded-xl border border-[#d9ded2] bg-white px-4 py-3 text-sm outline-none focus:border-[#547b59] focus:ring-2 focus:ring-[#e6eedc]"
               disabled={loadingOptions || forms.length === 0}
@@ -999,7 +1003,7 @@ function CreateVisitDialog({
               value={formCode}
             >
               {forms.length === 0 ? (
-                <option value="">Brak aktywnych formularzy</option>
+                <option value="">{t("Brak aktywnych formularzy")}</option>
               ) : null}
               {forms.map((form) => (
                 <option key={form.code} value={form.code}>
@@ -1011,7 +1015,7 @@ function CreateVisitDialog({
 
           <div className="grid gap-4 sm:grid-cols-2">
             <label className="block">
-              <span className="text-xs font-black text-[#173d35]">Data</span>
+              <span className="text-xs font-black text-[#173d35]">{t("Data")}</span>
               <input
                 className="mt-2 w-full rounded-xl border border-[#d9ded2] bg-white px-4 py-3 text-sm outline-none focus:border-[#547b59] focus:ring-2 focus:ring-[#e6eedc]"
                 min={dateKey(today)}
@@ -1022,7 +1026,7 @@ function CreateVisitDialog({
               />
             </label>
             <label className="block">
-              <span className="text-xs font-black text-[#173d35]">Godzina</span>
+              <span className="text-xs font-black text-[#173d35]">{t("Godzina")}</span>
               <select
                 className="mt-2 w-full rounded-xl border border-[#d9ded2] bg-white px-4 py-3 text-sm outline-none focus:border-[#547b59] focus:ring-2 focus:ring-[#e6eedc]"
                 onChange={(event) => setVisitTime(event.target.value)}
@@ -1030,7 +1034,7 @@ function CreateVisitDialog({
                 value={visitTime}
               >
                 {availableTimes.length === 0 ? (
-                  <option value="">Salon nie przyjmuje w tym dniu</option>
+                  <option value="">{t("Salon nie przyjmuje w tym dniu")}</option>
                 ) : null}
                 {availableTimes.map((time) => (
                   <option key={time} value={time}>{time}</option>
@@ -1051,7 +1055,7 @@ function CreateVisitDialog({
               onClick={onClose}
               type="button"
             >
-              Anuluj
+              {t("Anuluj")}
             </button>
             <button
               className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#173d35] px-5 py-3 text-sm font-black text-white transition hover:bg-[#245c4d] disabled:cursor-not-allowed disabled:opacity-50"
@@ -1067,7 +1071,7 @@ function CreateVisitDialog({
               type="submit"
             >
               {saving ? <LoaderCircle className="size-4 animate-spin" /> : <Plus className="size-4" />}
-              Zapisz wizytę
+              {t("Zapisz wizytę")}
             </button>
           </div>
         </form>
@@ -1089,8 +1093,9 @@ function MiniMonthCalendar({
   readonly today: Date;
   readonly visitsByDay: ReadonlyMap<string, readonly BeautyDocsAdminVisit[]>;
 }) {
+  const t = useT();
   const month = selectedDate.getMonth();
-  const monthLabel = new Intl.DateTimeFormat("pl-PL", {
+  const monthLabel = new Intl.DateTimeFormat(activeIntlLocale(), {
     month: "long",
     year: "numeric",
   }).format(selectedDate);
@@ -1102,10 +1107,10 @@ function MiniMonthCalendar({
   return (
     <div className="min-w-0 overflow-x-auto">
       <div className="flex items-center justify-between gap-2">
-        <p className="text-sm font-black capitalize text-[#173d35]">{monthLabel}</p>
+        <p className="text-sm font-black capitalize text-[#173d35]">{t(monthLabel)}</p>
         <div className="flex items-center">
           <button
-            aria-label="Poprzedni miesiąc"
+            aria-label={t("Poprzedni miesiąc")}
             className="grid size-11 place-items-center rounded-lg text-stone-600 hover:bg-[#eef3e7] hover:text-[#245c4d]"
             onClick={() => changeMonth(-1)}
             type="button"
@@ -1113,7 +1118,7 @@ function MiniMonthCalendar({
             <ChevronLeft className="size-4" />
           </button>
           <button
-            aria-label="Następny miesiąc"
+            aria-label={t("Następny miesiąc")}
             className="grid size-11 place-items-center rounded-lg text-stone-600 hover:bg-[#eef3e7] hover:text-[#245c4d]"
             onClick={() => changeMonth(1)}
             type="button"
@@ -1123,8 +1128,8 @@ function MiniMonthCalendar({
         </div>
       </div>
       <div className="mt-4 grid min-w-[14rem] grid-cols-7 text-center [@media(pointer:coarse)]:min-w-[19.25rem] text-xs font-semibold uppercase tracking-[0.04em] text-stone-600">
-        {['Pn', 'Wt', 'Śr', 'Cz', 'Pt', 'So', 'Nd'].map((label) => (
-          <span key={label}>{label}</span>
+        {[t("Pn"), t("Wt"), t("Śr"), t("Cz"), t("Pt"), t("So"), t("Nd")].map((label) => (
+          <span key={label}>{t(label)}</span>
         ))}
       </div>
       <div className="mt-2 grid min-w-[14rem] grid-cols-7 gap-y-1 [@media(pointer:coarse)]:min-w-[19.25rem]">
@@ -1174,11 +1179,12 @@ function SelectedVisitDetails({
   readonly tenantSlug: string;
   readonly visit: BeautyDocsAdminVisit | null;
 }) {
+  const t = useT();
   if (visit === null) {
     return (
       <div className="rounded-2xl border border-dashed border-[#e0e5da] bg-white px-4 py-6 text-center">
         <CalendarDays className="mx-auto size-5 text-stone-300" />
-        <p className="mt-2 text-xs font-bold text-stone-500">Brak wizyt w tym tygodniu</p>
+        <p className="mt-2 text-xs font-bold text-stone-500">{t("Brak wizyt w tym tygodniu")}</p>
       </div>
     );
   }
@@ -1188,7 +1194,7 @@ function SelectedVisitDetails({
       <div className="flex items-start justify-between gap-3">
         <div>
           <p className="text-[10px] font-black uppercase tracking-[0.12em] text-[#547b59]">
-            Wybrana wizyta
+            {t("Wybrana wizyta")}
           </p>
           <p className="mt-2 text-sm font-black leading-5 text-[#173d35]">
             {visit.treatmentName}
@@ -1228,13 +1234,13 @@ function SelectedVisitDetails({
             : "bg-amber-50 text-amber-700"
         }`}
       >
-        {visit.formSubmitted ? "Formularz wypełniony" : "Oczekuje na formularz"}
+        {visit.formSubmitted ? t("Formularz wypełniony") : t("Oczekuje na formularz")}
       </div>
       <Link
         className="mt-4 inline-flex w-full items-center justify-center rounded-xl bg-[#173d35] px-4 py-2.5 text-xs font-black text-white transition hover:bg-[#245c4d]"
         href={`/panel/${encodeURIComponent(tenantSlug)}/clients/${encodeURIComponent(visit.clientId)}`}
       >
-        Otwórz kartę klientki
+        {t("Otwórz kartę klientki")}
       </Link>
     </div>
   );
@@ -1273,27 +1279,28 @@ function CurrentTimeIndicator({
   readonly hours: CalendarHours;
   readonly now: Date;
 }) {
+  const t = useT();
   const minutesFromStart =
     (now.getHours() - hours.startHour) * 60 + now.getMinutes();
   const calendarMinutes = (hours.endHour - hours.startHour) * 60;
   if (minutesFromStart < 0 || minutesFromStart > calendarMinutes) return null;
 
   const top = (minutesFromStart / 60) * HOUR_HEIGHT;
-  const label = new Intl.DateTimeFormat("pl-PL", {
+  const label = new Intl.DateTimeFormat(activeIntlLocale(), {
     hour: "2-digit",
     minute: "2-digit",
   }).format(now);
 
   return (
     <div
-      aria-label={`Aktualna godzina: ${label}`}
+      aria-label={t("Aktualna godzina: {label}", { label: label })}
       className="pointer-events-none absolute inset-x-0 z-40 flex -translate-y-1/2 items-center"
       role="img"
       style={{ top: top + CALENDAR_TOP_GUTTER }}
     >
       <div className="sticky left-0 z-10 w-16 shrink-0 pr-1.5 text-right">
         <span className="inline-flex rounded-md bg-[#4fb69c] px-1.5 py-0.5 text-[9px] font-black tabular-nums text-white shadow-sm">
-          {label}
+          {t(label)}
         </span>
       </div>
       <span className="relative h-0.5 flex-1 bg-[#5bc6ab] shadow-[0_1px_4px_rgba(79,182,156,0.2)]">
@@ -1332,6 +1339,7 @@ function CalendarDayColumn({
   readonly today: Date;
   readonly visits: readonly BeautyDocsAdminVisit[];
 }) {
+  const t = useT();
   const [dragActive, setDragActive] = useState(false);
   const dayInPast = dateKey(day) < dateKey(today);
   const dayOpen = bookingDay(bookingSchedule, day)?.enabled === true;
@@ -1404,10 +1412,10 @@ function CalendarDayColumn({
             <button
               aria-label={
                 past
-                  ? `Termin minął: ${formatFullDate(day)}, ${time}`
+                  ? t("Termin minął: {value1}, {time}", { value1: formatFullDate(day), time: time })
                   : !withinSchedule
-                    ? `Poza godzinami przyjęć: ${formatFullDate(day)}, ${time}`
-                    : `Dodaj wizytę: ${formatFullDate(day)}, ${time}`
+                    ? t("Poza godzinami przyjęć: {value1}, {time}", { value1: formatFullDate(day), time: time })
+                    : t("Dodaj wizytę: {value1}, {time}", { value1: formatFullDate(day), time: time })
               }
               className={`group absolute inset-x-0 z-0 flex items-start justify-end p-2 text-[#547b59] outline-none focus-visible:z-20 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#547b59] ${
                 disabled ? "cursor-not-allowed bg-stone-50/60" : ""
@@ -1593,17 +1601,18 @@ function MonthCalendarView({
   readonly today: Date;
   readonly visitsByDay: ReadonlyMap<string, readonly BeautyDocsAdminVisit[]>;
 }) {
+  const t = useT();
   const days = monthCalendarDays(month);
   return (
     <div className="relative overflow-x-auto">
       <div className="min-w-[720px]">
         <div className="grid grid-cols-7 border-b border-[#eaeee5] bg-[#fcfdfb]">
-          {["Pon", "Wt", "Śr", "Czw", "Pt", "Sob", "Niedz"].map((label) => (
+          {[t("Pon"), t("Wt"), t("Śr"), t("Czw"), t("Pt"), t("Sob"), t("Niedz")].map((label) => (
             <span
               className="border-l border-[#eaeee5] px-2 py-2.5 text-center text-[10px] font-black uppercase tracking-[0.08em] text-stone-400 first:border-l-0"
               key={label}
             >
-              {label}
+              {t(label)}
             </span>
           ))}
         </div>
@@ -1634,7 +1643,7 @@ function MonthCalendarView({
                 </button>
                 {!past && !outside && dayOpen ? (
                   <button
-                    aria-label={`Dodaj wizytę: ${formatFullDate(day)}`}
+                    aria-label={t("Dodaj wizytę: {value1}", { value1: formatFullDate(day) })}
                     className="absolute right-2 top-2 grid size-6 place-items-center rounded-full border border-[#d4dec5] bg-white text-[#5a9586] opacity-0 shadow-sm transition group-hover:opacity-100 focus-visible:opacity-100"
                     onClick={() => onCreateAt(day, "10:00")}
                     type="button"
@@ -1661,7 +1670,7 @@ function MonthCalendarView({
                   ))}
                   {dayVisits.length > 3 ? (
                     <p className="px-1 text-[9px] font-black text-stone-400">
-                      +{dayVisits.length - 3} więcej
+                      +{dayVisits.length - 3}{" "}{t("więcej")}
                     </p>
                   ) : null}
                 </div>
@@ -1688,6 +1697,7 @@ function YearCalendarView({
   readonly visitsByDay: ReadonlyMap<string, readonly BeautyDocsAdminVisit[]>;
   readonly year: number;
 }) {
+  const t = useT();
   return (
     <div className="bd-calendar-months relative grid gap-4 bg-[#fafbf8] p-4 sm:grid-cols-2 2xl:grid-cols-3">
       {Array.from({ length: 12 }, (_, monthIndex) => {
@@ -1711,15 +1721,15 @@ function YearCalendarView({
               type="button"
             >
               <span className="text-sm font-black capitalize text-[#2a382c]">
-                {new Intl.DateTimeFormat("pl-PL", { month: "long" }).format(month)}
+                {new Intl.DateTimeFormat(activeIntlLocale(), { month: "long" }).format(month)}
               </span>
               <span className="rounded-full bg-[#eef3e7] px-2 py-1 text-[9px] font-black text-[#508578]">
                 {monthCount}
               </span>
             </button>
             <div className="mt-3 grid grid-cols-7 text-center text-xs font-semibold uppercase text-stone-600">
-              {["P", "W", "Ś", "C", "P", "S", "N"].map((label, index) => (
-                <span key={`${label}-${index}`}>{label}</span>
+              {["P", "W", t("Ś"), "C", "P", "S", "N"].map((label, index) => (
+                <span key={`${label}-${index}`}>{t(label)}</span>
               ))}
             </div>
             <div className="mt-1 grid min-w-[14rem] grid-cols-7 gap-y-0.5 [@media(pointer:coarse)]:min-w-[19.25rem]">
@@ -1763,11 +1773,12 @@ function YearCalendarView({
 }
 
 function CalendarLoadingOverlay() {
+  const t = useT();
   return (
     <div className="absolute inset-0 z-40 grid place-items-center bg-white/70 backdrop-blur-[1px]">
       <span className="inline-flex items-center gap-2 rounded-full border border-[#e5eadd] bg-white px-4 py-2 text-xs font-bold text-stone-600 shadow-sm">
         <LoaderCircle className="size-4 animate-spin text-[#245c4d]" />
-        Aktualizujemy kalendarz
+        {t("Aktualizujemy kalendarz")}
       </span>
     </div>
   );
@@ -1788,12 +1799,13 @@ function MobileWeekList({
   readonly today: Date;
   readonly visitsByDay: ReadonlyMap<string, readonly BeautyDocsAdminVisit[]>;
 }) {
+  const t = useT();
   return (
     <div className="divide-y divide-[#eaeee5] lg:hidden">
       {loading ? (
         <p className="flex items-center justify-center gap-2 px-5 py-8 text-xs font-bold text-stone-500">
           <LoaderCircle className="size-4 animate-spin text-[#245c4d]" />
-          Aktualizujemy kalendarz
+          {t("Aktualizujemy kalendarz")}
         </p>
       ) : (
         days.map((day) => {
@@ -1837,7 +1849,7 @@ function MobileWeekList({
                   </button>
                 ))}
                 {dayVisits.length === 0 ? (
-                  <p className="text-[11px] text-stone-400">Brak wizyt</p>
+                  <p className="text-[11px] text-stone-400">{t("Brak wizyt")}</p>
                 ) : null}
               </div>
             </div>
@@ -1857,6 +1869,7 @@ function CalendarStat({
   readonly label: string;
   readonly value: number;
 }) {
+  const t = useT();
   return (
     <div className="flex items-center gap-3 rounded-2xl border border-[#e3e8dd] bg-white p-4 shadow-sm">
       <span className="grid size-10 place-items-center rounded-xl bg-[#eef3e6] text-[#245c4d]">
@@ -1864,7 +1877,7 @@ function CalendarStat({
       </span>
       <div>
         <p className="text-2xl font-black text-[#173d35]">{value}</p>
-        <p className="text-xs text-stone-500">{label}</p>
+        <p className="text-xs text-stone-500">{t(label)}</p>
       </div>
     </div>
   );
@@ -2121,17 +2134,17 @@ function formatClockMinutes(value: number): string {
 }
 
 function weekdayShort(value: Date): string {
-  return new Intl.DateTimeFormat("pl-PL", { weekday: "short" })
+  return new Intl.DateTimeFormat(activeIntlLocale(), { weekday: "short" })
     .format(value)
     .replace(".", "");
 }
 
 function weekdayLong(value: Date): string {
-  return new Intl.DateTimeFormat("pl-PL", { weekday: "long" }).format(value);
+  return new Intl.DateTimeFormat(activeIntlLocale(), { weekday: "long" }).format(value);
 }
 
 function formatWeekHeaderDate(value: Date): string {
-  return new Intl.DateTimeFormat("pl-PL", {
+  return new Intl.DateTimeFormat(activeIntlLocale(), {
     day: "numeric",
     month: "short",
     year: "numeric",
@@ -2141,13 +2154,13 @@ function formatWeekHeaderDate(value: Date): string {
 }
 
 function monthShort(value: Date): string {
-  return new Intl.DateTimeFormat("pl-PL", { month: "short" })
+  return new Intl.DateTimeFormat(activeIntlLocale(), { month: "short" })
     .format(value)
     .replace(".", "");
 }
 
 function formatFullDate(value: Date): string {
-  return new Intl.DateTimeFormat("pl-PL", {
+  return new Intl.DateTimeFormat(activeIntlLocale(), {
     weekday: "long",
     day: "numeric",
     month: "long",
@@ -2155,7 +2168,7 @@ function formatFullDate(value: Date): string {
 }
 
 function formatVisitDate(value: string): string {
-  return new Intl.DateTimeFormat("pl-PL", {
+  return new Intl.DateTimeFormat(activeIntlLocale(), {
     weekday: "long",
     day: "numeric",
     month: "long",
@@ -2164,7 +2177,7 @@ function formatVisitDate(value: string): string {
 }
 
 function formatVisitTime(value: string): string {
-  return new Intl.DateTimeFormat("pl-PL", {
+  return new Intl.DateTimeFormat(activeIntlLocale(), {
     hour: "2-digit",
     minute: "2-digit",
     timeZone: "Europe/Warsaw",
@@ -2176,7 +2189,7 @@ function formatVisitTimeRange(startsAt: string, endsAt: string | null): string {
 }
 
 function formatWeekRange(first: Date, last: Date): string {
-  const formatter = new Intl.DateTimeFormat("pl-PL", {
+  const formatter = new Intl.DateTimeFormat(activeIntlLocale(), {
     day: "numeric",
     month: "short",
     year: "numeric",
@@ -2191,7 +2204,7 @@ function formatCalendarRange(
 ): string {
   if (view === "day") return formatFullDate(first);
   if (view === "month") {
-    return new Intl.DateTimeFormat("pl-PL", {
+    return new Intl.DateTimeFormat(activeIntlLocale(), {
       month: "long",
       year: "numeric",
     }).format(addDays(first, 7));

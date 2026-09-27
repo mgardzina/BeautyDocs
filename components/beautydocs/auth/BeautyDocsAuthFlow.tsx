@@ -1,5 +1,6 @@
 "use client";
 
+import { BeautyDocsLanguageMenu, useT } from "../i18n";
 import {
   useCallback,
   useEffect,
@@ -111,6 +112,7 @@ function Field({
   readonly hint?: ReactNode;
   readonly children: ReactNode;
 }) {
+  const t = useT();
   return (
     <div>
       <div className="flex items-baseline justify-between">
@@ -118,7 +120,7 @@ function Field({
           className="block text-xs font-black uppercase tracking-[0.14em] text-[#5a6b5a]"
           htmlFor={htmlFor}
         >
-          {label}
+          {t(label)}
         </label>
         {hint}
       </div>
@@ -152,13 +154,14 @@ function PrimaryButton({
 }
 
 function ErrorNote({ message }: { readonly message: string | null }) {
+  const t = useT();
   if (!message) return null;
   return (
     <p
       className="rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800"
       role="alert"
     >
-      {message}
+      {t(message)}
     </p>
   );
 }
@@ -180,6 +183,7 @@ function PasswordInput({
   readonly minLength?: number;
   readonly onValueChange?: (value: string) => void;
 }) {
+  const t = useT();
   const [show, setShow] = useState(false);
   return (
     <div className="relative">
@@ -192,12 +196,12 @@ function PasswordInput({
         minLength={minLength}
         name={name}
         onChange={(event) => onValueChange?.(event.target.value)}
-        placeholder={placeholder}
+        placeholder={t(placeholder)}
         required
         type={show ? "text" : "password"}
       />
       <button
-        aria-label={show ? "Ukryj hasło" : "Pokaż hasło"}
+        aria-label={show ? t("Ukryj hasło") : t("Pokaż hasło")}
         className="absolute right-3 top-1/2 -translate-y-1/2 rounded-lg p-1.5 text-[#8ea591] transition hover:text-[#245c4d] focus-visible:outline-none"
         onClick={() => setShow((v) => !v)}
         type="button"
@@ -216,6 +220,7 @@ export function BeautyDocsAuthFlow({
 }: {
   readonly initialView?: "login" | "role";
 }) {
+  const t = useT();
   const router = useRouter();
   const prefersReducedMotion = useReducedMotion();
   const stepTransition = prefersReducedMotion
@@ -298,7 +303,7 @@ export function BeautyDocsAuthFlow({
           }
         } else {
           setError(
-            "Nie udało się zalogować przez Google. Spróbuj ponownie lub użyj hasła.",
+            t("Nie udało się zalogować przez Google. Spróbuj ponownie lub użyj hasła."),
           );
           return;
         }
@@ -316,8 +321,8 @@ export function BeautyDocsAuthFlow({
         if (!response.ok) {
           setError(
             response.status === 409
-              ? "To konto Google jest już połączone z innym kontem BeautyDocs."
-              : "Nie udało się zalogować przez Google. Spróbuj ponownie lub użyj hasła.",
+              ? t("To konto Google jest już połączone z innym kontem BeautyDocs.")
+              : t("Nie udało się zalogować przez Google. Spróbuj ponownie lub użyj hasła."),
           );
           return;
         }
@@ -336,13 +341,13 @@ export function BeautyDocsAuthFlow({
         }
       } catch {
         setError(
-          "Google jest chwilowo niedostępne. Nadal możesz zalogować się e-mailem i hasłem.",
+          t("Google jest chwilowo niedostępne. Nadal możesz zalogować się e-mailem i hasłem."),
         );
       } finally {
         setPending(false);
       }
     },
-    [router],
+    [router, t],
   );
 
   // Google authenticates first; the salon name is collected in the next step.
@@ -355,7 +360,7 @@ export function BeautyDocsAuthFlow({
   const handleGoogleSalonSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!googleOwnerCredential) {
-      setError("Sesja Google wygasła. Zacznij zakładanie konta od nowa.");
+      setError(t("Sesja Google wygasła. Zacznij zakładanie konta od nowa."));
       setViewState("register");
       return;
     }
@@ -363,7 +368,7 @@ export function BeautyDocsAuthFlow({
       new FormData(e.currentTarget).get("salonName") ?? "",
     ).trim();
     if (salonName.length === 0) {
-      setError("Podaj nazwę salonu.");
+      setError(t("Podaj nazwę salonu."));
       return;
     }
     setPending(true);
@@ -381,8 +386,8 @@ export function BeautyDocsAuthFlow({
       if (!response.ok) {
         setError(
           response.status === 409
-            ? "To konto Google ma już konto w BeautyDocs. Zaloguj się zamiast zakładać nowe."
-            : "Nie udało się założyć konta przez Google. Spróbuj ponownie lub użyj e-maila.",
+            ? t("To konto Google ma już konto w BeautyDocs. Zaloguj się zamiast zakładać nowe.")
+            : t("Nie udało się założyć konta przez Google. Spróbuj ponownie lub użyj e-maila."),
         );
         return;
       }
@@ -392,7 +397,7 @@ export function BeautyDocsAuthFlow({
       setViewState("configure");
     } catch {
       setError(
-        "Google jest chwilowo niedostępne. Nadal możesz założyć konto e-mailem.",
+        t("Google jest chwilowo niedostępne. Nadal możesz założyć konto e-mailem."),
       );
     } finally {
       setPending(false);
@@ -409,11 +414,11 @@ export function BeautyDocsAuthFlow({
     googleTokenClientRef.current = oauth2.initTokenClient({
       client_id: clientId,
       scope: "openid email profile",
-      error_callback: () => setError("Okno Google zostało zamknięte lub zablokowane. Spróbuj ponownie albo użyj e-maila."),
+      error_callback: () => setError(t("Okno Google zostało zamknięte lub zablokowane. Spróbuj ponownie albo użyj e-maila.")),
       callback: (response) => {
         if (!response.access_token) {
           setError(
-            "Nie udało się połączyć z Google. Spróbuj ponownie lub użyj e-maila.",
+            t("Nie udało się połączyć z Google. Spróbuj ponownie lub użyj e-maila."),
           );
           return;
         }
@@ -424,12 +429,12 @@ export function BeautyDocsAuthFlow({
         }
       },
     });
-  }, [googleConfig, googleReady, handleLoginGoogle, handleRegisterGoogle]);
+  }, [googleConfig, googleReady, handleLoginGoogle, handleRegisterGoogle, t]);
 
   const requestGoogle = (intent: "login" | "register") => {
     const client = googleTokenClientRef.current;
     if (!client) {
-      setError(googleConfig?.enabled ? "Nie udało się uruchomić Google. Odśwież stronę lub użyj e-maila." : "Logowanie Google jest chwilowo niedostępne. Użyj adresu e-mail.");
+      setError(googleConfig?.enabled ? t("Nie udało się uruchomić Google. Odśwież stronę lub użyj e-maila.") : t("Logowanie Google jest chwilowo niedostępne. Użyj adresu e-mail."));
       return;
     }
     googleIntentRef.current = intent;
@@ -464,7 +469,7 @@ export function BeautyDocsAuthFlow({
     if (client.status === 403) {
       setPending(false);
       setError(
-        "Potwierdź adres e-mail kodem z rejestracji, zanim się zalogujesz.",
+        t("Potwierdź adres e-mail kodem z rejestracji, zanim się zalogujesz."),
       );
       return;
     }
@@ -488,15 +493,15 @@ export function BeautyDocsAuthFlow({
     }
     setError(
       staff.status === 401
-        ? "Nieprawidłowy adres e-mail lub hasło."
-        : "Logowanie jest chwilowo niedostępne. Spróbuj ponownie.",
+        ? t("Nieprawidłowy adres e-mail lub hasło.")
+        : t("Logowanie jest chwilowo niedostępne. Spróbuj ponownie."),
     );
   };
 
   const handleMfaConfirm = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!mfaChallenge || mfaCode.length !== 6) {
-      setError("Wpisz pełny 6-cyfrowy kod.");
+      setError(t("Wpisz pełny 6-cyfrowy kod."));
       return;
     }
     setPending(true);
@@ -513,8 +518,8 @@ export function BeautyDocsAuthFlow({
     }
     setError(
       result.status === 400
-        ? "Kod jest nieprawidłowy lub wygasł."
-        : "Weryfikacja jest chwilowo niedostępna. Spróbuj ponownie.",
+        ? t("Kod jest nieprawidłowy lub wygasł.")
+        : t("Weryfikacja jest chwilowo niedostępna. Spróbuj ponownie."),
     );
   };
 
@@ -532,7 +537,7 @@ export function BeautyDocsAuthFlow({
     setPending(true); setError(null); setResent(false);
     const result = await postJson("/api/beautydocs-preview/auth/register", { email });
     setPending(false);
-    if (!result.ok) { setError("Nie udało się wysłać kodu. Spróbuj ponownie za chwilę."); return; }
+    if (!result.ok) { setError(t("Nie udało się wysłać kodu. Spróbuj ponownie za chwilę.")); return; }
     setDevCode(typeof result.data?.devCode === "string" ? result.data.devCode : null);
     setCode(""); setResent(true); setResendWaiting(true); setResendUntil(Date.now() + 60_000);
   };
@@ -559,8 +564,8 @@ export function BeautyDocsAuthFlow({
     }
     setError(
       result.code === "email_taken"
-        ? "Ten adres e-mail jest już zarejestrowany."
-        : "Rejestracja jest chwilowo niedostępna. Spróbuj ponownie.",
+        ? t("Ten adres e-mail jest już zarejestrowany.")
+        : t("Rejestracja jest chwilowo niedostępna. Spróbuj ponownie."),
     );
   };
 
@@ -568,7 +573,7 @@ export function BeautyDocsAuthFlow({
   const handleVerify = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (code.length !== 6) {
-      setError("Wpisz pełny 6-cyfrowy kod.");
+      setError(t("Wpisz pełny 6-cyfrowy kod."));
       return;
     }
     setPending(true);
@@ -589,8 +594,8 @@ export function BeautyDocsAuthFlow({
     }
     setError(
       result.code === "invalid_code"
-        ? "Nieprawidłowy lub wygasły kod. Spróbuj ponownie."
-        : "Weryfikacja jest chwilowo niedostępna. Spróbuj ponownie.",
+        ? t("Nieprawidłowy lub wygasły kod. Spróbuj ponownie.")
+        : t("Weryfikacja jest chwilowo niedostępna. Spróbuj ponownie."),
     );
   };
 
@@ -603,19 +608,19 @@ export function BeautyDocsAuthFlow({
     const password = String(form.get("password") ?? "");
     const repeatedPassword = String(form.get("confirmPassword") ?? "");
     if (password !== repeatedPassword) {
-      setError("Hasła nie są takie same.");
+      setError(t("Hasła nie są takie same."));
       return;
     }
     if (password.length < 8) {
-      setError("Hasło musi mieć co najmniej 8 znaków.");
+      setError(t("Hasło musi mieć co najmniej 8 znaków."));
       return;
     }
     if (!isValidPolishNip(companyConfiguration.nip)) {
-      setError("NIP musi zawierać 10 cyfr i mieć poprawną sumę kontrolną.");
+      setError(t("NIP musi zawierać 10 cyfr i mieć poprawną sumę kontrolną."));
       return;
     }
     if (registrationToken === null) {
-      setError("Sesja rejestracji wygasła. Zacznij zakładanie konta od nowa.");
+      setError(t("Sesja rejestracji wygasła. Zacznij zakładanie konta od nowa."));
       setViewState("register");
       return;
     }
@@ -643,19 +648,19 @@ export function BeautyDocsAuthFlow({
     }
     setError(
       result.code === "email_taken"
-        ? "Ten adres e-mail jest już zarejestrowany. Zaloguj się zamiast zakładać nowe konto."
+        ? t("Ten adres e-mail jest już zarejestrowany. Zaloguj się zamiast zakładać nowe konto.")
         : result.code === "invalid_registration"
-          ? "Sesja rejestracji wygasła. Zacznij zakładanie konta od nowa."
+          ? t("Sesja rejestracji wygasła. Zacznij zakładanie konta od nowa.")
           : result.status === 422
-            ? "Sprawdź dane firmy — część pól ma nieprawidłowy format."
-            : "Zapis jest chwilowo niedostępny. Spróbuj ponownie.",
+            ? t("Sprawdź dane firmy — część pól ma nieprawidłowy format.")
+            : t("Zapis jest chwilowo niedostępny. Spróbuj ponownie."),
     );
   };
 
   const handleConfigure = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!isValidPolishNip(companyConfiguration.nip)) {
-      setError("NIP musi zawierać 10 cyfr i mieć poprawną sumę kontrolną.");
+      setError(t("NIP musi zawierać 10 cyfr i mieć poprawną sumę kontrolną."));
       return;
     }
     setPending(true);
@@ -677,10 +682,10 @@ export function BeautyDocsAuthFlow({
     setPending(false);
     setError(
       result.status === 401
-        ? "Sesja wygasła. Zaloguj się ponownie."
+        ? t("Sesja wygasła. Zaloguj się ponownie.")
         : result.status === 422
-          ? "Sprawdź NIP, REGON, KRS i adres firmy. Część danych ma nieprawidłowy format."
-        : "Zapis jest chwilowo niedostępny. Spróbuj ponownie.",
+          ? t("Sprawdź NIP, REGON, KRS i adres firmy. Część danych ma nieprawidłowy format.")
+        : t("Zapis jest chwilowo niedostępny. Spróbuj ponownie."),
     );
   };
 
@@ -694,7 +699,7 @@ export function BeautyDocsAuthFlow({
 
   const handleCompanyLookup = async () => {
     if (!isValidPolishNip(companyConfiguration.nip)) {
-      setError("NIP musi zawierać 10 cyfr i mieć poprawną sumę kontrolną.");
+      setError(t("NIP musi zawierać 10 cyfr i mieć poprawną sumę kontrolną."));
       setCompanyLookupNote(null);
       return;
     }
@@ -711,10 +716,10 @@ export function BeautyDocsAuthFlow({
     if (!result.ok || result.data === null) {
       setError(
         result.status === 404
-          ? "GUS nie znalazł podmiotu o podanym numerze NIP."
+          ? t("GUS nie znalazł podmiotu o podanym numerze NIP.")
           : result.status === 422
-            ? "NIP ma nieprawidłowy format lub sumę kontrolną."
-            : "Nie udało się teraz pobrać danych z GUS. Możesz uzupełnić je ręcznie.",
+            ? t("NIP ma nieprawidłowy format lub sumę kontrolną.")
+            : t("Nie udało się teraz pobrać danych z GUS. Możesz uzupełnić je ręcznie."),
       );
       return;
     }
@@ -736,11 +741,11 @@ export function BeautyDocsAuthFlow({
     const endedAt = textValue("activityEndedAt");
     if (endedAt) {
       setError(
-        `Dane pobrano z GUS, ale rejestr wskazuje zakończenie działalności: ${endedAt}.`,
+        t("Dane pobrano z GUS, ale rejestr wskazuje zakończenie działalności: {endedAt}.", { endedAt: endedAt }),
       );
     } else {
       setCompanyLookupNote(
-        `Dane potwierdzone w GUS${status ? ` · status NIP: ${status}` : ""}.`,
+        t("Dane potwierdzone w GUS{value1}.", { value1: status ? ` · status NIP: ${status}` : "" }),
       );
     }
   };
@@ -748,30 +753,30 @@ export function BeautyDocsAuthFlow({
   const heading = useMemo(() => {
     switch (view) {
       case "login":
-        return { eyebrow: "Miło Cię widzieć", title: "Witaj ponownie" };
+        return { eyebrow: t("Miło Cię widzieć"), title: t("Witaj ponownie") };
       case "loggedIn":
         return { eyebrow: "", title: "" };
       case "mfa":
-        return { eyebrow: "Dodatkowe zabezpieczenie", title: "Potwierdź logowanie" };
+        return { eyebrow: t("Dodatkowe zabezpieczenie"), title: t("Potwierdź logowanie") };
       case "role":
-        return { eyebrow: "Nowe konto", title: "Jak chcesz korzystać z BeautyDocs?" };
+        return { eyebrow: t("Nowe konto"), title: t("Jak chcesz korzystać z BeautyDocs?") };
       case "register":
-        return { eyebrow: "Konto właściciela", title: "Załóż konto salonu" };
+        return { eyebrow: t("Konto właściciela"), title: t("Załóż konto salonu") };
       case "googleSalon":
-        return { eyebrow: "Ostatni krok", title: "Nazwa Twojego salonu" };
+        return { eyebrow: t("Ostatni krok"), title: t("Nazwa Twojego salonu") };
       case "forgot":
       case "sent":
-        return { eyebrow: "Odzyskiwanie", title: "Nie pamiętasz hasła?" };
+        return { eyebrow: t("Odzyskiwanie"), title: t("Nie pamiętasz hasła?") };
       case "verify":
-        return { eyebrow: "Krok 1 z 2", title: "Potwierdź e-mail" };
+        return { eyebrow: t("Krok 1 z 2"), title: t("Potwierdź e-mail") };
       case "finalize":
-        return { eyebrow: "Krok 2 z 2", title: "Dokończ zakładanie konta" };
+        return { eyebrow: t("Krok 2 z 2"), title: t("Dokończ zakładanie konta") };
       case "configure":
-        return { eyebrow: "Ostatni krok", title: "Dane firmowe salonu" };
+        return { eyebrow: t("Ostatni krok"), title: t("Dane firmowe salonu") };
       case "done":
-        return { eyebrow: "Gotowe", title: "Konto jest gotowe" };
+        return { eyebrow: t("Gotowe"), title: t("Konto jest gotowe") };
     }
-  }, [view]);
+  }, [view, t]);
 
   if (view === "verify") {
     return (
@@ -806,16 +811,16 @@ export function BeautyDocsAuthFlow({
         <div className="p-6 sm:p-8">
           {view === "finalize" ? (
             <p className="bd-auth-verified" role="status">
-              <Check size={17} aria-hidden="true" /> Adres e-mail potwierdzony
+              <Check size={17} aria-hidden="true" />{" "}{t("Adres e-mail potwierdzony")}
             </p>
           ) : null}
           {view !== "done" ? (
             <>
               <p className="text-center text-xs font-black uppercase tracking-[0.18em] text-[#426447]">
-                {heading.eyebrow}
+                {t(heading.eyebrow)}
               </p>
               <h1 className="mt-2 text-center font-serif text-3xl font-medium tracking-tight text-[#173d35] sm:text-4xl">
-                {heading.title}
+                {t(heading.title)}
               </h1>
             </>
           ) : null}
@@ -824,7 +829,7 @@ export function BeautyDocsAuthFlow({
             {view === "finalize" ? (
               <BeautyDocsFinalizeForm
                 company={companyConfiguration}
-                companyLookupNote={companyLookupNote}
+                companyLookupNote={t(companyLookupNote)}
                 companyLookupPending={companyLookupPending}
                 email={email}
                 error={error}
@@ -845,27 +850,26 @@ export function BeautyDocsAuthFlow({
                   type="button"
                 >
                   <ArrowLeft aria-hidden="true" className="size-4" />
-                  Wróć
+                  {t("Wróć")}
                 </button>
                 <p className="text-sm text-stone-600">
-                  Zweryfikowaliśmy Twoje konto Google. Podaj nazwę salonu, aby
-                  dokończyć zakładanie konta.
+                  {t("Zweryfikowaliśmy Twoje konto Google. Podaj nazwę salonu, aby dokończyć zakładanie konta.")}
                 </p>
-                <Field htmlFor="gs-salon" label="Nazwa salonu">
+                <Field htmlFor="gs-salon" label={t("Nazwa salonu")}>
                   <input
                     autoFocus
                     className={inputCls}
                     disabled={pending}
                     id="gs-salon"
                     name="salonName"
-                    placeholder="np. Studio Lumière"
+                    placeholder={t("np. Studio Lumière")}
                     required
                     type="text"
                   />
                 </Field>
                 <ErrorNote message={error} />
-                <PrimaryButton pending={pending} pendingLabel="Zakładanie konta…">
-                  Załóż salon
+                <PrimaryButton pending={pending} pendingLabel={t("Zakładanie konta…")}>
+                  {t("Załóż salon")}
                   <ArrowRight aria-hidden="true" className="size-4" />
                 </PrimaryButton>
               </form>
@@ -874,20 +878,19 @@ export function BeautyDocsAuthFlow({
             {view === "configure" ? (
               <form className="space-y-5" onSubmit={handleConfigure}>
                 <p className="text-stone-600">
-                  Uzupełnij dane firmowe salonu — użyjemy ich w formularzach i
-                  klauzulach informacyjnych.
+                  {t("Uzupełnij dane firmowe salonu — użyjemy ich w formularzach i klauzulach informacyjnych.")}
                 </p>
                 <BeautyDocsCompanyFields
                   company={companyConfiguration}
                   disabled={pending}
-                  lookupNote={companyLookupNote}
+                  lookupNote={t(companyLookupNote)}
                   lookupPending={companyLookupPending}
                   onChange={updateCompanyConfiguration}
                   onLookup={() => void handleCompanyLookup()}
                 />
                 <ErrorNote message={error} />
-                <PrimaryButton pending={pending || companyLookupPending} pendingLabel={companyLookupPending ? "Pobieranie z GUS…" : "Zapisywanie…"}>
-                  Zakończ konfigurację
+                <PrimaryButton pending={pending || companyLookupPending} pendingLabel={companyLookupPending ? t("Pobieranie z GUS…") : t("Zapisywanie…")}>
+                  {t("Zakończ konfigurację")}
                   <ArrowRight aria-hidden="true" className="size-4" />
                 </PrimaryButton>
               </form>
@@ -896,16 +899,15 @@ export function BeautyDocsAuthFlow({
             {view === "done" ? (
               <div className="space-y-6 text-center">
                 <SuccessIcon />
-                <p className="text-lg font-black text-[#173d35]">Konto jest gotowe</p>
+                <p className="text-lg font-black text-[#173d35]">{t("Konto jest gotowe")}</p>
                 <p className="text-stone-600">
-                  Wszystko gotowe! Twój salon jest skonfigurowany — możesz przejść do
-                  panelu i zacząć zbierać dokumentację online.
+                  {t("Wszystko gotowe! Twój salon jest skonfigurowany — możesz przejść do panelu i zacząć zbierać dokumentację online.")}
                 </p>
                 <Link
                   className="flex w-full items-center justify-center gap-2 rounded-2xl bg-[#245c4d] px-4 py-3.5 font-black text-white shadow-[0_12px_30px_rgba(36,92,77,0.18)] transition hover:-translate-y-0.5 hover:bg-[#173d35]"
                   href={PANEL_PATH}
                 >
-                  Przejdź do panelu
+                  {t("Przejdź do panelu")}
                   <ArrowRight aria-hidden="true" className="size-4" />
                 </Link>
               </div>
@@ -927,12 +929,12 @@ export function BeautyDocsAuthFlow({
           strategy="afterInteractive"
         />
       ) : null}
-      <header className="bd-auth-header"><Link href="/" aria-label="BeautyDocs — strona główna"><span aria-hidden="true">✳</span><BeautyDocsWordmark /></Link><Link href="/kontakt">Potrzebujesz pomocy? <ArrowRight size={15} aria-hidden="true" /></Link></header>
+      <header className="bd-auth-header"><Link href="/" aria-label={t("BeautyDocs — strona główna")}><span aria-hidden="true">✳</span><BeautyDocsWordmark /></Link><span className="flex items-center gap-3"><BeautyDocsLanguageMenu account={null} /><Link href="/kontakt">{t("Potrzebujesz pomocy?")}{" "}<ArrowRight size={15} aria-hidden="true" /></Link></span></header>
       <main className="bd-auth-layout">
-        <aside className="bd-auth-story"><p className="bd-eyebrow">Twoje miejsce w BeautyDocs</p><h2>Dobry dzień.<br /><span className="bd-serif">Zaczyna się tutaj.</span></h2><p>Dokumentacja, klientki i Twój zespół.<br />Wszystko blisko. Wszystko na swoim miejscu.</p></aside>
+        <aside className="bd-auth-story"><p className="bd-eyebrow">{t("Twoje miejsce w BeautyDocs")}</p><h2>{t("Dobry dzień.")}<br /><span className="bd-serif">{t("Zaczyna się tutaj.")}</span></h2><p>{t("Dokumentacja, klientki i Twój zespół.")}<br />{t("Wszystko blisko. Wszystko na swoim miejscu.")}</p></aside>
         <div className="bd-auth-card">
           <Link
-            aria-label="BeautyDocs — strona główna"
+            aria-label={t("BeautyDocs — strona główna")}
             className="bd-auth-card-brand"
             href={HOME_PATH}
           >
@@ -950,10 +952,10 @@ export function BeautyDocsAuthFlow({
           {view !== "loggedIn" ? (
             <>
               <p className="text-center text-xs font-black uppercase tracking-[0.18em] text-[#426447]">
-                {heading.eyebrow}
+                {t(heading.eyebrow)}
               </p>
               <h1 className="mt-2 text-center font-serif text-3xl font-medium tracking-tight text-[#173d35] sm:text-4xl">
-                {heading.title}
+                {t(heading.title)}
               </h1>
             </>
           ) : null}
@@ -971,9 +973,9 @@ export function BeautyDocsAuthFlow({
                   </span>
                 </div>
                 <h1 className="mt-8 font-serif text-3xl font-medium tracking-tight text-[#173d35] sm:text-4xl">
-                  Zalogowano!
+                  {t("Zalogowano!")}
                 </h1>
-                <p className="mt-3 text-stone-600">Przenosimy Cię do panelu…</p>
+                <p className="mt-3 text-stone-600">{t("Przenosimy Cię do panelu…")}</p>
               </div>
             ) : null}
             {view === "mfa" && mfaChallenge ? (
@@ -986,13 +988,13 @@ export function BeautyDocsAuthFlow({
                     <div>
                       <p className="font-black text-[#173d35]">
                         {mfaChallenge.method === "SMS"
-                          ? "Kod został wysłany SMS-em"
-                          : "Otwórz aplikację uwierzytelniającą"}
+                          ? t("Kod został wysłany SMS-em")
+                          : t("Otwórz aplikację uwierzytelniającą")}
                       </p>
                       <p className="mt-1 text-sm leading-6 text-stone-500">
                         {mfaChallenge.method === "SMS"
-                          ? `Wpisz kod wysłany na ${mfaChallenge.destinationMasked ?? "zweryfikowany numer telefonu"}.`
-                          : "Wpisz aktualny kod z Google Authenticator lub innej połączonej aplikacji."}
+                          ? t("Wpisz kod wysłany na {value1}.", { value1: mfaChallenge.destinationMasked ?? "zweryfikowany numer telefonu" })
+                          : t("Wpisz aktualny kod z Google Authenticator lub innej połączonej aplikacji.")}
                       </p>
                     </div>
                   </div>
@@ -1006,7 +1008,7 @@ export function BeautyDocsAuthFlow({
 
                 {mfaChallenge.devCode ? (
                   <p className="rounded-xl bg-[#eaf0e2] px-3 py-2 text-center text-xs text-[#426447]">
-                    Tryb lokalny — kod: {" "}
+                    {t("Tryb lokalny — kod:")}{" "}{" "}
                     <span className="font-black tracking-widest">
                       {mfaChallenge.devCode}
                     </span>
@@ -1014,8 +1016,8 @@ export function BeautyDocsAuthFlow({
                 ) : null}
 
                 <ErrorNote message={error} />
-                <PrimaryButton pending={pending} pendingLabel="Sprawdzanie kodu…">
-                  Potwierdź logowanie
+                <PrimaryButton pending={pending} pendingLabel={t("Sprawdzanie kodu…")}>
+                  {t("Potwierdź logowanie")}
                   <ArrowRight aria-hidden="true" className="size-4" />
                 </PrimaryButton>
                 <button
@@ -1028,7 +1030,7 @@ export function BeautyDocsAuthFlow({
                   }}
                   type="button"
                 >
-                  Wróć do logowania
+                  {t("Wróć do logowania")}
                 </button>
               </form>
             ) : null}
@@ -1038,17 +1040,17 @@ export function BeautyDocsAuthFlow({
                   <div>
                     <GoogleAuthButton
                       disabled={pending}
-                      label="Zaloguj się przez Google"
+                      label={t("Zaloguj się przez Google")}
                       onClick={() => requestGoogle("login")}
                     />
                     <div className="mt-5 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.14em] text-stone-400">
                       <span className="h-px flex-1 bg-stone-200" />
-                      lub zaloguj się e-mailem
+                      {t("lub zaloguj się e-mailem")}
                       <span className="h-px flex-1 bg-stone-200" />
                     </div>
                   </div>
                 ) : null}
-                <Field htmlFor="login-email" label="Adres e-mail">
+                <Field htmlFor="login-email" label={t("Adres e-mail")}>
                   <input
                     autoComplete="username"
                     className={inputCls}
@@ -1062,10 +1064,10 @@ export function BeautyDocsAuthFlow({
                 </Field>
                 <Field
                   htmlFor="login-password"
-                  label="Hasło"
+                  label={t("Hasło")}
                   hint={
                     <button className={`text-xs ${SWITCH_LINK}`} onClick={setView("forgot")} type="button">
-                      Nie pamiętasz?
+                      {t("Nie pamiętasz?")}
                     </button>
                   }
                 >
@@ -1077,14 +1079,14 @@ export function BeautyDocsAuthFlow({
                   />
                 </Field>
                 <ErrorNote message={error} />
-                <PrimaryButton pending={pending} pendingLabel="Logowanie…">
-                  Zaloguj się
+                <PrimaryButton pending={pending} pendingLabel={t("Logowanie…")}>
+                  {t("Zaloguj się")}
                   <ArrowRight aria-hidden="true" className="size-4" />
                 </PrimaryButton>
                 <p className="text-center text-sm text-stone-600">
-                  Nie masz konta?{" "}
+                  {t("Nie masz konta?")}{" "}
                   <button className={SWITCH_LINK} onClick={setView("role")} type="button">
-                    Załóż konto
+                    {t("Załóż konto")}
                   </button>
                 </p>
               </form>
@@ -1093,20 +1095,20 @@ export function BeautyDocsAuthFlow({
             {view === "role" ? (
               <div className="space-y-4">
                 <RoleChoice
-                  description="Wypełniaj formularze szybciej i miej dostęp do swoich dokumentów."
+                  description={t("Wypełniaj formularze szybciej i miej dostęp do swoich dokumentów.")}
                   href="/klient"
                   icon={<UserRound aria-hidden="true" className="size-5" />}
-                  title="Jestem klientką / klientem"
+                  title={t("Jestem klientką / klientem")}
                 />
                 <RoleChoice
-                  description="Załóż salon i zapraszaj swój zespół."
+                  description={t("Załóż salon i zapraszaj swój zespół.")}
                   icon={<Building2 aria-hidden="true" className="size-5" />}
                   onClick={() => {
                     setRegistrationPassword("");
                     setError(null);
                     setViewState("register");
                   }}
-                  title="Jestem właścicielem salonu"
+                  title={t("Jestem właścicielem salonu")}
                 />
                 <BackToLogin onClick={setView("login")} />
               </div>
@@ -1116,7 +1118,7 @@ export function BeautyDocsAuthFlow({
               <BeautyDocsSignupForm
                 error={error}
                 googleEnabled={googleConfig?.enabled ?? false}
-                googleHint="Nazwę salonu podasz w następnym kroku."
+                googleHint={t("Nazwę salonu podasz w następnym kroku.")}
                 onBack={setView("role")}
                 onGoogle={() => requestGoogle("register")}
                 onSubmit={handleRegister}
@@ -1127,8 +1129,8 @@ export function BeautyDocsAuthFlow({
 
             {view === "forgot" ? (
               <div className="space-y-5">
-                <p className="text-sm leading-7 text-stone-600">Automatyczny reset hasła jest chwilowo niedostępny. Skontaktuj się z nami, aby uzyskać pomoc z dostępem do konta.</p>
-                <Link className="bd-button bd-button-primary w-full" href="/kontakt">Kontakt z pomocą <ArrowRight size={16} aria-hidden="true" /></Link>
+                <p className="text-sm leading-7 text-stone-600">{t("Automatyczny reset hasła jest chwilowo niedostępny. Skontaktuj się z nami, aby uzyskać pomoc z dostępem do konta.")}</p>
+                <Link className="bd-button bd-button-primary w-full" href="/kontakt">{t("Kontakt z pomocą")}{" "}<ArrowRight size={16} aria-hidden="true" /></Link>
                 <BackToLogin onClick={setView("login")} />
               </div>
             ) : null}
@@ -1137,8 +1139,7 @@ export function BeautyDocsAuthFlow({
               <div className="space-y-6">
                 <SuccessIcon />
                 <p className="text-stone-600">
-                  Jeśli konto istnieje, wysłaliśmy link do zresetowania hasła.
-                  Sprawdź skrzynkę (także folder spam).
+                  {t("Jeśli konto istnieje, wysłaliśmy link do zresetowania hasła. Sprawdź skrzynkę (także folder spam).")}
                 </p>
                 <BackToLogin onClick={setView("login")} />
               </div>
@@ -1149,7 +1150,7 @@ export function BeautyDocsAuthFlow({
           </AnimatePresence>
         </div>
       </main>
-      <footer className="bd-auth-footer"><span>© {new Date().getFullYear()} BeautyDocs</span><Link href="/polityka-prywatnosci">Prywatność</Link><Link href="/regulamin">Regulamin</Link></footer>
+      <footer className="bd-auth-footer"><span>© {new Date().getFullYear()}{" "}{t("BeautyDocs")}</span><Link href="/polityka-prywatnosci">{t("Prywatność")}</Link><Link href="/regulamin">{t("Regulamin")}</Link></footer>
     </div>
   );
 }
@@ -1187,6 +1188,7 @@ function GoogleAuthButton({
   readonly onClick: () => void;
   readonly disabled?: boolean;
 }) {
+  const t = useT();
   const reduceMotion = useReducedMotion();
   return (
     <motion.button
@@ -1198,7 +1200,7 @@ function GoogleAuthButton({
       whileTap={reduceMotion || disabled ? undefined : { scale: 0.97 }}
     >
       <GoogleGlyph className="size-5 shrink-0" />
-      {label}
+      {t(label)}
     </motion.button>
   );
 }
@@ -1216,14 +1218,15 @@ function RoleChoice({
   readonly href?: string;
   readonly onClick?: () => void;
 }) {
+  const t = useT();
   const content = (
     <>
       <span className="flex size-11 shrink-0 items-center justify-center rounded-2xl bg-[#e4ecd8] text-[#245c4d]">
         {icon}
       </span>
       <span className="min-w-0 flex-1">
-        <span className="block font-black text-[#173d35]">{title}</span>
-        <span className="mt-1 block text-sm leading-5 text-stone-600">{description}</span>
+        <span className="block font-black text-[#173d35]">{t(title)}</span>
+        <span className="mt-1 block text-sm leading-5 text-stone-600">{t(description)}</span>
       </span>
       <ArrowRight aria-hidden="true" className="size-5 shrink-0 text-[#245c4d]" />
     </>
@@ -1261,6 +1264,7 @@ function SuccessIcon() {
 }
 
 function BackToLogin({ onClick }: { readonly onClick: (e?: SyntheticEvent) => void }) {
+  const t = useT();
   return (
     <button
       className="flex items-center justify-center gap-1.5 text-sm font-bold text-[#5a6b5a] transition hover:text-[#173d35] focus-visible:outline-none"
@@ -1268,7 +1272,7 @@ function BackToLogin({ onClick }: { readonly onClick: (e?: SyntheticEvent) => vo
       type="button"
     >
       <ArrowLeft aria-hidden="true" className="size-4" />
-      Wróć do logowania
+      {t("Wróć do logowania")}
     </button>
   );
 }

@@ -479,6 +479,8 @@ def test_client_form_detail_returns_labeled_answers_without_signature_image(
     }
     assert payload["signatureKeys"] == ["podpisDane", "podpisRodo2"]
     assert payload["documentHash"] == "a" * 64
+    assert payload["printMetadata"]["documentHash"] == "a" * 64
+    assert payload["printMetadata"]["templateVersion"] == 2
     assert payload["anatomy"] == {
         "model": "both",
         "faceZoneSet": "face",
@@ -618,7 +620,7 @@ def test_client_form_detail_treats_practitioner_column_as_authoritative_signatur
     actor_membership_id = uuid4()
     session = MagicMock(spec=AsyncSession)
     session.execute = AsyncMock(return_value=result)
-    session.scalar = AsyncMock(side_effect=[practitioner_row, actor_membership_id])
+    session.scalar = AsyncMock(side_effect=["pl", practitioner_row, actor_membership_id])
     app = _test_app(session, _access(tenant, MembershipRole.OWNER))
 
     with TestClient(app) as client:

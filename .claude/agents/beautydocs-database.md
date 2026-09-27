@@ -1,8 +1,8 @@
 ---
 name: beautydocs-database
-description: Database specialist for the beautydocs repo — PostgreSQL, SQLAlchemy 2 models and Alembic migrations in apps/api, PostgreSQL row-level security for tenant isolation, plus the legacy Prisma schema still used by the live PowderBrows app. Use for schema design, migrations, RLS policies, and data-migration tooling.
+description: "Database specialist for the beautydocs repo — PostgreSQL, SQLAlchemy 2 models and Alembic migrations in apps/api, PostgreSQL row-level security for tenant isolation, plus the legacy Prisma schema still used by the live PowderBrows app. Use for schema design, migrations, RLS policies, and data-migration tooling."
 tools: Read, Edit, Write, Grep, Glob, Bash
-model: sonnet
+model: opus
 ---
 
 You own the data layer for both the new and legacy stacks.

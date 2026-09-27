@@ -1,12 +1,16 @@
+"use client";
+
+import { useT } from "../i18n";
 import { BeautyDocsHeader } from "../BeautyDocsHeader";
 
 export function PublicFormLoading() {
+  const t = useT();
   return (
     <div className="min-h-screen bg-[#f7f8f4] text-[#173d35]">
       <BeautyDocsHeader />
       <main
         aria-busy="true"
-        aria-label="Ładowanie formularza"
+        aria-label={t("Ładowanie formularza")}
         className="mx-auto w-full max-w-3xl px-4 py-10 sm:px-6"
       >
         <div className="animate-pulse overflow-hidden rounded-3xl border border-stone-200 bg-white motion-reduce:animate-none">
@@ -22,7 +26,7 @@ export function PublicFormLoading() {
             <div className="h-12 rounded-xl bg-[#f7f8f4]" />
           </div>
         </div>
-        <span className="sr-only">Ładowanie formularza…</span>
+        <span className="sr-only">{t("Ładowanie formularza…")}</span>
       </main>
     </div>
   );

@@ -1,5 +1,7 @@
 "use client";
+import { activeIntlLocale } from "../../../lib/i18n/active";
 
+import { useT } from "../i18n";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import {
@@ -27,6 +29,7 @@ export function BeautyDocsInbox({
   readonly initialInbox: BeautyDocsAdminNotificationList;
   readonly tenantSlug: string;
 }) {
+  const t = useT();
   const [notifications, setNotifications] = useState(initialInbox.items);
   const [selectedId, setSelectedId] = useState<string | null>(
     initialInbox.items[0]?.id ?? null,
@@ -134,7 +137,7 @@ export function BeautyDocsInbox({
     } catch {
       setNotifications(previous);
       publishUnreadCount(previous);
-      setError("Nie udało się zapisać zmiany w skrzynce.");
+      setError(t("Nie udało się zapisać zmiany w skrzynce."));
     } finally {
       setPendingIds((current) => ({ ...current, [notification.id]: false }));
     }
@@ -160,7 +163,7 @@ export function BeautyDocsInbox({
       setNotifications(inbox.items);
       publishUnreadCount(inbox.items);
     } catch {
-      setError("Nie udało się odświeżyć skrzynki.");
+      setError(t("Nie udało się odświeżyć skrzynki."));
     } finally {
       setRefreshing(false);
     }
@@ -172,11 +175,11 @@ export function BeautyDocsInbox({
     readonly icon: typeof Inbox;
     readonly count?: number;
   }[] = [
-    { id: "all", label: "Odebrane", icon: Inbox, count: activeNotifications.length },
-    { id: "unread", label: "Nieprzeczytane", icon: Mail, count: unreadCount },
+    { id: "all", label: t("Odebrane"), icon: Inbox, count: activeNotifications.length },
+    { id: "unread", label: t("Nieprzeczytane"), icon: Mail, count: unreadCount },
     {
       id: "signature",
-      label: "Do podpisu",
+      label: t("Do podpisu"),
       icon: ClipboardSignature,
       count: activeNotifications.filter(
         (item) =>
@@ -186,7 +189,7 @@ export function BeautyDocsInbox({
     },
     {
       id: "resolved",
-      label: "Zakończone",
+      label: t("Zakończone"),
       icon: CheckCircle2,
       count: activeNotifications.filter((item) => item.resolvedAt !== null).length,
     },
@@ -197,20 +200,20 @@ export function BeautyDocsInbox({
       <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <p className="text-[11px] font-black uppercase tracking-[0.16em] text-[#245c4d]">
-            Centrum powiadomień
+            {t("Centrum powiadomień")}
           </p>
           <h1
             className="mt-3 text-3xl font-black tracking-[-0.045em] text-[#173d35] sm:text-4xl"
             id="inbox-heading"
           >
-            Skrzynka
+            {t("Skrzynka")}
           </h1>
           <p className="mt-2 max-w-2xl text-sm leading-6 text-[#5a6b5a] sm:text-base">
-            Zadania i ważne wiadomości dotyczące formularzy oraz pracy salonu.
+            {t("Zadania i ważne wiadomości dotyczące formularzy oraz pracy salonu.")}
           </p>
         </div>
         <span className="inline-flex w-fit items-center gap-2 rounded-full bg-[#eef3e7] px-3.5 py-2 text-xs font-black text-[#245c4d]">
-          <Mail className="size-3.5" /> {unreadCount} nieprzeczytanych
+          <Mail className="size-3.5" /> {unreadCount}{" "}{t("nieprzeczytanych")}
         </span>
       </div>
 
@@ -233,9 +236,9 @@ export function BeautyDocsInbox({
             ) : (
               <RefreshCw className="size-4" />
             )}
-            Odśwież
+            {t("Odśwież")}
           </button>
-          <nav aria-label="Foldery skrzynki" className="flex gap-2 overflow-x-auto lg:block lg:space-y-1">
+          <nav aria-label={t("Foldery skrzynki")} className="flex gap-2 overflow-x-auto lg:block lg:space-y-1">
             {folders.map((folder) => {
               const Icon = folder.icon;
               return (
@@ -251,7 +254,7 @@ export function BeautyDocsInbox({
                   type="button"
                 >
                   <Icon className="size-4" />
-                  <span className="flex-1">{folder.label}</span>
+                  <span className="flex-1">{t(folder.label)}</span>
                   {folder.count ? (
                     <span className="rounded-full bg-white px-2 py-0.5 text-[10px] text-[#245c4d]">
                       {folder.count}
@@ -267,11 +270,11 @@ export function BeautyDocsInbox({
           <div className="border-b border-[#eaeee4] p-4">
             <label className="relative block">
               <Search className="pointer-events-none absolute left-3.5 top-1/2 size-4 -translate-y-1/2 text-stone-400" />
-              <span className="sr-only">Szukaj w skrzynce</span>
+              <span className="sr-only">{t("Szukaj w skrzynce")}</span>
               <input
                 className="w-full rounded-2xl border border-[#e1e6da] bg-[#f9fbf7] py-3 pl-10 pr-4 text-sm outline-none transition focus:border-[#87b9ac] focus:bg-white focus:ring-2 focus:ring-[#e2ead6]"
                 onChange={(event) => setQuery(event.target.value)}
-                placeholder="Szukaj klientki lub formularza"
+                placeholder={t("Szukaj klientki lub formularza")}
                 type="search"
                 value={query}
               />
@@ -322,7 +325,7 @@ export function BeautyDocsInbox({
                       {notification.formName ?? notification.title}
                     </span>
                     <span className="mt-1 line-clamp-2 block text-[11px] leading-4 text-stone-500">
-                      {notification.body}
+                      {t(notification.body)}
                     </span>
                   </span>
                   {notification.readAt === null ? (
@@ -373,6 +376,7 @@ function NotificationDetail({
   readonly pending: boolean;
   readonly tenantSlug: string;
 }) {
+  const t = useT();
   const formHref =
     notification.clientId && notification.submissionId
       ? `/panel/${encodeURIComponent(tenantSlug)}` +
@@ -394,27 +398,27 @@ function NotificationDetail({
           ) : (
             <ClipboardSignature className="size-3.5" />
           )}
-          {notification.resolvedAt ? "Zakończone" : "Wymaga działania"}
+          {notification.resolvedAt ? t("Zakończone") : t("Wymaga działania")}
         </span>
         <div className="flex items-center gap-1.5">
           <button
             aria-label={
-              notification.readAt ? "Oznacz jako nieprzeczytane" : "Oznacz jako przeczytane"
+              notification.readAt ? t("Oznacz jako nieprzeczytane") : t("Oznacz jako przeczytane")
             }
             className="grid size-9 place-items-center rounded-xl text-stone-500 transition hover:bg-[#f0f5e9] hover:text-[#245c4d] disabled:opacity-50"
             disabled={pending}
             onClick={onToggleRead}
-            title={notification.readAt ? "Oznacz jako nieprzeczytane" : "Oznacz jako przeczytane"}
+            title={notification.readAt ? t("Oznacz jako nieprzeczytane") : t("Oznacz jako przeczytane")}
             type="button"
           >
             {notification.readAt ? <Mail className="size-4" /> : <MailOpen className="size-4" />}
           </button>
           <button
-            aria-label="Archiwizuj"
+            aria-label={t("Archiwizuj")}
             className="grid size-9 place-items-center rounded-xl text-stone-500 transition hover:bg-[#f0f5e9] hover:text-[#245c4d] disabled:opacity-50"
             disabled={pending}
             onClick={onArchive}
-            title="Archiwizuj"
+            title={t("Archiwizuj")}
             type="button"
           >
             <Archive className="size-4" />
@@ -427,15 +431,15 @@ function NotificationDetail({
           {formatInboxFullDate(notification.createdAt)}
         </p>
         <h2 className="mt-3 text-2xl font-black tracking-[-0.035em] text-[#173d35]">
-          {notification.title}
+          {t(notification.title)}
         </h2>
-        <p className="mt-4 text-sm leading-7 text-stone-600">{notification.body}</p>
+        <p className="mt-4 text-sm leading-7 text-stone-600">{t(notification.body)}</p>
 
         <dl className="mt-6 divide-y divide-[#eaeee5] rounded-2xl border border-[#e5eadd] bg-[#fcfdfa] px-4">
-          <DetailRow label="Klientka" value={notification.clientName} />
-          <DetailRow label="Formularz" value={notification.formName} />
+          <DetailRow label={t("Klientka")} value={notification.clientName} />
+          <DetailRow label={t("Formularz")} value={notification.formName} />
           <DetailRow
-            label="Osoba wykonująca zabieg"
+            label={t("Osoba wykonująca zabieg")}
             value={notification.practitionerName}
           />
         </dl>
@@ -447,8 +451,8 @@ function NotificationDetail({
           >
             <ClipboardSignature className="size-4" />
             {notification.resolvedAt
-              ? "Zobacz formularz"
-              : (notification.actionLabel ?? "Otwórz formularz")}
+              ? t("Zobacz formularz")
+              : (notification.actionLabel ?? t("Otwórz formularz"))}
           </Link>
         ) : null}
       </div>
@@ -463,10 +467,11 @@ function DetailRow({
   readonly label: string;
   readonly value: string | null;
 }) {
+  const t = useT();
   return (
     <div className="grid gap-1 py-3.5 sm:grid-cols-[170px_1fr]">
       <dt className="text-[11px] font-black uppercase tracking-[0.08em] text-stone-400">
-        {label}
+        {t(label)}
       </dt>
       <dd className="text-sm font-bold text-[#344937]">{value ?? "—"}</dd>
     </div>
@@ -474,6 +479,7 @@ function DetailRow({
 }
 
 function InboxEmptyState({ detail = false }: { readonly detail?: boolean }) {
+  const t = useT();
   return (
     <div className="grid min-h-72 place-items-center px-6 py-14 text-center">
       <div>
@@ -481,12 +487,12 @@ function InboxEmptyState({ detail = false }: { readonly detail?: boolean }) {
           {detail ? <MailOpen className="size-5" /> : <Inbox className="size-5" />}
         </span>
         <p className="mt-4 text-sm font-black text-[#344937]">
-          {detail ? "Wybierz wiadomość" : "W tym folderze jest pusto"}
+          {detail ? t("Wybierz wiadomość") : t("W tym folderze jest pusto")}
         </p>
         <p className="mt-1 text-xs leading-5 text-stone-500">
           {detail
-            ? "Treść powiadomienia pojawi się tutaj."
-            : "Nowe zadania pojawią się automatycznie."}
+            ? t("Treść powiadomienia pojawi się tutaj.")
+            : t("Nowe zadania pojawią się automatycznie.")}
         </p>
       </div>
     </div>
@@ -497,19 +503,19 @@ function formatInboxDate(value: string): string {
   const date = new Date(value);
   const today = new Date();
   if (date.toDateString() === today.toDateString()) {
-    return new Intl.DateTimeFormat("pl-PL", {
+    return new Intl.DateTimeFormat(activeIntlLocale(), {
       hour: "2-digit",
       minute: "2-digit",
     }).format(date);
   }
-  return new Intl.DateTimeFormat("pl-PL", {
+  return new Intl.DateTimeFormat(activeIntlLocale(), {
     day: "2-digit",
     month: "2-digit",
   }).format(date);
 }
 
 function formatInboxFullDate(value: string): string {
-  return new Intl.DateTimeFormat("pl-PL", {
+  return new Intl.DateTimeFormat(activeIntlLocale(), {
     day: "numeric",
     month: "long",
     year: "numeric",

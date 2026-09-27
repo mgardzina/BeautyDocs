@@ -1,5 +1,6 @@
 "use client";
 
+import { useT } from "./i18n";
 import { useMemo, useRef, useState } from "react";
 import { Check, ChevronDown, Search } from "lucide-react";
 import { BeautyDocsAnchoredPopover } from "./BeautyDocsAnchoredPopover";
@@ -23,6 +24,7 @@ function PhonePrefixDropdown({
   readonly disabled?: boolean;
   readonly onSelect: (uid: string) => void;
 }) {
+  const t = useT();
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -41,7 +43,7 @@ function PhonePrefixDropdown({
         ref={buttonRef}
         aria-expanded={open}
         aria-haspopup="listbox"
-        aria-label="Przedrostek numeru telefonu"
+        aria-label={t("Przedrostek numeru telefonu")}
         className="flex h-full items-center gap-1.5 rounded-l-xl border-0 border-r border-stone-200 bg-white px-3 py-2.5 text-xs font-semibold text-[#245c4d] outline-none transition hover:bg-[#f8faf5] focus-visible:ring-0 disabled:opacity-60"
         disabled={disabled}
         type="button"
@@ -68,7 +70,7 @@ function PhonePrefixDropdown({
           <input
             autoFocus
             className="w-full border-0 bg-transparent text-sm text-[#173d35] outline-none placeholder:text-[#aeb3a7]"
-            placeholder="Szukaj kraju…"
+            placeholder={t("Szukaj kraju…")}
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
@@ -76,7 +78,7 @@ function PhonePrefixDropdown({
         </div>
         <ul className="flex-1 overflow-y-auto py-1" role="listbox">
           {filtered.length === 0 ? (
-            <li className="px-3 py-2.5 text-sm text-[#aeb3a7]">Brak wyników</li>
+            <li className="px-3 py-2.5 text-sm text-[#aeb3a7]">{t("Brak wyników")}</li>
           ) : (
             filtered.map((c) => {
               const uid = makeCountryUid(c);
@@ -96,7 +98,7 @@ function PhonePrefixDropdown({
                     }}
                   >
                     <span className="text-base leading-none">{c.flag}</span>
-                    <span className="flex-1 truncate">{c.label}</span>
+                    <span className="flex-1 truncate">{t(c.label)}</span>
                     <span className="text-xs font-semibold text-[#8ea591]">{c.code}</span>
                     {isSelected ? (
                       <Check className="h-4 w-4 shrink-0 text-[#245c4d]" />

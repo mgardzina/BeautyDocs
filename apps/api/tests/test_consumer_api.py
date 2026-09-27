@@ -251,7 +251,7 @@ def test_consumer_can_save_medical_profile_from_current_catalog() -> None:
         id=uuid4(),
         full_name="Ewa Testowa",
         email="ewa@example.test",
-        medical_profile={},
+        medical_profile={"contraindications": {"inne_pytanie": {"answer": "no", "followUp": ""}}},
         created_at=NOW,
         updated_at=NOW,
     )
@@ -295,7 +295,8 @@ def test_consumer_can_save_medical_profile_from_current_catalog() -> None:
 
     assert response.status_code == 200
     assert response.json()["profile"]["medicalAnswers"] == {
-        "alergie": {"answer": "yes", "followUp": "Lateks"}
+        "alergie": {"answer": "yes", "followUp": "Lateks"},
+        "inne_pytanie": {"answer": "no", "followUp": ""},
     }
     assert account.medical_profile_updated_at is not None
 
@@ -866,7 +867,7 @@ def test_consumer_sees_complete_document_before_practitioner_signature() -> None
         schema,
         legal_content,
     )
-    session.scalar = AsyncMock(side_effect=[link, link, submission.document_snapshot])
+    session.scalar = AsyncMock(side_effect=[link, "pl", link, submission.document_snapshot])
     session.execute = AsyncMock(side_effect=[MagicMock(), detail_result, MagicMock()])
     principal = AuthenticatedConsumer(
         consumer_account_id=account_id,
@@ -1391,3 +1392,67 @@ def test_consumer_can_book_a_visit_linked_to_a_form() -> None:
     assert visit.ends_at - visit.starts_at == timedelta(minutes=90)
     assert link.visit_id == visit.id
     assert link.consumer_account_id == account.id
+
+
+def test_consumer_practitioner_signature_uses_dedicated_column_and_legacy_fallback() -> None:
+    image = f"data:image/png;base64,{SIGNATURE_PNG_BASE64}"
+    for column, legacy in [(image, None), (image, "invalid"), (None, image), ("invalid", image)]:
+        submission_id = uuid4()
+        tenant_id = uuid4()
+        session = MagicMock(spec=AsyncSession)
+        session.scalar = AsyncMock(return_value=SimpleNamespace(tenant_id=tenant_id))
+        result = MagicMock()
+        result.first.return_value = SimpleNamespace(
+            document_snapshot={"practitioner": {"signature": legacy}},
+            practitioner_signature_data_url=column,
+        )
+        # The first execute sets the tenant RLS context.
+        session.execute = AsyncMock(side_effect=[MagicMock(), result])
+        with _client_app(session, consumer=AuthenticatedConsumer(
+            consumer_account_id=uuid4(), phone_normalized=None, full_name="Test"
+        )) as client:
+            response = client.get(
+                f"/api/v1/consumer/documents/{submission_id}/practitioner-signature"
+            )
+        assert response.status_code == 200
+        assert response.content == base64.b64decode(SIGNATURE_PNG_BASE64)
+        assert response.headers["Content-Type"] == "image/png"
+        assert "no-store" in response.headers["Cache-Control"]
+        statement = session.execute.call_args_list[1].args[0]
+        parameters = statement.compile().params.values()
+        assert submission_id in parameters
+        assert tenant_id in parameters
+
+
+def test_consumer_practitioner_signature_requires_an_active_document_link() -> None:
+    session = MagicMock(spec=AsyncSession)
+    session.scalar = AsyncMock(return_value=None)
+    session.execute = AsyncMock()
+    with _client_app(session, consumer=AuthenticatedConsumer(
+            consumer_account_id=uuid4(), phone_normalized=None, full_name="Test"
+        )) as client:
+        response = client.get(
+            f"/api/v1/consumer/documents/{uuid4()}/practitioner-signature"
+        )
+    assert response.status_code == 404
+    session.execute.assert_not_awaited()
+    statement = session.scalar.call_args.args[0]
+    assert "consumer_submission_links.revoked_at IS NULL" in str(statement)
+
+
+def test_consumer_practitioner_signature_does_not_invent_missing_signature() -> None:
+    session = MagicMock(spec=AsyncSession)
+    session.scalar = AsyncMock(return_value=SimpleNamespace(tenant_id=uuid4()))
+    result = MagicMock()
+    result.first.return_value = SimpleNamespace(
+        document_snapshot={"practitioner": {"signature": None}},
+        practitioner_signature_data_url=None,
+    )
+    session.execute = AsyncMock(side_effect=[MagicMock(), result])
+    with _client_app(session, consumer=AuthenticatedConsumer(
+            consumer_account_id=uuid4(), phone_normalized=None, full_name="Test"
+        )) as client:
+        response = client.get(
+            f"/api/v1/consumer/documents/{uuid4()}/practitioner-signature"
+        )
+    assert response.status_code == 404

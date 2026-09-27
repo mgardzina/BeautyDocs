@@ -1,3 +1,6 @@
+"use client";
+
+import { useT } from "../i18n";
 import Image from "next/image";
 import { BODY_ZONES } from "@/types/body-zones";
 import { ZONES as FACE_ZONES } from "@/types/face-zones";
@@ -57,6 +60,7 @@ export function ProductApplicationMap({
 }: {
   readonly areas: readonly ProductApplicationArea[];
 }) {
+  const t = useT();
   if (areas.length === 0) return null;
 
   const faceHighlights = areas.flatMap((area, areaIndex) =>
@@ -86,38 +90,36 @@ export function ProductApplicationMap({
         >
           {faceHighlights.length > 0 ? (
             <ApplicationDiagram
-              alt="Schemat twarzy BeautyDocs z zaznaczonymi obszarami zastosowania produktu"
+              alt={t("Schemat twarzy BeautyDocs z zaznaczonymi obszarami zastosowania produktu")}
               aspectClass="aspect-square"
               highlights={faceHighlights}
               imagePath="/women-face-chart.jpg"
-              label="Twarz"
+              label={t("Twarz")}
               viewBox="0 0 980 980"
             />
           ) : null}
           {bodyHighlights.length > 0 ? (
             <ApplicationDiagram
-              alt="Schemat ciała BeautyDocs z zaznaczonymi obszarami zastosowania produktu"
+              alt={t("Schemat ciała BeautyDocs z zaznaczonymi obszarami zastosowania produktu")}
               aspectClass="aspect-[724/1024]"
               highlights={bodyHighlights}
               imagePath="/women-body-chart.JPG"
-              label="Ciało"
+              label={t("Ciało")}
               viewBox="0 0 724 1024"
             />
           ) : null}
         </div>
 
         <div className="px-6 pb-10 pt-8 sm:px-10 lg:px-14 lg:py-16">
-          <p className="text-[11px] font-black uppercase tracking-[0.18em] text-[#245c4d]">Mapa zastosowania</p>
+          <p className="text-[11px] font-black uppercase tracking-[0.18em] text-[#245c4d]">{t("Mapa zastosowania")}</p>
           <h2
             className="mt-3 max-w-lg font-serif text-3xl font-medium leading-tight text-[#173d35] sm:text-4xl"
             id="obszary-stosowania"
           >
-            Obszary wymienione w materiałach produktu
+            {t("Obszary wymienione w materiałach produktu")}
           </h2>
           <p className="mt-4 max-w-lg text-sm leading-7 text-stone-600">
-            Wykorzystujemy te same schematy twarzy i ciała, które są dostępne w
-            formularzach BeautyDocs. Mapa nie oznacza rekomendacji zabiegu ani nie
-            zastępuje kwalifikacji specjalisty.
+            {t("Wykorzystujemy te same schematy twarzy i ciała, które są dostępne w formularzach BeautyDocs. Mapa nie oznacza rekomendacji zabiegu ani nie zastępuje kwalifikacji specjalisty.")}
           </p>
 
           <ol className="mt-8 border-t border-[#d8c7b9]">
@@ -131,7 +133,7 @@ export function ProductApplicationMap({
                   >
                     {index + 1}
                   </span>
-                  <span className="text-sm font-bold text-[#333d34]">{area.label}</span>
+                  <span className="text-sm font-bold text-[#333d34]">{t(area.label)}</span>
                 </li>
               );
             })}
@@ -161,6 +163,7 @@ function ApplicationDiagram({
   readonly label: string;
   readonly viewBox: string;
 }) {
+  const t = useT();
   return (
     <div className={`relative overflow-hidden bg-[#e6d9cb] ${aspectClass}`}>
       <Image
@@ -171,7 +174,7 @@ function ApplicationDiagram({
         src={imagePath}
       />
       <span className="absolute left-4 top-4 z-10 rounded-full bg-white/85 px-3 py-1.5 text-[9px] font-black uppercase tracking-[0.14em] text-[#245c4d] backdrop-blur-sm">
-        {label}
+        {t(label)}
       </span>
       <svg aria-hidden="true" className="absolute inset-0 h-full w-full" viewBox={viewBox}>
         {highlights.map(({ area, areaIndex, zone }) => {

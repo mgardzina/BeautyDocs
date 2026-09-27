@@ -120,6 +120,7 @@ def test_client_verification_stores_draft_without_auto_practitioner_signature() 
         name="Modelowanie ust",
         id=version_id,
         version_number=3,
+        legal_content={},
         schema_definition={
             "sections": [
                 {
@@ -206,6 +207,7 @@ def test_practitioner_without_panel_account_or_phone_cannot_be_selected() -> Non
         name="Modelowanie ust",
         id=uuid4(),
         version_number=1,
+        legal_content={},
         schema_definition={
             "sections": [
                 {
@@ -309,6 +311,7 @@ def test_verified_client_accepts_consents_with_final_signature() -> None:
         name="Modelowanie ust",
         id=version_id,
         version_number=3,
+        legal_content={},
         schema_definition={
             "sections": [
                 {

@@ -1,5 +1,6 @@
 "use client";
 
+import { useT } from "../i18n";
 import { Check } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -48,11 +49,12 @@ export function BeautyDocsCompanyFields({
   readonly lookupNote: string | null;
   readonly disabled: boolean;
 }) {
+  const t = useT();
   const busy = disabled || lookupPending;
   return (
     <>
       <Field>
-        <FieldLabel htmlFor="cfg-nip">NIP</FieldLabel>
+        <FieldLabel htmlFor="cfg-nip">{t("NIP")}</FieldLabel>
         <div className="flex gap-2">
           <Input
             autoComplete="off"
@@ -76,7 +78,7 @@ export function BeautyDocsCompanyFields({
             type="button"
             variant="outline"
           >
-            {lookupPending ? "Pobieranie…" : "Pobierz z GUS"}
+            {lookupPending ? t("Pobieranie…") : t("Pobierz z GUS")}
           </Button>
         </div>
       </Field>
@@ -84,16 +86,16 @@ export function BeautyDocsCompanyFields({
       {lookupNote ? (
         <p className="rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-medium text-emerald-800">
           <Check aria-hidden="true" className="mr-2 inline size-4" />
-          {lookupNote}
+          {t(lookupNote)}
         </p>
       ) : null}
 
       <div className="grid grid-cols-2 gap-3">
         <Field>
           <FieldLabel htmlFor="cfg-regon">
-            REGON
+            {t("REGON")}
             <span className="ml-auto text-xs font-normal text-muted-foreground">
-              opcjonalnie
+              {t("opcjonalnie")}
             </span>
           </FieldLabel>
           <Input
@@ -112,9 +114,9 @@ export function BeautyDocsCompanyFields({
         </Field>
         <Field>
           <FieldLabel htmlFor="cfg-krs">
-            KRS
+            {t("KRS")}
             <span className="ml-auto text-xs font-normal text-muted-foreground">
-              jeśli dotyczy
+              {t("jeśli dotyczy")}
             </span>
           </FieldLabel>
           <Input
@@ -134,7 +136,7 @@ export function BeautyDocsCompanyFields({
       </div>
 
       <Field>
-        <FieldLabel htmlFor="cfg-company">Nazwa firmy</FieldLabel>
+        <FieldLabel htmlFor="cfg-company">{t("Nazwa firmy")}</FieldLabel>
         <Input
           autoComplete="organization"
           className={cn(CONTROL_HEIGHT, "text-base")}
@@ -142,14 +144,14 @@ export function BeautyDocsCompanyFields({
           id="cfg-company"
           name="companyName"
           onChange={(event) => onChange("companyName", event.target.value)}
-          placeholder="np. Studio Lumière sp. z o.o."
+          placeholder={t("np. Studio Lumière sp. z o.o.")}
           required
           value={company.companyName}
         />
       </Field>
 
       <Field>
-        <FieldLabel htmlFor="cfg-street">Ulica i numer</FieldLabel>
+        <FieldLabel htmlFor="cfg-street">{t("Ulica i numer")}</FieldLabel>
         <Input
           autoComplete="street-address"
           className={cn(CONTROL_HEIGHT, "text-base")}
@@ -157,7 +159,7 @@ export function BeautyDocsCompanyFields({
           id="cfg-street"
           name="street"
           onChange={(event) => onChange("street", event.target.value)}
-          placeholder="np. ul. Kwiatowa 12/3"
+          placeholder={t("np. ul. Kwiatowa 12/3")}
           required
           value={company.street}
         />
@@ -165,7 +167,7 @@ export function BeautyDocsCompanyFields({
 
       <div className="grid grid-cols-[0.7fr_1fr] gap-3">
         <Field>
-          <FieldLabel htmlFor="cfg-postal">Kod pocztowy</FieldLabel>
+          <FieldLabel htmlFor="cfg-postal">{t("Kod pocztowy")}</FieldLabel>
           <Input
             autoComplete="postal-code"
             className={cn(CONTROL_HEIGHT, "text-base")}
@@ -188,7 +190,7 @@ export function BeautyDocsCompanyFields({
           />
         </Field>
         <Field>
-          <FieldLabel htmlFor="cfg-city">Miejscowość</FieldLabel>
+          <FieldLabel htmlFor="cfg-city">{t("Miejscowość")}</FieldLabel>
           <Input
             autoComplete="address-level2"
             className={cn(CONTROL_HEIGHT, "text-base")}
@@ -196,7 +198,7 @@ export function BeautyDocsCompanyFields({
             id="cfg-city"
             name="city"
             onChange={(event) => onChange("city", event.target.value)}
-            placeholder="np. Warszawa"
+            placeholder={t("np. Warszawa")}
             required
             value={company.city}
           />
@@ -204,7 +206,7 @@ export function BeautyDocsCompanyFields({
       </div>
 
       <FieldDescription>
-        Danych firmowych użyjemy w formularzach i klauzulach informacyjnych.
+        {t("Danych firmowych użyjemy w formularzach i klauzulach informacyjnych.")}
       </FieldDescription>
     </>
   );

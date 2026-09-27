@@ -1,5 +1,6 @@
 "use client";
 
+import { useT } from "../i18n";
 import { useState } from "react";
 import { Clock3, Info } from "lucide-react";
 import type {
@@ -26,6 +27,7 @@ export function BeautyDocsFormsManager({
   tenantSlug,
   initialForms,
 }: BeautyDocsFormsManagerProps) {
+  const t = useT();
   const { canManage } = initialForms;
   const [forms, setForms] = useState<readonly BeautyDocsAdminForm[]>(
     initialForms.forms,
@@ -100,22 +102,20 @@ export function BeautyDocsFormsManager({
       <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <p className="text-[11px] font-black uppercase tracking-[0.16em] text-[#245c4d]">
-            Katalog formularzy
+            {t("Katalog formularzy")}
           </p>
           <h1
             className="mt-3 text-3xl font-black tracking-[-0.045em] text-[#173d35] sm:text-4xl"
             id="forms-heading"
           >
-            Formularze
+            {t("Formularze")}
           </h1>
           <p className="mt-2 max-w-2xl text-sm leading-6 text-[#5a6b5a] sm:text-base">
-            Wybierz, które formularze są dostępne dla klientek Twojego
-            salonu, i ustaw średni czas potrzebny na każdy zabieg. Kalendarz
-            wykorzysta ten czas automatycznie.
+            {t("Wybierz, które formularze są dostępne dla klientek Twojego salonu, i ustaw średni czas potrzebny na każdy zabieg. Kalendarz wykorzysta ten czas automatycznie.")}
           </p>
         </div>
         <span className="inline-flex w-fit items-center gap-1.5 self-start rounded-full bg-[#eef3e7] px-3.5 py-2 text-xs font-black text-[#245c4d] sm:self-auto">
-          Włączone: {enabledCount} z {forms.length}
+          {t("Włączone:")}{" "}{enabledCount}{" "}{t("z")}{" "}{forms.length}
         </span>
       </div>
 
@@ -126,8 +126,7 @@ export function BeautyDocsFormsManager({
             className="mt-0.5 size-4 shrink-0 text-[#245c4d]"
           />
           <p>
-            Tylko właściciel lub administrator może zmieniać dostępne
-            formularze.
+            {t("Tylko właściciel lub administrator może zmieniać dostępne formularze.")}
           </p>
         </div>
       ) : null}
@@ -157,7 +156,7 @@ export function BeautyDocsFormsManager({
       ) : (
         <div className="mt-6 rounded-2xl border border-dashed border-[#b8cbaa] bg-[#fcfaf8] px-5 py-14 text-center">
           <p className="text-sm text-[#808f82]">
-            Brak formularzy w katalogu platformy.
+            {t("Brak formularzy w katalogu platformy.")}
           </p>
         </div>
       )}
@@ -182,22 +181,23 @@ function FormCard({
   readonly onDurationChange: (durationMinutes: number) => void;
   readonly tenantSlug: string;
 }) {
+  const t = useT();
   return (
     <li>
       <div className="flex flex-col gap-4 rounded-2xl border border-black/5 bg-[#fcfaf8] p-4 sm:flex-row sm:items-center sm:justify-between sm:p-5">
         <div className="min-w-0 flex-1">
           <p className="font-bold text-[#173d35]">{form.name}</p>
           {form.description ? (
-            <p className="mt-1 text-sm text-[#5a6b5a]">{form.description}</p>
+            <p className="mt-1 text-sm text-[#5a6b5a]">{t(form.description)}</p>
           ) : null}
           <div className="mt-3 flex flex-wrap items-center gap-2">
             {form.version !== null ? (
               <span className="inline-flex items-center rounded-full bg-[#eef3e7] px-2.5 py-1 text-xs font-bold text-[#245c4d]">
-                Wersja {form.version}
+                {t("Wersja")}{" "}{form.version}
               </span>
             ) : null}
             <span className="inline-flex items-center rounded-full bg-[#eef3e7] px-2.5 py-1 text-xs font-bold text-[#245c4d]">
-              {form.questionCount} pytań
+              {form.questionCount}{" "}{t("pytań")}
             </span>
             <BeautyDocsFormPreviewDialog
               formCode={form.code}
@@ -221,10 +221,10 @@ function FormCard({
         <div className="flex shrink-0 items-center gap-4 self-start sm:self-center">
           <label className="block">
             <span className="flex items-center gap-1.5 text-[10px] font-black uppercase tracking-[0.1em] text-[#5a6b5a]">
-              <Clock3 className="size-3.5" /> Czas zabiegu
+              <Clock3 className="size-3.5" />{" "}{t("Czas zabiegu")}
             </span>
             <select
-              aria-label={`Czas zabiegu: ${form.name}`}
+              aria-label={t("Czas zabiegu: {name}", { name: form.name })}
               className="mt-1.5 min-w-32 rounded-xl border border-[#d9ded2] bg-white px-3 py-2 text-sm font-bold text-[#344937] outline-none transition focus:border-[#547b59] focus:ring-2 focus:ring-[#e6eedc] disabled:cursor-not-allowed disabled:opacity-60"
               disabled={!canManage || pending}
               onChange={(event) => onDurationChange(Number(event.target.value))}
@@ -240,7 +240,7 @@ function FormCard({
           <FormToggle
             disabled={!canManage}
             enabled={form.enabled}
-            label={`Formularz ${form.name}: ${form.enabled ? "włączony" : "wyłączony"}`}
+            label={t("Formularz {name}: {value2}", { name: form.name, value2: form.enabled ? t("włączony") : t("wyłączony") })}
             onToggle={onToggle}
             pending={pending}
           />

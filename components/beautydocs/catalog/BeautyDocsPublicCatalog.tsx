@@ -1,5 +1,7 @@
 "use client";
+import { activeIntlLocale } from "../../../lib/i18n/active";
 
+import { useT } from "../i18n";
 import {
   ArrowLeft,
   ArrowRight,
@@ -92,6 +94,7 @@ export function BeautyDocsPublicCatalog({
    */
   readonly stayInPanel?: boolean;
 }) {
+  const t = useT();
   const [query, setQuery] = useState("");
   const [openItem, setOpenItem] = useState<BeautyDocsCatalogItem | null>(null);
   const [filtersOpen, setFiltersOpen] = useState(false);
@@ -112,7 +115,7 @@ export function BeautyDocsPublicCatalog({
   const [medicineTotal, setMedicineTotal] = useState(0);
   const [medicineTotalPages, setMedicineTotalPages] = useState(0);
   const [medicalNotice, setMedicalNotice] = useState(
-    "Katalog ma charakter informacyjny. Nie odstawiaj ani nie zmieniaj leku bez konsultacji z lekarzem lub farmaceutą.",
+    t("Katalog ma charakter informacyjny. Nie odstawiaj ani nie zmieniaj leku bez konsultacji z lekarzem lub farmaceutą."),
   );
   const medicineQuery = query.trim();
   const isMedicineSearch = kind === "MEDICINE";
@@ -323,7 +326,7 @@ export function BeautyDocsPublicCatalog({
           onClick={() => setOpenItem(null)}
           type="button"
         >
-          <ArrowLeft aria-hidden="true" className="size-4" /> Wróć do katalogu
+          <ArrowLeft aria-hidden="true" className="size-4" />{" "}{t("Wróć do katalogu")}
         </button>
         <BeautyDocsCatalogProductPage
           item={openItem}
@@ -338,7 +341,7 @@ export function BeautyDocsPublicCatalog({
     <section aria-labelledby="katalog-lista" className="bd-catalog-browser bd-container">
       <div className="bd-catalog-toolbar">          <label className="bd-catalog-search">
             <span className="sr-only">
-              Szukaj
+              {t("Szukaj")}
             </span>
             <Search
               aria-hidden="true"
@@ -357,18 +360,18 @@ export function BeautyDocsPublicCatalog({
               id="katalog-search"
               placeholder={
                 isMedicineSearch
-                  ? "Nazwa leku lub substancja…"
-                  : "Produkt lub marka…"
+                  ? t("Nazwa leku lub substancja…")
+                  : t("Produkt lub marka…")
               }
               type="search"
               value={query}
             />
           </label>
 
-<button className="bd-filter-toggle bd-button bd-button-outline" type="button" aria-controls="katalog-filtry" aria-expanded={filtersOpen} onClick={() => setFiltersOpen(value => !value)}><SlidersHorizontal size={17} aria-hidden="true" />{filtersOpen ? "Ukryj filtry" : "Pokaż filtry"}</button><p>Porównaj oferty. Znajdź swój produkt.</p></div>
+<button className="bd-filter-toggle bd-button bd-button-outline" type="button" aria-controls="katalog-filtry" aria-expanded={filtersOpen} onClick={() => setFiltersOpen(value => !value)}><SlidersHorizontal size={17} aria-hidden="true" />{filtersOpen ? t("Ukryj filtry") : t("Pokaż filtry")}</button><p>{t("Porównaj oferty. Znajdź swój produkt.")}</p></div>
       <div className="bd-catalog-layout">
         <aside
-          aria-label="Filtry katalogu"
+          aria-label={t("Filtry katalogu")}
           id="katalog-filtry"
           data-expanded={filtersOpen}
           className="bd-catalog-filters"
@@ -376,7 +379,7 @@ export function BeautyDocsPublicCatalog({
           <div className="flex items-center justify-between gap-3 border-b border-[#e4e9de] pb-4">
             <div className="flex items-center gap-2 text-xs font-black uppercase tracking-[0.14em] text-[#245c4d]">
               <SlidersHorizontal aria-hidden="true" className="size-4" />
-              Filtry
+              {t("Filtry")}
             </div>
             {hasFilters ? (
               <button
@@ -384,14 +387,14 @@ export function BeautyDocsPublicCatalog({
                 onClick={clearFilters}
                 type="button"
               >
-                Wyczyść
+                {t("Wyczyść")}
               </button>
             ) : null}
           </div>
 
           <fieldset className="mt-5">
             <legend className="text-xs font-black uppercase tracking-[0.1em] text-stone-500">
-              Rodzaj produktu
+              {t("Rodzaj produktu")}
             </legend>
             <div className="mt-2 grid gap-1.5 sm:grid-cols-2 lg:grid-cols-1">
               {kindFilters.map(({ value, label, Icon }) => (
@@ -407,7 +410,7 @@ export function BeautyDocsPublicCatalog({
                   type="button"
                 >
                   <Icon aria-hidden="true" className="size-4 shrink-0" />
-                  {label}
+                  {t(label)}
                 </button>
               ))}
             </div>
@@ -416,9 +419,7 @@ export function BeautyDocsPublicCatalog({
           <div className="mt-5 space-y-4 border-t border-[#e4e9de] pt-5">
             {isMedicineSearch ? (
               <div className="rounded-xl border border-blue-100 bg-blue-50/70 px-3.5 py-3 text-xs font-semibold leading-5 text-blue-950">
-                Wszystkie rekordy są dostępne strona po stronie. Wyszukiwanie
-                jest opcjonalne i obejmuje nazwę leku, substancję czynną, numer
-                pozwolenia oraz kod ATC.
+                {t("Wszystkie rekordy są dostępne strona po stronie. Wyszukiwanie jest opcjonalne i obejmuje nazwę leku, substancję czynną, numer pozwolenia oraz kod ATC.")}
               </div>
             ) : (
               <>
@@ -431,14 +432,14 @@ export function BeautyDocsPublicCatalog({
 
                 <fieldset>
               <legend className="text-xs font-black uppercase tracking-[0.1em] text-stone-500">
-                Dostępność ceny
+                {t("Dostępność ceny")}
               </legend>
               <div className="mt-2 grid grid-cols-3 gap-1 rounded-lg border border-[#cdd7c6] bg-[#eef3e8] p-1">
                 {(
                   [
-                    ["ALL", "Wszystkie"],
-                    ["WITH_PRICE", "Z ceną"],
-                    ["WITHOUT_PRICE", "Bez ceny"],
+                    ["ALL", t("Wszystkie")],
+                    ["WITH_PRICE", t("Z ceną")],
+                    ["WITHOUT_PRICE", t("Bez ceny")],
                   ] as const
                 ).map(([value, label]) => (
                   <button
@@ -458,7 +459,7 @@ export function BeautyDocsPublicCatalog({
                     }}
                     type="button"
                   >
-                    {label}
+                    {t(label)}
                   </button>
                 ))}
               </div>
@@ -466,37 +467,37 @@ export function BeautyDocsPublicCatalog({
 
                 <fieldset disabled={priceAvailability === "WITHOUT_PRICE"}>
               <legend className="text-xs font-black uppercase tracking-[0.1em] text-stone-500">
-                Cena produktu
+                {t("Cena produktu")}
               </legend>
               <div className="mt-2 grid grid-cols-2 gap-2">
                 <label className="relative">
-                  <span className="sr-only">Cena minimalna</span>
+                  <span className="sr-only">{t("Cena minimalna")}</span>
                   <input
                     className="min-h-11 w-full rounded-lg border border-[#cdd7c6] bg-white px-3 pr-8 text-sm font-bold text-[#173d35] outline-none transition placeholder:text-stone-400 focus:border-[#547b59] focus:ring-2 focus:ring-[#245c4d]/10 disabled:cursor-not-allowed disabled:opacity-45"
                     min="0"
                     onChange={(event) => setMinimumPrice(event.target.value)}
-                    placeholder="Od"
+                    placeholder={t("Od")}
                     step="10"
                     type="number"
                     value={minimumPrice}
                   />
                   <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-xs font-bold text-stone-400">
-                    zł
+                    {t("zł")}
                   </span>
                 </label>
                 <label className="relative">
-                  <span className="sr-only">Cena maksymalna</span>
+                  <span className="sr-only">{t("Cena maksymalna")}</span>
                   <input
                     className="min-h-11 w-full rounded-lg border border-[#cdd7c6] bg-white px-3 pr-8 text-sm font-bold text-[#173d35] outline-none transition placeholder:text-stone-400 focus:border-[#547b59] focus:ring-2 focus:ring-[#245c4d]/10 disabled:cursor-not-allowed disabled:opacity-45"
                     min="0"
                     onChange={(event) => setMaximumPrice(event.target.value)}
-                    placeholder="Do"
+                    placeholder={t("Do")}
                     step="10"
                     type="number"
                     value={maximumPrice}
                   />
                   <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-xs font-bold text-stone-400">
-                    zł
+                    {t("zł")}
                   </span>
                 </label>
               </div>
@@ -510,22 +511,22 @@ export function BeautyDocsPublicCatalog({
           <div className="flex flex-col gap-3 border-y border-[#dce3d5] py-3 sm:flex-row sm:items-center sm:justify-between">
             <p aria-live="polite" className="text-sm font-bold text-stone-500">
               {isMedicineSearch && medicineSearchStatus !== "READY" ? (
-                "Ładujemy Rejestr Produktów Leczniczych…"
+                t("Ładujemy Rejestr Produktów Leczniczych…")
               ) : isMedicineSearch ? (
                 <>
-                  Pokazujemy{" "}
+                  {t("Pokazujemy")}{" "}
                   <strong className="text-[#173d35]">{visibleItems.length}</strong>
                   {" z "}
                   <strong className="text-[#173d35]">
-                    {medicineTotal.toLocaleString("pl-PL")}
+                    {medicineTotal.toLocaleString(activeIntlLocale())}
                   </strong>{" "}
-                  {recordCountLabel(medicineTotal)}
+                  {t(recordCountLabel(medicineTotal))}
                 </>
               ) : (
                 <>
-                  Pokazujemy{" "}
+                  {t("Pokazujemy")}{" "}
                   <strong className="text-[#173d35]">{visibleItems.length}</strong>{" "}
-                  {productCountLabel(visibleItems.length)}
+                  {t(productCountLabel(visibleItems.length))}
                 </>
               )}
             </p>
@@ -533,32 +534,31 @@ export function BeautyDocsPublicCatalog({
               <SortDropdown onChange={setSortMode} value={sortMode} />
             ) : (
               <span className="inline-flex items-center gap-1.5 text-xs font-black text-blue-800">
-                <Check aria-hidden="true" className="size-4" /> Oficjalny rejestr CeZ
+                <Check aria-hidden="true" className="size-4" />{" "}{t("Oficjalny rejestr CeZ")}
               </span>
             )}
           </div>
 
           <h2 className="sr-only" id="katalog-lista">
-            Produkty w katalogu BeautyDocs
+            {t("Produkty w katalogu BeautyDocs")}
           </h2>
           {isMedicineSearch ? (
             <div className="mt-4 rounded-2xl border border-amber-200 bg-amber-50/75 px-4 py-3 text-xs font-semibold leading-5 text-amber-950">
-              {medicalNotice} Wyniki pochodzą z lokalnej kopii oficjalnego Rejestru
-              Produktów Leczniczych CeZ. Leki nie mają tutaj cen ani ofert zakupu.
+              {medicalNotice}{" "}{t("Wyniki pochodzą z lokalnej kopii oficjalnego Rejestru Produktów Leczniczych CeZ. Leki nie mają tutaj cen ani ofert zakupu.")}
             </div>
           ) : null}
           {isMedicineSearch && medicineSearchStatus !== "READY" && medicineSearchStatus !== "ERROR" ? (
             <div className="mt-5 flex min-h-56 items-center justify-center rounded-2xl border border-[#dce3d5] bg-white">
               <span className="inline-flex items-center gap-3 text-sm font-bold text-stone-600">
                 <LoaderCircle aria-hidden="true" className="size-5 animate-spin text-[#245c4d]" />
-                Ładujemy produkty lecznicze…
+                {t("Ładujemy produkty lecznicze…")}
               </span>
             </div>
           ) : isMedicineSearch && medicineSearchStatus === "ERROR" ? (
             <div className="mt-5 rounded-2xl border border-red-200 bg-red-50 px-6 py-10 text-center">
-              <p className="font-serif text-2xl text-red-950">Wyszukiwanie leków jest chwilowo niedostępne</p>
+              <p className="font-serif text-2xl text-red-950">{t("Wyszukiwanie leków jest chwilowo niedostępne")}</p>
               <p className="mx-auto mt-2 max-w-md text-sm leading-6 text-red-800">
-                Spróbuj ponownie za chwilę. Nie pokazujemy niezweryfikowanych zamienników danych RPL.
+                {t("Spróbuj ponownie za chwilę. Nie pokazujemy niezweryfikowanych zamienników danych RPL.")}
               </p>
             </div>
           ) : visibleItems.length > 0 ? (
@@ -582,16 +582,16 @@ export function BeautyDocsPublicCatalog({
             </div>
           ) : (
             <div className="mt-5 rounded-2xl border border-dashed border-[#cdd7c6] bg-white px-6 py-14 text-center">
-              <p className="font-serif text-2xl text-[#173d35]">Brak pasujących produktów</p>
+              <p className="font-serif text-2xl text-[#173d35]">{t("Brak pasujących produktów")}</p>
               <p className="mx-auto mt-2 max-w-md text-sm leading-6 text-stone-500">
-                Zmień markę, obszar zabiegowy albo wpisz krótszą frazę.
+                {t("Zmień markę, obszar zabiegowy albo wpisz krótszą frazę.")}
               </p>
               <button
                 className="mt-5 rounded-full bg-[#173d35] px-5 py-3 text-sm font-black text-white"
                 onClick={clearFilters}
                 type="button"
               >
-                Pokaż cały katalog
+                {t("Pokaż cały katalog")}
               </button>
             </div>
           )}
@@ -620,6 +620,7 @@ function PublicMedicineCard({
   readonly action?: ReactNode;
   readonly item: BeautyDocsCatalogItem;
 }) {
+  const t = useT();
   const activeSubstance = catalogDetailText(item.details, "activeSubstance");
   const pharmaceuticalForm = catalogDetailText(
     item.details,
@@ -637,29 +638,29 @@ function PublicMedicineCard({
           <Pill aria-hidden="true" className="size-5" />
         </span>
         <span className="rounded-full border border-blue-100 bg-blue-50 px-2.5 py-1 text-[9px] font-black uppercase tracking-[0.1em] text-blue-800">
-          RPL · CeZ
+          {t("RPL · CeZ")}
         </span>
       </div>
       <p className="mt-5 text-[10px] font-black uppercase tracking-[0.14em] text-blue-800">
-        {item.brand ?? "Podmiot odpowiedzialny niepodany"}
+        {item.brand ?? t("Podmiot odpowiedzialny niepodany")}
       </p>
       <h3 className="mt-2 text-xl font-black leading-6 tracking-[-0.025em] text-[#173d35]">
         {item.name}
       </h3>
       {item.summary ? (
-        <p className="mt-3 text-sm leading-6 text-stone-600">{item.summary}</p>
+        <p className="mt-3 text-sm leading-6 text-stone-600">{t(item.summary)}</p>
       ) : null}
 
       <dl className="mt-4 grid gap-3 border-t border-[#e4e9de] pt-4 text-xs sm:grid-cols-2">
         {activeSubstance ? (
-          <MedicineFact label="Substancja czynna" value={activeSubstance} />
+          <MedicineFact label={t("Substancja czynna")} value={activeSubstance} />
         ) : null}
-        {strength ? <MedicineFact label="Moc" value={strength} /> : null}
+        {strength ? <MedicineFact label={t("Moc")} value={strength} /> : null}
         {pharmaceuticalForm ? (
-          <MedicineFact label="Postać" value={pharmaceuticalForm} />
+          <MedicineFact label={t("Postać")} value={pharmaceuticalForm} />
         ) : null}
         {registryNumber ? (
-          <MedicineFact label="Nr pozwolenia" value={registryNumber} />
+          <MedicineFact label={t("Nr pozwolenia")} value={registryNumber} />
         ) : null}
       </dl>
 
@@ -673,7 +674,7 @@ function PublicMedicineCard({
             rel="noreferrer"
             target="_blank"
           >
-            <FileText aria-hidden="true" className="size-4" /> ChPL
+            <FileText aria-hidden="true" className="size-4" />{" "}{t("ChPL")}
           </a>
         ) : null}
         {leafletUrl ? (
@@ -683,7 +684,7 @@ function PublicMedicineCard({
             rel="noreferrer"
             target="_blank"
           >
-            Ulotka <ExternalLink aria-hidden="true" className="size-3.5" />
+            {t("Ulotka")}{" "}<ExternalLink aria-hidden="true" className="size-3.5" />
           </a>
         ) : null}
       </div>
@@ -693,9 +694,10 @@ function PublicMedicineCard({
 }
 
 function MedicineFact({ label, value }: { readonly label: string; readonly value: string }) {
+  const t = useT();
   return (
     <div>
-      <dt className="font-black text-stone-400">{label}</dt>
+      <dt className="font-black text-stone-400">{t(label)}</dt>
       <dd className="mt-1 font-bold leading-5 text-[#173d35]">{value}</dd>
     </div>
   );
@@ -710,9 +712,10 @@ function MedicinePagination({
   readonly onPageChange: (page: number) => void;
   readonly totalPages: number;
 }) {
+  const t = useT();
   return (
     <nav
-      aria-label="Strony katalogu leków"
+      aria-label={t("Strony katalogu leków")}
       className="mt-6 flex flex-wrap items-center justify-center gap-3 rounded-2xl border border-[#dce3d5] bg-white px-4 py-4"
     >
       <button
@@ -721,12 +724,12 @@ function MedicinePagination({
         onClick={() => onPageChange(currentPage - 1)}
         type="button"
       >
-        <ChevronLeft aria-hidden="true" className="size-4" /> Poprzednia
+        <ChevronLeft aria-hidden="true" className="size-4" />{" "}{t("Poprzednia")}
       </button>
       <p className="min-w-36 text-center text-xs font-bold text-stone-500">
-        Strona <strong className="text-[#173d35]">{currentPage}</strong> z{" "}
+        {t("Strona")}{" "}<strong className="text-[#173d35]">{currentPage}</strong>{" "}{t("z")}{" "}
         <strong className="text-[#173d35]">
-          {totalPages.toLocaleString("pl-PL")}
+          {totalPages.toLocaleString(activeIntlLocale())}
         </strong>
       </p>
       <button
@@ -735,7 +738,7 @@ function MedicinePagination({
         onClick={() => onPageChange(currentPage + 1)}
         type="button"
       >
-        Następna <ChevronRight aria-hidden="true" className="size-4" />
+        {t("Następna")}{" "}<ChevronRight aria-hidden="true" className="size-4" />
       </button>
     </nav>
   );
@@ -750,12 +753,13 @@ function PublicProductCard({
   readonly item: BeautyDocsCatalogItem;
   readonly onOpenDetails?: () => void;
 }) {
+  const t = useT();
   const path = catalogProductPath(item);
   if (!path) return null;
   const presentation =
-    catalogDetailText(item.details, "presentation") ?? "Sprawdź opakowanie";
+    catalogDetailText(item.details, "presentation") ?? t("Sprawdź opakowanie");
   const family =
-    catalogDetailText(item.details, "productFamily") ?? "Produkt profesjonalny";
+    catalogDetailText(item.details, "productFamily") ?? t("Produkt profesjonalny");
   const imagePath = catalogDetailText(item.details, "imagePath");
   const imageAlt = catalogDetailText(item.details, "imageAlt") ?? item.name;
   const imageFit =
@@ -790,7 +794,7 @@ function PublicProductCard({
     <article className="bd-catalog-card group">
       {onOpenDetails ? (
         <button
-          aria-label={`Zobacz ${item.name}`}
+          aria-label={t("Zobacz {name}", { name: item.name })}
           className="bd-catalog-card-image"
           onClick={onOpenDetails}
           type="button"
@@ -799,7 +803,7 @@ function PublicProductCard({
         </button>
       ) : (
         <Link
-          aria-label={`Zobacz ${item.name}`}
+          aria-label={t("Zobacz {name}", { name: item.name })}
           className="bd-catalog-card-image"
           href={path}
         >
@@ -826,13 +830,13 @@ function PublicProductCard({
           )}
         </h3>
         <p className="mt-2 line-clamp-2 text-[13px] leading-5 text-stone-500">
-          {item.summary}
+          {t(item.summary)}
         </p>
         {lowestPrice !== null ? (
           <div className="mt-auto flex items-end justify-between gap-3 pt-4">
             <div>
               <p className="text-[9px] font-black uppercase tracking-[0.12em] text-stone-400">
-                Cena od
+                {t("Cena od")}
               </p>
               <p className="mt-0.5 text-lg font-black text-[#173d35]">
                 {formatPricePln(lowestPrice)}
@@ -846,7 +850,7 @@ function PublicProductCard({
           <div className="mt-auto flex items-end justify-between gap-3 pt-4">
             <div>
               <p className="text-[9px] font-black uppercase tracking-[0.12em] text-stone-400">
-                Cena oficjalna
+                {t("Cena oficjalna")}
               </p>
               <p className="mt-0.5 text-lg font-black text-[#173d35]">
                 {formatCatalogMoney(
@@ -858,20 +862,20 @@ function PublicProductCard({
             <span className="text-right text-[10px] font-bold leading-4 text-stone-500">
               {officialReferencePrice.seller}
               <br />
-              bez przeliczenia
+              {t("bez przeliczenia")}
             </span>
           </div>
         ) : comparisonMeta?.status === "INFORMATION_ONLY" ? (
           <p className="mt-auto pt-4 text-xs font-bold text-amber-800">
-            Pozycja informacyjna — bez ofert zakupu
+            {t("Pozycja informacyjna — bez ofert zakupu")}
           </p>
         ) : comparisonMeta?.status === "REQUEST_QUOTE" ? (
           <div className="mt-auto pt-4">
             <p className="text-[9px] font-black uppercase tracking-[0.12em] text-stone-400">
-              {item.kind === "DEVICE" ? "Cena urządzenia" : "Cena produktu"}
+              {item.kind === "DEVICE" ? t("Cena urządzenia") : t("Cena produktu")}
             </p>
             <p className="mt-1 text-sm font-black text-[#245c4d]">
-              Wycena indywidualna
+              {t("Wycena indywidualna")}
             </p>
           </div>
         ) : null}
@@ -886,7 +890,7 @@ function PublicProductCard({
             onClick={onOpenDetails}
             type="button"
           >
-            Zobacz produkt
+            {t("Zobacz produkt")}
             <ArrowRight
               aria-hidden="true"
               className="size-4 transition-transform group-hover:translate-x-1"
@@ -897,7 +901,7 @@ function PublicProductCard({
             className="mt-4 inline-flex items-center justify-between gap-3 text-xs font-black text-[#245c4d]"
             href={path}
           >
-            Zobacz produkt
+            {t("Zobacz produkt")}
             <ArrowRight
               aria-hidden="true"
               className="size-4 transition-transform group-hover:translate-x-1"
@@ -917,6 +921,7 @@ function SortDropdown({
   readonly onChange: (value: SortMode) => void;
   readonly value: SortMode;
 }) {
+  const t = useT();
   const detailsRef = useRef<HTMLDetailsElement>(null);
   const selected =
     sortOptions.find((option) => option.value === value) ?? sortOptions[0];
@@ -929,14 +934,14 @@ function SortDropdown({
   return (
     <div className="flex items-center gap-3">
       <span className="hidden text-xs font-black uppercase tracking-[0.1em] text-stone-500 sm:inline">
-        Sortuj po
+        {t("Sortuj po")}
       </span>
       <details className="group relative" ref={detailsRef}>
         <summary
-          aria-label={`Sortuj produkty: ${selected.label}`}
+          aria-label={t("Sortuj produkty: {label}", { label: selected.label })}
           className="flex min-h-11 min-w-52 cursor-pointer list-none items-center justify-between gap-3 rounded-xl border border-[#cdd7c6] bg-[#f7f8f4] px-3.5 text-sm font-bold text-[#173d35] outline-none transition hover:border-[#c4cbbb] hover:bg-white focus-visible:border-[#547b59] focus-visible:ring-4 focus-visible:ring-[#245c4d]/10 [&::-webkit-details-marker]:hidden"
         >
-          <span className="truncate">{selected.label}</span>
+          <span className="truncate">{t(selected.label)}</span>
           <ChevronDown
             aria-hidden="true"
             className="size-4 shrink-0 text-stone-400 transition group-open:rotate-180"
@@ -955,7 +960,7 @@ function SortDropdown({
               onClick={() => selectSortMode(option.value)}
               type="button"
             >
-              <span>{option.label}</span>
+              <span>{t(option.label)}</span>
               {value === option.value ? (
                 <Check aria-hidden="true" className="size-4 shrink-0 text-[#245c4d]" />
               ) : null}
@@ -976,6 +981,7 @@ function TreatmentDropdown({
   readonly options: readonly string[];
   readonly value: string;
 }) {
+  const t = useT();
   const detailsRef = useRef<HTMLDetailsElement>(null);
   const [query, setQuery] = useState("");
   const filteredOptions = options.filter((option) =>
@@ -991,12 +997,12 @@ function TreatmentDropdown({
   return (
     <div>
       <p className="text-xs font-black uppercase tracking-[0.1em] text-stone-500">
-        Zabieg lub obszar
+        {t("Zabieg lub obszar")}
       </p>
       <details className="group mt-2" ref={detailsRef}>
         <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-3 rounded-lg border border-[#cdd7c6] bg-white px-3.5 text-sm font-bold text-[#173d35] outline-none transition hover:border-[#c3c9ba] focus-visible:border-[#547b59] focus-visible:ring-2 focus-visible:ring-[#245c4d]/10 [&::-webkit-details-marker]:hidden">
           <span className="truncate">
-            {value === "ALL" ? "Wszystkie zabiegi i obszary" : value}
+            {value === "ALL" ? t("Wszystkie zabiegi i obszary") : value}
           </span>
           <ChevronDown
             aria-hidden="true"
@@ -1005,7 +1011,7 @@ function TreatmentDropdown({
         </summary>
         <div className="mt-2 rounded-lg border border-[#cdd7c6] bg-white p-2 shadow-[0_12px_30px_rgba(42,61,56,0.1)]">
           <label className="relative block">
-            <span className="sr-only">Wyszukaj zabieg lub obszar</span>
+            <span className="sr-only">{t("Wyszukaj zabieg lub obszar")}</span>
             <Search
               aria-hidden="true"
               className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-stone-400"
@@ -1013,7 +1019,7 @@ function TreatmentDropdown({
             <input
               className="min-h-11 w-full rounded-lg border border-[#dce3d5] bg-[#f7f8f4] pl-9 pr-3 text-sm font-semibold text-[#173d35] outline-none focus:border-[#547b59]"
               onChange={(event) => setQuery(event.target.value)}
-              placeholder="Wyszukaj zabieg…"
+              placeholder={t("Wyszukaj zabieg…")}
               type="search"
               value={query}
             />
@@ -1024,7 +1030,7 @@ function TreatmentDropdown({
               onClick={() => selectTreatment("ALL")}
               type="button"
             >
-              Wszystkie zabiegi i obszary
+              {t("Wszystkie zabiegi i obszary")}
               {value === "ALL" ? (
                 <Check aria-hidden="true" className="size-4 text-[#245c4d]" />
               ) : null}
@@ -1044,7 +1050,7 @@ function TreatmentDropdown({
             ))}
             {filteredOptions.length === 0 ? (
               <p className="px-2.5 py-3 text-xs font-semibold text-stone-500">
-                Brak pasującego zabiegu.
+                {t("Brak pasującego zabiegu.")}
               </p>
             ) : null}
           </div>
@@ -1063,6 +1069,7 @@ function BrandDropdown({
   readonly options: readonly BrandOption[];
   readonly value: string;
 }) {
+  const t = useT();
   const detailsRef = useRef<HTMLDetailsElement>(null);
   const [query, setQuery] = useState("");
   const selected = options.find((option) => option.name === value) ?? null;
@@ -1079,7 +1086,7 @@ function BrandDropdown({
   return (
     <div>
       <p className="text-xs font-black uppercase tracking-[0.1em] text-stone-500">
-        Marka
+        {t("Marka")}
       </p>
       <details className="group mt-2" ref={detailsRef}>
         <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-3 rounded-lg border border-[#cdd7c6] bg-white px-3.5 text-sm font-bold normal-case tracking-normal text-[#173d35] outline-none transition hover:border-[#c3c9ba] focus-visible:border-[#547b59] focus-visible:ring-2 focus-visible:ring-[#245c4d]/10 [&::-webkit-details-marker]:hidden">
@@ -1093,7 +1100,7 @@ function BrandDropdown({
                 width={100}
               />
             ) : null}
-            <span className="truncate">{selected?.name ?? "Wszystkie marki"}</span>
+            <span className="truncate">{selected?.name ?? t("Wszystkie marki")}</span>
           </span>
           <ChevronDown
             aria-hidden="true"
@@ -1102,7 +1109,7 @@ function BrandDropdown({
         </summary>
         <div className="mt-2 rounded-lg border border-[#cdd7c6] bg-white p-2 shadow-[0_12px_30px_rgba(42,61,56,0.1)]">
           <label className="relative block">
-            <span className="sr-only">Wyszukaj markę</span>
+            <span className="sr-only">{t("Wyszukaj markę")}</span>
             <Search
               aria-hidden="true"
               className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-stone-400"
@@ -1110,7 +1117,7 @@ function BrandDropdown({
             <input
               className="min-h-11 w-full rounded-lg border border-[#dce3d5] bg-[#f7f8f4] pl-9 pr-3 text-sm font-semibold text-[#173d35] outline-none focus:border-[#547b59]"
               onChange={(event) => setQuery(event.target.value)}
-              placeholder="Wyszukaj markę…"
+              placeholder={t("Wyszukaj markę…")}
               type="search"
               value={query}
             />
@@ -1121,7 +1128,7 @@ function BrandDropdown({
               onClick={() => selectBrand("ALL")}
               type="button"
             >
-              Wszystkie marki
+              {t("Wszystkie marki")}
               {value === "ALL" ? (
                 <Check aria-hidden="true" className="size-4 text-[#245c4d]" />
               ) : null}
@@ -1158,7 +1165,7 @@ function BrandDropdown({
             ))}
             {filteredOptions.length === 0 ? (
               <p className="px-2.5 py-3 text-xs font-semibold text-stone-500">
-                Brak pasującej marki.
+                {t("Brak pasującej marki.")}
               </p>
             ) : null}
           </div>

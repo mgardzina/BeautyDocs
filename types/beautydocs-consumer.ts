@@ -1,4 +1,4 @@
-import type { BeautyDocsAdminFormAnswerSection } from "./beautydocs-admin";
+import type { BeautyDocsAdminFormAnswerSection, BeautyDocsFormPrintMetadata } from "./beautydocs-admin";
 
 export interface BeautyDocsConsumerProfile {
   readonly fullName: string;
@@ -137,6 +137,7 @@ export interface BeautyDocsConsumerAppointmentFormAccess {
 
 export interface BeautyDocsConsumerDocumentDetail
   extends BeautyDocsConsumerDocument {
+  readonly printMetadata?: BeautyDocsFormPrintMetadata | null;
   readonly client: Record<string, unknown>;
   readonly answers: Record<string, unknown>;
   readonly sections: readonly BeautyDocsAdminFormAnswerSection[];

@@ -1,3 +1,6 @@
+"use client";
+
+import { useT } from "./i18n";
 import type { ReactNode } from "react";
 import type { TenantPublicConfig } from "../../types/tenant";
 import { BeautyDocsHeader } from "./BeautyDocsHeader";
@@ -15,6 +18,7 @@ export function PublicTenantShell({
   tenant,
   children,
 }: PublicTenantShellProps) {
+  const t = useT();
   return (
     <div className="flex min-h-screen flex-col bg-[#f7f8f4] text-[#173d35]">
       <BeautyDocsHeader tenant={tenant} />
@@ -34,11 +38,11 @@ export function PublicTenantShell({
                 {tenant.legal.address.postalCode} {tenant.legal.address.city}
               </address>
             ) : null}
-            {tenant.legal.nip ? <p className="mt-1">NIP: {tenant.legal.nip}</p> : null}
+            {tenant.legal.nip ? <p className="mt-1">{t("NIP:")}{" "}{tenant.legal.nip}</p> : null}
           </div>
 
           <div className="sm:text-right">
-            <p className="font-semibold text-[#173d35]">Kontakt z salonem</p>
+            <p className="font-semibold text-[#173d35]">{t("Kontakt z salonem")}</p>
             {tenant.contact.phone ? (
               <p className="mt-1">
                 <a
@@ -62,7 +66,7 @@ export function PublicTenantShell({
           </div>
 
           <p className="text-xs text-stone-500 sm:col-span-2 sm:text-center">
-            Obsługiwane przez BeautyDocs
+            {t("Obsługiwane przez BeautyDocs")}
           </p>
         </div>
       </footer>
