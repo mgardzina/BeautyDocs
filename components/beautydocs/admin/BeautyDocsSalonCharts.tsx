@@ -1,3 +1,6 @@
+"use client";
+
+import { useT } from "../i18n";
 import type { BeautyDocsTenantAnalytics } from "../../../types/beautydocs-admin";
 
 const CHERRY = "#245c4d";
@@ -19,6 +22,7 @@ function WeeklyBars({
   readonly values: readonly number[];
   readonly weekStarts: readonly string[];
 }) {
+  const t = useT();
   const total = values.reduce((sum, value) => sum + value, 0);
   const max = Math.max(...values, 1);
   const count = values.length;
@@ -33,7 +37,7 @@ function WeeklyBars({
   return (
     <div className="rounded-2xl border border-[#e7ecdf] bg-white p-5">
       <p className="text-[11px] font-black uppercase tracking-[0.14em] text-[#245c4d]">
-        {label}
+        {t(label)}
       </p>
       <p className="mt-1 text-2xl font-black tracking-[-0.03em] text-[#173d35]">
         {total}
@@ -75,18 +79,19 @@ function TreatmentBars({
 }: {
   readonly treatments: BeautyDocsTenantAnalytics["treatments"];
 }) {
+  const t = useT();
   const max = Math.max(...treatments.map((item) => item.count), 1);
   return (
     <div className="rounded-2xl border border-[#e7ecdf] bg-white p-5">
       <p className="text-[11px] font-black uppercase tracking-[0.14em] text-[#245c4d]">
-        Najczęstsze zabiegi
+        {t("Najczęstsze zabiegi")}
       </p>
       <ul className="mt-4 space-y-3">
         {treatments.map((item) => (
           <li key={item.label}>
             <div className="flex items-baseline justify-between gap-3">
               <span className="min-w-0 truncate text-sm font-bold text-[#173d35]">
-                {item.label}
+                {t(item.label)}
               </span>
               <span className="shrink-0 text-sm font-black text-[#245c4d]">
                 {item.count}
@@ -110,6 +115,7 @@ export function BeautyDocsSalonCharts({
 }: {
   readonly analytics: BeautyDocsTenantAnalytics | null;
 }) {
+  const t = useT();
   const weeks = analytics?.weeks ?? [];
   const treatments = analytics?.treatments ?? [];
   const weekStarts = weeks.map((week) => week.weekStart);
@@ -124,35 +130,34 @@ export function BeautyDocsSalonCharts({
         className="text-lg font-black tracking-[-0.02em] text-[#173d35]"
         id="salon-charts-heading"
       >
-        Statystyki salonu
+        {t("Statystyki salonu")}
       </h2>
-      <p className="mt-1 text-sm text-[#5a6b5a]">Ostatnie 12 tygodni.</p>
+      <p className="mt-1 text-sm text-[#5a6b5a]">{t("Ostatnie 12 tygodni.")}</p>
 
       {!hasData ? (
         <div className="mt-4 rounded-2xl border border-dashed border-[#d4decc] bg-[#fcfaf8] p-8 text-center">
           <p className="text-sm font-bold text-[#173d35]">
-            Wykresy pojawią się, gdy zaczniesz przyjmować klientki
+            {t("Wykresy pojawią się, gdy zaczniesz przyjmować klientki")}
           </p>
           <p className="mx-auto mt-1 max-w-md text-sm text-[#5a6b5a]">
-            Dodaj wizyty, klientki i wypełnione formularze, a tutaj zobaczysz
-            trendy salonu.
+            {t("Dodaj wizyty, klientki i wypełnione formularze, a tutaj zobaczysz trendy salonu.")}
           </p>
         </div>
       ) : (
         <div className="mt-4 space-y-4">
           <div className="grid gap-4 sm:grid-cols-3">
             <WeeklyBars
-              label="Wizyty"
+              label={t("Wizyty")}
               values={weeks.map((week) => week.visits)}
               weekStarts={weekStarts}
             />
             <WeeklyBars
-              label="Nowe klientki"
+              label={t("Nowe klientki")}
               values={weeks.map((week) => week.newClients)}
               weekStarts={weekStarts}
             />
             <WeeklyBars
-              label="Formularze"
+              label={t("Formularze")}
               values={weeks.map((week) => week.submissions)}
               weekStarts={weekStarts}
             />

@@ -1,3 +1,6 @@
+"use client";
+
+import { useT } from "../i18n";
 import Link from "next/link";
 import { ArrowUpRight, FileStack, PenLine, UsersRound } from "lucide-react";
 const features = [
@@ -6,5 +9,6 @@ const features = [
   { icon: UsersRound, number: "03", title: "Zespół, który jest na bieżąco.", description: "Wspólny panel i dostęp dopasowany do roli. Każdy wie, gdzie znaleźć potrzebne informacje.", href: "/platforma#zgodnosc", color: "bd-feature-lilac" },
 ];
 export function BeautyDocsFeatureGrid() {
-  return <section className="bd-section bd-features" id="mozliwosci"><div className="bd-container"><div className="bd-section-heading"><p className="bd-eyebrow">Porządek, który robi różnicę</p><h2 className="bd-heading">Wszystko, czego potrzebujesz.<br /><span className="bd-serif">Dokładnie tam, gdzie trzeba.</span></h2></div><div className="bd-feature-grid">{features.map(({ icon: Icon, ...feature }) => <article className={`bd-feature ${feature.color}`} key={feature.number}><div className="bd-feature-top"><Icon size={32} strokeWidth={1.3} aria-hidden="true" /><span>{feature.number}</span></div><h3>{feature.title}</h3><p>{feature.description}</p><Link href={feature.href} aria-label={`Poznaj możliwości: ${feature.title}`}>Poznaj możliwości <ArrowUpRight size={17} aria-hidden="true" /></Link></article>)}</div></div></section>;
+  const t = useT();
+  return <section className="bd-section bd-features" id="mozliwosci"><div className="bd-container"><div className="bd-section-heading"><p className="bd-eyebrow">{t("Porządek, który robi różnicę")}</p><h2 className="bd-heading">{t("Wszystko, czego potrzebujesz.")}<br /><span className="bd-serif">{t("Dokładnie tam, gdzie trzeba.")}</span></h2></div><div className="bd-feature-grid">{features.map(({ icon: Icon, ...feature }) => <article className={`bd-feature ${feature.color}`} key={feature.number}><div className="bd-feature-top"><Icon size={32} strokeWidth={1.3} aria-hidden="true" /><span>{feature.number}</span></div><h3>{t(feature.title)}</h3><p>{t(feature.description)}</p><Link href={feature.href} aria-label={t("Poznaj możliwości: {title}", { title: feature.title })}>{t("Poznaj możliwości")}{" "}<ArrowUpRight size={17} aria-hidden="true" /></Link></article>)}</div></div></section>;
 }

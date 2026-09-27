@@ -1,5 +1,6 @@
 "use client";
 
+import { useT } from "../i18n";
 import { type FormEvent } from "react";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight } from "lucide-react";
@@ -70,6 +71,7 @@ export function BeautyDocsSignupForm({
   googleHint,
   backLabel = "Wróć",
 }: BeautyDocsSignupFormProps) {
+  const t = useT();
   return (
     <div className="flex flex-col gap-6">
       <button
@@ -79,7 +81,7 @@ export function BeautyDocsSignupForm({
         type="button"
       >
         <ArrowLeft aria-hidden="true" className="size-4" />
-        {backLabel}
+        {t(backLabel)}
       </button>
 
       <form onSubmit={onSubmit}>
@@ -95,20 +97,20 @@ export function BeautyDocsSignupForm({
                   variant="outline"
                 >
                   <GoogleGlyph className="size-5" />
-                  Kontynuuj z Google
+                  {t("Kontynuuj z Google")}
                 </Button>
                 {googleHint ? (
                   <FieldDescription className="text-center">
-                    {googleHint}
+                    {t(googleHint)}
                   </FieldDescription>
                 ) : null}
               </Field>
-              <FieldSeparator>lub użyj e-maila</FieldSeparator>
+              <FieldSeparator>{t("lub użyj e-maila")}</FieldSeparator>
             </>
           ) : null}
 
           <Field>
-            <FieldLabel htmlFor="reg-email">Adres e-mail</FieldLabel>
+            <FieldLabel htmlFor="reg-email">{t("Adres e-mail")}</FieldLabel>
             <Input
               autoComplete="email"
               autoFocus
@@ -121,7 +123,7 @@ export function BeautyDocsSignupForm({
               type="email"
             />
             <FieldDescription>
-              Wyślemy 6-cyfrowy kod, aby potwierdzić, że to Twój adres.
+              {t("Wyślemy 6-cyfrowy kod, aby potwierdzić, że to Twój adres.")}
             </FieldDescription>
           </Field>
 
@@ -141,10 +143,10 @@ export function BeautyDocsSignupForm({
               type="submit"
             >
               {pending ? (
-                "Wysyłanie kodu…"
+                t("Wysyłanie kodu…")
               ) : (
                 <>
-                  Dalej
+                  {t("Dalej")}
                   <ArrowRight aria-hidden="true" className="size-4" />
                 </>
               )}
@@ -152,22 +154,22 @@ export function BeautyDocsSignupForm({
           </Field>
 
           <FieldDescription className="text-center">
-            Masz już konto?{" "}
+            {t("Masz już konto?")}{" "}
             <button
               className="font-semibold text-primary underline-offset-4 transition hover:underline"
               onClick={onSwitchToLogin}
               type="button"
             >
-              Zaloguj się
+              {t("Zaloguj się")}
             </button>
           </FieldDescription>
         </FieldGroup>
       </form>
 
       <FieldDescription className="px-6 text-center">
-        Zakładając konto, akceptujesz nasz{" "}
-        <Link href="/regulamin">Regulamin</Link> oraz{" "}
-        <Link href="/polityka-prywatnosci">Politykę prywatności</Link>.
+        {t("Zakładając konto, akceptujesz nasz")}{" "}
+        <Link href="/regulamin">{t("Regulamin")}</Link>{" "}{t("oraz")}{" "}
+        <Link href="/polityka-prywatnosci">{t("Politykę prywatności")}</Link>.
       </FieldDescription>
     </div>
   );

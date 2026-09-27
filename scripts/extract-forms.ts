@@ -1,8 +1,8 @@
 /**
  * Extract the real per-treatment medical questionnaire (contraindications /
- * wywiad) from the legacy PowderBrows source of truth in `types/booking.ts`
+ * wywiad) from the legacy source of truth in `types/booking.ts`
  * and write a language-neutral JSON catalogue that the BeautyDocs provisioner
- * (`apps/api/scripts/provision_powderbrows_forms.py`) merges into each form
+ * (`apps/api/scripts/provision_beautydocs_forms.py`) merges into each form
  * template version's schema.
  *
  * Run from the repo root:

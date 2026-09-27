@@ -1,4 +1,5 @@
 "use client";
+import { useT } from "../i18n";
 import { useEffect, useRef, useState } from "react";
 import type { Map as LeafletMap } from "leaflet";
 import type { PublicSalon } from "@/types/beautydocs-salon";
@@ -10,6 +11,7 @@ import "leaflet/dist/leaflet.css";
 const EMPTY_SALONS: PublicSalon[] = [];
 
 export default function InteractiveSalonMap({ latitude, longitude, name, salons = EMPTY_SALONS, selectedSlug, onSelect }: { latitude: number; longitude: number; name: string; salons?: PublicSalon[]; selectedSlug?: string; onSelect?: (salon: PublicSalon) => void }) {
+  const t = useT();
   const container = useRef<HTMLDivElement>(null);
   const mapRef = useRef<LeafletMap | null>(null);
   const selectRef = useRef(onSelect); selectRef.current = onSelect;
@@ -54,5 +56,5 @@ export default function InteractiveSalonMap({ latitude, longitude, name, salons 
     });
     return () => { disposed = true; group?.remove(); };
   }, [latitude, longitude, name, salons, selectedSlug, ready]);
-  return <div className="bd-live-map"><div ref={container} className="bd-live-map-canvas" aria-label={`Mapa salonów: ${name}`} />{error && <p className="bd-map-warning" role="status">Nie udało się wczytać części mapy. Możesz skorzystać z linku do trasy.</p>}{selected && <Link href={`/salony/${selected.slug}`} className="bd-map-floating-card"><SalonLogo url={selected.logoUrl} name={selected.displayName} /><span><strong>{selected.displayName}</strong><small>{[selected.addressLine1, selected.city].filter(Boolean).join(", ")}</small></span><span aria-hidden="true">↗</span></Link>}</div>;
+  return <div className="bd-live-map"><div ref={container} className="bd-live-map-canvas" aria-label={t("Mapa salonów: {name}", { name: name })} />{error && <p className="bd-map-warning" role="status">{t("Nie udało się wczytać części mapy. Możesz skorzystać z linku do trasy.")}</p>}{selected && <Link href={`/salony/${selected.slug}`} className="bd-map-floating-card"><SalonLogo url={selected.logoUrl} name={selected.displayName} /><span><strong>{selected.displayName}</strong><small>{[selected.addressLine1, selected.city].filter(Boolean).join(", ")}</small></span><span aria-hidden="true">↗</span></Link>}</div>;
 }

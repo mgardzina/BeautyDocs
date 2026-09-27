@@ -1,16 +1,20 @@
-import { BeautyDocsWordmark } from "../BeautyDocsWordmark";
+"use client";
+
+import { useT } from "../i18n";
+import { BeautyDocsLogo } from "../BeautyDocsLogo";
 
 export function BeautyDocsAdminPageLoading() {
+  const t = useT();
   return (
     <div className="min-h-screen bg-[#f7f8f4] text-[#173d35]">
       <header className="border-b border-stone-200 bg-white px-4 py-4 sm:px-6">
         <div className="mx-auto flex max-w-7xl items-center">
-          <BeautyDocsWordmark className="text-lg text-[#173d35]" />
+          <BeautyDocsLogo className="text-lg text-[#173d35]" />
         </div>
       </header>
       <main
         aria-busy="true"
-        aria-label="Ładowanie panelu"
+        aria-label={t("Ładowanie panelu")}
         className="mx-auto max-w-6xl px-4 py-8 sm:px-6"
       >
         <div className="animate-pulse space-y-5 motion-reduce:animate-none">
@@ -30,7 +34,7 @@ export function BeautyDocsAdminPageLoading() {
             ))}
           </div>
         </div>
-        <span className="sr-only">Ładowanie…</span>
+        <span className="sr-only">{t("Ładowanie…")}</span>
       </main>
     </div>
   );

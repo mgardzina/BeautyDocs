@@ -1,5 +1,6 @@
 "use client";
 
+import { useT } from "../i18n";
 import { useEffect, useState } from "react";
 
 export interface FaceAreaZone {
@@ -29,7 +30,7 @@ const COLORS = {
 
 /**
  * Interactive face chart for marking the treatment area. Ported from the legacy
- * PowderBrows AnatomyFaceSelector and restyled to the BeautyDocs cherry/cream
+ * legacy AnatomyFaceSelector and restyled to the BeautyDocs cherry/cream
  * system. Zones are passed in per treatment (e.g. PMU brows/lips/eyelids).
  */
 export function BeautyDocsFaceAreaSelector({
@@ -42,6 +43,7 @@ export function BeautyDocsFaceAreaSelector({
   viewBoxWidth = 980,
   viewBoxHeight = 980,
 }: BeautyDocsFaceAreaSelectorProps) {
+  const t = useT();
   const [selected, setSelected] = useState<string[]>([...initialSelected]);
   const [hovered, setHovered] = useState<string | null>(null);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -77,11 +79,11 @@ export function BeautyDocsFaceAreaSelector({
         <div className="flex h-8 flex-1 items-center justify-center rounded-md border border-[#d4decc] bg-[#f7f8f4]">
           {hovered ? (
             <span className="text-sm font-semibold text-[#245c4d]">
-              {zoneName(hovered)}
+              {t(zoneName(hovered))}
             </span>
           ) : (
             <span className="text-[10px] uppercase tracking-[0.2em] text-[#5a6b5a]">
-              {displayOnly ? "Zaznaczone obszary" : "Zaznacz obszar zabiegu"}
+              {displayOnly ? t("Zaznaczone obszary") : t("Zaznacz obszar zabiegu")}
             </span>
           )}
         </div>
@@ -92,7 +94,7 @@ export function BeautyDocsFaceAreaSelector({
             onClick={toggleAll}
             type="button"
           >
-            {selected.length === zones.length ? "Odznacz wszystko" : "Zaznacz wszystko"}
+            {selected.length === zones.length ? t("Odznacz wszystko") : t("Zaznacz wszystko")}
           </button>
         ) : null}
       </div>
@@ -143,7 +145,7 @@ export function BeautyDocsFaceAreaSelector({
               className="inline-flex rounded-full border border-[#d4decc] bg-[#eef3e7] px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-[#245c4d]"
               key={id}
             >
-              {zoneName(id)}
+              {t(zoneName(id))}
             </span>
           ) : (
             <button
@@ -153,7 +155,7 @@ export function BeautyDocsFaceAreaSelector({
               onClick={() => toggleZone(id)}
               type="button"
             >
-              {zoneName(id)}
+              {t(zoneName(id))}
               <span className="ml-1 font-normal text-[#96a298]">×</span>
             </button>
           ),
@@ -165,7 +167,7 @@ export function BeautyDocsFaceAreaSelector({
           className="pointer-events-none fixed z-30 -translate-x-1/2 -translate-y-[120%] rounded-lg border border-[#cdd7c6] bg-white px-4 py-2 text-xs font-bold uppercase tracking-widest text-[#173d35] shadow-xl"
           style={{ left: mousePos.x, top: mousePos.y }}
         >
-          {zoneName(hovered)}
+          {t(zoneName(hovered))}
         </div>
       ) : null}
     </div>

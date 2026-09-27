@@ -1,3 +1,6 @@
+"use client";
+
+import { useT } from "../i18n";
 import {
   Bell,
   CalendarDays,
@@ -17,7 +20,7 @@ import {
   UsersRound,
   type LucideIcon,
 } from "lucide-react";
-import { BeautyDocsWordmark } from "../BeautyDocsWordmark";
+import { BeautyDocsLogo } from "../BeautyDocsLogo";
 
 interface PreviewNavItem {
   readonly icon: LucideIcon;
@@ -78,14 +81,15 @@ export function BeautyDocsLockedPanelPreview({
 }: {
   readonly variant: "owner" | "client";
 }) {
+  const t = useT();
   const nav = variant === "owner" ? OWNER_NAV : CLIENT_NAV;
   const stats = variant === "owner" ? OWNER_STATS : CLIENT_STATS;
-  const eyebrow = variant === "owner" ? "Panel salonu" : "Strefa klientki";
-  const heroTitle = variant === "owner" ? "Dzień dobry!" : "Dzień dobry!";
+  const eyebrow = variant === "owner" ? t("Panel salonu") : t("Twoja strefa");
+  const heroTitle = variant === "owner" ? t("Dzień dobry!") : t("Dzień dobry!");
   const heroBody =
     variant === "owner"
-      ? "Najważniejsze informacje o Twoim salonie w jednym miejscu."
-      : "Twoje wizyty, dokumenty i kontakt z salonem w jednym miejscu.";
+      ? t("Najważniejsze informacje o Twoim salonie w jednym miejscu.")
+      : t("Twoje wizyty, dokumenty i kontakt z salonem w jednym miejscu.");
 
   return (
     <div
@@ -94,9 +98,9 @@ export function BeautyDocsLockedPanelPreview({
     >
       <aside className="hidden w-64 shrink-0 flex-col gap-6 border-r border-[#e3e8dd] bg-[#fbfcf8] px-4 py-6 lg:flex">
         <div className="px-2">
-          <BeautyDocsWordmark className="text-lg text-[#173d35]" />
+          <BeautyDocsLogo className="text-lg text-[#173d35]" />
           <p className="mt-0.5 text-[11px] font-bold uppercase tracking-wide text-[#8a9a85]">
-            {eyebrow}
+            {t(eyebrow)}
           </p>
         </div>
         <nav className="flex flex-col gap-1">
@@ -110,7 +114,7 @@ export function BeautyDocsLockedPanelPreview({
               key={label}
             >
               <Icon className="size-4 shrink-0" />
-              <span className="truncate">{label}</span>
+              <span className="truncate">{t(label)}</span>
             </div>
           ))}
         </nav>
@@ -120,7 +124,7 @@ export function BeautyDocsLockedPanelPreview({
         <header className="flex items-center justify-between gap-4 border-b border-[#e3e8dd] bg-white/80 px-5 py-4 sm:px-8">
           <div className="min-w-0">
             <p className="text-[11px] font-bold uppercase tracking-wide text-[#8a9a85]">
-              {eyebrow}
+              {t(eyebrow)}
             </p>
             <p className="mt-1 h-4 w-32 rounded-full bg-[#e3e8dd]" />
           </div>
@@ -135,9 +139,9 @@ export function BeautyDocsLockedPanelPreview({
         <main className="mx-auto w-full max-w-5xl px-5 py-7 sm:px-8">
           <div className="rounded-[28px] bg-gradient-to-br from-[#173d35] to-[#245c4d] p-6 text-white sm:p-8">
             <p className="flex items-center gap-2 text-xs font-black uppercase tracking-[0.14em] text-[#bcd7c7]">
-              <Sparkles className="size-3.5" /> {heroTitle}
+              <Sparkles className="size-3.5" /> {t(heroTitle)}
             </p>
-            <p className="mt-3 max-w-md text-sm leading-6 text-[#dcebe3]">{heroBody}</p>
+            <p className="mt-3 max-w-md text-sm leading-6 text-[#dcebe3]">{t(heroBody)}</p>
           </div>
 
           <div className="mt-6 grid gap-4 sm:grid-cols-3">
@@ -164,7 +168,7 @@ export function BeautyDocsLockedPanelPreview({
                   {sub}
                 </p>
                 <p className={`text-sm font-black ${highlight ? "text-white" : "text-[#173d35]"}`}>
-                  {label}
+                  {t(label)}
                 </p>
               </div>
             ))}

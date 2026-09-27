@@ -1,4 +1,5 @@
 import "server-only";
+import type { BeautyDocsLocale } from "./i18n/config";
 
 import {
   parsePlatformStatsResponse,
@@ -32,13 +33,14 @@ const REQUEST_TIMEOUT_MS = 5_000;
 /** Server-only public tenant lookup used by the opt-in BeautyDocs frontend. */
 export async function fetchPublicTenantConfig(
   tenantSlug: string,
+  locale?: BeautyDocsLocale,
 ): Promise<TenantPublicConfigLoadResult> {
   if (!isValidTenantSlug(tenantSlug)) {
     return { status: "not-found" };
   }
 
   const endpointUrl = resolveBeautyDocsInternalApiUrl(
-    publicTenantConfigEndpointPath(tenantSlug),
+    publicTenantConfigEndpointPath(tenantSlug, locale),
   );
   if (endpointUrl === null) {
     return { status: "unavailable", reason: "configuration" };
@@ -303,13 +305,14 @@ function publicSigningHeaders(
 export async function fetchPublicTenantForm(
   tenantSlug: string,
   formCode: string,
+  locale?: BeautyDocsLocale,
 ): Promise<PublicFormContentLoadResult> {
   if (!isValidTenantSlug(tenantSlug) || !isValidFormSlug(formCode)) {
     return { status: "not-found" };
   }
 
   const endpointUrl = resolveBeautyDocsInternalApiUrl(
-    publicTenantFormEndpointPath(tenantSlug, formCode),
+    publicTenantFormEndpointPath(tenantSlug, formCode, locale),
   );
   if (endpointUrl === null) {
     return { status: "unavailable", reason: "configuration" };

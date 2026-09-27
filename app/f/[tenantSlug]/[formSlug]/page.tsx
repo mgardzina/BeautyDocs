@@ -13,6 +13,7 @@ import {
   findActiveFormBySlug,
   isValidFormSlug,
 } from "../../../../lib/beautydocs-form-path";
+import { getRequestLocale } from "../../../../lib/i18n/server";
 import { isValidTenantSlug } from "../../../../lib/tenant-host";
 
 export const dynamic = "force-dynamic";
@@ -41,9 +42,10 @@ export default async function PublicFormStartPage({
     notFound();
   }
 
+  const locale = await getRequestLocale();
   const [configResult, formResult] = await Promise.all([
-    fetchPublicTenantConfig(tenantSlug),
-    fetchPublicTenantForm(tenantSlug, formSlug),
+    fetchPublicTenantConfig(tenantSlug, locale),
+    fetchPublicTenantForm(tenantSlug, formSlug, locale),
   ]);
 
   if (configResult.status === "not-found") {

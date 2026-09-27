@@ -1,4 +1,5 @@
 import "server-only";
+import { isBeautyDocsLocale, type BeautyDocsLocale } from "./i18n/config";
 
 import {
   isBeautyDocsClientId,
@@ -944,6 +945,48 @@ export async function updateBeautyDocsUserProfile(
   return profile === null
     ? { status: "unavailable" }
     : { status: "ok", data: profile, setCookie: null };
+}
+
+/** The signed-in owner/staff account's saved interface language. */
+export async function fetchBeautyDocsUserLanguage(
+  rawCookieHeader: string | null,
+): Promise<BeautyDocsAdminApiResult<BeautyDocsLocale>> {
+  const response = await requestBeautyDocsAdminApi("/api/v1/auth/language", {
+    method: "GET",
+    cookie: rawCookieHeader,
+  });
+  return parseLanguageResponse(response);
+}
+
+export async function updateBeautyDocsUserLanguage(
+  language: BeautyDocsLocale,
+  rawCookieHeader: string | null,
+  browserOrigin: string,
+): Promise<BeautyDocsAdminApiResult<BeautyDocsLocale>> {
+  const response = await requestBeautyDocsAdminApi("/api/v1/auth/language", {
+    method: "PUT",
+    cookie: rawCookieHeader,
+    origin: browserOrigin,
+    body: JSON.stringify({ language }),
+  });
+  return parseLanguageResponse(response);
+}
+
+function parseLanguageResponse(
+  response: InternalApiResponse | null,
+): BeautyDocsAdminApiResult<BeautyDocsLocale> {
+  if (response === null) return { status: "unavailable" };
+  if (response.status === 401) return { status: "unauthorized" };
+  if (response.status === 422) return { status: "invalid-request" };
+  if (response.status !== 200) return { status: "unavailable" };
+  try {
+    const language = (JSON.parse(response.body) as { language?: unknown }).language;
+    return isBeautyDocsLocale(language)
+      ? { status: "ok", data: language, setCookie: null }
+      : { status: "unavailable" };
+  } catch {
+    return { status: "unavailable" };
+  }
 }
 
 export async function changeBeautyDocsUserPassword(

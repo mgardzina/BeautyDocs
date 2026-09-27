@@ -257,7 +257,16 @@ export interface BeautyDocsAdminFormAnswerSection {
   readonly items: readonly BeautyDocsAdminFormAnswer[];
 }
 
+export interface BeautyDocsFormPrintMetadata {
+  readonly salonName: string;
+  readonly formName: string;
+  readonly templateVersion: number | null;
+  readonly clientSignedAt: string | null;
+  readonly documentHash: string | null;
+}
+
 export interface BeautyDocsAdminClientFormDetail {
+  readonly printMetadata?: BeautyDocsFormPrintMetadata | null;
   readonly client: {
     readonly id: string;
     readonly firstName: string;

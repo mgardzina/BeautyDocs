@@ -1,5 +1,6 @@
 "use client";
 
+import { useT } from "../i18n";
 import { useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { motion, useReducedMotion } from "framer-motion";
@@ -29,6 +30,7 @@ export function BeautyDocsCreateSalonDialog({
   readonly open: boolean;
   readonly onClose: () => void;
 }) {
+  const t = useT();
   const router = useRouter();
   const reduceMotion = useReducedMotion();
   const [salonName, setSalonName] = useState("");
@@ -47,7 +49,7 @@ export function BeautyDocsCreateSalonDialog({
 
   const handleLookup = async () => {
     if (!isValidPolishNip(company.nip)) {
-      setError("NIP musi zawierać 10 cyfr i mieć poprawną sumę kontrolną.");
+      setError(t("NIP musi zawierać 10 cyfr i mieć poprawną sumę kontrolną."));
       return;
     }
     setLookupPending(true);
@@ -63,8 +65,8 @@ export function BeautyDocsCreateSalonDialog({
     if (!response.ok) {
       setError(
         response.status === 404
-          ? "GUS nie znalazł podmiotu o podanym numerze NIP."
-          : "Nie udało się teraz pobrać danych z GUS. Możesz uzupełnić je ręcznie.",
+          ? t("GUS nie znalazł podmiotu o podanym numerze NIP.")
+          : t("Nie udało się teraz pobrać danych z GUS. Możesz uzupełnić je ręcznie."),
       );
       return;
     }
@@ -80,17 +82,17 @@ export function BeautyDocsCreateSalonDialog({
       postalCode: textValue("postalCode"),
       city: textValue("city"),
     });
-    setLookupNote("Dane potwierdzone w GUS.");
+    setLookupNote(t("Dane potwierdzone w GUS."));
   };
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!salonName.trim()) {
-      setError("Podaj nazwę salonu.");
+      setError(t("Podaj nazwę salonu."));
       return;
     }
     if (!isValidPolishNip(company.nip)) {
-      setError("NIP musi zawierać 10 cyfr i mieć poprawną sumę kontrolną.");
+      setError(t("NIP musi zawierać 10 cyfr i mieć poprawną sumę kontrolną."));
       return;
     }
     setPending(true);
@@ -114,8 +116,8 @@ export function BeautyDocsCreateSalonDialog({
       setPending(false);
       setError(
         response.status === 422
-          ? "Sprawdź dane firmy — część pól ma nieprawidłowy format."
-          : "Nie udało się utworzyć salonu. Spróbuj ponownie.",
+          ? t("Sprawdź dane firmy — część pól ma nieprawidłowy format.")
+          : t("Nie udało się utworzyć salonu. Spróbuj ponownie."),
       );
       return;
     }
@@ -130,7 +132,7 @@ export function BeautyDocsCreateSalonDialog({
   };
 
   return (
-    <BeautyDocsDialog className="max-w-xl" onClose={onClose} open={open} title="Dodaj nowy salon">
+    <BeautyDocsDialog className="max-w-xl" onClose={onClose} open={open} title={t("Dodaj nowy salon")}>
       <div className="bd-auth-page overflow-hidden rounded-[28px] bg-white shadow-2xl">
         <div className="flex items-start gap-4 p-6 sm:p-8 sm:pb-0">
           <span className="grid size-12 shrink-0 place-items-center rounded-2xl bg-[#eef3e6] text-[#245c4d]">
@@ -138,23 +140,23 @@ export function BeautyDocsCreateSalonDialog({
           </span>
           <div>
             <h2 className="text-xl font-black tracking-tight text-[#173d35] sm:text-2xl">
-              Dodaj nowy salon
+              {t("Dodaj nowy salon")}
             </h2>
             <p className="mt-1 text-sm leading-6 text-stone-500">
-              Nowy salon pojawi się obok Twoich pozostałych przestrzeni — dane osobowe i podpis zostają wspólne.
+              {t("Nowy salon pojawi się obok Twoich pozostałych przestrzeni — dane osobowe i podpis zostają wspólne.")}
             </p>
           </div>
         </div>
 
         <form className="space-y-5 p-6 sm:p-8" onSubmit={handleSubmit}>
           <label className="block text-xs font-black uppercase tracking-[0.12em] text-stone-500">
-            Nazwa salonu
+            {t("Nazwa salonu")}
             <input
               autoFocus
               className="mt-2 w-full rounded-2xl border border-[#d4decc] bg-white px-4 py-3.5 text-sm font-semibold text-[#173d35] outline-none transition placeholder:text-[#b3a7aa] focus:border-[#245c4d] focus:ring-4 focus:ring-[#245c4d]/10"
               disabled={pending}
               onChange={(event) => setSalonName(event.target.value)}
-              placeholder="np. Studio Lumière — Mokotów"
+              placeholder={t("np. Studio Lumière — Mokotów")}
               value={salonName}
             />
           </label>
@@ -162,7 +164,7 @@ export function BeautyDocsCreateSalonDialog({
           <BeautyDocsCompanyFields
             company={company}
             disabled={pending}
-            lookupNote={lookupNote}
+            lookupNote={t(lookupNote)}
             lookupPending={lookupPending}
             onChange={updateCompany}
             onLookup={() => void handleLookup()}
@@ -183,7 +185,7 @@ export function BeautyDocsCreateSalonDialog({
               onClick={onClose}
               type="button"
             >
-              Anuluj
+              {t("Anuluj")}
             </button>
             <motion.button
               className="inline-flex items-center justify-center gap-2 rounded-2xl bg-[#245c4d] px-5 py-3 text-sm font-black text-white shadow-[0_12px_30px_rgba(36,92,77,0.18)] transition hover:bg-[#173d35] disabled:cursor-wait disabled:opacity-70"
@@ -192,7 +194,7 @@ export function BeautyDocsCreateSalonDialog({
               type="submit"
               whileTap={reduceMotion || pending ? undefined : { scale: 0.97 }}
             >
-              {pending ? "Tworzenie salonu…" : "Utwórz salon"}
+              {pending ? t("Tworzenie salonu…") : t("Utwórz salon")}
               {pending ? null : <ArrowRight aria-hidden="true" className="size-4" />}
             </motion.button>
           </div>

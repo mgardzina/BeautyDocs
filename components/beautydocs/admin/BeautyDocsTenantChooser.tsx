@@ -1,3 +1,6 @@
+"use client";
+
+import { useT } from "../i18n";
 import Link from "next/link";
 import type { BeautyDocsAdminMembership } from "../../../types/beautydocs-admin";
 import { roleLabel } from "./BeautyDocsAdminShell";
@@ -9,13 +12,14 @@ interface BeautyDocsTenantChooserProps {
 export function BeautyDocsTenantChooser({
   memberships,
 }: BeautyDocsTenantChooserProps) {
+  const t = useT();
   return (
     <section aria-labelledby="salons-heading">
       <h1 className="text-3xl font-bold tracking-tight" id="salons-heading">
-        Twoje salony
+        {t("Twoje salony")}
       </h1>
       <p className="mt-3 text-stone-600">
-        Wybierz salon, którego panelem chcesz zarządzać.
+        {t("Wybierz salon, którego panelem chcesz zarządzać.")}
       </p>
 
       {memberships.length > 0 ? (
@@ -30,10 +34,10 @@ export function BeautyDocsTenantChooser({
                   {membership.tenantDisplayName}
                 </p>
                 <p className="mt-2 text-sm text-stone-500">
-                  {roleLabel(membership.role)}
+                  {t(roleLabel(membership.role))}
                 </p>
                 <p className="mt-5 text-sm font-semibold text-[#222a23]">
-                  Otwórz panel →
+                  {t("Otwórz panel →")}
                 </p>
               </Link>
             </li>
@@ -41,16 +45,15 @@ export function BeautyDocsTenantChooser({
         </ul>
       ) : (
         <div className="mt-8 rounded-2xl border border-stone-200 bg-white p-6">
-          <p className="font-semibold">Konto pracownika jest aktywne</p>
+          <p className="font-semibold">{t("Konto pracownika jest aktywne")}</p>
           <p className="mt-2 text-sm text-stone-600">
-            Nie należysz jeszcze do żadnego salonu. Poproś właściciela o link
-            zaproszenia i otwórz go po zalogowaniu na to konto.
+            {t("Nie należysz jeszcze do żadnego salonu. Poproś właściciela o link zaproszenia i otwórz go po zalogowaniu na to konto.")}
           </p>
           <Link
             className="mt-5 inline-flex rounded-xl border border-[#cdd7c6] px-4 py-2.5 text-sm font-bold text-[#245c4d] transition hover:bg-[#f3f7ed]"
             href="/"
           >
-            Wróć na stronę główną
+            {t("Wróć na stronę główną")}
           </Link>
         </div>
       )}

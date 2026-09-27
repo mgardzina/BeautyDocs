@@ -1,3 +1,6 @@
+"use client";
+import { useT } from "../i18n";
+
 const LEVELS = [
   { label: "Minimum 8 znaków", bar: "bg-stone-200", text: "text-stone-500" },
   { label: "Słabe", bar: "bg-red-400", text: "text-red-700" },
@@ -22,6 +25,7 @@ function passwordLevel(password: string): number {
 }
 
 export function PasswordStrength({ password }: { readonly password: string }) {
+  const t = useT();
   const level = passwordLevel(password);
   const style = LEVELS[level];
   return (
@@ -40,8 +44,8 @@ export function PasswordStrength({ password }: { readonly password: string }) {
         ))}
       </div>
       <div className="mt-2 flex items-center justify-between gap-3 text-xs">
-        <span className={style.text}>Siła hasła: {style.label}</span>
-        <span className="text-stone-500">Użyj cyfr, wielkich liter i znaku specjalnego</span>
+        <span className={style.text}>{t("Siła hasła:")}{" "}{t(style.label)}</span>
+        <span className="text-stone-500">{t("Użyj cyfr, wielkich liter i znaku specjalnego")}</span>
       </div>
     </div>
   );

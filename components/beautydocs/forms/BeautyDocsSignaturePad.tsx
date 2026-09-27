@@ -1,5 +1,6 @@
 "use client";
 
+import { useT } from "../i18n";
 import { useCallback, useEffect, useRef } from "react";
 import SignatureCanvas from "react-signature-canvas";
 import { Download, LoaderCircle } from "lucide-react";
@@ -16,7 +17,7 @@ interface BeautyDocsSignaturePadProps {
 }
 
 /**
- * Signature capture ported from the legacy PowderBrows SignaturePad and
+ * Signature capture ported from the legacy SignaturePad and
  * restyled to cherry/cream. Emits the drawing as a PNG data URL.
  */
 export function BeautyDocsSignaturePad({
@@ -29,6 +30,7 @@ export function BeautyDocsSignaturePad({
   onUseSavedSignature,
   savedSignatureLoading = false,
 }: BeautyDocsSignaturePadProps) {
+  const t = useT();
   const sigCanvas = useRef<SignatureCanvas>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const locallyEmittedValueRef = useRef("");
@@ -85,7 +87,7 @@ export function BeautyDocsSignaturePad({
     <div className="space-y-3">
       <div className="flex flex-wrap items-center justify-between gap-2">
         <label className="block text-[10px] font-black uppercase tracking-[0.14em] text-[#6e8471]">
-          {label} {required ? <span className="text-[#245c4d]">*</span> : null}
+          {t(label)} {required ? <span className="text-[#245c4d]">*</span> : null}
         </label>
         {onUseSavedSignature ? (
           <button
@@ -100,8 +102,8 @@ export function BeautyDocsSignaturePad({
               <Download aria-hidden="true" className="size-3.5" />
             )}
             {savedSignatureLoading
-              ? "Wczytuję podpis…"
-              : "Użyj zapisanego podpisu"}
+              ? t("Wczytuję podpis…")
+              : t("Użyj zapisanego podpisu")}
           </button>
         ) : null}
       </div>
@@ -136,7 +138,7 @@ export function BeautyDocsSignaturePad({
                 onClick={handleClear}
                 type="button"
               >
-                Wyczyść
+                {t("Wyczyść")}
               </button>
             </div>
           ) : null}
@@ -144,7 +146,7 @@ export function BeautyDocsSignaturePad({
           {!value ? (
             <div className="pointer-events-none absolute inset-x-5 bottom-6 z-0 select-none border-t border-dashed border-[#d2d9c8] pt-2 text-center">
               <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#aeb7a2]">
-                Podpisz tutaj
+                {t("Podpisz tutaj")}
               </span>
             </div>
           ) : null}

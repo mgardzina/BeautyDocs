@@ -1,3 +1,6 @@
+"use client";
+
+import { useT } from "./i18n";
 import Link from "next/link";
 import { ArrowLeft, ArrowUpRight, FileText } from "lucide-react";
 import { beautyDocsFormPreviewPath } from "../../lib/beautydocs-form-path";
@@ -23,6 +26,7 @@ export function TenantActiveForms({
   fromAdmin = false,
   fromConsumer = false,
 }: TenantActiveFormsProps) {
+  const t = useT();
   const fromQuery = fromAdmin
     ? "?from=admin"
     : fromConsumer
@@ -36,7 +40,7 @@ export function TenantActiveForms({
           href={`/panel/${encodeURIComponent(tenantSlug)}/forms`}
         >
           <ArrowLeft aria-hidden="true" className="size-4" />
-          Wróć do panelu
+          {t("Wróć do panelu")}
         </Link>
       ) : null}
       {fromConsumer ? (
@@ -45,22 +49,22 @@ export function TenantActiveForms({
           href="/klient?section=salons"
         >
           <ArrowLeft aria-hidden="true" className="size-4" />
-          Wróć do panelu klientki
+          {t("Wróć do panelu klientki")}
         </Link>
       ) : null}
 
       <div className="max-w-2xl">
         <p className="text-xs font-black uppercase tracking-[0.16em] text-[#245c4d]">
-          Dokumentacja online
+          {t("Dokumentacja online")}
         </p>
         <h1
           className="mt-2 text-3xl font-black tracking-[-0.03em] text-[#173d35] sm:text-4xl"
           id="active-forms-heading"
         >
-          Wybierz formularz zabiegowy
+          {t("Wybierz formularz zabiegowy")}
         </h1>
         <p className="mt-3 text-base leading-7 text-stone-600">
-          Wybierz rodzaj zabiegu, aby rozpocząć uzupełnianie dokumentacji.
+          {t("Wybierz rodzaj zabiegu, aby rozpocząć uzupełnianie dokumentacji.")}
         </p>
       </div>
 
@@ -80,7 +84,7 @@ export function TenantActiveForms({
                     {form.displayName}
                   </h2>
                   <p className="mt-1 text-sm text-stone-500">
-                    Wypełnij dokumentację online
+                    {t("Wypełnij dokumentację online")}
                   </p>
                 </div>
                 <ArrowUpRight
@@ -101,7 +105,7 @@ export function TenantActiveForms({
 
               {tenantSlug ? (
                 <Link
-                  aria-label={`Otwórz formularz: ${form.displayName}`}
+                  aria-label={t("Otwórz formularz: {displayName}", { displayName: form.displayName })}
                   className="absolute inset-0 rounded-3xl focus-visible:outline-none"
                   href={`${beautyDocsFormPreviewPath(tenantSlug, form.code)}${fromQuery}`}
                 />
@@ -111,10 +115,9 @@ export function TenantActiveForms({
         </ul>
       ) : (
         <div className="mt-8 rounded-3xl border border-dashed border-[#cdd7c6] bg-[#fcfaf8] p-8 text-center">
-          <p className="font-black text-[#173d35]">Brak aktywnych formularzy</p>
+          <p className="font-black text-[#173d35]">{t("Brak aktywnych formularzy")}</p>
           <p className="mx-auto mt-2 max-w-md text-sm leading-6 text-stone-600">
-            Ten salon nie udostępnia obecnie formularzy online. Skontaktuj się z
-            salonem, aby uzyskać więcej informacji.
+            {t("Ten salon nie udostępnia obecnie formularzy online. Skontaktuj się z salonem, aby uzyskać więcej informacji.")}
           </p>
         </div>
       )}

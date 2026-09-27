@@ -1,5 +1,6 @@
 "use client";
 
+import { useT } from "./i18n";
 import { useEffect, useState } from "react";
 import { AlertTriangle, ArrowRight, Trash2 } from "lucide-react";
 import { BeautyDocsDialog } from "./BeautyDocsDialog";
@@ -39,6 +40,7 @@ export function BeautyDocsDeleteAccountDialog({
   readonly blockedActionLabel?: string;
   readonly onBlockedAction?: () => void;
 }) {
+  const t = useT();
   const [checked, setChecked] = useState<boolean[]>(() => consequences.map(() => false));
 
   useEffect(() => {
@@ -51,16 +53,16 @@ export function BeautyDocsDeleteAccountDialog({
   const allChecked = checked.length > 0 && checked.every(Boolean);
 
   return (
-    <BeautyDocsDialog className="max-w-xl" onClose={onClose} open={open} title={title}>
+    <BeautyDocsDialog className="max-w-xl" onClose={onClose} open={open} title={t(title)}>
       <div className="overflow-hidden rounded-[28px] bg-white shadow-2xl">
         <div className="flex items-start gap-4 p-6 sm:p-8">
           <div className="min-w-0 flex-1">
             <h2 className="text-xl font-black tracking-tight text-[#173d35] sm:text-2xl">
-              {title}
+              {t(title)}
             </h2>
             {!blockedReason ? (
               <p className="mt-2 text-sm leading-6 text-stone-600">
-                Kontynuowanie usunięcia wymaga potwierdzenia poniższych informacji.
+                {t("Kontynuowanie usunięcia wymaga potwierdzenia poniższych informacji.")}
               </p>
             ) : null}
           </div>
@@ -92,7 +94,7 @@ export function BeautyDocsDeleteAccountDialog({
                   onClick={onBlockedAction}
                   type="button"
                 >
-                  {blockedActionLabel ?? "Przejdź do ustawień salonu"}
+                  {blockedActionLabel ?? t("Przejdź do ustawień salonu")}
                   <ArrowRight aria-hidden="true" className="size-4" />
                 </button>
               ) : null}
@@ -116,7 +118,7 @@ export function BeautyDocsDeleteAccountDialog({
                     }
                     type="checkbox"
                   />
-                  <span className="text-sm leading-6 text-[#173d35]">{label}</span>
+                  <span className="text-sm leading-6 text-[#173d35]">{t(label)}</span>
                 </label>
               ))}
             </div>
@@ -134,7 +136,7 @@ export function BeautyDocsDeleteAccountDialog({
               onClick={onClose}
               type="button"
             >
-              Nie teraz
+              {t("Nie teraz")}
             </button>
             {!blockedReason ? (
               <button
@@ -144,7 +146,7 @@ export function BeautyDocsDeleteAccountDialog({
                 type="button"
               >
                 <Trash2 aria-hidden="true" className="size-4" />
-                {pending ? "Usuwanie…" : "Usuń moje konto"}
+                {pending ? t("Usuwanie…") : t("Usuń moje konto")}
               </button>
             ) : null}
           </div>

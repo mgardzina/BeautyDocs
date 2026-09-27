@@ -7,7 +7,7 @@ import { catalogDetailText, catalogProductPath } from "@/lib/beautydocs-catalog-
 export const dynamic = "force-dynamic";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = "https://powderbrowsacademy.com.pl";
+  const baseUrl = "https://beautydocs.pl";
   const result = await fetchBeautyDocsCatalogProducts();
   const productPages: MetadataRoute.Sitemap =
     result.status === "ok"

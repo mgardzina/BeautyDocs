@@ -1,5 +1,6 @@
 "use client";
 
+import { useT } from "../i18n";
 import {
   useEffect,
   useId,
@@ -76,6 +77,7 @@ function ContactTopicSelect({
   readonly value: string;
   readonly onChange: (value: string) => void;
 }) {
+  const t = useT();
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
   useCloseOnOutside(rootRef, open, () => setOpen(false));
@@ -90,7 +92,7 @@ function ContactTopicSelect({
         type="button"
       >
         <span className={`truncate ${value ? "text-white" : "text-white/40"}`}>
-          {value || "Wybierz temat"}
+          {value || t("Wybierz temat")}
         </span>
         <ChevronDown
           aria-hidden="true"
@@ -129,6 +131,7 @@ function ContactTopicSelect({
 
 /** Dark phone field with a searchable country prefix, matching the client form. */
 function ContactPhoneField() {
+  const t = useT();
   const [selectedUid, setSelectedUid] = useState(makeCountryUid(COUNTRY_CODES[0]!));
   const [number, setNumber] = useState("");
   const [open, setOpen] = useState(false);
@@ -168,7 +171,7 @@ function ContactPhoneField() {
       <button
         aria-expanded={open}
         aria-haspopup="listbox"
-        aria-label="Prefiks numeru telefonu"
+        aria-label={t("Prefiks numeru telefonu")}
         className="flex shrink-0 items-center gap-1.5 rounded-l-xl border-r border-white/10 px-3 py-2.5 text-sm font-semibold text-white/90 transition hover:bg-white/[0.05] focus-visible:outline-none"
         onClick={() => setOpen((v) => !v)}
         type="button"
@@ -197,7 +200,7 @@ function ContactPhoneField() {
             <input
               className="w-full bg-transparent text-sm text-white outline-none placeholder:text-white/40"
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Szukaj kraju…"
+              placeholder={t("Szukaj kraju…")}
               ref={searchRef}
               type="text"
               value={query}
@@ -205,7 +208,7 @@ function ContactPhoneField() {
           </div>
           <ul className="max-h-56 overflow-y-auto py-1" role="listbox">
             {filtered.length === 0 ? (
-              <li className="px-3 py-2.5 text-sm text-white/40">Brak wyników</li>
+              <li className="px-3 py-2.5 text-sm text-white/40">{t("Brak wyników")}</li>
             ) : (
               filtered.map((c) => {
                 const uid = makeCountryUid(c);
@@ -225,7 +228,7 @@ function ContactPhoneField() {
                       type="button"
                     >
                       <span className="text-base leading-none">{c.flag}</span>
-                      <span className="flex-1 truncate">{c.label}</span>
+                      <span className="flex-1 truncate">{t(c.label)}</span>
                       <span className="text-xs font-semibold text-white/50">{c.code}</span>
                       {selected ? <Check className="size-4 shrink-0 text-[#c6dfb7]" /> : null}
                     </button>
@@ -241,6 +244,7 @@ function ContactPhoneField() {
 }
 
 export function BeautyDocsContact() {
+  const t = useT();
   const [submitted, setSubmitted] = useState(false);
   const [topic, setTopic] = useState("");
 
@@ -259,15 +263,14 @@ export function BeautyDocsContact() {
         {/* Left — pitch + channels */}
         <div className="lg:pt-4">
           <span className="inline-flex items-center rounded-full border border-[#dbe6cc] bg-white px-3 py-1.5 text-xs font-black uppercase tracking-[0.16em] text-[#245c4d]">
-            Kontakt
+            {t("Kontakt")}
           </span>
           <h2 className="mt-5 font-serif text-3xl font-medium leading-[1.1] tracking-tight text-[#173d35] sm:text-4xl lg:text-5xl">
-            Wolisz porozmawiać?{" "}
-            <span className="italic text-[#245c4d]">Umów się indywidualnie.</span>
+            {t("Wolisz porozmawiać?")}{" "}
+            <span className="italic text-[#245c4d]">{t("Umów się indywidualnie.")}</span>
           </h2>
           <p className="mt-5 max-w-md text-lg leading-8 text-stone-600">
-            Pokażemy BeautyDocs na przykładzie Twojego salonu i pomożemy dobrać
-            formularze pod usługi. Wybierz dogodny termin — resztą się zajmiemy.
+            {t("Pokażemy BeautyDocs na przykładzie Twojego salonu i pomożemy dobrać formularze pod usługi. Wybierz dogodny termin — resztą się zajmiemy.")}
           </p>
 
           <a
@@ -279,9 +282,9 @@ export function BeautyDocsContact() {
             </span>
             <span>
               <span className="block text-xs font-bold uppercase tracking-[0.12em] text-[#596b62]">
-                Napisz do nas
+                {t("Napisz do nas")}
               </span>
-              <span className="block font-bold">kontakt@beautydocs.pl</span>
+              <span className="block font-bold">{t("kontakt@beautydocs.pl")}</span>
             </span>
           </a>
 
@@ -291,7 +294,7 @@ export function BeautyDocsContact() {
                 <span className="flex size-6 shrink-0 items-center justify-center rounded-full bg-[#e2ead7] text-[#245c4d]">
                   <Icon aria-hidden="true" className="size-3.5" />
                 </span>
-                {text}
+                {t(text)}
               </li>
             ))}
           </ul>
@@ -308,77 +311,76 @@ export function BeautyDocsContact() {
               <span className="flex size-16 items-center justify-center rounded-full bg-[#245c4d]/20 text-[#c6dfb7]">
                 <CheckCircle2 aria-hidden="true" className="size-8" />
               </span>
-              <h3 className="mt-6 font-serif text-2xl">Dziękujemy!</h3>
+              <h3 className="mt-6 font-serif text-2xl">{t("Dziękujemy!")}</h3>
               <p className="mt-3 max-w-sm text-white/70">
-                Zgłoszenie zostało przyjęte. Odezwiemy się na wskazany adres w ciągu
-                jednego dnia roboczego, aby potwierdzić termin.
+                {t("Zgłoszenie zostało przyjęte. Odezwiemy się na wskazany adres w ciągu jednego dnia roboczego, aby potwierdzić termin.")}
               </p>
               <button
                 className="mt-8 text-sm font-bold text-[#c6dfb7] underline underline-offset-4 hover:text-white focus-visible:outline-none"
                 onClick={() => setSubmitted(false)}
                 type="button"
               >
-                Wyślij kolejne zgłoszenie
+                {t("Wyślij kolejne zgłoszenie")}
               </button>
             </div>
           ) : (
             <form className="relative" onSubmit={handleSubmit}>
-              <h3 className="font-serif text-2xl">Umów rozmowę</h3>
+              <h3 className="font-serif text-2xl">{t("Umów rozmowę")}</h3>
               <p className="mt-1.5 text-sm text-white/60">
-                Napisz, czego potrzebujesz — odezwiemy się z propozycją terminu.
+                {t("Napisz, czego potrzebujesz — odezwiemy się z propozycją terminu.")}
               </p>
 
               <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
-                <Field label="Imię i nazwisko" htmlFor="c-name">
+                <Field label={t("Imię i nazwisko")} htmlFor="c-name">
                   <input
                     autoComplete="name"
                     className={inputCls}
                     id="c-name"
                     name="name"
-                    placeholder="np. Anna Kowalska"
+                    placeholder={t("np. Anna Kowalska")}
                     required
                     type="text"
                   />
                 </Field>
-                <Field label="Nazwa salonu" htmlFor="c-salon">
+                <Field label={t("Nazwa salonu")} htmlFor="c-salon">
                   <input
                     className={inputCls}
                     id="c-salon"
                     name="salon"
-                    placeholder="np. Studio Lumière"
+                    placeholder={t("np. Studio Lumière")}
                     type="text"
                   />
                 </Field>
-                <Field label="E-mail" htmlFor="c-email">
+                <Field label={t("E-mail")} htmlFor="c-email">
                   <input
                     autoComplete="email"
                     className={inputCls}
                     id="c-email"
                     name="email"
-                    placeholder="np. salon@example.com"
+                    placeholder={t("np. salon@example.com")}
                     required
                     type="email"
                   />
                 </Field>
-                <Field label="Telefon (opcjonalnie)" htmlFor="c-phone">
+                <Field label={t("Telefon (opcjonalnie)")} htmlFor="c-phone">
                   <ContactPhoneField />
                 </Field>
               </div>
 
               <div className="mt-4">
-                <Field label="Czego dotyczy?" htmlFor="c-topic">
+                <Field label={t("Czego dotyczy?")} htmlFor="c-topic">
                   <input name="topic" type="hidden" value={topic} />
                   <ContactTopicSelect onChange={setTopic} value={topic} />
                 </Field>
               </div>
 
               <div className="mt-4">
-                <Field label="Wiadomość" htmlFor="c-message">
+                <Field label={t("Wiadomość")} htmlFor="c-message">
                   <textarea
                     className={`${inputCls} min-h-[110px] resize-y`}
                     id="c-message"
                     name="message"
-                    placeholder="Napisz krótko, jakie usługi oferuje salon i czego szukasz."
+                    placeholder={t("Napisz krótko, jakie usługi oferuje salon i czego szukasz.")}
                   />
                 </Field>
               </div>
@@ -387,11 +389,11 @@ export function BeautyDocsContact() {
                 className="mt-6 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-[#245c4d] px-5 py-3 font-bold text-white transition hover:-translate-y-0.5 hover:bg-[#5a9a8a] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#afc98a] focus-visible:ring-offset-2 focus-visible:ring-offset-[#173d35]"
                 type="submit"
               >
-                Umów rozmowę
+                {t("Umów rozmowę")}
                 <ArrowRight aria-hidden="true" className="size-4" />
               </button>
               <p className="mt-3 text-center text-xs text-white/40">
-                Wysyłając formularz, zgadzasz się na kontakt w sprawie prezentacji.
+                {t("Wysyłając formularz, zgadzasz się na kontakt w sprawie prezentacji.")}
               </p>
             </form>
           )}
@@ -413,10 +415,11 @@ function Field({
   readonly htmlFor: string;
   readonly children: ReactNode;
 }) {
+  const t = useT();
   return (
     <label className="block" htmlFor={htmlFor}>
       <span className="mb-1.5 block text-[11px] font-bold uppercase tracking-[0.12em] text-white/50">
-        {label}
+        {t(label)}
       </span>
       {children}
     </label>

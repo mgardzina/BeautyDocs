@@ -1,5 +1,6 @@
 "use client";
 
+import { useT } from "../i18n";
 import { QrCode, RefreshCw } from "lucide-react";
 import { QRCodeCanvas } from "qrcode.react";
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -11,6 +12,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
  * working — no personal data is encoded, only the signed token.
  */
 export function BeautyDocsConsumerCheckInCode() {
+  const t = useT();
   const [token, setToken] = useState<string | null>(null);
   const [expiresAt, setExpiresAt] = useState(0);
   const [now, setNow] = useState(() => Date.now());
@@ -31,7 +33,7 @@ export function BeautyDocsConsumerCheckInCode() {
         },
       );
       if (!response.ok) {
-        setError("Nie udało się pobrać kodu. Spróbuj ponownie.");
+        setError(t("Nie udało się pobrać kodu. Spróbuj ponownie."));
         return;
       }
       const data = (await response.json()) as {
@@ -39,7 +41,7 @@ export function BeautyDocsConsumerCheckInCode() {
         expiresInSeconds?: unknown;
       };
       if (typeof data.token !== "string") {
-        setError("Kod jest chwilowo niedostępny.");
+        setError(t("Kod jest chwilowo niedostępny."));
         return;
       }
       const ttl =
@@ -48,11 +50,11 @@ export function BeautyDocsConsumerCheckInCode() {
       setExpiresAt(Date.now() + ttl * 1000);
       setError(null);
     } catch {
-      setError("Kod jest chwilowo niedostępny.");
+      setError(t("Kod jest chwilowo niedostępny."));
     } finally {
       pending.current = false;
     }
-  }, []);
+  }, [t]);
 
   useEffect(() => {
     void refresh();
@@ -74,12 +76,11 @@ export function BeautyDocsConsumerCheckInCode() {
       <div className="flex items-center gap-2 text-[#245c4d]">
         <QrCode aria-hidden="true" className="size-5" />
         <h2 className="text-sm font-black uppercase tracking-[0.14em]">
-          Mój kod check-in
+          {t("Mój kod check-in")}
         </h2>
       </div>
       <p className="mt-2 text-sm text-stone-600">
-        Pokaż ten kod w salonie — pracownik zeskanuje go, aby Cię potwierdzić i
-        otworzyć Twoją dokumentację.
+        {t("Pokaż ten kod w salonie — pracownik zeskanuje go, aby Cię potwierdzić i otworzyć Twoją dokumentację.")}
       </p>
 
       <div className="mt-5 flex flex-col items-center">
@@ -95,7 +96,7 @@ export function BeautyDocsConsumerCheckInCode() {
             />
           ) : (
             <div className="grid size-[208px] place-items-center text-sm text-stone-400">
-              {error ?? "Ładowanie…"}
+              {error ?? t("Ładowanie…")}
             </div>
           )}
         </div>
@@ -106,12 +107,12 @@ export function BeautyDocsConsumerCheckInCode() {
             onClick={() => void refresh()}
             type="button"
           >
-            <RefreshCw aria-hidden="true" className="size-4" /> Odśwież kod
+            <RefreshCw aria-hidden="true" className="size-4" />{" "}{t("Odśwież kod")}
           </button>
         ) : (
           <p className="mt-4 flex items-center gap-1.5 text-xs font-bold text-[#96a298]">
             <RefreshCw aria-hidden="true" className="size-3.5" />
-            Kod odświeża się automatycznie ({secondsLeft}s)
+            {t("Kod odświeża się automatycznie (")}{secondsLeft}{t("s)")}
           </p>
         )}
       </div>

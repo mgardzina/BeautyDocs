@@ -1,5 +1,7 @@
 "use client";
+import { activeIntlLocale } from "../../lib/i18n/active";
 
+import { useT } from "./i18n";
 import {
   AlertCircle,
   ArrowLeft,
@@ -69,6 +71,7 @@ const ALLOWED_ATTACHMENT_TYPES = new Set([
 ]);
 
 export function BeautyDocsChat(props: BeautyDocsChatProps) {
+  const t = useT();
   const [conversations, setConversations] = useState<readonly BeautyDocsChatConversation[]>([]);
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [pendingSalon, setPendingSalon] = useState<ConsumerSalonTarget | null>(
@@ -131,11 +134,11 @@ export function BeautyDocsChat(props: BeautyDocsChatProps) {
           setSelectedId(items[0].id);
         }
       } catch {
-        if (!quiet) setError("Nie udało się pobrać rozmów. Spróbuj ponownie.");
+        if (!quiet) setError(t("Nie udało się pobrać rozmów. Spróbuj ponownie."));
       } finally {
         if (!quiet) setLoading(false);
       }
-    }, [baseEndpoint, pendingSalon, publishUnreadCount],
+    }, [baseEndpoint, pendingSalon, publishUnreadCount, t],
   );
 
   const markRead = useCallback(
@@ -170,12 +173,12 @@ export function BeautyDocsChat(props: BeautyDocsChatProps) {
           await loadConversations(true);
         }
       } catch {
-        if (!quiet) setError("Nie udało się otworzyć rozmowy.");
+        if (!quiet) setError(t("Nie udało się otworzyć rozmowy."));
       } finally {
         if (!quiet) setDetailLoading(false);
       }
     },
-    [baseEndpoint, loadConversations, markRead],
+    [baseEndpoint, loadConversations, markRead, t],
   );
 
   useEffect(() => {
@@ -332,7 +335,7 @@ export function BeautyDocsChat(props: BeautyDocsChatProps) {
       setAttachments([]);
       await loadConversations(true);
     } catch {
-      setError("Nie udało się wysłać wiadomości. Spróbuj ponownie.");
+      setError(t("Nie udało się wysłać wiadomości. Spróbuj ponownie."));
     } finally {
       setSending(false);
     }
@@ -345,7 +348,7 @@ export function BeautyDocsChat(props: BeautyDocsChatProps) {
       (file) => !ALLOWED_ATTACHMENT_TYPES.has(file.type) || file.size > MAX_ATTACHMENT_BYTES,
     );
     if (invalid) {
-      setError("Możesz dodać zdjęcie JPG, PNG, WebP lub PDF do 8 MB.");
+      setError(t("Możesz dodać zdjęcie JPG, PNG, WebP lub PDF do 8 MB."));
       return;
     }
     setAttachments(selected);
@@ -368,7 +371,7 @@ export function BeautyDocsChat(props: BeautyDocsChatProps) {
       setDetail(conversation);
       await loadConversations(true);
     } catch {
-      setError("Nie udało się przypisać osoby wykonującej zabieg.");
+      setError(t("Nie udało się przypisać osoby wykonującej zabieg."));
     } finally {
       setAssigningPractitioner(false);
     }
@@ -398,35 +401,35 @@ export function BeautyDocsChat(props: BeautyDocsChatProps) {
                 <MessageCircle className="size-5" />
               </span>
               <div className="min-w-0 flex-1">
-                <h2 className="font-black text-[#173d35]">Rozmowy</h2>
+                <h2 className="font-black text-[#173d35]">{t("Rozmowy")}</h2>
                 <p className="text-xs text-stone-500">
-                  {props.mode === "consumer" ? "Kontakt z salonami" : "Wiadomości klientek"}
+                  {props.mode === "consumer" ? t("Kontakt z salonami") : t("Wiadomości klientek")}
                 </p>
               </div>
               {props.mode === "consumer" && props.onFindSalon ? (
                 <button
-                  aria-label="Rozpocznij nową rozmowę"
+                  aria-label={t("Rozpocznij nową rozmowę")}
                   className="grid size-10 shrink-0 place-items-center rounded-2xl bg-[#245c4d] text-white transition hover:bg-[#173d35]"
                   onClick={props.onFindSalon}
-                  title="Nowa rozmowa"
+                  title={t("Nowa rozmowa")}
                   type="button"
                 >
                   <SquarePen className="size-4" />
                 </button>
               ) : null}
               {compact && props.onClose ? (
-                <button aria-label="Zamknij czat" className="grid size-9 place-items-center rounded-xl text-stone-500 hover:bg-white" onClick={props.onClose} type="button">
+                <button aria-label={t("Zamknij czat")} className="grid size-9 place-items-center rounded-xl text-stone-500 hover:bg-white" onClick={props.onClose} type="button">
                   <X className="size-4" />
                 </button>
               ) : null}
             </div>
             <label className="relative mt-4 block">
-              <span className="sr-only">Szukaj rozmowy</span>
+              <span className="sr-only">{t("Szukaj rozmowy")}</span>
               <Search className="absolute left-3.5 top-1/2 size-4 -translate-y-1/2 text-stone-400" />
               <input
                 className="h-11 w-full rounded-2xl border border-[#e1e6da] bg-white pl-10 pr-3 text-sm font-semibold outline-none transition focus:border-[#8bb9ae] focus:ring-4 focus:ring-[#245c4d]/10"
                 onChange={(event) => setQuery(event.target.value)}
-                placeholder={props.mode === "consumer" ? "Szukaj salonu" : "Szukaj klientki"}
+                placeholder={props.mode === "consumer" ? t("Szukaj salonu") : t("Szukaj klientki")}
                 value={query}
               />
             </label>
@@ -440,11 +443,11 @@ export function BeautyDocsChat(props: BeautyDocsChatProps) {
             ) : filteredConversations.length === 0 ? (
               <div className="px-4 py-10 text-center">
                 <MessageCircle className="mx-auto size-6 text-[#93b8af]" />
-                <p className="mt-3 text-sm font-black text-[#2a382c]">Brak rozmów</p>
+                <p className="mt-3 text-sm font-black text-[#2a382c]">{t("Brak rozmów")}</p>
                 <p className="mt-1 text-xs leading-5 text-stone-500">
                   {props.mode === "consumer"
-                    ? "Rozpocznij czat z poziomu wyszukiwarki salonów."
-                    : "Nowa rozmowa pojawi się, gdy klientka napisze do salonu."}
+                    ? t("Rozpocznij czat z poziomu wyszukiwarki salonów.")
+                    : t("Nowa rozmowa pojawi się, gdy klientka napisze do salonu.")}
                 </p>
               </div>
             ) : (
@@ -467,7 +470,7 @@ export function BeautyDocsChat(props: BeautyDocsChatProps) {
                     </span>
                     <span className="min-w-0 flex-1">
                       <span className="flex items-center justify-between gap-2">
-                        <span className="truncate text-sm font-black text-[#173d35]">{title}</span>
+                        <span className="truncate text-sm font-black text-[#173d35]">{t(title)}</span>
                         {conversation.lastMessageAt ? (
                           <time className="shrink-0 text-[10px] font-semibold text-stone-400">
                             {formatChatListDate(conversation.lastMessageAt)}
@@ -476,7 +479,7 @@ export function BeautyDocsChat(props: BeautyDocsChatProps) {
                       </span>
                       <span className="mt-1 flex items-center gap-2">
                         <span className={`min-w-0 flex-1 truncate text-xs ${conversation.unreadCount ? "font-black text-[#173d35]" : "text-stone-500"}`}>
-                          {conversation.lastMessageBody ?? "Nowa rozmowa"}
+                          {conversation.lastMessageBody ?? t("Nowa rozmowa")}
                         </span>
                         {conversation.unreadCount > 0 ? (
                           <span className="grid min-w-5 place-items-center rounded-full bg-[#245c4d] px-1.5 py-0.5 text-[10px] font-black text-white">
@@ -498,7 +501,7 @@ export function BeautyDocsChat(props: BeautyDocsChatProps) {
               <header className="flex min-h-[76px] items-center gap-3 border-b border-[#e8ece2] px-5 sm:px-6">
                 {compact ? (
                   <button
-                    aria-label="Wróć do rozmów"
+                    aria-label={t("Wróć do rozmów")}
                     className="grid size-9 shrink-0 place-items-center rounded-xl text-stone-500 hover:bg-[#eff4e9]"
                     onClick={() => {
                       setSelectedId(null);
@@ -514,24 +517,24 @@ export function BeautyDocsChat(props: BeautyDocsChatProps) {
                   {props.mode === "consumer" ? <Building2 className="size-4" /> : <UserRound className="size-4" />}
                 </span>
                 <div className="min-w-0 flex-1">
-                  <h3 className="truncate font-black text-[#173d35]">{conversationTitle}</h3>
+                  <h3 className="truncate font-black text-[#173d35]">{t(conversationTitle)}</h3>
                   <p className="truncate text-xs text-emerald-700">
                     {detail?.practitionerName
-                      ? `Osoba wykonująca: ${detail.practitionerName}${detail.practitionerJobTitle ? ` · ${detail.practitionerJobTitle}` : ""}`
+                      ? t("Osoba wykonująca: {practitionerName}{value2}", { practitionerName: detail.practitionerName, value2: detail.practitionerJobTitle ? ` · ${detail.practitionerJobTitle}` : "" })
                       : props.mode === "consumer"
-                        ? "Wiadomość trafi do zespołu salonu"
-                        : "Przypisz osobę wykonującą zabieg"}
+                        ? t("Wiadomość trafi do zespołu salonu")
+                        : t("Przypisz osobę wykonującą zabieg")}
                   </p>
                 </div>
                 {props.mode === "admin" && props.canAssignPractitioner && team ? (
                   <select
-                    aria-label="Osoba wykonująca zabieg"
+                    aria-label={t("Osoba wykonująca zabieg")}
                     className="max-w-48 rounded-xl border border-[#d9dfd0] bg-white px-3 py-2 text-xs font-bold text-[#475b4a] outline-none focus:border-[#86b8ac]"
                     disabled={assigningPractitioner}
                     onChange={(event) => void assignPractitioner(event.target.value)}
                     value={detail?.practitionerId ?? ""}
                   >
-                    <option value="">Zespół salonu</option>
+                    <option value="">{t("Zespół salonu")}</option>
                     {team.items
                       .filter((member) => member.isActive && member.performsTreatments)
                       .map((member) => (
@@ -542,7 +545,7 @@ export function BeautyDocsChat(props: BeautyDocsChatProps) {
                   </select>
                 ) : null}
                 {compact && props.onClose ? (
-                  <button aria-label="Zamknij czat" className="grid size-9 shrink-0 place-items-center rounded-xl text-stone-500 hover:bg-[#eff4e9]" onClick={props.onClose} type="button">
+                  <button aria-label={t("Zamknij czat")} className="grid size-9 shrink-0 place-items-center rounded-xl text-stone-500 hover:bg-[#eff4e9]" onClick={props.onClose} type="button">
                     <X className="size-4" />
                   </button>
                 ) : null}
@@ -561,7 +564,7 @@ export function BeautyDocsChat(props: BeautyDocsChatProps) {
                               <span className="mx-auto mb-1.5 grid size-7 place-items-center rounded-full bg-white text-[#245c4d]">
                                 <CalendarClock className="size-3.5" />
                               </span>
-                              <p className="text-xs font-bold leading-5">{message.body}</p>
+                              <p className="text-xs font-bold leading-5">{t(message.body)}</p>
                               <time className="mt-1 block text-[10px] text-stone-400" dateTime={message.createdAt}>{formatChatMessageDate(message.createdAt)}</time>
                             </div>
                           </div>
@@ -573,7 +576,7 @@ export function BeautyDocsChat(props: BeautyDocsChatProps) {
                       return (
                         <div className={`flex ${own ? "justify-end" : "justify-start"}`} key={message.id}>
                           <div className={`max-w-[86%] rounded-[20px] px-4 py-3 sm:max-w-[72%] ${own ? "rounded-br-md bg-[#245c4d] text-white" : "rounded-bl-md border border-[#e5eadf] bg-white text-[#173d35] shadow-sm"}`}>
-                            <p className="whitespace-pre-wrap break-words text-sm leading-6">{message.body}</p>
+                            <p className="whitespace-pre-wrap break-words text-sm leading-6">{t(message.body)}</p>
                             {message.attachments.length > 0 ? (
                               <div className="mt-2 space-y-2">
                                 {message.attachments.map((attachment) => {
@@ -595,7 +598,7 @@ export function BeautyDocsChat(props: BeautyDocsChatProps) {
                                   ) : (
                                     <a className={`flex items-center gap-3 rounded-xl border px-3 py-2.5 ${own ? "border-white/20 bg-white/10 text-white" : "border-[#e5eadf] bg-[#f9fbf7] text-[#465d49]"}`} href={attachmentUrl} key={attachment.id} rel="noreferrer" target="_blank">
                                       <FileText className="size-5 shrink-0" />
-                                      <span className="min-w-0 text-xs font-bold"><span className="block truncate">{attachment.fileName}</span><span className="font-medium opacity-60">PDF · {formatFileSize(attachment.sizeBytes)}</span></span>
+                                      <span className="min-w-0 text-xs font-bold"><span className="block truncate">{attachment.fileName}</span><span className="font-medium opacity-60">{t("PDF ·")}{" "}{formatFileSize(attachment.sizeBytes)}</span></span>
                                     </a>
                                   );
                                 })}
@@ -615,8 +618,8 @@ export function BeautyDocsChat(props: BeautyDocsChatProps) {
                   <div className="grid h-full place-items-center px-4 text-center">
                     <div>
                       <span className="mx-auto grid size-14 place-items-center rounded-3xl bg-[#ebf1e3] text-[#245c4d]"><MessageCircle className="size-6" /></span>
-                      <h3 className="mt-4 font-black text-[#173d35]">Napisz do {pendingSalon.displayName}</h3>
-                      <p className="mx-auto mt-2 max-w-md text-sm leading-6 text-stone-500">Zapytaj o przygotowanie do zabiegu, dostępne terminy lub pielęgnację po wizycie.</p>
+                      <h3 className="mt-4 font-black text-[#173d35]">{t("Napisz do")}{" "}{pendingSalon.displayName}</h3>
+                      <p className="mx-auto mt-2 max-w-md text-sm leading-6 text-stone-500">{t("Zapytaj o przygotowanie do zabiegu, dostępne terminy lub pielęgnację po wizycie.")}</p>
                     </div>
                   </div>
                 ) : null}
@@ -635,7 +638,7 @@ export function BeautyDocsChat(props: BeautyDocsChatProps) {
                       <span className="flex shrink-0 items-center gap-2 rounded-xl border border-[#e5eadd] bg-[#f5f8f1] px-3 py-2 text-xs font-bold text-[#465d49]" key={`${file.name}-${file.lastModified}`}>
                         {file.type.startsWith("image/") ? <ImageIcon className="size-4" /> : <FileText className="size-4" />}
                         <span className="max-w-36 truncate">{file.name}</span>
-                        <button aria-label={`Usuń ${file.name}`} className="text-stone-400 hover:text-red-600" onClick={() => setAttachments((current) => current.filter((_, itemIndex) => itemIndex !== index))} type="button"><X className="size-3.5" /></button>
+                        <button aria-label={t("Usuń {name}", { name: file.name })} className="text-stone-400 hover:text-red-600" onClick={() => setAttachments((current) => current.filter((_, itemIndex) => itemIndex !== index))} type="button"><X className="size-3.5" /></button>
                       </span>
                     ))}
                   </div>
@@ -643,7 +646,7 @@ export function BeautyDocsChat(props: BeautyDocsChatProps) {
                 <div className="mx-auto flex max-w-3xl items-end gap-2 rounded-[22px] border border-[#d9dfd0] bg-[#f9fbf7] p-2 focus-within:border-[#86b8ac] focus-within:ring-4 focus-within:ring-[#245c4d]/10">
                   <input
                     accept="image/jpeg,image/png,image/webp,application/pdf"
-                    aria-label="Dodaj zdjęcie lub PDF"
+                    aria-label={t("Dodaj zdjęcie lub PDF")}
                     className="sr-only"
                     disabled={!canWrite || sending}
                     multiple
@@ -655,28 +658,28 @@ export function BeautyDocsChat(props: BeautyDocsChatProps) {
                     type="file"
                   />
                   <button
-                    aria-label="Dodaj zdjęcie lub PDF"
+                    aria-label={t("Dodaj zdjęcie lub PDF")}
                     className="grid size-11 shrink-0 place-items-center rounded-2xl text-[#245c4d] transition hover:bg-[#ebf1e3] disabled:opacity-40"
                     disabled={!canWrite || sending}
                     onClick={() => fileInputRef.current?.click()}
-                    title="Dodaj zdjęcie lub PDF (maks. 8 MB)"
+                    title={t("Dodaj zdjęcie lub PDF (maks. 8 MB)")}
                     type="button"
                   >
                     <Paperclip className="size-4" />
                   </button>
                   <textarea
-                    aria-label="Treść wiadomości"
+                    aria-label={t("Treść wiadomości")}
                     className="max-h-36 min-h-11 flex-1 resize-none bg-transparent px-2 py-3 text-sm leading-5 text-[#173d35] outline-none placeholder:text-stone-400"
                     disabled={!canWrite || sending}
                     maxLength={4_000}
                     onChange={(event) => setDraft(event.target.value)}
                     onKeyDown={handleComposerKeyDown}
-                    placeholder={canWrite ? "Napisz wiadomość…" : "Masz dostęp tylko do odczytu"}
+                    placeholder={canWrite ? t("Napisz wiadomość…") : t("Masz dostęp tylko do odczytu")}
                     rows={1}
                     value={draft}
                   />
                   <button
-                    aria-label="Wyślij wiadomość"
+                    aria-label={t("Wyślij wiadomość")}
                     className="grid size-11 shrink-0 place-items-center rounded-2xl bg-[#245c4d] text-white transition hover:bg-[#173d35] disabled:cursor-not-allowed disabled:opacity-40"
                     disabled={!canWrite || sending || (!draft.trim() && attachments.length === 0)}
                     type="submit"
@@ -684,18 +687,18 @@ export function BeautyDocsChat(props: BeautyDocsChatProps) {
                     {sending ? <LoaderCircle className="size-4 animate-spin" /> : <Send className="size-4" />}
                   </button>
                 </div>
-                <p className="mx-auto mt-2 max-w-3xl text-[10px] leading-4 text-stone-400">Enter wysyła, Shift+Enter dodaje nową linię. Zdjęcia i PDF: maks. 8 MB. Nie przesyłaj haseł ani danych płatniczych. W nagłym problemie medycznym skontaktuj się z lekarzem.</p>
+                <p className="mx-auto mt-2 max-w-3xl text-[10px] leading-4 text-stone-400">{t("Enter wysyła, Shift+Enter dodaje nową linię. Zdjęcia i PDF: maks. 8 MB. Nie przesyłaj haseł ani danych płatniczych. W nagłym problemie medycznym skontaktuj się z lekarzem.")}</p>
               </form>
             </>
           ) : (
             <div className="grid flex-1 place-items-center p-8 text-center">
               <div>
                 <span className="mx-auto grid size-16 place-items-center rounded-[24px] bg-[#ebf1e3] text-[#245c4d]"><MessageCircle className="size-7" /></span>
-                <h3 className="mt-5 text-lg font-black text-[#173d35]">Wybierz rozmowę</h3>
+                <h3 className="mt-5 text-lg font-black text-[#173d35]">{t("Wybierz rozmowę")}</h3>
                 <p className="mx-auto mt-2 max-w-sm text-sm leading-6 text-stone-500">
                   {props.mode === "consumer"
-                    ? "Możesz też znaleźć salon i użyć przycisku „Napisz”."
-                    : "Po lewej zobaczysz rozmowy rozpoczęte przez klientki."}
+                    ? t("Możesz też znaleźć salon i użyć przycisku „Napisz”.")
+                    : t("Po lewej zobaczysz rozmowy rozpoczęte przez klientki.")}
                 </p>
                 {props.mode === "consumer" && props.onFindSalon ? (
                   <button
@@ -703,7 +706,7 @@ export function BeautyDocsChat(props: BeautyDocsChatProps) {
                     onClick={props.onFindSalon}
                     type="button"
                   >
-                    <SquarePen className="size-4" /> Nowa rozmowa
+                    <SquarePen className="size-4" />{" "}{t("Nowa rozmowa")}
                   </button>
                 ) : null}
                 {error ? <p className="mt-4 text-sm font-bold text-red-700">{error}</p> : null}
@@ -721,15 +724,15 @@ function formatChatListDate(value: string): string {
   if (Number.isNaN(date.getTime())) return "";
   const today = new Date();
   if (date.toDateString() === today.toDateString()) {
-    return new Intl.DateTimeFormat("pl-PL", { hour: "2-digit", minute: "2-digit" }).format(date);
+    return new Intl.DateTimeFormat(activeIntlLocale(), { hour: "2-digit", minute: "2-digit" }).format(date);
   }
-  return new Intl.DateTimeFormat("pl-PL", { day: "2-digit", month: "2-digit" }).format(date);
+  return new Intl.DateTimeFormat(activeIntlLocale(), { day: "2-digit", month: "2-digit" }).format(date);
 }
 
 function formatChatMessageDate(value: string): string {
   const date = new Date(value);
   if (Number.isNaN(date.getTime())) return "";
-  return new Intl.DateTimeFormat("pl-PL", {
+  return new Intl.DateTimeFormat(activeIntlLocale(), {
     day: "2-digit",
     month: "short",
     hour: "2-digit",

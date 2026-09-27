@@ -1,3 +1,6 @@
+"use client";
+
+import { useT } from "../i18n";
 import { Quote, Star } from "lucide-react";
 
 interface Testimonial {
@@ -101,6 +104,7 @@ function TestimonialCard({ item }: { readonly item: Testimonial }) {
 }
 
 export function BeautyDocsTestimonials() {
+  const t = useT();
 
   return (
     <section
@@ -109,13 +113,13 @@ export function BeautyDocsTestimonials() {
     >
       <div className="mx-auto w-full max-w-3xl px-4 text-center sm:px-6">
         <span className="inline-flex items-center rounded-full border border-[#dbe6cc] bg-white px-3 py-1.5 text-xs font-black uppercase tracking-[0.16em] text-[#245c4d]">
-          Opinie
+          {t("Opinie")}
         </span>
         <h2 className="mt-5 font-serif text-3xl font-medium tracking-tight text-[#173d35] sm:text-5xl">
-          Prawdziwe salony. <span className="italic text-[#245c4d]">Prawdziwe efekty.</span>
+          {t("Prawdziwe salony.")}{" "}<span className="italic text-[#245c4d]">{t("Prawdziwe efekty.")}</span>
         </h2>
         <p className="mx-auto mt-4 max-w-xl text-base leading-7 text-stone-600">
-          Zespoły, które zamieniły papier i zeszyty na jeden wspólny panel.
+          {t("Zespoły, które zamieniły papier i zeszyty na jeden wspólny panel.")}
         </p>
 
         {/* Trust strip — the "something extra" */}
@@ -137,7 +141,7 @@ export function BeautyDocsTestimonials() {
                 {stat.value}
               </p>
               <p className="mt-2 text-xs leading-5 text-stone-500 sm:text-sm">
-                {stat.label}
+                {t(stat.label)}
               </p>
             </div>
           ))}

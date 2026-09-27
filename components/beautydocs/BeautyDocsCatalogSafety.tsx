@@ -1,3 +1,6 @@
+"use client";
+
+import { useT } from "./i18n";
 import { AlertTriangle, ChevronDown, ExternalLink, Info, Siren } from "lucide-react";
 import type { BeautyDocsCatalogItem, BeautyDocsSalonCatalogItem } from "@/types/beautydocs-catalog";
 
@@ -24,6 +27,7 @@ export function BeautyDocsCatalogSafety({
   readonly item: CatalogSafetyItem;
   readonly compact?: boolean;
 }) {
+  const t = useT();
   if (item.kind !== "MEDICINE") return null;
   const assessment = readSafetyAssessment(item.details);
   const activeSubstance = detailText(item.details, "activeSubstance");
@@ -49,10 +53,10 @@ export function BeautyDocsCatalogSafety({
             isPhotosensitizing ? "text-red-800" : "text-amber-800"
           }`}
         >
-          {assessment.label}
+          {t(assessment.label)}
         </span>
         <span className="hidden text-[10px] font-bold text-stone-500 sm:inline">
-          Szczegóły
+          {t("Szczegóły")}
         </span>
         <ChevronDown className="size-4 shrink-0 text-stone-500 transition group-open:rotate-180" />
       </summary>
@@ -61,12 +65,12 @@ export function BeautyDocsCatalogSafety({
         {!compact && (activeSubstance || pharmaceuticalForm || strength) ? (
           <dl className="grid gap-x-4 gap-y-2 text-[11px] sm:grid-cols-2">
             {activeSubstance ? (
-              <CatalogFact label="Substancja czynna" value={activeSubstance} />
+              <CatalogFact label={t("Substancja czynna")} value={activeSubstance} />
             ) : null}
             {pharmaceuticalForm ? (
-              <CatalogFact label="Postać" value={pharmaceuticalForm} />
+              <CatalogFact label={t("Postać")} value={pharmaceuticalForm} />
             ) : null}
-            {strength ? <CatalogFact label="Dawka / moc" value={strength} /> : null}
+            {strength ? <CatalogFact label={t("Dawka / moc")} value={strength} /> : null}
           </dl>
         ) : null}
 
@@ -78,12 +82,12 @@ export function BeautyDocsCatalogSafety({
           } ${isPhotosensitizing ? "text-red-900" : "text-amber-950"}`}
         >
           <Info className="mt-0.5 size-3.5 shrink-0" />
-          {assessment.summary}
+          {t(assessment.summary)}
         </p>
 
         {assessment.relevantTreatmentFamilies.length > 0 ? (
           <p className="mt-2 text-[10px] font-black uppercase tracking-[0.08em] text-red-700">
-            Szczególnie istotne przy zabiegach: laser, IPL i UV
+            {t("Szczególnie istotne przy zabiegach: laser, IPL i UV")}
           </p>
         ) : null}
 
@@ -93,12 +97,11 @@ export function BeautyDocsCatalogSafety({
           rel="noreferrer"
           target="_blank"
         >
-          {assessment.evidenceLabel} <ExternalLink className="size-3" />
+          {t(assessment.evidenceLabel)} <ExternalLink className="size-3" />
         </a>
 
         <p className="mt-2 text-[10px] leading-4 text-stone-500">
-          To sygnał do oceny przed zabiegiem, nie decyzja o odstawieniu leku ani
-          automatyczna kwalifikacja klientki.
+          {t("To sygnał do oceny przed zabiegiem, nie decyzja o odstawieniu leku ani automatyczna kwalifikacja klientki.")}
         </p>
       </div>
     </details>
@@ -106,9 +109,10 @@ export function BeautyDocsCatalogSafety({
 }
 
 function CatalogFact({ label, value }: { readonly label: string; readonly value: string }) {
+  const t = useT();
   return (
     <div>
-      <dt className="font-black text-stone-500">{label}</dt>
+      <dt className="font-black text-stone-500">{t(label)}</dt>
       <dd className="mt-0.5 font-semibold leading-4 text-[#303d32]">{value}</dd>
     </div>
   );

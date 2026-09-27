@@ -1,5 +1,6 @@
 "use client";
 
+import { useT } from "../i18n";
 import type { FormEvent } from "react";
 import { ArrowRight } from "lucide-react";
 import { BeautyDocsVerifyMailArt } from "./BeautyDocsLockedPanelPreview";
@@ -43,18 +44,18 @@ export function BeautyDocsEmailVerifyGate({
   readonly resent: boolean;
   readonly onResend: () => void;
 }) {
+  const t = useT();
   return (
     <BeautyDocsLockedPanelCard variant={variant}>
-      <div role="dialog" aria-modal="true" aria-label="Potwierdzenie adresu e-mail">
+      <div role="dialog" aria-modal="true" aria-label={t("Potwierdzenie adresu e-mail")}>
         <BeautyDocsVerifyMailArt />
         <form className="px-6 pb-6 pt-2 sm:px-8 sm:pb-8" onSubmit={onSubmit}>
           <h2 className="text-xl font-black tracking-tight text-[#173d35] sm:text-2xl">
-            Sprawdź skrzynkę, aby potwierdzić e-mail
+            {t("Sprawdź skrzynkę, aby potwierdzić e-mail")}
           </h2>
           <p className="mt-2 text-sm leading-6 text-stone-600">
-            Wysłaliśmy 6-cyfrowy kod na{" "}
-            <span className="font-semibold text-[#173d35]">{email}</span>. Jeśli
-            go nie widzisz, sprawdź folder spam.
+            {t("Wysłaliśmy 6-cyfrowy kod na")}{" "}
+            <span className="font-semibold text-[#173d35]">{email}</span>{t(". Jeśli go nie widzisz, sprawdź folder spam.")}
           </p>
 
           <div className="mt-6">
@@ -63,7 +64,7 @@ export function BeautyDocsEmailVerifyGate({
 
           {devCode ? (
             <p className="mt-4 rounded-xl bg-[#eaf0e2] px-3 py-2 text-center text-xs text-[#426447]">
-              Tryb testowy — Twój kod to{" "}
+              {t("Tryb testowy — Twój kod to")}{" "}
               <span className="font-black tracking-widest">{devCode}</span>
             </p>
           ) : null}
@@ -82,7 +83,7 @@ export function BeautyDocsEmailVerifyGate({
             disabled={pending}
             type="submit"
           >
-            {pending ? "Weryfikacja…" : "Potwierdź adres e-mail"}
+            {pending ? t("Weryfikacja…") : t("Potwierdź adres e-mail")}
             {pending ? null : <ArrowRight aria-hidden="true" className="size-4" />}
           </button>
 
@@ -92,14 +93,14 @@ export function BeautyDocsEmailVerifyGate({
             onClick={onChangeEmail}
             type="button"
           >
-            Zmień adres e-mail
+            {t("Zmień adres e-mail")}
           </button>
         </form>
 
         <div className="border-t border-[#eaeee4] bg-[#fbfcf8] px-6 py-4 text-center sm:px-8">
           {resent ? (
             <p className="mb-2 text-xs font-bold text-[#426447]">
-              Nowy kod został wysłany.
+              {t("Nowy kod został wysłany.")}
             </p>
           ) : null}
           <button
@@ -108,7 +109,7 @@ export function BeautyDocsEmailVerifyGate({
             onClick={onResend}
             type="button"
           >
-            {resendWaiting ? "Kolejna wysyłka za minutę" : "Wyślij kod ponownie"}
+            {resendWaiting ? t("Kolejna wysyłka za minutę") : t("Wyślij kod ponownie")}
           </button>
         </div>
       </div>

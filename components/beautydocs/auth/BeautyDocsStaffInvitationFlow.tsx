@@ -1,5 +1,6 @@
 "use client";
 
+import { useT } from "../i18n";
 import {
   ArrowRight,
   Building2,
@@ -26,6 +27,7 @@ export function BeautyDocsStaffInvitationFlow({
 }: {
   readonly token: string | null;
 }) {
+  const t = useT();
   const router = useRouter();
   const [invitation, setInvitation] = useState<BeautyDocsStaffInvitation | null>(null);
   const [loading, setLoading] = useState(true);
@@ -38,7 +40,7 @@ export function BeautyDocsStaffInvitationFlow({
   useEffect(() => {
     if (!token) {
       setLoading(false);
-      setError("Ten link zaproszenia jest nieprawidłowy.");
+      setError(t("Ten link zaproszenia jest nieprawidłowy."));
       return;
     }
     const controller = new AbortController();
@@ -51,22 +53,22 @@ export function BeautyDocsStaffInvitationFlow({
         if (!response.ok) {
           setError(
             response.status === 404
-              ? "Zaproszenie wygasło, zostało już użyte albo zastąpione nowszym."
-              : "Nie udało się teraz sprawdzić zaproszenia.",
+              ? t("Zaproszenie wygasło, zostało już użyte albo zastąpione nowszym.")
+              : t("Nie udało się teraz sprawdzić zaproszenia."),
           );
           return;
         }
         setInvitation((await response.json()) as BeautyDocsStaffInvitation);
       } catch (reason) {
         if ((reason as Error).name !== "AbortError") {
-          setError("Nie udało się teraz sprawdzić zaproszenia.");
+          setError(t("Nie udało się teraz sprawdzić zaproszenia."));
         }
       } finally {
         if (!controller.signal.aborted) setLoading(false);
       }
     })();
     return () => controller.abort();
-  }, [token]);
+  }, [token, t]);
 
   const activate = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -75,7 +77,7 @@ export function BeautyDocsStaffInvitationFlow({
     const fullName = String(form.get("fullName") ?? "").trim();
     const repeatedPassword = String(form.get("confirmPassword") ?? "");
     if (password !== repeatedPassword) {
-      setError("Hasła nie są takie same.");
+      setError(t("Hasła nie są takie same."));
       return;
     }
     setPending(true);
@@ -93,10 +95,10 @@ export function BeautyDocsStaffInvitationFlow({
       if (!response.ok) {
         setError(
           response.status === 404
-            ? "Zaproszenie wygasło albo zostało już wykorzystane."
+            ? t("Zaproszenie wygasło albo zostało już wykorzystane.")
             : response.status === 409
-              ? "Ten e-mail ma już konto BeautyDocs. Poproś właściciela o nowe zaproszenie na inny adres."
-              : "Nie udało się aktywować konta. Sprawdź dane i spróbuj ponownie.",
+              ? t("Ten e-mail ma już konto BeautyDocs. Poproś właściciela o nowe zaproszenie na inny adres.")
+              : t("Nie udało się aktywować konta. Sprawdź dane i spróbuj ponownie."),
         );
         return;
       }
@@ -115,7 +117,7 @@ export function BeautyDocsStaffInvitationFlow({
         1300,
       );
     } catch {
-      setError("Połączenie jest chwilowo niedostępne. Spróbuj ponownie.");
+      setError(t("Połączenie jest chwilowo niedostępne. Spróbuj ponownie."));
     } finally {
       setPending(false);
     }
@@ -125,7 +127,7 @@ export function BeautyDocsStaffInvitationFlow({
     <main className="grid min-h-screen place-items-center bg-[#f7f8f4] px-4 py-10">
       <div className="w-full max-w-lg rounded-[2rem] border border-[#e5eadf] bg-white p-7 shadow-[0_24px_70px_rgba(38,65,58,0.1)] sm:p-10">
         <Link
-          aria-label="BeautyDocs — strona główna"
+          aria-label={t("BeautyDocs — strona główna")}
           className="flex justify-center rounded-xl"
           href="/"
         >
@@ -137,34 +139,34 @@ export function BeautyDocsStaffInvitationFlow({
             <span className="mx-auto grid size-20 place-items-center rounded-full bg-emerald-50 text-emerald-700">
               <Check className="size-10" strokeWidth={3} />
             </span>
-            <h1 className="mt-7 font-serif text-3xl font-medium">Konto jest gotowe</h1>
+            <h1 className="mt-7 font-serif text-3xl font-medium">{t("Konto jest gotowe")}</h1>
             <p className="mt-3 text-sm text-stone-500">
-              Przenosimy Cię do panelu salonu…
+              {t("Przenosimy Cię do panelu salonu…")}
             </p>
           </div>
         ) : loading ? (
           <div className="flex min-h-80 items-center justify-center text-[#245c4d]">
-            <LoaderCircle className="size-7 animate-spin" aria-label="Sprawdzanie zaproszenia" />
+            <LoaderCircle className="size-7 animate-spin" aria-label={t("Sprawdzanie zaproszenia")} />
           </div>
         ) : invitation ? (
           <>
             <div className="mt-8 text-center">
               <p className="text-xs font-black uppercase tracking-[0.18em] text-[#245c4d]">
-                Zaproszenie do zespołu
+                {t("Zaproszenie do zespołu")}
               </p>
               <h1 className="mt-2 font-serif text-3xl font-medium tracking-tight text-[#173d35]">
-                Aktywuj konto pracownika
+                {t("Aktywuj konto pracownika")}
               </h1>
               <p className="mt-3 text-sm leading-6 text-stone-500">
-                Konto zostanie przypisane wyłącznie do wskazanego salonu.
+                {t("Konto zostanie przypisane wyłącznie do wskazanego salonu.")}
               </p>
             </div>
             <div className="mt-6 grid gap-3 sm:grid-cols-2">
-              <InviteFact icon={Building2} label="Salon" value={invitation.salonName} />
-              <InviteFact icon={Mail} label="E-mail" value={invitation.email} />
+              <InviteFact icon={Building2} label={t("Salon")} value={invitation.salonName} />
+              <InviteFact icon={Mail} label={t("E-mail")} value={invitation.email} />
             </div>
             <form className="mt-6 space-y-5" onSubmit={activate}>
-              <FormField label="Imię i nazwisko">
+              <FormField label={t("Imię i nazwisko")}>
                 <input
                   autoComplete="name"
                   className={inputClass}
@@ -172,11 +174,11 @@ export function BeautyDocsStaffInvitationFlow({
                   maxLength={200}
                   minLength={2}
                   name="fullName"
-                  placeholder="np. Anna Kowalska"
+                  placeholder={t("np. Anna Kowalska")}
                   required
                 />
               </FormField>
-              <FormField label="Hasło">
+              <FormField label={t("Hasło")}>
                 <div className="relative">
                   <input
                     autoComplete="new-password"
@@ -186,12 +188,12 @@ export function BeautyDocsStaffInvitationFlow({
                     minLength={8}
                     name="password"
                     onChange={(event) => setPassword(event.target.value)}
-                    placeholder="Minimum 8 znaków"
+                    placeholder={t("Minimum 8 znaków")}
                     required
                     type={showPassword ? "text" : "password"}
                   />
                   <button
-                    aria-label={showPassword ? "Ukryj hasło" : "Pokaż hasło"}
+                    aria-label={showPassword ? t("Ukryj hasło") : t("Pokaż hasło")}
                     className="absolute right-3 top-1/2 -translate-y-1/2 p-1.5 text-stone-400"
                     onClick={() => setShowPassword((value) => !value)}
                     type="button"
@@ -201,7 +203,7 @@ export function BeautyDocsStaffInvitationFlow({
                 </div>
                 <PasswordStrength password={password} />
               </FormField>
-              <FormField label="Powtórz hasło">
+              <FormField label={t("Powtórz hasło")}>
                 <input
                   autoComplete="new-password"
                   className={inputClass}
@@ -209,7 +211,7 @@ export function BeautyDocsStaffInvitationFlow({
                   maxLength={1024}
                   minLength={8}
                   name="confirmPassword"
-                  placeholder="Wpisz hasło ponownie"
+                  placeholder={t("Wpisz hasło ponownie")}
                   required
                   type="password"
                 />
@@ -221,7 +223,7 @@ export function BeautyDocsStaffInvitationFlow({
                 type="submit"
               >
                 {pending ? <LoaderCircle className="size-4 animate-spin" /> : <LockKeyhole className="size-4" />}
-                {pending ? "Aktywowanie…" : "Aktywuj konto"}
+                {pending ? t("Aktywowanie…") : t("Aktywuj konto")}
                 {!pending ? <ArrowRight className="size-4" /> : null}
               </button>
             </form>
@@ -229,10 +231,10 @@ export function BeautyDocsStaffInvitationFlow({
         ) : (
           <div className="py-12 text-center">
             <LockKeyhole className="mx-auto size-10 text-[#245c4d]" />
-            <h1 className="mt-5 font-serif text-3xl font-medium">Zaproszenie niedostępne</h1>
+            <h1 className="mt-5 font-serif text-3xl font-medium">{t("Zaproszenie niedostępne")}</h1>
             {error ? <p className="mt-3 text-sm leading-6 text-stone-500">{error}</p> : null}
             <Link className="mt-6 inline-flex font-bold text-[#245c4d]" href="/konto">
-              Przejdź do logowania
+              {t("Przejdź do logowania")}
             </Link>
           </div>
         )}
@@ -242,10 +244,11 @@ export function BeautyDocsStaffInvitationFlow({
 }
 
 function FormField({ label, children }: { label: string; children: ReactNode }) {
+  const t = useT();
   return (
     <label className="block">
       <span className="text-xs font-black uppercase tracking-[0.14em] text-[#5a6b5a]">
-        {label}
+        {t(label)}
       </span>
       <span className="mt-2 block">{children}</span>
     </label>
@@ -261,10 +264,11 @@ function InviteFact({
   label: string;
   value: string;
 }) {
+  const t = useT();
   return (
     <div className="rounded-2xl border border-[#e5eadf] bg-[#f7f8f4] p-4">
       <p className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.14em] text-[#245c4d]">
-        <Icon className="size-3.5" /> {label}
+        <Icon className="size-3.5" /> {t(label)}
       </p>
       <p className="mt-2 break-words text-sm font-bold text-[#173d35]">{value}</p>
     </div>

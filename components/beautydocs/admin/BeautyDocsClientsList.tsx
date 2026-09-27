@@ -1,3 +1,7 @@
+"use client";
+import { activeIntlLocale } from "../../../lib/i18n/active";
+
+import { useT } from "../i18n";
 import { Archive, ArrowLeft, ArrowRight, Search, UserRound } from "lucide-react";
 import Link from "next/link";
 import type {
@@ -17,6 +21,7 @@ export function BeautyDocsClientsList({
   query,
   tenantSlug,
 }: BeautyDocsClientsListProps) {
+  const t = useT();
   const basePath = `/panel/${encodeURIComponent(tenantSlug)}/clients`;
   const unfilteredPath = `${basePath}?${new URLSearchParams({
     pageSize: String(query.pageSize),
@@ -25,19 +30,19 @@ export function BeautyDocsClientsList({
   return (
     <section aria-labelledby="clients-heading">
       <div>
-        <p className="text-xs font-semibold uppercase tracking-[0.08em] text-[#5a6b5a]">Kartoteki salonu</p>
+        <p className="text-xs font-semibold uppercase tracking-[0.08em] text-[#5a6b5a]">{t("Kartoteki salonu")}</p>
         <h1 className="mt-3 text-3xl font-black tracking-[-0.045em] text-[#173d35] sm:text-4xl" id="clients-heading">
-          Klientki
+          {t("Klientki")}
         </h1>
         <p className="mt-2 text-sm leading-6 text-[#5a6b5a] sm:text-base">
-          Wyszukuj dane kontaktowe i otwieraj pełną historię klientki.
+          {t("Wyszukuj dane kontaktowe i otwieraj pełną historię klientki.")}
         </p>
       </div>
 
       <form action={basePath} className="mt-7 rounded-[1.4rem] border border-black/5 bg-[#fcfaf8] p-3" method="get" role="search">
         <input name="pageSize" type="hidden" value={query.pageSize} />
         <label className="sr-only" htmlFor="client-search">
-          Szukaj klientki
+          {t("Szukaj klientki")}
         </label>
         <div className="flex flex-col gap-3 sm:flex-row">
           <div className="relative flex-1">
@@ -52,7 +57,7 @@ export function BeautyDocsClientsList({
               maxLength={80}
               minLength={2}
               name="search"
-              placeholder="Imię, nazwisko, telefon lub e-mail"
+              placeholder={t("Imię, nazwisko, telefon lub e-mail")}
               type="search"
             />
           </div>
@@ -60,14 +65,14 @@ export function BeautyDocsClientsList({
             className="h-12 rounded-xl bg-[#245c4d] px-6 text-sm font-black text-white transition hover:bg-[#173d35] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#245c4d] focus-visible:ring-offset-2"
             type="submit"
           >
-            Szukaj
+            {t("Szukaj")}
           </button>
           {query.search ? (
             <Link
               className="flex h-12 items-center justify-center rounded-xl border border-[#d4decc] bg-white px-5 text-sm font-bold text-[#6a8a6e] hover:bg-[#f5f8f2]"
               href={unfilteredPath}
             >
-              Wyczyść
+              {t("Wyczyść")}
             </Link>
           ) : null}
         </div>
@@ -77,16 +82,16 @@ export function BeautyDocsClientsList({
         <p aria-live="polite" className="text-sm text-[#5a6b5a]">
           {query.search ? (
             <>
-              Wyniki dla <span className="font-bold text-[#245c4d]">„{query.search}”</span>:{" "}
+              {t("Wyniki dla")}{" "}<span className="font-bold text-[#245c4d]">„{query.search}”</span>:{" "}
             </>
           ) : null}
           <span className="font-bold text-[#245c4d]">
-            {clients.total.toLocaleString("pl-PL")}
+            {clients.total.toLocaleString(activeIntlLocale())}
           </span>
         </p>
         {clients.totalPages > 0 ? (
           <p className="text-xs font-medium text-[#5a6b5a]">
-            Strona {clients.page} z {clients.totalPages}
+            {t("Strona")}{" "}{clients.page}{" "}{t("z")}{" "}{clients.totalPages}
           </p>
         ) : null}
       </div>
@@ -97,11 +102,11 @@ export function BeautyDocsClientsList({
             <table className="w-full border-collapse text-left">
               <thead className="border-b border-black/5 bg-[#f6f9f3] text-xs font-semibold uppercase tracking-[0.12em] text-[#5a6b5a]">
                 <tr>
-                  <th className="px-5 py-3.5" scope="col">Klientka</th>
-                  <th className="px-5 py-3.5" scope="col">Kontakt</th>
-                  <th className="px-5 py-3.5" scope="col">Dodano</th>
+                  <th className="px-5 py-3.5" scope="col">{t("Klientka")}</th>
+                  <th className="px-5 py-3.5" scope="col">{t("Kontakt")}</th>
+                  <th className="px-5 py-3.5" scope="col">{t("Dodano")}</th>
                   <th className="px-5 py-3.5 text-right" scope="col">
-                    <span className="sr-only">Akcje</span>
+                    <span className="sr-only">{t("Akcje")}</span>
                   </th>
                 </tr>
               </thead>
@@ -144,6 +149,7 @@ function ClientTableRow({
   readonly client: BeautyDocsAdminClientListItem;
   readonly tenantSlug: string;
 }) {
+  const t = useT();
   const href = clientProfilePath(tenantSlug, client.id);
   return (
     <tr className="group hover:bg-[#f6f9f3]">
@@ -156,16 +162,16 @@ function ClientTableRow({
             </Link>
             {client.archivedAt ? (
               <span className="mt-1 flex items-center gap-1 text-xs font-semibold text-amber-700">
-                <Archive aria-hidden="true" className="size-3" /> Archiwalna
+                <Archive aria-hidden="true" className="size-3" />{" "}{t("Archiwalna")}
               </span>
             ) : null}
           </div>
         </div>
       </td>
       <td className="px-5 py-4 text-sm text-[#5a6b5a]">
-        <span className="block">{client.phone ?? "Brak telefonu"}</span>
+        <span className="block">{client.phone ?? t("Brak telefonu")}</span>
         <span className="mt-0.5 block text-xs text-[#5a6b5a]">
-          {client.email ?? "Brak adresu e-mail"}
+          {client.email ?? t("Brak adresu e-mail")}
         </span>
       </td>
       <td className="px-5 py-4 text-sm text-[#5a6b5a]">
@@ -173,7 +179,7 @@ function ClientTableRow({
       </td>
       <td className="px-5 py-4 text-right">
         <Link
-          aria-label={`Otwórz profil: ${client.firstName} ${client.lastName}`}
+          aria-label={t("Otwórz profil: {firstName} {lastName}", { firstName: client.firstName, lastName: client.lastName })}
           className="inline-flex size-9 items-center justify-center rounded-xl text-[#929e94] transition group-hover:bg-white group-hover:text-[#245c4d]"
           href={href}
         >
@@ -191,6 +197,7 @@ function ClientMobileCard({
   readonly client: BeautyDocsAdminClientListItem;
   readonly tenantSlug: string;
 }) {
+  const t = useT();
   return (
     <li>
       <Link
@@ -204,10 +211,10 @@ function ClientMobileCard({
               {client.firstName} {client.lastName}
             </p>
             <p className="mt-1 truncate text-sm text-[#5a6b5a]">
-              {client.phone ?? client.email ?? "Brak danych kontaktowych"}
+              {client.phone ?? client.email ?? t("Brak danych kontaktowych")}
             </p>
             <p className="mt-3 text-xs text-[#5a6b5a]">
-              Dodano {formatDate(client.createdAt)}
+              {t("Dodano")}{" "}{formatDate(client.createdAt)}
             </p>
           </div>
           <ArrowRight aria-hidden="true" className="mt-2 size-4 shrink-0 text-[#929e94]" />
@@ -232,22 +239,23 @@ function ClientsEmptyState({
   readonly clearPath: string;
   readonly hasSearch: boolean;
 }) {
+  const t = useT();
   return (
     <div className="mt-4 rounded-[1.5rem] border border-dashed border-[#b8cbaa] bg-[#fcfaf8] px-5 py-14 text-center">
       <span className="mx-auto flex size-12 items-center justify-center rounded-2xl bg-[#eef4e6] text-[#6a8a6e]">
         {hasSearch ? <Search aria-hidden="true" className="size-5" /> : <UserRound aria-hidden="true" className="size-5" />}
       </span>
       <h2 className="mt-4 text-lg font-bold">
-        {hasSearch ? "Brak pasujących klientek" : "Brak klientek"}
+        {hasSearch ? t("Brak pasujących klientek") : t("Brak klientek")}
       </h2>
       <p className="mx-auto mt-2 max-w-md text-sm leading-6 text-[#5a6b5a]">
         {hasSearch
-          ? "Spróbuj użyć innego imienia, nazwiska, numeru telefonu lub adresu e-mail."
-          : "Kartoteki klientek pojawią się tutaj po dodaniu lub migracji danych salonu."}
+          ? t("Spróbuj użyć innego imienia, nazwiska, numeru telefonu lub adresu e-mail.")
+          : t("Kartoteki klientek pojawią się tutaj po dodaniu lub migracji danych salonu.")}
       </p>
       {hasSearch ? (
         <Link className="mt-5 inline-flex text-sm font-black text-[#245c4d] underline underline-offset-4" href={clearPath}>
-          Wyczyść wyszukiwanie
+          {t("Wyczyść wyszukiwanie")}
         </Link>
       ) : null}
     </div>
@@ -267,18 +275,19 @@ function ClientPagination({
   readonly totalPages: number;
   readonly search: string;
 }) {
+  const t = useT();
   if (totalPages <= 1) {
     return null;
   }
 
   return (
-    <nav aria-label="Paginacja klientek" className="mt-6 flex items-center justify-between gap-4">
+    <nav aria-label={t("Paginacja klientek")} className="mt-6 flex items-center justify-between gap-4">
       {currentPage > 1 ? (
         <Link
           className="inline-flex items-center gap-2 rounded-xl border border-[#d4decc] bg-white px-4 py-2.5 text-sm font-black text-[#6a8a6e] hover:bg-[#f5f8f2]"
           href={listPagePath(basePath, search, currentPage - 1, pageSize)}
         >
-          <ArrowLeft aria-hidden="true" className="size-4" /> Poprzednia
+          <ArrowLeft aria-hidden="true" className="size-4" />{" "}{t("Poprzednia")}
         </Link>
       ) : (
         <span />
@@ -291,7 +300,7 @@ function ClientPagination({
           className="inline-flex items-center gap-2 rounded-xl border border-[#d4decc] bg-white px-4 py-2.5 text-sm font-black text-[#6a8a6e] hover:bg-[#f5f8f2]"
           href={listPagePath(basePath, search, currentPage + 1, pageSize)}
         >
-          Następna <ArrowRight aria-hidden="true" className="size-4" />
+          {t("Następna")}{" "}<ArrowRight aria-hidden="true" className="size-4" />
         </Link>
       ) : (
         <span />
@@ -325,7 +334,7 @@ function initials(firstName: string, lastName: string): string {
 }
 
 function formatDate(value: string): string {
-  return new Intl.DateTimeFormat("pl-PL", {
+  return new Intl.DateTimeFormat(activeIntlLocale(), {
     day: "2-digit",
     month: "short",
     year: "numeric",

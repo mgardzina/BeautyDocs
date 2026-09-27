@@ -56,3 +56,9 @@ apps/api/.data/
 *.dump
 *.sqlite
 *.sqlite3
+
+# Generated PDF visual-review intermediates
+/tmp/pdfs/
+
+# Raw product recordings (published copies live in public/platforma)
+scripts/platform-media/out/

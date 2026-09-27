@@ -1,3 +1,4 @@
+import { getServerTranslator } from "../../../lib/i18n/server";
 import type { Metadata } from "next";
 import { headers } from "next/headers";
 import { notFound, redirect } from "next/navigation";
@@ -28,6 +29,7 @@ interface BeautyDocsTenantAdminPageProps {
 export default async function BeautyDocsTenantAdminPage({
   params,
 }: BeautyDocsTenantAdminPageProps) {
+  const { t } = await getServerTranslator();
   const { tenantSlug } = await params;
   if (!isValidTenantSlug(tenantSlug)) {
     notFound();
@@ -56,9 +58,9 @@ export default async function BeautyDocsTenantAdminPage({
     return (
       <BeautyDocsAdminShell user={session.data.user}>
         <div className="rounded-2xl border border-stone-200 bg-white p-6">
-          <h1 className="text-2xl font-bold">Brak dostępu do salonu</h1>
+          <h1 className="text-2xl font-bold">{t("Brak dostępu do salonu")}</h1>
           <p className="mt-3 text-stone-600">
-            Twoje konto nie posiada aktywnego członkostwa w tym salonie.
+            {t("Twoje konto nie posiada aktywnego członkostwa w tym salonie.")}
           </p>
         </div>
       </BeautyDocsAdminShell>

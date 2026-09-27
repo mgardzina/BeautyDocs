@@ -5,6 +5,10 @@ import "./marketing.css";
 import GoogleAnalytics from "../components/GoogleAnalytics";
 import AuthProvider from "../components/AuthProvider";
 import JsonLd from "../components/JsonLd";
+import { BeautyDocsI18nProvider } from "../components/beautydocs/i18n";
+import { LOCALE_INFO } from "../lib/i18n/config";
+import { getRequestLocale } from "../lib/i18n/server";
+import { messagesFor } from "../lib/i18n/translate";
 
 /* eslint-disable @next/next/no-sync-scripts -- Cookiebot automatic blocking requires its synchronous loader to be the first script. */
 
@@ -29,7 +33,7 @@ const sora = localFont({
   ],
 });
 
-const siteUrl = "https://powderbrowsacademy.com.pl";
+const siteUrl = "https://beautydocs.pl";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -40,26 +44,23 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "PowderBrows Academy - Malwina Zięba | Stalowa Wola",
-    template: "%s | PowderBrows Academy",
+    default: "BeautyDocs - Platforma dla salonów beauty",
+    template: "%s | BeautyDocs",
   },
   description:
-    "Profesjonalny makijaż permanentny brwi, ust i kresek w Stalowej Woli. Szkolenia i zabiegi na najwyższym poziomie.",
+    "BeautyDocs — cyfrowa platforma dla salonów beauty. Formularze zgody, dokumentacja klientów i zarządzanie gabinetem w jednym miejscu.",
   keywords: [
-    "makijaż permanentny Stalowa Wola",
-    "microblading Stalowa Wola",
-    "powder brows",
-    "szkolenia makijaż permanentny",
-    "brwi permanentne",
-    "usta permanentne",
-    "PowderBrows Academy",
-    "Malwina Zięba",
-    "makijaż permanentny Podkarpacie",
-    "beauty salon Stalowa Wola",
+    "platforma beauty",
+    "formularze zgody beauty",
+    "dokumentacja salon",
+    "makijaż permanentny",
+    "BeautyDocs",
+    "zarządzanie salonem",
+    "beauty salon oprogramowanie",
   ],
-  authors: [{ name: "PowderBrows Academy - Malwina Zięba" }],
-  creator: "PowderBrows Academy",
-  publisher: "PowderBrows Academy",
+  authors: [{ name: "BeautyDocs" }],
+  creator: "BeautyDocs",
+  publisher: "BeautyDocs",
   formatDetection: {
     email: true,
     address: true,
@@ -72,24 +73,24 @@ export const metadata: Metadata = {
     type: "website",
     locale: "pl_PL",
     url: siteUrl,
-    siteName: "PowderBrows Academy - Malwina Zięba",
-    title: "PowderBrows Academy - Makijaż Permanentny Stalowa Wola",
+    siteName: "BeautyDocs",
+    title: "BeautyDocs - Platforma dla salonów beauty",
     description:
-      "Profesjonalny makijaż permanentny brwi, ust i kresek w Stalowej Woli. Szkolenia i zabiegi.",
+      "BeautyDocs — cyfrowa platforma dla salonów beauty. Formularze zgody, dokumentacja klientów i zarządzanie gabinetem.",
     images: [
       {
         url: "/logo.png",
         width: 512,
         height: 512,
-        alt: "PowderBrows Academy Logo",
+        alt: "BeautyDocs Logo",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "PowderBrows Academy - Makijaż Permanentny Stalowa Wola",
+    title: "BeautyDocs - Platforma dla salonów beauty",
     description:
-      "Profesjonalny makijaż permanentny brwi, ust i kresek w Stalowej Woli.",
+      "BeautyDocs — cyfrowa platforma dla salonów beauty. Formularze zgody i dokumentacja klientów.",
     images: ["/logo.png"],
   },
   robots: {
@@ -124,13 +125,14 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const locale = await getRequestLocale();
   return (
-    <html lang="pl" className={sora.variable}>
+    <html lang={LOCALE_INFO[locale].htmlLang} className={sora.variable}>
       <head>
         <script
           data-blockingmode="auto"
@@ -144,7 +146,11 @@ export default function RootLayout({
         <JsonLd />
       </head>
       <body>
-        <AuthProvider>{children}</AuthProvider>
+        <AuthProvider>
+          <BeautyDocsI18nProvider locale={locale} messages={messagesFor(locale)}>
+            {children}
+          </BeautyDocsI18nProvider>
+        </AuthProvider>
       </body>
     </html>
   );

@@ -1,3 +1,6 @@
+"use client";
+
+import { useT } from "../i18n";
 import Link from "next/link";
 import { FileSignature, FileText } from "lucide-react";
 
@@ -19,13 +22,14 @@ interface PublicFormRendererProps {
 }
 
 export function PublicFormRenderer({ form, tenant }: PublicFormRendererProps) {
+  const t = useT();
   return (
     <div className="mx-auto max-w-3xl">
       <Link
         className="inline-flex rounded-lg text-sm font-semibold text-stone-600 underline decoration-slate-300 underline-offset-4 hover:text-[#173d35] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#245c4d] focus-visible:ring-offset-2"
         href={`/f/${encodeURIComponent(tenant.slug)}`}
       >
-        ← Wróć do formularzy
+        {t("← Wróć do formularzy")}
       </Link>
 
       <section className="mt-6 overflow-hidden rounded-3xl border border-stone-200 bg-white shadow-sm">
@@ -33,17 +37,17 @@ export function PublicFormRenderer({ form, tenant }: PublicFormRendererProps) {
           <div className="flex flex-wrap items-center justify-between gap-3">
             <span className="inline-flex items-center gap-2 rounded-full bg-[#245c4d] px-3 py-1.5 text-xs font-bold text-white">
               <FileText aria-hidden="true" className="size-3.5" />
-              Formularz online
+              {t("Formularz online")}
             </span>
             <span className="inline-flex items-center rounded-full bg-[#eef3e7] px-3 py-1 text-xs font-bold text-[#245c4d]">
-              Wersja {form.version}
+              {t("Wersja")}{" "}{form.version}
             </span>
           </div>
           <h1 className="mt-5 text-3xl font-bold tracking-tight text-[#173d35] sm:text-4xl">
             {form.displayName}
           </h1>
           <p className="mt-3 text-base leading-7 text-stone-600">
-            Dokumentacja zabiegowa dla salonu {tenant.displayName}.
+            {t("Dokumentacja zabiegowa dla salonu")}{" "}{tenant.displayName}.
           </p>
         </div>
 
@@ -69,11 +73,10 @@ export function PublicFormRenderer({ form, tenant }: PublicFormRendererProps) {
             disabled
             type="button"
           >
-            Wyślij formularz
+            {t("Wyślij formularz")}
           </button>
           <p className="mt-3 text-center text-xs leading-5 text-stone-500" id="public-form-notice">
-            Podgląd treści formularza. Podpis i wysyłka zostaną uruchomione w
-            kolejnym etapie.
+            {t("Podgląd treści formularza. Podpis i wysyłka zostaną uruchomione w kolejnym etapie.")}
           </p>
         </div>
       </section>
@@ -88,13 +91,14 @@ interface FieldsSectionBlockProps {
 }
 
 function FieldsSectionBlock({ section, consents, salonName }: FieldsSectionBlockProps) {
+  const t = useT();
   if (section.fields.length === 0) {
     return null;
   }
 
   return (
     <div className="px-6 py-7 sm:px-8 sm:py-8">
-      <h2 className="text-lg font-bold text-[#173d35]">{section.title}</h2>
+      <h2 className="text-lg font-bold text-[#173d35]">{t(section.title)}</h2>
       <div className="mt-5 grid gap-5 sm:grid-cols-2">
         {section.fields.map((field) => {
           if (field.type === "consent") {
@@ -129,13 +133,14 @@ function FieldsSectionBlock({ section, consents, salonName }: FieldsSectionBlock
 }
 
 function TextField({ field }: { readonly field: FormField }) {
+  const t = useT();
   const inputType = TEXT_INPUT_TYPES.has(field.type) ? field.type : "text";
   const inputId = `field-${field.key}`;
 
   return (
     <>
       <label className="block text-[11px] font-black uppercase tracking-[0.14em] text-[#5a6b5a]" htmlFor={inputId}>
-        {field.label}
+        {t(field.label)}
         {field.required ? <span className="text-[#245c4d]"> *</span> : null}
       </label>
       <input
@@ -158,6 +163,7 @@ function ConsentCard({
   readonly consent: FormConsent;
   readonly salonName: string;
 }) {
+  const t = useT();
   const text = consent.text.split("{{salonName}}").join(salonName);
   const isRequired = field.required || consent.required;
   const inputId = `consent-${field.key}`;
@@ -166,11 +172,11 @@ function ConsentCard({
     <div className="rounded-2xl border border-[#d4decc] bg-[#f7f8f4] p-5">
       {consent.title ? (
         <h3 className="text-sm font-bold text-[#173d35]">
-          {consent.title}
+          {t(consent.title)}
           {isRequired ? <span className="text-[#245c4d]"> *</span> : null}
         </h3>
       ) : null}
-      <p className="mt-2 text-sm leading-6 text-stone-600">{text}</p>
+      <p className="mt-2 text-sm leading-6 text-stone-600">{t(text)}</p>
       <label className="mt-4 flex items-start gap-3 text-sm font-semibold text-[#173d35]" htmlFor={inputId}>
         <input
           className="mt-0.5 size-4 shrink-0 rounded border-stone-300 text-[#245c4d] focus:ring-2 focus:ring-[#245c4d]/30"
@@ -179,22 +185,23 @@ function ConsentCard({
           required={isRequired}
           type="checkbox"
         />
-        Wyrażam zgodę
+        {t("Wyrażam zgodę")}
       </label>
     </div>
   );
 }
 
 function SignaturePlaceholder({ field }: { readonly field: FormField }) {
+  const t = useT();
   return (
     <div className="flex flex-col items-center gap-2 rounded-2xl border-2 border-dashed border-[#cdd7c6] bg-[#f7f8f4] px-5 py-8 text-center">
       <FileSignature aria-hidden="true" className="size-5 text-[#245c4d]" />
       <p className="text-sm font-semibold text-[#173d35]">
-        {field.label}
+        {t(field.label)}
         {field.required ? <span className="text-[#245c4d]"> *</span> : null}
       </p>
       <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#96a298]">
-        Miejsce na podpis
+        {t("Miejsce na podpis")}
       </p>
     </div>
   );
@@ -225,6 +232,7 @@ function ContraindicationsSectionBlock({
 }: {
   readonly section: FormContraindicationsSection;
 }) {
+  const t = useT();
   if (section.items.length === 0) {
     return null;
   }
@@ -234,9 +242,9 @@ function ContraindicationsSectionBlock({
   return (
     <div className="px-6 py-7 sm:px-8 sm:py-8">
       <div className="flex flex-wrap items-baseline justify-between gap-2">
-        <h2 className="text-lg font-bold text-[#173d35]">{section.title}</h2>
+        <h2 className="text-lg font-bold text-[#173d35]">{t(section.title)}</h2>
         <span className="text-xs font-semibold text-stone-500">
-          Pytań: {section.items.length}
+          {t("Pytań:")}{" "}{section.items.length}
         </span>
       </div>
 
@@ -261,11 +269,12 @@ function ContraindicationsSectionBlock({
 }
 
 function ContraindicationRow({ item }: { readonly item: FormContraindicationItem }) {
+  const t = useT();
   return (
     <div className="py-4 first:pt-0 last:pb-0">
       <fieldset className="m-0 flex flex-col gap-3 border-0 p-0 sm:flex-row sm:items-center sm:justify-between">
         <legend className="w-full p-0 text-sm font-semibold leading-6 text-[#173d35] sm:w-auto sm:max-w-md">
-          {item.question}
+          {t(item.question)}
         </legend>
         <div className="flex shrink-0 items-center gap-5">
           <label
@@ -279,7 +288,7 @@ function ContraindicationRow({ item }: { readonly item: FormContraindicationItem
               type="radio"
               value="tak"
             />
-            Tak
+            {t("Tak")}
           </label>
           <label
             className="flex items-center gap-2 text-sm font-medium text-stone-600"
@@ -292,7 +301,7 @@ function ContraindicationRow({ item }: { readonly item: FormContraindicationItem
               type="radio"
               value="nie"
             />
-            Nie
+            {t("Nie")}
           </label>
         </div>
       </fieldset>
@@ -300,7 +309,7 @@ function ContraindicationRow({ item }: { readonly item: FormContraindicationItem
         <input
           className="mt-3 w-full rounded-xl border border-stone-200 bg-white px-4 py-2.5 text-sm text-[#173d35] outline-none transition placeholder:text-[#aeb3a7] focus:border-[#245c4d] focus:ring-2 focus:ring-[#245c4d]/15"
           name={`${item.key}-followup`}
-          placeholder={item.followUpPlaceholder ?? "Jeżeli tak, opisz…"}
+          placeholder={item.followUpPlaceholder ?? t("Jeżeli tak, opisz…")}
           type="text"
         />
       ) : null}

@@ -1,5 +1,6 @@
 "use client";
 
+import { useT } from "../i18n";
 import {
   Check,
   Cpu,
@@ -81,6 +82,7 @@ export function BeautyDocsCatalogManager({
   readonly initialCatalog: BeautyDocsSalonCatalog;
   readonly tenantSlug: string;
 }) {
+  const t = useT();
   const [catalog, setCatalog] = useState(initialCatalog);
   const [products, setProducts] = useState<readonly BeautyDocsCatalogItem[] | null>(null);
   const [productsError, setProductsError] = useState<string | null>(null);
@@ -103,13 +105,13 @@ export function BeautyDocsCatalogManager({
         const body = (await response.json()) as { items: BeautyDocsCatalogItem[] };
         if (!cancelled) setProducts(body.items);
       } catch {
-        if (!cancelled) setProductsError("Nie udało się pobrać katalogu. Spróbuj ponownie.");
+        if (!cancelled) setProductsError(t("Nie udało się pobrać katalogu. Spróbuj ponownie."));
       }
     })();
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [t]);
 
   const selectedExternalIds = useMemo(
     () => new Set(catalog.items.map((item) => item.externalId).filter(Boolean)),
@@ -145,8 +147,8 @@ export function BeautyDocsCatalogManager({
     if (!response.ok) {
       setMessage(
         response.status === 422
-          ? "Kosmetyki pozabiegowe i przypisania muszą mieć prawidłowe ustawienia."
-          : "Nie udało się zapisać pozycji w katalogu salonu.",
+          ? t("Kosmetyki pozabiegowe i przypisania muszą mieć prawidłowe ustawienia.")
+          : t("Nie udało się zapisać pozycji w katalogu salonu."),
       );
       return;
     }
@@ -158,11 +160,11 @@ export function BeautyDocsCatalogManager({
       ),
     }));
     setDraft(null);
-    setMessage("Katalog salonu został zaktualizowany.");
+    setMessage(t("Katalog salonu został zaktualizowany."));
   }
 
   async function removeItem(item: BeautyDocsSalonCatalogItem) {
-    if (!window.confirm(`Usunąć „${item.name}” z katalogu salonu?`)) return;
+    if (!window.confirm(t("Usunąć „{name}” z katalogu salonu?", { name: item.name }))) return;
     setSaving(true);
     const response = await fetch(
       `/api/beautydocs-preview/admin/tenants/${encodeURIComponent(tenantSlug)}` +
@@ -171,14 +173,14 @@ export function BeautyDocsCatalogManager({
     );
     setSaving(false);
     if (!response.ok) {
-      setMessage("Nie udało się usunąć pozycji.");
+      setMessage(t("Nie udało się usunąć pozycji."));
       return;
     }
     setCatalog((current) => ({
       ...current,
       items: current.items.filter((candidate) => candidate.id !== item.id),
     }));
-    setMessage("Pozycja została usunięta z katalogu salonu.");
+    setMessage(t("Pozycja została usunięta z katalogu salonu."));
   }
 
   return (
@@ -187,24 +189,23 @@ export function BeautyDocsCatalogManager({
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl">
             <p className="text-[10px] font-black uppercase tracking-[0.2em] text-[#d1e3b8]">
-              Baza wiedzy salonu
+              {t("Baza wiedzy salonu")}
             </p>
             <h1 className="mt-2 text-3xl font-black tracking-[-0.04em] sm:text-4xl">
-              Produkty i urządzenia
+              {t("Produkty i urządzenia")}
             </h1>
             <p className="mt-3 max-w-2xl text-sm leading-6 text-white/65">
-              Wyszukuj leki w oficjalnym RPL, zapisuj preparaty i dokładne modele
-              urządzeń oraz twórz przejrzyste zalecenia pielęgnacji pozabiegowej.
+              {t("Wyszukuj leki w oficjalnym RPL, zapisuj preparaty i dokładne modele urządzeń oraz twórz przejrzyste zalecenia pielęgnacji pozabiegowej.")}
             </p>
           </div>
           <div className="grid grid-cols-3 gap-2 text-center">
-            <CatalogStat label="W katalogu" value={catalog.items.length} />
+            <CatalogStat label={t("W katalogu")} value={catalog.items.length} />
             <CatalogStat
-              label="Do zabiegów"
+              label={t("Do zabiegów")}
               value={catalog.items.filter((item) => item.usedInTreatments).length}
             />
             <CatalogStat
-              label="Po zabiegu"
+              label={t("Po zabiegu")}
               value={catalog.items.filter((item) => item.recommendedAftercare).length}
             />
           </div>
@@ -213,7 +214,7 @@ export function BeautyDocsCatalogManager({
 
       {message ? (
         <p className="rounded-2xl border border-[#d7dfcc] bg-white px-4 py-3 text-sm font-bold text-[#457267]" role="status">
-          {message}
+          {t(message)}
         </p>
       ) : null}
 
@@ -221,12 +222,11 @@ export function BeautyDocsCatalogManager({
         <div className="flex flex-col gap-4 xl:flex-row xl:items-center xl:justify-between">
           <div>
             <p className="text-[10px] font-black uppercase tracking-[0.16em] text-[#5b9889]">
-              Wspólny katalog BeautyDocs
+              {t("Wspólny katalog BeautyDocs")}
             </p>
-            <h2 className="mt-1 text-xl font-black text-[#173d35]">Znajdź pozycję</h2>
+            <h2 className="mt-1 text-xl font-black text-[#173d35]">{t("Znajdź pozycję")}</h2>
             <p className="mt-1 text-sm leading-6 text-stone-500">
-              Ten sam katalog co na publicznej stronie — przeglądaj cały
-              asortyment albo wyszukaj konkretną pozycję.
+              {t("Ten sam katalog co na publicznej stronie — przeglądaj cały asortyment albo wyszukaj konkretną pozycję.")}
             </p>
           </div>
           {catalog.canManage ? (
@@ -235,7 +235,7 @@ export function BeautyDocsCatalogManager({
               onClick={() => setCustomOpen(true)}
               type="button"
             >
-              <PackagePlus className="size-4" /> Dodaj własny produkt lub urządzenie
+              <PackagePlus className="size-4" />{" "}{t("Dodaj własny produkt lub urządzenie")}
             </button>
           ) : null}
         </div>
@@ -246,7 +246,7 @@ export function BeautyDocsCatalogManager({
           </p>
         ) : products === null ? (
           <div className="mt-5 flex items-center justify-center gap-2 rounded-2xl border border-[#e1e6da] bg-white py-14 text-sm font-bold text-stone-600">
-            <LoaderCircle className="size-5 animate-spin text-[#245c4d]" /> Wczytywanie katalogu…
+            <LoaderCircle className="size-5 animate-spin text-[#245c4d]" />{" "}{t("Wczytywanie katalogu…")}
           </div>
         ) : (
           <div className="-mx-5 mt-5 sm:-mx-6">
@@ -268,7 +268,7 @@ export function BeautyDocsCatalogManager({
                           ) : (
                             <Plus className="size-3.5" />
                           )}
-                          {alreadySelected ? "W katalogu salonu" : "Dodaj do salonu"}
+                          {alreadySelected ? t("W katalogu salonu") : t("Dodaj do salonu")}
                         </button>
                       );
                     }
@@ -283,12 +283,11 @@ export function BeautyDocsCatalogManager({
       <section className="rounded-[28px] border border-[#e2e7da] bg-white p-5 shadow-[0_12px_35px_rgba(45,69,63,0.05)] sm:p-6">
         <div>
           <p className="text-[10px] font-black uppercase tracking-[0.16em] text-[#5b9889]">
-            Wybrane przez salon
+            {t("Wybrane przez salon")}
           </p>
-          <h2 className="mt-1 text-xl font-black text-[#173d35]">Katalog salonu</h2>
+          <h2 className="mt-1 text-xl font-black text-[#173d35]">{t("Katalog salonu")}</h2>
           <p className="mt-1 text-sm leading-6 text-stone-500">
-            Przypisanie do zabiegów opisuje ofertę salonu. Nie oznacza, że dana
-            pozycja została użyta podczas konkretnej wizyty.
+            {t("Przypisanie do zabiegów opisuje ofertę salonu. Nie oznacza, że dana pozycja została użyta podczas konkretnej wizyty.")}
           </p>
         </div>
         <div className="mt-5 grid gap-3 xl:grid-cols-2">
@@ -306,7 +305,7 @@ export function BeautyDocsCatalogManager({
         </div>
         {catalog.items.length === 0 ? (
           <p className="mt-5 rounded-2xl border border-dashed border-[#d4d9cc] p-8 text-center text-sm text-stone-500">
-            Katalog salonu jest pusty. Wyszukaj pierwszą pozycję powyżej.
+            {t("Katalog salonu jest pusty. Wyszukaj pierwszą pozycję powyżej.")}
           </p>
         ) : null}
       </section>
@@ -328,7 +327,7 @@ export function BeautyDocsCatalogManager({
           onSaved={(saved) => {
             setCatalog((current) => ({ ...current, items: [...current.items, saved] }));
             setCustomOpen(false);
-            setMessage("Własna pozycja została dodana do katalogu salonu.");
+            setMessage(t("Własna pozycja została dodana do katalogu salonu."));
           }}
           tenantSlug={tenantSlug}
         />
@@ -345,7 +344,7 @@ export function BeautyDocsCatalogManager({
                 }
               : undefined
           }
-          primaryActionLabel="Ustawienia produktu"
+          primaryActionLabel={t("Ustawienia produktu")}
         />
       ) : null}
     </div>
@@ -367,13 +366,14 @@ function SalonItemCard({
   readonly onRemove: () => void;
   readonly onView: () => void;
 }) {
+  const t = useT();
   const meta = kindMeta(item.kind);
   const Icon = meta.icon;
   const treatmentNames = item.treatmentCodes.map(
     (code) => forms.find((form) => form.code === code)?.name ?? code,
   );
   const professionalProduct = isProfessionalCatalogProduct(item);
-  const presentation = productDetailText(item.details, "presentation") ?? "Sprawdź etykietę";
+  const presentation = productDetailText(item.details, "presentation") ?? t("Sprawdź etykietę");
   const family = productDetailText(item.details, "productFamily") ?? meta.label;
   const imagePath = productDetailText(item.details, "imagePath");
   const imageAlt = productDetailText(item.details, "imageAlt") ?? item.name;
@@ -396,21 +396,21 @@ function SalonItemCard({
           </button>
           <div className="flex min-w-0 flex-col py-1 pr-1">
             <div className="flex flex-wrap items-center gap-1.5">
-              <span className={`rounded-full px-2.5 py-1 text-[9px] font-black uppercase ${meta.tone}`}>{meta.label}</span>
-              {item.usedInTreatments ? <Tag>Przy zabiegu</Tag> : null}
-              {item.recommendedAftercare ? <Tag>Po zabiegu</Tag> : null}
+              <span className={`rounded-full px-2.5 py-1 text-[9px] font-black uppercase ${meta.tone}`}>{t(meta.label)}</span>
+              {item.usedInTreatments ? <Tag>{t("Przy zabiegu")}</Tag> : null}
+              {item.recommendedAftercare ? <Tag>{t("Po zabiegu")}</Tag> : null}
             </div>
             <p className="mt-3 text-[10px] font-extrabold uppercase tracking-[0.12em] text-stone-400">{item.brand}</p>
             <button className="mt-1 text-left text-base font-extrabold leading-5 text-[#173d35] hover:text-[#245c4d]" onClick={onView} type="button">{item.name}</button>
             <p className="mt-2 line-clamp-2 text-xs leading-5 text-stone-500">
-              {treatmentNames.length > 0 ? `Zabiegi: ${treatmentNames.join(", ")}` : "Dotyczy wszystkich zabiegów"}
+              {treatmentNames.length > 0 ? t("Zabiegi: {value1}", { value1: treatmentNames.join(", ") }) : t("Dotyczy wszystkich zabiegów")}
             </p>
             <div className="mt-auto flex items-center gap-2 border-t border-[#eaeee5] pt-3">
-              <button className="inline-flex items-center gap-1.5 rounded-xl border border-[#d0d8c5] bg-white px-3 py-2 text-[11px] font-extrabold text-[#47776b] transition hover:bg-[#f7faf3]" onClick={onView} type="button"><Eye className="size-3.5" /> Zobacz produkt</button>
+              <button className="inline-flex items-center gap-1.5 rounded-xl border border-[#d0d8c5] bg-white px-3 py-2 text-[11px] font-extrabold text-[#47776b] transition hover:bg-[#f7faf3]" onClick={onView} type="button"><Eye className="size-3.5" />{" "}{t("Zobacz produkt")}</button>
               {canManage ? (
                 <div className="ml-auto flex gap-1">
-                  <button aria-label={`Edytuj ${item.name}`} className="rounded-lg p-2 text-stone-400 hover:bg-[#f0f5e9] hover:text-[#245c4d]" onClick={onEdit} type="button"><Pencil className="size-4" /></button>
-                  <button aria-label={`Usuń ${item.name}`} className="rounded-lg p-2 text-stone-400 hover:bg-red-50 hover:text-red-700" onClick={onRemove} type="button"><Trash2 className="size-4" /></button>
+                  <button aria-label={t("Edytuj {name}", { name: item.name })} className="rounded-lg p-2 text-stone-400 hover:bg-[#f0f5e9] hover:text-[#245c4d]" onClick={onEdit} type="button"><Pencil className="size-4" /></button>
+                  <button aria-label={t("Usuń {name}", { name: item.name })} className="rounded-lg p-2 text-stone-400 hover:bg-red-50 hover:text-red-700" onClick={onRemove} type="button"><Trash2 className="size-4" /></button>
                 </div>
               ) : null}
             </div>
@@ -429,30 +429,30 @@ function SalonItemCard({
         </span>
         <div className="min-w-0 flex-1">
           <div className="flex flex-wrap gap-1.5">
-            <span className="rounded-full bg-stone-100 px-2 py-1 text-[9px] font-black uppercase text-stone-600">{meta.label}</span>
-            {item.usedInTreatments ? <Tag>Wykorzystywane przy zabiegu</Tag> : null}
-            {item.recommendedAftercare ? <Tag>Po zabiegu</Tag> : null}
-            {item.isSponsored ? <Tag sponsor>Materiał sponsorowany</Tag> : null}
+            <span className="rounded-full bg-stone-100 px-2 py-1 text-[9px] font-black uppercase text-stone-600">{t(meta.label)}</span>
+            {item.usedInTreatments ? <Tag>{t("Wykorzystywane przy zabiegu")}</Tag> : null}
+            {item.recommendedAftercare ? <Tag>{t("Po zabiegu")}</Tag> : null}
+            {item.isSponsored ? <Tag sponsor>{t("Materiał sponsorowany")}</Tag> : null}
           </div>
           <h3 className="mt-2 text-sm font-black text-[#173d35]">{item.name}</h3>
           {item.brand ? <p className="mt-0.5 text-xs text-stone-500">{item.brand}</p> : null}
           {treatmentNames.length > 0 ? (
             <p className="mt-2 text-[11px] leading-5 text-stone-500">
-              Zabiegi: {treatmentNames.join(", ")}
+              {t("Zabiegi:")}{" "}{treatmentNames.join(", ")}
             </p>
           ) : (
-            <p className="mt-2 text-[11px] text-stone-400">Dotyczy wszystkich zabiegów</p>
+            <p className="mt-2 text-[11px] text-stone-400">{t("Dotyczy wszystkich zabiegów")}</p>
           )}
           {item.recommendationNote ? (
             <p className="mt-2 rounded-xl bg-[#f8faf5] px-3 py-2 text-xs leading-5 text-[#173d35]">
-              {item.recommendationNote}
+              {t(item.recommendationNote)}
             </p>
           ) : null}
         </div>
         {canManage ? (
           <div className="flex shrink-0 gap-1">
-            <button aria-label={`Edytuj ${item.name}`} className="rounded-lg p-2 text-stone-400 hover:bg-[#f0f5e9] hover:text-[#245c4d]" onClick={onEdit} type="button"><Pencil className="size-4" /></button>
-            <button aria-label={`Usuń ${item.name}`} className="rounded-lg p-2 text-stone-400 hover:bg-red-50 hover:text-red-700" onClick={onRemove} type="button"><Trash2 className="size-4" /></button>
+            <button aria-label={t("Edytuj {name}", { name: item.name })} className="rounded-lg p-2 text-stone-400 hover:bg-[#f0f5e9] hover:text-[#245c4d]" onClick={onEdit} type="button"><Pencil className="size-4" /></button>
+            <button aria-label={t("Usuń {name}", { name: item.name })} className="rounded-lg p-2 text-stone-400 hover:bg-red-50 hover:text-red-700" onClick={onRemove} type="button"><Trash2 className="size-4" /></button>
           </div>
         ) : null}
       </div>
@@ -476,6 +476,7 @@ function CatalogSettingsDialog({
   readonly onSubmit: (event: FormEvent<HTMLFormElement>) => void;
   readonly saving: boolean;
 }) {
+  const t = useT();
   const isCosmetic = draft.sourceItem.kind === "COSMETIC";
   useCatalogDialogScrollLock();
   return createPortal(
@@ -492,25 +493,25 @@ function CatalogSettingsDialog({
       >
         <div className="flex shrink-0 items-start justify-between gap-4 border-b border-[#eaeee5] bg-white px-4 py-4 sm:px-6 sm:py-4">
           <div>
-            <p className="text-[10px] font-black uppercase tracking-[0.14em] text-[#5b9889]">Ustawienia pozycji</p>
+            <p className="text-[10px] font-black uppercase tracking-[0.14em] text-[#5b9889]">{t("Ustawienia pozycji")}</p>
             <h2 className="mt-1 text-xl font-black text-[#173d35]">{draft.sourceItem.name}</h2>
           </div>
-          <button aria-label="Zamknij" className="rounded-xl bg-stone-100 p-2.5 text-stone-500" onClick={onClose} type="button"><X className="size-5" /></button>
+          <button aria-label={t("Zamknij")} className="rounded-xl bg-stone-100 p-2.5 text-stone-500" onClick={onClose} type="button"><X className="size-5" /></button>
         </div>
         <div className="min-h-0 flex-1 space-y-4 overflow-y-auto overscroll-contain bg-[#fdfffb] px-4 py-5 sm:p-5">
           <div className="grid gap-3 md:grid-cols-2">
             <label className="flex items-start gap-3 rounded-2xl border border-[#dfe4d8] p-4">
               <input checked={draft.usedInTreatments} className="mt-1 size-4 accent-[#245c4d]" onChange={(event) => onChange({ ...draft, usedInTreatments: event.target.checked })} type="checkbox" />
-              <span><strong className="block text-sm text-[#173d35]">Wykorzystywane przy zabiegach</strong><span className="mt-1 block text-xs leading-5 text-stone-500">Pozycja pojawi się w katalogu wyposażenia i preparatów salonu.</span></span>
+              <span><strong className="block text-sm text-[#173d35]">{t("Wykorzystywane przy zabiegach")}</strong><span className="mt-1 block text-xs leading-5 text-stone-500">{t("Pozycja pojawi się w katalogu wyposażenia i preparatów salonu.")}</span></span>
             </label>
             <label className={`flex items-start gap-3 rounded-2xl border p-4 ${isCosmetic ? "border-[#dfe4d8]" : "border-stone-200 bg-stone-50 opacity-60"}`}>
               <input checked={draft.recommendedAftercare} className="mt-1 size-4 accent-[#245c4d]" disabled={!isCosmetic} onChange={(event) => onChange({ ...draft, recommendedAftercare: event.target.checked })} type="checkbox" />
-              <span><strong className="block text-sm text-[#173d35]">Polecane po zabiegu</strong><span className="mt-1 block text-xs leading-5 text-stone-500">Klientka zobaczy kosmetyk przy zakończonym formularzu. W pierwszej wersji dotyczy wyłącznie kosmetyków.</span></span>
+              <span><strong className="block text-sm text-[#173d35]">{t("Polecane po zabiegu")}</strong><span className="mt-1 block text-xs leading-5 text-stone-500">{t("Klientka zobaczy kosmetyk przy zakończonym formularzu. W pierwszej wersji dotyczy wyłącznie kosmetyków.")}</span></span>
             </label>
           </div>
           <fieldset>
-            <legend className="text-xs font-black uppercase tracking-[0.1em] text-[#516d55]">Przypisz do zabiegów</legend>
-            <p className="mt-1 text-[11px] text-stone-500">Brak zaznaczenia oznacza wszystkie zabiegi.</p>
+            <legend className="text-xs font-black uppercase tracking-[0.1em] text-[#516d55]">{t("Przypisz do zabiegów")}</legend>
+            <p className="mt-1 text-[11px] text-stone-500">{t("Brak zaznaczenia oznacza wszystkie zabiegi.")}</p>
             <div className="mt-3 grid gap-2 sm:grid-cols-2">
               {forms.map((form) => (
                 <label className="flex items-center gap-2 rounded-xl border border-[#e0e5da] px-3 py-2.5 text-xs font-bold text-stone-600" key={form.code}>
@@ -521,13 +522,13 @@ function CatalogSettingsDialog({
             </div>
           </fieldset>
           <label className="block text-xs font-black uppercase tracking-[0.1em] text-[#516d55]">
-            Informacja dla klientki
-            <textarea className="mt-2 min-h-20 w-full rounded-2xl border border-[#d9ded1] px-4 py-3 text-sm font-semibold normal-case tracking-normal outline-none focus:border-[#547b59] focus:ring-4 focus:ring-[#245c4d]/10" maxLength={2000} onChange={(event) => onChange({ ...draft, recommendationNote: event.target.value })} placeholder="Np. sposób stosowania przekazany przez salon…" value={draft.recommendationNote} />
+            {t("Informacja dla klientki")}
+            <textarea className="mt-2 min-h-20 w-full rounded-2xl border border-[#d9ded1] px-4 py-3 text-sm font-semibold normal-case tracking-normal outline-none focus:border-[#547b59] focus:ring-4 focus:ring-[#245c4d]/10" maxLength={2000} onChange={(event) => onChange({ ...draft, recommendationNote: event.target.value })} placeholder={t("Np. sposób stosowania przekazany przez salon…")} value={draft.recommendationNote} />
           </label>
         </div>
         <div className="grid shrink-0 grid-cols-2 gap-2 border-t border-[#eaeee5] bg-white px-4 py-3 sm:flex sm:justify-end sm:px-6 sm:py-4">
-          <button className="w-full rounded-xl px-4 py-2.5 text-sm font-black text-stone-500 sm:w-auto" onClick={onClose} type="button">Anuluj</button>
-          <button className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#173d35] px-5 py-2.5 text-sm font-black text-white disabled:opacity-50 sm:w-auto" disabled={saving} type="submit">{saving ? <LoaderCircle className="size-4 animate-spin" /> : <Check className="size-4" />} Zapisz</button>
+          <button className="w-full rounded-xl px-4 py-2.5 text-sm font-black text-stone-500 sm:w-auto" onClick={onClose} type="button">{t("Anuluj")}</button>
+          <button className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#173d35] px-5 py-2.5 text-sm font-black text-white disabled:opacity-50 sm:w-auto" disabled={saving} type="submit">{saving ? <LoaderCircle className="size-4 animate-spin" /> : <Check className="size-4" />}{" "}{t("Zapisz")}</button>
         </div>
       </form>
     </div>,
@@ -546,6 +547,7 @@ function CustomCatalogDialog({
   readonly onSaved: (item: BeautyDocsSalonCatalogItem) => void;
   readonly tenantSlug: string;
 }) {
+  const t = useT();
   useCatalogDialogScrollLock();
   const [kind, setKind] = useState<Exclude<BeautyDocsCatalogKind, "MEDICINE">>("DEVICE");
   const [usedInTreatments, setUsedInTreatments] = useState(true);
@@ -566,7 +568,7 @@ function CustomCatalogDialog({
       brand: String(data.get("brand") ?? "").trim() || null,
       summary: String(data.get("summary") ?? "").trim() || null,
       details: {},
-      sourceLabel: "Dane wprowadzone przez salon",
+      sourceLabel: t("Dane wprowadzone przez salon"),
       sourceUrl: null,
       usedInTreatments,
       recommendedAftercare: kind === "COSMETIC" && recommendedAftercare,
@@ -581,7 +583,7 @@ function CustomCatalogDialog({
     });
     setSaving(false);
     if (!response.ok) {
-      setError("Nie udało się dodać pozycji. Sprawdź podane dane.");
+      setError(t("Nie udało się dodać pozycji. Sprawdź podane dane."));
       return;
     }
     onSaved((await response.json()) as BeautyDocsSalonCatalogItem);
@@ -599,31 +601,31 @@ function CustomCatalogDialog({
         onSubmit={submit}
       >
         <div className="flex shrink-0 items-start justify-between border-b border-[#eaeee5] bg-white px-4 py-4 sm:px-6 sm:py-4">
-          <div><p className="text-[10px] font-black uppercase tracking-[0.14em] text-[#5b9889]">Własny katalog</p><h2 className="mt-1 text-xl font-black">Dodaj dokładną pozycję</h2></div>
-          <button aria-label="Zamknij" className="rounded-xl bg-stone-100 p-2.5" onClick={onClose} type="button"><X className="size-5" /></button>
+          <div><p className="text-[10px] font-black uppercase tracking-[0.14em] text-[#5b9889]">{t("Własny katalog")}</p><h2 className="mt-1 text-xl font-black">{t("Dodaj dokładną pozycję")}</h2></div>
+          <button aria-label={t("Zamknij")} className="rounded-xl bg-stone-100 p-2.5" onClick={onClose} type="button"><X className="size-5" /></button>
         </div>
         <div className="min-h-0 flex-1 space-y-4 overflow-y-auto overscroll-contain bg-[#fdfffb] px-4 py-5 sm:p-5">
-          <label className="block text-xs font-black text-[#394d3c]">Typ<select className="mt-2 w-full rounded-xl border border-[#d9ded2] px-4 py-3 text-sm" onChange={(event) => {
+          <label className="block text-xs font-black text-[#394d3c]">{t("Typ")}<select className="mt-2 w-full rounded-xl border border-[#d9ded2] px-4 py-3 text-sm" onChange={(event) => {
             const nextKind = event.target.value as typeof kind;
             setKind(nextKind);
             setUsedInTreatments(nextKind !== "COSMETIC");
             if (nextKind !== "COSMETIC") setRecommendedAftercare(false);
-          }} value={kind}><option value="DEVICE">Urządzenie</option><option value="TREATMENT_SUBSTANCE">Preparat / substancja zabiegowa</option><option value="COSMETIC">Kosmetyk</option></select></label>
+          }} value={kind}><option value="DEVICE">{t("Urządzenie")}</option><option value="TREATMENT_SUBSTANCE">{t("Preparat / substancja zabiegowa")}</option><option value="COSMETIC">{t("Kosmetyk")}</option></select></label>
           <div className="grid gap-4 sm:grid-cols-2">
-            <CatalogInput label={kind === "DEVICE" ? "Producent i model *" : "Nazwa produktu *"} name="name" placeholder={kind === "DEVICE" ? "np. producent + pełny model" : "Pełna nazwa z etykiety"} required />
-            <CatalogInput label="Marka / producent" name="brand" placeholder="Opcjonalnie" />
+            <CatalogInput label={kind === "DEVICE" ? t("Producent i model *") : t("Nazwa produktu *")} name="name" placeholder={kind === "DEVICE" ? t("np. producent + pełny model") : t("Pełna nazwa z etykiety")} required />
+            <CatalogInput label={t("Marka / producent")} name="brand" placeholder={t("Opcjonalnie")} />
           </div>
-          <label className="block text-xs font-black text-[#394d3c]">Opis<textarea className="mt-2 min-h-20 w-full rounded-xl border border-[#d9ded2] px-4 py-3 text-sm font-semibold" maxLength={2000} name="summary" placeholder="Technologia, wariant lub przeznaczenie — bez obietnic medycznych" /></label>
+          <label className="block text-xs font-black text-[#394d3c]">{t("Opis")}<textarea className="mt-2 min-h-20 w-full rounded-xl border border-[#d9ded2] px-4 py-3 text-sm font-semibold" maxLength={2000} name="summary" placeholder={t("Technologia, wariant lub przeznaczenie — bez obietnic medycznych")} /></label>
           <div className="grid gap-2 sm:grid-cols-2">
-            <label className="flex items-center gap-2 rounded-xl border border-[#e0e5da] p-3 text-xs font-bold"><input checked={usedInTreatments} onChange={(event) => setUsedInTreatments(event.target.checked)} type="checkbox" /> Używane przy zabiegach</label>
-            <label className={`flex items-center gap-2 rounded-xl border p-3 text-xs font-bold ${kind === "COSMETIC" ? "border-[#e0e5da]" : "border-stone-200 bg-stone-50 opacity-50"}`}><input checked={recommendedAftercare} disabled={kind !== "COSMETIC"} onChange={(event) => setRecommendedAftercare(event.target.checked)} type="checkbox" /> Polecane po zabiegu</label>
+            <label className="flex items-center gap-2 rounded-xl border border-[#e0e5da] p-3 text-xs font-bold"><input checked={usedInTreatments} onChange={(event) => setUsedInTreatments(event.target.checked)} type="checkbox" />{" "}{t("Używane przy zabiegach")}</label>
+            <label className={`flex items-center gap-2 rounded-xl border p-3 text-xs font-bold ${kind === "COSMETIC" ? "border-[#e0e5da]" : "border-stone-200 bg-stone-50 opacity-50"}`}><input checked={recommendedAftercare} disabled={kind !== "COSMETIC"} onChange={(event) => setRecommendedAftercare(event.target.checked)} type="checkbox" />{" "}{t("Polecane po zabiegu")}</label>
           </div>
-          <fieldset><legend className="text-xs font-black text-[#394d3c]">Zabiegi</legend><div className="mt-2 grid gap-2 sm:grid-cols-2">{forms.map((form) => <label className="flex items-center gap-2 rounded-xl border border-[#e0e5da] px-3 py-2.5 text-xs font-bold" key={form.code}><input name="treatmentCodes" type="checkbox" value={form.code} />{form.name}</label>)}</div></fieldset>
-          <label className="block text-xs font-black text-[#394d3c]">Instrukcja dla klientki<textarea className="mt-2 min-h-20 w-full rounded-xl border border-[#d9ded2] px-4 py-3 text-sm font-semibold" maxLength={2000} name="recommendationNote" placeholder="Opcjonalna informacja przekazywana po zabiegu" /></label>
-          <p className="rounded-xl bg-amber-50 px-3 py-2 text-[11px] leading-5 text-amber-900">Pozycja dodana ręcznie będzie oznaczona jako dane salonu. W przypadku urządzenia wpisz dokładny model z tabliczki znamionowej.</p>
+          <fieldset><legend className="text-xs font-black text-[#394d3c]">{t("Zabiegi")}</legend><div className="mt-2 grid gap-2 sm:grid-cols-2">{forms.map((form) => <label className="flex items-center gap-2 rounded-xl border border-[#e0e5da] px-3 py-2.5 text-xs font-bold" key={form.code}><input name="treatmentCodes" type="checkbox" value={form.code} />{form.name}</label>)}</div></fieldset>
+          <label className="block text-xs font-black text-[#394d3c]">{t("Instrukcja dla klientki")}<textarea className="mt-2 min-h-20 w-full rounded-xl border border-[#d9ded2] px-4 py-3 text-sm font-semibold" maxLength={2000} name="recommendationNote" placeholder={t("Opcjonalna informacja przekazywana po zabiegu")} /></label>
+          <p className="rounded-xl bg-amber-50 px-3 py-2 text-[11px] leading-5 text-amber-900">{t("Pozycja dodana ręcznie będzie oznaczona jako dane salonu. W przypadku urządzenia wpisz dokładny model z tabliczki znamionowej.")}</p>
           {error ? <p className="text-sm font-bold text-red-700">{error}</p> : null}
         </div>
-        <div className="grid shrink-0 grid-cols-2 gap-2 border-t border-[#eaeee5] bg-white px-4 py-3 sm:flex sm:justify-end sm:px-6 sm:py-4"><button className="w-full px-4 py-2.5 text-sm font-black text-stone-500 sm:w-auto" onClick={onClose} type="button">Anuluj</button><button className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#173d35] px-5 py-2.5 text-sm font-black text-white disabled:opacity-50 sm:w-auto" disabled={saving} type="submit">{saving ? <LoaderCircle className="size-4 animate-spin" /> : <Plus className="size-4" />} Dodaj</button></div>
+        <div className="grid shrink-0 grid-cols-2 gap-2 border-t border-[#eaeee5] bg-white px-4 py-3 sm:flex sm:justify-end sm:px-6 sm:py-4"><button className="w-full px-4 py-2.5 text-sm font-black text-stone-500 sm:w-auto" onClick={onClose} type="button">{t("Anuluj")}</button><button className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#173d35] px-5 py-2.5 text-sm font-black text-white disabled:opacity-50 sm:w-auto" disabled={saving} type="submit">{saving ? <LoaderCircle className="size-4 animate-spin" /> : <Plus className="size-4" />}{" "}{t("Dodaj")}</button></div>
       </form>
     </div>,
     document.body,
@@ -631,11 +633,13 @@ function CustomCatalogDialog({
 }
 
 function CatalogInput({ label, name, placeholder, required = false }: { readonly label: string; readonly name: string; readonly placeholder: string; readonly required?: boolean }) {
-  return <label className="block text-xs font-black text-[#394d3c]">{label}<input className="mt-2 w-full rounded-xl border border-[#d9ded2] px-4 py-3 text-sm font-semibold" maxLength={250} name={name} placeholder={placeholder} required={required} /></label>;
+  const t = useT();
+  return <label className="block text-xs font-black text-[#394d3c]">{t(label)}<input className="mt-2 w-full rounded-xl border border-[#d9ded2] px-4 py-3 text-sm font-semibold" maxLength={250} name={name} placeholder={t(placeholder)} required={required} /></label>;
 }
 
 function CatalogStat({ label, value }: { readonly label: string; readonly value: number }) {
-  return <div className="min-w-20 rounded-2xl bg-white/8 px-3 py-3"><strong className="block text-xl font-black">{value}</strong><span className="mt-0.5 block text-[9px] font-bold uppercase tracking-[0.08em] text-white/55">{label}</span></div>;
+  const t = useT();
+  return <div className="min-w-20 rounded-2xl bg-white/8 px-3 py-3"><strong className="block text-xl font-black">{value}</strong><span className="mt-0.5 block text-[9px] font-bold uppercase tracking-[0.08em] text-white/55">{t(label)}</span></div>;
 }
 
 function Tag({ children, sponsor = false }: { readonly children: string; readonly sponsor?: boolean }) {

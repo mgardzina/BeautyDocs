@@ -1,5 +1,6 @@
 "use client";
 
+import { useT } from "../i18n";
 import { useState, type ReactNode } from "react";
 
 const defaultButtonClassName =
@@ -14,6 +15,7 @@ export function BeautyDocsLogoutButton({
   readonly icon?: ReactNode;
   readonly label?: string;
 } = {}) {
+  const t = useT();
   const [isPending, setIsPending] = useState(false);
   const [hasError, setHasError] = useState(false);
 
@@ -48,11 +50,11 @@ export function BeautyDocsLogoutButton({
         type="button"
       >
         {isPending ? null : icon}
-        {isPending ? "Wylogowywanie…" : label}
+        {isPending ? t("Wylogowywanie…") : label}
       </button>
       {hasError ? (
         <p className="mt-1 text-xs text-red-700" role="alert">
-          Nie udało się wylogować.
+          {t("Nie udało się wylogować.")}
         </p>
       ) : null}
     </div>

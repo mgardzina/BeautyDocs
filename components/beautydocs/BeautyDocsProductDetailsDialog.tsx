@@ -1,5 +1,6 @@
 "use client";
 
+import { useT } from "./i18n";
 import {
   AlertTriangle,
   BadgeCheck,
@@ -65,6 +66,7 @@ export function BeautyDocsProductDetailsDialog({
   readonly primaryActionDisabled?: boolean;
   readonly primaryActionLabel?: string;
 }) {
+  const t = useT();
   const [activeTab, setActiveTab] = useState<ProductTab>("overview");
 
   useEffect(() => {
@@ -83,21 +85,21 @@ export function BeautyDocsProductDetailsDialog({
   const isDevice = item.kind === "DEVICE";
   const isCosmetic = item.kind === "COSMETIC";
   const presentation =
-    detailText(item.details, "presentation") ?? "Sprawdź etykietę";
+    detailText(item.details, "presentation") ?? t("Sprawdź etykietę");
   const family =
     detailText(item.details, "productFamily") ??
     (isDevice
-      ? "Platforma zabiegowa"
+      ? t("Platforma zabiegowa")
       : isCosmetic
-        ? "Pielęgnacja skóry"
-        : "Preparat profesjonalny");
+        ? t("Pielęgnacja skóry")
+        : t("Preparat profesjonalny"));
   const productCategory =
     detailText(item.details, "productCategory") ??
     (isDevice
-      ? "Urządzenie profesjonalne"
+      ? t("Urządzenie profesjonalne")
       : isCosmetic
-        ? "Kosmetyk"
-        : "Preparat zabiegowy");
+        ? t("Kosmetyk")
+        : t("Preparat zabiegowy"));
   const storage = detailText(item.details, "storage");
   const safetyScope = detailText(item.details, "safetyScope");
   const regulatoryNotice = detailText(item.details, "regulatoryNotice");
@@ -122,20 +124,20 @@ export function BeautyDocsProductDetailsDialog({
   const containsLidocaine = detailBoolean(item.details, "containsLidocaine");
   const brand = item.brand ?? "BeautyDocs";
   const primaryActionText = primaryActionDisabled
-    ? "Produkt jest już w katalogu"
+    ? t("Produkt jest już w katalogu")
     : primaryActionLabel;
   const tabs: readonly { readonly id: ProductTab; readonly label: string }[] = [
-    { id: "overview", label: "Opis" },
+    { id: "overview", label: t("Opis") },
     {
       id: "details",
       label: isDevice
-        ? "Technologia"
+        ? t("Technologia")
         : isCosmetic
-          ? "Skład i użycie"
-          : "Dane produktu",
+          ? t("Skład i użycie")
+          : t("Dane produktu"),
     },
-    { id: "safety", label: "Bezpieczeństwo" },
-    { id: "sources", label: "Źródła" },
+    { id: "safety", label: t("Bezpieczeństwo") },
+    { id: "sources", label: t("Źródła") },
   ];
 
   return createPortal(
@@ -150,7 +152,7 @@ export function BeautyDocsProductDetailsDialog({
         onClick={(event) => event.stopPropagation()}
       >
         <button
-          aria-label="Zamknij kartę produktu"
+          aria-label={t("Zamknij kartę produktu")}
           className="absolute right-4 top-4 z-30 grid size-11 place-items-center rounded-full border border-black/5 bg-white/90 text-stone-600 shadow-sm backdrop-blur transition hover:scale-105 hover:bg-white hover:text-black sm:right-6 sm:top-6"
           onClick={onClose}
           type="button"
@@ -164,7 +166,7 @@ export function BeautyDocsProductDetailsDialog({
               brand={brand}
               imageAlt={imageAlt}
               imageCreditUrl={imageCreditUrl}
-              imageNote={imageNote}
+              imageNote={t(imageNote)}
               imagePath={imagePath}
               kind={item.kind}
               name={item.name}
@@ -178,7 +180,7 @@ export function BeautyDocsProductDetailsDialog({
                 {item.name}
               </h2>
               <p className="mt-4 text-sm font-medium leading-7 text-stone-600 sm:text-[15px]">
-                {item.summary}
+                {t(item.summary)}
               </p>
 
               <div className="mt-6 flex flex-wrap gap-2">
@@ -192,10 +194,10 @@ export function BeautyDocsProductDetailsDialog({
                     icon={ShieldCheck}
                     label={
                       containsLidocaine === true
-                        ? "Z lidokainą"
+                        ? t("Z lidokainą")
                         : containsLidocaine === false
-                          ? "Bez lidokainy"
-                          : "Sprawdź wariant"
+                          ? t("Bez lidokainy")
+                          : t("Sprawdź wariant")
                     }
                   />
                 ) : null}
@@ -204,7 +206,7 @@ export function BeautyDocsProductDetailsDialog({
               {manufacturerUses.length > 0 ? (
                 <div className="mt-7 border-t border-[#e9dfda] pt-5">
                   <p className="text-[10px] font-extrabold uppercase tracking-[0.16em] text-stone-400">
-                    Informacje producenta
+                    {t("Informacje producenta")}
                   </p>
                   <ul className="mt-3 space-y-2.5">
                     {manufacturerUses.slice(0, 3).map((use) => (
@@ -227,7 +229,7 @@ export function BeautyDocsProductDetailsDialog({
                   onClick={onPrimaryAction}
                   type="button"
                 >
-                  {primaryActionText}
+                  {t(primaryActionText)}
                 </button>
               ) : null}
             </div>
@@ -246,7 +248,7 @@ export function BeautyDocsProductDetailsDialog({
                   onClick={() => setActiveTab(tab.id)}
                   type="button"
                 >
-                  {tab.label}
+                  {t(tab.label)}
                   {activeTab === tab.id ? (
                     <span className="absolute inset-x-0 bottom-0 h-0.5 rounded-full bg-[#5b9b8b]" />
                   ) : null}
@@ -258,29 +260,29 @@ export function BeautyDocsProductDetailsDialog({
           <div className="mx-auto w-full max-w-5xl px-5 py-7 sm:px-9 sm:py-10">
             {activeTab === "overview" ? (
               <div className="grid gap-5 lg:grid-cols-[1.2fr_0.8fr]">
-                <ProductPanel icon={BadgeCheck} title="O produkcie">
+                <ProductPanel icon={BadgeCheck} title={t("O produkcie")}>
                   <p className="text-sm font-medium leading-7 text-stone-600">
-                    {item.summary}
+                    {t(item.summary)}
                   </p>
                   <p className="mt-4 flex items-start gap-2 text-xs leading-5 text-stone-500">
                     <Info className="mt-0.5 size-4 shrink-0 text-[#5b9b8b]" />
                     {isCosmetic
-                      ? "Karta przedstawia informacje o produkcie, a nie automatyczne zalecenie pozabiegowe."
+                      ? t("Karta przedstawia informacje o produkcie, a nie automatyczne zalecenie pozabiegowe.")
                       : isDevice
-                        ? "Zakres zastosowań zależy od konfiguracji urządzenia, aktualnej instrukcji i uprawnień operatora."
-                        : "To karta informacyjna, a nie automatyczna kwalifikacja do zabiegu. Decyzję podejmuje uprawniony specjalista po wywiadzie i badaniu."}
+                        ? t("Zakres zastosowań zależy od konfiguracji urządzenia, aktualnej instrukcji i uprawnień operatora.")
+                        : t("To karta informacyjna, a nie automatyczna kwalifikacja do zabiegu. Decyzję podejmuje uprawniony specjalista po wywiadzie i badaniu.")}
                   </p>
                 </ProductPanel>
-                <ProductPanel icon={Package} title="Wariant i format">
-                  <DataRow label="Rodzina" value={family} />
-                  <DataRow label="Format" value={presentation} />
-                  <DataRow label="Marka" value={brand} />
+                <ProductPanel icon={Package} title={t("Wariant i format")}>
+                  <DataRow label={t("Rodzina")} value={family} />
+                  <DataRow label={t("Format")} value={presentation} />
+                  <DataRow label={t("Marka")} value={brand} />
                 </ProductPanel>
                 {manufacturerUses.length > 0 ? (
                   <div className="lg:col-span-2">
                     <ProductPanel
                       icon={ListChecks}
-                      title="Zastosowania opisane przez producenta"
+                      title={t("Zastosowania opisane przez producenta")}
                     >
                       <BulletList items={manufacturerUses} tone="emerald" />
                     </ProductPanel>
@@ -296,8 +298,8 @@ export function BeautyDocsProductDetailsDialog({
                     icon={FlaskConical}
                     title={
                       isCosmetic
-                        ? "Kluczowe składniki"
-                        : "Skład wskazany w karcie"
+                        ? t("Kluczowe składniki")
+                        : t("Skład wskazany w karcie")
                     }
                   >
                     <PillList
@@ -306,35 +308,35 @@ export function BeautyDocsProductDetailsDialog({
                   </ProductPanel>
                 ) : null}
                 {isDevice && technologies.length > 0 ? (
-                  <ProductPanel icon={Cpu} title="Technologie">
+                  <ProductPanel icon={Cpu} title={t("Technologie")}>
                     <PillList items={technologies} />
                   </ProductPanel>
                 ) : null}
                 {isDevice && wavelengths.length > 0 ? (
-                  <ProductPanel icon={Waves} title="Długości fal">
+                  <ProductPanel icon={Waves} title={t("Długości fal")}>
                     <PillList items={wavelengths} />
                   </ProductPanel>
                 ) : null}
                 {isDevice && features.length > 0 ? (
-                  <ProductPanel icon={ListChecks} title="Najważniejsze cechy">
+                  <ProductPanel icon={ListChecks} title={t("Najważniejsze cechy")}>
                     <BulletList items={features} tone="stone" />
                   </ProductPanel>
                 ) : null}
                 {isCosmetic && availableSizes.length > 0 ? (
-                  <ProductPanel icon={Package} title="Dostępne formaty">
+                  <ProductPanel icon={Package} title={t("Dostępne formaty")}>
                     <PillList items={availableSizes} />
                   </ProductPanel>
                 ) : null}
                 {isCosmetic && skinTypes.length > 0 ? (
                   <ProductPanel
                     icon={Droplets}
-                    title="Typy skóry opisane przez markę"
+                    title={t("Typy skóry opisane przez markę")}
                   >
                     <BulletList items={skinTypes} tone="stone" />
                   </ProductPanel>
                 ) : null}
                 {storage ? (
-                  <ProductPanel icon={Package} title="Przechowywanie">
+                  <ProductPanel icon={Package} title={t("Przechowywanie")}>
                     <p className="text-sm font-medium leading-6 text-stone-600">
                       {storage}
                     </p>
@@ -343,7 +345,7 @@ export function BeautyDocsProductDetailsDialog({
                 {isCosmetic && usageNotice ? (
                   <ProductPanel
                     icon={Sun}
-                    title="Stosowanie i dobór po zabiegu"
+                    title={t("Stosowanie i dobór po zabiegu")}
                   >
                     <p className="text-sm font-medium leading-6 text-stone-600">
                       {usageNotice}
@@ -359,21 +361,21 @@ export function BeautyDocsProductDetailsDialog({
                   <>
                     <ProductPanel
                       icon={AlertTriangle}
-                      title="Co zgłosić przed kwalifikacją"
+                      title={t("Co zgłosić przed kwalifikacją")}
                       tone="amber"
                     >
                       <BulletList items={qualificationAlerts} tone="amber" />
                     </ProductPanel>
                     <ProductPanel
                       icon={Info}
-                      title="Możliwe reakcje po iniekcji"
+                      title={t("Możliwe reakcje po iniekcji")}
                     >
                       <BulletList items={commonReactions} tone="stone" />
                     </ProductPanel>
                     <div className="md:col-span-2">
                       <ProductPanel
                         icon={ShieldAlert}
-                        title="Poważne ryzyka wymagające uwagi"
+                        title={t("Poważne ryzyka wymagające uwagi")}
                         tone="red"
                       >
                         <BulletList items={seriousRisks} tone="red" />
@@ -389,12 +391,12 @@ export function BeautyDocsProductDetailsDialog({
                   <div className="md:col-span-2">
                     <ProductPanel
                       icon={ShieldCheck}
-                      title="Zakres informacji o bezpieczeństwie"
+                      title={t("Zakres informacji o bezpieczeństwie")}
                     >
                       <p className="text-sm font-medium leading-7 text-stone-600">
                         {regulatoryNotice ??
                           usageNotice ??
-                          "Przed użyciem sprawdź aktualną instrukcję producenta, konfigurację produktu i wymogi obowiązujące na danym rynku."}
+                          t("Przed użyciem sprawdź aktualną instrukcję producenta, konfigurację produktu i wymogi obowiązujące na danym rynku.")}
                       </p>
                     </ProductPanel>
                   </div>
@@ -407,15 +409,15 @@ export function BeautyDocsProductDetailsDialog({
                 <div className="flex flex-col gap-2 rounded-[24px] bg-[#f3ede8] p-5 sm:flex-row sm:items-center sm:justify-between">
                   <div>
                     <p className="text-xs font-extrabold uppercase tracking-[0.12em] text-[#528d7e]">
-                      Dane zweryfikowane
+                      {t("Dane zweryfikowane")}
                     </p>
                     <p className="mt-1 text-sm font-semibold text-stone-600">
-                      {item.sourceLabel ?? "Materiały producenta lub marki"}
+                      {item.sourceLabel ?? t("Materiały producenta lub marki")}
                     </p>
                   </div>
                   {reviewedAt ? (
                     <p className="text-xs text-stone-500">
-                      Aktualizacja: {formatReviewDate(reviewedAt)}
+                      {t("Aktualizacja:")}{" "}{formatReviewDate(reviewedAt)}
                     </p>
                   ) : null}
                 </div>
@@ -429,7 +431,7 @@ export function BeautyDocsProductDetailsDialog({
                   >
                     <span>
                       <span className="block text-sm font-extrabold text-[#29352b]">
-                        {source.label}
+                        {t(source.label)}
                       </span>
                       <span className="mt-1 block text-xs leading-5 text-stone-500">
                         {source.scope}
@@ -445,7 +447,7 @@ export function BeautyDocsProductDetailsDialog({
                     rel="noreferrer"
                     target="_blank"
                   >
-                    Otwórz źródło produktu <ExternalLink className="size-4" />
+                    {t("Otwórz źródło produktu")}{" "}<ExternalLink className="size-4" />
                   </a>
                 ) : null}
                 {regulatoryNotice ? (
@@ -465,7 +467,7 @@ export function BeautyDocsProductDetailsDialog({
               onClick={onClose}
               type="button"
             >
-              Zamknij
+              {t("Zamknij")}
             </button>
             {onPrimaryAction ? (
               <button
@@ -474,7 +476,7 @@ export function BeautyDocsProductDetailsDialog({
                 onClick={onPrimaryAction}
                 type="button"
               >
-                {primaryActionText}
+                {t(primaryActionText)}
               </button>
             ) : null}
           </div>
@@ -502,6 +504,7 @@ function ProductHeroVisual({
   readonly kind: BeautyDocsCatalogItem["kind"];
   readonly name: string;
 }) {
+  const t = useT();
   const [failedImagePath, setFailedImagePath] = useState<string | null>(null);
   const VisualIcon =
     kind === "DEVICE" ? Cpu : kind === "COSMETIC" ? Sparkles : FlaskConical;
@@ -545,13 +548,13 @@ function ProductHeroVisual({
             {name}
           </p>
           <p className="mt-3 text-xs font-bold uppercase tracking-[0.16em] text-[#5b735e]">
-            Packshot w przygotowaniu
+            {t("Packshot w przygotowaniu")}
           </p>
         </div>
       )}
       {imageNote || imageCreditUrl ? (
         <div className="relative z-10 mx-5 mb-5 rounded-2xl border border-white/55 bg-white/55 px-4 py-3 text-[10px] font-semibold leading-4 text-[#516253] backdrop-blur sm:mx-8 sm:mb-7">
-          {imageNote ? <p>{imageNote}</p> : null}
+          {imageNote ? <p>{t(imageNote)}</p> : null}
           {imageCreditUrl ? (
             <a
               className="mt-1 inline-flex items-center gap-1 font-extrabold text-[#447569] hover:underline"
@@ -559,7 +562,7 @@ function ProductHeroVisual({
               rel="noreferrer"
               target="_blank"
             >
-              Oficjalny materiał marki <ExternalLink className="size-3" />
+              {t("Oficjalny materiał marki")}{" "}<ExternalLink className="size-3" />
             </a>
           ) : null}
         </div>
@@ -720,9 +723,10 @@ function ProductChip({
   readonly icon: LucideIcon;
   readonly label: string;
 }) {
+  const t = useT();
   return (
     <span className="inline-flex items-center gap-2 rounded-full border border-[#dfe4d7] bg-white px-3.5 py-2 text-[11px] font-extrabold text-stone-600 shadow-sm">
-      <Icon className="size-3.5 text-[#528e7f]" /> {label}
+      <Icon className="size-3.5 text-[#528e7f]" /> {t(label)}
     </span>
   );
 }
@@ -738,6 +742,7 @@ function ProductPanel({
   readonly title: string;
   readonly tone?: "default" | "amber" | "red";
 }) {
+  const t = useT();
   const panelTone =
     tone === "red"
       ? "border-red-200 bg-red-50/55"
@@ -760,7 +765,7 @@ function ProductPanel({
         >
           <Icon className="size-4" />
         </span>
-        {title}
+        {t(title)}
       </h3>
       <div className="mt-4">{children}</div>
     </section>
@@ -774,9 +779,10 @@ function DataRow({
   readonly label: string;
   readonly value: string;
 }) {
+  const t = useT();
   return (
     <div className="flex items-start justify-between gap-5 border-b border-stone-100 py-3 first:pt-0 last:border-0 last:pb-0">
-      <span className="text-xs font-semibold text-stone-400">{label}</span>
+      <span className="text-xs font-semibold text-stone-400">{t(label)}</span>
       <span className="text-right text-xs font-extrabold text-stone-700">
         {value}
       </span>
@@ -806,6 +812,7 @@ function BulletList({
   readonly items: readonly string[];
   readonly tone: "amber" | "emerald" | "red" | "stone";
 }) {
+  const t = useT();
   const dotClass =
     tone === "red"
       ? "bg-red-600"
@@ -817,8 +824,7 @@ function BulletList({
   if (items.length === 0) {
     return (
       <p className="text-xs font-medium leading-5 text-stone-500">
-        Szczegóły należy sprawdzić w aktualnej instrukcji właściwej dla danego
-        rynku.
+        {t("Szczegóły należy sprawdzić w aktualnej instrukcji właściwej dla danego rynku.")}
       </p>
     );
   }

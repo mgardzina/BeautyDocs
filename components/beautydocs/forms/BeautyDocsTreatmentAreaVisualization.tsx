@@ -1,3 +1,5 @@
+"use client";
+
 import { BeautyDocsFaceAreaSelector } from "./BeautyDocsFaceAreaSelector";
 import {
   resolveBodyAreaSet,

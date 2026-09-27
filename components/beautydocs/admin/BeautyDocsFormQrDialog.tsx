@@ -1,5 +1,6 @@
 "use client";
 
+import { useT } from "../i18n";
 import { BeautyDocsDialog } from "../BeautyDocsDialog";
 import { Check, Copy, Download, QrCode, X } from "lucide-react";
 import { QRCodeCanvas } from "qrcode.react";
@@ -14,6 +15,7 @@ export function BeautyDocsFormQrDialog({
   readonly formCode: string;
   readonly formName: string;
 }) {
+  const t = useT();
   const [open, setOpen] = useState(false);
   const [origin, setOrigin] = useState("");
   const [copied, setCopied] = useState(false);
@@ -48,17 +50,17 @@ export function BeautyDocsFormQrDialog({
         type="button"
       >
         <QrCode aria-hidden="true" className="size-4" />
-        Kod QR
+        {t("Kod QR")}
       </button>
 
-      <BeautyDocsDialog open={open} onClose={() => setOpen(false)} title={`Kod QR: ${formName}`} className="max-w-sm">
+      <BeautyDocsDialog open={open} onClose={() => setOpen(false)} title={t("Kod QR: {formName}", { formName: formName })} className="max-w-sm">
           <div
             className="w-full max-w-sm rounded-[1.75rem] border border-[#e5eadf] bg-white p-6 shadow-[0_24px_70px_rgba(38,65,58,0.25)]"
           >
             <div className="flex items-start justify-between gap-3">
               <div className="min-w-0">
                 <p className="text-[11px] font-black uppercase tracking-[0.14em] text-[#245c4d]">
-                  Kod QR formularza
+                  {t("Kod QR formularza")}
                 </p>
                 <h2
                   className="mt-1 truncate text-lg font-black text-[#173d35]"
@@ -68,7 +70,7 @@ export function BeautyDocsFormQrDialog({
                 </h2>
               </div>
               <button
-                aria-label="Zamknij"
+                aria-label={t("Zamknij")}
                 className="grid size-11 shrink-0 place-items-center rounded-full text-[#808f82] transition hover:bg-[#eff4e7] hover:text-[#173d35]"
                 onClick={() => setOpen(false)}
                 type="button"
@@ -96,7 +98,7 @@ export function BeautyDocsFormQrDialog({
             </div>
 
             <p className="mt-4 text-center text-sm text-[#5a6b5a]">
-              Klientka skanuje kod telefonem i od razu otwiera ten formularz.
+              {t("Klientka skanuje kod telefonem i od razu otwiera ten formularz.")}
             </p>
 
             <p className="mt-3 break-all rounded-xl bg-[#f8faf5] px-3 py-2 text-center text-xs font-bold text-[#245c4d]">
@@ -114,7 +116,7 @@ export function BeautyDocsFormQrDialog({
                 ) : (
                   <Copy aria-hidden="true" className="size-4" />
                 )}
-                {copied ? "Skopiowano" : "Kopiuj link"}
+                {copied ? t("Skopiowano") : t("Kopiuj link")}
               </button>
               <button
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#245c4d] px-4 py-2.5 text-sm font-black text-white shadow-[0_10px_24px_rgba(36,92,77,0.22)] transition hover:bg-[#173d35]"
@@ -122,7 +124,7 @@ export function BeautyDocsFormQrDialog({
                 type="button"
               >
                 <Download aria-hidden="true" className="size-4" />
-                Pobierz PNG
+                {t("Pobierz PNG")}
               </button>
             </div>
           </div>

@@ -1,5 +1,6 @@
 "use client";
 
+import { useT } from "./i18n";
 import Link from "next/link";
 import { ChevronDown, type LucideIcon } from "lucide-react";
 import type { ReactNode } from "react";
@@ -36,6 +37,7 @@ export function BeautyDocsSidebarItem({
   readonly compact?: boolean;
   readonly nested?: boolean;
 }) {
+  const t = useT();
   const Icon = item.icon;
   const stateClass = item.active
     ? nested
@@ -59,7 +61,7 @@ export function BeautyDocsSidebarItem({
         aria-hidden="true"
         className={`${nested ? "size-4" : "size-[18px]"} shrink-0`}
       />
-      <span className="min-w-0 flex-1 truncate">{item.label}</span>
+      <span className="min-w-0 flex-1 truncate">{t(item.label)}</span>
       {item.badge ? (
         <span
           className={`min-w-5 shrink-0 rounded-full px-1.5 py-0.5 text-center text-xs font-black leading-none ${
@@ -114,13 +116,14 @@ export function BeautyDocsSidebarNav({
   readonly compact?: boolean;
   readonly className?: string;
 }) {
+  const t = useT();
   return (
-    <nav aria-label="Nawigacja" className={className}>
+    <nav aria-label={t("Nawigacja")} className={className}>
       {groups.map((group, index) => (
         <div key={group.label ?? index} className={compact ? "contents" : "mb-5 last:mb-0"}>
           {group.label && !compact ? (
             <p className="mb-1.5 px-2 text-xs font-semibold uppercase tracking-[0.08em] text-[#5a6b5a]">
-              {group.label}
+              {t(group.label)}
             </p>
           ) : null}
           <div className={compact ? "contents" : "space-y-0.5"}>
@@ -176,15 +179,19 @@ export function BeautyDocsSidebar({
   /** Small uppercase label above the footer; pass null to render none. */
   readonly footerLabel?: string | null;
 }) {
+  const t = useT();
   const logoClassName =
-    "flex items-center px-2 rounded-xl text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#245c4d]";
+    "flex items-center gap-2.5 px-2 rounded-xl text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#245c4d]";
   const logoInner = (
+    <>
+    <span aria-hidden="true" className="shrink-0 text-[32px] leading-none text-[#66845b]">✳</span>
     <span className="leading-tight">
       <BeautyDocsWordmark className="block text-[17px] text-[#173d35]" />
       <span className="block text-xs font-semibold uppercase tracking-[0.08em] text-[#5a6b5a]">
-        {subtitle}
+        {t(subtitle)}
       </span>
     </span>
+    </>
   );
   return (
     <div className="flex h-full min-h-0 flex-col gap-4 px-4 py-5">
@@ -209,7 +216,7 @@ export function BeautyDocsSidebar({
         <div className="sticky bottom-0 z-40 mt-auto shrink-0 border-t border-[#e7ecdf] bg-[#f8fbf5] px-1 pt-4">
           {footerLabel ? (
             <p className="mb-2 px-1 text-xs font-semibold uppercase tracking-[0.08em] text-[#5a6b5a]">
-              {footerLabel}
+              {t(footerLabel)}
             </p>
           ) : null}
           {footer}

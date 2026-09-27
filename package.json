@@ -11,6 +11,7 @@
     "test:beautydocs-api": "node --import tsx --test lib/beautydocs-api.test.ts",
     "test:beautydocs-forms": "node --import tsx --test lib/beautydocs-form-path.test.ts",
     "test:beautydocs-admin": "node --import tsx --test lib/beautydocs-admin.test.ts",
+    "test:i18n": "node --import tsx --test lib/i18n/i18n.test.ts",
     "test:beautydocs-catalog": "node --import tsx --test lib/beautydocs-catalog-path.test.ts lib/beautydocs-catalog-offers.test.ts",
     "api:dev": "node scripts/api.mjs uvicorn app.main:app --reload --port 8080",
     "api:test": "node scripts/api.mjs pytest -q",

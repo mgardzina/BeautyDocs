@@ -1,5 +1,6 @@
 "use client";
 
+import { useT } from "../i18n";
 import {
   ArrowRight,
   BadgeCheck,
@@ -56,9 +57,10 @@ export function BeautyDocsCatalogProductPage({
   readonly relatedItems: readonly BeautyDocsCatalogItem[];
   readonly onSelectRelated?: (item: BeautyDocsCatalogItem) => void;
 }) {
+  const t = useT();
   const details = item.details;
   const brand = item.brand ?? "BeautyDocs";
-  const presentation = catalogDetailText(details, "presentation") ?? "Sprawdź opakowanie";
+  const presentation = catalogDetailText(details, "presentation") ?? t("Sprawdź opakowanie");
   const family = catalogDetailText(details, "productFamily") ?? fallbackFamily(item);
   const category = catalogDetailText(details, "productCategory") ?? fallbackCategory(item);
   const fallbackImagePath = catalogDetailText(details, "imagePath");
@@ -104,7 +106,7 @@ export function BeautyDocsCatalogProductPage({
                 {category}
               </span>
               <span className="inline-flex items-center gap-1.5 text-[11px] font-bold text-emerald-700">
-                <BadgeCheck aria-hidden="true" className="size-4" /> Zweryfikowane źródła
+                <BadgeCheck aria-hidden="true" className="size-4" />{" "}{t("Zweryfikowane źródła")}
               </span>
             </div>
 
@@ -116,27 +118,27 @@ export function BeautyDocsCatalogProductPage({
               {item.name}
             </h1>
             <p className="mt-7 max-w-2xl text-base leading-8 text-stone-600 sm:text-lg">
-              {item.summary}
+              {t(item.summary)}
             </p>
 
-            <dl className="mt-9 grid grid-cols-2 border-y border-[#dce3d5] sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4">
-              <HeroFact label="Format" value={presentation} />
-              <HeroFact label="Rodzina" value={family} />
+            <dl className="bd-product-facts">
+              <HeroFact label={t("Format")} value={presentation} />
+              <HeroFact label={t("Rodzina")} value={family} />
               {containsLidocaine !== null ? (
                 <HeroFact
-                  label="Lidokaina"
+                  label={t("Lidokaina")}
                   value={containsLidocaine ? "Tak" : "Nie"}
                 />
               ) : null}
               {reviewedAt ? (
-                <HeroFact label="Aktualizacja" value={formatReviewDate(reviewedAt)} />
+                <HeroFact label={t("Aktualizacja")} value={formatReviewDate(reviewedAt)} />
               ) : null}
             </dl>
 
             {treatmentCategories.length > 0 ? (
               <div className="mt-7">
                 <p className="text-[10px] font-black uppercase tracking-[0.15em] text-stone-400">
-                  Kategoria i obszar
+                  {t("Kategoria i obszar")}
                 </p>
                 <div className="mt-3 flex flex-wrap gap-x-5 gap-y-2">
                   {treatmentCategories.map((value) => (
@@ -152,29 +154,29 @@ export function BeautyDocsCatalogProductPage({
             ) : null}
 
             <nav
-              aria-label="Sekcje karty produktu"
+              aria-label={t("Sekcje karty produktu")}
               className="mt-9 flex flex-wrap gap-x-6 gap-y-3 border-t border-[#dce3d5] pt-5 text-xs font-black text-[#4c3a41]"
             >
               <a className="hover:text-[#245c4d]" href="#charakterystyka">
-                Charakterystyka
+                {t("Charakterystyka")}
               </a>
               {applicationAreas.length > 0 ? (
                 <a className="hover:text-[#245c4d]" href="#obszary">
-                  Obszary zastosowania
+                  {t("Obszary zastosowania")}
                 </a>
               ) : null}
               {hasPriceComparison ? (
                 <a className="hover:text-[#245c4d]" href="#ceny">
-                  Porównaj ceny
+                  {t("Porównaj ceny")}
                 </a>
               ) : null}
               {hasSafety ? (
                 <a className="hover:text-[#245c4d]" href="#bezpieczenstwo">
-                  Bezpieczeństwo
+                  {t("Bezpieczeństwo")}
                 </a>
               ) : null}
               <a className="hover:text-[#245c4d]" href="#zrodla">
-                Źródła
+                {t("Źródła")}
               </a>
             </nav>
           </div>
@@ -185,41 +187,41 @@ export function BeautyDocsCatalogProductPage({
         <ProductApplicationMap areas={applicationAreas} />
 
         <EditorialSection
-          eyebrow="Informacje producenta"
+          eyebrow={t("Informacje producenta")}
           id="charakterystyka"
-          title="Zastosowanie i charakterystyka"
+          title={t("Zastosowanie i charakterystyka")}
         >
           <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
-            <p className="max-w-xl text-lg leading-8 text-stone-600">{item.summary}</p>
+            <p className="max-w-xl text-lg leading-8 text-stone-600">{t(item.summary)}</p>
             <NumberedList items={manufacturerUses} />
           </div>
         </EditorialSection>
 
         {technologies.length > 0 || wavelengths.length > 0 || features.length > 0 ? (
-          <EditorialSection eyebrow="Parametry" title="Technologia i możliwości">
+          <EditorialSection eyebrow={t("Parametry")} title={t("Technologia i możliwości")}>
             <div className="grid gap-10 lg:grid-cols-3">
-              <DefinitionList label="Technologie" values={technologies} />
-              <DefinitionList label="Długości fal" values={wavelengths} />
-              <DefinitionList label="Cechy urządzenia" values={features} />
+              <DefinitionList label={t("Technologie")} values={technologies} />
+              <DefinitionList label={t("Długości fal")} values={wavelengths} />
+              <DefinitionList label={t("Cechy urządzenia")} values={features} />
             </div>
           </EditorialSection>
         ) : null}
 
         {ingredientValues.length > 0 || availableSizes.length > 0 || skinTypes.length > 0 ? (
-          <EditorialSection eyebrow="Dane produktu" title="Składniki i warianty">
+          <EditorialSection eyebrow={t("Dane produktu")} title={t("Składniki i warianty")}>
             <div className="grid gap-10 lg:grid-cols-3">
-              <DefinitionList label="Kluczowe składniki" values={ingredientValues} />
-              <DefinitionList label="Dostępne pojemności" values={availableSizes} />
-              <DefinitionList label="Typy skóry" values={skinTypes} />
+              <DefinitionList label={t("Kluczowe składniki")} values={ingredientValues} />
+              <DefinitionList label={t("Dostępne pojemności")} values={availableSizes} />
+              <DefinitionList label={t("Typy skóry")} values={skinTypes} />
             </div>
           </EditorialSection>
         ) : null}
 
         {usageNotice || storage ? (
-          <EditorialSection eyebrow="Praktyczne informacje" title="Stosowanie i przechowywanie">
+          <EditorialSection eyebrow={t("Praktyczne informacje")} title={t("Stosowanie i przechowywanie")}>
             <div className="grid gap-8 lg:grid-cols-2 lg:gap-16">
-              {usageNotice ? <TextDatum label="Stosowanie" value={usageNotice} icon={Sun} /> : null}
-              {storage ? <TextDatum label="Przechowywanie" value={storage} icon={Package} /> : null}
+              {usageNotice ? <TextDatum label={t("Stosowanie")} value={usageNotice} icon={Sun} /> : null}
+              {storage ? <TextDatum label={t("Przechowywanie")} value={storage} icon={Package} /> : null}
             </div>
           </EditorialSection>
         ) : null}
@@ -233,30 +235,30 @@ export function BeautyDocsCatalogProductPage({
             <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:gap-16">
               <div>
                 <p className="text-[11px] font-black uppercase tracking-[0.18em] text-[#cadbb9]">
-                  Ważne przed użyciem
+                  {t("Ważne przed użyciem")}
                 </p>
                 <h2
                   className="mt-3 font-serif text-3xl font-medium sm:text-4xl"
                   id="bezpieczenstwo-tytul"
                 >
-                  Bezpieczeństwo bez skrótów
+                  {t("Bezpieczeństwo bez skrótów")}
                 </h2>
                 {safetyScope ? (
                   <p className="mt-5 text-sm leading-7 text-white/60">{safetyScope}</p>
                 ) : null}
               </div>
               <div className="grid gap-8 sm:grid-cols-2">
-                <SafetyColumn label="Uwagi do kwalifikacji" values={qualificationAlerts} />
+                <SafetyColumn label={t("Uwagi do kwalifikacji")} values={qualificationAlerts} />
                 <div className="space-y-8">
-                  <SafetyColumn label="Częste reakcje klasy produktów" values={commonReactions} />
-                  <SafetyColumn danger label="Poważne ryzyka klasy produktów" values={seriousRisks} />
+                  <SafetyColumn label={t("Częste reakcje klasy produktów")} values={commonReactions} />
+                  <SafetyColumn danger label={t("Poważne ryzyka klasy produktów")} values={seriousRisks} />
                 </div>
               </div>
             </div>
           </section>
         ) : null}
 
-        <EditorialSection eyebrow="Weryfikacja" id="zrodla" title="Źródła produktu">
+        <EditorialSection eyebrow={t("Weryfikacja")} id="zrodla" title={t("Źródła produktu")}>
           <div className="divide-y divide-[#dce3d5] border-y border-[#dce3d5]">
             {sourceDocuments.map((source) => (
               <a
@@ -266,7 +268,7 @@ export function BeautyDocsCatalogProductPage({
                 rel="noreferrer"
                 target="_blank"
               >
-                <span className="text-sm font-black">{source.label}</span>
+                <span className="text-sm font-black">{t(source.label)}</span>
                 <span className="text-xs leading-5 text-stone-500">{source.scope}</span>
                 <ExternalLink
                   aria-hidden="true"
@@ -281,7 +283,7 @@ export function BeautyDocsCatalogProductPage({
                 rel="noreferrer"
                 target="_blank"
               >
-                {item.sourceLabel} <ExternalLink aria-hidden="true" className="size-4" />
+                {t(item.sourceLabel)} <ExternalLink aria-hidden="true" className="size-4" />
               </a>
             ) : null}
           </div>
@@ -294,9 +296,7 @@ export function BeautyDocsCatalogProductPage({
       </article>
 
       <p className="mt-14 border-l-2 border-[#547b59] pl-4 text-xs leading-6 text-stone-500">
-        Karta ma charakter informacyjny. Nie zastępuje aktualnej instrukcji używania,
-        etykiety, szkolenia ani indywidualnej kwalifikacji przeprowadzonej przez
-        uprawnionego specjalistę.
+        {t("Karta ma charakter informacyjny. Nie zastępuje aktualnej instrukcji używania, etykiety, szkolenia ani indywidualnej kwalifikacji przeprowadzonej przez uprawnionego specjalistę.")}
       </p>
 
       {relatedItems.length > 0 ? (
@@ -304,10 +304,10 @@ export function BeautyDocsCatalogProductPage({
           <div className="flex items-end justify-between gap-4">
             <div>
               <p className="text-[11px] font-black uppercase tracking-[0.17em] text-[#245c4d]">
-                Odkrywaj dalej
+                {t("Odkrywaj dalej")}
               </p>
               <h2 className="mt-2 font-serif text-3xl sm:text-4xl" id="podobne-produkty">
-                Podobne produkty
+                {t("Podobne produkty")}
               </h2>
             </div>
             {onSelectRelated ? null : (
@@ -315,7 +315,7 @@ export function BeautyDocsCatalogProductPage({
                 className="hidden items-center gap-2 text-sm font-black text-[#245c4d] sm:inline-flex"
                 href="/katalog"
               >
-                Cały katalog <ArrowRight aria-hidden="true" className="size-4" />
+                {t("Cały katalog")}{" "}<ArrowRight aria-hidden="true" className="size-4" />
               </Link>
             )}
           </div>
@@ -341,6 +341,7 @@ function PriceHeroCallout({
   readonly meta: ReturnType<typeof catalogPriceComparisonMeta>;
   readonly offers: ReturnType<typeof catalogPriceOffers>;
 }) {
+  const t = useT();
   if (!meta && offers.length === 0) return null;
   if (meta?.status === "INFORMATION_ONLY") {
     return (
@@ -350,10 +351,10 @@ function PriceHeroCallout({
       >
         <span>
           <span className="block text-[9px] font-black uppercase tracking-[0.14em] text-amber-800/65">
-            Status produktu
+            {t("Status produktu")}
           </span>
           <span className="mt-1 block text-sm font-black">
-            Informacje i ograniczenia sprzedaży
+            {t("Informacje i ograniczenia sprzedaży")}
           </span>
         </span>
         <ArrowRight aria-hidden="true" className="size-4 shrink-0" />
@@ -374,14 +375,14 @@ function PriceHeroCallout({
     >
       <span>
         <span className="block text-[9px] font-black uppercase tracking-[0.15em] text-white/55">
-          Najniższa cena produktu
+          {t("Najniższa cena produktu")}
         </span>
         <span className="mt-1 block font-serif text-3xl">
-          od {formatPricePln(lowestPrice)}
+          {t("od")}{" "}{formatPricePln(lowestPrice)}
         </span>
       </span>
       <span className="flex shrink-0 items-center gap-2 text-xs font-black">
-        Porównaj {availableOffers.length} {offerCountLabel(availableOffers.length)}
+        {t("Porównaj")}{" "}{availableOffers.length} {t(offerCountLabel(availableOffers.length))}
         <ArrowRight aria-hidden="true" className="size-4" />
       </span>
     </a>
@@ -397,14 +398,11 @@ function offerCountLabel(count: number): string {
 }
 
 function HeroFact({ label, value }: { readonly label: string; readonly value: string }) {
+  const t = useT();
   return (
-    <div className="min-w-0 border-b border-[#dce3d5] py-4 pr-4 odd:border-r odd:pl-0 even:pl-4 sm:border-b-0 sm:border-r sm:pl-4 sm:first:pl-0 sm:last:border-r-0 lg:border-b lg:odd:border-r lg:last:border-b-0 xl:border-b-0">
-      <dt className="text-[9px] font-black uppercase tracking-[0.13em] text-stone-400">
-        {label}
-      </dt>
-      <dd className="mt-1 text-xs font-black leading-5 text-[#173d35]">
-        {value}
-      </dd>
+    <div className="bd-product-fact">
+      <dt>{t(label)}</dt>
+      <dd>{value}</dd>
     </div>
   );
 }
@@ -420,14 +418,15 @@ function EditorialSection({
   readonly id?: string;
   readonly title: string;
 }) {
+  const t = useT();
   return (
     <section className="mt-20 scroll-mt-28 border-t border-[#dce3d5] pt-12 sm:pt-16" id={id}>
       <div className="mb-9">
         <p className="text-[11px] font-black uppercase tracking-[0.17em] text-[#245c4d]">
-          {eyebrow}
+          {t(eyebrow)}
         </p>
         <h2 className="mt-2 font-serif text-3xl font-medium text-[#173d35] sm:text-4xl">
-          {title}
+          {t(title)}
         </h2>
       </div>
       {children}
@@ -436,10 +435,11 @@ function EditorialSection({
 }
 
 function NumberedList({ items }: { readonly items: readonly string[] }) {
+  const t = useT();
   if (items.length === 0) {
     return (
       <p className="text-sm leading-7 text-stone-500">
-        Szczegóły należy sprawdzić w aktualnych materiałach producenta.
+        {t("Szczegóły należy sprawdzić w aktualnych materiałach producenta.")}
       </p>
     );
   }
@@ -464,11 +464,12 @@ function DefinitionList({
   readonly label: string;
   readonly values: readonly string[];
 }) {
+  const t = useT();
   if (values.length === 0) return null;
   return (
     <div>
       <h3 className="text-[10px] font-black uppercase tracking-[0.15em] text-stone-400">
-        {label}
+        {t(label)}
       </h3>
       <ul className="mt-4 divide-y divide-[#dce3d5] border-t border-[#dce3d5]">
         {values.map((value) => (
@@ -491,10 +492,11 @@ function TextDatum({
   readonly label: string;
   readonly value: string;
 }) {
+  const t = useT();
   return (
     <div className="border-t border-[#dce3d5] pt-5">
       <h3 className="flex items-center gap-2 text-xs font-black uppercase tracking-[0.12em] text-[#42634e]">
-        <Icon aria-hidden="true" className="size-4" /> {label}
+        <Icon aria-hidden="true" className="size-4" /> {t(label)}
       </h3>
       <p className="mt-3 text-sm leading-7 text-stone-600">{value}</p>
     </div>
@@ -510,6 +512,7 @@ function SafetyColumn({
   readonly label: string;
   readonly values: readonly string[];
 }) {
+  const t = useT();
   if (values.length === 0) return null;
   return (
     <div>
@@ -518,7 +521,7 @@ function SafetyColumn({
           danger ? "text-[#ffb9b9]" : "text-[#cadbb9]"
         }`}
       >
-        {label}
+        {t(label)}
       </h3>
       <ul className="mt-4 space-y-3">
         {values.map((value) => (
@@ -543,6 +546,7 @@ function RelatedProduct({
   readonly item: BeautyDocsCatalogItem;
   readonly onSelect?: () => void;
 }) {
+  const t = useT();
   const path = catalogProductPath(item);
   const imagePath = catalogDetailText(item.details, "imagePath");
   const imageAlt = catalogDetailText(item.details, "imageAlt") ?? item.name;
@@ -568,7 +572,7 @@ function RelatedProduct({
         {item.name}
       </h3>
       <span className="mt-3 inline-flex items-center gap-2 text-xs font-black text-[#245c4d]">
-        Zobacz produkt
+        {t("Zobacz produkt")}
         <ArrowRight
           aria-hidden="true"
           className="size-4 transition-transform group-hover:translate-x-1"

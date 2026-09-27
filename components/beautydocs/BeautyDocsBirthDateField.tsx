@@ -1,5 +1,6 @@
 "use client";
 
+import { useT } from "./i18n";
 import { useMemo, useRef, useState } from "react";
 import { Check, ChevronDown, Search } from "lucide-react";
 import { BeautyDocsAnchoredPopover } from "./BeautyDocsAnchoredPopover";
@@ -32,6 +33,7 @@ function Select({
   readonly className?: string;
   readonly disabled?: boolean;
 }) {
+  const t = useT();
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -79,7 +81,7 @@ function Select({
             <input
               autoFocus
               className="w-full border-0 bg-transparent text-sm text-[#173d35] outline-none placeholder:text-[#aeb3a7]"
-              placeholder="Szukaj…"
+              placeholder={t("Szukaj…")}
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
@@ -88,7 +90,7 @@ function Select({
         ) : null}
         <ul className="flex-1 overflow-y-auto py-1" role="listbox">
           {filtered.length === 0 ? (
-            <li className="px-3 py-2.5 text-sm text-[#aeb3a7]">Brak wyników</li>
+            <li className="px-3 py-2.5 text-sm text-[#aeb3a7]">{t("Brak wyników")}</li>
           ) : (
             filtered.map((o) => {
               const isSelected = o.value === value;
@@ -106,7 +108,7 @@ function Select({
                       setOpen(false);
                     }}
                   >
-                    <span className="flex-1 truncate">{o.label}</span>
+                    <span className="flex-1 truncate">{t(o.label)}</span>
                     {isSelected ? (
                       <Check className="h-4 w-4 shrink-0 text-[#245c4d]" />
                     ) : null}
@@ -159,6 +161,7 @@ export function BeautyDocsBirthDateField({
   readonly onChange: (value: string) => void;
   readonly disabled?: boolean;
 }) {
+  const t = useT();
   const [yearStr, monthStr, dayStr] =
     value && value.includes("-") ? value.split("-") : ["", "", ""];
 
@@ -200,30 +203,30 @@ export function BeautyDocsBirthDateField({
     <div className="grid grid-cols-12 gap-2 sm:gap-3">
       <Select
         align="center"
-        ariaLabel="Dzień urodzenia"
+        ariaLabel={t("Dzień urodzenia")}
         className="col-span-3"
         disabled={disabled}
         options={days.map((d) => ({ value: d, label: d }))}
-        placeholder="Dzień"
+        placeholder={t("Dzień")}
         value={dayStr}
         onChange={handleDayChange}
       />
       <Select
-        ariaLabel="Miesiąc urodzenia"
+        ariaLabel={t("Miesiąc urodzenia")}
         className="col-span-5"
         disabled={disabled}
         options={MONTHS}
-        placeholder="Miesiąc"
+        placeholder={t("Miesiąc")}
         value={monthStr}
         onChange={handleMonthChange}
       />
       <Select
         align="center"
-        ariaLabel="Rok urodzenia"
+        ariaLabel={t("Rok urodzenia")}
         className="col-span-4"
         disabled={disabled}
         options={years.map((y) => ({ value: y, label: y }))}
-        placeholder="Rok"
+        placeholder={t("Rok")}
         searchable
         value={yearStr}
         onChange={handleYearChange}

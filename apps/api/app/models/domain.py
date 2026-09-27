@@ -221,6 +221,7 @@ class Tenant(UUIDPrimaryKeyMixin, TimestampMixin, Base):
 
 class User(UUIDPrimaryKeyMixin, TimestampMixin, Base):
     __tablename__ = "users"
+    interface_language: Mapped[str] = mapped_column(String(2), nullable=False, server_default="pl")
     __table_args__ = (
         CheckConstraint(
             "email_normalized = lower(email_normalized)",
@@ -485,6 +486,7 @@ class ConsumerAccount(UUIDPrimaryKeyMixin, TimestampMixin, Base):
     """Global identity owned by a salon client, not by a tenant."""
 
     __tablename__ = "consumer_accounts"
+    interface_language: Mapped[str] = mapped_column(String(2), nullable=False, server_default="pl")
     __table_args__ = (
         UniqueConstraint("phone_normalized", name="uq_consumer_accounts_phone"),
         Index("ix_consumer_accounts_email_normalized", "email_normalized"),

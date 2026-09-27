@@ -1,5 +1,6 @@
 "use client";
 
+import { useT } from "../i18n";
 import { useState, type ReactNode } from "react";
 import {
   AlertTriangle,
@@ -36,6 +37,7 @@ export function BeautyDocsFormPreviewDialog({
   readonly formCode: string;
   readonly formName: string;
 }) {
+  const t = useT();
   const [open, setOpen] = useState(false);
   const [preview, setPreview] = useState<BeautyDocsAdminFormPreview | null>(null);
   const [loading, setLoading] = useState(false);
@@ -56,7 +58,7 @@ export function BeautyDocsFormPreviewDialog({
         if (!response.ok) throw new Error("preview-failed");
         setPreview((await response.json()) as BeautyDocsAdminFormPreview);
       } catch {
-        setError("Nie udało się wczytać podglądu formularza.");
+        setError(t("Nie udało się wczytać podglądu formularza."));
       } finally {
         setLoading(false);
       }
@@ -71,30 +73,30 @@ export function BeautyDocsFormPreviewDialog({
         type="button"
       >
         <Eye aria-hidden="true" className="size-4" />
-        Podgląd
+        {t("Podgląd")}
       </button>
 
       <BeautyDocsDialog
         className="max-w-2xl"
         onClose={() => setOpen(false)}
         open={open}
-        title={`Podgląd formularza: ${formName}`}
+        title={t("Podgląd formularza: {formName}", { formName: formName })}
       >
         <div className="max-h-[85vh] w-full overflow-y-auto rounded-[1.75rem] border border-[#e5eadf] bg-white p-6 shadow-[0_24px_70px_rgba(38,65,58,0.25)] sm:p-7">
           <div className="flex items-start justify-between gap-3">
             <div className="min-w-0">
               <p className="text-[11px] font-black uppercase tracking-[0.14em] text-[#245c4d]">
-                Podgląd formularza
+                {t("Podgląd formularza")}
               </p>
               <h2 className="mt-1 truncate text-xl font-black text-[#173d35]">
                 {preview?.name ?? formName}
               </h2>
               {preview?.description ? (
-                <p className="mt-1 text-sm text-[#5a6b5a]">{preview.description}</p>
+                <p className="mt-1 text-sm text-[#5a6b5a]">{t(preview.description)}</p>
               ) : null}
             </div>
             <button
-              aria-label="Zamknij"
+              aria-label={t("Zamknij")}
               className="grid size-11 shrink-0 place-items-center rounded-full text-[#808f82] transition hover:bg-[#eff4e7] hover:text-[#173d35]"
               onClick={() => setOpen(false)}
               type="button"
@@ -104,13 +106,12 @@ export function BeautyDocsFormPreviewDialog({
           </div>
 
           <p className="mt-3 rounded-xl bg-[#f6f9f3] px-3.5 py-2.5 text-xs leading-5 text-[#5a6b5a]">
-            To jest podgląd treści formularza. Nic tutaj nie wysyła danych ani
-            nie zapisuje odpowiedzi.
+            {t("To jest podgląd treści formularza. Nic tutaj nie wysyła danych ani nie zapisuje odpowiedzi.")}
           </p>
 
           {loading ? (
             <div className="mt-8 flex items-center justify-center gap-2 py-14 text-sm font-bold text-[#5a6b5a]">
-              <LoaderCircle className="size-5 animate-spin" /> Wczytywanie…
+              <LoaderCircle className="size-5 animate-spin" />{" "}{t("Wczytywanie…")}
             </div>
           ) : error ? (
             <p className="mt-6 rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-bold text-red-700">
@@ -120,7 +121,7 @@ export function BeautyDocsFormPreviewDialog({
             <div className="mt-6 space-y-6">
               {preview.definition.treatment ? (
                 <p className="inline-flex items-center gap-1.5 rounded-full bg-[#eef3e7] px-3 py-1.5 text-xs font-black text-[#245c4d]">
-                  Zabieg: {preview.definition.treatment}
+                  {t("Zabieg:")}{" "}{preview.definition.treatment}
                 </p>
               ) : null}
 
@@ -129,7 +130,7 @@ export function BeautyDocsFormPreviewDialog({
                   className="rounded-2xl border border-[#e5eadf] bg-[#fcfaf8] p-4 sm:p-5"
                   key={section.key}
                 >
-                  <h3 className="font-black text-[#173d35]">{section.title}</h3>
+                  <h3 className="font-black text-[#173d35]">{t(section.title)}</h3>
                   {section.kind === "fields" ? (
                     <ul className="mt-3 space-y-2">
                       {section.fields.map((field) => (
@@ -138,13 +139,13 @@ export function BeautyDocsFormPreviewDialog({
                           key={field.key}
                         >
                           <span className="font-bold text-[#344937]">
-                            {field.label}
+                            {t(field.label)}
                             {field.required ? (
                               <span className="ml-1 text-red-600">*</span>
                             ) : null}
                           </span>
                           <span className="shrink-0 rounded-full bg-[#eef3e7] px-2.5 py-1 text-[10px] font-black text-[#245c4d]">
-                            {fieldTypeLabel(field.type)}
+                            {t(fieldTypeLabel(field.type))}
                           </span>
                         </li>
                       ))}
@@ -158,7 +159,7 @@ export function BeautyDocsFormPreviewDialog({
                         >
                           <div className="flex items-start justify-between gap-3">
                             <p className="font-bold text-[#344937]">
-                              {item.question}
+                              {t(item.question)}
                             </p>
                             {item.category ? (
                               <span className="shrink-0 rounded-full bg-[#eef3e7] px-2.5 py-1 text-[10px] font-black text-[#245c4d]">
@@ -169,7 +170,7 @@ export function BeautyDocsFormPreviewDialog({
                           {item.hasFollowUp ? (
                             <p className="mt-1.5 flex items-center gap-1.5 text-xs text-[#7e9a82]">
                               <AlertTriangle className="size-3.5" />
-                              Odpowiedź „tak” poprosi o dodatkowy opis
+                              {t("Odpowiedź „tak” poprosi o dodatkowy opis")}
                               {item.followUpPlaceholder
                                 ? ` (${item.followUpPlaceholder})`
                                 : ""}
@@ -187,24 +188,23 @@ export function BeautyDocsFormPreviewDialog({
               preview.legal.documents.length > 0 ? (
                 <section className="rounded-2xl border border-[#e5eadf] bg-[#fcfaf8] p-4 sm:p-5">
                   <h3 className="flex items-center gap-2 font-black text-[#173d35]">
-                    <ShieldCheck className="size-4 text-[#245c4d]" /> Zgody i
-                    dokumenty
+                    <ShieldCheck className="size-4 text-[#245c4d]" />{" "}{t("Zgody i dokumenty")}
                   </h3>
                   <div className="mt-3 space-y-2">
                     {preview.legal.consents.map((consent) => (
                       <LegalTextItem
                         key={consent.key}
                         required={consent.required}
-                        title={consent.title ?? "Zgoda"}
-                        text={consent.text}
+                        title={consent.title ?? t("Zgoda")}
+                        text={t(consent.text)}
                       />
                     ))}
                     {preview.legal.documents.map((document) => (
                       <LegalTextItem
                         key={document.key}
                         icon={<FileText className="size-3.5" />}
-                        title={document.title}
-                        text={document.text}
+                        title={t(document.title)}
+                        text={t(document.text)}
                       />
                     ))}
                   </div>
@@ -213,8 +213,7 @@ export function BeautyDocsFormPreviewDialog({
 
               <section className="rounded-2xl border border-[#e5eadf] bg-[#fcfaf8] p-4 sm:p-5">
                 <h3 className="flex items-center gap-2 font-black text-[#173d35]">
-                  <UserRound className="size-4 text-[#245c4d]" /> Kto może
-                  wykonać ten zabieg
+                  <UserRound className="size-4 text-[#245c4d]" />{" "}{t("Kto może wykonać ten zabieg")}
                 </h3>
                 {preview.practitioners.length > 0 ? (
                   <ul className="mt-3 space-y-2">
@@ -228,7 +227,7 @@ export function BeautyDocsFormPreviewDialog({
                         </span>
                         {practitioner.jobTitle ? (
                           <span className="ml-2 text-xs text-[#7e9a82]">
-                            {practitioner.jobTitle}
+                            {t(practitioner.jobTitle)}
                           </span>
                         ) : null}
                       </li>
@@ -236,7 +235,7 @@ export function BeautyDocsFormPreviewDialog({
                   </ul>
                 ) : (
                   <p className="mt-2 text-sm text-[#5a6b5a]">
-                    Nikt z zespołu nie ma jeszcze przypisanego tego zabiegu.
+                    {t("Nikt z zespołu nie ma jeszcze przypisanego tego zabiegu.")}
                   </p>
                 )}
               </section>
@@ -259,6 +258,7 @@ function LegalTextItem({
   readonly required?: boolean;
   readonly icon?: ReactNode;
 }) {
+  const t = useT();
   const [expanded, setExpanded] = useState(false);
   return (
     <div className="rounded-xl bg-white px-3.5 py-2.5 text-sm">
@@ -269,7 +269,7 @@ function LegalTextItem({
       >
         <span className="flex items-center gap-1.5 font-bold text-[#344937]">
           {icon}
-          {title}
+          {t(title)}
           {required ? <span className="text-red-600">*</span> : null}
         </span>
         <ChevronDown
@@ -278,7 +278,7 @@ function LegalTextItem({
       </button>
       {expanded ? (
         <p className="mt-2 whitespace-pre-line text-xs leading-6 text-[#5a6b5a]">
-          {text}
+          {t(text)}
         </p>
       ) : null}
     </div>

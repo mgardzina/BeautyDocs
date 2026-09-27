@@ -50,6 +50,7 @@ from app.services.signature_verification import (
     invalid_verification_code,
     issue_sms_verification,
 )
+from app.services.form_i18n import InterfaceLanguage, localize_form_content, localized_content_hash
 from app.services.team_assignments import can_perform_treatment
 
 router = APIRouter(prefix="/public", tags=["public"])
@@ -98,6 +99,8 @@ class FormDraftRequest(SubmissionRequestModel):
     place_and_date: str | None = Field(default=None, max_length=200)
     practitioner_team_member_id: UUID | None = None
     appointment_id: UUID | None = None
+    # Language the client read the questionnaire and consents in.
+    locale: InterfaceLanguage = "pl"
     booking_token: str | None = Field(
         default=None,
         min_length=43,
@@ -256,6 +259,7 @@ async def _tenant_and_version(
                 FormTemplateVersion.id,
                 FormTemplateVersion.version_number,
                 FormTemplateVersion.schema_definition,
+                FormTemplateVersion.legal_content,
             )
             .join(TenantFormTemplate, TenantFormTemplate.form_template_id == FormTemplate.id)
             .join(FormTemplateVersion, FormTemplateVersion.form_template_id == FormTemplate.id)
@@ -469,10 +473,16 @@ async def start_client_verification(
         "consents": payload.consents,
         "placeAndDate": payload.place_and_date,
     }
+    shown_definition, shown_legal, content_locale = localize_form_content(
+        version_row.schema_definition, version_row.legal_content or {}, payload.locale
+    )
     snapshot = {
         "formCode": code,
         "formName": version_row.name,
         "templateVersion": version_row.version_number,
+        # Evidence of the exact wording the client saw and signed.
+        "contentLocale": content_locale,
+        "contentHash": localized_content_hash(shown_definition, shown_legal),
         "client": payload.client.model_dump(by_alias=True),
         "answers": answers,
         "practitioner": (

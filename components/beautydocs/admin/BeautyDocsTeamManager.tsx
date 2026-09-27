@@ -1,5 +1,7 @@
 "use client";
+import { activeIntlLocale } from "../../../lib/i18n/active";
 
+import { useT } from "../i18n";
 import {
   BadgeCheck,
   CheckCircle2,
@@ -53,6 +55,7 @@ export function BeautyDocsTeamManager({
   initialTeam,
   tenantSlug,
 }: BeautyDocsTeamManagerProps) {
+  const t = useT();
   const [members, setMembers] = useState([...initialTeam.items]);
   const [selectedId, setSelectedId] = useState(initialTeam.items[0]?.id ?? null);
   const [showCreate, setShowCreate] = useState(false);
@@ -88,7 +91,7 @@ export function BeautyDocsTeamManager({
         }),
       });
       if (response.status === 409) {
-        setMessage("Ten adres e-mail jest już przypisany do konta BeautyDocs.");
+        setMessage(t("Ten adres e-mail jest już przypisany do konta BeautyDocs."));
         return;
       }
       if (!response.ok) throw new Error("invite failed");
@@ -96,9 +99,9 @@ export function BeautyDocsTeamManager({
       setInvitation(created);
       setNewMember(EMPTY_INVITATION);
       setShowCreate(false);
-      setMessage(`Zaproszenie zostało wysłane na ${created.email}.`);
+      setMessage(t("Zaproszenie zostało wysłane na {email}.", { email: created.email }));
     } catch {
-      setMessage("Nie udało się wysłać zaproszenia. Spróbuj ponownie.");
+      setMessage(t("Nie udało się wysłać zaproszenia. Spróbuj ponownie."));
     } finally {
       setBusy(false);
     }
@@ -117,14 +120,13 @@ export function BeautyDocsTeamManager({
         <div className="flex flex-col gap-5 bg-[#f7f8f4] p-5 sm:flex-row sm:items-center sm:justify-between sm:p-7">
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#245c4d]">
-              Zespół salonu
+              {t("Zespół salonu")}
             </p>
             <h1 className="mt-2 text-2xl font-bold tracking-tight text-[#173d35] sm:text-3xl">
-              Profile i podpisy personelu
+              {t("Profile i podpisy personelu")}
             </h1>
             <p className="mt-2 max-w-2xl text-sm leading-6 text-stone-500">
-              Każda osoba wykonująca zabieg potwierdza formularz własnym kodem
-              SMS, a następnie składa podpis.
+              {t("Każda osoba wykonująca zabieg potwierdza formularz własnym kodem SMS, a następnie składa podpis.")}
             </p>
           </div>
           {initialTeam.canManage ? (
@@ -134,14 +136,14 @@ export function BeautyDocsTeamManager({
               type="button"
             >
               <Plus aria-hidden="true" className="size-4" />
-              Dodaj pracownika
+              {t("Dodaj pracownika")}
             </button>
           ) : null}
         </div>
         <dl className="grid gap-px bg-stone-200 sm:grid-cols-3">
-          <TeamStat label="Profile w zespole" value={members.length} />
-          <TeamStat label="Wykonują zabiegi" value={activePractitioners} />
-          <TeamStat label="Gotowi do podpisu SMS" value={configuredSignatures} />
+          <TeamStat label={t("Profile w zespole")} value={members.length} />
+          <TeamStat label={t("Wykonują zabiegi")} value={activePractitioners} />
+          <TeamStat label={t("Gotowi do podpisu SMS")} value={configuredSignatures} />
         </dl>
       </header>
 
@@ -150,7 +152,7 @@ export function BeautyDocsTeamManager({
           className="mt-4 rounded-xl border border-[#d4decc] bg-[#f3f7ed] px-4 py-3 text-sm font-semibold text-[#245c4d]"
           role="status"
         >
-          {message}
+          {t(message)}
         </p>
       ) : null}
 
@@ -174,7 +176,7 @@ export function BeautyDocsTeamManager({
       <div className="mt-5 grid items-start gap-5 xl:grid-cols-[minmax(280px,0.72fr)_minmax(0,1.28fr)]">
         <section className="overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-sm">
           <header className="border-b border-stone-200 px-5 py-4">
-            <h2 className="font-bold text-[#173d35]">Osoby w salonie</h2>
+            <h2 className="font-bold text-[#173d35]">{t("Osoby w salonie")}</h2>
           </header>
           {members.length ? (
             <div className="divide-y divide-stone-100">
@@ -209,13 +211,13 @@ export function BeautyDocsTeamManager({
                       </span>
                       {member.isOwner ? (
                         <BadgeCheck
-                          aria-label="Właściciel salonu"
+                          aria-label={t("Właściciel salonu")}
                           className="size-4 shrink-0 text-[#245c4d]"
                         />
                       ) : null}
                     </span>
                     <span className="mt-0.5 block truncate text-xs text-stone-500">
-                      {member.jobTitle ?? "Pracownik salonu"}
+                      {member.jobTitle ?? t("Pracownik salonu")}
                     </span>
                   </span>
                   <span
@@ -230,7 +232,7 @@ export function BeautyDocsTeamManager({
             <div className="px-5 py-12 text-center">
               <UsersRound className="mx-auto size-8 text-stone-300" />
               <p className="mt-3 text-sm text-stone-500">
-                Nie dodano jeszcze żadnej osoby.
+                {t("Nie dodano jeszcze żadnej osoby.")}
               </p>
             </div>
           )}
@@ -252,9 +254,10 @@ export function BeautyDocsTeamManager({
 }
 
 function TeamStat({ label, value }: { label: string; value: number }) {
+  const t = useT();
   return (
     <div className="bg-white px-5 py-4 sm:px-6">
-      <dt className="text-xs font-semibold text-stone-500">{label}</dt>
+      <dt className="text-xs font-semibold text-stone-500">{t(label)}</dt>
       <dd className="mt-1 text-2xl font-bold text-[#173d35]">{value}</dd>
     </div>
   );
@@ -275,6 +278,7 @@ function MemberProfile({
   onMemberUpdated: (member: BeautyDocsAdminTeamMember) => void;
   onMessage: (message: string | null) => void;
 }) {
+  const t = useT();
   const [draft, setDraft] = useState<MemberDraft>(() => memberToDraft(member));
   const [signature, setSignature] = useState("");
   const [busy, setBusy] = useState(false);
@@ -311,11 +315,11 @@ function MemberProfile({
       onMemberUpdated((await response.json()) as BeautyDocsAdminTeamMember);
       onMessage(
         personalDataSelfManaged
-          ? "Ustawienia osoby w salonie zostały zapisane."
-          : "Dane profilu zostały zapisane.",
+          ? t("Ustawienia osoby w salonie zostały zapisane.")
+          : t("Dane profilu zostały zapisane."),
       );
     } catch {
-      onMessage("Nie udało się zapisać profilu.");
+      onMessage(t("Nie udało się zapisać profilu."));
     } finally {
       setBusy(false);
     }
@@ -323,7 +327,7 @@ function MemberProfile({
 
   const saveSignature = async () => {
     if (!signature) {
-      onMessage("Najpierw złóż podpis w polu poniżej.");
+      onMessage(t("Najpierw złóż podpis w polu poniżej."));
       return;
     }
     setBusy(true);
@@ -341,9 +345,9 @@ function MemberProfile({
       if (!response.ok) throw new Error("signature failed");
       onMemberUpdated((await response.json()) as BeautyDocsAdminTeamMember);
       setSignature("");
-      onMessage("Podpis został zapisany i będzie dodawany do nowych formularzy.");
+      onMessage(t("Podpis został zapisany i będzie dodawany do nowych formularzy."));
     } catch {
-      onMessage("Nie udało się zapisać podpisu.");
+      onMessage(t("Nie udało się zapisać podpisu."));
     } finally {
       setBusy(false);
     }
@@ -354,7 +358,7 @@ function MemberProfile({
       <header className="flex items-start justify-between gap-4 border-b border-stone-200 bg-[#f7f8f4] px-5 py-4 sm:px-6">
         <div>
           <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#245c4d]">
-            {member.isOwner ? "Profil właściciela" : "Profil pracownika"}
+            {member.isOwner ? t("Profil właściciela") : t("Profil pracownika")}
           </p>
           <h2 className="mt-1 text-xl font-bold text-[#173d35]">
             {member.displayName}
@@ -367,7 +371,7 @@ function MemberProfile({
               : "bg-stone-100 text-stone-500"
           }`}
         >
-          {member.isActive ? "Aktywny profil" : "Profil nieaktywny"}
+          {member.isActive ? t("Aktywny profil") : t("Profil nieaktywny")}
         </span>
       </header>
 
@@ -375,32 +379,30 @@ function MemberProfile({
         {personalDataSelfManaged ? (
           <div className="sm:col-span-2 rounded-xl border border-[#d4decc] bg-[#f3f7ed] p-4">
             <p className="text-sm font-bold text-[#245c4d]">
-              Dane osobowe zarządzane przez właściciela konta
+              {t("Dane osobowe zarządzane przez właściciela konta")}
             </p>
             <p className="mt-1 text-xs leading-5 text-[#245c4d]">
-              Imię, nazwisko, e-mail, telefon i podpis ta osoba aktualizuje
-              samodzielnie w swoim koncie. Tutaj zmieniasz wyłącznie jej ustawienia
-              w salonie.
+              {t("Imię, nazwisko, e-mail, telefon i podpis ta osoba aktualizuje samodzielnie w swoim koncie. Tutaj zmieniasz wyłącznie jej ustawienia w salonie.")}
             </p>
           </div>
         ) : null}
         <TeamInput
           disabled={personalDataSelfManaged}
-          label="Imię i nazwisko"
+          label={t("Imię i nazwisko")}
           onChange={(value) => setDraft({ ...draft, displayName: value })}
           required
           value={draft.displayName}
         />
         <TeamInput
-          label="Stanowisko"
+          label={t("Stanowisko")}
           onChange={(value) => setDraft({ ...draft, jobTitle: value })}
-          placeholder="np. kosmetolog"
+          placeholder={t("np. kosmetolog")}
           value={draft.jobTitle}
         />
         <div className="sm:col-span-2">
           <TeamInput
             disabled={personalDataSelfManaged}
-            label="E-mail (opcjonalnie)"
+            label={t("E-mail (opcjonalnie)")}
             onChange={(value) => setDraft({ ...draft, email: value })}
             type="email"
             value={draft.email}
@@ -408,20 +410,18 @@ function MemberProfile({
         </div>
         <div className="sm:col-span-2 rounded-xl border border-stone-200 bg-[#f7f8f4] p-4">
           <p className="text-[10px] font-black uppercase tracking-[0.1em] text-[#5a6b5a]">
-            Telefon do kodów SMS
+            {t("Telefon do kodów SMS")}
           </p>
           {member.phone ? (
             <p className="mt-1.5 flex flex-wrap items-center gap-2 text-sm font-bold text-[#173d35]">
               {member.phone}
               <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-xs font-black text-emerald-700">
-                dodany przez właściciela konta
+                {t("dodany przez właściciela konta")}
               </span>
             </p>
           ) : (
             <p className="mt-1.5 text-sm text-stone-500">
-              Brak numeru. Ta osoba dodaje i potwierdza go samodzielnie w „Dane
-              osobowe” w swoim koncie — numer jest osobisty, więc nie ustawiasz go
-              tutaj.
+              {t("Brak numeru. Ta osoba dodaje i potwierdza go samodzielnie w „Dane osobowe” w swoim koncie — numer jest osobisty, więc nie ustawiasz go tutaj.")}
             </p>
           )}
         </div>
@@ -437,10 +437,10 @@ function MemberProfile({
           />
           <span>
             <span className="block text-sm font-bold text-[#173d35]">
-              Wykonuje zabiegi
+              {t("Wykonuje zabiegi")}
             </span>
             <span className="mt-1 block text-xs leading-5 text-stone-500">
-              Osoba pojawi się na liście wyboru w formularzu klientki.
+              {t("Osoba pojawi się na liście wyboru w formularzu klientki.")}
             </span>
           </span>
         </label>
@@ -470,10 +470,10 @@ function MemberProfile({
           />
           <span>
             <span className="block text-sm font-bold text-[#173d35]">
-              Aktywny profil
+              {t("Aktywny profil")}
             </span>
             <span className="mt-1 block text-xs leading-5 text-stone-500">
-              Nieaktywnych osób nie można wybrać w nowych formularzach.
+              {t("Nieaktywnych osób nie można wybrać w nowych formularzach.")}
             </span>
           </span>
         </label>
@@ -486,8 +486,8 @@ function MemberProfile({
             >
               <Save aria-hidden="true" className="size-4" />
               {personalDataSelfManaged
-                ? "Zapisz ustawienia w salonie"
-                : "Zapisz dane profilu"}
+                ? t("Zapisz ustawienia w salonie")
+                : t("Zapisz dane profilu")}
             </button>
           </div>
         ) : null}
@@ -497,11 +497,10 @@ function MemberProfile({
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
             <h3 className="font-bold text-[#173d35]">
-              {member.isOwner ? "Podpis właściciela salonu" : "Podpis pracownika"}
+              {member.isOwner ? t("Podpis właściciela salonu") : t("Podpis pracownika")}
             </h3>
             <p className="mt-1 text-xs leading-5 text-stone-500">
-              Podpis z profilu pozostaje wzorem. Każdy formularz wymaga osobnego
-              kodu SMS oraz świadomego podpisania przez wykonawcę.
+              {t("Podpis z profilu pozostaje wzorem. Każdy formularz wymaga osobnego kodu SMS oraz świadomego podpisania przez wykonawcę.")}
             </p>
           </div>
           <span
@@ -516,18 +515,18 @@ function MemberProfile({
             ) : (
               <PenLine aria-hidden="true" className="size-3.5" />
             )}
-            {member.signatureConfigured ? "Podpis zapisany" : "Brak podpisu"}
+            {member.signatureConfigured ? t("Podpis zapisany") : t("Brak podpisu")}
           </span>
         </div>
 
         {member.signatureConfigured ? (
           <figure className="mt-4 rounded-xl border border-stone-200 bg-[#f7f8f4] p-3">
             <figcaption className="mb-2 text-xs font-semibold text-stone-500">
-              Aktualny podpis
+              {t("Aktualny podpis")}
             </figcaption>
             <div className="overflow-hidden rounded-lg border border-stone-200 bg-white">
               <Image
-                alt={`Podpis — ${member.displayName}`}
+                alt={t("Podpis — {displayName}", { displayName: member.displayName })}
                 className="h-auto max-h-36 w-full object-contain"
                 height={200}
                 key={member.signatureUpdatedAt}
@@ -541,16 +540,15 @@ function MemberProfile({
 
         {personalDataSelfManaged ? (
           <div className="mt-5 rounded-xl border border-[#d4decc] bg-[#f3f7ed] px-4 py-3 text-sm leading-6 text-[#245c4d]">
-            To jest podpis osobisty. Właściciel konta może go dodać lub zmienić
-            samodzielnie w swoim panelu, w sekcji „Mój podpis”.
+            {t("To jest podpis osobisty. Właściciel konta może go dodać lub zmienić samodzielnie w swoim panelu, w sekcji „Mój podpis”.")}
           </div>
         ) : canManage ? (
           <div className="mt-5">
             <BeautyDocsSignaturePad
               label={
                 member.signatureConfigured
-                  ? "Złóż nowy podpis, aby zastąpić obecny"
-                  : "Złóż podpis"
+                  ? t("Złóż nowy podpis, aby zastąpić obecny")
+                  : t("Złóż podpis")
               }
               onChange={setSignature}
               value={signature}
@@ -562,7 +560,7 @@ function MemberProfile({
               type="button"
             >
               <PenLine aria-hidden="true" className="size-4" />
-              Zapisz podpis
+              {t("Zapisz podpis")}
             </button>
           </div>
         ) : null}
@@ -584,20 +582,19 @@ function CreateMemberForm({
   onCancel: () => void;
   onSubmit: (event: FormEvent<HTMLFormElement>) => void;
 }) {
+  const t = useT();
   return (
     <form
       className="mt-5 rounded-2xl border border-[#d4decc] bg-white p-5 shadow-sm sm:p-6"
       onSubmit={onSubmit}
     >
-      <h2 className="text-lg font-bold text-[#173d35]">Zaproś pracownika</h2>
+      <h2 className="text-lg font-bold text-[#173d35]">{t("Zaproś pracownika")}</h2>
       <p className="mt-1 text-sm text-stone-500">
-        Podaj tylko adres e-mail — wyślemy jednorazowy link aktywacyjny (lub kod
-        QR). Stanowisko i pozostałe ustawienia dodasz później, gdy pracownik
-        dołączy do salonu.
+        {t("Podaj tylko adres e-mail — wyślemy jednorazowy link aktywacyjny (lub kod QR). Stanowisko i pozostałe ustawienia dodasz później, gdy pracownik dołączy do salonu.")}
       </p>
       <div className="mt-5">
         <TeamInput
-          label="E-mail pracownika"
+          label={t("E-mail pracownika")}
           onChange={(value) => onChange({ ...draft, email: value })}
           required
           type="email"
@@ -610,14 +607,14 @@ function CreateMemberForm({
           disabled={busy}
           type="submit"
         >
-          Wyślij zaproszenie
+          {t("Wyślij zaproszenie")}
         </button>
         <button
           className="rounded-xl border border-stone-200 px-4 py-2.5 text-sm font-bold text-stone-600"
           onClick={onCancel}
           type="button"
         >
-          Anuluj
+          {t("Anuluj")}
         </button>
       </div>
     </form>
@@ -631,6 +628,7 @@ function InvitationReady({
   invitation: BeautyDocsStaffInvitationCreated;
   onClose: () => void;
 }) {
+  const t = useT();
   const [copied, setCopied] = useState(false);
   const [expanded, setExpanded] = useState(false);
   const localOnlyLink = isLocalOnlyInvitationUrl(invitation.activationUrl);
@@ -650,20 +648,18 @@ function InvitationReady({
       <div className="grid gap-6 p-5 sm:p-6 lg:grid-cols-[minmax(0,1fr)_220px]">
         <div>
           <span className="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-1.5 text-xs font-bold text-emerald-700">
-            <Mail className="size-3.5" /> Zaproszenie wysłane
+            <Mail className="size-3.5" />{" "}{t("Zaproszenie wysłane")}
           </span>
           <h2 className="mt-4 text-xl font-bold text-[#173d35]">
             {invitation.email}
           </h2>
           <p className="mt-2 text-sm leading-6 text-stone-500">
-            Link działa tylko raz i wygasa{" "}
-            {formatInvitationExpiry(invitation.expiresAt)}. Kod QR prowadzi do
-            tego samego bezpiecznego formularza aktywacji.
+            {t("Link działa tylko raz i wygasa")}{" "}
+            {formatInvitationExpiry(invitation.expiresAt)}{t(". Kod QR prowadzi do tego samego bezpiecznego formularza aktywacji.")}
           </p>
           {localOnlyLink ? (
             <p className="mt-3 rounded-xl border border-amber-200 bg-amber-50 px-3 py-2 text-xs font-semibold leading-5 text-amber-800">
-              Ten link używa adresu localhost i nie otworzy się na innym urządzeniu.
-              Ustaw publiczny adres aplikacji albo adres komputera w sieci Wi-Fi.
+              {t("Ten link używa adresu localhost i nie otworzy się na innym urządzeniu. Ustaw publiczny adres aplikacji albo adres komputera w sieci Wi-Fi.")}
             </p>
           ) : null}
           <div className="mt-4 flex flex-wrap gap-3">
@@ -672,26 +668,26 @@ function InvitationReady({
               onClick={() => void copyLink()}
               type="button"
             >
-              <Copy className="size-4" /> {copied ? "Skopiowano" : "Kopiuj link"}
+              <Copy className="size-4" /> {copied ? t("Skopiowano") : t("Kopiuj link")}
             </button>
             <button
               className="rounded-xl border border-stone-200 px-4 py-2.5 text-sm font-bold text-stone-600"
               onClick={onClose}
               type="button"
             >
-              Zamknij
+              {t("Zamknij")}
             </button>
           </div>
         </div>
         <figure className="rounded-2xl border border-stone-200 bg-[#f7f8f4] p-3 text-center">
           <button
-            aria-label="Powiększ kod QR zaproszenia pracownika"
+            aria-label={t("Powiększ kod QR zaproszenia pracownika")}
             className="group relative mx-auto block rounded-xl bg-white p-1 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#245c4d]/20"
             onClick={() => setExpanded(true)}
             type="button"
           >
             <Image
-              alt="Kod QR zaproszenia pracownika"
+              alt={t("Kod QR zaproszenia pracownika")}
               className="size-48 object-contain [image-rendering:pixelated]"
               height={192}
               src={invitation.qrCodeDataUrl}
@@ -708,7 +704,7 @@ function InvitationReady({
               onClick={() => setExpanded(true)}
               type="button"
             >
-              <Maximize2 className="size-3.5" /> Powiększ kod QR
+              <Maximize2 className="size-3.5" />{" "}{t("Powiększ kod QR")}
             </button>
           </figcaption>
         </figure>
@@ -716,7 +712,7 @@ function InvitationReady({
 
       {expanded ? (
         <div
-          aria-label="Powiększony kod QR zaproszenia pracownika"
+          aria-label={t("Powiększony kod QR zaproszenia pracownika")}
           aria-modal="true"
           className="fixed inset-0 z-[120] grid place-items-center overflow-y-auto bg-[#173d35]/70 p-4 backdrop-blur-sm"
           onClick={() => setExpanded(false)}
@@ -727,7 +723,7 @@ function InvitationReady({
             onClick={(event) => event.stopPropagation()}
           >
             <button
-              aria-label="Zamknij powiększony kod QR"
+              aria-label={t("Zamknij powiększony kod QR")}
               className="absolute right-4 top-4 grid size-10 place-items-center rounded-full bg-stone-100 text-stone-600 transition hover:bg-stone-200"
               onClick={() => setExpanded(false)}
               type="button"
@@ -736,17 +732,17 @@ function InvitationReady({
             </button>
             <div className="mx-auto max-w-[440px] pt-8 text-center">
               <span className="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-1.5 text-xs font-bold text-emerald-700">
-                <Mail className="size-3.5" /> Zaproszenie do {invitation.salonName}
+                <Mail className="size-3.5" />{" "}{t("Zaproszenie do")}{" "}{invitation.salonName}
               </span>
               <h3 className="mt-4 text-xl font-bold text-[#173d35]">
-                Zeskanuj kod telefonem pracownika
+                {t("Zeskanuj kod telefonem pracownika")}
               </h3>
               <p className="mt-2 text-sm leading-6 text-stone-500">
-                Kod otworzy jednorazowy formularz aktywacji konta dla {invitation.email}.
+                {t("Kod otworzy jednorazowy formularz aktywacji konta dla")}{" "}{invitation.email}.
               </p>
               <div className="mt-5 rounded-3xl border-2 border-stone-200 bg-white p-4 sm:p-6">
                 <Image
-                  alt="Powiększony kod QR zaproszenia pracownika"
+                  alt={t("Powiększony kod QR zaproszenia pracownika")}
                   className="h-auto w-full [image-rendering:pixelated]"
                   height={440}
                   src={invitation.qrCodeDataUrl}
@@ -756,11 +752,11 @@ function InvitationReady({
               </div>
               {localOnlyLink ? (
                 <p className="mt-4 text-xs font-semibold leading-5 text-amber-700">
-                  Telefon musi mieć dostęp do adresu aplikacji widocznego w linku.
+                  {t("Telefon musi mieć dostęp do adresu aplikacji widocznego w linku.")}
                 </p>
               ) : (
                 <p className="mt-4 text-xs leading-5 text-stone-500">
-                  Link jest jednorazowy i wygaśnie {formatInvitationExpiry(invitation.expiresAt)}.
+                  {t("Link jest jednorazowy i wygaśnie")}{" "}{formatInvitationExpiry(invitation.expiresAt)}.
                 </p>
               )}
             </div>
@@ -781,7 +777,7 @@ function isLocalOnlyInvitationUrl(value: string): boolean {
 }
 
 function formatInvitationExpiry(value: string): string {
-  return new Intl.DateTimeFormat("pl-PL", {
+  return new Intl.DateTimeFormat(activeIntlLocale(), {
     dateStyle: "medium",
     timeStyle: "short",
   }).format(new Date(value));
@@ -804,17 +800,18 @@ function TeamInput({
   required?: boolean;
   type?: "text" | "email" | "tel";
 }) {
+  const t = useT();
   return (
     <label className="block">
       <span className="text-[11px] font-black uppercase tracking-[0.14em] text-[#5a6b5a]">
-        {label}
+        {t(label)}
         {required ? <span className="text-[#245c4d]"> *</span> : null}
       </span>
       <input
         className="mt-2 w-full rounded-xl border border-stone-200 bg-white px-4 py-3 text-sm text-[#173d35] outline-none transition focus:border-[#245c4d] focus:ring-2 focus:ring-[#245c4d]/15 disabled:cursor-not-allowed disabled:bg-stone-100 disabled:text-stone-500"
         disabled={disabled}
         onChange={(event) => onChange(event.target.value)}
-        placeholder={placeholder}
+        placeholder={t(placeholder)}
         required={required}
         type={type}
         value={value}
@@ -850,6 +847,7 @@ function TreatmentAssignments({
   readonly onTreatmentCodesChange: (codes: string[]) => void;
   readonly treatmentCodes: readonly string[];
 }) {
+  const t = useT();
   const toggleTreatment = (code: string, checked: boolean) => {
     onTreatmentCodesChange(
       checked
@@ -866,10 +864,10 @@ function TreatmentAssignments({
       disabled={disabled}
     >
       <legend className="px-1 text-sm font-black text-[#173d35]">
-        Przypisane zabiegi
+        {t("Przypisane zabiegi")}
       </legend>
       <p className="mt-1 text-xs leading-5 text-stone-500">
-        W formularzu klientki pokażemy tę osobę tylko przy przypisanych zabiegach.
+        {t("W formularzu klientki pokażemy tę osobę tylko przy przypisanych zabiegach.")}
       </p>
       <label className="mt-4 flex cursor-pointer items-start gap-3 rounded-xl border border-[#d4decc] bg-white p-3.5">
         <input
@@ -880,10 +878,10 @@ function TreatmentAssignments({
         />
         <span>
           <span className="block text-sm font-bold text-[#173d35]">
-            Wszystkie aktywne zabiegi
+            {t("Wszystkie aktywne zabiegi")}
           </span>
           <span className="mt-0.5 block text-xs text-stone-500">
-            Obejmuje również zabiegi dodane w przyszłości.
+            {t("Obejmuje również zabiegi dodane w przyszłości.")}
           </span>
         </span>
       </label>
@@ -914,7 +912,7 @@ function TreatmentAssignments({
                       {treatment.name}
                     </span>
                     <span className="block text-xs text-stone-500">
-                      {treatment.durationMinutes} min
+                      {treatment.durationMinutes}{" "}{t("min")}
                     </span>
                   </span>
                 </label>
@@ -923,7 +921,7 @@ function TreatmentAssignments({
           </div>
         ) : (
           <p className="mt-3 rounded-xl bg-amber-50 px-3.5 py-3 text-xs font-semibold text-amber-800">
-            Najpierw włącz co najmniej jeden formularz zabiegowy.
+            {t("Najpierw włącz co najmniej jeden formularz zabiegowy.")}
           </p>
         )
       ) : null}

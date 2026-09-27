@@ -2,15 +2,12 @@ export default function JsonLd() {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "BeautySalon",
-    name: "PowderBrows Academy - Malwina Zięba",
-    alternateName: "PowderBrows Academy",
+    name: "BeautyDocs",
     description:
-      "Profesjonalny makijaż permanentny brwi, ust i kresek w Stalowej Woli. Naturalne efekty i bezpieczeństwo na pierwszym miejscu. Zabiegi kwasem hialuronowym i depilacja laserowa.",
-    url: "https://powderbrowsacademy.com.pl",
-    logo: "https://powderbrowsacademy.com.pl/logo.png",
-    image: "https://powderbrowsacademy.com.pl/logo.png",
-    telephone: "+48733702282",
-    email: "powderbrows@gmail.com",
+      "BeautyDocs — cyfrowa platforma dla salonów beauty. Formularze zgody, dokumentacja klientów i zarządzanie gabinetem w jednym miejscu.",
+    url: "https://beautydocs.pl",
+    logo: "https://beautydocs.pl/logo.png",
+    image: "https://beautydocs.pl/logo.png",
     address: {
       "@type": "PostalAddress",
       streetAddress: "ul. Siedlanowskiego 3, lokal 12",

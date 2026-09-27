@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/admin/", "/api/"],
       },
     ],
-    sitemap: "https://powderbrowsacademy.com.pl/sitemap.xml",
+    sitemap: "https://beautydocs.pl/sitemap.xml",
   };
 }

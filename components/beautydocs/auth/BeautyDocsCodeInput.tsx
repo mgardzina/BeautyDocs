@@ -1,5 +1,6 @@
 "use client";
 
+import { useT } from "../i18n";
 import { useRef, type ClipboardEvent } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
@@ -17,6 +18,7 @@ export function BeautyDocsCodeInput({
   readonly onChange: (code: string) => void;
   readonly disabled?: boolean;
 }) {
+  const t = useT();
   const refs = useRef<Array<HTMLInputElement | null>>([]);
   const digits = value.padEnd(6, " ").slice(0, 6).split("");
   const reduceMotion = useReducedMotion();
@@ -47,7 +49,7 @@ export function BeautyDocsCodeInput({
     <div className="flex justify-between gap-2" onPaste={onPaste}>
       {digits.map((digit, i) => (
         <motion.input
-          aria-label={`Cyfra ${i + 1}`}
+          aria-label={t("Cyfra {value1}", { value1: i + 1 })}
           className="size-12 rounded-xl border border-[#d4decc] bg-white text-center text-xl font-bold text-[#173d35] outline-none transition-colors focus:border-[#245c4d] focus:ring-4 focus:ring-[#245c4d]/10 disabled:opacity-60 sm:size-14"
           disabled={disabled}
           inputMode="numeric"
